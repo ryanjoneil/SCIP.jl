@@ -20,29 +20,29 @@ typealias PtrPtrSCIP Ptr{Ptr{Void}}
 ################################################################################
 # Macro for calling SCIP functions that return misc. types
 macro scip_ccall(func, args...)
-	f = "SCIP$(func)"
-	return quote
-		ccall(($f, "libscipopt"), $(args...))
-	end
+    f = "SCIP$(func)"
+    return quote
+        ccall(($f, "libscipopt"), $(args...))
+    end
 end
 
 # Macro for calling SCIP functions that have checked return codes
 macro scip_ccall_check(func, args...)
-	f = "SCIP$(func)"
-	return quote
-		ret = ccall(($f, "libscipopt"), SCIP_Retcode, $(args...))
-		if ret != SCIP_OKAY
-			error(SCIP_RETCODE[ret])
-		end
-	end
+    f = "SCIP$(func)"
+    return quote
+        ret = ccall(($f, "libscipopt"), SCIP_Retcode, $(args...))
+        if ret != SCIP_OKAY
+            error(SCIP_RETCODE[ret])
+        end
+    end
 end
 
 ################################################################################
 # Miscellaneous methods
 ################################################################################
-version() 				 = @scip_ccall("version", SCIP_Real, ())
-major_version() 		 = @scip_ccall("majorVersion", Int, ())
-minor_version() 		 = @scip_ccall("minorVersion", Int, ())
+version()                = @scip_ccall("version", SCIP_Real, ())
+major_version()          = @scip_ccall("majorVersion", Int, ())
+minor_version()          = @scip_ccall("minorVersion", Int, ())
 tech_version()           = @scip_ccall("techVersion", Int, ())
 subversion()             = @scip_ccall("subversion", Int, ())
 # TODO: SCIPprintVersion
@@ -74,15 +74,15 @@ presolve(scip) = @scip_ccall_check("presolve", (PtrSCIP,), scip)
 # Basic SCIP example - this will be wrapped up in an API
 ################################################################################
 function run_test() 
-	a = Array(Ptr{Void}, 1)
-	println("creating")
-	create(a)
-	println("STATUS:", SCIP_STATUS[get_status(a[1])])
-	println("STAGE:", SCIP_STAGE[get_stage(a[1])])
-	println("STAGE:", SCIP_STAGE[get_stage(a[1])])
-	println("IS TRANSFORMED:", is_transformed(a[1]))
-	free(a)
-	println("done")
+    a = Array(Ptr{Void}, 1)
+    println("creating")
+    create(a)
+    println("STATUS:", SCIP_STATUS[get_status(a[1])])
+    println("STAGE:", SCIP_STAGE[get_stage(a[1])])
+    println("STAGE:", SCIP_STAGE[get_stage(a[1])])
+    println("IS TRANSFORMED:", is_transformed(a[1]))
+    free(a)
+    println("done")
 end
 
 end
