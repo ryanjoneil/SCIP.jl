@@ -21,7 +21,7 @@ SCIP_KEYALREADYEXISTING = -15
 SCIP_MAXDEPTHLEVEL      = -16
 SCIP_BRANCHERROR        = -17
 
-SCIP_RETCODE = Dict{Int, String}()
+SCIP_RETCODE = Dict{SCIP_Retcode, String}()
 SCIP_RETCODE[SCIP_OKAY]               = "normal termination"
 SCIP_RETCODE[SCIP_ERROR]              = "unspecified error"
 SCIP_RETCODE[SCIP_NOMEMORY]           = "insufficient memory error"

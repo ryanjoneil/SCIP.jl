@@ -3,6 +3,7 @@ module SCIP
 include("scip_retcode.jl")
 include("scip_stage.jl")
 include("scip_status.jl")
+include("scip_vartype.jl")
 
 export run_test
 
@@ -14,6 +15,9 @@ typealias SCIP_Bool Bool
 
 typealias PtrSCIP Ptr{Void}
 typealias PtrPtrSCIP Ptr{Ptr{Void}}
+
+typealias PtrSCIP_Var Ptr{Void}
+typealias PtrPtrSCIP_Var Ptr{Void}
 
 ################################################################################
 # Macros for interacting with SCIP
@@ -40,48 +44,72 @@ end
 ################################################################################
 # Miscellaneous methods
 ################################################################################
-version()                = @scip_ccall("version", SCIP_Real, ())
-major_version()          = @scip_ccall("majorVersion", Int, ())
-minor_version()          = @scip_ccall("minorVersion", Int, ())
-tech_version()           = @scip_ccall("techVersion", Int, ())
-subversion()             = @scip_ccall("subversion", Int, ())
+version() = @scip_ccall("version", SCIP_Real, ())
+major_version() = @scip_ccall("majorVersion", Int, ())
+minor_version() = @scip_ccall("minorVersion", Int, ())
+tech_version() = @scip_ccall("techVersion", Int, ())
+subversion() = @scip_ccall("subversion", Int, ())
 # TODO: SCIPprintVersion
-print_error(e)           = @scip_ccall("printError", Void, (SCIP_Retcode,), e)
+print_error(e) = @scip_ccall("printError", Void, (SCIP_Retcode,), e)
 store_solution_gap(scip) = @scip_ccall("storeSolutionGap", Void, (PtrSCIP,), scip)
 
 ################################################################################
 # General SCIP methodds
 ################################################################################
-create(scip)               = @scip_ccall_check("create", (PtrPtrSCIP,), scip)
-free(scip)                 = @scip_ccall_check("free", (PtrPtrSCIP,), scip)
-get_stage(scip)            = @scip_ccall("getStage", SCIP_Stage, (PtrSCIP,), scip)
+create(scip) = @scip_ccall_check("create", (PtrPtrSCIP,), scip) # TODO: Add !?
+free(scip) = @scip_ccall_check("free", (PtrPtrSCIP,), scip)     # TODO: Add !?
+get_stage(scip) = @scip_ccall("getStage", SCIP_Stage, (PtrSCIP,), scip[1])
 # TODO: SCIPprintStage
-get_status(scip)           = @scip_ccall("getStatus", SCIP_Status, (PtrSCIP,), scip)
+get_status(scip) = @scip_ccall("getStatus", SCIP_Status, (PtrSCIP,), scip[1])
 # TODO: SCIPprintStatus
-is_transformed(scip)       = @scip_ccall("isTransformed", SCIP_Bool, (PtrSCIP,), scip)
-is_exact_solve(scip)       = @scip_ccall("isExactSolve", SCIP_Bool, (PtrSCIP,), scip)
-is_presolve_finished(scip) = @scip_ccall("isPresolveFinished", SCIP_Bool, (PtrSCIP,), scip)
-pressed_ctrl_c(scip)       = @scip_ccall("pressedCtrlC", SCIP_Bool, (PtrSCIP,), scip)
-is_stopped(scip)           = @scip_ccall("isStopped", SCIP_Bool, (PtrSCIP,), scip)
+is_transformed(scip) = @scip_ccall("isTransformed", SCIP_Bool, (PtrSCIP,), scip[1])
+is_exact_solve(scip) = @scip_ccall("isExactSolve", SCIP_Bool, (PtrSCIP,), scip[1])
+is_presolve_finished(scip) = @scip_ccall("isPresolveFinished", SCIP_Bool, (PtrSCIP,), scip[1])
+pressed_ctrl_c(scip) = @scip_ccall("pressedCtrlC", SCIP_Bool, (PtrSCIP,), scip[1])
+is_stopped(scip) = @scip_ccall("isStopped", SCIP_Bool, (PtrSCIP,), scip[1])
 
 ################################################################################
 # More methods to get a basic example working
 ################################################################################
-presolve(scip) = @scip_ccall_check("presolve", (PtrSCIP,), scip)
+create_prob_basic!(scip, name) = @scip_ccall_check("createProbBasic", (PtrSCIP, String), scip[1], name)
+free_prob!(scip) = @scip_ccall_check("freeProb", (PtrSCIP,), scip[1])
+create_var_basic!(scip, var, name, lb, ub, obj, vartype) = @scip_ccall_check(
+    "createVarBasic", 
+    (PtrSCIP, PtrPtrSCIP_Var, String, SCIP_Real, SCIP_Real, SCIP_Real, SCIP_Vartype), 
+    scip[1], var, name, lb, ub, obj, vartype
+)
 
+add_var!(scip, var) = @scip_ccall_check("addVar", (PtrSCIP, PtrSCIP_Var), scip[1], var[1])
+presolve!(scip) = @scip_ccall_check("presolve", (PtrSCIP,), scip)
 
 ################################################################################
 # Basic SCIP example - this will be wrapped up in an API
 ################################################################################
 function run_test() 
-    a = Array(Ptr{Void}, 1)
-    println("creating")
-    create(a)
-    println("STATUS:", SCIP_STATUS[get_status(a[1])])
-    println("STAGE:", SCIP_STAGE[get_stage(a[1])])
-    println("STAGE:", SCIP_STAGE[get_stage(a[1])])
-    println("IS TRANSFORMED:", is_transformed(a[1]))
-    free(a)
+    scip = Array(Ptr{Void}, 1)
+    println("creating scip")
+    create(scip)
+
+    # Create a problem
+    println("creating problem")
+    create_prob_basic!(scip, "Test problem")
+    
+    println("STATUS:", SCIP_STATUS[get_status(scip)])
+    println("STAGE:", SCIP_STAGE[get_stage(scip)])
+    println("IS TRANSFORMED:", is_transformed(scip))
+
+    # Create a couple binary variables.
+    x1 = Array(Ptr{Void}, 1)
+    create_var_basic!(scip, x1, "x1", 0, 1, 4, SCIP_VARTYPE_BINARY)
+    add_var!(scip, x1)
+    
+    x2 = Array(Ptr{Void}, 1)
+    create_var_basic!(scip, x2, "x2", 0, 1, 3, SCIP_VARTYPE_BINARY)
+    add_var!(scip, x2)
+    
+    # Cleaning up
+    free_prob!(scip)
+    free(scip)
     println("done")
 end
 

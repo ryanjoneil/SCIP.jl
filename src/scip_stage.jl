@@ -15,9 +15,9 @@ SCIP_STAGE_EXITSOLVE    = 11
 SCIP_STAGE_FREETRANS    = 12
 SCIP_STAGE_FREE         = 13
 
-SCIP_STAGE = Dict{Int, String}()
+SCIP_STAGE = Dict{SCIP_Stage, String}()
 SCIP_STAGE[SCIP_STAGE_INIT]         = "SCIP data structures are initialized, no problem exists"
-SCIP_STAGE[SCIP_STAGE_PROBLEM       = "the problem is being created and modified"
+SCIP_STAGE[SCIP_STAGE_PROBLEM]      = "the problem is being created and modified"
 SCIP_STAGE[SCIP_STAGE_TRANSFORMING] = "the problem is being transformed into solving data space"
 SCIP_STAGE[SCIP_STAGE_TRANSFORMED]  = "the problem was transformed into solving data space"
 SCIP_STAGE[SCIP_STAGE_INITPRESOLVE] = "presolving is initialized"

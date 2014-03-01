@@ -15,7 +15,7 @@ SCIP_STATUS_INFEASIBLE     = 11
 SCIP_STATUS_UNBOUNDED      = 12
 SCIP_STATUS_INFORUNBD      = 13
 
-SCIP_STATUS = Dict{Int, String}()
+SCIP_STATUS = Dict{SCIP_Status, String}()
 SCIP_STATUS[SCIP_STATUS_UNKNOWN]        = "the solving status is not yet known"
 SCIP_STATUS[SCIP_STATUS_USERINTERRUPT]  = "the user interrupted the solving process (by pressing CTRL-C)"
 SCIP_STATUS[SCIP_STATUS_NODELIMIT]      = "the solving process was interrupted because the node limit was reached"
