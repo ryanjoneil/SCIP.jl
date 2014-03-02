@@ -19,6 +19,9 @@ typealias PtrPtrSCIP Ptr{Ptr{Void}}
 typealias PtrSCIP_Var Ptr{Void}
 typealias PtrPtrSCIP_Var Ptr{Void}
 
+typealias PtrSCIP_Cons Ptr{Void}
+typealias PtrPtrSCIP_Cons Ptr{Void}
+
 ################################################################################
 # Macros for interacting with SCIP
 ################################################################################
@@ -73,13 +76,24 @@ is_stopped(scip) = @scip_ccall("isStopped", SCIP_Bool, (PtrSCIP,), scip[1])
 ################################################################################
 create_prob_basic!(scip, name) = @scip_ccall_check("createProbBasic", (PtrSCIP, String), scip[1], name)
 free_prob!(scip) = @scip_ccall_check("freeProb", (PtrSCIP,), scip[1])
+
 create_var_basic!(scip, var, name, lb, ub, obj, vartype) = @scip_ccall_check(
     "createVarBasic", 
     (PtrSCIP, PtrPtrSCIP_Var, String, SCIP_Real, SCIP_Real, SCIP_Real, SCIP_Vartype), 
     scip[1], var, name, lb, ub, obj, vartype
 )
-
 add_var!(scip, var) = @scip_ccall_check("addVar", (PtrSCIP, PtrSCIP_Var), scip[1], var[1])
+
+# TODO: handle vars & vals conversion
+include_conshdlr_linear!(scip) = @scip_ccall_check("includeConshdlrLinear", (PtrSCIP,), scip[1])
+create_cons_basic_linear!(scip, cons, name, nvars, vars, vals, lhs, rhs) = @scip_ccall_check(
+    "createConsBasicLinear",
+    (PtrSCIP, PtrPtrSCIP_Cons, String, Int, PtrPtrSCIP_Var, Ptr{SCIP_Real}, SCIP_Real, SCIP_Real),
+    scip[1], cons, name, nvars, vars, vals, lhs, rhs
+)
+add_cons!(scip, cons) = @scip_ccall_check("addCons", (PtrSCIP, PtrSCIP_Cons), scip[1], cons[1])
+del_cons!(scip, cons) = @scip_ccall_check("delCons", (PtrSCIP, PtrSCIP_Cons), scip[1], cons[1])
+
 presolve!(scip) = @scip_ccall_check("presolve", (PtrSCIP,), scip)
 
 ################################################################################
@@ -106,6 +120,19 @@ function run_test()
     x2 = Array(Ptr{Void}, 1)
     create_var_basic!(scip, x2, "x2", 0, 1, 3, SCIP_VARTYPE_BINARY)
     add_var!(scip, x2)
+ 
+    # Add a constraint: 0 <= x1 + x2 <= 1
+    println("CONSTRAINT: 0 <= x1 + x2 <= 1")
+    cons = Array(Ptr{Void}, 1)
+    vars = Array(Ptr{Void}, 2)
+    vars[1] = x1[1]
+    vars[2] = x2[1]
+    vals = Array(SCIP_Real, 2)
+    vals[1] = 1
+    vals[2] = 1
+    include_conshdlr_linear!(scip)
+    create_cons_basic_linear!(scip, cons, "c1", 2, vars, vals, 0, 1)
+    add_cons!(scip, cons)
     
     # Cleaning up
     free_prob!(scip)
