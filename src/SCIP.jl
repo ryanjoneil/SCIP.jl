@@ -86,6 +86,7 @@ create_var_basic!(scip, var, name, lb, ub, obj, vartype) = @scip_ccall_check(
     scip[1], var, name, lb, ub, obj, vartype
 )
 add_var!(scip, var) = @scip_ccall_check("addVar", (PtrSCIP, PtrSCIP_Var), scip[1], var[1])
+release_var!(scip, var) = @scip_ccall_check("releaseVar", (PtrSCIP, PtrPtrSCIP_Var), scip[1], var)
 
 # TODO: handle vars & vals conversion
 include_conshdlr_linear!(scip) = @scip_ccall_check("includeConshdlrLinear", (PtrSCIP,), scip[1])
@@ -96,6 +97,7 @@ create_cons_basic_linear!(scip, cons, name, nvars, vars, vals, lhs, rhs) = @scip
 )
 add_cons!(scip, cons) = @scip_ccall_check("addCons", (PtrSCIP, PtrSCIP_Cons), scip[1], cons[1])
 del_cons!(scip, cons) = @scip_ccall_check("delCons", (PtrSCIP, PtrSCIP_Cons), scip[1], cons[1])
+release_cons!(scip, cons) = @scip_ccall_check("releaseCons", (PtrSCIP, PtrPtrSCIP_Cons), scip[1], cons)
 
 set_objsense!(scip, objsense) = @scip_ccall_check("setObjsense", (PtrSCIP, SCIP_Objsense), scip[1], objsense)
 
@@ -139,7 +141,10 @@ function run_test()
     set_objsense!(scip, SCIP_OBJSENSE_MAXIMIZE)
     solve!(scip)
 
-    # Cleaning up (TODO: free variables, constraints, etc)
+    # Cleaning up
+    release_cons!(scip, cons)
+    release_var!(scip, x1)
+    release_var!(scip, x2)
     free_prob!(scip)
     free(scip)
 end
