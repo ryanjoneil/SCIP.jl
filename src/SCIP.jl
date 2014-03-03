@@ -1,5 +1,6 @@
 module SCIP
 
+include("scip_objsense.jl")
 include("scip_retcode.jl")
 include("scip_stage.jl")
 include("scip_status.jl")
@@ -37,7 +38,7 @@ end
 macro scip_ccall_check(func, args...)
     f = "SCIP$(func)"
     return quote
-        ret = ccall(($f, "libscipopt"), SCIP_Retcode, $(args...))
+        ret = ccall(($f, "libscipopt"), Int8, $(args...))
         if ret != SCIP_OKAY
             error(SCIP_RETCODE[ret])
         end
@@ -74,6 +75,8 @@ is_stopped(scip) = @scip_ccall("isStopped", SCIP_Bool, (PtrSCIP,), scip[1])
 ################################################################################
 # More methods to get a basic example working
 ################################################################################
+include_default_plugins!(scip) = @scip_ccall_check("includeDefaultPlugins", (PtrSCIP,), scip[1])
+
 create_prob_basic!(scip, name) = @scip_ccall_check("createProbBasic", (PtrSCIP, String), scip[1], name)
 free_prob!(scip) = @scip_ccall_check("freeProb", (PtrSCIP,), scip[1])
 
@@ -94,6 +97,10 @@ create_cons_basic_linear!(scip, cons, name, nvars, vars, vals, lhs, rhs) = @scip
 add_cons!(scip, cons) = @scip_ccall_check("addCons", (PtrSCIP, PtrSCIP_Cons), scip[1], cons[1])
 del_cons!(scip, cons) = @scip_ccall_check("delCons", (PtrSCIP, PtrSCIP_Cons), scip[1], cons[1])
 
+set_objsense!(scip, objsense) = @scip_ccall_check("setObjsense", (PtrSCIP, SCIP_Objsense), scip[1], objsense)
+
+solve!(scip) = @scip_ccall_check("solve", (PtrSCIP,), scip[1])
+
 presolve!(scip) = @scip_ccall_check("presolve", (PtrSCIP,), scip)
 
 ################################################################################
@@ -101,17 +108,12 @@ presolve!(scip) = @scip_ccall_check("presolve", (PtrSCIP,), scip)
 ################################################################################
 function run_test() 
     scip = Array(Ptr{Void}, 1)
-    println("creating scip")
     create(scip)
+    include_default_plugins!(scip)
 
     # Create a problem
-    println("creating problem")
     create_prob_basic!(scip, "Test problem")
     
-    println("STATUS:", SCIP_STATUS[get_status(scip)])
-    println("STAGE:", SCIP_STAGE[get_stage(scip)])
-    println("IS TRANSFORMED:", is_transformed(scip))
-
     # Create a couple binary variables.
     x1 = Array(Ptr{Void}, 1)
     create_var_basic!(scip, x1, "x1", 0, 1, 4, SCIP_VARTYPE_BINARY)
@@ -122,7 +124,6 @@ function run_test()
     add_var!(scip, x2)
  
     # Add a constraint: 0 <= x1 + x2 <= 1
-    println("CONSTRAINT: 0 <= x1 + x2 <= 1")
     cons = Array(Ptr{Void}, 1)
     vars = Array(Ptr{Void}, 2)
     vars[1] = x1[1]
@@ -130,14 +131,17 @@ function run_test()
     vals = Array(SCIP_Real, 2)
     vals[1] = 1
     vals[2] = 1
-    include_conshdlr_linear!(scip)
+    #include_conshdlr_linear!(scip)
     create_cons_basic_linear!(scip, cons, "c1", 2, vars, vals, 0, 1)
     add_cons!(scip, cons)
     
-    # Cleaning up
+    # Objective sense = maximize
+    set_objsense!(scip, SCIP_OBJSENSE_MAXIMIZE)
+    solve!(scip)
+
+    # Cleaning up (TODO: free variables, constraints, etc)
     free_prob!(scip)
     free(scip)
-    println("done")
 end
 
 end

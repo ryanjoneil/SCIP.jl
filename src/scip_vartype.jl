@@ -1,9 +1,9 @@
-typealias SCIP_Vartype Int
+typealias SCIP_Vartype Int8
 
-SCIP_VARTYPE_BINARY     = 0
-SCIP_VARTYPE_INTEGER    = 1
-SCIP_VARTYPE_IMPLINT    = 2
-SCIP_VARTYPE_CONTINUOUS = 3
+SCIP_VARTYPE_BINARY     = int8( 0)
+SCIP_VARTYPE_INTEGER    = int8( 1)
+SCIP_VARTYPE_IMPLINT    = int8( 2)
+SCIP_VARTYPE_CONTINUOUS = int8( 3)
 
 SCIP_VARTYPE = Dict{SCIP_Vartype, String}()
 SCIP_VARTYPE[SCIP_VARTYPE_BINARY]     = "binary variable: x in {0,1}"
