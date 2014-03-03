@@ -18,10 +18,13 @@ typealias PtrSCIP Ptr{Void}
 typealias PtrPtrSCIP Ptr{Ptr{Void}}
 
 typealias PtrSCIP_Var Ptr{Void}
-typealias PtrPtrSCIP_Var Ptr{Void}
+typealias PtrPtrSCIP_Var Ptr{Ptr{Void}}
 
 typealias PtrSCIP_Cons Ptr{Void}
-typealias PtrPtrSCIP_Cons Ptr{Void}
+typealias PtrPtrSCIP_Cons Ptr{Ptr{Void}}
+
+typealias PtrSCIP_Sol Ptr{Void}
+typealias PtrPtrSCIP_Sol Ptr{Ptr{Void}}
 
 ################################################################################
 # Macros for interacting with SCIP
@@ -100,10 +103,12 @@ del_cons!(scip, cons) = @scip_ccall_check("delCons", (PtrSCIP, PtrSCIP_Cons), sc
 release_cons!(scip, cons) = @scip_ccall_check("releaseCons", (PtrSCIP, PtrPtrSCIP_Cons), scip[1], cons)
 
 set_objsense!(scip, objsense) = @scip_ccall_check("setObjsense", (PtrSCIP, SCIP_Objsense), scip[1], objsense)
-
+presolve!(scip) = @scip_ccall_check("presolve", (PtrSCIP,), scip)
 solve!(scip) = @scip_ccall_check("solve", (PtrSCIP,), scip[1])
 
-presolve!(scip) = @scip_ccall_check("presolve", (PtrSCIP,), scip)
+get_best_sol(scip) = @scip_ccall("getBestSol", PtrSCIP_Sol, (PtrSCIP,), scip[1])
+get_sol_orig_obj(scip, sol) = @scip_ccall("getSolOrigObj", SCIP_Real, (PtrSCIP, PtrSCIP_Sol), scip[1], sol)
+get_sol_val(scip, sol, var) = @scip_ccall("getSolVal", SCIP_Real, (PtrSCIP, PtrSCIP_Sol, PtrSCIP_Var), scip[1], sol, var[1])
 
 ################################################################################
 # Basic SCIP example - this will be wrapped up in an API
@@ -140,6 +145,14 @@ function run_test()
     # Objective sense = maximize
     set_objsense!(scip, SCIP_OBJSENSE_MAXIMIZE)
     solve!(scip)
+    
+    sol = get_best_sol(scip)
+    println("\n========================================")
+    println("MODEL SOLUTION:")
+    println("OBJ = ", get_sol_orig_obj(scip, sol))
+    println("X1 = ", get_sol_val(scip, sol, x1))
+    println("X2 = ", get_sol_val(scip, sol, x2))
+    println("========================================")
 
     # Cleaning up
     release_cons!(scip, cons)
