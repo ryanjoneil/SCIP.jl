@@ -1,0 +1,289 @@
+# SCIP enums
+typealias SCIP_ClockType Int8
+const SCIP_CLOCKTYPE_DEFAULT = int8(0)
+const SCIP_CLOCKTYPE_CPU = int8(1)
+const SCIP_CLOCKTYPE_WALL = int8(2)
+
+typealias SCIP_DispStatus Int8
+const SCIP_DISPSTATUS_OFF = int8(0)
+const SCIP_DISPSTATUS_AUTO = int8(1)
+const SCIP_DISPSTATUS_ON = int8(2)
+
+typealias SCIP_ExprOp Int8
+const SCIP_EXPR_VARIDX = int8(1)
+const SCIP_EXPR_CONST = int8(2)
+const SCIP_EXPR_PARAM = int8(3)
+const SCIP_EXPR_PLUS = int8(8)
+const SCIP_EXPR_MINUS = int8(9)
+const SCIP_EXPR_MUL = int8(10)
+const SCIP_EXPR_DIV = int8(11)
+const SCIP_EXPR_SQUARE = int8(12)
+const SCIP_EXPR_SQRT = int8(13)
+const SCIP_EXPR_REALPOWER = int8(14)
+const SCIP_EXPR_INTPOWER = int8(15)
+const SCIP_EXPR_SIGNPOWER = int8(16)
+const SCIP_EXPR_EXP = int8(17)
+const SCIP_EXPR_LOG = int8(18)
+const SCIP_EXPR_SIN = int8(19)
+const SCIP_EXPR_COS = int8(20)
+const SCIP_EXPR_TAN = int8(21)
+const SCIP_EXPR_MIN = int8(24)
+const SCIP_EXPR_MAX = int8(25)
+const SCIP_EXPR_ABS = int8(26)
+const SCIP_EXPR_SIGN = int8(27)
+const SCIP_EXPR_SUM = int8(64)
+const SCIP_EXPR_PRODUCT = int8(65)
+const SCIP_EXPR_LINEAR = int8(66)
+const SCIP_EXPR_QUADRATIC = int8(67)
+const SCIP_EXPR_POLYNOMIAL = int8(68)
+const SCIP_EXPR_LAST = int8(69)
+
+typealias SCIP_ExprCurv Int8
+const SCIP_EXPRCURV_UNKNOWN = int8(0)
+const SCIP_EXPRCURV_CONVEX = int8(1)
+const SCIP_EXPRCURV_CONCAVE = int8(2)
+const SCIP_EXPRCURV_LINEAR = int8(SCIP_EXPRCURV_CONVEX | SCIP_EXPRCURV_CONCAVE)
+
+typealias SCIP_BranchDir Int8
+const SCIP_BRANCHDIR_DOWNWARDS = int8(0)
+const SCIP_BRANCHDIR_UPWARDS = int8(1)
+const SCIP_BRANCHDIR_FIXED = int8(2)
+const SCIP_BRANCHDIR_AUTO = int8(3)
+
+typealias SCIP_LPSolStat Int8
+const SCIP_LPSOLSTAT_NOTSOLVED = int8(0)
+const SCIP_LPSOLSTAT_OPTIMAL = int8(1)
+const SCIP_LPSOLSTAT_INFEASIBLE = int8(2)
+const SCIP_LPSOLSTAT_UNBOUNDEDRAY = int8(3)
+const SCIP_LPSOLSTAT_OBJLIMIT = int8(4)
+const SCIP_LPSOLSTAT_ITERLIMIT = int8(5)
+const SCIP_LPSOLSTAT_TIMELIMIT = int8(6)
+const SCIP_LPSOLSTAT_ERROR = int8(7)
+
+typealias SCIP_BoundType Int8
+const SCIP_BOUNDTYPE_LOWER = int8(0)
+const SCIP_BOUNDTYPE_UPPER = int8(1)
+
+typealias SCIP_SideType Int8
+const SCIP_SIDETYPE_LEFT = int8(0)
+const SCIP_SIDETYPE_RIGHT = int8(1)
+
+typealias SCIP_RowOriginType Int8
+const SCIP_ROWORIGINTYPE_UNSPEC = int8(0)
+const SCIP_ROWORIGINTYPE_CONS = int8(1)
+const SCIP_ROWORIGINTYPE_SEPA = int8(2)
+
+typealias SCIP_LPAlgo Int8
+const SCIP_LPALGO_PRIMALSIMPLEX = int8(0)
+const SCIP_LPALGO_DUALSIMPLEX = int8(1)
+const SCIP_LPALGO_BARRIER = int8(2)
+const SCIP_LPALGO_BARRIERCROSSOVER = int8(3)
+
+typealias SCIP_VerbLevel Int8
+const SCIP_VERBLEVEL_NONE = int8(0)
+const SCIP_VERBLEVEL_DIALOG = int8(1)
+const SCIP_VERBLEVEL_MINIMAL = int8(2)
+const SCIP_VERBLEVEL_NORMAL = int8(3)
+const SCIP_VERBLEVEL_HIGH = int8(4)
+const SCIP_VERBLEVEL_FULL = int8(5)
+
+typealias SCIP_NlpParam Int8
+const SCIP_NLPPAR_FROMSCRATCH = int8(0)
+const SCIP_NLPPAR_VERBLEVEL = int8(1)
+const SCIP_NLPPAR_FEASTOL = int8(2)
+const SCIP_NLPPAR_RELOBJTOL = int8(3)
+const SCIP_NLPPAR_LOBJLIM = int8(4)
+const SCIP_NLPPAR_INFINITY = int8(5)
+const SCIP_NLPPAR_ITLIM = int8(6)
+const SCIP_NLPPAR_TILIM = int8(7)
+const SCIP_NLPPAR_OPTFILE = int8(8)
+const SCIP_NLPPAR_FASTFAIL = int8(9)
+
+typealias SCIP_NlpSolStat Int8
+const SCIP_NLPSOLSTAT_GLOBOPT = int8(0)
+const SCIP_NLPSOLSTAT_LOCOPT = int8(1)
+const SCIP_NLPSOLSTAT_FEASIBLE = int8(2)
+const SCIP_NLPSOLSTAT_LOCINFEASIBLE = int8(3)
+const SCIP_NLPSOLSTAT_GLOBINFEASIBLE = int8(4)
+const SCIP_NLPSOLSTAT_UNBOUNDED = int8(5)
+const SCIP_NLPSOLSTAT_UNKNOWN = int8(6)
+
+typealias SCIP_NlpTermStat Int8
+const SCIP_NLPTERMSTAT_OKAY = int8(0)
+const SCIP_NLPTERMSTAT_TILIM = int8(1)
+const SCIP_NLPTERMSTAT_ITLIM = int8(2)
+const SCIP_NLPTERMSTAT_LOBJLIM = int8(3)
+const SCIP_NLPTERMSTAT_UOBJLIM = int8(4)
+const SCIP_NLPTERMSTAT_NUMERR = int8(5)
+const SCIP_NLPTERMSTAT_EVALERR = int8(6)
+const SCIP_NLPTERMSTAT_MEMERR = int8(7)
+const SCIP_NLPTERMSTAT_LICERR = int8(8)
+const SCIP_NLPTERMSTAT_OTHER = int8(9)
+
+typealias SCIP_ParamType Int8
+const SCIP_PARAMTYPE_BOOL = int8(0)
+const SCIP_PARAMTYPE_INT = int8(1)
+const SCIP_PARAMTYPE_LONGINT = int8(2)
+const SCIP_PARAMTYPE_REAL = int8(3)
+const SCIP_PARAMTYPE_CHAR = int8(4)
+const SCIP_PARAMTYPE_STRING = int8(5)
+
+typealias SCIP_ParamSetting Int8
+const SCIP_PARAMSETTING_DEFAULT = int8(0)
+const SCIP_PARAMSETTING_AGGRESSIVE = int8(1)
+const SCIP_PARAMSETTING_FAST = int8(2)
+const SCIP_PARAMSETTING_OFF = int8(3)
+
+typealias SCIP_ParamEmphasis Int8
+const SCIP_PARAMEMPHASIS_DEFAULT = int8(0)
+const SCIP_PARAMEMPHASIS_CPSOLVER = int8(1)
+const SCIP_PARAMEMPHASIS_EASYCIP = int8(2)
+const SCIP_PARAMEMPHASIS_FEASIBILITY = int8(3)
+const SCIP_PARAMEMPHASIS_HARDLP = int8(4)
+const SCIP_PARAMEMPHASIS_OPTIMALITY = int8(5)
+const SCIP_PARAMEMPHASIS_COUNTER = int8(6)
+
+typealias SCIP_Objsense Int8
+const SCIP_OBJSENSE_MAXIMIZE = int8(-1)
+const SCIP_OBJSENSE_MINIMIZE = int8(+1)
+
+typealias SCIP_Result Int8
+const SCIP_DIDNOTRUN = int8(1)
+const SCIP_DELAYED = int8(2)
+const SCIP_DIDNOTFIND = int8(3)
+const SCIP_FEASIBLE = int8(4)
+const SCIP_INFEASIBLE = int8(5)
+const SCIP_UNBOUNDED = int8(6)
+const SCIP_CUTOFF = int8(7)
+const SCIP_SEPARATED = int8(8)
+const SCIP_NEWROUND = int8(9)
+const SCIP_REDUCEDDOM = int8(10)
+const SCIP_CONSADDED = int8(11)
+const SCIP_CONSCHANGED = int8(12)
+const SCIP_BRANCHED = int8(13)
+const SCIP_SOLVELP = int8(14)
+const SCIP_FOUNDSOL = int8(15)
+const SCIP_SUSPENDED = int8(16)
+const SCIP_SUCCESS = int8(17)
+
+typealias SCIP_Retcode Int8
+const SCIP_OKAY = int8(+1)
+const SCIP_ERROR = int8(0)
+const SCIP_NOMEMORY = int8(-1)
+const SCIP_READERROR = int8(-2)
+const SCIP_WRITEERROR = int8(-3)
+const SCIP_NOFILE = int8(-4)
+const SCIP_FILECREATEERROR = int8(-5)
+const SCIP_LPERROR = int8(-6)
+const SCIP_NOPROBLEM = int8(-7)
+const SCIP_INVALIDCALL = int8(-8)
+const SCIP_INVALIDDATA = int8(-9)
+const SCIP_INVALIDRESULT = int8(-10)
+const SCIP_PLUGINNOTFOUND = int8(-11)
+const SCIP_PARAMETERUNKNOWN = int8(-12)
+const SCIP_PARAMETERWRONGTYPE = int8(-13)
+const SCIP_PARAMETERWRONGVAL = int8(-14)
+const SCIP_KEYALREADYEXISTING = int8(-15)
+const SCIP_MAXDEPTHLEVEL = int8(-16)
+const SCIP_BRANCHERROR = int8(-17)
+
+typealias SCIP_Efficiacychoice Int8
+const SCIP_EFFICIACYCHOICE_LP = int8(0)
+const SCIP_EFFICIACYCHOICE_RELAX = int8(1)
+const SCIP_EFFICIACYCHOICE_NLP = int8(2)
+
+typealias SCIP_Stage Int8
+const SCIP_STAGE_INIT = int8(0)
+const SCIP_STAGE_PROBLEM = int8(1)
+const SCIP_STAGE_TRANSFORMING = int8(2)
+const SCIP_STAGE_TRANSFORMED = int8(3)
+const SCIP_STAGE_INITPRESOLVE = int8(4)
+const SCIP_STAGE_PRESOLVING = int8(5)
+const SCIP_STAGE_EXITPRESOLVE = int8(6)
+const SCIP_STAGE_PRESOLVED = int8(7)
+const SCIP_STAGE_INITSOLVE = int8(8)
+const SCIP_STAGE_SOLVING = int8(9)
+const SCIP_STAGE_SOLVED = int8(10)
+const SCIP_STAGE_EXITSOLVE = int8(11)
+const SCIP_STAGE_FREETRANS = int8(12)
+const SCIP_STAGE_FREE = int8(13)
+
+typealias SCIP_Setting Int8
+const SCIP_UNDEFINED = int8(0)
+const SCIP_DISABLED = int8(1)
+const SCIP_AUTO = int8(2)
+const SCIP_ENABLED = int8(3)
+
+typealias SCIP_SolOrigin Int8
+const SCIP_SOLORIGIN_ORIGINAL = int8(0)
+const SCIP_SOLORIGIN_ZERO = int8(1)
+const SCIP_SOLORIGIN_LPSOL = int8(2)
+const SCIP_SOLORIGIN_NLPSOL = int8(3)
+const SCIP_SOLORIGIN_RELAXSOL = int8(4)
+const SCIP_SOLORIGIN_PSEUDOSOL = int8(5)
+const SCIP_SOLORIGIN_UNKNOWN = int8(6)
+
+typealias SCIP_Status Int8
+const SCIP_STATUS_UNKNOWN = int8(0)
+const SCIP_STATUS_USERINTERRUPT = int8(1)
+const SCIP_STATUS_NODELIMIT = int8(2)
+const SCIP_STATUS_TOTALNODELIMIT = int8(3)
+const SCIP_STATUS_STALLNODELIMIT = int8(4)
+const SCIP_STATUS_TIMELIMIT = int8(5)
+const SCIP_STATUS_MEMLIMIT = int8(6)
+const SCIP_STATUS_GAPLIMIT = int8(7)
+const SCIP_STATUS_SOLLIMIT = int8(8)
+const SCIP_STATUS_BESTSOLLIMIT = int8(9)
+const SCIP_STATUS_OPTIMAL = int8(10)
+const SCIP_STATUS_INFEASIBLE = int8(11)
+const SCIP_STATUS_UNBOUNDED = int8(12)
+const SCIP_STATUS_INFORUNBD = int8(13)
+
+typealias SCIP_NodeType Int8
+const SCIP_NODETYPE_FOCUSNODE = int8(0)
+const SCIP_NODETYPE_PROBINGNODE = int8(1)
+const SCIP_NODETYPE_SIBLING = int8(2)
+const SCIP_NODETYPE_CHILD = int8(3)
+const SCIP_NODETYPE_LEAF = int8(4)
+const SCIP_NODETYPE_DEADEND = int8(5)
+const SCIP_NODETYPE_JUNCTION = int8(6)
+const SCIP_NODETYPE_PSEUDOFORK = int8(7)
+const SCIP_NODETYPE_FORK = int8(8)
+const SCIP_NODETYPE_SUBROOT = int8(9)
+const SCIP_NODETYPE_REFOCUSNODE = int8(10)
+
+typealias SCIP_Varstatus Int8
+const SCIP_VARSTATUS_ORIGINAL = int8(0)
+const SCIP_VARSTATUS_LOOSE = int8(1)
+const SCIP_VARSTATUS_COLUMN = int8(2)
+const SCIP_VARSTATUS_FIXED = int8(3)
+const SCIP_VARSTATUS_AGGREGATED = int8(4)
+const SCIP_VARSTATUS_MULTAGGR = int8(5)
+const SCIP_VARSTATUS_NEGATED = int8(6)
+
+typealias SCIP_Vartype Int8
+const SCIP_VARTYPE_BINARY = int8(0)
+const SCIP_VARTYPE_INTEGER = int8(1)
+const SCIP_VARTYPE_IMPLINT = int8(2)
+const SCIP_VARTYPE_CONTINUOUS = int8(3)
+
+typealias SCIP_DomchgType Int8
+const SCIP_DOMCHGTYPE_DYNAMIC = int8(0)
+const SCIP_DOMCHGTYPE_BOTH = int8(1)
+const SCIP_DOMCHGTYPE_BOUND = int8(2)
+
+typealias SCIP_BoundchgType Int8
+const SCIP_BOUNDCHGTYPE_BRANCHING = int8(0)
+const SCIP_BOUNDCHGTYPE_CONSINFER = int8(1)
+const SCIP_BOUNDCHGTYPE_PROPINFER = int8(2)
+
+typealias SCIP_VBCColor Int8
+const SCIP_VBCCOLOR_UNSOLVED = int8(3)
+const SCIP_VBCCOLOR_SOLVED = int8(2)
+const SCIP_VBCCOLOR_CUTOFF = int8(4)
+const SCIP_VBCCOLOR_CONFLICT = int8(15)
+const SCIP_VBCCOLOR_MARKREPROP = int8(11)
+const SCIP_VBCCOLOR_REPROP = int8(12)
+const SCIP_VBCCOLOR_SOLUTION = int8(14)
+const SCIP_VBCCOLOR_NONE = int8(-1)
+
