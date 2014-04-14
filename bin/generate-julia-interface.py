@@ -11,6 +11,7 @@ def log(msg):
 
 class SCIPXMLParser(object):
     def __init__(self):
+        self.defines  = OrderedDict() # {SCIP_Bool: bool, ...}
         self.enums    = OrderedDict() # {SCIP_Retcode: {SCIP_OKAY: 1, ...}, ...}
         self.typedefs = OrderedDict() # {SCIP_Retcode: SCIP_RETCODE}
 
@@ -28,9 +29,13 @@ class SCIPXMLParser(object):
                 if sectiondef.tag != 'sectiondef':
                     continue
 
-                if sectiondef.attrib['kind'] == 'enum':
+                # Section type: enum, define, etc.
+                kind = sectiondef.attrib['kind']
+                if kind == 'define':
+                    self._parse_defines(sectiondef)
+                elif kind == 'enum':
                     self._parse_enums(sectiondef)
-                elif sectiondef.attrib['kind'] == 'typedef':
+                elif kind == 'typedef':
                     self._parse_typedefs(sectiondef)
 
     def _parse_enums(self, node):
@@ -66,6 +71,26 @@ class SCIPXMLParser(object):
                     enum_vals[name] = initializer
 
             self.enums[enum_name] = enum_vals
+
+    def _parse_defines(self, node):
+        # <memberdef kind="define">
+        #     <name>SCIP_Bool</name>
+        #     <initializer>unsigned int</initializer>
+        # </memberdef>
+        for memberdef in node:
+            if memberdef.tag != 'memberdef':
+                continue
+            
+            define_name = None # e.g. SCIP_Bool
+
+            for child in memberdef:
+                if child.tag == 'name':
+                    # Name of define
+                    define_name = child.text
+
+                elif child.tag == 'initializer':
+                    if define_name not in self.defines:
+                        self.defines[define_name] = child.text
 
     def _parse_typedefs(self, node):
         # <memberdef kind="typedef">
@@ -110,7 +135,7 @@ if __name__ == '__main__':
                 filename.startswith('pub__') or filename.startswith('type__')):
             continue
 
-        # if filename != 'type__expr_8h.xml':
+        # if filename != 'def_8h.xml':
         #     continue
         parser.parse(os.path.join(xmldir, filename))
 

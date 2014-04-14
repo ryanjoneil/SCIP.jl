@@ -1,0 +1,361 @@
+# SCIP defines
+
+typealias SCIP_Bool unsigned int
+typealias TRUE 1
+typealias FALSE 0
+typealias EXTERN extern
+typealias SCIP_VERSION 310
+typealias SCIP_SUBVERSION 0
+typealias SCIP_COPYRIGHT "Copyright (c) 2002-2014 Konrad-Zuse-Zentrum fuer Informationstechnik Berlin (ZIB)"
+typealias SCIP_VARTYPE_BINARY_CHAR 'B'
+typealias SCIP_VARTYPE_INTEGER_CHAR 'I'
+typealias SCIP_VARTYPE_IMPLINT_CHAR 'M'
+typealias SCIP_VARTYPE_CONTINUOUS_CHAR 'C'
+typealias LLONG_MAX 9223372036854775807LL
+typealias LLONG_MIN (-
+typealias SCIP_Longint long long
+typealias SCIP_LONGINT_MAX None
+typealias SCIP_LONGINT_MIN None
+typealias SCIP_LONGINT_FORMAT "lld"
+typealias SCIP_Real double
+typealias SCIP_REAL_MAX (
+typealias SCIP_REAL_MIN -(
+typealias SCIP_REAL_FORMAT "lf"
+typealias SCIP_DEFAULT_INFINITY 1e+20
+typealias SCIP_DEFAULT_EPSILON 1e-09
+typealias SCIP_DEFAULT_SUMEPSILON 1e-06
+typealias SCIP_DEFAULT_FEASTOL 1e-06
+typealias SCIP_DEFAULT_LPFEASTOL 1e-06
+typealias SCIP_DEFAULT_DUALFEASTOL 1e-07
+typealias SCIP_DEFAULT_BARRIERCONVTOL 1e-10
+typealias SCIP_DEFAULT_BOUNDSTREPS 0.05
+typealias SCIP_DEFAULT_PSEUDOCOSTEPS 1e-01
+typealias SCIP_DEFAULT_PSEUDOCOSTDELTA 1e-04
+typealias SCIP_DEFAULT_RECOMPFAC 1e+07
+typealias SCIP_DEFAULT_HUGEVAL 1e+15
+typealias SCIP_MAXEPSILON 1e-03
+typealias SCIP_MINEPSILON 1e-20
+typealias SCIP_INVALID 1e+99
+typealias SCIP_UNKNOWN 1e+98
+typealias REALABS (fabs(x))
+typealias EPSEQ (
+typealias EPSLT ((x)-(y) < -(eps))
+typealias EPSLE ((x)-(y) <= (eps))
+typealias EPSGT ((x)-(y) > (eps))
+typealias EPSGE ((x)-(y) >= -(eps))
+typealias EPSZ (
+typealias EPSP ((x) > (eps))
+typealias EPSN ((x) < -(eps))
+typealias EPSFLOOR (floor((x)+(eps)))
+typealias EPSCEIL (ceil((x)-(eps)))
+typealias EPSROUND (ceil((x)-0.5+(eps)))
+typealias EPSFRAC ((x)-
+typealias EPSISINT (
+typealias SQR ((x)*(x))
+typealias SQRT (sqrt(x))
+typealias ABS ((x) >= 0 ? (x) : -(x))
+typealias MAX ((x) >= (y) ? (x) : (y))
+typealias MIN ((x) <= (y) ? (x) : (y))
+typealias MAX3 ((x) >= (y) ? 
+typealias MIN3 ((x) <= (y) ? 
+typealias NULL ((void*)0)
+typealias SCIP_MAXSTRLEN 1024
+typealias SCIP_HASHSIZE_PARAMS 4099
+typealias SCIP_HASHSIZE_NAMES 131101
+typealias SCIP_HASHSIZE_CUTPOOLS 131101
+typealias SCIP_HASHSIZE_CLIQUES 131101
+typealias SCIP_HASHSIZE_NAMES_SMALL 8011
+typealias SCIP_HASHSIZE_CUTPOOLS_SMALL 8011
+typealias SCIP_HASHSIZE_CLIQUES_SMALL 8011
+typealias SCIP_HASHSIZE_VBC 131101
+typealias SCIPABORT assert(
+typealias SCIP_CALL_ABORT_QUIET do { if( (x) != 
+typealias SCIP_CALL_QUIET do { 
+typealias SCIP_ALLOC_ABORT_QUIET do { if( 
+typealias SCIP_ALLOC_QUIET do { if( 
+typealias SCIP_CALL_ABORT do                                                                                 \
+                       {                                                                                      \
+                          
+typealias SCIP_ALLOC_ABORT do                                                                                \
+                       {                                                                                      \
+                          if( 
+typealias SCIP_CALL do                                                                                     \
+                       {                                                                                      \
+                          
+typealias SCIP_ALLOC do                                                                                     \
+                       {                                                                                      \
+                          if( 
+typealias SCIPerrorMessage None
+typealias printErrorHeader None
+typealias printError None
+typealias SCIPdebugMessage while( 
+typealias SCIPdebugPrintf while( 
+typealias SCIPstatisticMessage while( 
+typealias SCIPstatisticPrintf while( 
+typealias SCIPisFinite ((x) == (x))
+typealias SCIP_DECL_BRANCHCOPY None
+typealias SCIP_DECL_BRANCHFREE None
+typealias SCIP_DECL_BRANCHINIT None
+typealias SCIP_DECL_BRANCHEXIT None
+typealias SCIP_DECL_BRANCHINITSOL None
+typealias SCIP_DECL_BRANCHEXITSOL None
+typealias SCIP_DECL_BRANCHEXECLP None
+typealias SCIP_DECL_BRANCHEXECEXT None
+typealias SCIP_DECL_BRANCHEXECPS None
+typealias SCIP_DECL_CONFLICTCOPY None
+typealias SCIP_DECL_CONFLICTFREE None
+typealias SCIP_DECL_CONFLICTINIT None
+typealias SCIP_DECL_CONFLICTEXIT None
+typealias SCIP_DECL_CONFLICTINITSOL None
+typealias SCIP_DECL_CONFLICTEXITSOL None
+typealias SCIP_DECL_CONFLICTEXEC None
+typealias SCIP_DECL_CONSHDLRCOPY None
+typealias SCIP_DECL_CONSFREE None
+typealias SCIP_DECL_CONSINIT None
+typealias SCIP_DECL_CONSEXIT None
+typealias SCIP_DECL_CONSINITPRE None
+typealias SCIP_DECL_CONSEXITPRE None
+typealias SCIP_DECL_CONSINITSOL None
+typealias SCIP_DECL_CONSEXITSOL None
+typealias SCIP_DECL_CONSDELETE None
+typealias SCIP_DECL_CONSTRANS None
+typealias SCIP_DECL_CONSINITLP None
+typealias SCIP_DECL_CONSSEPALP None
+typealias SCIP_DECL_CONSSEPASOL None
+typealias SCIP_DECL_CONSENFOLP None
+typealias SCIP_DECL_CONSENFOPS None
+typealias SCIP_DECL_CONSCHECK None
+typealias SCIP_DECL_CONSPROP None
+typealias SCIP_DECL_CONSPRESOL None
+typealias SCIP_DECL_CONSRESPROP None
+typealias SCIP_DECL_CONSLOCK None
+typealias SCIP_DECL_CONSACTIVE None
+typealias SCIP_DECL_CONSDEACTIVE None
+typealias SCIP_DECL_CONSENABLE None
+typealias SCIP_DECL_CONSDISABLE None
+typealias SCIP_DECL_CONSDELVARS None
+typealias SCIP_DECL_CONSPRINT None
+typealias SCIP_DECL_CONSCOPY None
+typealias SCIP_DECL_CONSPARSE None
+typealias SCIP_DECL_CONSGETVARS None
+typealias SCIP_DECL_CONSGETNVARS None
+typealias SCIP_DECL_DIALOGCOPY None
+typealias SCIP_DECL_DIALOGFREE None
+typealias SCIP_DECL_DIALOGDESC None
+typealias SCIP_DECL_DIALOGEXEC None
+typealias SCIP_DECL_DISPCOPY None
+typealias SCIP_DECL_DISPFREE None
+typealias SCIP_DECL_DISPINIT None
+typealias SCIP_DECL_DISPEXIT None
+typealias SCIP_DECL_DISPINITSOL None
+typealias SCIP_DECL_DISPEXITSOL None
+typealias SCIP_DECL_DISPOUTPUT None
+typealias SCIP_EVENTTYPE_DISABLED 0x00000000u
+typealias SCIP_EVENTTYPE_VARADDED 0x00000001u
+typealias SCIP_EVENTTYPE_VARDELETED 0x00000002u
+typealias SCIP_EVENTTYPE_VARFIXED 0x00000004u
+typealias SCIP_EVENTTYPE_VARUNLOCKED 0x00000008u
+typealias SCIP_EVENTTYPE_OBJCHANGED 0x00000010u
+typealias SCIP_EVENTTYPE_GLBCHANGED 0x00000020u
+typealias SCIP_EVENTTYPE_GUBCHANGED 0x00000040u
+typealias SCIP_EVENTTYPE_LBTIGHTENED 0x00000080u
+typealias SCIP_EVENTTYPE_LBRELAXED 0x00000100u
+typealias SCIP_EVENTTYPE_UBTIGHTENED 0x00000200u
+typealias SCIP_EVENTTYPE_UBRELAXED 0x00000400u
+typealias SCIP_EVENTTYPE_GHOLEADDED 0x00000800u
+typealias SCIP_EVENTTYPE_GHOLEREMOVED 0x00001000u
+typealias SCIP_EVENTTYPE_LHOLEADDED 0x00002000u
+typealias SCIP_EVENTTYPE_LHOLEREMOVED 0x00004000u
+typealias SCIP_EVENTTYPE_IMPLADDED 0x00008000u
+typealias SCIP_EVENTTYPE_PRESOLVEROUND 0x00010000u
+typealias SCIP_EVENTTYPE_NODEFOCUSED 0x00020000u
+typealias SCIP_EVENTTYPE_NODEFEASIBLE 0x00040000u
+typealias SCIP_EVENTTYPE_NODEINFEASIBLE 0x00080000u
+typealias SCIP_EVENTTYPE_NODEBRANCHED 0x00100000u
+typealias SCIP_EVENTTYPE_FIRSTLPSOLVED 0x00200000u
+typealias SCIP_EVENTTYPE_LPSOLVED 0x00400000u
+typealias SCIP_EVENTTYPE_POORSOLFOUND 0x00800000u
+typealias SCIP_EVENTTYPE_BESTSOLFOUND 0x01000000u
+typealias SCIP_EVENTTYPE_ROWADDEDSEPA 0x02000000u
+typealias SCIP_EVENTTYPE_ROWDELETEDSEPA 0x04000000u
+typealias SCIP_EVENTTYPE_ROWADDEDLP 0x08000000u
+typealias SCIP_EVENTTYPE_ROWDELETEDLP 0x10000000u
+typealias SCIP_EVENTTYPE_ROWCOEFCHANGED 0x20000000u
+typealias SCIP_EVENTTYPE_ROWCONSTCHANGED 0x40000000u
+typealias SCIP_EVENTTYPE_ROWSIDECHANGED 0x80000000u
+typealias SCIP_EVENTTYPE_GBDCHANGED (
+typealias SCIP_EVENTTYPE_LBCHANGED (
+typealias SCIP_EVENTTYPE_UBCHANGED (
+typealias SCIP_EVENTTYPE_BOUNDTIGHTENED (
+typealias SCIP_EVENTTYPE_BOUNDRELAXED (
+typealias SCIP_EVENTTYPE_BOUNDCHANGED (
+typealias SCIP_EVENTTYPE_GHOLECHANGED (
+typealias SCIP_EVENTTYPE_LHOLECHANGED (
+typealias SCIP_EVENTTYPE_HOLECHANGED (
+typealias SCIP_EVENTTYPE_DOMCHANGED (
+typealias SCIP_EVENTTYPE_VARCHANGED (
+typealias SCIP_EVENTTYPE_VAREVENT (
+typealias SCIP_EVENTTYPE_NODESOLVED (
+typealias SCIP_EVENTTYPE_NODEEVENT (
+typealias SCIP_EVENTTYPE_LPEVENT (
+typealias SCIP_EVENTTYPE_SOLFOUND (
+typealias SCIP_EVENTTYPE_SOLEVENT (
+typealias SCIP_EVENTTYPE_ROWCHANGED (
+typealias SCIP_EVENTTYPE_ROWEVENT (
+typealias SCIP_DECL_EVENTCOPY None
+typealias SCIP_DECL_EVENTFREE None
+typealias SCIP_DECL_EVENTINIT None
+typealias SCIP_DECL_EVENTEXIT None
+typealias SCIP_DECL_EVENTINITSOL None
+typealias SCIP_DECL_EVENTEXITSOL None
+typealias SCIP_DECL_EVENTDELETE None
+typealias SCIP_DECL_EVENTEXEC None
+typealias SCIP_EXPRINTCAPABILITY_NONE 0x00000000
+typealias SCIP_EXPRINTCAPABILITY_FUNCVALUE 0x00000001
+typealias SCIP_EXPRINTCAPABILITY_INTFUNCVALUE 0x00000002
+typealias SCIP_EXPRINTCAPABILITY_GRADIENT 0x00000010
+typealias SCIP_EXPRINTCAPABILITY_INTGRADIENT 0x00000020
+typealias SCIP_EXPRINTCAPABILITY_HESSIAN 0x00000100
+typealias SCIP_EXPRINTCAPABILITY_INTHESSIAN 0x00000200
+typealias SCIP_EXPR_DEGREEINFINITY 65535
+typealias SCIP_DECL_EXPREVAL None
+typealias SCIP_DECL_EXPRINTEVAL None
+typealias SCIP_DECL_EXPRCURV None
+typealias SCIP_DECL_EXPRCOPYDATA None
+typealias SCIP_DECL_EXPRFREEDATA void x (BMS_BLKMEM* blkmem, int nchildren, 
+typealias SCIP_DECL_EXPRGRAPHVARADDED None
+typealias SCIP_DECL_EXPRGRAPHVARREMOVE None
+typealias SCIP_DECL_EXPRGRAPHVARCHGIDX None
+typealias SCIP_EXPRBOUNDSTATUS_VALID 0x0
+typealias SCIP_EXPRBOUNDSTATUS_CHILDTIGHTENED 0x1
+typealias SCIP_EXPRBOUNDSTATUS_CHILDRELAXED 0x2
+typealias SCIP_EXPRBOUNDSTATUS_TIGHTENEDBYPARENT 0x4
+typealias SCIP_EXPRBOUNDSTATUS_TIGHTENEDBYPARENTRECENT (0x8 | SCIP_EXPRBOUNDSTATUS_TIGHTENEDBYPARENT)
+typealias SCIP_EXPRBOUNDSTATUS_TIGHTENEDBYPARENTFORCE (0x10 | SCIP_EXPRBOUNDSTATUS_TIGHTENEDBYPARENTRECENT)
+typealias SCIP_DECL_HEURCOPY None
+typealias SCIP_DECL_HEURFREE None
+typealias SCIP_DECL_HEURINIT None
+typealias SCIP_DECL_HEUREXIT None
+typealias SCIP_DECL_HEURINITSOL None
+typealias SCIP_DECL_HEUREXITSOL None
+typealias SCIP_DECL_HEUREXEC None
+typealias SCIP_DECL_MESSAGEOUTPUTFUNC void x (
+typealias SCIP_DECL_ERRORPRINTING void x (const char* msg, void* data)
+typealias SCIP_DECL_MESSAGEWARNING void x (
+typealias SCIP_DECL_MESSAGEDIALOG void x (
+typealias SCIP_DECL_MESSAGEINFO void x (
+typealias SCIP_DECL_MESSAGEHDLRFREE None
+typealias SCIP_DECL_SORTINDCOMP int x (void* dataptr, int ind1, int ind2)
+typealias SCIP_DECL_SORTPTRCOMP int x (void* elem1, void* elem2)
+typealias SCIP_DECL_HASHGETKEY void* x (void* userptr, void* elem)
+typealias SCIP_DECL_HASHKEYEQ None
+typealias SCIP_DECL_HASHKEYVAL unsigned int x (void* userptr, void* key)
+typealias SCIP_DECL_NLPICOPY None
+typealias SCIP_DECL_NLPIFREE None
+typealias SCIP_DECL_NLPIGETSOLVERPOINTER void* x (
+typealias SCIP_DECL_NLPICREATEPROBLEM None
+typealias SCIP_DECL_NLPIFREEPROBLEM None
+typealias SCIP_DECL_NLPIGETPROBLEMPOINTER void* x (
+typealias SCIP_DECL_NLPIADDVARS None
+typealias SCIP_DECL_NLPIADDCONSTRAINTS None
+typealias SCIP_DECL_NLPISETOBJECTIVE None
+typealias SCIP_DECL_NLPICHGVARBOUNDS None
+typealias SCIP_DECL_NLPICHGCONSSIDES None
+typealias SCIP_DECL_NLPIDELVARSET None
+typealias SCIP_DECL_NLPIDELCONSSET None
+typealias SCIP_DECL_NLPICHGLINEARCOEFS None
+typealias SCIP_DECL_NLPICHGQUADCOEFS None
+typealias SCIP_DECL_NLPICHGEXPRTREE None
+typealias SCIP_DECL_NLPICHGNONLINCOEF None
+typealias SCIP_DECL_NLPICHGOBJCONSTANT None
+typealias SCIP_DECL_NLPISETINITIALGUESS None
+typealias SCIP_DECL_NLPISOLVE None
+typealias SCIP_DECL_NLPIGETSOLSTAT None
+typealias SCIP_DECL_NLPIGETTERMSTAT None
+typealias SCIP_DECL_NLPIGETSOLUTION None
+typealias SCIP_DECL_NLPIGETSTATISTICS None
+typealias SCIP_DECL_NLPIGETWARMSTARTSIZE None
+typealias SCIP_DECL_NLPIGETWARMSTARTMEMO None
+typealias SCIP_DECL_NLPISETWARMSTARTMEMO None
+typealias SCIP_DECL_NODESELCOPY None
+typealias SCIP_DECL_NODESELFREE None
+typealias SCIP_DECL_NODESELINIT None
+typealias SCIP_DECL_NODESELEXIT None
+typealias SCIP_DECL_NODESELINITSOL None
+typealias SCIP_DECL_NODESELEXITSOL None
+typealias SCIP_DECL_NODESELSELECT None
+typealias SCIP_DECL_NODESELCOMP int x (
+typealias SCIP_DECL_PARAMCHGD None
+typealias SCIP_DECL_PRESOLCOPY None
+typealias SCIP_DECL_PRESOLFREE None
+typealias SCIP_DECL_PRESOLINIT None
+typealias SCIP_DECL_PRESOLEXIT None
+typealias SCIP_DECL_PRESOLINITPRE None
+typealias SCIP_DECL_PRESOLEXITPRE None
+typealias SCIP_DECL_PRESOLEXEC None
+typealias SCIP_DECL_PRICERCOPY None
+typealias SCIP_DECL_PRICERFREE None
+typealias SCIP_DECL_PRICERINIT None
+typealias SCIP_DECL_PRICEREXIT None
+typealias SCIP_DECL_PRICERINITSOL None
+typealias SCIP_DECL_PRICEREXITSOL None
+typealias SCIP_DECL_PRICERREDCOST None
+typealias SCIP_DECL_PRICERFARKAS None
+typealias SCIP_DECL_PROBDELORIG None
+typealias SCIP_DECL_PROBTRANS None
+typealias SCIP_DECL_PROBDELTRANS None
+typealias SCIP_DECL_PROBINITSOL None
+typealias SCIP_DECL_PROBEXITSOL None
+typealias SCIP_DECL_PROBCOPY None
+typealias SCIP_DECL_PROPCOPY None
+typealias SCIP_DECL_PROPFREE None
+typealias SCIP_DECL_PROPINIT None
+typealias SCIP_DECL_PROPEXIT None
+typealias SCIP_DECL_PROPINITPRE None
+typealias SCIP_DECL_PROPEXITPRE None
+typealias SCIP_DECL_PROPINITSOL None
+typealias SCIP_DECL_PROPEXITSOL None
+typealias SCIP_DECL_PROPPRESOL None
+typealias SCIP_DECL_PROPEXEC None
+typealias SCIP_DECL_PROPRESPROP None
+typealias SCIP_DECL_READERCOPY None
+typealias SCIP_DECL_READERFREE None
+typealias SCIP_DECL_READERREAD None
+typealias SCIP_DECL_READERWRITE None
+typealias SCIP_DECL_RELAXCOPY None
+typealias SCIP_DECL_RELAXFREE None
+typealias SCIP_DECL_RELAXINIT None
+typealias SCIP_DECL_RELAXEXIT None
+typealias SCIP_DECL_RELAXINITSOL None
+typealias SCIP_DECL_RELAXEXITSOL None
+typealias SCIP_DECL_RELAXEXEC None
+typealias SCIP_DECL_SEPACOPY None
+typealias SCIP_DECL_SEPAFREE None
+typealias SCIP_DECL_SEPAINIT None
+typealias SCIP_DECL_SEPAEXIT None
+typealias SCIP_DECL_SEPAINITSOL None
+typealias SCIP_DECL_SEPAEXITSOL None
+typealias SCIP_DECL_SEPAEXECLP None
+typealias SCIP_DECL_SEPAEXECSOL None
+typealias SCIP_PROPTIMING_BEFORELP 0x001u
+typealias SCIP_PROPTIMING_DURINGLPLOOP 0x002u
+typealias SCIP_PROPTIMING_AFTERLPLOOP 0x004u
+typealias SCIP_PROPTIMING_AFTERLPNODE 0x008u
+typealias SCIP_PROPTIMING_ALWAYS (
+typealias SCIP_HEURTIMING_BEFORENODE 0x001u
+typealias SCIP_HEURTIMING_DURINGLPLOOP 0x002u
+typealias SCIP_HEURTIMING_AFTERLPLOOP 0x004u
+typealias SCIP_HEURTIMING_AFTERLPNODE 0x008u
+typealias SCIP_HEURTIMING_AFTERPSEUDONODE 0x010u
+typealias SCIP_HEURTIMING_AFTERLPPLUNGE 0x020u
+typealias SCIP_HEURTIMING_AFTERPSEUDOPLUNGE 0x040u
+typealias SCIP_HEURTIMING_DURINGPRICINGLOOP 0x080u
+typealias SCIP_HEURTIMING_BEFOREPRESOL 0x100u
+typealias SCIP_HEURTIMING_DURINGPRESOLLOOP 0x200u
+typealias SCIP_HEURTIMING_AFTERPROPLOOP 0x400u
+typealias SCIP_HEURTIMING_AFTERNODE (
+typealias SCIP_HEURTIMING_AFTERPLUNGE (
+typealias SCIP_DECL_VARDELORIG None
+typealias SCIP_DECL_VARTRANS None
+typealias SCIP_DECL_VARDELTRANS None
+typealias SCIP_DECL_VARCOPY None
