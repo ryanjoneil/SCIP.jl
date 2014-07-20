@@ -1,8 +1,3 @@
-# SCIP defines for known C types
-typealias SCIP_Bool Uint
-typealias SCIP_Real Float64
-
-
 # SCIP defines for character, string, and numeric constants
 const TRUE = 1
 const FALSE = 0
@@ -25,3 +20,7 @@ const SCIP_HASHSIZE_CUTPOOLS_SMALL = 8011
 const SCIP_HASHSIZE_CLIQUES_SMALL = 8011
 const SCIP_HASHSIZE_VBC = 131101
 const SCIP_EXPR_DEGREEINFINITY = 65535
+
+# SCIP defines for known C types and pointers to SCIP structs.
+typealias SCIP_Bool Uint
+typealias SCIP_Real Float64

@@ -23,6 +23,9 @@ class SCIPXMLParser(object):
         self.enums    = OrderedDict()    # {SCIP_Retcode: {SCIP_OKAY: 1, ...}, ...}
         self.typedefs = OrderedDict()    # {SCIP_Retcode: SCIP_RETCODE}
 
+        self.checked_functions = OrderedDict()   # {version: (SCIP_Real, ...)}
+        self.unchecked_functions = OrderedDict() # {create: (SCIP_Retcode, ...}}
+
     def parse(self, filepath):
         log('parsing %s' % filepath)
 
@@ -45,6 +48,11 @@ class SCIPXMLParser(object):
                     self._parse_enums(sectiondef)
                 elif kind == 'typedef':
                     self._parse_typedefs(sectiondef)
+                elif kind == 'user-defined':
+                    self._parse_functions(sectiondef)
+
+    def _convert_type(self, type_name):
+        return type_name
 
     def _parse_enums(self, node):
         # <memberdef kind="enum">
@@ -139,6 +147,73 @@ class SCIPXMLParser(object):
             if type_name is not None and type_ref is not None:
                 self.typedefs[type_name] = type_ref
 
+    def _parse_functions(self, node):
+        # <memberdef kind="function">
+        #     <type><ref>SCIP_Bool</ref></type>
+        #     <name>SCIPisTransformed</name>
+        #     <param>
+        #         <type><ref>SCIP</ref> **</type>
+        #         <declname>scip</declname>
+        #     </param>
+        # </memberdef>
+        for memberdef in node:
+            if memberdef.tag != 'memberdef':
+                continue
+            
+            ret_type = None
+            func_name = None
+            arg_types = [] # such as Int or PtrPtrSCIP
+            arg_names = [] # such as scip
+            arg_vals = []  # such as scip[1]
+
+            for child in memberdef:
+                if child.tag == 'type':
+                    ret_type = ' '.join(s.strip() for s in child.itertext())
+
+                elif child.tag == 'name':
+                    func_name = child.text
+
+                elif child.tag == 'param':
+
+                    for param_child in child:
+                        if param_child.tag == 'type':
+                            # Construct type name from hierarchical XML.
+                            type_name = ' '.join(s.strip() for s in param_child.itertext())
+                            arg_types.append(self._convert_type(type_name))
+
+                        elif param_child.tag == 'declname':
+                            # Pull out var name and convert to forms like scip[1].
+                            arg_names.append(param_child.text)
+                            arg_vals.append(param_child.text) # TODO: scip[1]
+
+            # Julia requires a , after a vector of one type: (PtrPtrSCIP,)
+            if len(arg_types) == 1:
+                if arg_types[0] == 'void':
+                    arg_types = []
+                else:
+                    arg_types = '%s,' % arg_types[0]
+            else:
+                arg_types = ', '.join(arg_types)
+
+            arg_names = ', '.join(arg_names)
+            arg_vals = ', '.join(arg_vals)
+
+            if ret_type is not None and func_name is not None:
+                # We're only interested in functions that start with 'SCIP'.
+                if not func_name.startswith('SCIP'):
+                    continue
+                func_name = func_name.replace('SCIP', '', 1)
+
+                # Separate out functions based on whether they return SCIP 
+                # return codes or not. These are handled by diferrent macros.
+                if ret_type == 'SCIP_RETCODE':
+                    if func_name not in self.checked_functions:
+                        self.checked_functions[func_name] = (ret_type, arg_types, arg_names, arg_vals)
+
+                else:
+                    if func_name not in self.unchecked_functions:
+                        self.unchecked_functions[func_name] = (ret_type, arg_types, arg_names, arg_vals)
+
 if __name__ == '__main__':
     try:
         xmldir, tmpldir, srcdir = sys.argv[1:]
@@ -158,6 +233,8 @@ if __name__ == '__main__':
 
         # if filename != 'def_8h.xml':
         #     continue
+        #if filename != 'scip_8h.xml':
+        #    continue
         parser.parse(os.path.join(xmldir, filename))
 
     # Template -> src conversion.
