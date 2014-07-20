@@ -10,10 +10,18 @@ def log(msg):
     print '[%s] %s' % (time.asctime(), msg)
 
 class SCIPXMLParser(object):
+    # Mapping of C types to Julia types
+    TYPE_MAP = {
+        'double': 'Float64',
+        'int': 'Int',
+        'unsigned int': 'Uint',
+    }
+
     def __init__(self):
-        self.defines  = OrderedDict() # {SCIP_Bool: bool, ...}
-        self.enums    = OrderedDict() # {SCIP_Retcode: {SCIP_OKAY: 1, ...}, ...}
-        self.typedefs = OrderedDict() # {SCIP_Retcode: SCIP_RETCODE}
+        self.typealiases = OrderedDict() # {SCIP_Bool: Uint, ...}
+        self.defines  = OrderedDict()    # {TRUE: 1, ...}
+        self.enums    = OrderedDict()    # {SCIP_Retcode: {SCIP_OKAY: 1, ...}, ...}
+        self.typedefs = OrderedDict()    # {SCIP_Retcode: SCIP_RETCODE}
 
     def parse(self, filepath):
         log('parsing %s' % filepath)
@@ -89,8 +97,21 @@ class SCIPXMLParser(object):
                     define_name = child.text
 
                 elif child.tag == 'initializer':
-                    if define_name not in self.defines:
-                        self.defines[define_name] = child.text
+                    # Known C types are treated as typealiases, while defines 
+                    # with numbers or strings are treated as constants.
+                    t = child.text
+                    if t is None:
+                        continue
+
+                    if t in SCIPXMLParser.TYPE_MAP:
+                        if define_name not in self.typealiases:
+                            self.typealiases[define_name] = SCIPXMLParser.TYPE_MAP[t]
+
+                    elif t.isdigit() or (t.startswith('"') and t.endswith('"')) \
+                                     or (t.startswith("'") and t.endswith("'")):
+                        if define_name not in self.defines:
+                            self.defines[define_name] = t
+
 
     def _parse_typedefs(self, node):
         # <memberdef kind="typedef">
