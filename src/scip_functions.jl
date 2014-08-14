@@ -21,3 +21,5 @@ SCIPmajorVersion() = @scip_ccall("SCIPmajorVersion", Int, ())
 SCIPminorVersion() = @scip_ccall("SCIPminorVersion", Int, ())
 SCIPtechVersion() = @scip_ccall("SCIPtechVersion", Int, ())
 SCIPsubversion() = @scip_ccall("SCIPsubversion", Int, ())
+
+# SCIP function wrappers: unchecked functions

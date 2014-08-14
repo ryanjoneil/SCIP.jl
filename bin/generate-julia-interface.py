@@ -218,7 +218,7 @@ class SCIPXMLParser(object):
                 # return codes or not. These are handled by diferrent macros.
                 if ret_type == 'SCIP_RETCODE':
                     if func_name not in self.checked_functions:
-                        self.checked_functions[func_name] = (ret_type, arg_types, arg_names, arg_vals)
+                        self.checked_functions[func_name] = (arg_types, arg_names, arg_vals)
 
                 else:
                     if func_name not in self.unchecked_functions:
