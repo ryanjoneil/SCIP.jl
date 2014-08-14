@@ -1,16 +1,14 @@
 # Macro for calling SCIP functions that return misc. types
 macro scip_ccall(func, args...)
-    f = "SCIP$(func)"
     return quote
-        ccall(($f, "libscipopt"), $(args...))
+        ccall(($func, "libscipopt"), $(args...))
     end
 end
 
 # Macro for calling SCIP functions that have checked return codes
 macro scip_ccall_check(func, args...)
-    f = "SCIP$(func)"
     return quote
-        ret = ccall(($f, "libscipopt"), Int8, $(args...))
+        ret = ccall(($func, "libscipopt"), Int8, $(args...))
         if ret != SCIP_OKAY
             error(SCIP_RETCODE[ret])
         end

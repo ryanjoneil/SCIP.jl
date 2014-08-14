@@ -15,6 +15,7 @@ class SCIPXMLParser(object):
         'double': 'Float64',
         'int': 'Int',
         'unsigned int': 'Uint',
+        'void': 'Void',
     }
 
     def __init__(self):
@@ -52,7 +53,9 @@ class SCIPXMLParser(object):
                     self._parse_functions(sectiondef)
 
     def _convert_type(self, type_name):
-        return type_name
+        if type_name in self.typealiases:
+            return type_name
+        return SCIPXMLParser.TYPE_MAP[type_name]
 
     def _parse_enums(self, node):
         # <memberdef kind="enum">
@@ -168,7 +171,11 @@ class SCIPXMLParser(object):
 
             for child in memberdef:
                 if child.tag == 'type':
-                    ret_type = ' '.join(s.strip() for s in child.itertext())
+                    try:
+                        ret_type = self._convert_type(' '.join(s.strip() for s in child.itertext()))
+                    except KeyError:
+                        print 'UNKNOWN RET TYPE:', ret_type
+                        ret_type = None
 
                 elif child.tag == 'name':
                     func_name = child.text
@@ -179,7 +186,11 @@ class SCIPXMLParser(object):
                         if param_child.tag == 'type':
                             # Construct type name from hierarchical XML.
                             type_name = ' '.join(s.strip() for s in param_child.itertext())
-                            arg_types.append(self._convert_type(type_name))
+                            try:
+                                arg_types.append(self._convert_type(type_name))
+                            except KeyError:
+                                print 'UNKNOWN ARG TYPE:', func_name, type_name
+                                ret_type = None
 
                         elif param_child.tag == 'declname':
                             # Pull out var name and convert to forms like scip[1].
@@ -188,8 +199,8 @@ class SCIPXMLParser(object):
 
             # Julia requires a , after a vector of one type: (PtrPtrSCIP,)
             if len(arg_types) == 1:
-                if arg_types[0] == 'void':
-                    arg_types = []
+                if arg_types[0] == 'Void':
+                    arg_types = ''
                 else:
                     arg_types = '%s,' % arg_types[0]
             else:
@@ -202,7 +213,6 @@ class SCIPXMLParser(object):
                 # We're only interested in functions that start with 'SCIP'.
                 if not func_name.startswith('SCIP'):
                     continue
-                func_name = func_name.replace('SCIP', '', 1)
 
                 # Separate out functions based on whether they return SCIP 
                 # return codes or not. These are handled by diferrent macros.
