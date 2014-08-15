@@ -1,4 +1,4 @@
-module SCIP
+module SCIPCInterface
 
 include("scip_defines.jl")
 include("scip_enums.jl")

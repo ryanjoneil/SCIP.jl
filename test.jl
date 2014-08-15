@@ -1,3 +1,11 @@
 push!(LOAD_PATH, "src")
 
-using SCIP
+using SCIPCInterface
+
+scip = SCIPcreate()
+println(scip.ptr_scip)
+println(pointer(scip))
+println(typeof(scip))
+println("Stage: $(SCIPgetStage(scip))")
+println("Status: $(SCIPgetStatus(scip))")
+println("done")
