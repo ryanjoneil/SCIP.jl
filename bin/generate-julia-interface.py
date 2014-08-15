@@ -53,8 +53,20 @@ class SCIPXMLParser(object):
                     self._parse_functions(sectiondef)
 
     def _convert_type(self, type_name):
+        if type_name.startswith('SCIP'):
+            if type_name.endswith('**'):
+                return 'Ptr{%s}' % self._convert_type(type_name[:-1])
+            if type_name.endswith('*'):
+                tn = type_name.rstrip('*').strip()
+                if tn in self.typealiases:
+                    self.typealiases['Ptr_%s' % tn] = 'Ptr{%s}' % tn
+                else:
+                    self.typealiases['Ptr_%s' % tn] = 'Ptr{Void}'
+                return 'Ptr_%s' % tn
+
         if type_name in self.typealiases:
             return type_name
+
         return SCIPXMLParser.TYPE_MAP[type_name]
 
     def _parse_enums(self, node):
