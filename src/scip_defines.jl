@@ -35,7 +35,7 @@ typealias SCIP_EXPRGRAPHNODE Void
 typealias SCIP_EXPRGRAPH Void
 typealias SCIP_VAR Void
 typealias SCIP_NLROW Void
-typealias SCIP Void
+typealias SCIP None
 typealias SCIP_HASHMAP Void
 typealias SCIP_CONS Void
 typealias SCIP_CONSHDLR Void

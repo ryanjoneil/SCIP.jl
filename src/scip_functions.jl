@@ -20,6 +20,15 @@ macro scip_ccall_check(func, args...)
     end
 end
 
+# TODO: type creations
+typealias PtrSCIP Ptr{Void}
+type SCIP_t
+    ptr_scip::PtrSCIP
+end
+
+# TODO: pointer methods
+pointer(scip::SCIP_t) = scip.ptr_scip
+
 # SCIP function wrappers: unchecked functions
 # SCIPexprcurvAdd(curv1::SCIP_EXPRCURV, curv2::SCIP_EXPRCURV) = @scip_ccall("SCIPexprcurvAdd", SCIP_EXPRCURV, (SCIP_EXPRCURV, SCIP_EXPRCURV), curv1, curv2)
 # SCIPexprcurvNegate(curvature::SCIP_EXPRCURV) = @scip_ccall("SCIPexprcurvNegate", SCIP_EXPRCURV, (SCIP_EXPRCURV,), curvature)
@@ -127,7 +136,7 @@ end
 # SCIPnlrowGetNLPPos(nlrow::SCIP_NLROW_t) = @scip_ccall("SCIPnlrowGetNLPPos", Int, (Ptr{SCIP_NLROW},), pointer(nlrow))
 # SCIPnlrowIsInNLP(nlrow::SCIP_NLROW_t) = @scip_ccall("SCIPnlrowIsInNLP", SCIP_Bool, (Ptr{SCIP_NLROW},), pointer(nlrow))
 # SCIPnlrowGetDualsol(nlrow::SCIP_NLROW_t) = @scip_ccall("SCIPnlrowGetDualsol", SCIP_Real, (Ptr{SCIP_NLROW},), pointer(nlrow))
-# SCIPversion() = @scip_ccall("SCIPversion", SCIP_Real, ())
+SCIPversion() = @scip_ccall("SCIPversion", SCIP_Real, ())
 # SCIPmajorVersion() = @scip_ccall("SCIPmajorVersion", Int, ())
 # SCIPminorVersion() = @scip_ccall("SCIPminorVersion", Int, ())
 # SCIPtechVersion() = @scip_ccall("SCIPtechVersion", Int, ())
@@ -967,12 +976,6 @@ SCIPfree(scip::SCIP_t) = @scip_ccall_check("SCIPfree", (Ptr{Ptr{SCIP}},), pointe
 # SCIPclearPtrarray(scip::SCIP_t, ptrarray::SCIP_PTRARRAY_t) = @scip_ccall_check("SCIPclearPtrarray", (Ptr{SCIP}, Ptr{SCIP_PTRARRAY}), pointer(scip), pointer(ptrarray))
 
 
-# TODO: type creations
-typealias PtrSCIP Ptr{Void}
-type SCIP_t
-    ptr_scip::PtrSCIP
-end
-
 # TODO: construction/destruction
 function SCIPcreate()
     a = Array(Ptr{SCIP}, 1)
@@ -983,8 +986,6 @@ function SCIPcreate()
     return s
 end
 
-# TODO: pointer methods
-pointer(scip::SCIP_t) = scip.ptr_scip
 
 # TODO: types and pointer() calls in arg lists
 #SCIPgetStage(scip::SCIP_t) = @scip_ccall("SCIPgetStage", SCIP_Stage, (Ptr{SCIP},), pointer(scip))
