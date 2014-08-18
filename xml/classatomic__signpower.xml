@@ -1,0 +1,285 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="classatomic__signpower" kind="class" prot="public">
+    <compoundname>atomic_signpower</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">CppAD::atomic_base&lt; Type &gt;</basecompoundref>
+    <templateparamlist>
+      <param>
+        <type>class</type>
+        <declname>Type</declname>
+        <defname>Type</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classatomic__signpower_1a957697a2d3a1c2b8364b533790401e84" prot="private" static="no" mutable="no">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+        <definition>SCIP_Real atomic_signpower&lt; Type &gt;::exponent</definition>
+        <argsstring></argsstring>
+        <name>exponent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>exponent for use in next call to forward or reverse </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/nlpi/exprinterpret_cppad.cpp" line="708" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/nlpi/exprinterpret_cppad.cpp" bodystart="708" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classatomic__signpower_1a78c4e87eac36363b75bdb905eb409490" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>atomic_signpower&lt; Type &gt;::atomic_signpower</definition>
+        <argsstring>()</argsstring>
+        <name>atomic_signpower</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/nlpi/exprinterpret_cppad.cpp" line="698" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/nlpi/exprinterpret_cppad.cpp" bodystart="698" bodyend="704"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classatomic__signpower_1a2a349d7709ce331b6268d810b3b75a85" prot="private" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void atomic_signpower&lt; Type &gt;::set_id</definition>
+        <argsstring>(size_t id)</argsstring>
+        <name>set_id</name>
+        <param>
+          <type>size_t</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>stores exponent corresponding to next call to forward or reverse</para><para>how is this supposed to be threadsafe? (we use only one global instantiation of this class) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/nlpi/exprinterpret_cppad.cpp" line="714" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/nlpi/exprinterpret_cppad.cpp" bodystart="714" bodyend="717"/>
+      </memberdef>
+      <memberdef kind="function" id="classatomic__signpower_1aeac2428396bcde7a5954dc1b88ae5ab9" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool atomic_signpower&lt; Type &gt;::forward</definition>
+        <argsstring>(size_t q, size_t p, const CppAD::vector&lt; bool &gt; &amp;vx, CppAD::vector&lt; bool &gt; &amp;vy, const CppAD::vector&lt; Type &gt; &amp;tx, CppAD::vector&lt; Type &gt; &amp;ty)</argsstring>
+        <name>forward</name>
+        <param>
+          <type>size_t</type>
+          <declname>q</declname>
+          <briefdescription><para>lowest order Taylor coefficient that we are evaluating </para></briefdescription>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>p</declname>
+          <briefdescription><para>highest order Taylor coefficient that we are evaluating </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>vx</declname>
+          <briefdescription><para>indicates whether argument is a variable, or empty vector </para></briefdescription>
+        </param>
+        <param>
+          <type>CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>vy</declname>
+          <briefdescription><para>vector to store which function values depend on variables, or empty vector </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; Type &gt; &amp;</type>
+          <declname>tx</declname>
+          <briefdescription><para>values for taylor coefficients of x </para></briefdescription>
+        </param>
+        <param>
+          <type>CppAD::vector&lt; Type &gt; &amp;</type>
+          <declname>ty</declname>
+          <briefdescription><para>vector to store taylor coefficients of y </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>forward sweep of signpower Given the taylor coefficients for x, we have to compute the taylor coefficients for f(x), that is, given tx = (x, x&apos;, x&apos;&apos;, ...), we compute the coefficients ty = (y, y&apos;, y&apos;&apos;, ...) in the taylor expansion of f(x) = sign(x)abs(x)^p. Thus, y = sign(x)abs(x)^p = sign(tx[0])abs(tx[0])^p, y&apos; = p * abs(x)^(p-1) * x&apos; = p * abs(tx[0])^(p-1) * tx[1], y&apos;&apos; = p * (p-1) * sign(x) * abs(x)^(p-2) * x&apos;^2 + p * abs(x)^(p-1) * x&apos;&apos; = p * (p-1) * sign(tx[0]) * abs(tx[0])^(p-2) * tx[1]^2 + p * abs(tx[0])^(p-1) * tx[2] </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/nlpi/exprinterpret_cppad.cpp" line="730" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/nlpi/exprinterpret_cppad.cpp" bodystart="730" bodyend="787"/>
+      </memberdef>
+      <memberdef kind="function" id="classatomic__signpower_1a02bc5bea9aee5f4c72f1b75d64391e2e" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool atomic_signpower&lt; Type &gt;::reverse</definition>
+        <argsstring>(size_t p, const CppAD::vector&lt; Type &gt; &amp;tx, const CppAD::vector&lt; Type &gt; &amp;ty, CppAD::vector&lt; Type &gt; &amp;px, const CppAD::vector&lt; Type &gt; &amp;py)</argsstring>
+        <name>reverse</name>
+        <param>
+          <type>size_t</type>
+          <declname>p</declname>
+          <briefdescription><para>highest order Taylor coefficient that we are evaluating </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; Type &gt; &amp;</type>
+          <declname>tx</declname>
+          <briefdescription><para>values for taylor coefficients of x </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; Type &gt; &amp;</type>
+          <declname>ty</declname>
+          <briefdescription><para>values for taylor coefficients of y </para></briefdescription>
+        </param>
+        <param>
+          <type>CppAD::vector&lt; Type &gt; &amp;</type>
+          <declname>px</declname>
+          <briefdescription><para>vector to store partial derivatives of h(x) = g(y(x)) w.r.t. x </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; Type &gt; &amp;</type>
+          <declname>py</declname>
+          <briefdescription><para>values for partial derivatives of g(x) w.r.t. y </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>reverse sweep of signpower Assume y(x) is a function of the taylor coefficients of f(x) = sign(x)|x|^p for x, i.e., y(x) = [ f(x), f&apos;(x), f&apos;&apos;(x), ... ]. Then in the reverse sweep we have to compute the elements of <formula id="130">$\partial h / \partial x^[l], l = 0, ..., k,$</formula> where x^[l] is the l&apos;th taylor coefficient (x, x&apos;, x&apos;&apos;, ...) and h(x) = g(y(x)) for some function g:R^k -&gt; R. That is, we have to compute <formula id="134">$ px[l] = \partial h / \partial x^[l] = (\partial g / \partial y) * (\partial y / \partial x^[l]) = \sum_{i=0}^k (\partial g / \partial y_i) * (\partial y_i / \partial x^[l]) = \sum_{i=0}^k py[i] * (\partial y_i / \partial x^[l]) *$</formula></para><para>For k = 0, this means <formula id="135">$ px[0] = py[0] * (\partial y_0 / \partial x^[0]) = py[0] * (\partial f(x) / \partial x) = py[0] * p * abs(tx[0])^(p-1) $</formula></para><para>For k = 1, this means <formula id="136">$ px[0] = py[0] * (\partial y_0 / \partial x^[0]) + py[1] * (\partial y_1 / \partial x^[0]) = py[0] * (\partial f(x) / \partial x) + py[1] * (\partial f&apos;(x) / \partial x) = py[0] * p * abs(tx[0])^(p-1) + py[1] * p * (p-1) * abs(tx[0])^(p-2) * sign(tx[0]) * tx[1] px[1] = py[0] * (\partial y_0 / \partial x^[1]) + py[1] * (\partial y_1 / \partial x^[1]) = py[0] * (\partial f(x) / \partial x&apos;) + py[1] * (\partial f&apos;(x) / \partial x&apos;) = py[0] * 0 + py[1] * p * abs(tx[0])^(p-1) $</formula> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/nlpi/exprinterpret_cppad.cpp" line="818" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/nlpi/exprinterpret_cppad.cpp" bodystart="818" bodyend="868"/>
+      </memberdef>
+      <memberdef kind="function" id="classatomic__signpower_1a11cc65350eeb8df0016d64dd3a542882" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool atomic_signpower&lt; Type &gt;::for_sparse_jac</definition>
+        <argsstring>(size_t q, const CppAD::vector&lt; bool &gt; &amp;r, CppAD::vector&lt; bool &gt; &amp;s)</argsstring>
+        <name>for_sparse_jac</name>
+        <param>
+          <type>size_t</type>
+          <declname>q</declname>
+          <briefdescription><para>number of columns in R </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>r</declname>
+          <briefdescription><para>sparsity of R, columnwise </para></briefdescription>
+        </param>
+        <param>
+          <type>CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>s</declname>
+          <briefdescription><para>vector to store sparsity of S, columnwise </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>computes sparsity of jacobian during a forward sweep For a 1 x q matrix R, we have to return the sparsity pattern of the 1 x q matrix S(x) = f&apos;(x) * R. Since f&apos;(x) is dense, the sparsity of S will be the sparsity of R. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/nlpi/exprinterpret_cppad.cpp" line="876" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/nlpi/exprinterpret_cppad.cpp" bodystart="876" bodyend="883"/>
+      </memberdef>
+      <memberdef kind="function" id="classatomic__signpower_1af4a8554653d774c8531743497a094c01" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool atomic_signpower&lt; Type &gt;::rev_sparse_jac</definition>
+        <argsstring>(size_t q, CppAD::vector&lt; bool &gt; &amp;r, const CppAD::vector&lt; bool &gt; &amp;s)</argsstring>
+        <name>rev_sparse_jac</name>
+        <param>
+          <type>size_t</type>
+          <declname>q</declname>
+          <briefdescription><para>number of rows in R </para></briefdescription>
+        </param>
+        <param>
+          <type>CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>r</declname>
+          <briefdescription><para>sparsity of R, rowwise </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>s</declname>
+          <briefdescription><para>vector to store sparsity of S, rowwise </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>computes sparsity of jacobian during a reverse sweep For a q x 1 matrix S, we have to return the sparsity pattern of the q x 1 matrix R(x) = S * f&apos;(x). Since f&apos;(x) is dense, the sparsity of R will be the sparsity of S. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/nlpi/exprinterpret_cppad.cpp" line="891" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/nlpi/exprinterpret_cppad.cpp" bodystart="891" bodyend="898"/>
+      </memberdef>
+      <memberdef kind="function" id="classatomic__signpower_1a7ebd9803f1449cc239d5dffad6a7f80e" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool atomic_signpower&lt; Type &gt;::rev_sparse_hes</definition>
+        <argsstring>(const CppAD::vector&lt; bool &gt; &amp;vx, const CppAD::vector&lt; bool &gt; &amp;s, CppAD::vector&lt; bool &gt; &amp;t, size_t q, const CppAD::vector&lt; bool &gt; &amp;r, const CppAD::vector&lt; bool &gt; &amp;u, CppAD::vector&lt; bool &gt; &amp;v)</argsstring>
+        <name>rev_sparse_hes</name>
+        <param>
+          <type>const CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>vx</declname>
+          <briefdescription><para>indicates whether argument is a variable, or empty vector </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>s</declname>
+          <briefdescription><para>sparsity pattern of S = g&apos;(y) </para></briefdescription>
+        </param>
+        <param>
+          <type>CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>t</declname>
+          <briefdescription><para>vector to store sparsity pattern of T(x) = (g(f(x)))&apos; </para></briefdescription>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>q</declname>
+          <briefdescription><para>number of columns in S and R </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>r</declname>
+          <briefdescription><para>sparsity pattern of R </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>u</declname>
+          <briefdescription><para>sparsity pattern of U(x) = g&apos;&apos;(f(x)) f&apos;(x) R </para></briefdescription>
+        </param>
+        <param>
+          <type>CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>v</declname>
+          <briefdescription><para>vector to store sparsity pattern of V(x) = (g(f(x)))&apos;&apos; R </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>computes sparsity of hessian during a reverse sweep Assume V(x) = (g(f(x)))&apos;&apos; R with f(x) = sign(x)abs(x)^p for a function g:R-&gt;R and a matrix R. we have to specify the sparsity pattern of V(x) and T(x) = (g(f(x)))&apos;. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/nlpi/exprinterpret_cppad.cpp" line="906" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/nlpi/exprinterpret_cppad.cpp" bodystart="906" bodyend="917"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Automatic differentiation of x -&gt; sign(x)abs(x)^p, p&gt;=1, as CppAD user-atomic function.</para><para>This class implements forward and reverse operations for the function x -&gt; sign(x)abs(x)^p for use within CppAD. While we otherwise would have to use discontinuous sign and abs functions, our own implementation allows to provide a continuously differentiable function.</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>atomic_signpower&lt; Type &gt;</label>
+        <link refid="classatomic__signpower"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>CppAD::atomic_base&lt; Type &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="6">
+        <label>atomic_signpower&lt; Type &gt;</label>
+        <link refid="classatomic__signpower"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>CppAD::atomic_base&lt; Type &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/nlpi/exprinterpret_cppad.cpp" line="696" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/nlpi/exprinterpret_cppad.cpp" bodystart="695" bodyend="919"/>
+    <listofallmembers>
+      <member refid="classatomic__signpower_1a78c4e87eac36363b75bdb905eb409490" prot="public" virt="non-virtual"><scope>atomic_signpower</scope><name>atomic_signpower</name></member>
+      <member refid="classatomic__signpower_1a957697a2d3a1c2b8364b533790401e84" prot="private" virt="non-virtual"><scope>atomic_signpower</scope><name>exponent</name></member>
+      <member refid="classatomic__signpower_1a11cc65350eeb8df0016d64dd3a542882" prot="private" virt="non-virtual"><scope>atomic_signpower</scope><name>for_sparse_jac</name></member>
+      <member refid="classatomic__signpower_1aeac2428396bcde7a5954dc1b88ae5ab9" prot="private" virt="non-virtual"><scope>atomic_signpower</scope><name>forward</name></member>
+      <member refid="classatomic__signpower_1a7ebd9803f1449cc239d5dffad6a7f80e" prot="private" virt="non-virtual"><scope>atomic_signpower</scope><name>rev_sparse_hes</name></member>
+      <member refid="classatomic__signpower_1af4a8554653d774c8531743497a094c01" prot="private" virt="non-virtual"><scope>atomic_signpower</scope><name>rev_sparse_jac</name></member>
+      <member refid="classatomic__signpower_1a02bc5bea9aee5f4c72f1b75d64391e2e" prot="private" virt="non-virtual"><scope>atomic_signpower</scope><name>reverse</name></member>
+      <member refid="classatomic__signpower_1a2a349d7709ce331b6268d810b3b75a85" prot="private" virt="virtual"><scope>atomic_signpower</scope><name>set_id</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

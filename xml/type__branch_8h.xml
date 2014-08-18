@@ -1,0 +1,1503 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="type__branch_8h" kind="file">
+    <compoundname>type_branch.h</compoundname>
+    <includes refid="def_8h" local="yes">scip/def.h</includes>
+    <includes refid="type__result_8h" local="yes">scip/type_result.h</includes>
+    <includes refid="type__scip_8h" local="yes">scip/type_scip.h</includes>
+    <includedby refid="pub__branch_8h" local="yes">pub_branch.h</includedby>
+    <includedby refid="scip_8h" local="yes">scip.h</includedby>
+    <incdepgraph>
+      <node id="15173">
+        <label>scip/type_scip.h</label>
+        <link refid="type__scip_8h"/>
+      </node>
+      <node id="15170">
+        <label>stdarg.h</label>
+      </node>
+      <node id="15167">
+        <label>assert.h</label>
+      </node>
+      <node id="15166">
+        <label>float.h</label>
+      </node>
+      <node id="15171">
+        <label>scip/type_message.h</label>
+        <link refid="type__message_8h"/>
+        <childnode refid="15163" relation="include">
+        </childnode>
+      </node>
+      <node id="15168">
+        <label>scip/type_retcode.h</label>
+        <link refid="type__retcode_8h"/>
+      </node>
+      <node id="15165">
+        <label>limits.h</label>
+      </node>
+      <node id="15172">
+        <label>scip/type_result.h</label>
+        <link refid="type__result_8h"/>
+      </node>
+      <node id="15169">
+        <label>scip/pub_message.h</label>
+        <link refid="pub__message_8h"/>
+        <childnode refid="15170" relation="include">
+        </childnode>
+        <childnode refid="15162" relation="include">
+        </childnode>
+        <childnode refid="15171" relation="include">
+        </childnode>
+      </node>
+      <node id="15164">
+        <label>math.h</label>
+      </node>
+      <node id="15162">
+        <label>scip/def.h</label>
+        <link refid="def_8h"/>
+        <childnode refid="15163" relation="include">
+        </childnode>
+        <childnode refid="15164" relation="include">
+        </childnode>
+        <childnode refid="15165" relation="include">
+        </childnode>
+        <childnode refid="15166" relation="include">
+        </childnode>
+        <childnode refid="15167" relation="include">
+        </childnode>
+        <childnode refid="15168" relation="include">
+        </childnode>
+        <childnode refid="15169" relation="include">
+        </childnode>
+      </node>
+      <node id="15161">
+        <label>type_branch.h</label>
+        <link refid="type_branch.h"/>
+        <childnode refid="15162" relation="include">
+        </childnode>
+        <childnode refid="15172" relation="include">
+        </childnode>
+        <childnode refid="15173" relation="include">
+        </childnode>
+      </node>
+      <node id="15163">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="15293">
+        <label>reader_wbo.h</label>
+        <link refid="reader__wbo_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15207">
+        <label>cons_soc.h</label>
+        <link refid="cons__soc_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15227">
+        <label>heur_linesearchdiving.h</label>
+        <link refid="heur__linesearchdiving_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15195">
+        <label>cons_indicator.h</label>
+        <link refid="cons__indicator_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15176">
+        <label>scip.h</label>
+        <link refid="scip_8h"/>
+        <childnode refid="15177" relation="include">
+        </childnode>
+        <childnode refid="15179" relation="include">
+        </childnode>
+        <childnode refid="15180" relation="include">
+        </childnode>
+        <childnode refid="15181" relation="include">
+        </childnode>
+        <childnode refid="15182" relation="include">
+        </childnode>
+        <childnode refid="15183" relation="include">
+        </childnode>
+        <childnode refid="15184" relation="include">
+        </childnode>
+        <childnode refid="15185" relation="include">
+        </childnode>
+        <childnode refid="15186" relation="include">
+        </childnode>
+        <childnode refid="15187" relation="include">
+        </childnode>
+        <childnode refid="15188" relation="include">
+        </childnode>
+        <childnode refid="15189" relation="include">
+        </childnode>
+        <childnode refid="15190" relation="include">
+        </childnode>
+        <childnode refid="15191" relation="include">
+        </childnode>
+        <childnode refid="15192" relation="include">
+        </childnode>
+        <childnode refid="15193" relation="include">
+        </childnode>
+        <childnode refid="15194" relation="include">
+        </childnode>
+        <childnode refid="15195" relation="include">
+        </childnode>
+        <childnode refid="15196" relation="include">
+        </childnode>
+        <childnode refid="15197" relation="include">
+        </childnode>
+        <childnode refid="15198" relation="include">
+        </childnode>
+        <childnode refid="15199" relation="include">
+        </childnode>
+        <childnode refid="15200" relation="include">
+        </childnode>
+        <childnode refid="15201" relation="include">
+        </childnode>
+        <childnode refid="15202" relation="include">
+        </childnode>
+        <childnode refid="15203" relation="include">
+        </childnode>
+        <childnode refid="15204" relation="include">
+        </childnode>
+        <childnode refid="15205" relation="include">
+        </childnode>
+        <childnode refid="15206" relation="include">
+        </childnode>
+        <childnode refid="15207" relation="include">
+        </childnode>
+        <childnode refid="15208" relation="include">
+        </childnode>
+        <childnode refid="15209" relation="include">
+        </childnode>
+        <childnode refid="15210" relation="include">
+        </childnode>
+        <childnode refid="15211" relation="include">
+        </childnode>
+        <childnode refid="15212" relation="include">
+        </childnode>
+        <childnode refid="15213" relation="include">
+        </childnode>
+        <childnode refid="15214" relation="include">
+        </childnode>
+        <childnode refid="15215" relation="include">
+        </childnode>
+        <childnode refid="15216" relation="include">
+        </childnode>
+        <childnode refid="15217" relation="include">
+        </childnode>
+        <childnode refid="15218" relation="include">
+        </childnode>
+        <childnode refid="15219" relation="include">
+        </childnode>
+        <childnode refid="15220" relation="include">
+        </childnode>
+        <childnode refid="15221" relation="include">
+        </childnode>
+        <childnode refid="15222" relation="include">
+        </childnode>
+        <childnode refid="15223" relation="include">
+        </childnode>
+        <childnode refid="15224" relation="include">
+        </childnode>
+        <childnode refid="15225" relation="include">
+        </childnode>
+        <childnode refid="15226" relation="include">
+        </childnode>
+        <childnode refid="15227" relation="include">
+        </childnode>
+        <childnode refid="15228" relation="include">
+        </childnode>
+        <childnode refid="15229" relation="include">
+        </childnode>
+        <childnode refid="15230" relation="include">
+        </childnode>
+        <childnode refid="15231" relation="include">
+        </childnode>
+        <childnode refid="15232" relation="include">
+        </childnode>
+        <childnode refid="15233" relation="include">
+        </childnode>
+        <childnode refid="15234" relation="include">
+        </childnode>
+        <childnode refid="15235" relation="include">
+        </childnode>
+        <childnode refid="15236" relation="include">
+        </childnode>
+        <childnode refid="15237" relation="include">
+        </childnode>
+        <childnode refid="15238" relation="include">
+        </childnode>
+        <childnode refid="15239" relation="include">
+        </childnode>
+        <childnode refid="15240" relation="include">
+        </childnode>
+        <childnode refid="15241" relation="include">
+        </childnode>
+        <childnode refid="15242" relation="include">
+        </childnode>
+        <childnode refid="15243" relation="include">
+        </childnode>
+        <childnode refid="15244" relation="include">
+        </childnode>
+        <childnode refid="15245" relation="include">
+        </childnode>
+        <childnode refid="15246" relation="include">
+        </childnode>
+        <childnode refid="15247" relation="include">
+        </childnode>
+        <childnode refid="15248" relation="include">
+        </childnode>
+        <childnode refid="15249" relation="include">
+        </childnode>
+        <childnode refid="15250" relation="include">
+        </childnode>
+        <childnode refid="15251" relation="include">
+        </childnode>
+        <childnode refid="15252" relation="include">
+        </childnode>
+        <childnode refid="15253" relation="include">
+        </childnode>
+        <childnode refid="15254" relation="include">
+        </childnode>
+        <childnode refid="15255" relation="include">
+        </childnode>
+        <childnode refid="15256" relation="include">
+        </childnode>
+        <childnode refid="15257" relation="include">
+        </childnode>
+        <childnode refid="15258" relation="include">
+        </childnode>
+        <childnode refid="15259" relation="include">
+        </childnode>
+        <childnode refid="15260" relation="include">
+        </childnode>
+        <childnode refid="15261" relation="include">
+        </childnode>
+        <childnode refid="15262" relation="include">
+        </childnode>
+        <childnode refid="15263" relation="include">
+        </childnode>
+        <childnode refid="15264" relation="include">
+        </childnode>
+        <childnode refid="15265" relation="include">
+        </childnode>
+        <childnode refid="15266" relation="include">
+        </childnode>
+        <childnode refid="15267" relation="include">
+        </childnode>
+        <childnode refid="15268" relation="include">
+        </childnode>
+        <childnode refid="15269" relation="include">
+        </childnode>
+        <childnode refid="15270" relation="include">
+        </childnode>
+        <childnode refid="15271" relation="include">
+        </childnode>
+        <childnode refid="15272" relation="include">
+        </childnode>
+        <childnode refid="15273" relation="include">
+        </childnode>
+        <childnode refid="15274" relation="include">
+        </childnode>
+        <childnode refid="15275" relation="include">
+        </childnode>
+        <childnode refid="15276" relation="include">
+        </childnode>
+        <childnode refid="15277" relation="include">
+        </childnode>
+        <childnode refid="15278" relation="include">
+        </childnode>
+        <childnode refid="15279" relation="include">
+        </childnode>
+        <childnode refid="15280" relation="include">
+        </childnode>
+        <childnode refid="15281" relation="include">
+        </childnode>
+        <childnode refid="15282" relation="include">
+        </childnode>
+        <childnode refid="15283" relation="include">
+        </childnode>
+        <childnode refid="15284" relation="include">
+        </childnode>
+        <childnode refid="15285" relation="include">
+        </childnode>
+        <childnode refid="15286" relation="include">
+        </childnode>
+        <childnode refid="15287" relation="include">
+        </childnode>
+        <childnode refid="15288" relation="include">
+        </childnode>
+        <childnode refid="15289" relation="include">
+        </childnode>
+        <childnode refid="15290" relation="include">
+        </childnode>
+        <childnode refid="15291" relation="include">
+        </childnode>
+        <childnode refid="15292" relation="include">
+        </childnode>
+        <childnode refid="15293" relation="include">
+        </childnode>
+        <childnode refid="15294" relation="include">
+        </childnode>
+        <childnode refid="15178" relation="include">
+        </childnode>
+        <childnode refid="15295" relation="include">
+        </childnode>
+        <childnode refid="15296" relation="include">
+        </childnode>
+        <childnode refid="15297" relation="include">
+        </childnode>
+        <childnode refid="15298" relation="include">
+        </childnode>
+        <childnode refid="15299" relation="include">
+        </childnode>
+        <childnode refid="15300" relation="include">
+        </childnode>
+        <childnode refid="15301" relation="include">
+        </childnode>
+        <childnode refid="15302" relation="include">
+        </childnode>
+        <childnode refid="15303" relation="include">
+        </childnode>
+        <childnode refid="15304" relation="include">
+        </childnode>
+        <childnode refid="15305" relation="include">
+        </childnode>
+        <childnode refid="15306" relation="include">
+        </childnode>
+        <childnode refid="15307" relation="include">
+        </childnode>
+      </node>
+      <node id="15235">
+        <label>heur_pscostdiving.h</label>
+        <link refid="heur__pscostdiving_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15187">
+        <label>cons_abspower.h</label>
+        <link refid="cons__abspower_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15288">
+        <label>reader_pbm.h</label>
+        <link refid="reader__pbm_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15262">
+        <label>presol_convertinttobin.h</label>
+        <link refid="presol__convertinttobin_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15253">
+        <label>nodesel_bfs.h</label>
+        <link refid="nodesel__bfs_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15295">
+        <label>sepa_cgmip.h</label>
+        <link refid="sepa__cgmip_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15265">
+        <label>presol_gateextraction.h</label>
+        <link refid="presol__gateextraction_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15277">
+        <label>reader_bnd.h</label>
+        <link refid="reader__bnd_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15200">
+        <label>cons_logicor.h</label>
+        <link refid="cons__logicor_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15232">
+        <label>heur_octane.h</label>
+        <link refid="heur__octane_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15223">
+        <label>heur_fracdiving.h</label>
+        <link refid="heur__fracdiving_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15257">
+        <label>nodesel_hybridestim.h</label>
+        <link refid="nodesel__hybridestim_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15192">
+        <label>cons_countsols.h</label>
+        <link refid="cons__countsols_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15198">
+        <label>cons_linear.h</label>
+        <link refid="cons__linear_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15239">
+        <label>heur_rootsoldiving.h</label>
+        <link refid="heur__rootsoldiving_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15267">
+        <label>presol_inttobinary.h</label>
+        <link refid="presol__inttobinary_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15218">
+        <label>heur_crossover.h</label>
+        <link refid="heur__crossover_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15255">
+        <label>nodesel_dfs.h</label>
+        <link refid="nodesel__dfs_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15305">
+        <label>sepa_rapidlearning.h</label>
+        <link refid="sepa__rapidlearning_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15210">
+        <label>cons_superindicator.h</label>
+        <link refid="cons__superindicator_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15189">
+        <label>cons_bivariate.h</label>
+        <link refid="cons__bivariate_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15250">
+        <label>heur_veclendiving.h</label>
+        <link refid="heur__veclendiving_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15281">
+        <label>reader_fix.h</label>
+        <link refid="reader__fix_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15300">
+        <label>sepa_gomory.h</label>
+        <link refid="sepa__gomory_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15234">
+        <label>heur_proximity.h</label>
+        <link refid="heur__proximity_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15306">
+        <label>sepa_strongcg.h</label>
+        <link refid="sepa__strongcg_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15289">
+        <label>reader_pip.h</label>
+        <link refid="reader__pip_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15270">
+        <label>prop_genvbounds.h</label>
+        <link refid="prop__genvbounds_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15290">
+        <label>reader_ppm.h</label>
+        <link refid="reader__ppm_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15214">
+        <label>disp_default.h</label>
+        <link refid="disp__default_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15177">
+        <label>branch_allfullstrong.h</label>
+        <link refid="branch__allfullstrong_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15220">
+        <label>heur_dualval.h</label>
+        <link refid="heur__dualval_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15183">
+        <label>branch_mostinf.h</label>
+        <link refid="branch__mostinf_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15179">
+        <label>branch_cloud.h</label>
+        <link refid="branch__cloud_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15180">
+        <label>branch_fullstrong.h</label>
+        <link refid="branch__fullstrong_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15247">
+        <label>heur_twoopt.h</label>
+        <link refid="heur__twoopt_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15294">
+        <label>reader_zpl.h</label>
+        <link refid="reader__zpl_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15286">
+        <label>reader_opb.h</label>
+        <link refid="reader__opb_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15203">
+        <label>cons_orbitope.h</label>
+        <link refid="cons__orbitope_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15263">
+        <label>presol_domcol.h</label>
+        <link refid="presol__domcol_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15216">
+        <label>heur_clique.h</label>
+        <link refid="heur__clique_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15238">
+        <label>heur_rins.h</label>
+        <link refid="heur__rins_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15304">
+        <label>sepa_oddcycle.h</label>
+        <link refid="sepa__oddcycle_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15219">
+        <label>heur_dins.h</label>
+        <link refid="heur__dins_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15193">
+        <label>cons_cumulative.h</label>
+        <link refid="cons__cumulative_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15307">
+        <label>sepa_zerohalf.h</label>
+        <link refid="sepa__zerohalf_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15245">
+        <label>heur_trivial.h</label>
+        <link refid="heur__trivial_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15285">
+        <label>reader_mps.h</label>
+        <link refid="reader__mps_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15217">
+        <label>heur_coefdiving.h</label>
+        <link refid="heur__coefdiving_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15222">
+        <label>heur_fixandinfer.h</label>
+        <link refid="heur__fixandinfer_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15178">
+        <label>scipdefplugins.h</label>
+        <link refid="scipdefplugins_8h"/>
+      </node>
+      <node id="15226">
+        <label>heur_intshifting.h</label>
+        <link refid="heur__intshifting_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15279">
+        <label>reader_cip.h</label>
+        <link refid="reader__cip_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15215">
+        <label>heur_actconsdiving.h</label>
+        <link refid="heur__actconsdiving_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15204">
+        <label>cons_pseudoboolean.h</label>
+        <link refid="cons__pseudoboolean_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15230">
+        <label>heur_nlpdiving.h</label>
+        <link refid="heur__nlpdiving_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15184">
+        <label>branch_pscost.h</label>
+        <link refid="branch__pscost_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15258">
+        <label>nodesel_restartdfs.h</label>
+        <link refid="nodesel__restartdfs_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15292">
+        <label>reader_sol.h</label>
+        <link refid="reader__sol_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15301">
+        <label>sepa_impliedbounds.h</label>
+        <link refid="sepa__impliedbounds_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15209">
+        <label>cons_sos2.h</label>
+        <link refid="cons__sos2_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15256">
+        <label>nodesel_estimate.h</label>
+        <link refid="nodesel__estimate_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15201">
+        <label>cons_nonlinear.h</label>
+        <link refid="cons__nonlinear_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15249">
+        <label>heur_vbounds.h</label>
+        <link refid="heur__vbounds_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15213">
+        <label>dialog_default.h</label>
+        <link refid="dialog__default_8h"/>
+      </node>
+      <node id="15291">
+        <label>reader_rlp.h</label>
+        <link refid="reader__rlp_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15284">
+        <label>reader_lp.h</label>
+        <link refid="reader__lp_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15237">
+        <label>heur_rens.h</label>
+        <link refid="heur__rens_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15252">
+        <label>heur_zirounding.h</label>
+        <link refid="heur__zirounding_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15225">
+        <label>heur_intdiving.h</label>
+        <link refid="heur__intdiving_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15182">
+        <label>branch_leastinf.h</label>
+        <link refid="branch__leastinf_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15186">
+        <label>branch_relpscost.h</label>
+        <link refid="branch__relpscost_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15268">
+        <label>presol_trivial.h</label>
+        <link refid="presol__trivial_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15181">
+        <label>branch_inference.h</label>
+        <link refid="branch__inference_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15185">
+        <label>branch_random.h</label>
+        <link refid="branch__random_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15264">
+        <label>presol_dualinfer.h</label>
+        <link refid="presol__dualinfer_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15205">
+        <label>cons_quadratic.h</label>
+        <link refid="cons__quadratic_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15287">
+        <label>reader_osil.h</label>
+        <link refid="reader__osil_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15302">
+        <label>sepa_intobj.h</label>
+        <link refid="sepa__intobj_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15221">
+        <label>heur_feaspump.h</label>
+        <link refid="heur__feaspump_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15254">
+        <label>nodesel_breadthfirst.h</label>
+        <link refid="nodesel__breadthfirst_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15261">
+        <label>presol_components.h</label>
+        <link refid="presol__components_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15242">
+        <label>heur_shifting.h</label>
+        <link refid="heur__shifting_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15236">
+        <label>heur_randrounding.h</label>
+        <link refid="heur__randrounding_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15251">
+        <label>heur_zeroobj.h</label>
+        <link refid="heur__zeroobj_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15228">
+        <label>heur_localbranching.h</label>
+        <link refid="heur__localbranching_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15273">
+        <label>prop_pseudoobj.h</label>
+        <link refid="prop__pseudoobj_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15212">
+        <label>cons_xor.h</label>
+        <link refid="cons__xor_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15280">
+        <label>reader_cnf.h</label>
+        <link refid="reader__cnf_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15275">
+        <label>prop_rootredcost.h</label>
+        <link refid="prop__rootredcost_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15266">
+        <label>presol_implics.h</label>
+        <link refid="presol__implics_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15241">
+        <label>heur_shiftandpropagate.h</label>
+        <link refid="heur__shiftandpropagate_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15240">
+        <label>heur_rounding.h</label>
+        <link refid="heur__rounding_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15278">
+        <label>reader_ccg.h</label>
+        <link refid="reader__ccg_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15276">
+        <label>prop_vbounds.h</label>
+        <link refid="prop__vbounds_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15190">
+        <label>cons_bounddisjunction.h</label>
+        <link refid="cons__bounddisjunction_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15246">
+        <label>heur_trysol.h</label>
+        <link refid="heur__trysol_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15283">
+        <label>reader_gms.h</label>
+        <link refid="reader__gms_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15202">
+        <label>cons_or.h</label>
+        <link refid="cons__or_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15194">
+        <label>cons_disjunction.h</label>
+        <link refid="cons__disjunction_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15196">
+        <label>cons_integral.h</label>
+        <link refid="cons__integral_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15206">
+        <label>cons_setppc.h</label>
+        <link refid="cons__setppc_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15208">
+        <label>cons_sos1.h</label>
+        <link refid="cons__sos1_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15274">
+        <label>prop_redcost.h</label>
+        <link refid="prop__redcost_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15199">
+        <label>cons_linking.h</label>
+        <link refid="cons__linking_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15211">
+        <label>cons_varbound.h</label>
+        <link refid="cons__varbound_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15244">
+        <label>heur_subnlp.h</label>
+        <link refid="heur__subnlp_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15233">
+        <label>heur_oneopt.h</label>
+        <link refid="heur__oneopt_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15282">
+        <label>reader_fzn.h</label>
+        <link refid="reader__fzn_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15224">
+        <label>heur_guideddiving.h</label>
+        <link refid="heur__guideddiving_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15248">
+        <label>heur_undercover.h</label>
+        <link refid="heur__undercover_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15191">
+        <label>cons_conjunction.h</label>
+        <link refid="cons__conjunction_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15296">
+        <label>sepa_clique.h</label>
+        <link refid="sepa__clique_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15260">
+        <label>presol_boundshift.h</label>
+        <link refid="presol__boundshift_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15272">
+        <label>prop_probing.h</label>
+        <link refid="prop__probing_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15259">
+        <label>nodesel_uct.h</label>
+        <link refid="nodesel__uct_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15297">
+        <label>sepa_closecuts.h</label>
+        <link refid="sepa__closecuts_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15188">
+        <label>cons_and.h</label>
+        <link refid="cons__and_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15174">
+        <label>type_branch.h</label>
+        <link refid="type_branch.h"/>
+        <childnode refid="15175" relation="include">
+        </childnode>
+        <childnode refid="15176" relation="include">
+        </childnode>
+      </node>
+      <node id="15231">
+        <label>heur_objpscostdiving.h</label>
+        <link refid="heur__objpscostdiving_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15271">
+        <label>prop_obbt.h</label>
+        <link refid="prop__obbt_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15303">
+        <label>sepa_mcf.h</label>
+        <link refid="sepa__mcf_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15229">
+        <label>heur_mutation.h</label>
+        <link refid="heur__mutation_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15243">
+        <label>heur_simplerounding.h</label>
+        <link refid="heur__simplerounding_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15298">
+        <label>sepa_cmir.h</label>
+        <link refid="sepa__cmir_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15269">
+        <label>prop_dualfix.h</label>
+        <link refid="prop__dualfix_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15175">
+        <label>pub_branch.h</label>
+        <link refid="pub__branch_8h"/>
+        <childnode refid="15176" relation="include">
+        </childnode>
+      </node>
+      <node id="15197">
+        <label>cons_knapsack.h</label>
+        <link refid="cons__knapsack_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+      <node id="15299">
+        <label>sepa_flowcover.h</label>
+        <link refid="sepa__flowcover_8h"/>
+        <childnode refid="15178" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="type__branch_8h_1ac6db6a68b502e989adabb7ae43b1eda3" prot="public" static="no">
+        <name>SCIP_DECL_BRANCHCOPY</name>
+        <param><defname>x</defname></param>
+        <initializer><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref> x (<ref refid="type__scip_8h_1a4792a242d315bf76f05b1f4e0712bc33" kindref="member">SCIP</ref>* scip, <ref refid="type__branch_8h_1ad7a1ef4885679e08d1661acff6409cc4" kindref="member">SCIP_BRANCHRULE</ref>* branchrule)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>copy method for branchrule plugins (called when SCIP copies plugins)</para><para>input:<itemizedlist>
+<listitem><para>scip : SCIP main data structure</para></listitem><listitem><para>branchrule : the branching rule itself </para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_branch.h" line="52" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_branch.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__branch_8h_1acb427cf8c4d82d9c44d7e614be8945f3" prot="public" static="no">
+        <name>SCIP_DECL_BRANCHFREE</name>
+        <param><defname>x</defname></param>
+        <initializer><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref> x (<ref refid="type__scip_8h_1a4792a242d315bf76f05b1f4e0712bc33" kindref="member">SCIP</ref>* scip, <ref refid="type__branch_8h_1ad7a1ef4885679e08d1661acff6409cc4" kindref="member">SCIP_BRANCHRULE</ref>* branchrule)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>destructor of branching method to free user data (called when SCIP is exiting)</para><para>input:<itemizedlist>
+<listitem><para>scip : SCIP main data structure</para></listitem><listitem><para>branchrule : the branching rule itself </para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_branch.h" line="60" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_branch.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__branch_8h_1aa37dbc020e827bdaaf485d42576123a9" prot="public" static="no">
+        <name>SCIP_DECL_BRANCHINIT</name>
+        <param><defname>x</defname></param>
+        <initializer><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref> x (<ref refid="type__scip_8h_1a4792a242d315bf76f05b1f4e0712bc33" kindref="member">SCIP</ref>* scip, <ref refid="type__branch_8h_1ad7a1ef4885679e08d1661acff6409cc4" kindref="member">SCIP_BRANCHRULE</ref>* branchrule)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>initialization method of branching rule (called after problem was transformed)</para><para>input:<itemizedlist>
+<listitem><para>scip : SCIP main data structure</para></listitem><listitem><para>branchrule : the branching rule itself </para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_branch.h" line="68" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_branch.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__branch_8h_1acadff6a17dc2daeef6b4cd2b79f1cb12" prot="public" static="no">
+        <name>SCIP_DECL_BRANCHEXIT</name>
+        <param><defname>x</defname></param>
+        <initializer><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref> x (<ref refid="type__scip_8h_1a4792a242d315bf76f05b1f4e0712bc33" kindref="member">SCIP</ref>* scip, <ref refid="type__branch_8h_1ad7a1ef4885679e08d1661acff6409cc4" kindref="member">SCIP_BRANCHRULE</ref>* branchrule)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>deinitialization method of branching rule (called before transformed problem is freed)</para><para>input:<itemizedlist>
+<listitem><para>scip : SCIP main data structure</para></listitem><listitem><para>branchrule : the branching rule itself </para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_branch.h" line="76" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_branch.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__branch_8h_1a5e9c129ee7c8e38aecd7f8916eed4666" prot="public" static="no">
+        <name>SCIP_DECL_BRANCHINITSOL</name>
+        <param><defname>x</defname></param>
+        <initializer><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref> x (<ref refid="type__scip_8h_1a4792a242d315bf76f05b1f4e0712bc33" kindref="member">SCIP</ref>* scip, <ref refid="type__branch_8h_1ad7a1ef4885679e08d1661acff6409cc4" kindref="member">SCIP_BRANCHRULE</ref>* branchrule)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>solving process initialization method of branching rule (called when branch and bound process is about to begin)</para><para>This method is called when the presolving was finished and the branch and bound process is about to begin. The branching rule may use this call to initialize its branch and bound specific data.</para><para>input:<itemizedlist>
+<listitem><para>scip : SCIP main data structure</para></listitem><listitem><para>branchrule : the branching rule itself </para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_branch.h" line="87" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_branch.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__branch_8h_1aeb1e8b80fffbf00e00189b1deaa04816" prot="public" static="no">
+        <name>SCIP_DECL_BRANCHEXITSOL</name>
+        <param><defname>x</defname></param>
+        <initializer><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref> x (<ref refid="type__scip_8h_1a4792a242d315bf76f05b1f4e0712bc33" kindref="member">SCIP</ref>* scip, <ref refid="type__branch_8h_1ad7a1ef4885679e08d1661acff6409cc4" kindref="member">SCIP_BRANCHRULE</ref>* branchrule)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>solving process deinitialization method of branching rule (called before branch and bound process data is freed)</para><para>This method is called before the branch and bound process is freed. The branching rule should use this call to clean up its branch and bound data.</para><para>input:<itemizedlist>
+<listitem><para>scip : SCIP main data structure</para></listitem><listitem><para>branchrule : the branching rule itself </para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_branch.h" line="98" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_branch.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__branch_8h_1a431c77bcbd592ef87be5fbf0ec21a2f1" prot="public" static="no">
+        <name>SCIP_DECL_BRANCHEXECLP</name>
+        <param><defname>x</defname></param>
+        <initializer><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref> x (<ref refid="type__scip_8h_1a4792a242d315bf76f05b1f4e0712bc33" kindref="member">SCIP</ref>* scip, <ref refid="type__branch_8h_1ad7a1ef4885679e08d1661acff6409cc4" kindref="member">SCIP_BRANCHRULE</ref>* branchrule, <ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref> allowaddcons, <ref refid="type__result_8h_1a6e9810021a07d59fc706fab113e634bb" kindref="member">SCIP_RESULT</ref>* result)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>branching execution method for fractional LP solutions</para><para>input:<itemizedlist>
+<listitem><para>scip : SCIP main data structure</para></listitem><listitem><para>branchrule : the branching rule itself</para></listitem><listitem><para>allowaddcons : is the branching rule allowed to add constraints to the current node in order to cut off the current solution instead of creating a branching?</para></listitem><listitem><para>result : pointer to store the result of the branching call</para></listitem></itemizedlist>
+</para><para>possible return values for *result (if more than one applies, the first in the list should be used):<itemizedlist>
+<listitem><para>SCIP_CUTOFF : the current node was detected to be infeasible</para></listitem><listitem><para>SCIP_CONSADDED : an additional constraint (e.g. a conflict constraint) was generated; this result code must not be returned, if allowaddcons is FALSE</para></listitem><listitem><para>SCIP_REDUCEDDOM : a domain was reduced that rendered the current LP solution infeasible</para></listitem><listitem><para>SCIP_SEPARATED : a cutting plane was generated</para></listitem><listitem><para>SCIP_BRANCHED : branching was applied</para></listitem><listitem><para>SCIP_DIDNOTFIND : the branching rule searched, but did not find a branching</para></listitem><listitem><para>SCIP_DIDNOTRUN : the branching rule was skipped </para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_branch.h" line="119" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_branch.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__branch_8h_1a47bf527ecab10bd124e7717a3131428f" prot="public" static="no">
+        <name>SCIP_DECL_BRANCHEXECEXT</name>
+        <param><defname>x</defname></param>
+        <initializer><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref> x (<ref refid="type__scip_8h_1a4792a242d315bf76f05b1f4e0712bc33" kindref="member">SCIP</ref>* scip, <ref refid="type__branch_8h_1ad7a1ef4885679e08d1661acff6409cc4" kindref="member">SCIP_BRANCHRULE</ref>* branchrule, <ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref> allowaddcons, <ref refid="type__result_8h_1a6e9810021a07d59fc706fab113e634bb" kindref="member">SCIP_RESULT</ref>* result)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>branching execution method for external candidates</para><para>input:<itemizedlist>
+<listitem><para>scip : SCIP main data structure</para></listitem><listitem><para>branchrule : the branching rule itself</para></listitem><listitem><para>allowaddcons : is the branching rule allowed to add constraints to the current node in order to cut off the current solution instead of creating a branching?</para></listitem><listitem><para>result : pointer to store the result of the branching call</para></listitem></itemizedlist>
+</para><para>possible return values for *result (if more than one applies, the first in the list should be used):<itemizedlist>
+<listitem><para>SCIP_CUTOFF : the current node was detected to be infeasible</para></listitem><listitem><para>SCIP_CONSADDED : an additional constraint (e.g. a conflict constraint) was generated; this result code must not be returned, if allowaddcons is FALSE</para></listitem><listitem><para>SCIP_REDUCEDDOM : a domain was reduced that rendered the current pseudo solution infeasible</para></listitem><listitem><para>SCIP_BRANCHED : branching was applied</para></listitem><listitem><para>SCIP_DIDNOTFIND : the branching rule searched, but did not find a branching</para></listitem><listitem><para>SCIP_DIDNOTRUN : the branching rule was skipped </para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_branch.h" line="140" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_branch.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__branch_8h_1a167b3381f1efeb3a65cfd460c45a5b2e" prot="public" static="no">
+        <name>SCIP_DECL_BRANCHEXECPS</name>
+        <param><defname>x</defname></param>
+        <initializer><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref> x (<ref refid="type__scip_8h_1a4792a242d315bf76f05b1f4e0712bc33" kindref="member">SCIP</ref>* scip, <ref refid="type__branch_8h_1ad7a1ef4885679e08d1661acff6409cc4" kindref="member">SCIP_BRANCHRULE</ref>* branchrule, <ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref> allowaddcons, <ref refid="type__result_8h_1a6e9810021a07d59fc706fab113e634bb" kindref="member">SCIP_RESULT</ref>* result)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>branching execution method for not completely fixed pseudo solutions</para><para>input:<itemizedlist>
+<listitem><para>scip : SCIP main data structure</para></listitem><listitem><para>branchrule : the branching rule itself</para></listitem><listitem><para>allowaddcons : is the branching rule allowed to add constraints to the current node in order to cut off the current solution instead of creating a branching?</para></listitem><listitem><para>result : pointer to store the result of the branching call</para></listitem></itemizedlist>
+</para><para>possible return values for *result (if more than one applies, the first in the list should be used):<itemizedlist>
+<listitem><para>SCIP_CUTOFF : the current node was detected to be infeasible</para></listitem><listitem><para>SCIP_CONSADDED : an additional constraint (e.g. a conflict constraint) was generated; this result code must not be returned, if allowaddcons is FALSE</para></listitem><listitem><para>SCIP_REDUCEDDOM : a domain was reduced that rendered the current pseudo solution infeasible</para></listitem><listitem><para>SCIP_BRANCHED : branching was applied</para></listitem><listitem><para>SCIP_DIDNOTFIND : the branching rule searched, but did not find a branching</para></listitem><listitem><para>SCIP_DIDNOTRUN : the branching rule was skipped </para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_branch.h" line="161" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_branch.h" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="type__branch_8h_1a9fbf53ca885c90b77cc111f117aec129" prot="public" static="no">
+        <type>struct SCIP_BranchCand</type>
+        <definition>typedef struct SCIP_BranchCand SCIP_BRANCHCAND</definition>
+        <argsstring></argsstring>
+        <name>SCIP_BRANCHCAND</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>branching candidate storage </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_branch.h" line="37" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_branch.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="type__branch_8h_1ad7a1ef4885679e08d1661acff6409cc4" prot="public" static="no">
+        <type>struct SCIP_Branchrule</type>
+        <definition>typedef struct SCIP_Branchrule SCIP_BRANCHRULE</definition>
+        <argsstring></argsstring>
+        <name>SCIP_BRANCHRULE</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>branching method data structure </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_branch.h" line="37" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_branch.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="type__branch_8h_1ad8162ab474c0a3151abeccc89f3172ca" prot="public" static="no">
+        <type>struct SCIP_BranchruleData</type>
+        <definition>typedef struct SCIP_BranchruleData SCIP_BRANCHRULEDATA</definition>
+        <argsstring></argsstring>
+        <name>SCIP_BRANCHRULEDATA</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>branching method specific data </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_branch.h" line="37" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_branch.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>type definitions for branching rules </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Tobias Achterberg</para></simplesect>
+This file defines the interface for branching rules implemented in C.</para><para><itemizedlist>
+<listitem><para>Instructions for implementing a branching rule</para></listitem><listitem><para>List of available branching rule</para></listitem><listitem><para>C++ wrapper class </para></listitem></itemizedlist>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>This<sp/>file<sp/>is<sp/>part<sp/>of<sp/>the<sp/>program<sp/>and<sp/>library<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SCIP<sp/>---<sp/>Solving<sp/>Constraint<sp/>Integer<sp/>Programs<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/>Copyright<sp/>(C)<sp/>2002-2014<sp/>Konrad-Zuse-Zentrum<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fuer<sp/>Informationstechnik<sp/>Berlin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>SCIP<sp/>is<sp/>distributed<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>ZIB<sp/>Academic<sp/>License.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>You<sp/>should<sp/>have<sp/>received<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>ZIB<sp/>Academic<sp/>License<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>along<sp/>with<sp/>SCIP;<sp/>see<sp/>the<sp/>file<sp/>COPYING.<sp/>If<sp/>not<sp/>email<sp/>to<sp/>scip@zib.de.<sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="16"><highlight class="comment">/**@file<sp/><sp/><sp/>type_branch.h</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>@ingroup<sp/>TYPEDEFINITIONS</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>@brief<sp/><sp/>type<sp/>definitions<sp/>for<sp/>branching<sp/>rules</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>@author<sp/>Tobias<sp/>Achterberg</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/><sp/>This<sp/>file<sp/>defines<sp/>the<sp/>interface<sp/>for<sp/>branching<sp/>rules<sp/>implemented<sp/>in<sp/>C.</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>\ref<sp/>BRANCH<sp/>&quot;Instructions<sp/>for<sp/>implementing<sp/>a<sp/>branching<sp/>rule&quot;</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>\ref<sp/>PRIMALHEURISTICS<sp/>&quot;List<sp/>of<sp/>available<sp/>branching<sp/>rule&quot;</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>\ref<sp/>scip::ObjBranchrule<sp/>&quot;C++<sp/>wrapper<sp/>class&quot;</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment">/*---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8----+----9----+----0----+----1----+----2*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>__SCIP_TYPE_BRANCH_H__</highlight></codeline>
+<codeline lineno="31"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>__SCIP_TYPE_BRANCH_H__</highlight></codeline>
+<codeline lineno="32"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="def_8h" kindref="compound">scip/def.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="type__result_8h" kindref="compound">scip/type_result.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="type__scip_8h" kindref="compound">scip/type_scip.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight></codeline>
+<codeline lineno="38"><highlight class="preprocessor"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="40"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="type__branch_8h_1a9fbf53ca885c90b77cc111f117aec129" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">SCIP_BranchCand<sp/><ref refid="type__branch_8h_1a9fbf53ca885c90b77cc111f117aec129" kindref="member">SCIP_BRANCHCAND</ref>;<sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>branching<sp/>candidate<sp/>storage<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="type__branch_8h_1ad7a1ef4885679e08d1661acff6409cc4" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">SCIP_Branchrule<sp/><ref refid="type__branch_8h_1ad7a1ef4885679e08d1661acff6409cc4" kindref="member">SCIP_BRANCHRULE</ref>;<sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>branching<sp/>method<sp/>data<sp/>structure<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="type__branch_8h_1ad8162ab474c0a3151abeccc89f3172ca" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">SCIP_BranchruleData<sp/><ref refid="type__branch_8h_1ad8162ab474c0a3151abeccc89f3172ca" kindref="member">SCIP_BRANCHRULEDATA</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>branching<sp/>method<sp/>specific<sp/>data<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="46"><highlight class="comment">/**<sp/>copy<sp/>method<sp/>for<sp/>branchrule<sp/>plugins<sp/>(called<sp/>when<sp/>SCIP<sp/>copies<sp/>plugins)</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*<sp/><sp/>input:</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>scip<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>SCIP<sp/>main<sp/>data<sp/>structure</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>branchrule<sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>the<sp/>branching<sp/>rule<sp/>itself</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="type__branch_8h_1ac6db6a68b502e989adabb7ae43b1eda3" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIP_DECL_BRANCHCOPY(x)<sp/>SCIP_RETCODE<sp/>x<sp/>(SCIP*<sp/>scip,<sp/>SCIP_BRANCHRULE*<sp/>branchrule)</highlight></codeline>
+<codeline lineno="53"><highlight class="preprocessor"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="54"><highlight class="comment">/**<sp/>destructor<sp/>of<sp/>branching<sp/>method<sp/>to<sp/>free<sp/>user<sp/>data<sp/>(called<sp/>when<sp/>SCIP<sp/>is<sp/>exiting)</highlight></codeline>
+<codeline lineno="55"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/>*<sp/><sp/>input:</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>scip<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>SCIP<sp/>main<sp/>data<sp/>structure</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>branchrule<sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>the<sp/>branching<sp/>rule<sp/>itself</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="type__branch_8h_1acb427cf8c4d82d9c44d7e614be8945f3" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIP_DECL_BRANCHFREE(x)<sp/>SCIP_RETCODE<sp/>x<sp/>(SCIP*<sp/>scip,<sp/>SCIP_BRANCHRULE*<sp/>branchrule)</highlight></codeline>
+<codeline lineno="61"><highlight class="preprocessor"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="62"><highlight class="comment">/**<sp/>initialization<sp/>method<sp/>of<sp/>branching<sp/>rule<sp/>(called<sp/>after<sp/>problem<sp/>was<sp/>transformed)</highlight></codeline>
+<codeline lineno="63"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/>*<sp/><sp/>input:</highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>scip<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>SCIP<sp/>main<sp/>data<sp/>structure</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>branchrule<sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>the<sp/>branching<sp/>rule<sp/>itself</highlight></codeline>
+<codeline lineno="67"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68" refid="type__branch_8h_1aa37dbc020e827bdaaf485d42576123a9" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIP_DECL_BRANCHINIT(x)<sp/>SCIP_RETCODE<sp/>x<sp/>(SCIP*<sp/>scip,<sp/>SCIP_BRANCHRULE*<sp/>branchrule)</highlight></codeline>
+<codeline lineno="69"><highlight class="preprocessor"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="70"><highlight class="comment">/**<sp/>deinitialization<sp/>method<sp/>of<sp/>branching<sp/>rule<sp/>(called<sp/>before<sp/>transformed<sp/>problem<sp/>is<sp/>freed)</highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/>*<sp/><sp/>input:</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>scip<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>SCIP<sp/>main<sp/>data<sp/>structure</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>branchrule<sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>the<sp/>branching<sp/>rule<sp/>itself</highlight></codeline>
+<codeline lineno="75"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76" refid="type__branch_8h_1acadff6a17dc2daeef6b4cd2b79f1cb12" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIP_DECL_BRANCHEXIT(x)<sp/>SCIP_RETCODE<sp/>x<sp/>(SCIP*<sp/>scip,<sp/>SCIP_BRANCHRULE*<sp/>branchrule)</highlight></codeline>
+<codeline lineno="77"><highlight class="preprocessor"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="78"><highlight class="comment">/**<sp/>solving<sp/>process<sp/>initialization<sp/>method<sp/>of<sp/>branching<sp/>rule<sp/>(called<sp/>when<sp/>branch<sp/>and<sp/>bound<sp/>process<sp/>is<sp/>about<sp/>to<sp/>begin)</highlight></codeline>
+<codeline lineno="79"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/>*<sp/><sp/>This<sp/>method<sp/>is<sp/>called<sp/>when<sp/>the<sp/>presolving<sp/>was<sp/>finished<sp/>and<sp/>the<sp/>branch<sp/>and<sp/>bound<sp/>process<sp/>is<sp/>about<sp/>to<sp/>begin.</highlight></codeline>
+<codeline lineno="81"><highlight class="comment"><sp/>*<sp/><sp/>The<sp/>branching<sp/>rule<sp/>may<sp/>use<sp/>this<sp/>call<sp/>to<sp/>initialize<sp/>its<sp/>branch<sp/>and<sp/>bound<sp/>specific<sp/>data.</highlight></codeline>
+<codeline lineno="82"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="83"><highlight class="comment"><sp/>*<sp/><sp/>input:</highlight></codeline>
+<codeline lineno="84"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>scip<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>SCIP<sp/>main<sp/>data<sp/>structure</highlight></codeline>
+<codeline lineno="85"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>branchrule<sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>the<sp/>branching<sp/>rule<sp/>itself</highlight></codeline>
+<codeline lineno="86"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87" refid="type__branch_8h_1a5e9c129ee7c8e38aecd7f8916eed4666" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIP_DECL_BRANCHINITSOL(x)<sp/>SCIP_RETCODE<sp/>x<sp/>(SCIP*<sp/>scip,<sp/>SCIP_BRANCHRULE*<sp/>branchrule)</highlight></codeline>
+<codeline lineno="88"><highlight class="preprocessor"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="89"><highlight class="comment">/**<sp/>solving<sp/>process<sp/>deinitialization<sp/>method<sp/>of<sp/>branching<sp/>rule<sp/>(called<sp/>before<sp/>branch<sp/>and<sp/>bound<sp/>process<sp/>data<sp/>is<sp/>freed)</highlight></codeline>
+<codeline lineno="90"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="91"><highlight class="comment"><sp/>*<sp/><sp/>This<sp/>method<sp/>is<sp/>called<sp/>before<sp/>the<sp/>branch<sp/>and<sp/>bound<sp/>process<sp/>is<sp/>freed.</highlight></codeline>
+<codeline lineno="92"><highlight class="comment"><sp/>*<sp/><sp/>The<sp/>branching<sp/>rule<sp/>should<sp/>use<sp/>this<sp/>call<sp/>to<sp/>clean<sp/>up<sp/>its<sp/>branch<sp/>and<sp/>bound<sp/>data.</highlight></codeline>
+<codeline lineno="93"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="94"><highlight class="comment"><sp/>*<sp/><sp/>input:</highlight></codeline>
+<codeline lineno="95"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>scip<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>SCIP<sp/>main<sp/>data<sp/>structure</highlight></codeline>
+<codeline lineno="96"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>branchrule<sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>the<sp/>branching<sp/>rule<sp/>itself</highlight></codeline>
+<codeline lineno="97"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98" refid="type__branch_8h_1aeb1e8b80fffbf00e00189b1deaa04816" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIP_DECL_BRANCHEXITSOL(x)<sp/>SCIP_RETCODE<sp/>x<sp/>(SCIP*<sp/>scip,<sp/>SCIP_BRANCHRULE*<sp/>branchrule)</highlight></codeline>
+<codeline lineno="99"><highlight class="preprocessor"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="100"><highlight class="comment">/**<sp/>branching<sp/>execution<sp/>method<sp/>for<sp/>fractional<sp/>LP<sp/>solutions</highlight></codeline>
+<codeline lineno="101"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="102"><highlight class="comment"><sp/>*<sp/><sp/>input:</highlight></codeline>
+<codeline lineno="103"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>scip<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>SCIP<sp/>main<sp/>data<sp/>structure</highlight></codeline>
+<codeline lineno="104"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>branchrule<sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>the<sp/>branching<sp/>rule<sp/>itself</highlight></codeline>
+<codeline lineno="105"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>allowaddcons<sp/><sp/><sp/><sp/>:<sp/>is<sp/>the<sp/>branching<sp/>rule<sp/>allowed<sp/>to<sp/>add<sp/>constraints<sp/>to<sp/>the<sp/>current<sp/>node<sp/>in<sp/>order<sp/>to<sp/>cut<sp/>off<sp/>the</highlight></codeline>
+<codeline lineno="106"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>current<sp/>solution<sp/>instead<sp/>of<sp/>creating<sp/>a<sp/>branching?</highlight></codeline>
+<codeline lineno="107"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>result<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>pointer<sp/>to<sp/>store<sp/>the<sp/>result<sp/>of<sp/>the<sp/>branching<sp/>call</highlight></codeline>
+<codeline lineno="108"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="109"><highlight class="comment"><sp/>*<sp/><sp/>possible<sp/>return<sp/>values<sp/>for<sp/>*result<sp/>(if<sp/>more<sp/>than<sp/>one<sp/>applies,<sp/>the<sp/>first<sp/>in<sp/>the<sp/>list<sp/>should<sp/>be<sp/>used):</highlight></codeline>
+<codeline lineno="110"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>SCIP_CUTOFF<sp/><sp/><sp/><sp/><sp/>:<sp/>the<sp/>current<sp/>node<sp/>was<sp/>detected<sp/>to<sp/>be<sp/>infeasible</highlight></codeline>
+<codeline lineno="111"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>SCIP_CONSADDED<sp/><sp/>:<sp/>an<sp/>additional<sp/>constraint<sp/>(e.g.<sp/>a<sp/>conflict<sp/>constraint)<sp/>was<sp/>generated;<sp/>this<sp/>result<sp/>code<sp/>must<sp/>not<sp/>be</highlight></codeline>
+<codeline lineno="112"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>returned,<sp/>if<sp/>allowaddcons<sp/>is<sp/>FALSE</highlight></codeline>
+<codeline lineno="113"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>SCIP_REDUCEDDOM<sp/>:<sp/>a<sp/>domain<sp/>was<sp/>reduced<sp/>that<sp/>rendered<sp/>the<sp/>current<sp/>LP<sp/>solution<sp/>infeasible</highlight></codeline>
+<codeline lineno="114"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>SCIP_SEPARATED<sp/><sp/>:<sp/>a<sp/>cutting<sp/>plane<sp/>was<sp/>generated</highlight></codeline>
+<codeline lineno="115"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>SCIP_BRANCHED<sp/><sp/><sp/>:<sp/>branching<sp/>was<sp/>applied</highlight></codeline>
+<codeline lineno="116"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>SCIP_DIDNOTFIND<sp/>:<sp/>the<sp/>branching<sp/>rule<sp/>searched,<sp/>but<sp/>did<sp/>not<sp/>find<sp/>a<sp/>branching</highlight></codeline>
+<codeline lineno="117"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>SCIP_DIDNOTRUN<sp/><sp/>:<sp/>the<sp/>branching<sp/>rule<sp/>was<sp/>skipped</highlight></codeline>
+<codeline lineno="118"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119" refid="type__branch_8h_1a431c77bcbd592ef87be5fbf0ec21a2f1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIP_DECL_BRANCHEXECLP(x)<sp/>SCIP_RETCODE<sp/>x<sp/>(SCIP*<sp/>scip,<sp/>SCIP_BRANCHRULE*<sp/>branchrule,<sp/>SCIP_Bool<sp/>allowaddcons,<sp/>SCIP_RESULT*<sp/>result)</highlight></codeline>
+<codeline lineno="120"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="122"><highlight class="comment">/**<sp/>branching<sp/>execution<sp/>method<sp/>for<sp/>external<sp/>candidates</highlight></codeline>
+<codeline lineno="123"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="124"><highlight class="comment"><sp/>*<sp/><sp/>input:</highlight></codeline>
+<codeline lineno="125"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>scip<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>SCIP<sp/>main<sp/>data<sp/>structure</highlight></codeline>
+<codeline lineno="126"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>branchrule<sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>the<sp/>branching<sp/>rule<sp/>itself</highlight></codeline>
+<codeline lineno="127"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>allowaddcons<sp/><sp/><sp/><sp/>:<sp/>is<sp/>the<sp/>branching<sp/>rule<sp/>allowed<sp/>to<sp/>add<sp/>constraints<sp/>to<sp/>the<sp/>current<sp/>node<sp/>in<sp/>order<sp/>to<sp/>cut<sp/>off<sp/>the</highlight></codeline>
+<codeline lineno="128"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>current<sp/>solution<sp/>instead<sp/>of<sp/>creating<sp/>a<sp/>branching?</highlight></codeline>
+<codeline lineno="129"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>result<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>pointer<sp/>to<sp/>store<sp/>the<sp/>result<sp/>of<sp/>the<sp/>branching<sp/>call</highlight></codeline>
+<codeline lineno="130"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="131"><highlight class="comment"><sp/>*<sp/><sp/>possible<sp/>return<sp/>values<sp/>for<sp/>*result<sp/>(if<sp/>more<sp/>than<sp/>one<sp/>applies,<sp/>the<sp/>first<sp/>in<sp/>the<sp/>list<sp/>should<sp/>be<sp/>used):</highlight></codeline>
+<codeline lineno="132"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>SCIP_CUTOFF<sp/><sp/><sp/><sp/><sp/>:<sp/>the<sp/>current<sp/>node<sp/>was<sp/>detected<sp/>to<sp/>be<sp/>infeasible</highlight></codeline>
+<codeline lineno="133"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>SCIP_CONSADDED<sp/><sp/>:<sp/>an<sp/>additional<sp/>constraint<sp/>(e.g.<sp/>a<sp/>conflict<sp/>constraint)<sp/>was<sp/>generated;<sp/>this<sp/>result<sp/>code<sp/>must<sp/>not<sp/>be</highlight></codeline>
+<codeline lineno="134"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>returned,<sp/>if<sp/>allowaddcons<sp/>is<sp/>FALSE</highlight></codeline>
+<codeline lineno="135"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>SCIP_REDUCEDDOM<sp/>:<sp/>a<sp/>domain<sp/>was<sp/>reduced<sp/>that<sp/>rendered<sp/>the<sp/>current<sp/>pseudo<sp/>solution<sp/>infeasible</highlight></codeline>
+<codeline lineno="136"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>SCIP_BRANCHED<sp/><sp/><sp/>:<sp/>branching<sp/>was<sp/>applied</highlight></codeline>
+<codeline lineno="137"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>SCIP_DIDNOTFIND<sp/>:<sp/>the<sp/>branching<sp/>rule<sp/>searched,<sp/>but<sp/>did<sp/>not<sp/>find<sp/>a<sp/>branching</highlight></codeline>
+<codeline lineno="138"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>SCIP_DIDNOTRUN<sp/><sp/>:<sp/>the<sp/>branching<sp/>rule<sp/>was<sp/>skipped</highlight></codeline>
+<codeline lineno="139"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140" refid="type__branch_8h_1a47bf527ecab10bd124e7717a3131428f" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIP_DECL_BRANCHEXECEXT(x)<sp/>SCIP_RETCODE<sp/>x<sp/>(SCIP*<sp/>scip,<sp/>SCIP_BRANCHRULE*<sp/>branchrule,<sp/>SCIP_Bool<sp/>allowaddcons,<sp/>SCIP_RESULT*<sp/>result)</highlight></codeline>
+<codeline lineno="141"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="143"><highlight class="comment">/**<sp/>branching<sp/>execution<sp/>method<sp/>for<sp/>not<sp/>completely<sp/>fixed<sp/>pseudo<sp/>solutions</highlight></codeline>
+<codeline lineno="144"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="145"><highlight class="comment"><sp/>*<sp/><sp/>input:</highlight></codeline>
+<codeline lineno="146"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>scip<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>SCIP<sp/>main<sp/>data<sp/>structure</highlight></codeline>
+<codeline lineno="147"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>branchrule<sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>the<sp/>branching<sp/>rule<sp/>itself</highlight></codeline>
+<codeline lineno="148"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>allowaddcons<sp/><sp/><sp/><sp/>:<sp/>is<sp/>the<sp/>branching<sp/>rule<sp/>allowed<sp/>to<sp/>add<sp/>constraints<sp/>to<sp/>the<sp/>current<sp/>node<sp/>in<sp/>order<sp/>to<sp/>cut<sp/>off<sp/>the</highlight></codeline>
+<codeline lineno="149"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>current<sp/>solution<sp/>instead<sp/>of<sp/>creating<sp/>a<sp/>branching?</highlight></codeline>
+<codeline lineno="150"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>result<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>pointer<sp/>to<sp/>store<sp/>the<sp/>result<sp/>of<sp/>the<sp/>branching<sp/>call</highlight></codeline>
+<codeline lineno="151"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="152"><highlight class="comment"><sp/>*<sp/><sp/>possible<sp/>return<sp/>values<sp/>for<sp/>*result<sp/>(if<sp/>more<sp/>than<sp/>one<sp/>applies,<sp/>the<sp/>first<sp/>in<sp/>the<sp/>list<sp/>should<sp/>be<sp/>used):</highlight></codeline>
+<codeline lineno="153"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>SCIP_CUTOFF<sp/><sp/><sp/><sp/><sp/>:<sp/>the<sp/>current<sp/>node<sp/>was<sp/>detected<sp/>to<sp/>be<sp/>infeasible</highlight></codeline>
+<codeline lineno="154"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>SCIP_CONSADDED<sp/><sp/>:<sp/>an<sp/>additional<sp/>constraint<sp/>(e.g.<sp/>a<sp/>conflict<sp/>constraint)<sp/>was<sp/>generated;<sp/>this<sp/>result<sp/>code<sp/>must<sp/>not<sp/>be</highlight></codeline>
+<codeline lineno="155"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>returned,<sp/>if<sp/>allowaddcons<sp/>is<sp/>FALSE</highlight></codeline>
+<codeline lineno="156"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>SCIP_REDUCEDDOM<sp/>:<sp/>a<sp/>domain<sp/>was<sp/>reduced<sp/>that<sp/>rendered<sp/>the<sp/>current<sp/>pseudo<sp/>solution<sp/>infeasible</highlight></codeline>
+<codeline lineno="157"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>SCIP_BRANCHED<sp/><sp/><sp/>:<sp/>branching<sp/>was<sp/>applied</highlight></codeline>
+<codeline lineno="158"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>SCIP_DIDNOTFIND<sp/>:<sp/>the<sp/>branching<sp/>rule<sp/>searched,<sp/>but<sp/>did<sp/>not<sp/>find<sp/>a<sp/>branching</highlight></codeline>
+<codeline lineno="159"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>SCIP_DIDNOTRUN<sp/><sp/>:<sp/>the<sp/>branching<sp/>rule<sp/>was<sp/>skipped</highlight></codeline>
+<codeline lineno="160"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161" refid="type__branch_8h_1a167b3381f1efeb3a65cfd460c45a5b2e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIP_DECL_BRANCHEXECPS(x)<sp/>SCIP_RETCODE<sp/>x<sp/>(SCIP*<sp/>scip,<sp/>SCIP_BRANCHRULE*<sp/>branchrule,<sp/>SCIP_Bool<sp/>allowaddcons,<sp/>SCIP_RESULT*<sp/>result)</highlight></codeline>
+<codeline lineno="162"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight></codeline>
+<codeline lineno="164"><highlight class="preprocessor"></highlight><highlight class="normal">}</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="166"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_branch.h"/>
+  </compounddef>
+</doxygen>

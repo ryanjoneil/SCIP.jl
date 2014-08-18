@@ -1,0 +1,2364 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="type__event_8h" kind="file">
+    <compoundname>type_event.h</compoundname>
+    <includes refid="def_8h" local="yes">scip/def.h</includes>
+    <includes refid="type__retcode_8h" local="yes">scip/type_retcode.h</includes>
+    <includes refid="type__scip_8h" local="yes">scip/type_scip.h</includes>
+    <includedby refid="pub__event_8h" local="yes">pub_event.h</includedby>
+    <includedby refid="scip_8h" local="yes">scip.h</includedby>
+    <incdepgraph>
+      <node id="16190">
+        <label>scip/type_scip.h</label>
+        <link refid="type__scip_8h"/>
+      </node>
+      <node id="16188">
+        <label>stdarg.h</label>
+      </node>
+      <node id="16185">
+        <label>assert.h</label>
+      </node>
+      <node id="16184">
+        <label>float.h</label>
+      </node>
+      <node id="16189">
+        <label>scip/type_message.h</label>
+        <link refid="type__message_8h"/>
+        <childnode refid="16181" relation="include">
+        </childnode>
+      </node>
+      <node id="16186">
+        <label>scip/type_retcode.h</label>
+        <link refid="type__retcode_8h"/>
+      </node>
+      <node id="16183">
+        <label>limits.h</label>
+      </node>
+      <node id="16187">
+        <label>scip/pub_message.h</label>
+        <link refid="pub__message_8h"/>
+        <childnode refid="16188" relation="include">
+        </childnode>
+        <childnode refid="16180" relation="include">
+        </childnode>
+        <childnode refid="16189" relation="include">
+        </childnode>
+      </node>
+      <node id="16179">
+        <label>type_event.h</label>
+        <link refid="type_event.h"/>
+        <childnode refid="16180" relation="include">
+        </childnode>
+        <childnode refid="16186" relation="include">
+        </childnode>
+        <childnode refid="16190" relation="include">
+        </childnode>
+      </node>
+      <node id="16182">
+        <label>math.h</label>
+      </node>
+      <node id="16180">
+        <label>scip/def.h</label>
+        <link refid="def_8h"/>
+        <childnode refid="16181" relation="include">
+        </childnode>
+        <childnode refid="16182" relation="include">
+        </childnode>
+        <childnode refid="16183" relation="include">
+        </childnode>
+        <childnode refid="16184" relation="include">
+        </childnode>
+        <childnode refid="16185" relation="include">
+        </childnode>
+        <childnode refid="16186" relation="include">
+        </childnode>
+        <childnode refid="16187" relation="include">
+        </childnode>
+      </node>
+      <node id="16181">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="16310">
+        <label>reader_wbo.h</label>
+        <link refid="reader__wbo_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16224">
+        <label>cons_soc.h</label>
+        <link refid="cons__soc_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16244">
+        <label>heur_linesearchdiving.h</label>
+        <link refid="heur__linesearchdiving_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16212">
+        <label>cons_indicator.h</label>
+        <link refid="cons__indicator_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16193">
+        <label>scip.h</label>
+        <link refid="scip_8h"/>
+        <childnode refid="16194" relation="include">
+        </childnode>
+        <childnode refid="16196" relation="include">
+        </childnode>
+        <childnode refid="16197" relation="include">
+        </childnode>
+        <childnode refid="16198" relation="include">
+        </childnode>
+        <childnode refid="16199" relation="include">
+        </childnode>
+        <childnode refid="16200" relation="include">
+        </childnode>
+        <childnode refid="16201" relation="include">
+        </childnode>
+        <childnode refid="16202" relation="include">
+        </childnode>
+        <childnode refid="16203" relation="include">
+        </childnode>
+        <childnode refid="16204" relation="include">
+        </childnode>
+        <childnode refid="16205" relation="include">
+        </childnode>
+        <childnode refid="16206" relation="include">
+        </childnode>
+        <childnode refid="16207" relation="include">
+        </childnode>
+        <childnode refid="16208" relation="include">
+        </childnode>
+        <childnode refid="16209" relation="include">
+        </childnode>
+        <childnode refid="16210" relation="include">
+        </childnode>
+        <childnode refid="16211" relation="include">
+        </childnode>
+        <childnode refid="16212" relation="include">
+        </childnode>
+        <childnode refid="16213" relation="include">
+        </childnode>
+        <childnode refid="16214" relation="include">
+        </childnode>
+        <childnode refid="16215" relation="include">
+        </childnode>
+        <childnode refid="16216" relation="include">
+        </childnode>
+        <childnode refid="16217" relation="include">
+        </childnode>
+        <childnode refid="16218" relation="include">
+        </childnode>
+        <childnode refid="16219" relation="include">
+        </childnode>
+        <childnode refid="16220" relation="include">
+        </childnode>
+        <childnode refid="16221" relation="include">
+        </childnode>
+        <childnode refid="16222" relation="include">
+        </childnode>
+        <childnode refid="16223" relation="include">
+        </childnode>
+        <childnode refid="16224" relation="include">
+        </childnode>
+        <childnode refid="16225" relation="include">
+        </childnode>
+        <childnode refid="16226" relation="include">
+        </childnode>
+        <childnode refid="16227" relation="include">
+        </childnode>
+        <childnode refid="16228" relation="include">
+        </childnode>
+        <childnode refid="16229" relation="include">
+        </childnode>
+        <childnode refid="16230" relation="include">
+        </childnode>
+        <childnode refid="16231" relation="include">
+        </childnode>
+        <childnode refid="16232" relation="include">
+        </childnode>
+        <childnode refid="16233" relation="include">
+        </childnode>
+        <childnode refid="16234" relation="include">
+        </childnode>
+        <childnode refid="16235" relation="include">
+        </childnode>
+        <childnode refid="16236" relation="include">
+        </childnode>
+        <childnode refid="16237" relation="include">
+        </childnode>
+        <childnode refid="16238" relation="include">
+        </childnode>
+        <childnode refid="16239" relation="include">
+        </childnode>
+        <childnode refid="16240" relation="include">
+        </childnode>
+        <childnode refid="16241" relation="include">
+        </childnode>
+        <childnode refid="16242" relation="include">
+        </childnode>
+        <childnode refid="16243" relation="include">
+        </childnode>
+        <childnode refid="16244" relation="include">
+        </childnode>
+        <childnode refid="16245" relation="include">
+        </childnode>
+        <childnode refid="16246" relation="include">
+        </childnode>
+        <childnode refid="16247" relation="include">
+        </childnode>
+        <childnode refid="16248" relation="include">
+        </childnode>
+        <childnode refid="16249" relation="include">
+        </childnode>
+        <childnode refid="16250" relation="include">
+        </childnode>
+        <childnode refid="16251" relation="include">
+        </childnode>
+        <childnode refid="16252" relation="include">
+        </childnode>
+        <childnode refid="16253" relation="include">
+        </childnode>
+        <childnode refid="16254" relation="include">
+        </childnode>
+        <childnode refid="16255" relation="include">
+        </childnode>
+        <childnode refid="16256" relation="include">
+        </childnode>
+        <childnode refid="16257" relation="include">
+        </childnode>
+        <childnode refid="16258" relation="include">
+        </childnode>
+        <childnode refid="16259" relation="include">
+        </childnode>
+        <childnode refid="16260" relation="include">
+        </childnode>
+        <childnode refid="16261" relation="include">
+        </childnode>
+        <childnode refid="16262" relation="include">
+        </childnode>
+        <childnode refid="16263" relation="include">
+        </childnode>
+        <childnode refid="16264" relation="include">
+        </childnode>
+        <childnode refid="16265" relation="include">
+        </childnode>
+        <childnode refid="16266" relation="include">
+        </childnode>
+        <childnode refid="16267" relation="include">
+        </childnode>
+        <childnode refid="16268" relation="include">
+        </childnode>
+        <childnode refid="16269" relation="include">
+        </childnode>
+        <childnode refid="16270" relation="include">
+        </childnode>
+        <childnode refid="16271" relation="include">
+        </childnode>
+        <childnode refid="16272" relation="include">
+        </childnode>
+        <childnode refid="16273" relation="include">
+        </childnode>
+        <childnode refid="16274" relation="include">
+        </childnode>
+        <childnode refid="16275" relation="include">
+        </childnode>
+        <childnode refid="16276" relation="include">
+        </childnode>
+        <childnode refid="16277" relation="include">
+        </childnode>
+        <childnode refid="16278" relation="include">
+        </childnode>
+        <childnode refid="16279" relation="include">
+        </childnode>
+        <childnode refid="16280" relation="include">
+        </childnode>
+        <childnode refid="16281" relation="include">
+        </childnode>
+        <childnode refid="16282" relation="include">
+        </childnode>
+        <childnode refid="16283" relation="include">
+        </childnode>
+        <childnode refid="16284" relation="include">
+        </childnode>
+        <childnode refid="16285" relation="include">
+        </childnode>
+        <childnode refid="16286" relation="include">
+        </childnode>
+        <childnode refid="16287" relation="include">
+        </childnode>
+        <childnode refid="16288" relation="include">
+        </childnode>
+        <childnode refid="16289" relation="include">
+        </childnode>
+        <childnode refid="16290" relation="include">
+        </childnode>
+        <childnode refid="16291" relation="include">
+        </childnode>
+        <childnode refid="16292" relation="include">
+        </childnode>
+        <childnode refid="16293" relation="include">
+        </childnode>
+        <childnode refid="16294" relation="include">
+        </childnode>
+        <childnode refid="16295" relation="include">
+        </childnode>
+        <childnode refid="16296" relation="include">
+        </childnode>
+        <childnode refid="16297" relation="include">
+        </childnode>
+        <childnode refid="16298" relation="include">
+        </childnode>
+        <childnode refid="16299" relation="include">
+        </childnode>
+        <childnode refid="16300" relation="include">
+        </childnode>
+        <childnode refid="16301" relation="include">
+        </childnode>
+        <childnode refid="16302" relation="include">
+        </childnode>
+        <childnode refid="16303" relation="include">
+        </childnode>
+        <childnode refid="16304" relation="include">
+        </childnode>
+        <childnode refid="16305" relation="include">
+        </childnode>
+        <childnode refid="16306" relation="include">
+        </childnode>
+        <childnode refid="16307" relation="include">
+        </childnode>
+        <childnode refid="16308" relation="include">
+        </childnode>
+        <childnode refid="16309" relation="include">
+        </childnode>
+        <childnode refid="16310" relation="include">
+        </childnode>
+        <childnode refid="16311" relation="include">
+        </childnode>
+        <childnode refid="16195" relation="include">
+        </childnode>
+        <childnode refid="16312" relation="include">
+        </childnode>
+        <childnode refid="16313" relation="include">
+        </childnode>
+        <childnode refid="16314" relation="include">
+        </childnode>
+        <childnode refid="16315" relation="include">
+        </childnode>
+        <childnode refid="16316" relation="include">
+        </childnode>
+        <childnode refid="16317" relation="include">
+        </childnode>
+        <childnode refid="16318" relation="include">
+        </childnode>
+        <childnode refid="16319" relation="include">
+        </childnode>
+        <childnode refid="16320" relation="include">
+        </childnode>
+        <childnode refid="16321" relation="include">
+        </childnode>
+        <childnode refid="16322" relation="include">
+        </childnode>
+        <childnode refid="16323" relation="include">
+        </childnode>
+        <childnode refid="16324" relation="include">
+        </childnode>
+      </node>
+      <node id="16252">
+        <label>heur_pscostdiving.h</label>
+        <link refid="heur__pscostdiving_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16204">
+        <label>cons_abspower.h</label>
+        <link refid="cons__abspower_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16305">
+        <label>reader_pbm.h</label>
+        <link refid="reader__pbm_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16279">
+        <label>presol_convertinttobin.h</label>
+        <link refid="presol__convertinttobin_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16270">
+        <label>nodesel_bfs.h</label>
+        <link refid="nodesel__bfs_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16312">
+        <label>sepa_cgmip.h</label>
+        <link refid="sepa__cgmip_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16282">
+        <label>presol_gateextraction.h</label>
+        <link refid="presol__gateextraction_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16294">
+        <label>reader_bnd.h</label>
+        <link refid="reader__bnd_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16217">
+        <label>cons_logicor.h</label>
+        <link refid="cons__logicor_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16249">
+        <label>heur_octane.h</label>
+        <link refid="heur__octane_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16240">
+        <label>heur_fracdiving.h</label>
+        <link refid="heur__fracdiving_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16274">
+        <label>nodesel_hybridestim.h</label>
+        <link refid="nodesel__hybridestim_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16209">
+        <label>cons_countsols.h</label>
+        <link refid="cons__countsols_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16215">
+        <label>cons_linear.h</label>
+        <link refid="cons__linear_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16256">
+        <label>heur_rootsoldiving.h</label>
+        <link refid="heur__rootsoldiving_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16284">
+        <label>presol_inttobinary.h</label>
+        <link refid="presol__inttobinary_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16235">
+        <label>heur_crossover.h</label>
+        <link refid="heur__crossover_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16272">
+        <label>nodesel_dfs.h</label>
+        <link refid="nodesel__dfs_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16322">
+        <label>sepa_rapidlearning.h</label>
+        <link refid="sepa__rapidlearning_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16227">
+        <label>cons_superindicator.h</label>
+        <link refid="cons__superindicator_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16206">
+        <label>cons_bivariate.h</label>
+        <link refid="cons__bivariate_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16267">
+        <label>heur_veclendiving.h</label>
+        <link refid="heur__veclendiving_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16298">
+        <label>reader_fix.h</label>
+        <link refid="reader__fix_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16317">
+        <label>sepa_gomory.h</label>
+        <link refid="sepa__gomory_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16251">
+        <label>heur_proximity.h</label>
+        <link refid="heur__proximity_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16323">
+        <label>sepa_strongcg.h</label>
+        <link refid="sepa__strongcg_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16306">
+        <label>reader_pip.h</label>
+        <link refid="reader__pip_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16287">
+        <label>prop_genvbounds.h</label>
+        <link refid="prop__genvbounds_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16307">
+        <label>reader_ppm.h</label>
+        <link refid="reader__ppm_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16231">
+        <label>disp_default.h</label>
+        <link refid="disp__default_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16192">
+        <label>pub_event.h</label>
+        <link refid="pub__event_8h"/>
+        <childnode refid="16193" relation="include">
+        </childnode>
+      </node>
+      <node id="16194">
+        <label>branch_allfullstrong.h</label>
+        <link refid="branch__allfullstrong_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16237">
+        <label>heur_dualval.h</label>
+        <link refid="heur__dualval_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16200">
+        <label>branch_mostinf.h</label>
+        <link refid="branch__mostinf_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16196">
+        <label>branch_cloud.h</label>
+        <link refid="branch__cloud_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16197">
+        <label>branch_fullstrong.h</label>
+        <link refid="branch__fullstrong_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16264">
+        <label>heur_twoopt.h</label>
+        <link refid="heur__twoopt_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16311">
+        <label>reader_zpl.h</label>
+        <link refid="reader__zpl_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16303">
+        <label>reader_opb.h</label>
+        <link refid="reader__opb_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16220">
+        <label>cons_orbitope.h</label>
+        <link refid="cons__orbitope_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16280">
+        <label>presol_domcol.h</label>
+        <link refid="presol__domcol_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16233">
+        <label>heur_clique.h</label>
+        <link refid="heur__clique_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16255">
+        <label>heur_rins.h</label>
+        <link refid="heur__rins_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16321">
+        <label>sepa_oddcycle.h</label>
+        <link refid="sepa__oddcycle_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16236">
+        <label>heur_dins.h</label>
+        <link refid="heur__dins_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16210">
+        <label>cons_cumulative.h</label>
+        <link refid="cons__cumulative_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16324">
+        <label>sepa_zerohalf.h</label>
+        <link refid="sepa__zerohalf_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16262">
+        <label>heur_trivial.h</label>
+        <link refid="heur__trivial_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16302">
+        <label>reader_mps.h</label>
+        <link refid="reader__mps_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16234">
+        <label>heur_coefdiving.h</label>
+        <link refid="heur__coefdiving_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16239">
+        <label>heur_fixandinfer.h</label>
+        <link refid="heur__fixandinfer_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16195">
+        <label>scipdefplugins.h</label>
+        <link refid="scipdefplugins_8h"/>
+      </node>
+      <node id="16243">
+        <label>heur_intshifting.h</label>
+        <link refid="heur__intshifting_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16296">
+        <label>reader_cip.h</label>
+        <link refid="reader__cip_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16232">
+        <label>heur_actconsdiving.h</label>
+        <link refid="heur__actconsdiving_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16221">
+        <label>cons_pseudoboolean.h</label>
+        <link refid="cons__pseudoboolean_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16247">
+        <label>heur_nlpdiving.h</label>
+        <link refid="heur__nlpdiving_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16201">
+        <label>branch_pscost.h</label>
+        <link refid="branch__pscost_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16275">
+        <label>nodesel_restartdfs.h</label>
+        <link refid="nodesel__restartdfs_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16309">
+        <label>reader_sol.h</label>
+        <link refid="reader__sol_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16318">
+        <label>sepa_impliedbounds.h</label>
+        <link refid="sepa__impliedbounds_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16226">
+        <label>cons_sos2.h</label>
+        <link refid="cons__sos2_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16273">
+        <label>nodesel_estimate.h</label>
+        <link refid="nodesel__estimate_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16218">
+        <label>cons_nonlinear.h</label>
+        <link refid="cons__nonlinear_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16266">
+        <label>heur_vbounds.h</label>
+        <link refid="heur__vbounds_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16230">
+        <label>dialog_default.h</label>
+        <link refid="dialog__default_8h"/>
+      </node>
+      <node id="16308">
+        <label>reader_rlp.h</label>
+        <link refid="reader__rlp_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16301">
+        <label>reader_lp.h</label>
+        <link refid="reader__lp_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16254">
+        <label>heur_rens.h</label>
+        <link refid="heur__rens_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16269">
+        <label>heur_zirounding.h</label>
+        <link refid="heur__zirounding_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16191">
+        <label>type_event.h</label>
+        <link refid="type_event.h"/>
+        <childnode refid="16192" relation="include">
+        </childnode>
+        <childnode refid="16193" relation="include">
+        </childnode>
+      </node>
+      <node id="16242">
+        <label>heur_intdiving.h</label>
+        <link refid="heur__intdiving_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16199">
+        <label>branch_leastinf.h</label>
+        <link refid="branch__leastinf_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16203">
+        <label>branch_relpscost.h</label>
+        <link refid="branch__relpscost_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16285">
+        <label>presol_trivial.h</label>
+        <link refid="presol__trivial_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16198">
+        <label>branch_inference.h</label>
+        <link refid="branch__inference_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16202">
+        <label>branch_random.h</label>
+        <link refid="branch__random_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16281">
+        <label>presol_dualinfer.h</label>
+        <link refid="presol__dualinfer_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16222">
+        <label>cons_quadratic.h</label>
+        <link refid="cons__quadratic_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16304">
+        <label>reader_osil.h</label>
+        <link refid="reader__osil_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16319">
+        <label>sepa_intobj.h</label>
+        <link refid="sepa__intobj_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16238">
+        <label>heur_feaspump.h</label>
+        <link refid="heur__feaspump_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16271">
+        <label>nodesel_breadthfirst.h</label>
+        <link refid="nodesel__breadthfirst_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16278">
+        <label>presol_components.h</label>
+        <link refid="presol__components_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16259">
+        <label>heur_shifting.h</label>
+        <link refid="heur__shifting_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16253">
+        <label>heur_randrounding.h</label>
+        <link refid="heur__randrounding_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16268">
+        <label>heur_zeroobj.h</label>
+        <link refid="heur__zeroobj_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16245">
+        <label>heur_localbranching.h</label>
+        <link refid="heur__localbranching_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16290">
+        <label>prop_pseudoobj.h</label>
+        <link refid="prop__pseudoobj_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16229">
+        <label>cons_xor.h</label>
+        <link refid="cons__xor_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16297">
+        <label>reader_cnf.h</label>
+        <link refid="reader__cnf_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16292">
+        <label>prop_rootredcost.h</label>
+        <link refid="prop__rootredcost_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16283">
+        <label>presol_implics.h</label>
+        <link refid="presol__implics_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16258">
+        <label>heur_shiftandpropagate.h</label>
+        <link refid="heur__shiftandpropagate_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16257">
+        <label>heur_rounding.h</label>
+        <link refid="heur__rounding_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16295">
+        <label>reader_ccg.h</label>
+        <link refid="reader__ccg_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16293">
+        <label>prop_vbounds.h</label>
+        <link refid="prop__vbounds_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16207">
+        <label>cons_bounddisjunction.h</label>
+        <link refid="cons__bounddisjunction_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16263">
+        <label>heur_trysol.h</label>
+        <link refid="heur__trysol_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16300">
+        <label>reader_gms.h</label>
+        <link refid="reader__gms_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16219">
+        <label>cons_or.h</label>
+        <link refid="cons__or_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16211">
+        <label>cons_disjunction.h</label>
+        <link refid="cons__disjunction_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16213">
+        <label>cons_integral.h</label>
+        <link refid="cons__integral_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16223">
+        <label>cons_setppc.h</label>
+        <link refid="cons__setppc_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16225">
+        <label>cons_sos1.h</label>
+        <link refid="cons__sos1_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16291">
+        <label>prop_redcost.h</label>
+        <link refid="prop__redcost_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16216">
+        <label>cons_linking.h</label>
+        <link refid="cons__linking_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16228">
+        <label>cons_varbound.h</label>
+        <link refid="cons__varbound_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16261">
+        <label>heur_subnlp.h</label>
+        <link refid="heur__subnlp_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16250">
+        <label>heur_oneopt.h</label>
+        <link refid="heur__oneopt_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16299">
+        <label>reader_fzn.h</label>
+        <link refid="reader__fzn_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16241">
+        <label>heur_guideddiving.h</label>
+        <link refid="heur__guideddiving_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16265">
+        <label>heur_undercover.h</label>
+        <link refid="heur__undercover_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16208">
+        <label>cons_conjunction.h</label>
+        <link refid="cons__conjunction_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16313">
+        <label>sepa_clique.h</label>
+        <link refid="sepa__clique_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16277">
+        <label>presol_boundshift.h</label>
+        <link refid="presol__boundshift_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16289">
+        <label>prop_probing.h</label>
+        <link refid="prop__probing_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16276">
+        <label>nodesel_uct.h</label>
+        <link refid="nodesel__uct_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16314">
+        <label>sepa_closecuts.h</label>
+        <link refid="sepa__closecuts_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16205">
+        <label>cons_and.h</label>
+        <link refid="cons__and_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16248">
+        <label>heur_objpscostdiving.h</label>
+        <link refid="heur__objpscostdiving_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16288">
+        <label>prop_obbt.h</label>
+        <link refid="prop__obbt_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16320">
+        <label>sepa_mcf.h</label>
+        <link refid="sepa__mcf_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16246">
+        <label>heur_mutation.h</label>
+        <link refid="heur__mutation_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16260">
+        <label>heur_simplerounding.h</label>
+        <link refid="heur__simplerounding_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16315">
+        <label>sepa_cmir.h</label>
+        <link refid="sepa__cmir_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16286">
+        <label>prop_dualfix.h</label>
+        <link refid="prop__dualfix_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16214">
+        <label>cons_knapsack.h</label>
+        <link refid="cons__knapsack_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+      <node id="16316">
+        <label>sepa_flowcover.h</label>
+        <link refid="sepa__flowcover_8h"/>
+        <childnode refid="16195" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="type__event_8h_1ae6f2f042d3e7fc21dee0ec37959c28fd" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_DISABLED</name>
+        <initializer>0x00000000u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the event was disabled and has no effect any longer </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="43" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1abdb41277158c5046b83eb5ece43e6e70" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_VARADDED</name>
+        <initializer>0x00000001u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>a variable has been added to the transformed problem </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="46" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1a737872e4e887e158de99849eb277090e" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_VARDELETED</name>
+        <initializer>0x00000002u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>a variable will be deleted from the transformed problem </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="47" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1a693ca56a7585240ff0144bdd0a6cdbc5" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_VARFIXED</name>
+        <initializer>0x00000004u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>a variable has been fixed, aggregated, or multi-aggregated </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="48" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1a1907d7629c39c6f54cd1c4a8fe5de7df" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_VARUNLOCKED</name>
+        <initializer>0x00000008u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the number of rounding locks of a variable was reduced to zero or one </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="50" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1a6590b5eccb0a4935b3fea139f152eb07" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_OBJCHANGED</name>
+        <initializer>0x00000010u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the objective value of a variable has been changed </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="51" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1aad0f6cec966e9109577ee8940b6829f4" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_GLBCHANGED</name>
+        <initializer>0x00000020u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the global lower bound of a variable has been changed </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="52" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1a419eb04b62fd224f7350eeb0d94ce1de" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_GUBCHANGED</name>
+        <initializer>0x00000040u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the global upper bound of a variable has been changed </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="53" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1af5988d53e0bb89bac4c2f558efbb1722" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_LBTIGHTENED</name>
+        <initializer>0x00000080u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the local lower bound of a variable has been increased </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="54" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1aa18609cea7a11d1dd77dedbcaf63ef21" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_LBRELAXED</name>
+        <initializer>0x00000100u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the local lower bound of a variable has been decreased </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="55" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1a57b890bde301e876cc3cb7b8929772de" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_UBTIGHTENED</name>
+        <initializer>0x00000200u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the local upper bound of a variable has been decreased </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="56" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1afd2086f613ae9a0b5c7a4bb55d24cfc0" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_UBRELAXED</name>
+        <initializer>0x00000400u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the local upper bound of a variable has been increased </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="57" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1a0998cf2c1d1205e0e2d5a9d63cfd6719" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_GHOLEADDED</name>
+        <initializer>0x00000800u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>a global hole has been added to the hole list of a variable&apos;s domain </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="58" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1a4bd01da382bd3805504ee80af67eb948" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_GHOLEREMOVED</name>
+        <initializer>0x00001000u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>a global hole has been removed from the hole list of a variable&apos;s domain </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="59" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1acc942424f07ce94869e66d60f14e4c44" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_LHOLEADDED</name>
+        <initializer>0x00002000u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>a local hole has been added to the hole list of a variable&apos;s domain </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="60" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1a857c7a43464662cdd15429837ec05983" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_LHOLEREMOVED</name>
+        <initializer>0x00004000u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>a local hole has been removed from the hole list of a variable&apos;s domain </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="61" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1ad6878059ab90d98155caf34b2d3f37ac" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_IMPLADDED</name>
+        <initializer>0x00008000u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the variable&apos;s implication list, variable bound or clique information was extended </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="63" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1a408983823d3060101ce3a03d8dfaab16" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_PRESOLVEROUND</name>
+        <initializer>0x00010000u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>a presolving round has been finished </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="66" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1a5d806ee605db9d57aeced1c8895f7324" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_NODEFOCUSED</name>
+        <initializer>0x00020000u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>a node has been focused and is now the focus node </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="69" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1a10a594f8e3246db9a605a77549f40475" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_NODEFEASIBLE</name>
+        <initializer>0x00040000u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the LP/pseudo solution of the node was feasible </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="70" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1a63c33fb1f94a0b7f17a5584a55e5368f" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_NODEINFEASIBLE</name>
+        <initializer>0x00080000u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the focus node has been proven to be infeasible or was bounded </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="71" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1a9410f05184ee8d0589d48fe7e489ee15" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_NODEBRANCHED</name>
+        <initializer>0x00100000u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the focus node has been solved by branching </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="72" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1a0e97c429cd89b9aedaaa0ab64f6b8371" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_FIRSTLPSOLVED</name>
+        <initializer>0x00200000u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the node&apos;s initial LP was solved </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="75" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1ad157c2d2175a6d65d24d41de85c3677a" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_LPSOLVED</name>
+        <initializer>0x00400000u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the node&apos;s LP was completely solved with cut &amp; price </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="76" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1a39188a366bf5c1c570becd2ea21681ac" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_POORSOLFOUND</name>
+        <initializer>0x00800000u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>a good enough primal feasible (but not new best) solution was found </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="79" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1aa7b9f5aece9817543b4ad6fcf51baf58" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_BESTSOLFOUND</name>
+        <initializer>0x01000000u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>a new best primal feasible solution was found </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="80" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1adf950d3b70650bb00fcbea8d9e1f826b" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_ROWADDEDSEPA</name>
+        <initializer>0x02000000u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>a row has been added to SCIP&apos;s separation storage </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="83" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1ab99fc5ce85c7cdc63979cc9199d01923" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_ROWDELETEDSEPA</name>
+        <initializer>0x04000000u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>a row has been removed from SCIP&apos;s separation storage </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="84" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1a37c890664aa0ef249a62bcb70a414459" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_ROWADDEDLP</name>
+        <initializer>0x08000000u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>a row has been added to the LP </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="85" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1ac35edce8f1920f428573d3d425db604c" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_ROWDELETEDLP</name>
+        <initializer>0x10000000u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>a row has been removed from the LP </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="86" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1ad85109718e4ad80191af5087475f1de5" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_ROWCOEFCHANGED</name>
+        <initializer>0x20000000u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>a coefficient of a row has been changed (row specific event) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="87" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1af34bb0949ad693bd3be8c22c55f412a2" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_ROWCONSTCHANGED</name>
+        <initializer>0x40000000u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the constant of a row has been changed (row specific event) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="88" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1a1cf78a7e3940ed0240fb902ed484a085" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_ROWSIDECHANGED</name>
+        <initializer>0x80000000u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>a side of a row has been changed (row specific event) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="89" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1a4e69d266b8c820e89736348811d089b8" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_GBDCHANGED</name>
+        <initializer>(<ref refid="type__event_8h_1aad0f6cec966e9109577ee8940b6829f4" kindref="member">SCIP_EVENTTYPE_GLBCHANGED</ref> | <ref refid="type__event_8h_1a419eb04b62fd224f7350eeb0d94ce1de" kindref="member">SCIP_EVENTTYPE_GUBCHANGED</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="92" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1abe85fc2b8bc12e2ab22b44d697d2b284" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_LBCHANGED</name>
+        <initializer>(<ref refid="type__event_8h_1af5988d53e0bb89bac4c2f558efbb1722" kindref="member">SCIP_EVENTTYPE_LBTIGHTENED</ref> | <ref refid="type__event_8h_1aa18609cea7a11d1dd77dedbcaf63ef21" kindref="member">SCIP_EVENTTYPE_LBRELAXED</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="93" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1ac7875a9abf2e3b973567b99d36e61a6c" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_UBCHANGED</name>
+        <initializer>(<ref refid="type__event_8h_1a57b890bde301e876cc3cb7b8929772de" kindref="member">SCIP_EVENTTYPE_UBTIGHTENED</ref> | <ref refid="type__event_8h_1afd2086f613ae9a0b5c7a4bb55d24cfc0" kindref="member">SCIP_EVENTTYPE_UBRELAXED</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="94" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1af4514ddc527f758f2fd7ad304555c04f" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_BOUNDTIGHTENED</name>
+        <initializer>(<ref refid="type__event_8h_1af5988d53e0bb89bac4c2f558efbb1722" kindref="member">SCIP_EVENTTYPE_LBTIGHTENED</ref> | <ref refid="type__event_8h_1a57b890bde301e876cc3cb7b8929772de" kindref="member">SCIP_EVENTTYPE_UBTIGHTENED</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="95" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1ab8dcf11e4e0e68580f546eaa32079a88" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_BOUNDRELAXED</name>
+        <initializer>(<ref refid="type__event_8h_1aa18609cea7a11d1dd77dedbcaf63ef21" kindref="member">SCIP_EVENTTYPE_LBRELAXED</ref> | <ref refid="type__event_8h_1afd2086f613ae9a0b5c7a4bb55d24cfc0" kindref="member">SCIP_EVENTTYPE_UBRELAXED</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="96" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1a128e03e649e03bf833fdc309f8bb3483" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_BOUNDCHANGED</name>
+        <initializer>(<ref refid="type__event_8h_1abe85fc2b8bc12e2ab22b44d697d2b284" kindref="member">SCIP_EVENTTYPE_LBCHANGED</ref> | <ref refid="type__event_8h_1ac7875a9abf2e3b973567b99d36e61a6c" kindref="member">SCIP_EVENTTYPE_UBCHANGED</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="97" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1a132f303b11d0d77293d14911b021352e" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_GHOLECHANGED</name>
+        <initializer>(<ref refid="type__event_8h_1a0998cf2c1d1205e0e2d5a9d63cfd6719" kindref="member">SCIP_EVENTTYPE_GHOLEADDED</ref> | <ref refid="type__event_8h_1a4bd01da382bd3805504ee80af67eb948" kindref="member">SCIP_EVENTTYPE_GHOLEREMOVED</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="98" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1a5f42119cae91be59ceb48e4cc59f4f3d" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_LHOLECHANGED</name>
+        <initializer>(<ref refid="type__event_8h_1acc942424f07ce94869e66d60f14e4c44" kindref="member">SCIP_EVENTTYPE_LHOLEADDED</ref> | <ref refid="type__event_8h_1a857c7a43464662cdd15429837ec05983" kindref="member">SCIP_EVENTTYPE_LHOLEREMOVED</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="99" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1ab94df2009e0c7d5930d07749353e037c" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_HOLECHANGED</name>
+        <initializer>(<ref refid="type__event_8h_1a132f303b11d0d77293d14911b021352e" kindref="member">SCIP_EVENTTYPE_GHOLECHANGED</ref> | <ref refid="type__event_8h_1a5f42119cae91be59ceb48e4cc59f4f3d" kindref="member">SCIP_EVENTTYPE_LHOLECHANGED</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="100" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1ae02366a4b43e69e2e14e5fb3339d689c" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_DOMCHANGED</name>
+        <initializer>(<ref refid="type__event_8h_1a128e03e649e03bf833fdc309f8bb3483" kindref="member">SCIP_EVENTTYPE_BOUNDCHANGED</ref> | <ref refid="type__event_8h_1ab94df2009e0c7d5930d07749353e037c" kindref="member">SCIP_EVENTTYPE_HOLECHANGED</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="101" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1ab987fdbf88f6747390f07bef23c2d753" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_VARCHANGED</name>
+        <initializer>(<ref refid="type__event_8h_1a693ca56a7585240ff0144bdd0a6cdbc5" kindref="member">SCIP_EVENTTYPE_VARFIXED</ref> | <ref refid="type__event_8h_1a1907d7629c39c6f54cd1c4a8fe5de7df" kindref="member">SCIP_EVENTTYPE_VARUNLOCKED</ref> | <ref refid="type__event_8h_1a6590b5eccb0a4935b3fea139f152eb07" kindref="member">SCIP_EVENTTYPE_OBJCHANGED</ref> \
+                                       | <ref refid="type__event_8h_1a4e69d266b8c820e89736348811d089b8" kindref="member">SCIP_EVENTTYPE_GBDCHANGED</ref> | <ref refid="type__event_8h_1ae02366a4b43e69e2e14e5fb3339d689c" kindref="member">SCIP_EVENTTYPE_DOMCHANGED</ref> | <ref refid="type__event_8h_1ad6878059ab90d98155caf34b2d3f37ac" kindref="member">SCIP_EVENTTYPE_IMPLADDED</ref> \
+                                       | <ref refid="type__event_8h_1a737872e4e887e158de99849eb277090e" kindref="member">SCIP_EVENTTYPE_VARDELETED</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="102" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1a21569e9b8ae43364e81618d41f9c8892" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_VAREVENT</name>
+        <initializer>(<ref refid="type__event_8h_1abdb41277158c5046b83eb5ece43e6e70" kindref="member">SCIP_EVENTTYPE_VARADDED</ref> | <ref refid="type__event_8h_1ab987fdbf88f6747390f07bef23c2d753" kindref="member">SCIP_EVENTTYPE_VARCHANGED</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="105" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1aa0a891248bca1f5312b56edd0a10df2c" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_NODESOLVED</name>
+        <initializer>(<ref refid="type__event_8h_1a10a594f8e3246db9a605a77549f40475" kindref="member">SCIP_EVENTTYPE_NODEFEASIBLE</ref> | <ref refid="type__event_8h_1a63c33fb1f94a0b7f17a5584a55e5368f" kindref="member">SCIP_EVENTTYPE_NODEINFEASIBLE</ref> \
+                                       | <ref refid="type__event_8h_1a9410f05184ee8d0589d48fe7e489ee15" kindref="member">SCIP_EVENTTYPE_NODEBRANCHED</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="108" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1a7cfc0e26c90f14953e0cfe86b25eafd1" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_NODEEVENT</name>
+        <initializer>(<ref refid="type__event_8h_1a5d806ee605db9d57aeced1c8895f7324" kindref="member">SCIP_EVENTTYPE_NODEFOCUSED</ref> | <ref refid="type__event_8h_1aa0a891248bca1f5312b56edd0a10df2c" kindref="member">SCIP_EVENTTYPE_NODESOLVED</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="110" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1ae506cb87148fd403e6881ec0c4912977" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_LPEVENT</name>
+        <initializer>(<ref refid="type__event_8h_1a0e97c429cd89b9aedaaa0ab64f6b8371" kindref="member">SCIP_EVENTTYPE_FIRSTLPSOLVED</ref> | <ref refid="type__event_8h_1ad157c2d2175a6d65d24d41de85c3677a" kindref="member">SCIP_EVENTTYPE_LPSOLVED</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="113" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1ac4326687adf8b4175a2a2145b592401b" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_SOLFOUND</name>
+        <initializer>(<ref refid="type__event_8h_1a39188a366bf5c1c570becd2ea21681ac" kindref="member">SCIP_EVENTTYPE_POORSOLFOUND</ref> | <ref refid="type__event_8h_1aa7b9f5aece9817543b4ad6fcf51baf58" kindref="member">SCIP_EVENTTYPE_BESTSOLFOUND</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="116" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1aec2118490d06bafca9bf23f805410ab8" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_SOLEVENT</name>
+        <initializer>(<ref refid="type__event_8h_1ac4326687adf8b4175a2a2145b592401b" kindref="member">SCIP_EVENTTYPE_SOLFOUND</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="117" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1a7473489170c037ee033a13ca61db308e" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_ROWCHANGED</name>
+        <initializer>(<ref refid="type__event_8h_1ad85109718e4ad80191af5087475f1de5" kindref="member">SCIP_EVENTTYPE_ROWCOEFCHANGED</ref> | <ref refid="type__event_8h_1af34bb0949ad693bd3be8c22c55f412a2" kindref="member">SCIP_EVENTTYPE_ROWCONSTCHANGED</ref> | <ref refid="type__event_8h_1a1cf78a7e3940ed0240fb902ed484a085" kindref="member">SCIP_EVENTTYPE_ROWSIDECHANGED</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="120" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1a95fddabf9c529b7659ddcb975faf0eb2" prot="public" static="no">
+        <name>SCIP_EVENTTYPE_ROWEVENT</name>
+        <initializer>(<ref refid="type__event_8h_1adf950d3b70650bb00fcbea8d9e1f826b" kindref="member">SCIP_EVENTTYPE_ROWADDEDSEPA</ref> | <ref refid="type__event_8h_1ab99fc5ce85c7cdc63979cc9199d01923" kindref="member">SCIP_EVENTTYPE_ROWDELETEDSEPA</ref> | <ref refid="type__event_8h_1a37c890664aa0ef249a62bcb70a414459" kindref="member">SCIP_EVENTTYPE_ROWADDEDLP</ref> | <ref refid="type__event_8h_1ac35edce8f1920f428573d3d425db604c" kindref="member">SCIP_EVENTTYPE_ROWDELETEDLP</ref> | <ref refid="type__event_8h_1a7473489170c037ee033a13ca61db308e" kindref="member">SCIP_EVENTTYPE_ROWCHANGED</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="121" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1a9b324836c5058e7aab1b958522df0ad3" prot="public" static="no">
+        <name>SCIP_DECL_EVENTCOPY</name>
+        <param><defname>x</defname></param>
+        <initializer><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref> x (<ref refid="type__scip_8h_1a4792a242d315bf76f05b1f4e0712bc33" kindref="member">SCIP</ref>* scip, <ref refid="type__event_8h_1a0dc41f33e3a5dcf92123d7bc6ba8945d" kindref="member">SCIP_EVENTHDLR</ref>* eventhdlr)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>copy method for event handler plugins (called when SCIP copies plugins)</para><para>input:<itemizedlist>
+<listitem><para>scip : SCIP main data structure</para></listitem><listitem><para>eventhdlr : the event handler itself </para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="154" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="156" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1ab6bcbd5a542808e92606be4f108c46d5" prot="public" static="no">
+        <name>SCIP_DECL_EVENTFREE</name>
+        <param><defname>x</defname></param>
+        <initializer><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref> x (<ref refid="type__scip_8h_1a4792a242d315bf76f05b1f4e0712bc33" kindref="member">SCIP</ref>* scip, <ref refid="type__event_8h_1a0dc41f33e3a5dcf92123d7bc6ba8945d" kindref="member">SCIP_EVENTHDLR</ref>* eventhdlr)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>destructor of event handler to free user data (called when SCIP is exiting)</para><para>input:<itemizedlist>
+<listitem><para>scip : SCIP main data structure</para></listitem><listitem><para>eventhdlr : the event handler itself </para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="162" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1a9cfd669a49331d0857d8b6a4a4399c13" prot="public" static="no">
+        <name>SCIP_DECL_EVENTINIT</name>
+        <param><defname>x</defname></param>
+        <initializer><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref> x (<ref refid="type__scip_8h_1a4792a242d315bf76f05b1f4e0712bc33" kindref="member">SCIP</ref>* scip, <ref refid="type__event_8h_1a0dc41f33e3a5dcf92123d7bc6ba8945d" kindref="member">SCIP_EVENTHDLR</ref>* eventhdlr)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>initialization method of event handler (called after problem was transformed)</para><para>input:<itemizedlist>
+<listitem><para>scip : SCIP main data structure</para></listitem><listitem><para>eventhdlr : the event handler itself </para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="170" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="172" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1a441309b02b8b24269e2d10b0b7f41d93" prot="public" static="no">
+        <name>SCIP_DECL_EVENTEXIT</name>
+        <param><defname>x</defname></param>
+        <initializer><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref> x (<ref refid="type__scip_8h_1a4792a242d315bf76f05b1f4e0712bc33" kindref="member">SCIP</ref>* scip, <ref refid="type__event_8h_1a0dc41f33e3a5dcf92123d7bc6ba8945d" kindref="member">SCIP_EVENTHDLR</ref>* eventhdlr)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>deinitialization method of event handler (called before transformed problem is freed)</para><para>input:<itemizedlist>
+<listitem><para>scip : SCIP main data structure</para></listitem><listitem><para>eventhdlr : the event handler itself </para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="178" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="180" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1a0ef3a60738e301ea496b8a3a30db8067" prot="public" static="no">
+        <name>SCIP_DECL_EVENTINITSOL</name>
+        <param><defname>x</defname></param>
+        <initializer><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref> x (<ref refid="type__scip_8h_1a4792a242d315bf76f05b1f4e0712bc33" kindref="member">SCIP</ref>* scip, <ref refid="type__event_8h_1a0dc41f33e3a5dcf92123d7bc6ba8945d" kindref="member">SCIP_EVENTHDLR</ref>* eventhdlr)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>solving process initialization method of event handler (called when branch and bound process is about to begin)</para><para>This method is called when the presolving was finished and the branch and bound process is about to begin. The event handler may use this call to initialize its branch and bound specific data.</para><para>input:<itemizedlist>
+<listitem><para>scip : SCIP main data structure</para></listitem><listitem><para>eventhdlr : the event handler itself </para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="189" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="191" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1ad280ee9fda2d649f031bb7db7a2e4aae" prot="public" static="no">
+        <name>SCIP_DECL_EVENTEXITSOL</name>
+        <param><defname>x</defname></param>
+        <initializer><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref> x (<ref refid="type__scip_8h_1a4792a242d315bf76f05b1f4e0712bc33" kindref="member">SCIP</ref>* scip, <ref refid="type__event_8h_1a0dc41f33e3a5dcf92123d7bc6ba8945d" kindref="member">SCIP_EVENTHDLR</ref>* eventhdlr)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>solving process deinitialization method of event handler (called before branch and bound process data is freed)</para><para>This method is called before the branch and bound process is freed. The event handler should use this call to clean up its branch and bound data.</para><para>input:<itemizedlist>
+<listitem><para>scip : SCIP main data structure</para></listitem><listitem><para>eventhdlr : the event handler itself </para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="200" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="202" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1a2197797c4a093d111818b4320397654f" prot="public" static="no">
+        <name>SCIP_DECL_EVENTDELETE</name>
+        <param><defname>x</defname></param>
+        <initializer><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref> x (<ref refid="type__scip_8h_1a4792a242d315bf76f05b1f4e0712bc33" kindref="member">SCIP</ref>* scip, <ref refid="type__event_8h_1a0dc41f33e3a5dcf92123d7bc6ba8945d" kindref="member">SCIP_EVENTHDLR</ref>* eventhdlr, <ref refid="type__event_8h_1a4ebef382b966f4f8b419d6b37c29c6ac" kindref="member">SCIP_EVENTDATA</ref>** eventdata)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>frees specific event data</para><para>input:<itemizedlist>
+<listitem><para>scip : SCIP main data structure</para></listitem><listitem><para>eventhdlr : the event handler itself</para></listitem><listitem><para>eventdata : pointer to the event data to free </para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="209" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="211" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__event_8h_1a7942e3ded98f033e3c08947c7cfc73af" prot="public" static="no">
+        <name>SCIP_DECL_EVENTEXEC</name>
+        <param><defname>x</defname></param>
+        <initializer><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref> x (<ref refid="type__scip_8h_1a4792a242d315bf76f05b1f4e0712bc33" kindref="member">SCIP</ref>* scip, <ref refid="type__event_8h_1a0dc41f33e3a5dcf92123d7bc6ba8945d" kindref="member">SCIP_EVENTHDLR</ref>* eventhdlr, <ref refid="type__event_8h_1ad8e794890cd488ccc90bdbe476c876e1" kindref="member">SCIP_EVENT</ref>* event, <ref refid="type__event_8h_1a4ebef382b966f4f8b419d6b37c29c6ac" kindref="member">SCIP_EVENTDATA</ref>* eventdata)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>execution method of event handler</para><para>Processes the event. The method is called every time an event occurs, for which the event handler is responsible. Event handlers may declare themselves responsible for events by calling the corresponding SCIPcatch...() method. This method creates an event filter object to point to the given event handler and event data.</para><para>input:<itemizedlist>
+<listitem><para>scip : SCIP main data structure</para></listitem><listitem><para>eventhdlr : the event handler itself</para></listitem><listitem><para>event : event to process</para></listitem><listitem><para>eventdata : user data for the event </para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="224" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="226" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="type__event_8h_1ada169f023df39328eccf1b635a124e31" prot="public" static="no">
+        <type>unsigned int</type>
+        <definition>typedef unsigned int SCIP_EVENTTYPE</definition>
+        <argsstring></argsstring>
+        <name>SCIP_EVENTTYPE</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>type of event (bit field) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="125" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="type__event_8h_1a0dc41f33e3a5dcf92123d7bc6ba8945d" prot="public" static="no">
+        <type>struct SCIP_Eventhdlr</type>
+        <definition>typedef struct SCIP_Eventhdlr SCIP_EVENTHDLR</definition>
+        <argsstring></argsstring>
+        <name>SCIP_EVENTHDLR</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>event handler for a specific events </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="125" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="type__event_8h_1a75f8eb58103f64850221fad59626a4fa" prot="public" static="no">
+        <type>struct SCIP_EventhdlrData</type>
+        <definition>typedef struct SCIP_EventhdlrData SCIP_EVENTHDLRDATA</definition>
+        <argsstring></argsstring>
+        <name>SCIP_EVENTHDLRDATA</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>event handler data </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="125" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="type__event_8h_1ad8e794890cd488ccc90bdbe476c876e1" prot="public" static="no">
+        <type>struct SCIP_Event</type>
+        <definition>typedef struct SCIP_Event SCIP_EVENT</definition>
+        <argsstring></argsstring>
+        <name>SCIP_EVENT</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>event data structure </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="125" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="type__event_8h_1a2c08993502ff5c4460108520a345ceb0" prot="public" static="no">
+        <type>struct SCIP_EventVarAdded</type>
+        <definition>typedef struct SCIP_EventVarAdded SCIP_EVENTVARADDED</definition>
+        <argsstring></argsstring>
+        <name>SCIP_EVENTVARADDED</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>data for variable addition events </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="125" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="type__event_8h_1a0d108f1b57cd682e1d0b1be896605b0a" prot="public" static="no">
+        <type>struct SCIP_EventVarDeleted</type>
+        <definition>typedef struct SCIP_EventVarDeleted SCIP_EVENTVARDELETED</definition>
+        <argsstring></argsstring>
+        <name>SCIP_EVENTVARDELETED</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>data for variable deletion events </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="125" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="type__event_8h_1aeddce0bcb533aa750fb2040ad64d2af0" prot="public" static="no">
+        <type>struct SCIP_EventVarFixed</type>
+        <definition>typedef struct SCIP_EventVarFixed SCIP_EVENTVARFIXED</definition>
+        <argsstring></argsstring>
+        <name>SCIP_EVENTVARFIXED</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>data for variable fixing events </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="125" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="type__event_8h_1a9b97228ba4efc8e4f0f51056a73547b8" prot="public" static="no">
+        <type>struct SCIP_EventVarUnlocked</type>
+        <definition>typedef struct SCIP_EventVarUnlocked SCIP_EVENTVARUNLOCKED</definition>
+        <argsstring></argsstring>
+        <name>SCIP_EVENTVARUNLOCKED</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>data for variable unlocked events </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="125" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="type__event_8h_1a932404d63751a385e9c58590fa23e624" prot="public" static="no">
+        <type>struct SCIP_EventObjChg</type>
+        <definition>typedef struct SCIP_EventObjChg SCIP_EVENTOBJCHG</definition>
+        <argsstring></argsstring>
+        <name>SCIP_EVENTOBJCHG</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>data for objective value change events </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="125" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="type__event_8h_1a24bfe1707dc43986dd14be5a977dda52" prot="public" static="no">
+        <type>struct SCIP_EventBdChg</type>
+        <definition>typedef struct SCIP_EventBdChg SCIP_EVENTBDCHG</definition>
+        <argsstring></argsstring>
+        <name>SCIP_EVENTBDCHG</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>data for bound change events </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="125" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="type__event_8h_1a2f6cbb26ee93c4db8daadc36529b4a91" prot="public" static="no">
+        <type>struct SCIP_EventHole</type>
+        <definition>typedef struct SCIP_EventHole SCIP_EVENTHOLE</definition>
+        <argsstring></argsstring>
+        <name>SCIP_EVENTHOLE</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>data for domain hole events </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="125" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="type__event_8h_1a9935569bddbc0b809b075f2d12f80cd7" prot="public" static="no">
+        <type>struct SCIP_EventImplAdd</type>
+        <definition>typedef struct SCIP_EventImplAdd SCIP_EVENTIMPLADD</definition>
+        <argsstring></argsstring>
+        <name>SCIP_EVENTIMPLADD</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>data for implication added events </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="125" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="type__event_8h_1ac2b6f8062c1d093b3bb896fadde672d6" prot="public" static="no">
+        <type>struct SCIP_EventRowAddedSepa</type>
+        <definition>typedef struct SCIP_EventRowAddedSepa SCIP_EVENTROWADDEDSEPA</definition>
+        <argsstring></argsstring>
+        <name>SCIP_EVENTROWADDEDSEPA</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>data for row addition to sepastorage events </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="125" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="type__event_8h_1aaf4921da0b87a4f49b1c39cb1414b37e" prot="public" static="no">
+        <type>struct SCIP_EventRowDeletedSepa</type>
+        <definition>typedef struct SCIP_EventRowDeletedSepa SCIP_EVENTROWDELETEDSEPA</definition>
+        <argsstring></argsstring>
+        <name>SCIP_EVENTROWDELETEDSEPA</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>data for row deletion from sepastorage events </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="125" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="type__event_8h_1a2e087a7201c1be5881709fe9b92e76b9" prot="public" static="no">
+        <type>struct SCIP_EventRowAddedLP</type>
+        <definition>typedef struct SCIP_EventRowAddedLP SCIP_EVENTROWADDEDLP</definition>
+        <argsstring></argsstring>
+        <name>SCIP_EVENTROWADDEDLP</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>data for row addition to LP events </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="125" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="type__event_8h_1aa22564198cb57da6288f2f5cb4f500c4" prot="public" static="no">
+        <type>struct SCIP_EventRowDeletedLP</type>
+        <definition>typedef struct SCIP_EventRowDeletedLP SCIP_EVENTROWDELETEDLP</definition>
+        <argsstring></argsstring>
+        <name>SCIP_EVENTROWDELETEDLP</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>data for row deletion from LP events </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="125" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="type__event_8h_1a895caaedeea99e1e95a4ba6d352c1ce6" prot="public" static="no">
+        <type>struct SCIP_EventRowCoefChanged</type>
+        <definition>typedef struct SCIP_EventRowCoefChanged SCIP_EVENTROWCOEFCHANGED</definition>
+        <argsstring></argsstring>
+        <name>SCIP_EVENTROWCOEFCHANGED</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>data for row coefficient change events </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="125" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="type__event_8h_1a235b49f1516514cdcb6fb307a4509822" prot="public" static="no">
+        <type>struct SCIP_EventRowConstChanged</type>
+        <definition>typedef struct SCIP_EventRowConstChanged SCIP_EVENTROWCONSTCHANGED</definition>
+        <argsstring></argsstring>
+        <name>SCIP_EVENTROWCONSTCHANGED</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>data for row constant change events </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="125" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="type__event_8h_1a47313e0e5d1863195ca72a7a398923e0" prot="public" static="no">
+        <type>struct SCIP_EventRowSideChanged</type>
+        <definition>typedef struct SCIP_EventRowSideChanged SCIP_EVENTROWSIDECHANGED</definition>
+        <argsstring></argsstring>
+        <name>SCIP_EVENTROWSIDECHANGED</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>data for row side change events </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="125" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="type__event_8h_1a4ebef382b966f4f8b419d6b37c29c6ac" prot="public" static="no">
+        <type>struct SCIP_EventData</type>
+        <definition>typedef struct SCIP_EventData SCIP_EVENTDATA</definition>
+        <argsstring></argsstring>
+        <name>SCIP_EVENTDATA</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>locally defined event specific data </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="125" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="type__event_8h_1a62063efc0002dbdd4b7f3927adcb24d5" prot="public" static="no">
+        <type>struct SCIP_EventFilter</type>
+        <definition>typedef struct SCIP_EventFilter SCIP_EVENTFILTER</definition>
+        <argsstring></argsstring>
+        <name>SCIP_EVENTFILTER</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>event filter to select events to be processed by an event handler </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="125" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="type__event_8h_1aa733e3a314dab961c526bac0cb5b1d76" prot="public" static="no">
+        <type>struct SCIP_EventQueue</type>
+        <definition>typedef struct SCIP_EventQueue SCIP_EVENTQUEUE</definition>
+        <argsstring></argsstring>
+        <name>SCIP_EVENTQUEUE</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>event queue to cache events and process them later </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" line="125" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h" bodystart="148" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>type definitions for managing events </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Tobias Achterberg</para></simplesect>
+This file defines the interface for event handler implemented in C.</para><para><itemizedlist>
+<listitem><para>C++ wrapper class </para></listitem></itemizedlist>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>This<sp/>file<sp/>is<sp/>part<sp/>of<sp/>the<sp/>program<sp/>and<sp/>library<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SCIP<sp/>---<sp/>Solving<sp/>Constraint<sp/>Integer<sp/>Programs<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/>Copyright<sp/>(C)<sp/>2002-2014<sp/>Konrad-Zuse-Zentrum<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fuer<sp/>Informationstechnik<sp/>Berlin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>SCIP<sp/>is<sp/>distributed<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>ZIB<sp/>Academic<sp/>License.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>You<sp/>should<sp/>have<sp/>received<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>ZIB<sp/>Academic<sp/>License<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>along<sp/>with<sp/>SCIP;<sp/>see<sp/>the<sp/>file<sp/>COPYING.<sp/>If<sp/>not<sp/>email<sp/>to<sp/>scip@zib.de.<sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="16"><highlight class="comment">/**@file<sp/><sp/><sp/>type_event.h</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>@ingroup<sp/>TYPEDEFINITIONS</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>@brief<sp/><sp/>type<sp/>definitions<sp/>for<sp/>managing<sp/>events</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>@author<sp/>Tobias<sp/>Achterberg</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/><sp/>This<sp/>file<sp/>defines<sp/>the<sp/>interface<sp/>for<sp/>event<sp/>handler<sp/>implemented<sp/>in<sp/>C.</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>\ref<sp/>scip::ObjEventhdlr<sp/>&quot;C++<sp/>wrapper<sp/>class&quot;</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="comment">/*---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8----+----9----+----0----+----1----+----2*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>__SCIP_TYPE_EVENT_H__</highlight></codeline>
+<codeline lineno="29"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>__SCIP_TYPE_EVENT_H__</highlight></codeline>
+<codeline lineno="30"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="def_8h" kindref="compound">scip/def.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="type__retcode_8h" kindref="compound">scip/type_retcode.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="type__scip_8h" kindref="compound">scip/type_scip.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight></codeline>
+<codeline lineno="36"><highlight class="preprocessor"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="38"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/>*<sp/>event<sp/>types</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="type__event_8h_1ae6f2f042d3e7fc21dee0ec37959c28fd" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_DISABLED<sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x00000000u<sp/></highlight><highlight class="comment">/**&lt;<sp/>the<sp/>event<sp/>was<sp/>disabled<sp/>and<sp/>has<sp/>no<sp/>effect<sp/>any<sp/>longer<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="44"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>variable<sp/>events<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="type__event_8h_1abdb41277158c5046b83eb5ece43e6e70" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_VARADDED<sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x00000001u<sp/></highlight><highlight class="comment">/**&lt;<sp/>a<sp/>variable<sp/>has<sp/>been<sp/>added<sp/>to<sp/>the<sp/>transformed<sp/>problem<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="47" refid="type__event_8h_1a737872e4e887e158de99849eb277090e" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_VARDELETED<sp/><sp/><sp/><sp/><sp/>0x00000002u<sp/></highlight><highlight class="comment">/**&lt;<sp/>a<sp/>variable<sp/>will<sp/>be<sp/>deleted<sp/>from<sp/>the<sp/>transformed<sp/>problem<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="48" refid="type__event_8h_1a693ca56a7585240ff0144bdd0a6cdbc5" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_VARFIXED<sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x00000004u<sp/></highlight><highlight class="comment">/**&lt;<sp/>a<sp/>variable<sp/>has<sp/>been<sp/>fixed,<sp/>aggregated,<sp/>or<sp/>multi-aggregated<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="49" refid="type__event_8h_1a1907d7629c39c6f54cd1c4a8fe5de7df" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_VARUNLOCKED<sp/><sp/><sp/><sp/>0x00000008u<sp/></highlight><highlight class="comment">/**&lt;<sp/>the<sp/>number<sp/>of<sp/>rounding<sp/>locks<sp/>of<sp/>a<sp/>variable<sp/>was<sp/>reduced<sp/>to<sp/>zero<sp/>or</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>one<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="51"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_OBJCHANGED<sp/><sp/><sp/><sp/><sp/>0x00000010u<sp/></highlight><highlight class="comment">/**&lt;<sp/>the<sp/>objective<sp/>value<sp/>of<sp/>a<sp/>variable<sp/>has<sp/>been<sp/>changed<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="52" refid="type__event_8h_1a6590b5eccb0a4935b3fea139f152eb07" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_GLBCHANGED<sp/><sp/><sp/><sp/><sp/>0x00000020u<sp/></highlight><highlight class="comment">/**&lt;<sp/>the<sp/>global<sp/>lower<sp/>bound<sp/>of<sp/>a<sp/>variable<sp/>has<sp/>been<sp/>changed<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="53" refid="type__event_8h_1aad0f6cec966e9109577ee8940b6829f4" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_GUBCHANGED<sp/><sp/><sp/><sp/><sp/>0x00000040u<sp/></highlight><highlight class="comment">/**&lt;<sp/>the<sp/>global<sp/>upper<sp/>bound<sp/>of<sp/>a<sp/>variable<sp/>has<sp/>been<sp/>changed<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="54" refid="type__event_8h_1a419eb04b62fd224f7350eeb0d94ce1de" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_LBTIGHTENED<sp/><sp/><sp/><sp/>0x00000080u<sp/></highlight><highlight class="comment">/**&lt;<sp/>the<sp/>local<sp/>lower<sp/>bound<sp/>of<sp/>a<sp/>variable<sp/>has<sp/>been<sp/>increased<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="55" refid="type__event_8h_1af5988d53e0bb89bac4c2f558efbb1722" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_LBRELAXED<sp/><sp/><sp/><sp/><sp/><sp/>0x00000100u<sp/></highlight><highlight class="comment">/**&lt;<sp/>the<sp/>local<sp/>lower<sp/>bound<sp/>of<sp/>a<sp/>variable<sp/>has<sp/>been<sp/>decreased<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="56" refid="type__event_8h_1aa18609cea7a11d1dd77dedbcaf63ef21" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_UBTIGHTENED<sp/><sp/><sp/><sp/>0x00000200u<sp/></highlight><highlight class="comment">/**&lt;<sp/>the<sp/>local<sp/>upper<sp/>bound<sp/>of<sp/>a<sp/>variable<sp/>has<sp/>been<sp/>decreased<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="57" refid="type__event_8h_1a57b890bde301e876cc3cb7b8929772de" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_UBRELAXED<sp/><sp/><sp/><sp/><sp/><sp/>0x00000400u<sp/></highlight><highlight class="comment">/**&lt;<sp/>the<sp/>local<sp/>upper<sp/>bound<sp/>of<sp/>a<sp/>variable<sp/>has<sp/>been<sp/>increased<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="58" refid="type__event_8h_1afd2086f613ae9a0b5c7a4bb55d24cfc0" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_GHOLEADDED<sp/><sp/><sp/><sp/><sp/>0x00000800u<sp/></highlight><highlight class="comment">/**&lt;<sp/>a<sp/>global<sp/>hole<sp/>has<sp/>been<sp/>added<sp/>to<sp/>the<sp/>hole<sp/>list<sp/>of<sp/>a<sp/>variable&apos;s<sp/>domain<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="59" refid="type__event_8h_1a0998cf2c1d1205e0e2d5a9d63cfd6719" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_GHOLEREMOVED<sp/><sp/><sp/>0x00001000u<sp/></highlight><highlight class="comment">/**&lt;<sp/>a<sp/>global<sp/>hole<sp/>has<sp/>been<sp/>removed<sp/>from<sp/>the<sp/>hole<sp/>list<sp/>of<sp/>a<sp/>variable&apos;s<sp/>domain<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="60" refid="type__event_8h_1a4bd01da382bd3805504ee80af67eb948" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_LHOLEADDED<sp/><sp/><sp/><sp/><sp/>0x00002000u<sp/></highlight><highlight class="comment">/**&lt;<sp/>a<sp/>local<sp/>hole<sp/>has<sp/>been<sp/>added<sp/>to<sp/>the<sp/>hole<sp/>list<sp/>of<sp/>a<sp/>variable&apos;s<sp/>domain<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="61" refid="type__event_8h_1acc942424f07ce94869e66d60f14e4c44" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_LHOLEREMOVED<sp/><sp/><sp/>0x00004000u<sp/></highlight><highlight class="comment">/**&lt;<sp/>a<sp/>local<sp/>hole<sp/>has<sp/>been<sp/>removed<sp/>from<sp/>the<sp/>hole<sp/>list<sp/>of<sp/>a<sp/>variable&apos;s<sp/>domain<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="62" refid="type__event_8h_1a857c7a43464662cdd15429837ec05983" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_IMPLADDED<sp/><sp/><sp/><sp/><sp/><sp/>0x00008000u<sp/></highlight><highlight class="comment">/**&lt;<sp/>the<sp/>variable&apos;s<sp/>implication<sp/>list,<sp/>variable<sp/>bound<sp/>or<sp/>clique<sp/>information</highlight></codeline>
+<codeline lineno="63" refid="type__event_8h_1ad6878059ab90d98155caf34b2d3f37ac" refkind="member"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>was<sp/>extended<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="64"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>presolving<sp/>events<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_PRESOLVEROUND<sp/><sp/>0x00010000u<sp/></highlight><highlight class="comment">/**&lt;<sp/>a<sp/>presolving<sp/>round<sp/>has<sp/>been<sp/>finished<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="67"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68" refid="type__event_8h_1a408983823d3060101ce3a03d8dfaab16" refkind="member"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>node<sp/>events<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_NODEFOCUSED<sp/><sp/><sp/><sp/>0x00020000u<sp/></highlight><highlight class="comment">/**&lt;<sp/>a<sp/>node<sp/>has<sp/>been<sp/>focused<sp/>and<sp/>is<sp/>now<sp/>the<sp/>focus<sp/>node<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="70"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_NODEFEASIBLE<sp/><sp/><sp/>0x00040000u<sp/></highlight><highlight class="comment">/**&lt;<sp/>the<sp/>LP/pseudo<sp/>solution<sp/>of<sp/>the<sp/>node<sp/>was<sp/>feasible<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="71" refid="type__event_8h_1a5d806ee605db9d57aeced1c8895f7324" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_NODEINFEASIBLE<sp/>0x00080000u<sp/></highlight><highlight class="comment">/**&lt;<sp/>the<sp/>focus<sp/>node<sp/>has<sp/>been<sp/>proven<sp/>to<sp/>be<sp/>infeasible<sp/>or<sp/>was<sp/>bounded<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="72" refid="type__event_8h_1a10a594f8e3246db9a605a77549f40475" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_NODEBRANCHED<sp/><sp/><sp/>0x00100000u<sp/></highlight><highlight class="comment">/**&lt;<sp/>the<sp/>focus<sp/>node<sp/>has<sp/>been<sp/>solved<sp/>by<sp/>branching<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="73" refid="type__event_8h_1a63c33fb1f94a0b7f17a5584a55e5368f" refkind="member"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74" refid="type__event_8h_1a9410f05184ee8d0589d48fe7e489ee15" refkind="member"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>LP<sp/>events<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_FIRSTLPSOLVED<sp/><sp/>0x00200000u<sp/></highlight><highlight class="comment">/**&lt;<sp/>the<sp/>node&apos;s<sp/>initial<sp/>LP<sp/>was<sp/>solved<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="76"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_LPSOLVED<sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x00400000u<sp/></highlight><highlight class="comment">/**&lt;<sp/>the<sp/>node&apos;s<sp/>LP<sp/>was<sp/>completely<sp/>solved<sp/>with<sp/>cut<sp/>&amp;<sp/>price<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="77" refid="type__event_8h_1a0e97c429cd89b9aedaaa0ab64f6b8371" refkind="member"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78" refid="type__event_8h_1ad157c2d2175a6d65d24d41de85c3677a" refkind="member"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>primal<sp/>solution<sp/>events<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_POORSOLFOUND<sp/><sp/><sp/>0x00800000u<sp/></highlight><highlight class="comment">/**&lt;<sp/>a<sp/>good<sp/>enough<sp/>primal<sp/>feasible<sp/>(but<sp/>not<sp/>new<sp/>best)<sp/>solution<sp/>was<sp/>found<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="80"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_BESTSOLFOUND<sp/><sp/><sp/>0x01000000u<sp/></highlight><highlight class="comment">/**&lt;<sp/>a<sp/>new<sp/>best<sp/>primal<sp/>feasible<sp/>solution<sp/>was<sp/>found<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="81" refid="type__event_8h_1a39188a366bf5c1c570becd2ea21681ac" refkind="member"><highlight class="preprocessor"></highlight><highlight class="normal"><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="82" refid="type__event_8h_1aa7b9f5aece9817543b4ad6fcf51baf58" refkind="member"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>linear<sp/>row<sp/>events<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_ROWADDEDSEPA<sp/><sp/><sp/>0x02000000u<sp/></highlight><highlight class="comment">/**&lt;<sp/>a<sp/>row<sp/>has<sp/>been<sp/>added<sp/>to<sp/>SCIP&apos;s<sp/>separation<sp/>storage<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="84"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_ROWDELETEDSEPA<sp/>0x04000000u<sp/></highlight><highlight class="comment">/**&lt;<sp/>a<sp/>row<sp/>has<sp/>been<sp/>removed<sp/>from<sp/>SCIP&apos;s<sp/>separation<sp/>storage<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="85" refid="type__event_8h_1adf950d3b70650bb00fcbea8d9e1f826b" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_ROWADDEDLP<sp/><sp/><sp/><sp/><sp/>0x08000000u<sp/></highlight><highlight class="comment">/**&lt;<sp/>a<sp/>row<sp/>has<sp/>been<sp/>added<sp/>to<sp/>the<sp/>LP<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="86" refid="type__event_8h_1ab99fc5ce85c7cdc63979cc9199d01923" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_ROWDELETEDLP<sp/><sp/><sp/>0x10000000u<sp/></highlight><highlight class="comment">/**&lt;<sp/>a<sp/>row<sp/>has<sp/>been<sp/>removed<sp/>from<sp/>the<sp/>LP<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="87" refid="type__event_8h_1a37c890664aa0ef249a62bcb70a414459" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_ROWCOEFCHANGED<sp/>0x20000000u<sp/></highlight><highlight class="comment">/**&lt;<sp/>a<sp/>coefficient<sp/>of<sp/>a<sp/>row<sp/>has<sp/>been<sp/>changed<sp/>(row<sp/>specific<sp/>event)<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="88" refid="type__event_8h_1ac35edce8f1920f428573d3d425db604c" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_ROWCONSTCHANGED<sp/>0x40000000u</highlight><highlight class="comment">/**&lt;<sp/>the<sp/>constant<sp/>of<sp/>a<sp/>row<sp/>has<sp/>been<sp/>changed<sp/>(row<sp/>specific<sp/>event)<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="89" refid="type__event_8h_1ad85109718e4ad80191af5087475f1de5" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_ROWSIDECHANGED<sp/>0x80000000u<sp/></highlight><highlight class="comment">/**&lt;<sp/>a<sp/>side<sp/>of<sp/>a<sp/>row<sp/>has<sp/>been<sp/>changed<sp/>(row<sp/>specific<sp/>event)<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="90" refid="type__event_8h_1af34bb0949ad693bd3be8c22c55f412a2" refkind="member"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91" refid="type__event_8h_1a1cf78a7e3940ed0240fb902ed484a085" refkind="member"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>event<sp/>masks<sp/>for<sp/>variable<sp/>events<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_GBDCHANGED<sp/><sp/><sp/><sp/><sp/>(SCIP_EVENTTYPE_GLBCHANGED<sp/>|<sp/>SCIP_EVENTTYPE_GUBCHANGED)</highlight></codeline>
+<codeline lineno="93"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_LBCHANGED<sp/><sp/><sp/><sp/><sp/><sp/>(SCIP_EVENTTYPE_LBTIGHTENED<sp/>|<sp/>SCIP_EVENTTYPE_LBRELAXED)</highlight></codeline>
+<codeline lineno="94" refid="type__event_8h_1a4e69d266b8c820e89736348811d089b8" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_UBCHANGED<sp/><sp/><sp/><sp/><sp/><sp/>(SCIP_EVENTTYPE_UBTIGHTENED<sp/>|<sp/>SCIP_EVENTTYPE_UBRELAXED)</highlight></codeline>
+<codeline lineno="95" refid="type__event_8h_1abe85fc2b8bc12e2ab22b44d697d2b284" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_BOUNDTIGHTENED<sp/>(SCIP_EVENTTYPE_LBTIGHTENED<sp/>|<sp/>SCIP_EVENTTYPE_UBTIGHTENED)</highlight></codeline>
+<codeline lineno="96" refid="type__event_8h_1ac7875a9abf2e3b973567b99d36e61a6c" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_BOUNDRELAXED<sp/><sp/><sp/>(SCIP_EVENTTYPE_LBRELAXED<sp/>|<sp/>SCIP_EVENTTYPE_UBRELAXED)</highlight></codeline>
+<codeline lineno="97" refid="type__event_8h_1af4514ddc527f758f2fd7ad304555c04f" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_BOUNDCHANGED<sp/><sp/><sp/>(SCIP_EVENTTYPE_LBCHANGED<sp/>|<sp/>SCIP_EVENTTYPE_UBCHANGED)</highlight></codeline>
+<codeline lineno="98" refid="type__event_8h_1ab8dcf11e4e0e68580f546eaa32079a88" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_GHOLECHANGED<sp/><sp/><sp/>(SCIP_EVENTTYPE_GHOLEADDED<sp/>|<sp/>SCIP_EVENTTYPE_GHOLEREMOVED)</highlight></codeline>
+<codeline lineno="99" refid="type__event_8h_1a128e03e649e03bf833fdc309f8bb3483" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_LHOLECHANGED<sp/><sp/><sp/>(SCIP_EVENTTYPE_LHOLEADDED<sp/>|<sp/>SCIP_EVENTTYPE_LHOLEREMOVED)</highlight></codeline>
+<codeline lineno="100" refid="type__event_8h_1a132f303b11d0d77293d14911b021352e" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_HOLECHANGED<sp/><sp/><sp/><sp/>(SCIP_EVENTTYPE_GHOLECHANGED<sp/>|<sp/>SCIP_EVENTTYPE_LHOLECHANGED)</highlight></codeline>
+<codeline lineno="101" refid="type__event_8h_1a5f42119cae91be59ceb48e4cc59f4f3d" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_DOMCHANGED<sp/><sp/><sp/><sp/><sp/>(SCIP_EVENTTYPE_BOUNDCHANGED<sp/>|<sp/>SCIP_EVENTTYPE_HOLECHANGED)</highlight></codeline>
+<codeline lineno="102" refid="type__event_8h_1ab94df2009e0c7d5930d07749353e037c" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_VARCHANGED<sp/><sp/><sp/><sp/><sp/>(SCIP_EVENTTYPE_VARFIXED<sp/>|<sp/>SCIP_EVENTTYPE_VARUNLOCKED<sp/>|<sp/>SCIP_EVENTTYPE_OBJCHANGED<sp/>\</highlight></codeline>
+<codeline lineno="103" refid="type__event_8h_1ae02366a4b43e69e2e14e5fb3339d689c" refkind="member"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>SCIP_EVENTTYPE_GBDCHANGED<sp/>|<sp/>SCIP_EVENTTYPE_DOMCHANGED<sp/>|<sp/>SCIP_EVENTTYPE_IMPLADDED<sp/>\</highlight></codeline>
+<codeline lineno="104" refid="type__event_8h_1ab987fdbf88f6747390f07bef23c2d753" refkind="member"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>SCIP_EVENTTYPE_VARDELETED)</highlight></codeline>
+<codeline lineno="105"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_VAREVENT<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(SCIP_EVENTTYPE_VARADDED<sp/>|<sp/>SCIP_EVENTTYPE_VARCHANGED)</highlight></codeline>
+<codeline lineno="106"><highlight class="preprocessor"></highlight><highlight class="normal"><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="107" refid="type__event_8h_1a21569e9b8ae43364e81618d41f9c8892" refkind="member"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>event<sp/>masks<sp/>for<sp/>node<sp/>events<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_NODESOLVED<sp/><sp/><sp/><sp/><sp/>(SCIP_EVENTTYPE_NODEFEASIBLE<sp/>|<sp/>SCIP_EVENTTYPE_NODEINFEASIBLE<sp/>\</highlight></codeline>
+<codeline lineno="109"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>SCIP_EVENTTYPE_NODEBRANCHED)</highlight></codeline>
+<codeline lineno="110" refid="type__event_8h_1aa0a891248bca1f5312b56edd0a10df2c" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_NODEEVENT<sp/><sp/><sp/><sp/><sp/><sp/>(SCIP_EVENTTYPE_NODEFOCUSED<sp/>|<sp/>SCIP_EVENTTYPE_NODESOLVED)</highlight></codeline>
+<codeline lineno="111"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112" refid="type__event_8h_1a7cfc0e26c90f14953e0cfe86b25eafd1" refkind="member"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>event<sp/>masks<sp/>for<sp/>LP<sp/>events<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_LPEVENT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(SCIP_EVENTTYPE_FIRSTLPSOLVED<sp/>|<sp/>SCIP_EVENTTYPE_LPSOLVED)</highlight></codeline>
+<codeline lineno="114"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115" refid="type__event_8h_1ae506cb87148fd403e6881ec0c4912977" refkind="member"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>event<sp/>masks<sp/>for<sp/>primal<sp/>solution<sp/>events<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_SOLFOUND<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(SCIP_EVENTTYPE_POORSOLFOUND<sp/>|<sp/>SCIP_EVENTTYPE_BESTSOLFOUND)</highlight></codeline>
+<codeline lineno="117"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_SOLEVENT<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(SCIP_EVENTTYPE_SOLFOUND)</highlight></codeline>
+<codeline lineno="118" refid="type__event_8h_1ac4326687adf8b4175a2a2145b592401b" refkind="member"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119" refid="type__event_8h_1aec2118490d06bafca9bf23f805410ab8" refkind="member"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>event<sp/>masks<sp/>for<sp/>row<sp/>events<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_ROWCHANGED<sp/><sp/><sp/><sp/><sp/>(SCIP_EVENTTYPE_ROWCOEFCHANGED<sp/>|<sp/>SCIP_EVENTTYPE_ROWCONSTCHANGED<sp/>|<sp/>SCIP_EVENTTYPE_ROWSIDECHANGED)</highlight></codeline>
+<codeline lineno="121"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SCIP_EVENTTYPE_ROWEVENT<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(SCIP_EVENTTYPE_ROWADDEDSEPA<sp/>|<sp/>SCIP_EVENTTYPE_ROWDELETEDSEPA<sp/>|<sp/>SCIP_EVENTTYPE_ROWADDEDLP<sp/>|<sp/>SCIP_EVENTTYPE_ROWDELETEDLP<sp/>|<sp/>SCIP_EVENTTYPE_ROWCHANGED)</highlight></codeline>
+<codeline lineno="122" refid="type__event_8h_1a7473489170c037ee033a13ca61db308e" refkind="member"><highlight class="preprocessor"></highlight><highlight class="normal"><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="123" refid="type__event_8h_1a95fddabf9c529b7659ddcb975faf0eb2" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="type__event_8h_1ada169f023df39328eccf1b635a124e31" kindref="member">SCIP_EVENTTYPE</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>type<sp/>of<sp/>event<sp/>(bit<sp/>field)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125" refid="type__event_8h_1ada169f023df39328eccf1b635a124e31" refkind="member"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">SCIP_Eventhdlr<sp/><ref refid="type__event_8h_1a0dc41f33e3a5dcf92123d7bc6ba8945d" kindref="member">SCIP_EVENTHDLR</ref>;<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>event<sp/>handler<sp/>for<sp/>a<sp/>specific<sp/>events<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">SCIP_EventhdlrData<sp/><ref refid="type__event_8h_1a75f8eb58103f64850221fad59626a4fa" kindref="member">SCIP_EVENTHDLRDATA</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>event<sp/>handler<sp/>data<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128" refid="type__event_8h_1a0dc41f33e3a5dcf92123d7bc6ba8945d" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">SCIP_Event<sp/><ref refid="type__event_8h_1ad8e794890cd488ccc90bdbe476c876e1" kindref="member">SCIP_EVENT</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>event<sp/>data<sp/>structure<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129" refid="type__event_8h_1a75f8eb58103f64850221fad59626a4fa" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">SCIP_EventVarAdded<sp/><ref refid="type__event_8h_1a2c08993502ff5c4460108520a345ceb0" kindref="member">SCIP_EVENTVARADDED</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>data<sp/>for<sp/>variable<sp/>addition<sp/>events<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130" refid="type__event_8h_1ad8e794890cd488ccc90bdbe476c876e1" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">SCIP_EventVarDeleted<sp/><ref refid="type__event_8h_1a0d108f1b57cd682e1d0b1be896605b0a" kindref="member">SCIP_EVENTVARDELETED</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>data<sp/>for<sp/>variable<sp/>deletion<sp/>events<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131" refid="type__event_8h_1a2c08993502ff5c4460108520a345ceb0" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">SCIP_EventVarFixed<sp/><ref refid="type__event_8h_1aeddce0bcb533aa750fb2040ad64d2af0" kindref="member">SCIP_EVENTVARFIXED</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>data<sp/>for<sp/>variable<sp/>fixing<sp/>events<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132" refid="type__event_8h_1a0d108f1b57cd682e1d0b1be896605b0a" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">SCIP_EventVarUnlocked<sp/><ref refid="type__event_8h_1a9b97228ba4efc8e4f0f51056a73547b8" kindref="member">SCIP_EVENTVARUNLOCKED</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>data<sp/>for<sp/>variable<sp/>unlocked<sp/>events<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133" refid="type__event_8h_1aeddce0bcb533aa750fb2040ad64d2af0" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">SCIP_EventObjChg<sp/><ref refid="type__event_8h_1a932404d63751a385e9c58590fa23e624" kindref="member">SCIP_EVENTOBJCHG</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>data<sp/>for<sp/>objective<sp/>value<sp/>change<sp/>events<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134" refid="type__event_8h_1a9b97228ba4efc8e4f0f51056a73547b8" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">SCIP_EventBdChg<sp/><ref refid="type__event_8h_1a24bfe1707dc43986dd14be5a977dda52" kindref="member">SCIP_EVENTBDCHG</ref>;<sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>data<sp/>for<sp/>bound<sp/>change<sp/>events<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135" refid="type__event_8h_1a932404d63751a385e9c58590fa23e624" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">SCIP_EventHole<sp/><ref refid="type__event_8h_1a2f6cbb26ee93c4db8daadc36529b4a91" kindref="member">SCIP_EVENTHOLE</ref>;<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>data<sp/>for<sp/>domain<sp/>hole<sp/>events<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136" refid="type__event_8h_1a24bfe1707dc43986dd14be5a977dda52" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">SCIP_EventImplAdd<sp/><ref refid="type__event_8h_1a9935569bddbc0b809b075f2d12f80cd7" kindref="member">SCIP_EVENTIMPLADD</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>data<sp/>for<sp/>implication<sp/>added<sp/>events<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137" refid="type__event_8h_1a2f6cbb26ee93c4db8daadc36529b4a91" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">SCIP_EventRowAddedSepa<sp/><ref refid="type__event_8h_1ac2b6f8062c1d093b3bb896fadde672d6" kindref="member">SCIP_EVENTROWADDEDSEPA</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>data<sp/>for<sp/>row<sp/>addition<sp/>to<sp/>sepastorage<sp/>events<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138" refid="type__event_8h_1a9935569bddbc0b809b075f2d12f80cd7" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">SCIP_EventRowDeletedSepa<sp/><ref refid="type__event_8h_1aaf4921da0b87a4f49b1c39cb1414b37e" kindref="member">SCIP_EVENTROWDELETEDSEPA</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>data<sp/>for<sp/>row<sp/>deletion<sp/>from<sp/>sepastorage<sp/>events<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139" refid="type__event_8h_1ac2b6f8062c1d093b3bb896fadde672d6" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">SCIP_EventRowAddedLP<sp/><ref refid="type__event_8h_1a2e087a7201c1be5881709fe9b92e76b9" kindref="member">SCIP_EVENTROWADDEDLP</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>data<sp/>for<sp/>row<sp/>addition<sp/>to<sp/>LP<sp/>events<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140" refid="type__event_8h_1aaf4921da0b87a4f49b1c39cb1414b37e" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">SCIP_EventRowDeletedLP<sp/><ref refid="type__event_8h_1aa22564198cb57da6288f2f5cb4f500c4" kindref="member">SCIP_EVENTROWDELETEDLP</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>data<sp/>for<sp/>row<sp/>deletion<sp/>from<sp/>LP<sp/>events<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141" refid="type__event_8h_1a2e087a7201c1be5881709fe9b92e76b9" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">SCIP_EventRowCoefChanged<sp/><ref refid="type__event_8h_1a895caaedeea99e1e95a4ba6d352c1ce6" kindref="member">SCIP_EVENTROWCOEFCHANGED</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>data<sp/>for<sp/>row<sp/>coefficient<sp/>change<sp/>events<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="142" refid="type__event_8h_1aa22564198cb57da6288f2f5cb4f500c4" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">SCIP_EventRowConstChanged<sp/><ref refid="type__event_8h_1a235b49f1516514cdcb6fb307a4509822" kindref="member">SCIP_EVENTROWCONSTCHANGED</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>data<sp/>for<sp/>row<sp/>constant<sp/>change<sp/>events<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143" refid="type__event_8h_1a895caaedeea99e1e95a4ba6d352c1ce6" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">SCIP_EventRowSideChanged<sp/><ref refid="type__event_8h_1a47313e0e5d1863195ca72a7a398923e0" kindref="member">SCIP_EVENTROWSIDECHANGED</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>data<sp/>for<sp/>row<sp/>side<sp/>change<sp/>events<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144" refid="type__event_8h_1a235b49f1516514cdcb6fb307a4509822" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">SCIP_EventData<sp/><ref refid="type__event_8h_1a4ebef382b966f4f8b419d6b37c29c6ac" kindref="member">SCIP_EVENTDATA</ref>;<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>locally<sp/>defined<sp/>event<sp/>specific<sp/>data<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145" refid="type__event_8h_1a47313e0e5d1863195ca72a7a398923e0" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">SCIP_EventFilter<sp/><ref refid="type__event_8h_1a62063efc0002dbdd4b7f3927adcb24d5" kindref="member">SCIP_EVENTFILTER</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>event<sp/>filter<sp/>to<sp/>select<sp/>events<sp/>to<sp/>be<sp/>processed<sp/>by<sp/>an<sp/>event<sp/>handler<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146" refid="type__event_8h_1a4ebef382b966f4f8b419d6b37c29c6ac" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">SCIP_EventQueue<sp/><ref refid="type__event_8h_1aa733e3a314dab961c526bac0cb5b1d76" kindref="member">SCIP_EVENTQUEUE</ref>;<sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>event<sp/>queue<sp/>to<sp/>cache<sp/>events<sp/>and<sp/>process<sp/>them<sp/>later<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147" refid="type__event_8h_1a62063efc0002dbdd4b7f3927adcb24d5" refkind="member"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="148" refid="type__event_8h_1aa733e3a314dab961c526bac0cb5b1d76" refkind="member"><highlight class="comment">/**<sp/>copy<sp/>method<sp/>for<sp/>event<sp/>handler<sp/>plugins<sp/>(called<sp/>when<sp/>SCIP<sp/>copies<sp/>plugins)</highlight></codeline>
+<codeline lineno="149"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="150"><highlight class="comment"><sp/>*<sp/><sp/>input:</highlight></codeline>
+<codeline lineno="151"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>scip<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>SCIP<sp/>main<sp/>data<sp/>structure</highlight></codeline>
+<codeline lineno="152"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>eventhdlr<sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>the<sp/>event<sp/>handler<sp/>itself</highlight></codeline>
+<codeline lineno="153"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIP_DECL_EVENTCOPY(x)<sp/>SCIP_RETCODE<sp/>x<sp/>(SCIP*<sp/>scip,<sp/>SCIP_EVENTHDLR*<sp/>eventhdlr)</highlight></codeline>
+<codeline lineno="155"><highlight class="preprocessor"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="156" refid="type__event_8h_1a9b324836c5058e7aab1b958522df0ad3" refkind="member"><highlight class="comment">/**<sp/>destructor<sp/>of<sp/>event<sp/>handler<sp/>to<sp/>free<sp/>user<sp/>data<sp/>(called<sp/>when<sp/>SCIP<sp/>is<sp/>exiting)</highlight></codeline>
+<codeline lineno="157"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="158"><highlight class="comment"><sp/>*<sp/><sp/>input:</highlight></codeline>
+<codeline lineno="159"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>scip<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>SCIP<sp/>main<sp/>data<sp/>structure</highlight></codeline>
+<codeline lineno="160"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>eventhdlr<sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>the<sp/>event<sp/>handler<sp/>itself</highlight></codeline>
+<codeline lineno="161"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIP_DECL_EVENTFREE(x)<sp/>SCIP_RETCODE<sp/>x<sp/>(SCIP*<sp/>scip,<sp/>SCIP_EVENTHDLR*<sp/>eventhdlr)</highlight></codeline>
+<codeline lineno="163"><highlight class="preprocessor"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="164" refid="type__event_8h_1ab6bcbd5a542808e92606be4f108c46d5" refkind="member"><highlight class="comment">/**<sp/>initialization<sp/>method<sp/>of<sp/>event<sp/>handler<sp/>(called<sp/>after<sp/>problem<sp/>was<sp/>transformed)</highlight></codeline>
+<codeline lineno="165"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="166"><highlight class="comment"><sp/>*<sp/><sp/>input:</highlight></codeline>
+<codeline lineno="167"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>scip<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>SCIP<sp/>main<sp/>data<sp/>structure</highlight></codeline>
+<codeline lineno="168"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>eventhdlr<sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>the<sp/>event<sp/>handler<sp/>itself</highlight></codeline>
+<codeline lineno="169"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIP_DECL_EVENTINIT(x)<sp/>SCIP_RETCODE<sp/>x<sp/>(SCIP*<sp/>scip,<sp/>SCIP_EVENTHDLR*<sp/>eventhdlr)</highlight></codeline>
+<codeline lineno="171"><highlight class="preprocessor"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="172" refid="type__event_8h_1a9cfd669a49331d0857d8b6a4a4399c13" refkind="member"><highlight class="comment">/**<sp/>deinitialization<sp/>method<sp/>of<sp/>event<sp/>handler<sp/>(called<sp/>before<sp/>transformed<sp/>problem<sp/>is<sp/>freed)</highlight></codeline>
+<codeline lineno="173"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="174"><highlight class="comment"><sp/>*<sp/><sp/>input:</highlight></codeline>
+<codeline lineno="175"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>scip<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>SCIP<sp/>main<sp/>data<sp/>structure</highlight></codeline>
+<codeline lineno="176"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>eventhdlr<sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>the<sp/>event<sp/>handler<sp/>itself</highlight></codeline>
+<codeline lineno="177"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIP_DECL_EVENTEXIT(x)<sp/>SCIP_RETCODE<sp/>x<sp/>(SCIP*<sp/>scip,<sp/>SCIP_EVENTHDLR*<sp/>eventhdlr)</highlight></codeline>
+<codeline lineno="179"><highlight class="preprocessor"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="180" refid="type__event_8h_1a441309b02b8b24269e2d10b0b7f41d93" refkind="member"><highlight class="comment">/**<sp/>solving<sp/>process<sp/>initialization<sp/>method<sp/>of<sp/>event<sp/>handler<sp/>(called<sp/>when<sp/>branch<sp/>and<sp/>bound<sp/>process<sp/>is<sp/>about<sp/>to<sp/>begin)</highlight></codeline>
+<codeline lineno="181"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="182"><highlight class="comment"><sp/>*<sp/><sp/>This<sp/>method<sp/>is<sp/>called<sp/>when<sp/>the<sp/>presolving<sp/>was<sp/>finished<sp/>and<sp/>the<sp/>branch<sp/>and<sp/>bound<sp/>process<sp/>is<sp/>about<sp/>to<sp/>begin.</highlight></codeline>
+<codeline lineno="183"><highlight class="comment"><sp/>*<sp/><sp/>The<sp/>event<sp/>handler<sp/>may<sp/>use<sp/>this<sp/>call<sp/>to<sp/>initialize<sp/>its<sp/>branch<sp/>and<sp/>bound<sp/>specific<sp/>data.</highlight></codeline>
+<codeline lineno="184"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="185"><highlight class="comment"><sp/>*<sp/><sp/>input:</highlight></codeline>
+<codeline lineno="186"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>scip<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>SCIP<sp/>main<sp/>data<sp/>structure</highlight></codeline>
+<codeline lineno="187"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>eventhdlr<sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>the<sp/>event<sp/>handler<sp/>itself</highlight></codeline>
+<codeline lineno="188"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIP_DECL_EVENTINITSOL(x)<sp/>SCIP_RETCODE<sp/>x<sp/>(SCIP*<sp/>scip,<sp/>SCIP_EVENTHDLR*<sp/>eventhdlr)</highlight></codeline>
+<codeline lineno="190"><highlight class="preprocessor"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="191" refid="type__event_8h_1a0ef3a60738e301ea496b8a3a30db8067" refkind="member"><highlight class="comment">/**<sp/>solving<sp/>process<sp/>deinitialization<sp/>method<sp/>of<sp/>event<sp/>handler<sp/>(called<sp/>before<sp/>branch<sp/>and<sp/>bound<sp/>process<sp/>data<sp/>is<sp/>freed)</highlight></codeline>
+<codeline lineno="192"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="193"><highlight class="comment"><sp/>*<sp/><sp/>This<sp/>method<sp/>is<sp/>called<sp/>before<sp/>the<sp/>branch<sp/>and<sp/>bound<sp/>process<sp/>is<sp/>freed.</highlight></codeline>
+<codeline lineno="194"><highlight class="comment"><sp/>*<sp/><sp/>The<sp/>event<sp/>handler<sp/>should<sp/>use<sp/>this<sp/>call<sp/>to<sp/>clean<sp/>up<sp/>its<sp/>branch<sp/>and<sp/>bound<sp/>data.</highlight></codeline>
+<codeline lineno="195"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="196"><highlight class="comment"><sp/>*<sp/><sp/>input:</highlight></codeline>
+<codeline lineno="197"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>scip<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>SCIP<sp/>main<sp/>data<sp/>structure</highlight></codeline>
+<codeline lineno="198"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>eventhdlr<sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>the<sp/>event<sp/>handler<sp/>itself</highlight></codeline>
+<codeline lineno="199"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIP_DECL_EVENTEXITSOL(x)<sp/>SCIP_RETCODE<sp/>x<sp/>(SCIP*<sp/>scip,<sp/>SCIP_EVENTHDLR*<sp/>eventhdlr)</highlight></codeline>
+<codeline lineno="201"><highlight class="preprocessor"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="202" refid="type__event_8h_1ad280ee9fda2d649f031bb7db7a2e4aae" refkind="member"><highlight class="comment">/**<sp/>frees<sp/>specific<sp/>event<sp/>data</highlight></codeline>
+<codeline lineno="203"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="204"><highlight class="comment"><sp/>*<sp/><sp/>input:</highlight></codeline>
+<codeline lineno="205"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>scip<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>SCIP<sp/>main<sp/>data<sp/>structure</highlight></codeline>
+<codeline lineno="206"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>eventhdlr<sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>the<sp/>event<sp/>handler<sp/>itself</highlight></codeline>
+<codeline lineno="207"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>eventdata<sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>pointer<sp/>to<sp/>the<sp/>event<sp/>data<sp/>to<sp/>free</highlight></codeline>
+<codeline lineno="208"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIP_DECL_EVENTDELETE(x)<sp/>SCIP_RETCODE<sp/>x<sp/>(SCIP*<sp/>scip,<sp/>SCIP_EVENTHDLR*<sp/>eventhdlr,<sp/>SCIP_EVENTDATA**<sp/>eventdata)</highlight></codeline>
+<codeline lineno="210"><highlight class="preprocessor"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="211" refid="type__event_8h_1a2197797c4a093d111818b4320397654f" refkind="member"><highlight class="comment">/**<sp/>execution<sp/>method<sp/>of<sp/>event<sp/>handler</highlight></codeline>
+<codeline lineno="212"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="213"><highlight class="comment"><sp/>*<sp/><sp/>Processes<sp/>the<sp/>event.<sp/>The<sp/>method<sp/>is<sp/>called<sp/>every<sp/>time<sp/>an<sp/>event<sp/>occurs,<sp/>for<sp/>which<sp/>the<sp/>event<sp/>handler</highlight></codeline>
+<codeline lineno="214"><highlight class="comment"><sp/>*<sp/><sp/>is<sp/>responsible.<sp/>Event<sp/>handlers<sp/>may<sp/>declare<sp/>themselves<sp/>responsible<sp/>for<sp/>events<sp/>by<sp/>calling<sp/>the</highlight></codeline>
+<codeline lineno="215"><highlight class="comment"><sp/>*<sp/><sp/>corresponding<sp/>SCIPcatch...()<sp/>method.<sp/>This<sp/>method<sp/>creates<sp/>an<sp/>event<sp/>filter<sp/>object<sp/>to<sp/>point<sp/>to<sp/>the</highlight></codeline>
+<codeline lineno="216"><highlight class="comment"><sp/>*<sp/><sp/>given<sp/>event<sp/>handler<sp/>and<sp/>event<sp/>data.</highlight></codeline>
+<codeline lineno="217"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="218"><highlight class="comment"><sp/>*<sp/><sp/>input:</highlight></codeline>
+<codeline lineno="219"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>scip<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>SCIP<sp/>main<sp/>data<sp/>structure</highlight></codeline>
+<codeline lineno="220"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>eventhdlr<sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>the<sp/>event<sp/>handler<sp/>itself</highlight></codeline>
+<codeline lineno="221"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>event<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>event<sp/>to<sp/>process</highlight></codeline>
+<codeline lineno="222"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>eventdata<sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>user<sp/>data<sp/>for<sp/>the<sp/>event</highlight></codeline>
+<codeline lineno="223"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIP_DECL_EVENTEXEC(x)<sp/>SCIP_RETCODE<sp/>x<sp/>(SCIP*<sp/>scip,<sp/>SCIP_EVENTHDLR*<sp/>eventhdlr,<sp/>SCIP_EVENT*<sp/>event,<sp/>SCIP_EVENTDATA*<sp/>eventdata)</highlight></codeline>
+<codeline lineno="225"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="226" refid="type__event_8h_1a7942e3ded98f033e3c08947c7cfc73af" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight></codeline>
+<codeline lineno="227"><highlight class="preprocessor"></highlight><highlight class="normal">}</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="229"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_event.h"/>
+  </compounddef>
+</doxygen>

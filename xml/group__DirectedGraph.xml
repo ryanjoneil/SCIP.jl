@@ -1,0 +1,548 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="group__DirectedGraph" kind="group">
+    <compoundname>DirectedGraph</compoundname>
+    <title>Directed Graph</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__DirectedGraph_1ga68c7db9e3c65586baf542b0a681cceed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref></type>
+        <definition>SCIP_RETCODE SCIPdigraphCreate</definition>
+        <argsstring>(SCIP_DIGRAPH **digraph, int nnodes)</argsstring>
+        <name>SCIPdigraphCreate</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a467b6a5a197769a299b70736cc38a34f" kindref="member">SCIP_DIGRAPH</ref> **</type>
+          <declname>digraph</declname>
+          <briefdescription><para>pointer to store the created directed graph </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nnodes</declname>
+          <briefdescription><para>number of nodes </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>creates directed graph structure </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="816" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__DirectedGraph_1gaed650d35fc68d98e3fd48c16447d388b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref></type>
+        <definition>SCIP_RETCODE SCIPdigraphResize</definition>
+        <argsstring>(SCIP_DIGRAPH *digraph, int nnodes)</argsstring>
+        <name>SCIPdigraphResize</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a467b6a5a197769a299b70736cc38a34f" kindref="member">SCIP_DIGRAPH</ref> *</type>
+          <declname>digraph</declname>
+          <briefdescription><para>directed graph </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nnodes</declname>
+          <briefdescription><para>new number of nodes </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>resize directed graph structure </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="823" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__DirectedGraph_1ga32c22d7006b40ce36da378ee84b4ddb5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref></type>
+        <definition>SCIP_RETCODE SCIPdigraphCopy</definition>
+        <argsstring>(SCIP_DIGRAPH **targetdigraph, SCIP_DIGRAPH *sourcedigraph)</argsstring>
+        <name>SCIPdigraphCopy</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a467b6a5a197769a299b70736cc38a34f" kindref="member">SCIP_DIGRAPH</ref> **</type>
+          <declname>targetdigraph</declname>
+          <briefdescription><para>pointer to store the copied directed graph </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__misc_8h_1a467b6a5a197769a299b70736cc38a34f" kindref="member">SCIP_DIGRAPH</ref> *</type>
+          <declname>sourcedigraph</declname>
+          <briefdescription><para>source directed graph </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>copies directed graph structure </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="830" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__DirectedGraph_1ga81ba8c7a2c21ce9a3975101c223d0c22" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref></type>
+        <definition>SCIP_RETCODE SCIPdigraphSetSizes</definition>
+        <argsstring>(SCIP_DIGRAPH *digraph, int *sizes)</argsstring>
+        <name>SCIPdigraphSetSizes</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a467b6a5a197769a299b70736cc38a34f" kindref="member">SCIP_DIGRAPH</ref> *</type>
+          <declname>digraph</declname>
+          <briefdescription><para>directed graph </para></briefdescription>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>sizes</declname>
+          <briefdescription><para>sizes of the successor lists </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>sets the sizes of the successor lists for the nodes in a directed graph and allocates memory for the lists </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="837" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__DirectedGraph_1gab48ddd30f440bca80a4602e0a6a47df4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPdigraphFree</definition>
+        <argsstring>(SCIP_DIGRAPH **digraph)</argsstring>
+        <name>SCIPdigraphFree</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a467b6a5a197769a299b70736cc38a34f" kindref="member">SCIP_DIGRAPH</ref> **</type>
+          <declname>digraph</declname>
+          <briefdescription><para>pointer to the directed graph </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>frees given directed graph structure </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="844" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__DirectedGraph_1ga57cea2a4d30a00fda1660a4da0e52646" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref></type>
+        <definition>SCIP_RETCODE SCIPdigraphAddArc</definition>
+        <argsstring>(SCIP_DIGRAPH *digraph, int startnode, int endnode, void *data)</argsstring>
+        <name>SCIPdigraphAddArc</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a467b6a5a197769a299b70736cc38a34f" kindref="member">SCIP_DIGRAPH</ref> *</type>
+          <declname>digraph</declname>
+          <briefdescription><para>directed graph </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>startnode</declname>
+          <briefdescription><para>start node of the arc </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>endnode</declname>
+          <briefdescription><para>start node of the arc </para></briefdescription>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>data</declname>
+          <briefdescription><para>data that should be stored for the arc; or NULL </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>add (directed) arc and a related data to the directed graph structure</para><para><simplesect kind="note"><para>if the arc is already contained, it is added a second time </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="853" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__DirectedGraph_1gaa616fd8ee564c5974bf10b13e25bfda1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref></type>
+        <definition>SCIP_RETCODE SCIPdigraphAddArcSafe</definition>
+        <argsstring>(SCIP_DIGRAPH *digraph, int startnode, int endnode, void *data)</argsstring>
+        <name>SCIPdigraphAddArcSafe</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a467b6a5a197769a299b70736cc38a34f" kindref="member">SCIP_DIGRAPH</ref> *</type>
+          <declname>digraph</declname>
+          <briefdescription><para>directed graph </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>startnode</declname>
+          <briefdescription><para>start node of the arc </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>endnode</declname>
+          <briefdescription><para>start node of the arc </para></briefdescription>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>data</declname>
+          <briefdescription><para>data that should be stored for the arc; or NULL </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>add (directed) arc to the directed graph structure, if it is not contained, yet</para><para><simplesect kind="note"><para>if there already exists an arc from startnode to endnode, the new arc is not added, even if its data is different </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="866" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__DirectedGraph_1ga32f09fd970e3c01855899e2065099e82" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIPdigraphGetNNodes</definition>
+        <argsstring>(SCIP_DIGRAPH *digraph)</argsstring>
+        <name>SCIPdigraphGetNNodes</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a467b6a5a197769a299b70736cc38a34f" kindref="member">SCIP_DIGRAPH</ref> *</type>
+          <declname>digraph</declname>
+          <briefdescription><para>directed graph </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns the number of nodes of the given digraph </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="875" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__DirectedGraph_1ga262b3b3c6af8ca94daa2b5b65993e635" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* SCIPdigraphGetNodeDatas</definition>
+        <argsstring>(SCIP_DIGRAPH *digraph, int node)</argsstring>
+        <name>SCIPdigraphGetNodeDatas</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a467b6a5a197769a299b70736cc38a34f" kindref="member">SCIP_DIGRAPH</ref> *</type>
+          <declname>digraph</declname>
+          <briefdescription><para>directed graph </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>node</declname>
+          <briefdescription><para>node for which the node data is returned </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns the node data, or NULL if no data exist </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="881" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__DirectedGraph_1ga5f430c95e141b2583d7e50bf4f7f6a2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPdigraphSetNodeDatas</definition>
+        <argsstring>(SCIP_DIGRAPH *digraph, void *dataptr, int node)</argsstring>
+        <name>SCIPdigraphSetNodeDatas</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a467b6a5a197769a299b70736cc38a34f" kindref="member">SCIP_DIGRAPH</ref> *</type>
+          <declname>digraph</declname>
+          <briefdescription><para>directed graph </para></briefdescription>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>dataptr</declname>
+          <briefdescription><para>user node data pointer, or NULL </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>node</declname>
+          <briefdescription><para>node for which the node data is returned </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>sets the node data </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="888" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__DirectedGraph_1gab5dff47ee487760c0435dd2077350576" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIPdigraphGetNArcs</definition>
+        <argsstring>(SCIP_DIGRAPH *digraph)</argsstring>
+        <name>SCIPdigraphGetNArcs</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a467b6a5a197769a299b70736cc38a34f" kindref="member">SCIP_DIGRAPH</ref> *</type>
+          <declname>digraph</declname>
+          <briefdescription><para>directed graph </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns the total number of arcs in the given digraph </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="896" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__DirectedGraph_1ga1751a9c083411bf978c188dd641335ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIPdigraphGetNSuccessors</definition>
+        <argsstring>(SCIP_DIGRAPH *digraph, int node)</argsstring>
+        <name>SCIPdigraphGetNSuccessors</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a467b6a5a197769a299b70736cc38a34f" kindref="member">SCIP_DIGRAPH</ref> *</type>
+          <declname>digraph</declname>
+          <briefdescription><para>directed graph </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>node</declname>
+          <briefdescription><para>node for which the number of outgoing arcs is returned </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns the number of successor nodes of the given node </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="902" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__DirectedGraph_1gafad223a2ce7651c447839fff8838078b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int *</type>
+        <definition>int* SCIPdigraphGetSuccessors</definition>
+        <argsstring>(SCIP_DIGRAPH *digraph, int node)</argsstring>
+        <name>SCIPdigraphGetSuccessors</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a467b6a5a197769a299b70736cc38a34f" kindref="member">SCIP_DIGRAPH</ref> *</type>
+          <declname>digraph</declname>
+          <briefdescription><para>directed graph </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>node</declname>
+          <briefdescription><para>node for which the array of outgoing arcs is returned </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns the array of indices of the successor nodes; this array must not be changed from outside </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="909" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__DirectedGraph_1ga87f5ee46dd27506323e994e686d2e089" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void **</type>
+        <definition>void** SCIPdigraphGetSuccessorsDatas</definition>
+        <argsstring>(SCIP_DIGRAPH *digraph, int node)</argsstring>
+        <name>SCIPdigraphGetSuccessorsDatas</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a467b6a5a197769a299b70736cc38a34f" kindref="member">SCIP_DIGRAPH</ref> *</type>
+          <declname>digraph</declname>
+          <briefdescription><para>directed graph </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>node</declname>
+          <briefdescription><para>node for which the data corresponding to the outgoing arcs is returned </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns the array of datas corresponding to the arcs originating at the given node, or NULL if no data exist; this array must not be changed from outside </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="918" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__DirectedGraph_1ga176d6f151c867099d3abb72a27162d97" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref></type>
+        <definition>SCIP_RETCODE SCIPdigraphComputeUndirectedComponents</definition>
+        <argsstring>(SCIP_DIGRAPH *digraph, int minsize, int *components, int *ncomponents)</argsstring>
+        <name>SCIPdigraphComputeUndirectedComponents</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a467b6a5a197769a299b70736cc38a34f" kindref="member">SCIP_DIGRAPH</ref> *</type>
+          <declname>digraph</declname>
+          <briefdescription><para>directed graph </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>minsize</declname>
+          <briefdescription><para>all components with less nodes are ignored </para></briefdescription>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>components</declname>
+          <briefdescription><para>array with as many slots as there are nodes in the directed graph to store for each node the component to which it belongs (components are numbered 0 to ncomponents - 1); or NULL, if components are accessed one-by-one using <ref refid="group__DirectedGraph_1ga4e6a88c42edc4acc4f0bf5c9db23b797" kindref="member">SCIPdigraphGetComponent()</ref> </para></briefdescription>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>ncomponents</declname>
+          <briefdescription><para>pointer to store the number of components; or NULL, if the number of components is accessed by <ref refid="group__DirectedGraph_1gae960bbcc88860724b3f828bdf399f7f3" kindref="member">SCIPdigraphGetNComponents()</ref> </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compute undirected connected components on the given graph.</para><para><simplesect kind="note"><para>For each arc, its reverse is added, so the graph does not need to be the directed representation of an undirected graph. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="929" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__DirectedGraph_1ga653be9d81f37690d8c07f89d9c9acdb3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref></type>
+        <definition>SCIP_RETCODE SCIPdigraphTopoSortComponents</definition>
+        <argsstring>(SCIP_DIGRAPH *digraph)</argsstring>
+        <name>SCIPdigraphTopoSortComponents</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a467b6a5a197769a299b70736cc38a34f" kindref="member">SCIP_DIGRAPH</ref> *</type>
+          <declname>digraph</declname>
+          <briefdescription><para>directed graph </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Performes an (almost) topological sort on the undirected components of the given directed graph. The undirected components should be computed before using <ref refid="group__DirectedGraph_1ga176d6f151c867099d3abb72a27162d97" kindref="member">SCIPdigraphComputeUndirectedComponents()</ref>.</para><para><simplesect kind="note"><para>In general a topological sort is not unique. Note, that there might be directed cycles, that are randomly broken, which is the reason for having only almost topologically sorted arrays. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="947" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__DirectedGraph_1gae960bbcc88860724b3f828bdf399f7f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIPdigraphGetNComponents</definition>
+        <argsstring>(SCIP_DIGRAPH *digraph)</argsstring>
+        <name>SCIPdigraphGetNComponents</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a467b6a5a197769a299b70736cc38a34f" kindref="member">SCIP_DIGRAPH</ref> *</type>
+          <declname>digraph</declname>
+          <briefdescription><para>directed graph </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns the number of previously computed undirected components for the given directed graph </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="953" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__DirectedGraph_1ga4e6a88c42edc4acc4f0bf5c9db23b797" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPdigraphGetComponent</definition>
+        <argsstring>(SCIP_DIGRAPH *digraph, int compidx, int **nodes, int *nnodes)</argsstring>
+        <name>SCIPdigraphGetComponent</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a467b6a5a197769a299b70736cc38a34f" kindref="member">SCIP_DIGRAPH</ref> *</type>
+          <declname>digraph</declname>
+          <briefdescription><para>directed graph </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>compidx</declname>
+          <briefdescription><para>number of the component to return </para></briefdescription>
+        </param>
+        <param>
+          <type>int **</type>
+          <declname>nodes</declname>
+          <briefdescription><para>pointer to store the nodes in the component; or NULL, if not needed </para></briefdescription>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>nnodes</declname>
+          <briefdescription><para>pointer to store the number of nodes in the component; or NULL, if not needed </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the previously computed undirected component of the given number for the given directed graph. If the components were sorted using <ref refid="group__DirectedGraph_1ga653be9d81f37690d8c07f89d9c9acdb3" kindref="member">SCIPdigraphTopoSortComponents()</ref>, the component is (almost) topologically sorted. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="961" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__DirectedGraph_1ga1524af78e159bf5d824eead5f05ad883" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPdigraphFreeComponents</definition>
+        <argsstring>(SCIP_DIGRAPH *digraph)</argsstring>
+        <name>SCIPdigraphFreeComponents</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a467b6a5a197769a299b70736cc38a34f" kindref="member">SCIP_DIGRAPH</ref> *</type>
+          <declname>digraph</declname>
+          <briefdescription><para>directed graph </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>frees the component information for the given directed graph </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="971" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__DirectedGraph_1gab8a3d3a074d491cca1dee036ca0072eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPdigraphPrint</definition>
+        <argsstring>(SCIP_DIGRAPH *digraph, SCIP_MESSAGEHDLR *messagehdlr, FILE *file)</argsstring>
+        <name>SCIPdigraphPrint</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a467b6a5a197769a299b70736cc38a34f" kindref="member">SCIP_DIGRAPH</ref> *</type>
+          <declname>digraph</declname>
+          <briefdescription><para>directed graph </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__message_8h_1a7d71113339d14873806c1399442fae8d" kindref="member">SCIP_MESSAGEHDLR</ref> *</type>
+          <declname>messagehdlr</declname>
+          <briefdescription><para>message handler </para></briefdescription>
+        </param>
+        <param>
+          <type>FILE *</type>
+          <declname>file</declname>
+          <briefdescription><para>output file (or NULL for standard output) </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>output of the given directed graph via the given message handler </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="977" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__DirectedGraph_1ga3ea0abd797b16f531140bc168d110f7c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPdigraphPrintGml</definition>
+        <argsstring>(SCIP_DIGRAPH *digraph, FILE *file)</argsstring>
+        <name>SCIPdigraphPrintGml</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a467b6a5a197769a299b70736cc38a34f" kindref="member">SCIP_DIGRAPH</ref> *</type>
+          <declname>digraph</declname>
+          <briefdescription><para>directed graph </para></briefdescription>
+        </param>
+        <param>
+          <type>FILE *</type>
+          <declname>file</declname>
+          <briefdescription><para>file to write to </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>prints the given directed graph structure in GML format into the given file </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="985" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__DirectedGraph_1ga03d523ddef7f34ce789ea534ba7e623f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPdigraphPrintComponents</definition>
+        <argsstring>(SCIP_DIGRAPH *digraph, SCIP_MESSAGEHDLR *messagehdlr, FILE *file)</argsstring>
+        <name>SCIPdigraphPrintComponents</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a467b6a5a197769a299b70736cc38a34f" kindref="member">SCIP_DIGRAPH</ref> *</type>
+          <declname>digraph</declname>
+          <briefdescription><para>directed graph </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__message_8h_1a7d71113339d14873806c1399442fae8d" kindref="member">SCIP_MESSAGEHDLR</ref> *</type>
+          <declname>messagehdlr</declname>
+          <briefdescription><para>message handler </para></briefdescription>
+        </param>
+        <param>
+          <type>FILE *</type>
+          <declname>file</declname>
+          <briefdescription><para>output file (or NULL for standard output) </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>output of the given directed graph via the given message handler </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="993" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

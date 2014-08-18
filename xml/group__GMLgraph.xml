@@ -1,0 +1,221 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="group__GMLgraph" kind="group">
+    <compoundname>GMLgraph</compoundname>
+    <title>GML graphical printing</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__GMLgraph_1ga40fdd8619694bf8e0b5d732d4228231b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPgmlWriteNode</definition>
+        <argsstring>(FILE *file, unsigned int id, const char *label, const char *nodetype, const char *fillcolor, const char *bordercolor)</argsstring>
+        <name>SCIPgmlWriteNode</name>
+        <param>
+          <type>FILE *</type>
+          <declname>file</declname>
+          <briefdescription><para>file to write to </para></briefdescription>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>id</declname>
+          <briefdescription><para>id of the node </para></briefdescription>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>label</declname>
+          <briefdescription><para>label of the node </para></briefdescription>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>nodetype</declname>
+          <briefdescription><para>type of the node, or NULL </para></briefdescription>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>fillcolor</declname>
+          <briefdescription><para>color of the node&apos;s interior, or NULL </para></briefdescription>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>bordercolor</declname>
+          <briefdescription><para>color of the node&apos;s border, or NULL </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>writes a node section to the given graph file </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="67" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__GMLgraph_1ga37dd36258f0a9b3c6cabde117b9a8dc1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPgmlWriteNodeWeight</definition>
+        <argsstring>(FILE *file, unsigned int id, const char *label, const char *nodetype, const char *fillcolor, const char *bordercolor, SCIP_Real weight)</argsstring>
+        <name>SCIPgmlWriteNodeWeight</name>
+        <param>
+          <type>FILE *</type>
+          <declname>file</declname>
+          <briefdescription><para>file to write to </para></briefdescription>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>id</declname>
+          <briefdescription><para>id of the node </para></briefdescription>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>label</declname>
+          <briefdescription><para>label of the node </para></briefdescription>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>nodetype</declname>
+          <briefdescription><para>type of the node, or NULL </para></briefdescription>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>fillcolor</declname>
+          <briefdescription><para>color of the node&apos;s interior, or NULL </para></briefdescription>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>bordercolor</declname>
+          <briefdescription><para>color of the node&apos;s border, or NULL </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+          <declname>weight</declname>
+          <briefdescription><para>weight of node </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>writes a node section including weight to the given graph file </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="78" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__GMLgraph_1gaac2a4633be2d428b9a7723bc826db9fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPgmlWriteEdge</definition>
+        <argsstring>(FILE *file, unsigned int source, unsigned int target, const char *label, const char *color)</argsstring>
+        <name>SCIPgmlWriteEdge</name>
+        <param>
+          <type>FILE *</type>
+          <declname>file</declname>
+          <briefdescription><para>file to write to </para></briefdescription>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>source</declname>
+          <briefdescription><para>source node id of the node </para></briefdescription>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>target</declname>
+          <briefdescription><para>target node id of the edge </para></briefdescription>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>label</declname>
+          <briefdescription><para>label of the edge, or NULL </para></briefdescription>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>color</declname>
+          <briefdescription><para>color of the edge, or NULL </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>writes an edge section to the given graph file </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="90" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__GMLgraph_1gaede0b40b61c571e5f07e05aac3c3ead7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPgmlWriteArc</definition>
+        <argsstring>(FILE *file, unsigned int source, unsigned int target, const char *label, const char *color)</argsstring>
+        <name>SCIPgmlWriteArc</name>
+        <param>
+          <type>FILE *</type>
+          <declname>file</declname>
+          <briefdescription><para>file to write to </para></briefdescription>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>source</declname>
+          <briefdescription><para>source node id of the node </para></briefdescription>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>target</declname>
+          <briefdescription><para>target node id of the edge </para></briefdescription>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>label</declname>
+          <briefdescription><para>label of the edge, or NULL </para></briefdescription>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>color</declname>
+          <briefdescription><para>color of the edge, or NULL </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>writes an arc section to the given graph file </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="100" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__GMLgraph_1ga739cfa7343d0c4e840c8ce5cae472215" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPgmlWriteOpening</definition>
+        <argsstring>(FILE *file, SCIP_Bool directed)</argsstring>
+        <name>SCIPgmlWriteOpening</name>
+        <param>
+          <type>FILE *</type>
+          <declname>file</declname>
+          <briefdescription><para>file to write to </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref></type>
+          <declname>directed</declname>
+          <briefdescription><para>is the graph directed </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>writes the starting line to a GML graph file, does not open a file </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="110" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__GMLgraph_1ga47a94f613724a22ee73899487bf7e010" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPgmlWriteClosing</definition>
+        <argsstring>(FILE *file)</argsstring>
+        <name>SCIPgmlWriteClosing</name>
+        <param>
+          <type>FILE *</type>
+          <declname>file</declname>
+          <briefdescription><para>file to close </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>writes the ending lines to a GML graph file, does not close a file </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="117" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

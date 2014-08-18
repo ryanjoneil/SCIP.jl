@@ -1,0 +1,428 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="group__ColumnMethods" kind="group">
+    <compoundname>ColumnMethods</compoundname>
+    <title>Column methods</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__ColumnMethods_1ga9280fc67dc5f3384c3fb2b609cba1f49" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPcolSort</definition>
+        <argsstring>(SCIP_COL *col)</argsstring>
+        <name>SCIPcolSort</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a9fbe1dac436203f1fcab0ef7bbc7044a" kindref="member">SCIP_COL</ref> *</type>
+          <declname>col</declname>
+          <briefdescription><para>column to be sorted </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>sorts column entries such that LP rows precede non-LP rows and inside both parts lower row indices precede higher ones </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_lp.h" line="58" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__ColumnMethods_1ga60e8cc2149d3713998ce665e7ab26dba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+        <definition>SCIP_Real SCIPcolGetObj</definition>
+        <argsstring>(SCIP_COL *col)</argsstring>
+        <name>SCIPcolGetObj</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a9fbe1dac436203f1fcab0ef7bbc7044a" kindref="member">SCIP_COL</ref> *</type>
+          <declname>col</declname>
+          <briefdescription><para>LP column </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets objective value of column </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_lp.h" line="64" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__ColumnMethods_1gaa52fb121ea929652cabd1f106bc237b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+        <definition>SCIP_Real SCIPcolGetLb</definition>
+        <argsstring>(SCIP_COL *col)</argsstring>
+        <name>SCIPcolGetLb</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a9fbe1dac436203f1fcab0ef7bbc7044a" kindref="member">SCIP_COL</ref> *</type>
+          <declname>col</declname>
+          <briefdescription><para>LP column </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets lower bound of column </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_lp.h" line="70" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__ColumnMethods_1gaae55f446379f772ff2fde480b16d4fe3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+        <definition>SCIP_Real SCIPcolGetUb</definition>
+        <argsstring>(SCIP_COL *col)</argsstring>
+        <name>SCIPcolGetUb</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a9fbe1dac436203f1fcab0ef7bbc7044a" kindref="member">SCIP_COL</ref> *</type>
+          <declname>col</declname>
+          <briefdescription><para>LP column </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets upper bound of column </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_lp.h" line="76" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__ColumnMethods_1ga99493443fa15a7e69b29de402f83ef65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+        <definition>SCIP_Real SCIPcolGetBestBound</definition>
+        <argsstring>(SCIP_COL *col)</argsstring>
+        <name>SCIPcolGetBestBound</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a9fbe1dac436203f1fcab0ef7bbc7044a" kindref="member">SCIP_COL</ref> *</type>
+          <declname>col</declname>
+          <briefdescription><para>LP column </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets best bound of column with respect to the objective function </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_lp.h" line="82" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__ColumnMethods_1gaad8dfe4530e50dcace40973f53bcb2d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+        <definition>SCIP_Real SCIPcolGetPrimsol</definition>
+        <argsstring>(SCIP_COL *col)</argsstring>
+        <name>SCIPcolGetPrimsol</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a9fbe1dac436203f1fcab0ef7bbc7044a" kindref="member">SCIP_COL</ref> *</type>
+          <declname>col</declname>
+          <briefdescription><para>LP column </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets the primal LP solution of a column </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_lp.h" line="88" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__ColumnMethods_1ga1b82154dd7c59d7e86ab15230291a30f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+        <definition>SCIP_Real SCIPcolGetMinPrimsol</definition>
+        <argsstring>(SCIP_COL *col)</argsstring>
+        <name>SCIPcolGetMinPrimsol</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a9fbe1dac436203f1fcab0ef7bbc7044a" kindref="member">SCIP_COL</ref> *</type>
+          <declname>col</declname>
+          <briefdescription><para>LP column </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets the minimal LP solution value, this column ever assumed </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_lp.h" line="94" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__ColumnMethods_1gaf388065f45fe597b72454523efb2587d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+        <definition>SCIP_Real SCIPcolGetMaxPrimsol</definition>
+        <argsstring>(SCIP_COL *col)</argsstring>
+        <name>SCIPcolGetMaxPrimsol</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a9fbe1dac436203f1fcab0ef7bbc7044a" kindref="member">SCIP_COL</ref> *</type>
+          <declname>col</declname>
+          <briefdescription><para>LP column </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets the maximal LP solution value, this column ever assumed </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_lp.h" line="100" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__ColumnMethods_1gadb8546b57618b5cca7c70b7fa1d32192" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SCIP_BASESTAT</type>
+        <definition>SCIP_BASESTAT SCIPcolGetBasisStatus</definition>
+        <argsstring>(SCIP_COL *col)</argsstring>
+        <name>SCIPcolGetBasisStatus</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a9fbe1dac436203f1fcab0ef7bbc7044a" kindref="member">SCIP_COL</ref> *</type>
+          <declname>col</declname>
+          <briefdescription><para>LP column </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets the basis status of a column in the LP solution; only valid for LPs with status SCIP_LPSOLSTAT_OPTIMAL and with SCIPisLPSolBasic(scip) == TRUE; returns SCIP_BASESTAT_ZERO for columns not in the current SCIP_LP </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_lp.h" line="108" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__ColumnMethods_1gae94430cb664027be0dd4534f2dc87147" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__var_8h_1a032edd1f5032513d49e397ebdcc8915b" kindref="member">SCIP_VAR</ref> *</type>
+        <definition>SCIP_VAR* SCIPcolGetVar</definition>
+        <argsstring>(SCIP_COL *col)</argsstring>
+        <name>SCIPcolGetVar</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a9fbe1dac436203f1fcab0ef7bbc7044a" kindref="member">SCIP_COL</ref> *</type>
+          <declname>col</declname>
+          <briefdescription><para>LP column </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets variable this column represents </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_lp.h" line="114" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__ColumnMethods_1ga9794af9c00858606285e18b8b5085cbc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIPcolGetIndex</definition>
+        <argsstring>(SCIP_COL *col)</argsstring>
+        <name>SCIPcolGetIndex</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a9fbe1dac436203f1fcab0ef7bbc7044a" kindref="member">SCIP_COL</ref> *</type>
+          <declname>col</declname>
+          <briefdescription><para>LP col </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets unique index of col </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_lp.h" line="120" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__ColumnMethods_1ga3e350bcbe852993a8d166d66a15fcd81" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref></type>
+        <definition>SCIP_Bool SCIPcolIsIntegral</definition>
+        <argsstring>(SCIP_COL *col)</argsstring>
+        <name>SCIPcolIsIntegral</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a9fbe1dac436203f1fcab0ef7bbc7044a" kindref="member">SCIP_COL</ref> *</type>
+          <declname>col</declname>
+          <briefdescription><para>LP column </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns whether the associated variable is of integral type (binary, integer, implicit integer) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_lp.h" line="126" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__ColumnMethods_1ga2e6a046236d3af0b0d4752114d89888b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref></type>
+        <definition>SCIP_Bool SCIPcolIsRemovable</definition>
+        <argsstring>(SCIP_COL *col)</argsstring>
+        <name>SCIPcolIsRemovable</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a9fbe1dac436203f1fcab0ef7bbc7044a" kindref="member">SCIP_COL</ref> *</type>
+          <declname>col</declname>
+          <briefdescription><para>LP column </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns TRUE iff column is removable from the LP (due to aging or cleanup) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_lp.h" line="132" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__ColumnMethods_1ga26d319bbff50575ce36abf598f108a35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIPcolGetLPPos</definition>
+        <argsstring>(SCIP_COL *col)</argsstring>
+        <name>SCIPcolGetLPPos</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a9fbe1dac436203f1fcab0ef7bbc7044a" kindref="member">SCIP_COL</ref> *</type>
+          <declname>col</declname>
+          <briefdescription><para>LP column </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets position of column in current LP, or -1 if it is not in LP </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_lp.h" line="138" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__ColumnMethods_1gad0233da25643a27180d04e1568655d48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIPcolGetLPDepth</definition>
+        <argsstring>(SCIP_COL *col)</argsstring>
+        <name>SCIPcolGetLPDepth</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a9fbe1dac436203f1fcab0ef7bbc7044a" kindref="member">SCIP_COL</ref> *</type>
+          <declname>col</declname>
+          <briefdescription><para>LP column </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets depth in the tree where the column entered the LP, or -1 if it is not in LP </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_lp.h" line="144" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__ColumnMethods_1gac396a6cdc07f780aa8132555922778a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref></type>
+        <definition>SCIP_Bool SCIPcolIsInLP</definition>
+        <argsstring>(SCIP_COL *col)</argsstring>
+        <name>SCIPcolIsInLP</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a9fbe1dac436203f1fcab0ef7bbc7044a" kindref="member">SCIP_COL</ref> *</type>
+          <declname>col</declname>
+          <briefdescription><para>LP column </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns TRUE iff column is member of current LP </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_lp.h" line="150" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__ColumnMethods_1ga68a6d090a09fb49728514c911c9a0f42" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIPcolGetNNonz</definition>
+        <argsstring>(SCIP_COL *col)</argsstring>
+        <name>SCIPcolGetNNonz</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a9fbe1dac436203f1fcab0ef7bbc7044a" kindref="member">SCIP_COL</ref> *</type>
+          <declname>col</declname>
+          <briefdescription><para>LP column </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get number of nonzero entries in column vector </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_lp.h" line="156" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__ColumnMethods_1gabe411088770afcdc19a58b78e7cab426" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIPcolGetNLPNonz</definition>
+        <argsstring>(SCIP_COL *col)</argsstring>
+        <name>SCIPcolGetNLPNonz</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a9fbe1dac436203f1fcab0ef7bbc7044a" kindref="member">SCIP_COL</ref> *</type>
+          <declname>col</declname>
+          <briefdescription><para>LP column </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get number of nonzero entries in column vector, that correspond to rows currently in the SCIP_LP;</para><para><simplesect kind="warning"><para>This method is only applicable on columns, that are completely linked to their rows (e.g. a column that is in the current LP and the LP was solved, or a column that was in a solved LP and didn&apos;t change afterwards </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_lp.h" line="166" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__ColumnMethods_1ga78725376bb4d4742fd6e10387d745e88" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__lp_8h_1a032f27315b19f63ad9fd77077d865adc" kindref="member">SCIP_ROW</ref> **</type>
+        <definition>SCIP_ROW** SCIPcolGetRows</definition>
+        <argsstring>(SCIP_COL *col)</argsstring>
+        <name>SCIPcolGetRows</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a9fbe1dac436203f1fcab0ef7bbc7044a" kindref="member">SCIP_COL</ref> *</type>
+          <declname>col</declname>
+          <briefdescription><para>LP column </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets array with rows of nonzero entries </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_lp.h" line="172" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__ColumnMethods_1gaaae6a87005ee5bc57e4d0d413148243d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref> *</type>
+        <definition>SCIP_Real* SCIPcolGetVals</definition>
+        <argsstring>(SCIP_COL *col)</argsstring>
+        <name>SCIPcolGetVals</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a9fbe1dac436203f1fcab0ef7bbc7044a" kindref="member">SCIP_COL</ref> *</type>
+          <declname>col</declname>
+          <briefdescription><para>LP column </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets array with coefficients of nonzero entries </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_lp.h" line="178" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__ColumnMethods_1gab484986a7593c61bc7fb72968e80c3a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a1e6171040084cc1f39f88e386238ee10" kindref="member">SCIP_Longint</ref></type>
+        <definition>SCIP_Longint SCIPcolGetStrongbranchNode</definition>
+        <argsstring>(SCIP_COL *col)</argsstring>
+        <name>SCIPcolGetStrongbranchNode</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a9fbe1dac436203f1fcab0ef7bbc7044a" kindref="member">SCIP_COL</ref> *</type>
+          <declname>col</declname>
+          <briefdescription><para>LP column </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets node number of the last node in current branch and bound run, where strong branching was used on the given column, or -1 if strong branching was never applied to the column in current run </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_lp.h" line="186" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__ColumnMethods_1gac0ef7353bffa2053bd47d84d5bbd521a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIPcolGetNStrongbranchs</definition>
+        <argsstring>(SCIP_COL *col)</argsstring>
+        <name>SCIPcolGetNStrongbranchs</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a9fbe1dac436203f1fcab0ef7bbc7044a" kindref="member">SCIP_COL</ref> *</type>
+          <declname>col</declname>
+          <briefdescription><para>LP column </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets number of times, strong branching was applied in current run on the given column </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_lp.h" line="192" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__ColumnMethods_1gaeffe67ec8bab6c3e621f75c616042ea5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__lp_8h_1ad1f370d06c5f9eece4ab657efa945dbb" kindref="member">SCIP_BOUNDTYPE</ref></type>
+        <definition>SCIP_BOUNDTYPE SCIPboundtypeOpposite</definition>
+        <argsstring>(SCIP_BOUNDTYPE boundtype)</argsstring>
+        <name>SCIPboundtypeOpposite</name>
+        <param>
+          <type><ref refid="type__lp_8h_1ad1f370d06c5f9eece4ab657efa945dbb" kindref="member">SCIP_BOUNDTYPE</ref></type>
+          <declname>boundtype</declname>
+          <briefdescription><para>type of bound (lower or upper) </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets opposite bound type of given bound type </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_lp.h" line="198" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

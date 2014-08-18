@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="group__PermutationsShuffling" kind="group">
+    <compoundname>PermutationsShuffling</compoundname>
+    <title>Permutations Shuffling</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__PermutationsShuffling_1ga18b8efe66f3adeeea73bd842b1a645ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPswapInts</definition>
+        <argsstring>(int *value1, int *value2)</argsstring>
+        <name>SCIPswapInts</name>
+        <param>
+          <type>int *</type>
+          <declname>value1</declname>
+          <briefdescription><para>pointer to first integer </para></briefdescription>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>value2</declname>
+          <briefdescription><para>pointer ti second integer </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>swaps two ints </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="5068" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PermutationsShuffling_1ga431f86e1ef3e1500066fec3e3a4ace6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPswapPointers</definition>
+        <argsstring>(void **pointer1, void **pointer2)</argsstring>
+        <name>SCIPswapPointers</name>
+        <param>
+          <type>void **</type>
+          <declname>pointer1</declname>
+          <briefdescription><para>first pointer </para></briefdescription>
+        </param>
+        <param>
+          <type>void **</type>
+          <declname>pointer2</declname>
+          <briefdescription><para>second pointer </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>swaps the addresses of two pointers </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="5075" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PermutationsShuffling_1gac175082263a25d9ca1a1824c36e96ecf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPpermuteIntArray</definition>
+        <argsstring>(int *array, int begin, int end, unsigned int *randseed)</argsstring>
+        <name>SCIPpermuteIntArray</name>
+        <param>
+          <type>int *</type>
+          <declname>array</declname>
+          <briefdescription><para>array to be shuffled </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>begin</declname>
+          <briefdescription><para>first index that should be subject to shuffling (0 for whole array) </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>end</declname>
+          <briefdescription><para>last index that should be subject to shuffling (array size for whole array) </para></briefdescription>
+        </param>
+        <param>
+          <type>unsigned int *</type>
+          <declname>randseed</declname>
+          <briefdescription><para>seed value for the random generator </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>randomly shuffles parts of an integer array using the Fisher-Yates algorithm </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="5082" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PermutationsShuffling_1ga6ec4d1af1c69541e0f01d439e6fb0398" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPpermuteArray</definition>
+        <argsstring>(void **array, int begin, int end, unsigned int *randseed)</argsstring>
+        <name>SCIPpermuteArray</name>
+        <param>
+          <type>void **</type>
+          <declname>array</declname>
+          <briefdescription><para>array to be shuffled </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>begin</declname>
+          <briefdescription><para>first index that should be subject to shuffling (0 for whole array) </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>end</declname>
+          <briefdescription><para>last index that should be subject to shuffling (array size for whole array) </para></briefdescription>
+        </param>
+        <param>
+          <type>unsigned int *</type>
+          <declname>randseed</declname>
+          <briefdescription><para>pointer to seed value for the random generator </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>randomly shuffles parts of an array using the Fisher-Yates algorithm </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="5093" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PermutationsShuffling_1ga384de3f49754bbba1ca3dc87549f3027" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref></type>
+        <definition>SCIP_RETCODE SCIPgetRandomSubset</definition>
+        <argsstring>(void **set, int nelems, void **subset, int nsubelems, unsigned int randseed)</argsstring>
+        <name>SCIPgetRandomSubset</name>
+        <param>
+          <type>void **</type>
+          <declname>set</declname>
+          <briefdescription><para>original set, from which elements should be drawn </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nelems</declname>
+          <briefdescription><para>number of elements in original set </para></briefdescription>
+        </param>
+        <param>
+          <type>void **</type>
+          <declname>subset</declname>
+          <briefdescription><para>subset in which drawn elements should be stored </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nsubelems</declname>
+          <briefdescription><para>number of elements that should be drawn and stored </para></briefdescription>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>randseed</declname>
+          <briefdescription><para>seed value for random generator </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>draws a random subset of disjoint elements from a given set of disjoint elements; this implementation is suited for the case that nsubelems is considerably smaller then nelems </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="5106" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

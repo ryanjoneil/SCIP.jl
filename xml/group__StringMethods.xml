@@ -1,0 +1,253 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="group__StringMethods" kind="group">
+    <compoundname>StringMethods</compoundname>
+    <title>String Methods</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__StringMethods_1gadfc413b0c78b3d68f34895dae202c958" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIPmemccpy</definition>
+        <argsstring>(char *dest, const char *src, char stop, unsigned int cnt)</argsstring>
+        <name>SCIPmemccpy</name>
+        <param>
+          <type>char *</type>
+          <declname>dest</declname>
+          <briefdescription><para>destination pointer to copy to </para></briefdescription>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>src</declname>
+          <briefdescription><para>source pointer to copy to </para></briefdescription>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>stop</declname>
+          <briefdescription><para>character when found stop copying </para></briefdescription>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>cnt</declname>
+          <briefdescription><para>maximal number of characters to copy too </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>copies characters from &apos;src&apos; to &apos;dest&apos;, copying is stopped when either the &apos;stop&apos; character is reached or after &apos;cnt&apos; characters have been copied, whichever comes first.</para><para><simplesect kind="note"><para>undefined behaviuor on overlapping arrays </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="5131" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__StringMethods_1ga5e2316e35529d93dbfa735b10664e07c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPprintSysError</definition>
+        <argsstring>(const char *message)</argsstring>
+        <name>SCIPprintSysError</name>
+        <param>
+          <type>const char *</type>
+          <declname>message</declname>
+          <briefdescription><para>first part of the error message, e.g. the filename </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>prints an error message containing of the given string followed by a string describing the current system error; prefers to use the strerror_r method, which is threadsafe; on systems where this method does not exist, NO_STRERROR_R should be defined (see INSTALL), in this case, srerror is used which is not guaranteed to be threadsafe (on SUN-systems, it actually is) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="5144" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__StringMethods_1gaadc7dc75eacf8821453262816efbb912" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* SCIPstrtok</definition>
+        <argsstring>(char *s, const char *delim, char **ptrptr)</argsstring>
+        <name>SCIPstrtok</name>
+        <param>
+          <type>char *</type>
+          <declname>s</declname>
+          <briefdescription><para>string to parse </para></briefdescription>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>delim</declname>
+          <briefdescription><para>delimiters for parsing </para></briefdescription>
+        </param>
+        <param>
+          <type>char **</type>
+          <declname>ptrptr</declname>
+          <briefdescription><para>pointer to working char pointer - must stay the same while parsing </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>extracts tokens from strings - wrapper method for strtok_r() </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="5150" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__StringMethods_1ga4123f87ca6ab7b2d52977ad740976c34" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPescapeString</definition>
+        <argsstring>(char *t, int bufsize, const char *s)</argsstring>
+        <name>SCIPescapeString</name>
+        <param>
+          <type>char *</type>
+          <declname>t</declname>
+          <briefdescription><para>target buffer to store escaped string </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>bufsize</declname>
+          <briefdescription><para>size of buffer t </para></briefdescription>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>s</declname>
+          <briefdescription><para>string to transform into escaped string </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>translates the given string into a string where symbols ", &apos;, and spaces are escaped with a \ prefix </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="5158" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__StringMethods_1ga12978de6e896abef8c5784a521d6326b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIPsnprintf</definition>
+        <argsstring>(char *t, int len, const char *s,...)</argsstring>
+        <name>SCIPsnprintf</name>
+        <param>
+          <type>char *</type>
+          <declname>t</declname>
+          <briefdescription><para>target string </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>len</declname>
+          <briefdescription><para>length of the string to copy </para></briefdescription>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>s</declname>
+          <briefdescription><para>source string </para></briefdescription>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>safe version of snprintf </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="5166" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__StringMethods_1ga05b8771e48755de9eb571e888a086820" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref></type>
+        <definition>SCIP_Bool SCIPstrToIntValue</definition>
+        <argsstring>(const char *str, int *value, char **endptr)</argsstring>
+        <name>SCIPstrToIntValue</name>
+        <param>
+          <type>const char *</type>
+          <declname>str</declname>
+          <briefdescription><para>string to search </para></briefdescription>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>value</declname>
+          <briefdescription><para>pointer to store the parsed value </para></briefdescription>
+        </param>
+        <param>
+          <type>char **</type>
+          <declname>endptr</declname>
+          <briefdescription><para>pointer to store the final string position if successfully parsed, otherwise <computeroutput>str</computeroutput> </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>extract the next token as a integer value if it is one; in case no value is parsed the endptr is set to <computeroutput>str</computeroutput> </para><para><simplesect kind="return"><para>Returns TRUE if a value could be extracted, otherwise FALSE </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="5178" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__StringMethods_1ga2d02c64c4ef4b1265a2764239e2de842" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref></type>
+        <definition>SCIP_Bool SCIPstrToRealValue</definition>
+        <argsstring>(const char *str, SCIP_Real *value, char **endptr)</argsstring>
+        <name>SCIPstrToRealValue</name>
+        <param>
+          <type>const char *</type>
+          <declname>str</declname>
+          <briefdescription><para>string to search </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref> *</type>
+          <declname>value</declname>
+          <briefdescription><para>pointer to store the parsed value </para></briefdescription>
+        </param>
+        <param>
+          <type>char **</type>
+          <declname>endptr</declname>
+          <briefdescription><para>pointer to store the final string position if successfully parsed, otherwise <computeroutput>str</computeroutput> </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>extract the next token as a double value if it is one; in case a value is parsed the endptr is set to <computeroutput>str</computeroutput> </para><para><simplesect kind="return"><para>Returns TRUE if a value could be extracted, otherwise FALSE </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="5189" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__StringMethods_1ga585e90a5b270e3bdda15d38ff49bbcf4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPstrCopySection</definition>
+        <argsstring>(const char *str, char startchar, char endchar, char *token, int size, char **endptr)</argsstring>
+        <name>SCIPstrCopySection</name>
+        <param>
+          <type>const char *</type>
+          <declname>str</declname>
+          <briefdescription><para>string to search </para></briefdescription>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>startchar</declname>
+          <briefdescription><para>character which defines the beginning </para></briefdescription>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>endchar</declname>
+          <briefdescription><para>character which defines the ending </para></briefdescription>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>token</declname>
+          <briefdescription><para>string to store the copy </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+          <briefdescription><para>size of the token char array </para></briefdescription>
+        </param>
+        <param>
+          <type>char **</type>
+          <declname>endptr</declname>
+          <briefdescription><para>pointer to store the final string position if successfully parsed, otherwise <computeroutput>str</computeroutput> </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>copies the first size characters between a start and end character of str into token, if no error occured endptr will point to the position after the read part, otherwise it will point to <computeroutput>str</computeroutput> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/pub_misc.h" line="5199" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,1364 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="type__dialog_8h" kind="file">
+    <compoundname>type_dialog.h</compoundname>
+    <includes refid="def_8h" local="yes">scip/def.h</includes>
+    <includes refid="type__retcode_8h" local="yes">scip/type_retcode.h</includes>
+    <includes refid="type__scip_8h" local="yes">scip/type_scip.h</includes>
+    <includedby refid="pub__dialog_8h" local="yes">pub_dialog.h</includedby>
+    <includedby refid="scip_8h" local="yes">scip.h</includedby>
+    <incdepgraph>
+      <node id="15898">
+        <label>scip/type_scip.h</label>
+        <link refid="type__scip_8h"/>
+      </node>
+      <node id="15896">
+        <label>stdarg.h</label>
+      </node>
+      <node id="15893">
+        <label>assert.h</label>
+      </node>
+      <node id="15892">
+        <label>float.h</label>
+      </node>
+      <node id="15897">
+        <label>scip/type_message.h</label>
+        <link refid="type__message_8h"/>
+        <childnode refid="15889" relation="include">
+        </childnode>
+      </node>
+      <node id="15894">
+        <label>scip/type_retcode.h</label>
+        <link refid="type__retcode_8h"/>
+      </node>
+      <node id="15891">
+        <label>limits.h</label>
+      </node>
+      <node id="15895">
+        <label>scip/pub_message.h</label>
+        <link refid="pub__message_8h"/>
+        <childnode refid="15896" relation="include">
+        </childnode>
+        <childnode refid="15888" relation="include">
+        </childnode>
+        <childnode refid="15897" relation="include">
+        </childnode>
+      </node>
+      <node id="15890">
+        <label>math.h</label>
+      </node>
+      <node id="15888">
+        <label>scip/def.h</label>
+        <link refid="def_8h"/>
+        <childnode refid="15889" relation="include">
+        </childnode>
+        <childnode refid="15890" relation="include">
+        </childnode>
+        <childnode refid="15891" relation="include">
+        </childnode>
+        <childnode refid="15892" relation="include">
+        </childnode>
+        <childnode refid="15893" relation="include">
+        </childnode>
+        <childnode refid="15894" relation="include">
+        </childnode>
+        <childnode refid="15895" relation="include">
+        </childnode>
+      </node>
+      <node id="15889">
+        <label>stdio.h</label>
+      </node>
+      <node id="15887">
+        <label>type_dialog.h</label>
+        <link refid="type_dialog.h"/>
+        <childnode refid="15888" relation="include">
+        </childnode>
+        <childnode refid="15894" relation="include">
+        </childnode>
+        <childnode refid="15898" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="16018">
+        <label>reader_wbo.h</label>
+        <link refid="reader__wbo_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15932">
+        <label>cons_soc.h</label>
+        <link refid="cons__soc_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15952">
+        <label>heur_linesearchdiving.h</label>
+        <link refid="heur__linesearchdiving_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15920">
+        <label>cons_indicator.h</label>
+        <link refid="cons__indicator_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15901">
+        <label>scip.h</label>
+        <link refid="scip_8h"/>
+        <childnode refid="15902" relation="include">
+        </childnode>
+        <childnode refid="15904" relation="include">
+        </childnode>
+        <childnode refid="15905" relation="include">
+        </childnode>
+        <childnode refid="15906" relation="include">
+        </childnode>
+        <childnode refid="15907" relation="include">
+        </childnode>
+        <childnode refid="15908" relation="include">
+        </childnode>
+        <childnode refid="15909" relation="include">
+        </childnode>
+        <childnode refid="15910" relation="include">
+        </childnode>
+        <childnode refid="15911" relation="include">
+        </childnode>
+        <childnode refid="15912" relation="include">
+        </childnode>
+        <childnode refid="15913" relation="include">
+        </childnode>
+        <childnode refid="15914" relation="include">
+        </childnode>
+        <childnode refid="15915" relation="include">
+        </childnode>
+        <childnode refid="15916" relation="include">
+        </childnode>
+        <childnode refid="15917" relation="include">
+        </childnode>
+        <childnode refid="15918" relation="include">
+        </childnode>
+        <childnode refid="15919" relation="include">
+        </childnode>
+        <childnode refid="15920" relation="include">
+        </childnode>
+        <childnode refid="15921" relation="include">
+        </childnode>
+        <childnode refid="15922" relation="include">
+        </childnode>
+        <childnode refid="15923" relation="include">
+        </childnode>
+        <childnode refid="15924" relation="include">
+        </childnode>
+        <childnode refid="15925" relation="include">
+        </childnode>
+        <childnode refid="15926" relation="include">
+        </childnode>
+        <childnode refid="15927" relation="include">
+        </childnode>
+        <childnode refid="15928" relation="include">
+        </childnode>
+        <childnode refid="15929" relation="include">
+        </childnode>
+        <childnode refid="15930" relation="include">
+        </childnode>
+        <childnode refid="15931" relation="include">
+        </childnode>
+        <childnode refid="15932" relation="include">
+        </childnode>
+        <childnode refid="15933" relation="include">
+        </childnode>
+        <childnode refid="15934" relation="include">
+        </childnode>
+        <childnode refid="15935" relation="include">
+        </childnode>
+        <childnode refid="15936" relation="include">
+        </childnode>
+        <childnode refid="15937" relation="include">
+        </childnode>
+        <childnode refid="15938" relation="include">
+        </childnode>
+        <childnode refid="15939" relation="include">
+        </childnode>
+        <childnode refid="15940" relation="include">
+        </childnode>
+        <childnode refid="15941" relation="include">
+        </childnode>
+        <childnode refid="15942" relation="include">
+        </childnode>
+        <childnode refid="15943" relation="include">
+        </childnode>
+        <childnode refid="15944" relation="include">
+        </childnode>
+        <childnode refid="15945" relation="include">
+        </childnode>
+        <childnode refid="15946" relation="include">
+        </childnode>
+        <childnode refid="15947" relation="include">
+        </childnode>
+        <childnode refid="15948" relation="include">
+        </childnode>
+        <childnode refid="15949" relation="include">
+        </childnode>
+        <childnode refid="15950" relation="include">
+        </childnode>
+        <childnode refid="15951" relation="include">
+        </childnode>
+        <childnode refid="15952" relation="include">
+        </childnode>
+        <childnode refid="15953" relation="include">
+        </childnode>
+        <childnode refid="15954" relation="include">
+        </childnode>
+        <childnode refid="15955" relation="include">
+        </childnode>
+        <childnode refid="15956" relation="include">
+        </childnode>
+        <childnode refid="15957" relation="include">
+        </childnode>
+        <childnode refid="15958" relation="include">
+        </childnode>
+        <childnode refid="15959" relation="include">
+        </childnode>
+        <childnode refid="15960" relation="include">
+        </childnode>
+        <childnode refid="15961" relation="include">
+        </childnode>
+        <childnode refid="15962" relation="include">
+        </childnode>
+        <childnode refid="15963" relation="include">
+        </childnode>
+        <childnode refid="15964" relation="include">
+        </childnode>
+        <childnode refid="15965" relation="include">
+        </childnode>
+        <childnode refid="15966" relation="include">
+        </childnode>
+        <childnode refid="15967" relation="include">
+        </childnode>
+        <childnode refid="15968" relation="include">
+        </childnode>
+        <childnode refid="15969" relation="include">
+        </childnode>
+        <childnode refid="15970" relation="include">
+        </childnode>
+        <childnode refid="15971" relation="include">
+        </childnode>
+        <childnode refid="15972" relation="include">
+        </childnode>
+        <childnode refid="15973" relation="include">
+        </childnode>
+        <childnode refid="15974" relation="include">
+        </childnode>
+        <childnode refid="15975" relation="include">
+        </childnode>
+        <childnode refid="15976" relation="include">
+        </childnode>
+        <childnode refid="15977" relation="include">
+        </childnode>
+        <childnode refid="15978" relation="include">
+        </childnode>
+        <childnode refid="15979" relation="include">
+        </childnode>
+        <childnode refid="15980" relation="include">
+        </childnode>
+        <childnode refid="15981" relation="include">
+        </childnode>
+        <childnode refid="15982" relation="include">
+        </childnode>
+        <childnode refid="15983" relation="include">
+        </childnode>
+        <childnode refid="15984" relation="include">
+        </childnode>
+        <childnode refid="15985" relation="include">
+        </childnode>
+        <childnode refid="15986" relation="include">
+        </childnode>
+        <childnode refid="15987" relation="include">
+        </childnode>
+        <childnode refid="15988" relation="include">
+        </childnode>
+        <childnode refid="15989" relation="include">
+        </childnode>
+        <childnode refid="15990" relation="include">
+        </childnode>
+        <childnode refid="15991" relation="include">
+        </childnode>
+        <childnode refid="15992" relation="include">
+        </childnode>
+        <childnode refid="15993" relation="include">
+        </childnode>
+        <childnode refid="15994" relation="include">
+        </childnode>
+        <childnode refid="15995" relation="include">
+        </childnode>
+        <childnode refid="15996" relation="include">
+        </childnode>
+        <childnode refid="15997" relation="include">
+        </childnode>
+        <childnode refid="15998" relation="include">
+        </childnode>
+        <childnode refid="15999" relation="include">
+        </childnode>
+        <childnode refid="16000" relation="include">
+        </childnode>
+        <childnode refid="16001" relation="include">
+        </childnode>
+        <childnode refid="16002" relation="include">
+        </childnode>
+        <childnode refid="16003" relation="include">
+        </childnode>
+        <childnode refid="16004" relation="include">
+        </childnode>
+        <childnode refid="16005" relation="include">
+        </childnode>
+        <childnode refid="16006" relation="include">
+        </childnode>
+        <childnode refid="16007" relation="include">
+        </childnode>
+        <childnode refid="16008" relation="include">
+        </childnode>
+        <childnode refid="16009" relation="include">
+        </childnode>
+        <childnode refid="16010" relation="include">
+        </childnode>
+        <childnode refid="16011" relation="include">
+        </childnode>
+        <childnode refid="16012" relation="include">
+        </childnode>
+        <childnode refid="16013" relation="include">
+        </childnode>
+        <childnode refid="16014" relation="include">
+        </childnode>
+        <childnode refid="16015" relation="include">
+        </childnode>
+        <childnode refid="16016" relation="include">
+        </childnode>
+        <childnode refid="16017" relation="include">
+        </childnode>
+        <childnode refid="16018" relation="include">
+        </childnode>
+        <childnode refid="16019" relation="include">
+        </childnode>
+        <childnode refid="15903" relation="include">
+        </childnode>
+        <childnode refid="16020" relation="include">
+        </childnode>
+        <childnode refid="16021" relation="include">
+        </childnode>
+        <childnode refid="16022" relation="include">
+        </childnode>
+        <childnode refid="16023" relation="include">
+        </childnode>
+        <childnode refid="16024" relation="include">
+        </childnode>
+        <childnode refid="16025" relation="include">
+        </childnode>
+        <childnode refid="16026" relation="include">
+        </childnode>
+        <childnode refid="16027" relation="include">
+        </childnode>
+        <childnode refid="16028" relation="include">
+        </childnode>
+        <childnode refid="16029" relation="include">
+        </childnode>
+        <childnode refid="16030" relation="include">
+        </childnode>
+        <childnode refid="16031" relation="include">
+        </childnode>
+        <childnode refid="16032" relation="include">
+        </childnode>
+      </node>
+      <node id="15960">
+        <label>heur_pscostdiving.h</label>
+        <link refid="heur__pscostdiving_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15912">
+        <label>cons_abspower.h</label>
+        <link refid="cons__abspower_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="16013">
+        <label>reader_pbm.h</label>
+        <link refid="reader__pbm_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15987">
+        <label>presol_convertinttobin.h</label>
+        <link refid="presol__convertinttobin_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15978">
+        <label>nodesel_bfs.h</label>
+        <link refid="nodesel__bfs_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="16020">
+        <label>sepa_cgmip.h</label>
+        <link refid="sepa__cgmip_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15990">
+        <label>presol_gateextraction.h</label>
+        <link refid="presol__gateextraction_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="16002">
+        <label>reader_bnd.h</label>
+        <link refid="reader__bnd_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15925">
+        <label>cons_logicor.h</label>
+        <link refid="cons__logicor_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15957">
+        <label>heur_octane.h</label>
+        <link refid="heur__octane_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15948">
+        <label>heur_fracdiving.h</label>
+        <link refid="heur__fracdiving_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15982">
+        <label>nodesel_hybridestim.h</label>
+        <link refid="nodesel__hybridestim_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15917">
+        <label>cons_countsols.h</label>
+        <link refid="cons__countsols_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15923">
+        <label>cons_linear.h</label>
+        <link refid="cons__linear_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15964">
+        <label>heur_rootsoldiving.h</label>
+        <link refid="heur__rootsoldiving_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15992">
+        <label>presol_inttobinary.h</label>
+        <link refid="presol__inttobinary_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15943">
+        <label>heur_crossover.h</label>
+        <link refid="heur__crossover_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15980">
+        <label>nodesel_dfs.h</label>
+        <link refid="nodesel__dfs_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="16030">
+        <label>sepa_rapidlearning.h</label>
+        <link refid="sepa__rapidlearning_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15935">
+        <label>cons_superindicator.h</label>
+        <link refid="cons__superindicator_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15914">
+        <label>cons_bivariate.h</label>
+        <link refid="cons__bivariate_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15975">
+        <label>heur_veclendiving.h</label>
+        <link refid="heur__veclendiving_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="16006">
+        <label>reader_fix.h</label>
+        <link refid="reader__fix_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="16025">
+        <label>sepa_gomory.h</label>
+        <link refid="sepa__gomory_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15959">
+        <label>heur_proximity.h</label>
+        <link refid="heur__proximity_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="16031">
+        <label>sepa_strongcg.h</label>
+        <link refid="sepa__strongcg_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="16014">
+        <label>reader_pip.h</label>
+        <link refid="reader__pip_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15995">
+        <label>prop_genvbounds.h</label>
+        <link refid="prop__genvbounds_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="16015">
+        <label>reader_ppm.h</label>
+        <link refid="reader__ppm_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15939">
+        <label>disp_default.h</label>
+        <link refid="disp__default_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15900">
+        <label>pub_dialog.h</label>
+        <link refid="pub__dialog_8h"/>
+        <childnode refid="15901" relation="include">
+        </childnode>
+      </node>
+      <node id="15902">
+        <label>branch_allfullstrong.h</label>
+        <link refid="branch__allfullstrong_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15945">
+        <label>heur_dualval.h</label>
+        <link refid="heur__dualval_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15908">
+        <label>branch_mostinf.h</label>
+        <link refid="branch__mostinf_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15904">
+        <label>branch_cloud.h</label>
+        <link refid="branch__cloud_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15905">
+        <label>branch_fullstrong.h</label>
+        <link refid="branch__fullstrong_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15972">
+        <label>heur_twoopt.h</label>
+        <link refid="heur__twoopt_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="16019">
+        <label>reader_zpl.h</label>
+        <link refid="reader__zpl_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="16011">
+        <label>reader_opb.h</label>
+        <link refid="reader__opb_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15928">
+        <label>cons_orbitope.h</label>
+        <link refid="cons__orbitope_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15988">
+        <label>presol_domcol.h</label>
+        <link refid="presol__domcol_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15941">
+        <label>heur_clique.h</label>
+        <link refid="heur__clique_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15963">
+        <label>heur_rins.h</label>
+        <link refid="heur__rins_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="16029">
+        <label>sepa_oddcycle.h</label>
+        <link refid="sepa__oddcycle_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15944">
+        <label>heur_dins.h</label>
+        <link refid="heur__dins_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15918">
+        <label>cons_cumulative.h</label>
+        <link refid="cons__cumulative_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="16032">
+        <label>sepa_zerohalf.h</label>
+        <link refid="sepa__zerohalf_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15970">
+        <label>heur_trivial.h</label>
+        <link refid="heur__trivial_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="16010">
+        <label>reader_mps.h</label>
+        <link refid="reader__mps_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15942">
+        <label>heur_coefdiving.h</label>
+        <link refid="heur__coefdiving_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15947">
+        <label>heur_fixandinfer.h</label>
+        <link refid="heur__fixandinfer_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15903">
+        <label>scipdefplugins.h</label>
+        <link refid="scipdefplugins_8h"/>
+      </node>
+      <node id="15951">
+        <label>heur_intshifting.h</label>
+        <link refid="heur__intshifting_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="16004">
+        <label>reader_cip.h</label>
+        <link refid="reader__cip_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15940">
+        <label>heur_actconsdiving.h</label>
+        <link refid="heur__actconsdiving_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15929">
+        <label>cons_pseudoboolean.h</label>
+        <link refid="cons__pseudoboolean_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15955">
+        <label>heur_nlpdiving.h</label>
+        <link refid="heur__nlpdiving_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15909">
+        <label>branch_pscost.h</label>
+        <link refid="branch__pscost_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15983">
+        <label>nodesel_restartdfs.h</label>
+        <link refid="nodesel__restartdfs_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="16017">
+        <label>reader_sol.h</label>
+        <link refid="reader__sol_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="16026">
+        <label>sepa_impliedbounds.h</label>
+        <link refid="sepa__impliedbounds_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15934">
+        <label>cons_sos2.h</label>
+        <link refid="cons__sos2_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15981">
+        <label>nodesel_estimate.h</label>
+        <link refid="nodesel__estimate_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15926">
+        <label>cons_nonlinear.h</label>
+        <link refid="cons__nonlinear_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15974">
+        <label>heur_vbounds.h</label>
+        <link refid="heur__vbounds_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15938">
+        <label>dialog_default.h</label>
+        <link refid="dialog__default_8h"/>
+      </node>
+      <node id="16016">
+        <label>reader_rlp.h</label>
+        <link refid="reader__rlp_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="16009">
+        <label>reader_lp.h</label>
+        <link refid="reader__lp_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15962">
+        <label>heur_rens.h</label>
+        <link refid="heur__rens_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15977">
+        <label>heur_zirounding.h</label>
+        <link refid="heur__zirounding_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15950">
+        <label>heur_intdiving.h</label>
+        <link refid="heur__intdiving_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15907">
+        <label>branch_leastinf.h</label>
+        <link refid="branch__leastinf_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15911">
+        <label>branch_relpscost.h</label>
+        <link refid="branch__relpscost_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15993">
+        <label>presol_trivial.h</label>
+        <link refid="presol__trivial_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15906">
+        <label>branch_inference.h</label>
+        <link refid="branch__inference_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15910">
+        <label>branch_random.h</label>
+        <link refid="branch__random_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15989">
+        <label>presol_dualinfer.h</label>
+        <link refid="presol__dualinfer_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15930">
+        <label>cons_quadratic.h</label>
+        <link refid="cons__quadratic_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="16012">
+        <label>reader_osil.h</label>
+        <link refid="reader__osil_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="16027">
+        <label>sepa_intobj.h</label>
+        <link refid="sepa__intobj_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15946">
+        <label>heur_feaspump.h</label>
+        <link refid="heur__feaspump_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15979">
+        <label>nodesel_breadthfirst.h</label>
+        <link refid="nodesel__breadthfirst_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15986">
+        <label>presol_components.h</label>
+        <link refid="presol__components_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15967">
+        <label>heur_shifting.h</label>
+        <link refid="heur__shifting_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15961">
+        <label>heur_randrounding.h</label>
+        <link refid="heur__randrounding_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15976">
+        <label>heur_zeroobj.h</label>
+        <link refid="heur__zeroobj_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15953">
+        <label>heur_localbranching.h</label>
+        <link refid="heur__localbranching_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15998">
+        <label>prop_pseudoobj.h</label>
+        <link refid="prop__pseudoobj_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15937">
+        <label>cons_xor.h</label>
+        <link refid="cons__xor_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="16005">
+        <label>reader_cnf.h</label>
+        <link refid="reader__cnf_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="16000">
+        <label>prop_rootredcost.h</label>
+        <link refid="prop__rootredcost_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15991">
+        <label>presol_implics.h</label>
+        <link refid="presol__implics_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15966">
+        <label>heur_shiftandpropagate.h</label>
+        <link refid="heur__shiftandpropagate_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15965">
+        <label>heur_rounding.h</label>
+        <link refid="heur__rounding_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="16003">
+        <label>reader_ccg.h</label>
+        <link refid="reader__ccg_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="16001">
+        <label>prop_vbounds.h</label>
+        <link refid="prop__vbounds_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15915">
+        <label>cons_bounddisjunction.h</label>
+        <link refid="cons__bounddisjunction_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15971">
+        <label>heur_trysol.h</label>
+        <link refid="heur__trysol_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="16008">
+        <label>reader_gms.h</label>
+        <link refid="reader__gms_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15927">
+        <label>cons_or.h</label>
+        <link refid="cons__or_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15919">
+        <label>cons_disjunction.h</label>
+        <link refid="cons__disjunction_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15921">
+        <label>cons_integral.h</label>
+        <link refid="cons__integral_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15931">
+        <label>cons_setppc.h</label>
+        <link refid="cons__setppc_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15933">
+        <label>cons_sos1.h</label>
+        <link refid="cons__sos1_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15999">
+        <label>prop_redcost.h</label>
+        <link refid="prop__redcost_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15924">
+        <label>cons_linking.h</label>
+        <link refid="cons__linking_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15936">
+        <label>cons_varbound.h</label>
+        <link refid="cons__varbound_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15969">
+        <label>heur_subnlp.h</label>
+        <link refid="heur__subnlp_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15958">
+        <label>heur_oneopt.h</label>
+        <link refid="heur__oneopt_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="16007">
+        <label>reader_fzn.h</label>
+        <link refid="reader__fzn_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15949">
+        <label>heur_guideddiving.h</label>
+        <link refid="heur__guideddiving_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15973">
+        <label>heur_undercover.h</label>
+        <link refid="heur__undercover_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15916">
+        <label>cons_conjunction.h</label>
+        <link refid="cons__conjunction_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="16021">
+        <label>sepa_clique.h</label>
+        <link refid="sepa__clique_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15985">
+        <label>presol_boundshift.h</label>
+        <link refid="presol__boundshift_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15997">
+        <label>prop_probing.h</label>
+        <link refid="prop__probing_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15984">
+        <label>nodesel_uct.h</label>
+        <link refid="nodesel__uct_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="16022">
+        <label>sepa_closecuts.h</label>
+        <link refid="sepa__closecuts_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15913">
+        <label>cons_and.h</label>
+        <link refid="cons__and_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15956">
+        <label>heur_objpscostdiving.h</label>
+        <link refid="heur__objpscostdiving_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15996">
+        <label>prop_obbt.h</label>
+        <link refid="prop__obbt_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15899">
+        <label>type_dialog.h</label>
+        <link refid="type_dialog.h"/>
+        <childnode refid="15900" relation="include">
+        </childnode>
+        <childnode refid="15901" relation="include">
+        </childnode>
+      </node>
+      <node id="16028">
+        <label>sepa_mcf.h</label>
+        <link refid="sepa__mcf_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15954">
+        <label>heur_mutation.h</label>
+        <link refid="heur__mutation_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15968">
+        <label>heur_simplerounding.h</label>
+        <link refid="heur__simplerounding_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="16023">
+        <label>sepa_cmir.h</label>
+        <link refid="sepa__cmir_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15994">
+        <label>prop_dualfix.h</label>
+        <link refid="prop__dualfix_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="15922">
+        <label>cons_knapsack.h</label>
+        <link refid="cons__knapsack_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+      <node id="16024">
+        <label>sepa_flowcover.h</label>
+        <link refid="sepa__flowcover_8h"/>
+        <childnode refid="15903" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="type__dialog_8h_1a34fc903b78f7c55f20fe9361809cd29d" prot="public" static="no">
+        <name>SCIP_DECL_DIALOGCOPY</name>
+        <param><defname>x</defname></param>
+        <initializer><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref> x (<ref refid="type__scip_8h_1a4792a242d315bf76f05b1f4e0712bc33" kindref="member">SCIP</ref>* scip, <ref refid="type__dialog_8h_1a329d1192c555a4e720e915119ba182bf" kindref="member">SCIP_DIALOG</ref>* dialog)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>copy method for dialog plugins (called when SCIP copies plugins)</para><para>input:<itemizedlist>
+<listitem><para>scip : SCIP main data structure</para></listitem><listitem><para>dialog : the dialog itself </para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_dialog.h" line="53" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_dialog.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__dialog_8h_1ac135255ec916979f9babc121c33db223" prot="public" static="no">
+        <name>SCIP_DECL_DIALOGFREE</name>
+        <param><defname>x</defname></param>
+        <initializer><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref> x (<ref refid="type__scip_8h_1a4792a242d315bf76f05b1f4e0712bc33" kindref="member">SCIP</ref>* scip, <ref refid="type__dialog_8h_1a329d1192c555a4e720e915119ba182bf" kindref="member">SCIP_DIALOG</ref>* dialog)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>destructor of dialog to free user data (called when the dialog is not captured anymore)</para><para>input:<itemizedlist>
+<listitem><para>scip : SCIP main data structure</para></listitem><listitem><para>dialog : the dialog itself </para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_dialog.h" line="61" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_dialog.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__dialog_8h_1ad47e6047b5399a9bf822d6d3739c97be" prot="public" static="no">
+        <name>SCIP_DECL_DIALOGDESC</name>
+        <param><defname>x</defname></param>
+        <initializer><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref> x (<ref refid="type__scip_8h_1a4792a242d315bf76f05b1f4e0712bc33" kindref="member">SCIP</ref>* scip, <ref refid="type__dialog_8h_1a329d1192c555a4e720e915119ba182bf" kindref="member">SCIP_DIALOG</ref>* dialog)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>description output method of dialog</para><para>This method should output (usually a single line of) information describing the meaning of the dialog. The method is called, when the help menu of the parent&apos;s dialog is displayed. If no description output method is given, the description string of the dialog is displayed instead.</para><para>input:<itemizedlist>
+<listitem><para>scip : SCIP main data structure</para></listitem><listitem><para>*dialog : the dialog itself </para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_dialog.h" line="73" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_dialog.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="type__dialog_8h_1a439246740f4d931449ba8645a9cdd9a5" prot="public" static="no">
+        <name>SCIP_DECL_DIALOGEXEC</name>
+        <param><defname>x</defname></param>
+        <initializer><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref> x (<ref refid="type__scip_8h_1a4792a242d315bf76f05b1f4e0712bc33" kindref="member">SCIP</ref>* scip, <ref refid="type__dialog_8h_1a329d1192c555a4e720e915119ba182bf" kindref="member">SCIP_DIALOG</ref>* dialog, <ref refid="type__dialog_8h_1aab964360d58e12b3f488cd366809f43e" kindref="member">SCIP_DIALOGHDLR</ref>* dialoghdlr, <ref refid="type__dialog_8h_1a329d1192c555a4e720e915119ba182bf" kindref="member">SCIP_DIALOG</ref>** nextdialog)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>execution method of dialog</para><para>This method is invoked, if the user selected the dialog&apos;s command name in the parent&apos;s dialog menu.</para><para>input:<itemizedlist>
+<listitem><para>scip : SCIP main data structure</para></listitem><listitem><para>dialoghdlr : dialog handler to call for user interaction</para></listitem><listitem><para>dialog : the dialog itself</para></listitem></itemizedlist>
+</para><para>output:<itemizedlist>
+<listitem><para>*nextdialog : next dialog to process (or NULL to quit dialog processing) </para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_dialog.h" line="87" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_dialog.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="type__dialog_8h_1a329d1192c555a4e720e915119ba182bf" prot="public" static="no">
+        <type>struct SCIP_Dialog</type>
+        <definition>typedef struct SCIP_Dialog SCIP_DIALOG</definition>
+        <argsstring></argsstring>
+        <name>SCIP_DIALOG</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>user interface dialog </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_dialog.h" line="37" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_dialog.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="type__dialog_8h_1a5e403d79d0d8be23f23773f12faa5d01" prot="public" static="no">
+        <type>struct SCIP_DialogData</type>
+        <definition>typedef struct SCIP_DialogData SCIP_DIALOGDATA</definition>
+        <argsstring></argsstring>
+        <name>SCIP_DIALOGDATA</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>user defined dialog data </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_dialog.h" line="37" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_dialog.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="type__dialog_8h_1aab964360d58e12b3f488cd366809f43e" prot="public" static="no">
+        <type>struct SCIP_Dialoghdlr</type>
+        <definition>typedef struct SCIP_Dialoghdlr SCIP_DIALOGHDLR</definition>
+        <argsstring></argsstring>
+        <name>SCIP_DIALOGHDLR</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>dialog handler </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_dialog.h" line="37" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_dialog.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="type__dialog_8h_1a1d177178583578ece244259c41c69c4e" prot="public" static="no">
+        <type>struct SCIP_Linelist</type>
+        <definition>typedef struct SCIP_Linelist SCIP_LINELIST</definition>
+        <argsstring></argsstring>
+        <name>SCIP_LINELIST</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>linked list of single input lines </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_dialog.h" line="37" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_dialog.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>type definitions for user interface dialog </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Tobias Achterberg</para></simplesect>
+This file defines the interface for dialogs implemented in C.</para><para><itemizedlist>
+<listitem><para>Instructions for implementing a dialog</para></listitem><listitem><para>List of available dialogs</para></listitem><listitem><para>C++ wrapper class</para></listitem></itemizedlist>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>This<sp/>file<sp/>is<sp/>part<sp/>of<sp/>the<sp/>program<sp/>and<sp/>library<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SCIP<sp/>---<sp/>Solving<sp/>Constraint<sp/>Integer<sp/>Programs<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/>Copyright<sp/>(C)<sp/>2002-2014<sp/>Konrad-Zuse-Zentrum<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fuer<sp/>Informationstechnik<sp/>Berlin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>SCIP<sp/>is<sp/>distributed<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>ZIB<sp/>Academic<sp/>License.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>You<sp/>should<sp/>have<sp/>received<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>ZIB<sp/>Academic<sp/>License<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>along<sp/>with<sp/>SCIP;<sp/>see<sp/>the<sp/>file<sp/>COPYING.<sp/>If<sp/>not<sp/>email<sp/>to<sp/>scip@zib.de.<sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="16"><highlight class="comment">/**@file<sp/><sp/><sp/>type_dialog.h</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>@ingroup<sp/>TYPEDEFINITIONS</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>@brief<sp/><sp/>type<sp/>definitions<sp/>for<sp/>user<sp/>interface<sp/>dialog</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>@author<sp/>Tobias<sp/>Achterberg</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/><sp/>This<sp/>file<sp/>defines<sp/>the<sp/>interface<sp/>for<sp/>dialogs<sp/>implemented<sp/>in<sp/>C.</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>-<sp/>\ref<sp/>DIALOG<sp/>&quot;Instructions<sp/>for<sp/>implementing<sp/>a<sp/>dialog&quot;</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>-<sp/>\ref<sp/>DIALOGS<sp/>&quot;List<sp/>of<sp/>available<sp/>dialogs&quot;</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>-<sp/>\ref<sp/>scip::ObjDialog<sp/>&quot;C++<sp/>wrapper<sp/>class</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment">/*---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8----+----9----+----0----+----1----+----2*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>__SCIP_TYPE_DIALOG_H__</highlight></codeline>
+<codeline lineno="31"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>__SCIP_TYPE_DIALOG_H__</highlight></codeline>
+<codeline lineno="32"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="def_8h" kindref="compound">scip/def.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="type__retcode_8h" kindref="compound">scip/type_retcode.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="type__scip_8h" kindref="compound">scip/type_scip.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight></codeline>
+<codeline lineno="38"><highlight class="preprocessor"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="40"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="type__dialog_8h_1a329d1192c555a4e720e915119ba182bf" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">SCIP_Dialog<sp/><ref refid="type__dialog_8h_1a329d1192c555a4e720e915119ba182bf" kindref="member">SCIP_DIALOG</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>user<sp/>interface<sp/>dialog<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="type__dialog_8h_1a5e403d79d0d8be23f23773f12faa5d01" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">SCIP_DialogData<sp/><ref refid="type__dialog_8h_1a5e403d79d0d8be23f23773f12faa5d01" kindref="member">SCIP_DIALOGDATA</ref>;<sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>user<sp/>defined<sp/>dialog<sp/>data<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="type__dialog_8h_1aab964360d58e12b3f488cd366809f43e" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">SCIP_Dialoghdlr<sp/><ref refid="type__dialog_8h_1aab964360d58e12b3f488cd366809f43e" kindref="member">SCIP_DIALOGHDLR</ref>;<sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>dialog<sp/>handler<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="type__dialog_8h_1a1d177178583578ece244259c41c69c4e" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">SCIP_Linelist<sp/><ref refid="type__dialog_8h_1a1d177178583578ece244259c41c69c4e" kindref="member">SCIP_LINELIST</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>linked<sp/>list<sp/>of<sp/>single<sp/>input<sp/>lines<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="47"><highlight class="comment">/**<sp/>copy<sp/>method<sp/>for<sp/>dialog<sp/>plugins<sp/>(called<sp/>when<sp/>SCIP<sp/>copies<sp/>plugins)</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*<sp/><sp/>input:</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>scip<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>SCIP<sp/>main<sp/>data<sp/>structure</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>dialog<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>the<sp/>dialog<sp/>itself</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="type__dialog_8h_1a34fc903b78f7c55f20fe9361809cd29d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIP_DECL_DIALOGCOPY(x)<sp/>SCIP_RETCODE<sp/>x<sp/>(SCIP*<sp/>scip,<sp/>SCIP_DIALOG*<sp/>dialog)</highlight></codeline>
+<codeline lineno="54"><highlight class="preprocessor"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="55"><highlight class="comment">/**<sp/>destructor<sp/>of<sp/>dialog<sp/>to<sp/>free<sp/>user<sp/>data<sp/>(called<sp/>when<sp/>the<sp/>dialog<sp/>is<sp/>not<sp/>captured<sp/>anymore)</highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/>*<sp/><sp/>input:</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>scip<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>SCIP<sp/>main<sp/>data<sp/>structure</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>dialog<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>the<sp/>dialog<sp/>itself</highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61" refid="type__dialog_8h_1ac135255ec916979f9babc121c33db223" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIP_DECL_DIALOGFREE(x)<sp/>SCIP_RETCODE<sp/>x<sp/>(SCIP*<sp/>scip,<sp/>SCIP_DIALOG*<sp/>dialog)</highlight></codeline>
+<codeline lineno="62"><highlight class="preprocessor"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="63"><highlight class="comment">/**<sp/>description<sp/>output<sp/>method<sp/>of<sp/>dialog</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/>*<sp/><sp/>This<sp/>method<sp/>should<sp/>output<sp/>(usually<sp/>a<sp/>single<sp/>line<sp/>of)<sp/>information<sp/>describing<sp/>the<sp/>meaning<sp/>of<sp/>the<sp/>dialog.</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/>*<sp/><sp/>The<sp/>method<sp/>is<sp/>called,<sp/>when<sp/>the<sp/>help<sp/>menu<sp/>of<sp/>the<sp/>parent&apos;s<sp/>dialog<sp/>is<sp/>displayed.</highlight></codeline>
+<codeline lineno="67"><highlight class="comment"><sp/>*<sp/><sp/>If<sp/>no<sp/>description<sp/>output<sp/>method<sp/>is<sp/>given,<sp/>the<sp/>description<sp/>string<sp/>of<sp/>the<sp/>dialog<sp/>is<sp/>displayed<sp/>instead.</highlight></codeline>
+<codeline lineno="68"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/>*<sp/><sp/>input:</highlight></codeline>
+<codeline lineno="70"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>scip<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>SCIP<sp/>main<sp/>data<sp/>structure</highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>*dialog<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>the<sp/>dialog<sp/>itself</highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73" refid="type__dialog_8h_1ad47e6047b5399a9bf822d6d3739c97be" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIP_DECL_DIALOGDESC(x)<sp/>SCIP_RETCODE<sp/>x<sp/>(SCIP*<sp/>scip,<sp/>SCIP_DIALOG*<sp/>dialog)</highlight></codeline>
+<codeline lineno="74"><highlight class="preprocessor"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="75"><highlight class="comment">/**<sp/>execution<sp/>method<sp/>of<sp/>dialog</highlight></codeline>
+<codeline lineno="76"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/>*<sp/><sp/>This<sp/>method<sp/>is<sp/>invoked,<sp/>if<sp/>the<sp/>user<sp/>selected<sp/>the<sp/>dialog&apos;s<sp/>command<sp/>name<sp/>in<sp/>the<sp/>parent&apos;s<sp/>dialog<sp/>menu.</highlight></codeline>
+<codeline lineno="78"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="79"><highlight class="comment"><sp/>*<sp/><sp/>input:</highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>scip<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>SCIP<sp/>main<sp/>data<sp/>structure</highlight></codeline>
+<codeline lineno="81"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>dialoghdlr<sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>dialog<sp/>handler<sp/>to<sp/>call<sp/>for<sp/>user<sp/>interaction</highlight></codeline>
+<codeline lineno="82"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>dialog<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>the<sp/>dialog<sp/>itself</highlight></codeline>
+<codeline lineno="83"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="84"><highlight class="comment"><sp/>*<sp/><sp/>output:</highlight></codeline>
+<codeline lineno="85"><highlight class="comment"><sp/>*<sp/><sp/>-<sp/>*nextdialog<sp/><sp/><sp/><sp/><sp/>:<sp/>next<sp/>dialog<sp/>to<sp/>process<sp/>(or<sp/>NULL<sp/>to<sp/>quit<sp/>dialog<sp/>processing)</highlight></codeline>
+<codeline lineno="86"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87" refid="type__dialog_8h_1a439246740f4d931449ba8645a9cdd9a5" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIP_DECL_DIALOGEXEC(x)<sp/>SCIP_RETCODE<sp/>x<sp/>(SCIP*<sp/>scip,<sp/>SCIP_DIALOG*<sp/>dialog,<sp/>SCIP_DIALOGHDLR*<sp/>dialoghdlr,<sp/>SCIP_DIALOG**<sp/>nextdialog)</highlight></codeline>
+<codeline lineno="88"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight></codeline>
+<codeline lineno="90"><highlight class="preprocessor"></highlight><highlight class="normal">}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="92"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/ryan/src/scipoptsuite-3.1.0/scip-3.1.0/src/scip/type_dialog.h"/>
+  </compounddef>
+</doxygen>
