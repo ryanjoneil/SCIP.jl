@@ -149,14 +149,12 @@ class SCIPXMLParser(object):
                         continue
 
                     if t in SCIPXMLParser.TYPE_MAP:
-                        if define_name not in self.typealiases:
-                            self.typealiases[define_name] = SCIPXMLParser.TYPE_MAP[t]
+                        self.typealiases[define_name] = SCIPXMLParser.TYPE_MAP[t]
 
                     elif t.isdigit() or (t.startswith('"') and t.endswith('"')) \
                                      or (t.startswith("'") and t.endswith("'")):
                         if define_name not in self.defines:
                             self.defines[define_name] = t
-
 
     def _parse_typedefs(self, node):
         # <memberdef kind="typedef">
