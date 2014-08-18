@@ -12,10 +12,11 @@ def log(msg):
 class SCIPXMLParser(object):
     # Mapping of C types to Julia types
     TYPE_MAP = {
-        'double': 'Float64',
-        'int': 'Int',
+        'SCIP_Longint': 'Int64',
+        'double':       'Float64',
+        'int':          'Int',
         'unsigned int': 'Uint',
-        'void': 'Void',
+        'void':         'Void',
     }
 
     def __init__(self):
@@ -53,21 +54,24 @@ class SCIPXMLParser(object):
                     self._parse_functions(sectiondef)
 
     def _convert_type(self, type_name):
-        if type_name.startswith('SCIP'):
-            if type_name.endswith('**'):
-                return 'Ptr{%s}' % self._convert_type(type_name[:-1])
-            if type_name.endswith('*'):
-                tn = type_name.rstrip('*').strip()
-                if tn in self.typealiases:
-                    self.typealiases['Ptr_%s' % tn] = 'Ptr{%s}' % tn
-                else:
-                    self.typealiases['Ptr_%s' % tn] = 'Ptr{Void}'
-                return 'Ptr_%s' % tn
+        type_name = type_name.strip()
+    
+        if type_name in SCIPXMLParser.TYPE_MAP:
+            return SCIPXMLParser.TYPE_MAP[type_name]
 
-        if type_name in self.typealiases:
+        elif type_name in self.typealiases:
             return type_name
 
-        return SCIPXMLParser.TYPE_MAP[type_name]
+        elif type_name.startswith('SCIP') :
+            if type_name.endswith('*'):
+                return 'Ptr{%s}' % self._convert_type(type_name[:-1])
+
+            elif type_name.replace('_', '').isalnum():
+                if type_name not in self.typealiases:
+                    self.typealiases[type_name] = 'Void'
+                return type_name
+
+        raise KeyError('type unknown: %r' % type_name)
 
     def _parse_enums(self, node):
         # <memberdef kind="enum">
