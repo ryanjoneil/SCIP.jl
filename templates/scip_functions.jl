@@ -36,7 +36,8 @@ end
 # TODO: construction/destruction
 function SCIPcreate()
     a = Array(Ptr{SCIP}, 1)
-    @scip_ccall_check("SCIPcreate", (Ptr{Ptr{SCIP}},), pointer(a))
+    #@scip_ccall_check("SCIPcreate", (Ptr{Ptr{SCIP}},), pointer(a))
+    SCIPcreate(pointer(a))
     s = SCIP_t(a[1])
     finalizer(s, s->@scip_ccall_check("SCIPfree", (Ptr{Ptr{SCIP}},), pointer(a)))
     return s
@@ -46,6 +47,6 @@ end
 pointer(scip::SCIP_t) = scip.ptr_scip
 
 # TODO: types and pointer() calls in arg lists
-SCIPgetStage(scip::SCIP_t) = @scip_ccall("SCIPgetStage", SCIP_Stage, (Ptr{SCIP},), pointer(scip))
-SCIPgetStatus(scip::SCIP_t) = @scip_ccall("SCIPgetStatus", SCIP_Status, (Ptr{SCIP},), pointer(scip))
-SCIPisTransformed(scip::SCIP_t) = @scip_ccall("SCIPisTransformed", SCIP_Bool, (Ptr{SCIP},), pointer(scip))
+#SCIPgetStage(scip::SCIP_t) = @scip_ccall("SCIPgetStage", SCIP_Stage, (Ptr{SCIP},), pointer(scip))
+#SCIPgetStatus(scip::SCIP_t) = @scip_ccall("SCIPgetStatus", SCIP_Status, (Ptr{SCIP},), pointer(scip))
+#SCIPisTransformed(scip::SCIP_t) = @scip_ccall("SCIPisTransformed", SCIP_Bool, (Ptr{SCIP},), pointer(scip))
