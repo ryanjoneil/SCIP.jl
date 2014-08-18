@@ -6,6 +6,8 @@ import os
 import sys
 import time
 
+# TODO: add xml dir to source
+
 def log(msg):
     print '[%s] %s' % (time.asctime(), msg)
 
@@ -18,6 +20,10 @@ class SCIPXMLParser(object):
         'unsigned int': 'Uint',
         'void':         'Void',
     }
+
+    # Set of variable names on the C side that will cause errors if they 
+    # are used in Julia. These will get replaced with something else.
+    JULIA_BUILTINS = set(['global', 'local', 'type'])
 
     def __init__(self):
         self.typealiases = OrderedDict() # {SCIP_Bool: Uint, ...}
@@ -53,11 +59,23 @@ class SCIPXMLParser(object):
                 elif kind == 'user-defined':
                     self._parse_functions(sectiondef)
 
+        # Sanity check: typedefs are for enums and should not reappear
+        # in the typealiases section. This might happend depending on
+        # on the order types are found.
+        for tn in self.typedefs:
+            try:
+                del self.typealiases[tn]
+            except KeyError:
+                pass
+
     def _convert_type(self, type_name):
         type_name = type_name.strip()
     
         if type_name in SCIPXMLParser.TYPE_MAP:
             return SCIPXMLParser.TYPE_MAP[type_name]
+
+        elif type_name in self.typedefs:
+            return type_name
 
         elif type_name in self.typealiases:
             return type_name
@@ -181,7 +199,7 @@ class SCIPXMLParser(object):
             
             ret_type = None
             func_name = None
-            arg_types = [] # such as Int or PtrPtrSCIP
+            arg_types = [] # such as Int or Ptr{SCIP}
             arg_names = [] # such as scip
             arg_vals = []  # such as scip[1]
 
@@ -210,10 +228,13 @@ class SCIPXMLParser(object):
 
                         elif param_child.tag == 'declname':
                             # Pull out var name and convert to forms like scip[1].
-                            arg_names.append(param_child.text)
-                            arg_vals.append(param_child.text) # TODO: scip[1]
+                            t = param_child.text
+                            if t in SCIPXMLParser.JULIA_BUILTINS:
+                                t += 'Var'
+                            arg_names.append(t)
+                            arg_vals.append(t) # TODO: scip[1]
 
-            # Julia requires a , after a vector of one type: (PtrPtrSCIP,)
+            # Julia requires a , after a vector of one type: (Ptr{SCIP},)
             if len(arg_types) == 1:
                 if arg_types[0] == 'Void':
                     arg_types = ''

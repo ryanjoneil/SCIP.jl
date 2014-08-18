@@ -1,5 +1,7 @@
-export SCIPcreate, SCIPgetStage, SCIPgetStatus
+# TODO: exports
+export SCIPcreate, SCIPgetStage, SCIPgetStatus, SCIPisTransformed
 
+# TODO: upgrade to SCIP 3.1 and include version # in libscipopt
 # Macro for calling SCIP functions that return misc. types
 macro scip_ccall(func, args...)
     return quote
@@ -25,19 +27,25 @@ end
 {% for func_name, (arg_types, arg_names, arg_vals) in parser.checked_functions.items() %}{{ func_name }}({{ arg_names }}) = @scip_ccall_check("{{ func_name }}", ({{ arg_types }}){% if arg_vals %}, {{ arg_vals }}{% endif %})
 {% endfor %}
 
+# TODO: type creations
 typealias PtrSCIP Ptr{Void}
-type SCIP
+type SCIP_t
     ptr_scip::PtrSCIP
 end
 
+# TODO: construction/destruction
 function SCIPcreate()
-    a = Array(Ptr{Void}, 1)
-    @scip_ccall_check("SCIPcreate", (Ptr{PtrSCIP},), pointer(a))
-    s = SCIP(a[1])
-    finalizer(s, s->@scip_ccall_check("SCIPfree", (Ptr{PtrSCIP},), pointer(a)))
+    a = Array(Ptr{SCIP}, 1)
+    @scip_ccall_check("SCIPcreate", (Ptr{Ptr{SCIP}},), pointer(a))
+    s = SCIP_t(a[1])
+    finalizer(s, s->@scip_ccall_check("SCIPfree", (Ptr{Ptr{SCIP}},), pointer(a)))
     return s
 end
 
-pointer(scip::SCIP) = scip.ptr_scip
-SCIPgetStage(scip::SCIP) = @scip_ccall("SCIPgetStage", SCIP_Stage, (PtrSCIP,), pointer(scip))
-SCIPgetStatus(scip::SCIP) = @scip_ccall("SCIPgetStatus", SCIP_Status, (PtrSCIP,), pointer(scip))
+# TODO: pointer methods
+pointer(scip::SCIP_t) = scip.ptr_scip
+
+# TODO: types and pointer() calls in arg lists
+SCIPgetStage(scip::SCIP_t) = @scip_ccall("SCIPgetStage", SCIP_Stage, (Ptr{SCIP},), pointer(scip))
+SCIPgetStatus(scip::SCIP_t) = @scip_ccall("SCIPgetStatus", SCIP_Status, (Ptr{SCIP},), pointer(scip))
+SCIPisTransformed(scip::SCIP_t) = @scip_ccall("SCIPisTransformed", SCIP_Bool, (Ptr{SCIP},), pointer(scip))

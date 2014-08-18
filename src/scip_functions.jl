@@ -1,5 +1,7 @@
-export SCIPcreate, SCIPgetStage, SCIPgetStatus
+# TODO: exports
+export SCIPcreate, SCIPgetStage, SCIPgetStatus, SCIPisTransformed
 
+# TODO: upgrade to SCIP 3.1 and include version # in libscipopt
 # Macro for calling SCIP functions that return misc. types
 macro scip_ccall(func, args...)
     return quote
@@ -590,10 +592,10 @@ SCIPcreate(scip) = @scip_ccall_check("SCIPcreate", (Ptr{Ptr{SCIP}},), scip)
 SCIPfree(scip) = @scip_ccall_check("SCIPfree", (Ptr{Ptr{SCIP}},), scip)
 SCIPsetMessagehdlr(scip, messagehdlr) = @scip_ccall_check("SCIPsetMessagehdlr", (Ptr{SCIP}, Ptr{SCIP_MESSAGEHDLR}), scip, messagehdlr)
 SCIPcopyPlugins(sourcescip, targetscip, copyreaders, copypricers, copyconshdlrs, copyconflicthdlrs, copypresolvers, copyrelaxators, copyseparators, copypropagators, copyheuristics, copyeventhdlrs, copynodeselectors, copybranchrules, copydisplays, copydialogs, copynlpis, passmessagehdlr, valid) = @scip_ccall_check("SCIPcopyPlugins", (Ptr{SCIP}, Ptr{SCIP}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, Ptr{SCIP_Bool}), sourcescip, targetscip, copyreaders, copypricers, copyconshdlrs, copyconflicthdlrs, copypresolvers, copyrelaxators, copyseparators, copypropagators, copyheuristics, copyeventhdlrs, copynodeselectors, copybranchrules, copydisplays, copydialogs, copynlpis, passmessagehdlr, valid)
-SCIPgetVarCopy(sourcescip, targetscip, sourcevar, targetvar, varmap, consmap, global, success) = @scip_ccall_check("SCIPgetVarCopy", (Ptr{SCIP}, Ptr{SCIP}, Ptr{SCIP_VAR}, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_HASHMAP}, Ptr{SCIP_HASHMAP}, SCIP_Bool, Ptr{SCIP_Bool}), sourcescip, targetscip, sourcevar, targetvar, varmap, consmap, global, success)
-SCIPcopyVars(sourcescip, targetscip, varmap, consmap, global) = @scip_ccall_check("SCIPcopyVars", (Ptr{SCIP}, Ptr{SCIP}, Ptr{SCIP_HASHMAP}, Ptr{SCIP_HASHMAP}, SCIP_Bool), sourcescip, targetscip, varmap, consmap, global)
+SCIPgetVarCopy(sourcescip, targetscip, sourcevar, targetvar, varmap, consmap, globalVar, success) = @scip_ccall_check("SCIPgetVarCopy", (Ptr{SCIP}, Ptr{SCIP}, Ptr{SCIP_VAR}, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_HASHMAP}, Ptr{SCIP_HASHMAP}, SCIP_Bool, Ptr{SCIP_Bool}), sourcescip, targetscip, sourcevar, targetvar, varmap, consmap, globalVar, success)
+SCIPcopyVars(sourcescip, targetscip, varmap, consmap, globalVar) = @scip_ccall_check("SCIPcopyVars", (Ptr{SCIP}, Ptr{SCIP}, Ptr{SCIP_HASHMAP}, Ptr{SCIP_HASHMAP}, SCIP_Bool), sourcescip, targetscip, varmap, consmap, globalVar)
 SCIPcopyOrigVars(sourcescip, targetscip, varmap, consmap) = @scip_ccall_check("SCIPcopyOrigVars", (Ptr{SCIP}, Ptr{SCIP}, Ptr{SCIP_HASHMAP}, Ptr{SCIP_HASHMAP}), sourcescip, targetscip, varmap, consmap)
-SCIPcopyConss(sourcescip, targetscip, varmap, consmap, global, enablepricing, valid) = @scip_ccall_check("SCIPcopyConss", (Ptr{SCIP}, Ptr{SCIP}, Ptr{SCIP_HASHMAP}, Ptr{SCIP_HASHMAP}, SCIP_Bool, SCIP_Bool, Ptr{SCIP_Bool}), sourcescip, targetscip, varmap, consmap, global, enablepricing, valid)
+SCIPcopyConss(sourcescip, targetscip, varmap, consmap, globalVar, enablepricing, valid) = @scip_ccall_check("SCIPcopyConss", (Ptr{SCIP}, Ptr{SCIP}, Ptr{SCIP_HASHMAP}, Ptr{SCIP_HASHMAP}, SCIP_Bool, SCIP_Bool, Ptr{SCIP_Bool}), sourcescip, targetscip, varmap, consmap, globalVar, enablepricing, valid)
 SCIPcopyOrigConss(sourcescip, targetscip, varmap, consmap, enablepricing, valid) = @scip_ccall_check("SCIPcopyOrigConss", (Ptr{SCIP}, Ptr{SCIP}, Ptr{SCIP_HASHMAP}, Ptr{SCIP_HASHMAP}, SCIP_Bool, Ptr{SCIP_Bool}), sourcescip, targetscip, varmap, consmap, enablepricing, valid)
 SCIPcopyParamSettings(sourcescip, targetscip) = @scip_ccall_check("SCIPcopyParamSettings", (Ptr{SCIP}, Ptr{SCIP}), sourcescip, targetscip)
 SCIPchgBoolParam(scip, param, value) = @scip_ccall_check("SCIPchgBoolParam", (Ptr{SCIP}, Ptr{SCIP_PARAM}, SCIP_Bool), scip, param, value)
@@ -740,7 +742,7 @@ SCIPsetConsSeparated(scip, cons, separate) = @scip_ccall_check("SCIPsetConsSepar
 SCIPsetConsEnforced(scip, cons, enforce) = @scip_ccall_check("SCIPsetConsEnforced", (Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool), scip, cons, enforce)
 SCIPsetConsChecked(scip, cons, check) = @scip_ccall_check("SCIPsetConsChecked", (Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool), scip, cons, check)
 SCIPsetConsPropagated(scip, cons, propagate) = @scip_ccall_check("SCIPsetConsPropagated", (Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool), scip, cons, propagate)
-SCIPsetConsLocal(scip, cons, local) = @scip_ccall_check("SCIPsetConsLocal", (Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool), scip, cons, local)
+SCIPsetConsLocal(scip, cons, localVar) = @scip_ccall_check("SCIPsetConsLocal", (Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool), scip, cons, localVar)
 SCIPsetConsModifiable(scip, cons, modifiable) = @scip_ccall_check("SCIPsetConsModifiable", (Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool), scip, cons, modifiable)
 SCIPsetConsDynamic(scip, cons, dynamic) = @scip_ccall_check("SCIPsetConsDynamic", (Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool), scip, cons, dynamic)
 SCIPsetConsRemovable(scip, cons, removable) = @scip_ccall_check("SCIPsetConsRemovable", (Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool), scip, cons, removable)
@@ -802,9 +804,9 @@ SCIPsetNLPInitialGuess(scip, initialguess) = @scip_ccall_check("SCIPsetNLPInitia
 SCIPsetNLPInitialGuessSol(scip, sol) = @scip_ccall_check("SCIPsetNLPInitialGuessSol", (Ptr{SCIP}, Ptr{SCIP_SOL}), scip, sol)
 SCIPsolveNLP(scip) = @scip_ccall_check("SCIPsolveNLP", (Ptr{SCIP},), scip)
 SCIPgetNLPStatistics(scip, statistics) = @scip_ccall_check("SCIPgetNLPStatistics", (Ptr{SCIP}, Ptr{SCIP_NLPSTATISTICS}), scip, statistics)
-SCIPsetNLPIntPar(scip, type, ival) = @scip_ccall_check("SCIPsetNLPIntPar", (Ptr{SCIP}, SCIP_NLPPARAM, Int), scip, type, ival)
-SCIPgetNLPRealPar(scip, type, dval) = @scip_ccall_check("SCIPgetNLPRealPar", (Ptr{SCIP}, SCIP_NLPPARAM, Ptr{SCIP_Real}), scip, type, dval)
-SCIPsetNLPRealPar(scip, type, dval) = @scip_ccall_check("SCIPsetNLPRealPar", (Ptr{SCIP}, SCIP_NLPPARAM, SCIP_Real), scip, type, dval)
+SCIPsetNLPIntPar(scip, typeVar, ival) = @scip_ccall_check("SCIPsetNLPIntPar", (Ptr{SCIP}, SCIP_NLPPARAM, Int), scip, typeVar, ival)
+SCIPgetNLPRealPar(scip, typeVar, dval) = @scip_ccall_check("SCIPgetNLPRealPar", (Ptr{SCIP}, SCIP_NLPPARAM, Ptr{SCIP_Real}), scip, typeVar, dval)
+SCIPsetNLPRealPar(scip, typeVar, dval) = @scip_ccall_check("SCIPsetNLPRealPar", (Ptr{SCIP}, SCIP_NLPPARAM, SCIP_Real), scip, typeVar, dval)
 SCIPgetNLPI(scip, nlpi, nlpiproblem) = @scip_ccall_check("SCIPgetNLPI", (Ptr{SCIP}, Ptr{Ptr{SCIP_NLPI}}, Ptr{Ptr{SCIP_NLPIPROBLEM}}), scip, nlpi, nlpiproblem)
 SCIPstartDiveNLP(scip) = @scip_ccall_check("SCIPstartDiveNLP", (Ptr{SCIP},), scip)
 SCIPendDiveNLP(scip) = @scip_ccall_check("SCIPendDiveNLP", (Ptr{SCIP},), scip)
@@ -965,19 +967,25 @@ SCIPextendPtrarray(scip, ptrarray, minidx, maxidx) = @scip_ccall_check("SCIPexte
 SCIPclearPtrarray(scip, ptrarray) = @scip_ccall_check("SCIPclearPtrarray", (Ptr{SCIP}, Ptr{SCIP_PTRARRAY}), scip, ptrarray)
 
 
+# TODO: type creations
 typealias PtrSCIP Ptr{Void}
-type SCIP
+type SCIP_t
     ptr_scip::PtrSCIP
 end
 
+# TODO: construction/destruction
 function SCIPcreate()
-    a = Array(Ptr{Void}, 1)
-    @scip_ccall_check("SCIPcreate", (Ptr{PtrSCIP},), pointer(a))
-    s = SCIP(a[1])
-    finalizer(s, s->@scip_ccall_check("SCIPfree", (Ptr{PtrSCIP},), pointer(a)))
+    a = Array(Ptr{SCIP}, 1)
+    @scip_ccall_check("SCIPcreate", (Ptr{Ptr{SCIP}},), pointer(a))
+    s = SCIP_t(a[1])
+    finalizer(s, s->@scip_ccall_check("SCIPfree", (Ptr{Ptr{SCIP}},), pointer(a)))
     return s
 end
 
-pointer(scip::SCIP) = scip.ptr_scip
-SCIPgetStage(scip::SCIP) = @scip_ccall("SCIPgetStage", SCIP_Stage, (PtrSCIP,), pointer(scip))
-SCIPgetStatus(scip::SCIP) = @scip_ccall("SCIPgetStatus", SCIP_Status, (PtrSCIP,), pointer(scip))
+# TODO: pointer methods
+pointer(scip::SCIP_t) = scip.ptr_scip
+
+# TODO: types and pointer() calls in arg lists
+SCIPgetStage(scip::SCIP_t) = @scip_ccall("SCIPgetStage", SCIP_Stage, (Ptr{SCIP},), pointer(scip))
+SCIPgetStatus(scip::SCIP_t) = @scip_ccall("SCIPgetStatus", SCIP_Status, (Ptr{SCIP},), pointer(scip))
+SCIPisTransformed(scip::SCIP_t) = @scip_ccall("SCIPisTransformed", SCIP_Bool, (Ptr{SCIP},), pointer(scip))
