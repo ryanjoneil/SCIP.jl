@@ -224,13 +224,15 @@ class SCIPXMLParser(object):
                             if t in SCIPXMLParser.JULIA_BUILTINS:
                                 t += 'Var'
                             arg_names.append(t)
-                            arg_vals.append(t) # TODO: scip[1]
+                            arg_vals.append(t)
 
             #print ret_type, func_name, arg_types, arg_names, arg_vals
 
             # We're only interested in functions that start with 'SCIP'.
             if None in (ret_type, func_name) or not func_name.startswith('SCIP'):
                 continue
+
+            orig_arg_names = list(arg_names)
 
             # Convert function name and values in signature to use type.
             for i, (at, an, av) in enumerate(zip(arg_types, arg_names, arg_vals)):
@@ -265,9 +267,11 @@ class SCIPXMLParser(object):
             if func_name.startswith('SCIPcreate'):
                 if func_name == 'SCIPcreate':
                     # We know everything about this function a priori.
+                    inst_name = orig_arg_names[0]
+                    mod_arg_names = list(arg_names[1:])
                     self.scip_types['SCIP'] = [
-                        [(func_name, arg_names, arg_types)], # Constructors
-                        None                                 # Destructor
+                        [(func_name, inst_name, mod_arg_names, orig_arg_names)], # Constructors
+                        None                                                     # Destructor
                     ]
 
                 elif len(orig_arg_types) > 1 and orig_arg_types[1].endswith('**'):
@@ -278,23 +282,14 @@ class SCIPXMLParser(object):
             if func_name.startswith('SCIPfree'):
                 if func_name == 'SCIPfree':
                     # We know everything about this function a priori.
-                    self.scip_types['SCIP'][1] = (func_name, arg_names, arg_types)
+                    self.scip_types['SCIP'][1] = (func_name, arg_names, orig_arg_names)
 
                 elif len(orig_arg_types) > 1 and orig_arg_types[1].endswith('**'):
                     # The first argument 
                     print func_name, arg_names, arg_types                
 
-            # Julia requires a , after a vector of one type: (Ptr{SCIP},)
-            if len(arg_types) == 1:
-                if arg_types[0] == 'Void':
-                    arg_types = ''
-                else:
-                    arg_types = '%s,' % arg_types[0]
-            else:
-                arg_types = ', '.join(arg_types)
-
-            arg_names = ', '.join(arg_names)
-            arg_vals = ', '.join(arg_vals)
+            if len(arg_types) == 1 and arg_types[0] == 'Void':
+                arg_types = []
 
             if ret_type == 'SCIP_RETCODE':
                 # Separate out functions based on whether they return SCIP 

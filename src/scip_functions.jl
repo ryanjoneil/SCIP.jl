@@ -1062,13 +1062,21 @@ pointer(scip::SCIP_t) = array(scip)[1]
 SCIPcreate(scip::SCIP_t) = @scip_ccall_check("SCIPcreate", (Ptr{Ptr{SCIP}},), array(scip))
 SCIPfree(scip::SCIP_t) = @scip_ccall_check("SCIPfree", (Ptr{Ptr{SCIP}},), array(scip))
 
-# TODO: construction/destruction
+# Convenience constructors/destructors
 function SCIPcreate()
-    s = SCIP_t(Array(Ptr{SCIP}, 1))
-    SCIPcreate(s)
-    finalizer(s, s->SCIPfree(s))
-    return s
+    scip = SCIP_t(Array(Ptr{SCIP}, 1))
+    SCIPcreate(scip)
+    finalizer(scip, scip->SCIPfree(scip))
+    return scip
 end
+
+# # TODO: construction/destruction
+# function SCIPcreate()
+#     s = SCIP_t(Array(Ptr{SCIP}, 1))
+#     SCIPcreate(s)
+#     finalizer(s, s->SCIPfree(s))
+#     return s
+# end
 
 SCIPversion() = @scip_ccall("SCIPversion", SCIP_Real, ())
 SCIPgetStage(scip::SCIP_t) = @scip_ccall("SCIPgetStage", SCIP_Stage, (Ptr{SCIP},), pointer(scip))
