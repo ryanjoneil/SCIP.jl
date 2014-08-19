@@ -12,9 +12,9 @@ end
 # Macro for calling SCIP functions that have checked return codes
 macro scip_ccall_check(func, args...)
     return quote
-        ret = ccall(($func, "libscipopt"), Int8, $(args...))
+        ret = ccall(($func, "libscipopt"), SCIP_RETCODE, $(args...))
         if ret != SCIP_OKAY
-            error(SCIP_RETCODE[ret])
+            error("SCIP Error: $ret")
         end
     end
 end
