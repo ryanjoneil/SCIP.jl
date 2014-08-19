@@ -22,19 +22,19 @@ const SCIP_HASHSIZE_VBC = 131101
 const SCIP_EXPR_DEGREEINFINITY = 65535
 
 # SCIP defines for known C types and pointers to SCIP structs.
-typealias SCIP_VAR Void
-typealias SCIP_EXPRTREE Void
-typealias SCIP_MESSAGEHDLR Void
-typealias SCIP_Real Float64
-typealias SCIP_NLROW Void
-typealias SCIP_QUADELEM Void
 typealias SCIP_Bool Uint
+typealias SCIP_Real Float64
 typealias SCIP_INTERVAL Void
 typealias SCIP_EXPR Void
+typealias SCIP_QUADELEM Void
 typealias SCIP_EXPRDATA_MONOMIAL Void
+typealias SCIP_MESSAGEHDLR Void
+typealias SCIP_EXPRTREE Void
 typealias SCIP_EXPRINTDATA Void
 typealias SCIP_EXPRGRAPHNODE Void
 typealias SCIP_EXPRGRAPH Void
+typealias SCIP_VAR Void
+typealias SCIP_NLROW Void
 typealias SCIP Void
 typealias SCIP_HASHMAP Void
 typealias SCIP_CONS Void
