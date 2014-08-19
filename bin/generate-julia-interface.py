@@ -32,8 +32,10 @@ class SCIPXMLParser(object):
         self.enums    = OrderedDict()    # {SCIP_Retcode: {SCIP_OKAY: 1, ...}, ...}
         self.typedefs = OrderedDict()    # {SCIP_Retcode: SCIP_RETCODE}
 
-        self.checked_functions = OrderedDict()   # {version: (SCIP_Real, ...)}
-        self.unchecked_functions = OrderedDict() # {create: (SCIP_Retcode, ...}}
+        self.checked_functions = OrderedDict()   # {SCIPversion: (SCIP_Real, ...)}
+        self.unchecked_functions = OrderedDict() # {SCIPcreate: (SCIP_Retcode, ...}}
+
+        self.scip_types = OrderedDict() # {SCIP: ([constructors], destructor)}
 
     def parse(self, filepath):
         log('parsing %s' % filepath)
@@ -252,11 +254,35 @@ class SCIPXMLParser(object):
                 
             # Convert function signature components to Julia types & names.
             try:
+                orig_arg_types = list(arg_types)
                 ret_type = self._convert_type(ret_type)
                 arg_types = [self._convert_type(tn) for tn in arg_types]
             except KeyError:
                 #raise
                 continue
+
+            # Detect constructors. We will write convenience functions for these.
+            if func_name.startswith('SCIPcreate'):
+                if func_name == 'SCIPcreate':
+                    # We know everything about this function a priori.
+                    self.scip_types['SCIP'] = [
+                        [(func_name, arg_names, arg_types)], # Constructors
+                        None                                 # Destructor
+                    ]
+
+                elif len(orig_arg_types) > 1 and orig_arg_types[1].endswith('**'):
+                    # The first argument 
+                    print func_name, arg_names, arg_types
+
+            # Detect destructors for the same reason.
+            if func_name.startswith('SCIPfree'):
+                if func_name == 'SCIPfree':
+                    # We know everything about this function a priori.
+                    self.scip_types['SCIP'][1] = (func_name, arg_names, arg_types)
+
+                elif len(orig_arg_types) > 1 and orig_arg_types[1].endswith('**'):
+                    # The first argument 
+                    print func_name, arg_names, arg_types                
 
             # Julia requires a , after a vector of one type: (Ptr{SCIP},)
             if len(arg_types) == 1:
@@ -270,9 +296,9 @@ class SCIPXMLParser(object):
             arg_names = ', '.join(arg_names)
             arg_vals = ', '.join(arg_vals)
 
-            # Separate out functions based on whether they return SCIP 
-            # return codes or not. These are handled by diferrent macros.
             if ret_type == 'SCIP_RETCODE':
+                # Separate out functions based on whether they return SCIP 
+                # return codes or not. These are handled by diferrent macros.
                 if func_name not in self.checked_functions:
                     self.checked_functions[func_name] = (arg_types, arg_names, arg_vals)
 

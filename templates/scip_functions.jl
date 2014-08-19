@@ -20,13 +20,29 @@ macro scip_ccall_check(func, args...)
 end
 
 # TODO: type creations
-type SCIP_t
-    array_ptr_scip::Array{Ptr{SCIP}}
-end
+# type SCIP_t
+#     array_ptr_scip::Array{Ptr{SCIP}}
+# end
 
-# TODO: pointer methods
-array(scip::SCIP_t) = scip.array_ptr_scip
-pointer(scip::SCIP_t) = array(scip)[1]
+# # TODO: pointer methods
+# array(scip::SCIP_t) = scip.array_ptr_scip
+# pointer(scip::SCIP_t) = array(scip)[1]
+
+# Containers for SCIP structures
+{% for type_name in parser.scip_types %}type {{ type_name }}_t
+    array_ptr_{{ type_name|lower }}::{{ "Array{Ptr{%s}}"|format(type_name) }}
+end{% endfor %}
+
+# Pointer and array access functions
+{% for type_name in parser.scip_types %}array({{ type_name|lower }}::{{ type_name }}_t) = {{ type_name|lower }}.array_ptr_{{ type_name|lower }}
+pointer({{ type_name|lower }}::{{ type_name }}_t) = array({{ type_name|lower }})[1]{% endfor %}
+
+# SCIP function wrappers: unchecked functions
+{% for func_name, (ret_type, arg_types, arg_names, arg_vals) in parser.unchecked_functions.items() %}#{{ func_name }}({{ arg_names }}) = @scip_ccall("{{ func_name }}", {% if ret_type %}{{ ret_type }}{% else %}Void{% endif %}, ({{ arg_types }}){% if arg_vals %}, {{ arg_vals }}{% endif %})
+{% endfor %}
+# SCIP function wrappers: unchecked functions
+{% for func_name, (arg_types, arg_names, arg_vals) in parser.checked_functions.items() %}#{{ func_name }}({{ arg_names }}) = @scip_ccall_check("{{ func_name }}", ({{ arg_types }}){% if arg_vals %}, {{ arg_vals }}{% endif %})
+{% endfor %}
 
 SCIPcreate(scip::SCIP_t) = @scip_ccall_check("SCIPcreate", (Ptr{Ptr{SCIP}},), array(scip))
 SCIPfree(scip::SCIP_t) = @scip_ccall_check("SCIPfree", (Ptr{Ptr{SCIP}},), array(scip))
@@ -43,11 +59,3 @@ SCIPversion() = @scip_ccall("SCIPversion", SCIP_Real, ())
 SCIPgetStage(scip::SCIP_t) = @scip_ccall("SCIPgetStage", SCIP_Stage, (Ptr{SCIP},), pointer(scip))
 SCIPgetStatus(scip::SCIP_t) = @scip_ccall("SCIPgetStatus", SCIP_Status, (Ptr{SCIP},), pointer(scip))
 SCIPisTransformed(scip::SCIP_t) = @scip_ccall("SCIPisTransformed", SCIP_Bool, (Ptr{SCIP},), pointer(scip))
-
-
-# SCIP function wrappers: unchecked functions
-{% for func_name, (ret_type, arg_types, arg_names, arg_vals) in parser.unchecked_functions.items() %}#{{ func_name }}({{ arg_names }}) = @scip_ccall("{{ func_name }}", {% if ret_type %}{{ ret_type }}{% else %}Void{% endif %}, ({{ arg_types }}){% if arg_vals %}, {{ arg_vals }}{% endif %})
-{% endfor %}
-# SCIP function wrappers: unchecked functions
-{% for func_name, (arg_types, arg_names, arg_vals) in parser.checked_functions.items() %}#{{ func_name }}({{ arg_names }}) = @scip_ccall_check("{{ func_name }}", ({{ arg_types }}){% if arg_vals %}, {{ arg_vals }}{% endif %})
-{% endfor %}

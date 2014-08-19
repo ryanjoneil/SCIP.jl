@@ -20,30 +20,22 @@ macro scip_ccall_check(func, args...)
 end
 
 # TODO: type creations
+# type SCIP_t
+#     array_ptr_scip::Array{Ptr{SCIP}}
+# end
+
+# # TODO: pointer methods
+# array(scip::SCIP_t) = scip.array_ptr_scip
+# pointer(scip::SCIP_t) = array(scip)[1]
+
+# Containers for SCIP structures
 type SCIP_t
     array_ptr_scip::Array{Ptr{SCIP}}
 end
 
-# TODO: pointer methods
+# Pointer and array access functions
 array(scip::SCIP_t) = scip.array_ptr_scip
 pointer(scip::SCIP_t) = array(scip)[1]
-
-SCIPcreate(scip::SCIP_t) = @scip_ccall_check("SCIPcreate", (Ptr{Ptr{SCIP}},), array(scip))
-SCIPfree(scip::SCIP_t) = @scip_ccall_check("SCIPfree", (Ptr{Ptr{SCIP}},), array(scip))
-
-# TODO: construction/destruction
-function SCIPcreate()
-    s = SCIP_t(Array(Ptr{SCIP}, 1))
-    SCIPcreate(s)
-    finalizer(s, s->SCIPfree(s))
-    return s
-end
-
-SCIPversion() = @scip_ccall("SCIPversion", SCIP_Real, ())
-SCIPgetStage(scip::SCIP_t) = @scip_ccall("SCIPgetStage", SCIP_Stage, (Ptr{SCIP},), pointer(scip))
-SCIPgetStatus(scip::SCIP_t) = @scip_ccall("SCIPgetStatus", SCIP_Status, (Ptr{SCIP},), pointer(scip))
-SCIPisTransformed(scip::SCIP_t) = @scip_ccall("SCIPisTransformed", SCIP_Bool, (Ptr{SCIP},), pointer(scip))
-
 
 # SCIP function wrappers: unchecked functions
 #SCIPexprcurvAdd(curv1::SCIP_EXPRCURV, curv2::SCIP_EXPRCURV) = @scip_ccall("SCIPexprcurvAdd", SCIP_EXPRCURV, (SCIP_EXPRCURV, SCIP_EXPRCURV), curv1, curv2)
@@ -1065,3 +1057,20 @@ SCIPisTransformed(scip::SCIP_t) = @scip_ccall("SCIPisTransformed", SCIP_Bool, (P
 #SCIPfreePtrarray(scip::SCIP_t, ptrarray::SCIP_PTRARRAY_t) = @scip_ccall_check("SCIPfreePtrarray", (Ptr{SCIP}, Ptr{Ptr{SCIP_PTRARRAY}}), pointer(scip), array(ptrarray))
 #SCIPextendPtrarray(scip::SCIP_t, ptrarray::SCIP_PTRARRAY_t, minidx, maxidx) = @scip_ccall_check("SCIPextendPtrarray", (Ptr{SCIP}, Ptr{SCIP_PTRARRAY}, Int, Int), pointer(scip), pointer(ptrarray), minidx, maxidx)
 #SCIPclearPtrarray(scip::SCIP_t, ptrarray::SCIP_PTRARRAY_t) = @scip_ccall_check("SCIPclearPtrarray", (Ptr{SCIP}, Ptr{SCIP_PTRARRAY}), pointer(scip), pointer(ptrarray))
+
+
+SCIPcreate(scip::SCIP_t) = @scip_ccall_check("SCIPcreate", (Ptr{Ptr{SCIP}},), array(scip))
+SCIPfree(scip::SCIP_t) = @scip_ccall_check("SCIPfree", (Ptr{Ptr{SCIP}},), array(scip))
+
+# TODO: construction/destruction
+function SCIPcreate()
+    s = SCIP_t(Array(Ptr{SCIP}, 1))
+    SCIPcreate(s)
+    finalizer(s, s->SCIPfree(s))
+    return s
+end
+
+SCIPversion() = @scip_ccall("SCIPversion", SCIP_Real, ())
+SCIPgetStage(scip::SCIP_t) = @scip_ccall("SCIPgetStage", SCIP_Stage, (Ptr{SCIP},), pointer(scip))
+SCIPgetStatus(scip::SCIP_t) = @scip_ccall("SCIPgetStatus", SCIP_Status, (Ptr{SCIP},), pointer(scip))
+SCIPisTransformed(scip::SCIP_t) = @scip_ccall("SCIPisTransformed", SCIP_Bool, (Ptr{SCIP},), pointer(scip))
