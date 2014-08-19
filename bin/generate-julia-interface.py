@@ -275,8 +275,13 @@ class SCIPXMLParser(object):
                     ]
 
                 elif len(orig_arg_types) > 1 and orig_arg_types[1].endswith('**'):
-                    # The first argument 
-                    print func_name, arg_names, arg_types
+                    # Second argument is the type being constructed.
+                    inst_name = orig_arg_names[1]
+                    mod_arg_names = list(arg_names[:1] + arg_names [2:])
+                    tn = orig_arg_types[1].rstrip('**').strip()
+                    if tn not in self.scip_types:
+                        self.scip_types[tn] = [[], None]
+                    self.scip_types[tn][0].append((func_name, inst_name, mod_arg_names, orig_arg_names))
 
             # Detect destructors for the same reason.
             if func_name.startswith('SCIPfree'):
@@ -285,8 +290,8 @@ class SCIPXMLParser(object):
                     self.scip_types['SCIP'][1] = (func_name, arg_names, orig_arg_names)
 
                 elif len(orig_arg_types) > 1 and orig_arg_types[1].endswith('**'):
-                    # The first argument 
-                    print func_name, arg_names, arg_types                
+                    tn = orig_arg_types[1].rstrip('**').strip()
+                    self.scip_types[tn][1] = (func_name, arg_names, orig_arg_names)              
 
             if len(arg_types) == 1 and arg_types[0] == 'Void':
                 arg_types = []
