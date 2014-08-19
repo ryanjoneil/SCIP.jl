@@ -2,7 +2,6 @@
 export SCIPcreate, SCIPgetStage, SCIPgetStatus, SCIPisTransformed, SCIPversion
 import Base: pointer
 
-# TODO: upgrade to SCIP 3.1 and include version # in libscipopt
 # Macro for calling SCIP functions that return misc. types
 macro scip_ccall(func, args...)
     return quote
@@ -25,11 +24,12 @@ type SCIP_t
     array_ptr_scip::Array{Ptr{SCIP}}
 end
 
-# # TODO: pointer methods
-pointer(scip::SCIP_t) = scip.array_ptr_scip[1]
+# TODO: pointer methods
+array(scip::SCIP_t) = scip.array_ptr_scip
+pointer(scip::SCIP_t) = array(scip)[1]
 
-SCIPcreate(scip::SCIP_t) = @scip_ccall_check("SCIPcreate", (Ptr{Ptr{SCIP}},), scip.array_ptr_scip)
-SCIPfree(scip::SCIP_t) = @scip_ccall_check("SCIPfree", (Ptr{Ptr{SCIP}},), scip.array_ptr_scip)
+SCIPcreate(scip::SCIP_t) = @scip_ccall_check("SCIPcreate", (Ptr{Ptr{SCIP}},), array(scip))
+SCIPfree(scip::SCIP_t) = @scip_ccall_check("SCIPfree", (Ptr{Ptr{SCIP}},), array(scip))
 
 # TODO: construction/destruction
 function SCIPcreate()
