@@ -230,16 +230,18 @@ class SCIPXMLParser(object):
 
             # Convert function name and values in signature to use type.
             for i, (at, an, av) in enumerate(zip(arg_types, arg_names, arg_vals)):
-                # Convert from scip to pointer(scip)
-                while at.endswith('*'):
+                # Convert from scip to pointer(scip) or array(scip)
+                if at.endswith(' **'):
+                    av = 'array(%s)' % av
+                elif at.endswith(' *'):
                     av = 'pointer(%s)' % av
-                    at = at.replace('*', '', 1)
                 arg_vals[i] = av
 
                 # Convert from scip to scip::SCIP_t
-                at = at.strip()
+                is_pointer = at.endswith('*')
+                at = at.rstrip('*').strip()
                 if at.startswith('SCIP'):
-                    if av.startswith('pointer('):
+                    if is_pointer:
                         at = '%s_t' % at
                     arg_names[i] = '%s::%s' % (an, at)
                 
