@@ -41,7 +41,9 @@ typealias SCIP_CONS Void
 typealias SCIP_CONSHDLR Void
 typealias SCIP_PARAM Void
 typealias SCIP_READER Void
+typealias SCIP_READERDATA Void
 typealias SCIP_PRICER Void
+typealias SCIP_PROPTIMING Void
 typealias SCIP_CONFLICTHDLR Void
 typealias SCIP_PRESOL Void
 typealias SCIP_RELAX Void
@@ -51,6 +53,7 @@ typealias SCIP_HEUR Void
 typealias SCIP_EVENTHDLR Void
 typealias SCIP_NODESEL Void
 typealias SCIP_BRANCHRULE Void
+typealias SCIP_BRANCHRULEDATA Void
 typealias SCIP_DISP Void
 typealias SCIP_NLPI Void
 typealias SCIP_DIALOG Void
@@ -59,7 +62,7 @@ typealias SCIP_SOL Void
 typealias SCIP_NODE Void
 typealias SCIP_CLIQUE Void
 typealias SCIP_BDCHGIDX Void
-typealias SCIP_PROPTIMING Void
+typealias SCIP_CONSDATA Void
 typealias SCIP_COL Void
 typealias SCIP_ROW Void
 typealias SCIP_REALARRAY Void
