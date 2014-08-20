@@ -1,6 +1,5 @@
 # TODO: exports
 export SCIPcreate, SCIPgetStage, SCIPgetStatus, SCIPisTransformed, SCIPversion
-import Base: pointer
 
 # Macro for calling SCIP functions that return misc. types
 macro scip_ccall(func, args...)
@@ -18,24 +17,6 @@ macro scip_ccall_check(func, args...)
         end
     end
 end
-
-# TODO: type creations
-# type SCIP_t
-#     array_ptr_scip::Array{Ptr{SCIP}}
-# end
-
-# # TODO: pointer methods
-# array(scip::SCIP_t) = scip.array_ptr_scip
-# pointer(scip::SCIP_t) = array(scip)[1]
-
-# Containers for SCIP structures
-type SCIP_t
-    array_ptr_scip::Array{Ptr{SCIP}}
-end
-
-# Pointer and array access functions
-array(scip::SCIP_t) = scip.array_ptr_scip
-pointer(scip::SCIP_t) = array(scip)[1]
 
 # SCIP function wrappers: unchecked functions
 #SCIPexprcurvAdd(curv1::SCIP_EXPRCURV, curv2::SCIP_EXPRCURV) = @scip_ccall("SCIPexprcurvAdd", SCIP_EXPRCURV, (SCIP_EXPRCURV, SCIP_EXPRCURV), curv1, curv2)
@@ -1062,21 +1043,208 @@ pointer(scip::SCIP_t) = array(scip)[1]
 SCIPcreate(scip::SCIP_t) = @scip_ccall_check("SCIPcreate", (Ptr{Ptr{SCIP}},), array(scip))
 SCIPfree(scip::SCIP_t) = @scip_ccall_check("SCIPfree", (Ptr{Ptr{SCIP}},), array(scip))
 
-# Convenience constructors/destructors
-function SCIPcreate()
-    scip = SCIP_t(Array(Ptr{SCIP}, 1))
-    SCIPcreate(scip)
-    finalizer(scip, scip->SCIPfree(scip))
-    return scip
-end
-
-# # TODO: construction/destruction
+# # Convenience constructors/destructors
 # function SCIPcreate()
-#     s = SCIP_t(Array(Ptr{SCIP}, 1))
-#     SCIPcreate(s)
-#     finalizer(s, s->SCIPfree(s))
-#     return s
+#     scip = SCIP_t(Array(Ptr{SCIP}, 1))
+#     SCIPcreate(scip)
+#     finalizer(scip, scip->SCIPfree(scip))
+#     return scip
 # end
+# function SCIPcreateVarBasic(scip::SCIP_t, name, lb::SCIP_Real, ub::SCIP_Real, obj::SCIP_Real, vartype::SCIP_VARTYPE)
+#     var = SCIP_VAR_t(Array(Ptr{SCIP_VAR}, 1))
+#     SCIPcreateVarBasic(scip, var, name, lb, ub, obj, vartype)
+#     finalizer(var, var->SCIPreleaseVar(scip, var))
+#     return scip_var
+# end
+# function SCIPcreateCons(scip::SCIP_t, name, conshdlr::SCIP_CONSHDLR_t, consdata::SCIP_CONSDATA_t, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool)
+#     cons = SCIP_CONS_t(Array(Ptr{SCIP_CONS}, 1))
+#     SCIPcreateCons(scip, cons, name, conshdlr, consdata, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
+#     finalizer(cons, cons->SCIPreleaseCons(scip, cons))
+#     return scip_cons
+# end
+# function SCIPcreateRowCons(scip::SCIP_t, conshdlr::SCIP_CONSHDLR_t, name, len, cols::SCIP_COL_t, vals::SCIP_Real_t, lhs::SCIP_Real, rhs::SCIP_Real, localVar::SCIP_Bool, modifiable::SCIP_Bool, removable::SCIP_Bool)
+#     row = SCIP_ROW_t(Array(Ptr{SCIP_ROW}, 1))
+#     SCIPcreateRowCons(scip, row, conshdlr, name, len, cols, vals, lhs, rhs, localVar, modifiable, removable)
+#     finalizer(row, row->SCIPreleaseRow(scip, row))
+#     return scip_row
+# end
+# function SCIPcreateRowSepa(scip::SCIP_t, sepa::SCIP_SEPA_t, name, len, cols::SCIP_COL_t, vals::SCIP_Real_t, lhs::SCIP_Real, rhs::SCIP_Real, localVar::SCIP_Bool, modifiable::SCIP_Bool, removable::SCIP_Bool)
+#     row = SCIP_ROW_t(Array(Ptr{SCIP_ROW}, 1))
+#     SCIPcreateRowSepa(scip, row, sepa, name, len, cols, vals, lhs, rhs, localVar, modifiable, removable)
+#     finalizer(row, row->SCIPreleaseRow(scip, row))
+#     return scip_row
+# end
+# function SCIPcreateRowUnspec(scip::SCIP_t, name, len, cols::SCIP_COL_t, vals::SCIP_Real_t, lhs::SCIP_Real, rhs::SCIP_Real, localVar::SCIP_Bool, modifiable::SCIP_Bool, removable::SCIP_Bool)
+#     row = SCIP_ROW_t(Array(Ptr{SCIP_ROW}, 1))
+#     SCIPcreateRowUnspec(scip, row, name, len, cols, vals, lhs, rhs, localVar, modifiable, removable)
+#     finalizer(row, row->SCIPreleaseRow(scip, row))
+#     return scip_row
+# end
+# function SCIPcreateRow(scip::SCIP_t, name, len, cols::SCIP_COL_t, vals::SCIP_Real_t, lhs::SCIP_Real, rhs::SCIP_Real, localVar::SCIP_Bool, modifiable::SCIP_Bool, removable::SCIP_Bool)
+#     row = SCIP_ROW_t(Array(Ptr{SCIP_ROW}, 1))
+#     SCIPcreateRow(scip, row, name, len, cols, vals, lhs, rhs, localVar, modifiable, removable)
+#     finalizer(row, row->SCIPreleaseRow(scip, row))
+#     return scip_row
+# end
+# function SCIPcreateEmptyRowCons(scip::SCIP_t, conshdlr::SCIP_CONSHDLR_t, name, lhs::SCIP_Real, rhs::SCIP_Real, localVar::SCIP_Bool, modifiable::SCIP_Bool, removable::SCIP_Bool)
+#     row = SCIP_ROW_t(Array(Ptr{SCIP_ROW}, 1))
+#     SCIPcreateEmptyRowCons(scip, row, conshdlr, name, lhs, rhs, localVar, modifiable, removable)
+#     finalizer(row, row->SCIPreleaseRow(scip, row))
+#     return scip_row
+# end
+# function SCIPcreateEmptyRowSepa(scip::SCIP_t, sepa::SCIP_SEPA_t, name, lhs::SCIP_Real, rhs::SCIP_Real, localVar::SCIP_Bool, modifiable::SCIP_Bool, removable::SCIP_Bool)
+#     row = SCIP_ROW_t(Array(Ptr{SCIP_ROW}, 1))
+#     SCIPcreateEmptyRowSepa(scip, row, sepa, name, lhs, rhs, localVar, modifiable, removable)
+#     finalizer(row, row->SCIPreleaseRow(scip, row))
+#     return scip_row
+# end
+# function SCIPcreateEmptyRowUnspec(scip::SCIP_t, name, lhs::SCIP_Real, rhs::SCIP_Real, localVar::SCIP_Bool, modifiable::SCIP_Bool, removable::SCIP_Bool)
+#     row = SCIP_ROW_t(Array(Ptr{SCIP_ROW}, 1))
+#     SCIPcreateEmptyRowUnspec(scip, row, name, lhs, rhs, localVar, modifiable, removable)
+#     finalizer(row, row->SCIPreleaseRow(scip, row))
+#     return scip_row
+# end
+# function SCIPcreateEmptyRow(scip::SCIP_t, name, lhs::SCIP_Real, rhs::SCIP_Real, localVar::SCIP_Bool, modifiable::SCIP_Bool, removable::SCIP_Bool)
+#     row = SCIP_ROW_t(Array(Ptr{SCIP_ROW}, 1))
+#     SCIPcreateEmptyRow(scip, row, name, lhs, rhs, localVar, modifiable, removable)
+#     finalizer(row, row->SCIPreleaseRow(scip, row))
+#     return scip_row
+# end
+# function SCIPcreateNlRow(scip::SCIP_t, name, constant::SCIP_Real, nlinvars, linvars::SCIP_VAR_t, lincoefs::SCIP_Real_t, nquadvars, quadvars::SCIP_VAR_t, nquadelems, quadelems::SCIP_QUADELEM_t, expression::SCIP_EXPRTREE_t, lhs::SCIP_Real, rhs::SCIP_Real)
+#     nlrow = SCIP_NLROW_t(Array(Ptr{SCIP_NLROW}, 1))
+#     SCIPcreateNlRow(scip, nlrow, name, constant, nlinvars, linvars, lincoefs, nquadvars, quadvars, nquadelems, quadelems, expression, lhs, rhs)
+#     finalizer(nlrow, nlrow->SCIPreleaseNlRow(scip, nlrow))
+#     return scip_nlrow
+# end
+# function SCIPcreateEmptyNlRow(scip::SCIP_t, name, lhs::SCIP_Real, rhs::SCIP_Real)
+#     nlrow = SCIP_NLROW_t(Array(Ptr{SCIP_NLROW}, 1))
+#     SCIPcreateEmptyNlRow(scip, nlrow, name, lhs, rhs)
+#     finalizer(nlrow, nlrow->SCIPreleaseNlRow(scip, nlrow))
+#     return scip_nlrow
+# end
+# function SCIPcreateNlRowFromRow(scip::SCIP_t, row::SCIP_ROW_t)
+#     nlrow = SCIP_NLROW_t(Array(Ptr{SCIP_NLROW}, 1))
+#     SCIPcreateNlRowFromRow(scip, nlrow, row)
+#     finalizer(nlrow, nlrow->SCIPreleaseNlRow(scip, nlrow))
+#     return scip_nlrow
+# end
+# function SCIPcreateCutpool(scip::SCIP_t, agelimit)
+#     cutpool = SCIP_CUTPOOL_t(Array(Ptr{SCIP_CUTPOOL}, 1))
+#     SCIPcreateCutpool(scip, cutpool, agelimit)
+#     finalizer(cutpool, cutpool->SCIPfreeCutpool(scip, cutpool))
+#     return scip_cutpool
+# end
+# function SCIPcreateSol(scip::SCIP_t, heur::SCIP_HEUR_t)
+#     sol = SCIP_SOL_t(Array(Ptr{SCIP_SOL}, 1))
+#     SCIPcreateSol(scip, sol, heur)
+#     finalizer(sol, sol->SCIPfreeSol(scip, sol))
+#     return scip_sol
+# end
+# function SCIPcreateLPSol(scip::SCIP_t, heur::SCIP_HEUR_t)
+#     sol = SCIP_SOL_t(Array(Ptr{SCIP_SOL}, 1))
+#     SCIPcreateLPSol(scip, sol, heur)
+#     finalizer(sol, sol->SCIPfreeSol(scip, sol))
+#     return scip_sol
+# end
+# function SCIPcreateNLPSol(scip::SCIP_t, heur::SCIP_HEUR_t)
+#     sol = SCIP_SOL_t(Array(Ptr{SCIP_SOL}, 1))
+#     SCIPcreateNLPSol(scip, sol, heur)
+#     finalizer(sol, sol->SCIPfreeSol(scip, sol))
+#     return scip_sol
+# end
+# function SCIPcreateRelaxSol(scip::SCIP_t, heur::SCIP_HEUR_t)
+#     sol = SCIP_SOL_t(Array(Ptr{SCIP_SOL}, 1))
+#     SCIPcreateRelaxSol(scip, sol, heur)
+#     finalizer(sol, sol->SCIPfreeSol(scip, sol))
+#     return scip_sol
+# end
+# function SCIPcreatePseudoSol(scip::SCIP_t, heur::SCIP_HEUR_t)
+#     sol = SCIP_SOL_t(Array(Ptr{SCIP_SOL}, 1))
+#     SCIPcreatePseudoSol(scip, sol, heur)
+#     finalizer(sol, sol->SCIPfreeSol(scip, sol))
+#     return scip_sol
+# end
+# function SCIPcreateCurrentSol(scip::SCIP_t, heur::SCIP_HEUR_t)
+#     sol = SCIP_SOL_t(Array(Ptr{SCIP_SOL}, 1))
+#     SCIPcreateCurrentSol(scip, sol, heur)
+#     finalizer(sol, sol->SCIPfreeSol(scip, sol))
+#     return scip_sol
+# end
+# function SCIPcreateUnknownSol(scip::SCIP_t, heur::SCIP_HEUR_t)
+#     sol = SCIP_SOL_t(Array(Ptr{SCIP_SOL}, 1))
+#     SCIPcreateUnknownSol(scip, sol, heur)
+#     finalizer(sol, sol->SCIPfreeSol(scip, sol))
+#     return scip_sol
+# end
+# function SCIPcreateOrigSol(scip::SCIP_t, heur::SCIP_HEUR_t)
+#     sol = SCIP_SOL_t(Array(Ptr{SCIP_SOL}, 1))
+#     SCIPcreateOrigSol(scip, sol, heur)
+#     finalizer(sol, sol->SCIPfreeSol(scip, sol))
+#     return scip_sol
+# end
+# function SCIPcreateSolCopy(scip::SCIP_t, sourcesol::SCIP_SOL_t)
+#     sol = SCIP_SOL_t(Array(Ptr{SCIP_SOL}, 1))
+#     SCIPcreateSolCopy(scip, sol, sourcesol)
+#     finalizer(sol, sol->SCIPfreeSol(scip, sol))
+#     return scip_sol
+# end
+# function SCIPcreateFiniteSolCopy(scip::SCIP_t, sourcesol::SCIP_SOL_t, success::SCIP_Bool_t)
+#     sol = SCIP_SOL_t(Array(Ptr{SCIP_SOL}, 1))
+#     SCIPcreateFiniteSolCopy(scip, sol, sourcesol, success)
+#     finalizer(sol, sol->SCIPfreeSol(scip, sol))
+#     return scip_sol
+# end
+# function SCIPcreateClock(scip::SCIP_t)
+#     clck = SCIP_CLOCK_t(Array(Ptr{SCIP_CLOCK}, 1))
+#     SCIPcreateClock(scip, clck)
+#     finalizer(clck, clck->SCIPfreeClock(scip, clck))
+#     return scip_clock
+# end
+# function SCIPcreateCPUClock(scip::SCIP_t)
+#     clck = SCIP_CLOCK_t(Array(Ptr{SCIP_CLOCK}, 1))
+#     SCIPcreateCPUClock(scip, clck)
+#     finalizer(clck, clck->SCIPfreeClock(scip, clck))
+#     return scip_clock
+# end
+# function SCIPcreateWallClock(scip::SCIP_t)
+#     clck = SCIP_CLOCK_t(Array(Ptr{SCIP_CLOCK}, 1))
+#     SCIPcreateWallClock(scip, clck)
+#     finalizer(clck, clck->SCIPfreeClock(scip, clck))
+#     return scip_clock
+# end
+# function SCIPcreateRealarray(scip::SCIP_t)
+#     realarray = SCIP_REALARRAY_t(Array(Ptr{SCIP_REALARRAY}, 1))
+#     SCIPcreateRealarray(scip, realarray)
+#     finalizer(realarray, realarray->SCIPfreeRealarray(scip, realarray))
+#     return scip_realarray
+# end
+# function SCIPcreateIntarray(scip::SCIP_t)
+#     intarray = SCIP_INTARRAY_t(Array(Ptr{SCIP_INTARRAY}, 1))
+#     SCIPcreateIntarray(scip, intarray)
+#     finalizer(intarray, intarray->SCIPfreeIntarray(scip, intarray))
+#     return scip_intarray
+# end
+# function SCIPcreateBoolarray(scip::SCIP_t)
+#     boolarray = SCIP_BOOLARRAY_t(Array(Ptr{SCIP_BOOLARRAY}, 1))
+#     SCIPcreateBoolarray(scip, boolarray)
+#     finalizer(boolarray, boolarray->SCIPfreeBoolarray(scip, boolarray))
+#     return scip_boolarray
+# end
+# function SCIPcreatePtrarray(scip::SCIP_t)
+#     ptrarray = SCIP_PTRARRAY_t(Array(Ptr{SCIP_PTRARRAY}, 1))
+#     SCIPcreatePtrarray(scip, ptrarray)
+#     finalizer(ptrarray, ptrarray->SCIPfreePtrarray(scip, ptrarray))
+#     return scip_ptrarray
+# end
+# 
+
+# TODO: construction/destruction
+function SCIPcreate()
+    s = SCIP_t(Array(Ptr{SCIP}, 1))
+    SCIPcreate(s)
+    finalizer(s, s->SCIPfree(s))
+    return s
+end
 
 SCIPversion() = @scip_ccall("SCIPversion", SCIP_Real, ())
 SCIPgetStage(scip::SCIP_t) = @scip_ccall("SCIPgetStage", SCIP_Stage, (Ptr{SCIP},), pointer(scip))
