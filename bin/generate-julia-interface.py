@@ -25,10 +25,10 @@ class SCIPXMLParser(object):
 
     # Known constructors and destructors that we are going to wrap with
     # convenience functions. Format:
-    # {SCIP struct: ([constructors], destructor)}
+    # {SCIP struct: ({constructors}, destructor)}
     WRAPPED_TYPES = {
-        'SCIP':      (['SCIPcreate'], 'SCIPfree'),
-        'SCIP_VAR':  (['SCIPcreateVarBasic'], 'SCIPreleaseVar'),
+        'SCIP':      (set(['SCIPcreate']), 'SCIPfree'),
+        'SCIP_VAR':  (set(['SCIPcreateVarBasic']), 'SCIPreleaseVar'),
     }
 
     # Set of variable names on the C side that will cause errors if they 
