@@ -15,6 +15,7 @@ class SCIPXMLParser(object):
     # Mapping of C types to Julia types
     TYPE_MAP = {
         'SCIP_Longint': 'Int64',
+        'char':         'Char',
         'const char *': 'String',
         'double':       'Float64',
         'int':          'Int',
@@ -241,12 +242,18 @@ class SCIPXMLParser(object):
             if None in (ret_type, func_name) or not func_name.startswith('SCIP'):
                 continue
 
+            # And in functions with easily understood signatures.
+            if filter(lambda x: len(x.rstrip('*').strip().split()) > 1, arg_types):
+                continue
+
             orig_arg_names = list(arg_names)
 
             # Convert function name and values in signature to use type.
             for i, (at, an, av) in enumerate(zip(arg_types, arg_names, arg_vals)):
-                if at in SCIPXMLParser.TYPE_MAP:
+                if at.rstrip('*').strip() in SCIPXMLParser.TYPE_MAP:
                     continue
+
+                #self.structs.add(at.rstrip('*').strip())
 
                 # Convert from scip to pointer(scip) or array(scip)
                 if at.endswith(' **'):
@@ -255,13 +262,12 @@ class SCIPXMLParser(object):
                     av = 'pointer(%s)' % av
                 arg_vals[i] = av
 
-                # Convert from scip to scip::SCIP_t
+                # Convert from scip to scip::SCIP_t if the type is a SCIP struct
                 is_pointer = at.endswith('*')
                 at = at.rstrip('*').strip()
                 if at.startswith('SCIP'):
                     if is_pointer:
-                        if at not in SCIPXMLParser.TYPE_MAP:
-                            self.structs.add(at)
+                        self.structs.add(at.rstrip('*').strip())
                         at = '%s_t' % at
                     arg_names[i] = '%s::%s' % (an, at)
                 
