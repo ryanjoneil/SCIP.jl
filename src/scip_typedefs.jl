@@ -1,5 +1,7 @@
 # SCIP typedefs
 
+typealias SCIP_LINEARCONSTYPE SCIP_LinearConsType
+typealias SCIP_SETPPCTYPE SCIP_SetppcType
 typealias SCIP_CLOCKTYPE SCIP_ClockType
 typealias SCIP_DISPSTATUS SCIP_DispStatus
 typealias SCIP_EXPROP SCIP_ExprOp

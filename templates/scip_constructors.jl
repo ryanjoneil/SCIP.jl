@@ -15,7 +15,8 @@ end
 {% else %}{% set arg_types2 = [arg_types[0]] + arg_types[2:] %}{% set orig_arg_names = parser.checked_functions_orig[constructor] %}{% set instance_var = orig_arg_names[1] %}function {{ constructor }}({{ arg_types2|join(', ') }})
     {{ instance_var }} = {{ type_name }}_t({{ 'Array(Ptr{%s}, 1)'|format(type_name) }})
     {{ constructor }}({{ orig_arg_names|join(', ') }})
-    finalizer({{ instance_var }}, {{ instance_var }}->{{ destructor }}({{ orig_arg_names[:2]|join(', ') }}))
+    # TODO: figure out why this causes an exception.
+    #finalizer({{ instance_var }}, {{ instance_var }}->{{ destructor }}({{ orig_arg_names[:2]|join(', ') }}))
     return {{ instance_var }}
 end
 {% endif %}

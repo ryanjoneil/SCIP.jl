@@ -2,6 +2,7 @@
 from collections import OrderedDict
 from jinja2 import Template
 from lxml import etree
+from itertools import chain
 import os
 import sys
 import time
@@ -28,6 +29,7 @@ class SCIPXMLParser(object):
     # {SCIP struct: ({constructors}, destructor)}
     WRAPPED_TYPES = {
         'SCIP':      (set(['SCIPcreate']), 'SCIPfree'),
+        'SCIP_CONS': (set(['SCIPcreateConsBasicLinear']), 'SCIPreleaseCons'),
         'SCIP_VAR':  (set(['SCIPcreateVarBasic']), 'SCIPreleaseVar'),
     }
 
@@ -69,13 +71,13 @@ class SCIPXMLParser(object):
                     self._parse_enums(sectiondef)
                 elif kind == 'typedef':
                     self._parse_typedefs(sectiondef)
-                elif kind == 'user-defined':
+                elif kind in ('user-defined', 'func'):
                     self._parse_functions(sectiondef)
 
         # Sanity check: typedefs are for enums and should not reappear
         # in the typealiases section. This might happend depending on
         # on the order types are found.
-        for tn in self.typedefs:
+        for tn in chain(self.typedefs, self.enums):
             try:
                 del self.typealiases[tn]
             except KeyError:
@@ -236,7 +238,8 @@ class SCIPXMLParser(object):
                             arg_names.append(t)
                             arg_vals.append(t)
 
-            #print ret_type, func_name, arg_types, arg_names, arg_vals
+            # if func_name == 'SCIPincludeDefaultPlugins':
+            #     print ret_type, func_name, arg_types, arg_names, arg_vals
 
             # We're only interested in functions that start with 'SCIP'.
             if None in (ret_type, func_name) or not func_name.startswith('SCIP'):
@@ -306,9 +309,11 @@ if __name__ == '__main__':
         if not filename.endswith('_8h.xml'):
             continue
         if not (filename in ('def_8h.xml', 'scip_8h.xml', 'scipdefplugins_8h.xml') or \
-                filename.startswith('pub__') or filename.startswith('type__')):
+                filename.startswith('pub__') or filename.startswith('type__') or filename.startswith('cons__')):
             continue
 
+        # if filename != 'scipdefplugins_8h.xml':
+        #     continue
         # if filename != 'def_8h.xml':
         #     continue
         #if filename != 'scip_8h.xml':
