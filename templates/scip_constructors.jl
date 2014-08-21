@@ -1,16 +1,22 @@
-# # Convenience constructors/destructors
-# {% for type_name, (constructors, (de_func_name, de_arg_names, de_orig_arg_names)) in parser.scip_types.items() %}{% for co_func_name, co_inst_name, co_mod_arg_names, co_orig_arg_names in constructors %}function {{ co_func_name }}({{ co_mod_arg_names|join(', ') }})
-#     {{ co_inst_name }} = {{ type_name }}_t({{ 'Array(Ptr{%s}, 1)'|format(type_name) }})
-#     {{ co_func_name }}({{ co_orig_arg_names|join(', ') }})
-#     finalizer({{ co_inst_name }}, {{ co_inst_name }}->{{ de_func_name }}({% if de_orig_arg_names|length > 1 %}{{ de_orig_arg_names[0] }}, {% endif %}{{ co_inst_name }}))
-#     return {{ type_name|lower }}
+# function SCIPcreate()
+#     s = SCIP_t(Array(Ptr{SCIP}, 1))
+#     SCIPcreate(s)
+#     finalizer(s, s->SCIPfree(s))
+#     return s
 # end
-# {% endfor %}{% endfor %}
 
-# TODO: construction/destruction
-function SCIPcreate()
-    s = SCIP_t(Array(Ptr{SCIP}, 1))
-    SCIPcreate(s)
-    finalizer(s, s->SCIPfree(s))
-    return s
+# Convenience constructors/destructors
+{% for type_name, (constructors, destructor) in parser.WRAPPED_TYPES.items() %}{% for constructor in constructors %}{% set sig = parser.checked_functions[constructor] %}{% set arg_types = sig[1] %}{% set arg_names = sig[2] %}{% if type_name == 'SCIP' %}function {{ constructor }}()
+    scip = SCIP_t(Array(Ptr{SCIP}, 1))
+    {{ constructor }}(scip)
+    finalizer(scip, scip->{{ destructor }}(scip))
+    return scip
 end
+{% else %}{% set arg_types2 = [arg_types[0]] + arg_types[2:] %}{% set orig_arg_names = parser.checked_functions_orig[constructor] %}{% set instance_var = orig_arg_names[1] %}function {{ constructor }}({{ arg_types2|join(', ') }})
+    {{ instance_var }} = {{ type_name }}_t({{ 'Array(Ptr{%s}, 1)'|format(type_name) }})
+    {{ constructor }}({{ orig_arg_names|join(', ') }})
+    finalizer({{ instance_var }}, {{ instance_var }}->{{ destructor }}({{ orig_arg_names[:2]|join(', ') }}))
+    return {{ instance_var }}
+end
+{% endif %}
+{% endfor %}{% endfor %}

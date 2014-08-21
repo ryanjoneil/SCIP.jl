@@ -13,11 +13,11 @@ end
 type SCIP_BOOLARRAY_t
     array_ptr_scip_boolarray::Array{Ptr{SCIP_BOOLARRAY}}
 end
-type SCIP_BOUNDTYPE_t
-    array_ptr_scip_boundtype::Array{Ptr{SCIP_BOUNDTYPE}}
-end
 type SCIP_BRANCHRULE_t
     array_ptr_scip_branchrule::Array{Ptr{SCIP_BRANCHRULE}}
+end
+type SCIP_BRANCHRULEDATA_t
+    array_ptr_scip_branchruledata::Array{Ptr{SCIP_BRANCHRULEDATA}}
 end
 type SCIP_CLOCK_t
     array_ptr_scip_clock::Array{Ptr{SCIP_CLOCK}}
@@ -30,6 +30,12 @@ type SCIP_CONFLICTHDLR_t
 end
 type SCIP_CONS_t
     array_ptr_scip_cons::Array{Ptr{SCIP_CONS}}
+end
+type SCIP_CONSDATA_t
+    array_ptr_scip_consdata::Array{Ptr{SCIP_CONSDATA}}
+end
+type SCIP_CONSHDLR_t
+    array_ptr_scip_conshdlr::Array{Ptr{SCIP_CONSHDLR}}
 end
 type SCIP_CUTPOOL_t
     array_ptr_scip_cutpool::Array{Ptr{SCIP_CUTPOOL}}
@@ -121,6 +127,12 @@ end
 type SCIP_QUADELEM_t
     array_ptr_scip_quadelem::Array{Ptr{SCIP_QUADELEM}}
 end
+type SCIP_READER_t
+    array_ptr_scip_reader::Array{Ptr{SCIP_READER}}
+end
+type SCIP_READERDATA_t
+    array_ptr_scip_readerdata::Array{Ptr{SCIP_READERDATA}}
+end
 type SCIP_Real_t
     array_ptr_scip_real::Array{Ptr{SCIP_Real}}
 end
@@ -155,10 +167,10 @@ array(scip_bool::SCIP_Bool_t) = scip_bool.array_ptr_scip_bool
 pointer(scip_bool::SCIP_Bool_t) = array(scip_bool)[1]
 array(scip_boolarray::SCIP_BOOLARRAY_t) = scip_boolarray.array_ptr_scip_boolarray
 pointer(scip_boolarray::SCIP_BOOLARRAY_t) = array(scip_boolarray)[1]
-array(scip_boundtype::SCIP_BOUNDTYPE_t) = scip_boundtype.array_ptr_scip_boundtype
-pointer(scip_boundtype::SCIP_BOUNDTYPE_t) = array(scip_boundtype)[1]
 array(scip_branchrule::SCIP_BRANCHRULE_t) = scip_branchrule.array_ptr_scip_branchrule
 pointer(scip_branchrule::SCIP_BRANCHRULE_t) = array(scip_branchrule)[1]
+array(scip_branchruledata::SCIP_BRANCHRULEDATA_t) = scip_branchruledata.array_ptr_scip_branchruledata
+pointer(scip_branchruledata::SCIP_BRANCHRULEDATA_t) = array(scip_branchruledata)[1]
 array(scip_clock::SCIP_CLOCK_t) = scip_clock.array_ptr_scip_clock
 pointer(scip_clock::SCIP_CLOCK_t) = array(scip_clock)[1]
 array(scip_col::SCIP_COL_t) = scip_col.array_ptr_scip_col
@@ -167,6 +179,10 @@ array(scip_conflicthdlr::SCIP_CONFLICTHDLR_t) = scip_conflicthdlr.array_ptr_scip
 pointer(scip_conflicthdlr::SCIP_CONFLICTHDLR_t) = array(scip_conflicthdlr)[1]
 array(scip_cons::SCIP_CONS_t) = scip_cons.array_ptr_scip_cons
 pointer(scip_cons::SCIP_CONS_t) = array(scip_cons)[1]
+array(scip_consdata::SCIP_CONSDATA_t) = scip_consdata.array_ptr_scip_consdata
+pointer(scip_consdata::SCIP_CONSDATA_t) = array(scip_consdata)[1]
+array(scip_conshdlr::SCIP_CONSHDLR_t) = scip_conshdlr.array_ptr_scip_conshdlr
+pointer(scip_conshdlr::SCIP_CONSHDLR_t) = array(scip_conshdlr)[1]
 array(scip_cutpool::SCIP_CUTPOOL_t) = scip_cutpool.array_ptr_scip_cutpool
 pointer(scip_cutpool::SCIP_CUTPOOL_t) = array(scip_cutpool)[1]
 array(scip_dialog::SCIP_DIALOG_t) = scip_dialog.array_ptr_scip_dialog
@@ -227,6 +243,10 @@ array(scip_ptrarray::SCIP_PTRARRAY_t) = scip_ptrarray.array_ptr_scip_ptrarray
 pointer(scip_ptrarray::SCIP_PTRARRAY_t) = array(scip_ptrarray)[1]
 array(scip_quadelem::SCIP_QUADELEM_t) = scip_quadelem.array_ptr_scip_quadelem
 pointer(scip_quadelem::SCIP_QUADELEM_t) = array(scip_quadelem)[1]
+array(scip_reader::SCIP_READER_t) = scip_reader.array_ptr_scip_reader
+pointer(scip_reader::SCIP_READER_t) = array(scip_reader)[1]
+array(scip_readerdata::SCIP_READERDATA_t) = scip_readerdata.array_ptr_scip_readerdata
+pointer(scip_readerdata::SCIP_READERDATA_t) = array(scip_readerdata)[1]
 array(scip_real::SCIP_Real_t) = scip_real.array_ptr_scip_real
 pointer(scip_real::SCIP_Real_t) = array(scip_real)[1]
 array(scip_realarray::SCIP_REALARRAY_t) = scip_realarray.array_ptr_scip_realarray

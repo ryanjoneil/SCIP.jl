@@ -43,9 +43,9 @@ class SCIPXMLParser(object):
 
         self.checked_functions = OrderedDict()   # {SCIPversion: (SCIP_Real, ...)}
         self.unchecked_functions = OrderedDict() # {SCIPcreate: (SCIP_Retcode, ...}}
+        self.checked_functions_orig = {} # original arg names
 
-        self.structs    = set ()        # {SCIP, SCIP_VAR, ...}
-        self.scip_types = OrderedDict() # {SCIP: ([constructors], destructor)}
+        self.structs = set ()        # {SCIP, SCIP_VAR, ...}
 
     def parse(self, filepath):
         log('parsing %s' % filepath)
@@ -243,34 +243,11 @@ class SCIPXMLParser(object):
                 continue
 
             # And in functions with easily understood signatures.
-            if filter(lambda x: len(x.rstrip('*').strip().split()) > 1, arg_types):
+            if len([x for x in arg_types if '(' in x]):
                 continue
 
             orig_arg_names = list(arg_names)
 
-            # Convert function name and values in signature to use type.
-            for i, (at, an, av) in enumerate(zip(arg_types, arg_names, arg_vals)):
-                if at.rstrip('*').strip() in SCIPXMLParser.TYPE_MAP:
-                    continue
-
-                #self.structs.add(at.rstrip('*').strip())
-
-                # Convert from scip to pointer(scip) or array(scip)
-                if at.endswith(' **'):
-                    av = 'array(%s)' % av
-                elif at.endswith(' *'):
-                    av = 'pointer(%s)' % av
-                arg_vals[i] = av
-
-                # Convert from scip to scip::SCIP_t if the type is a SCIP struct
-                is_pointer = at.endswith('*')
-                at = at.rstrip('*').strip()
-                if at.startswith('SCIP'):
-                    if is_pointer:
-                        self.structs.add(at.rstrip('*').strip())
-                        at = '%s_t' % at
-                    arg_names[i] = '%s::%s' % (an, at)
-                
             # Convert function signature components to Julia types & names.
             try:
                 orig_arg_types = list(arg_types)
@@ -279,38 +256,27 @@ class SCIPXMLParser(object):
             except KeyError:
                 continue
 
-            # Detect constructors. We will write convenience functions for these.
-            if func_name.startswith('SCIPcreate'):
-                if func_name == 'SCIPcreate':
-                    # We know everything about this function a priori.
-                    inst_name = orig_arg_names[0]
-                    mod_arg_names = list(arg_names[1:])
-                    self.scip_types['SCIP'] = [
-                        [(func_name, inst_name, mod_arg_names, orig_arg_names)], # Constructors
-                        None                                                     # Destructor
-                    ]
+            # Convert function name and values in signature to use type.
+            for i, (at, an, av) in enumerate(zip(arg_types, arg_names, arg_vals)):
+                if at.rstrip('*').strip() in SCIPXMLParser.TYPE_MAP:
+                    continue
 
-                elif len(orig_arg_types) > 1 and orig_arg_types[1].endswith('**'):
-                    # Second argument is the type being constructed.
-                    inst_name = orig_arg_names[1]
-                    mod_arg_names = list(arg_names[:1] + arg_names [2:])
-                    tn = orig_arg_types[1].rstrip('**').strip()
-                    if tn not in self.scip_types:
-                        self.scip_types[tn] = [[], None]
-                    self.scip_types[tn][0].append((func_name, inst_name, mod_arg_names, orig_arg_names))
+                # Convert from scip to pointer(scip) or array(scip)
+                if at.endswith('}}'):
+                    av = 'array(%s)' % av
+                elif at.endswith('}'):
+                    av = 'pointer(%s)' % av
+                arg_vals[i] = av
 
-            # Detect destructors for the same reason.
-            if func_name.startswith('SCIPfree') or func_name.startswith('SCIPrelease'):
-                if func_name == 'SCIPfree':
-                    # We know everything about this function a priori.
-                    self.scip_types['SCIP'][1] = (func_name, arg_names, orig_arg_names)
+                # Convert from scip to scip::SCIP_t if the type is a SCIP struct
+                is_pointer = at.startswith('Ptr{')
+                at = at.replace('Ptr{','').lstrip('{').rstrip('}')
+                if at.startswith('SCIP'):
+                    if is_pointer: 
+                        self.structs.add(at)
+                        at = '%s_t' % at
 
-                elif len(orig_arg_types) > 1 and orig_arg_types[1].endswith('**'):
-                    tn = orig_arg_types[1].rstrip('**').strip()
-                    try:
-                        self.scip_types[tn][1] = (func_name, arg_names, orig_arg_names)
-                    except KeyError:
-                        pass # Found destructor but no constructor!
+                arg_names[i] = '%s::%s' % (an, at)
 
             if len(arg_types) == 1 and arg_types[0] == 'Void':
                 arg_types = []
@@ -320,15 +286,11 @@ class SCIPXMLParser(object):
                 # return codes or not. These are handled by diferrent macros.
                 if func_name not in self.checked_functions:
                     self.checked_functions[func_name] = (arg_types, arg_names, arg_vals)
+                    self.checked_functions_orig[func_name] = orig_arg_names
 
             else:
                 if func_name not in self.unchecked_functions:
                     self.unchecked_functions[func_name] = (ret_type, arg_types, arg_names, arg_vals)
-
-        # Get rid of constructors without a destructor
-        for st, (co, de) in self.scip_types.items():
-            if de is None:
-                del self.scip_types[st]
 
 if __name__ == '__main__':
     try:
@@ -352,9 +314,6 @@ if __name__ == '__main__':
         #if filename != 'scip_8h.xml':
         #    continue
         parser.parse(os.path.join(xmldir, filename))
-
-    for foo, (co, de) in parser.scip_types.items():
-        print foo, co, de
 
     # Template -> src conversion.
     for filename in os.listdir(tmpldir):
