@@ -10,4 +10,6 @@ println(typeof(scip))
 println("Stage: $(SCIPgetStage(scip))")
 println("Status: $(SCIPgetStatus(scip))")
 println("SCIPisTransformed?: $(SCIPisTransformed(scip))")
+
+SCIPincludeDefaultPlugins(scip)
 println("done")

@@ -305,7 +305,7 @@ if __name__ == '__main__':
     for filename in os.listdir(xmldir):
         if not filename.endswith('_8h.xml'):
             continue
-        if not (filename in ('def_8h.xml', 'scip_8h.xml') or \
+        if not (filename in ('def_8h.xml', 'scip_8h.xml', 'scipdefplugins_8h.xml') or \
                 filename.startswith('pub__') or filename.startswith('type__')):
             continue
 

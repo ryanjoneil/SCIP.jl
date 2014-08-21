@@ -1,5 +1,5 @@
 # TODO: exports
-export SCIPcreate, SCIPgetStage, SCIPgetStatus, SCIPisTransformed, SCIPversion
+export {{ (parser.unchecked_functions.keys() + parser.checked_functions.keys())|sort|join(', ') }}
 
 # Macro for calling SCIP functions that return misc. types
 macro scip_ccall(func, args...)
