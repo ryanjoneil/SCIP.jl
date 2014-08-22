@@ -20,9 +20,12 @@ function SCIPcreateVarBasic(scip::SCIP_t, name::String, lb::SCIP_Real, ub::SCIP_
     return var
 end
 
-function SCIPcreateConsBasicLinear(scip::SCIP_t, name::String, nvars::Int, vars::SCIP_VAR_t, vals::SCIP_Real_t, lhs::SCIP_Real, rhs::SCIP_Real)
+function SCIPcreateConsBasicLinear(scip::SCIP_t, name::String, vars::Vector{SCIP_VAR_t}, vals::Vector{SCIP_Real}, lhs::SCIP_Real, rhs::SCIP_Real)
+    nvars = length(vars)
+    @assert length(vals) == nvars
     cons = SCIP_CONS_t(Array(Ptr{SCIP_CONS}, 1))
-    SCIPcreateConsBasicLinear(scip, cons, name, nvars, vars, vals, lhs, rhs)
+    v = SCIP_VAR_t([pointer(var) for var in vars])
+    SCIPcreateConsBasicLinear(scip, cons, name, nvars, v, vals, lhs, rhs)
     #finalizer(cons, cons->SCIPreleaseCons(scip, cons))
     return cons
 end
