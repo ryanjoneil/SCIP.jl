@@ -2,116 +2,116 @@
 const ARTIFICIALVARNAMEPREFIX = "andresultant_"
 const TRUE = 1
 const FALSE = 0
-const SCIP_VERSION = 310
-const SCIP_SUBVERSION = 0
-const SCIP_COPYRIGHT = "Copyright (c) 2002-2014 Konrad-Zuse-Zentrum fuer Informationstechnik Berlin (ZIB)"
-const SCIP_VARTYPE_BINARY_CHAR = 'B'
-const SCIP_VARTYPE_INTEGER_CHAR = 'I'
-const SCIP_VARTYPE_IMPLINT_CHAR = 'M'
-const SCIP_VARTYPE_CONTINUOUS_CHAR = 'C'
-const SCIP_LONGINT_FORMAT = "lld"
-const SCIP_REAL_FORMAT = "lf"
-const SCIP_MAXSTRLEN = 1024
-const SCIP_HASHSIZE_PARAMS = 4099
-const SCIP_HASHSIZE_NAMES = 131101
-const SCIP_HASHSIZE_CUTPOOLS = 131101
-const SCIP_HASHSIZE_CLIQUES = 131101
-const SCIP_HASHSIZE_NAMES_SMALL = 8011
-const SCIP_HASHSIZE_CUTPOOLS_SMALL = 8011
-const SCIP_HASHSIZE_CLIQUES_SMALL = 8011
-const SCIP_HASHSIZE_VBC = 131101
-const SCIP_EXPR_DEGREEINFINITY = 65535
+const _SCIP_VERSION = 310
+const _SCIP_SUBVERSION = 0
+const _SCIP_COPYRIGHT = "Copyright (c) 2002-2014 Konrad-Zuse-Zentrum fuer Informationstechnik Berlin (ZIB)"
+const _SCIP_VARTYPE_BINARY_CHAR = 'B'
+const _SCIP_VARTYPE_INTEGER_CHAR = 'I'
+const _SCIP_VARTYPE_IMPLINT_CHAR = 'M'
+const _SCIP_VARTYPE_CONTINUOUS_CHAR = 'C'
+const _SCIP_LONGINT_FORMAT = "lld"
+const _SCIP_REAL_FORMAT = "lf"
+const _SCIP_MAXSTRLEN = 1024
+const _SCIP_HASHSIZE_PARAMS = 4099
+const _SCIP_HASHSIZE_NAMES = 131101
+const _SCIP_HASHSIZE_CUTPOOLS = 131101
+const _SCIP_HASHSIZE_CLIQUES = 131101
+const _SCIP_HASHSIZE_NAMES_SMALL = 8011
+const _SCIP_HASHSIZE_CUTPOOLS_SMALL = 8011
+const _SCIP_HASHSIZE_CLIQUES_SMALL = 8011
+const _SCIP_HASHSIZE_VBC = 131101
+const _SCIP_EXPR_DEGREEINFINITY = 65535
 
 # SCIP defines for known C types and pointers to SCIP structs.
-typealias SCIP Void
-typealias SCIP_CONS Void
-typealias SCIP_VAR Void
-typealias SCIP_Real Float64
-typealias SCIP_Bool Uint
-typealias SCIP_NLROW Void
-typealias SCIP_SOL Void
-typealias SCIP_EXPRTREE Void
-typealias SCIP_PROFILE Void
-typealias SCIP_CONSHDLR Void
-typealias SCIP_ROW Void
-typealias SCIP_SEPA Void
-typealias SCIP_HASHMAP Void
-typealias SCIP_EXPRGRAPHNODE Void
-typealias SCIP_EXPRGRAPH Void
-typealias SCIP_QUADVARTERM Void
-typealias SCIP_BILINTERM Void
-typealias SCIP_NLPI Void
-typealias SCIP_NLPIPROBLEM Void
-typealias SCIP_BRANCHRULEDATA Void
-typealias SCIP_BRANCHRULE Void
-typealias SCIP_CONFLICTHDLRDATA Void
-typealias SCIP_CONFLICTHDLR Void
-typealias SCIP_CONSHDLRDATA Void
-typealias SCIP_PROPTIMING Void
-typealias SCIP_CONSDATA Void
-typealias SCIP_CUT Void
-typealias SCIP_CUTPOOL Void
-typealias SCIP_DIALOG Void
-typealias SCIP_DIALOGHDLR Void
-typealias SCIP_DIALOGDATA Void
-typealias SCIP_DISPDATA Void
-typealias SCIP_DISP Void
-typealias SCIP_MESSAGEHDLR Void
-typealias SCIP_EVENTHDLR Void
-typealias SCIP_EVENTHDLRDATA Void
-typealias SCIP_EVENTTYPE Void
-typealias SCIP_EVENT Void
-typealias SCIP_NODE Void
-typealias SCIP_COL Void
-typealias SCIP_INTERVAL Void
-typealias SCIP_EXPR Void
-typealias SCIP_QUADELEM Void
-typealias SCIP_EXPRDATA_MONOMIAL Void
-typealias SCIP_EXPRINTDATA Void
-typealias SCIP_HEURDATA Void
-typealias SCIP_HEUR Void
-typealias SCIP_HEURTIMING Void
-typealias SCIP_HISTORY Void
-typealias SCIP_VALUEHISTORY Void
-typealias SCIP_CLIQUE Void
-typealias SCIP_BASESTAT Void
-typealias SCIP_MESSAGEHDLRDATA Void
-typealias SCIP_SPARSESOL Void
-typealias SCIP_QUEUE Void
-typealias SCIP_PQUEUE Void
-typealias SCIP_HASHTABLE Void
-typealias SCIP_HASHMAPLIST Void
-typealias SCIP_RESOURCEACTIVITY Void
-typealias SCIP_DIGRAPH Void
-typealias SCIP_BT Void
-typealias SCIP_BTNODE Void
-typealias SCIP_NODESEL Void
-typealias SCIP_NODESELDATA Void
-typealias SCIP_PARAM Void
-typealias SCIP_PARAMDATA Void
-typealias SCIP_PRESOLDATA Void
-typealias SCIP_PRESOL Void
-typealias SCIP_PRICERDATA Void
-typealias SCIP_PRICER Void
-typealias SCIP_PROPDATA Void
-typealias SCIP_PROP Void
-typealias SCIP_READERDATA Void
-typealias SCIP_READER Void
-typealias SCIP_RELAXDATA Void
-typealias SCIP_RELAX Void
-typealias SCIP_SEPADATA Void
-typealias SCIP_DOMCHG Void
-typealias SCIP_VARDATA Void
-typealias SCIP_HOLELIST Void
-typealias SCIP_BDCHGINFO Void
-typealias SCIP_BDCHGIDX Void
-typealias SCIP_BOUNDCHG Void
-typealias SCIP_PROBDATA Void
-typealias SCIP_REALARRAY Void
-typealias SCIP_LPI Void
-typealias SCIP_NLPSTATISTICS Void
-typealias SCIP_EVENTDATA Void
-typealias SCIP_CLOCK Void
-typealias SCIP_INTARRAY Void
-typealias SCIP_BOOLARRAY Void
-typealias SCIP_PTRARRAY Void
+typealias _SCIP Void
+typealias _SCIP_CONS Void
+typealias _SCIP_VAR Void
+typealias _SCIP_Real Float64
+typealias _SCIP_Bool Uint
+typealias _SCIP_NLROW Void
+typealias _SCIP_SOL Void
+typealias _SCIP_EXPRTREE Void
+typealias _SCIP_PROFILE Void
+typealias _SCIP_CONSHDLR Void
+typealias _SCIP_ROW Void
+typealias _SCIP_SEPA Void
+typealias _SCIP_HASHMAP Void
+typealias _SCIP_EXPRGRAPHNODE Void
+typealias _SCIP_EXPRGRAPH Void
+typealias _SCIP_QUADVARTERM Void
+typealias _SCIP_BILINTERM Void
+typealias _SCIP_NLPI Void
+typealias _SCIP_NLPIPROBLEM Void
+typealias _SCIP_BRANCHRULEDATA Void
+typealias _SCIP_BRANCHRULE Void
+typealias _SCIP_CONFLICTHDLRDATA Void
+typealias _SCIP_CONFLICTHDLR Void
+typealias _SCIP_CONSHDLRDATA Void
+typealias _SCIP_PROPTIMING Void
+typealias _SCIP_CONSDATA Void
+typealias _SCIP_CUT Void
+typealias _SCIP_CUTPOOL Void
+typealias _SCIP_DIALOG Void
+typealias _SCIP_DIALOGHDLR Void
+typealias _SCIP_DIALOGDATA Void
+typealias _SCIP_DISPDATA Void
+typealias _SCIP_DISP Void
+typealias _SCIP_MESSAGEHDLR Void
+typealias _SCIP_EVENTHDLR Void
+typealias _SCIP_EVENTHDLRDATA Void
+typealias _SCIP_EVENTTYPE Void
+typealias _SCIP_EVENT Void
+typealias _SCIP_NODE Void
+typealias _SCIP_COL Void
+typealias _SCIP_INTERVAL Void
+typealias _SCIP_EXPR Void
+typealias _SCIP_QUADELEM Void
+typealias _SCIP_EXPRDATA_MONOMIAL Void
+typealias _SCIP_EXPRINTDATA Void
+typealias _SCIP_HEURDATA Void
+typealias _SCIP_HEUR Void
+typealias _SCIP_HEURTIMING Void
+typealias _SCIP_HISTORY Void
+typealias _SCIP_VALUEHISTORY Void
+typealias _SCIP_CLIQUE Void
+typealias _SCIP_BASESTAT Void
+typealias _SCIP_MESSAGEHDLRDATA Void
+typealias _SCIP_SPARSESOL Void
+typealias _SCIP_QUEUE Void
+typealias _SCIP_PQUEUE Void
+typealias _SCIP_HASHTABLE Void
+typealias _SCIP_HASHMAPLIST Void
+typealias _SCIP_RESOURCEACTIVITY Void
+typealias _SCIP_DIGRAPH Void
+typealias _SCIP_BT Void
+typealias _SCIP_BTNODE Void
+typealias _SCIP_NODESEL Void
+typealias _SCIP_NODESELDATA Void
+typealias _SCIP_PARAM Void
+typealias _SCIP_PARAMDATA Void
+typealias _SCIP_PRESOLDATA Void
+typealias _SCIP_PRESOL Void
+typealias _SCIP_PRICERDATA Void
+typealias _SCIP_PRICER Void
+typealias _SCIP_PROPDATA Void
+typealias _SCIP_PROP Void
+typealias _SCIP_READERDATA Void
+typealias _SCIP_READER Void
+typealias _SCIP_RELAXDATA Void
+typealias _SCIP_RELAX Void
+typealias _SCIP_SEPADATA Void
+typealias _SCIP_DOMCHG Void
+typealias _SCIP_VARDATA Void
+typealias _SCIP_HOLELIST Void
+typealias _SCIP_BDCHGINFO Void
+typealias _SCIP_BDCHGIDX Void
+typealias _SCIP_BOUNDCHG Void
+typealias _SCIP_PROBDATA Void
+typealias _SCIP_REALARRAY Void
+typealias _SCIP_LPI Void
+typealias _SCIP_NLPSTATISTICS Void
+typealias _SCIP_EVENTDATA Void
+typealias _SCIP_CLOCK Void
+typealias _SCIP_INTARRAY Void
+typealias _SCIP_BOOLARRAY Void
+typealias _SCIP_PTRARRAY Void
