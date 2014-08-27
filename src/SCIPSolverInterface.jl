@@ -4,8 +4,8 @@ require("MathProgBase")
 importall MathProgBase.SolverInterface
 
 type SCIPMathProgModel <: AbstractMathProgModel
-    ptr::_SCIP_t
-    varmap::Dict{Int,_SCIP_VAR_t}
+    ptr::Ptr{_SCIP}
+    varmap::Dict{Int,Ptr{_SCIP_VAR}}
 end
 
 function SCIPMathProgModel(;options...)
@@ -13,7 +13,7 @@ function SCIPMathProgModel(;options...)
     scip = SCIPcreate()
     _SCIPcreateProbBasic(scip, "")
     _SCIPincludeDefaultPlugins(scip)
-    SCIPMathProgModel(scip,Dict{Int,_SCIP_VAR_t}()) 
+    SCIPMathProgModel(scip,Dict{Int,Ptr{_SCIP_VAR}}()) 
 end
 
 immutable SCIPSolver <: AbstractMathProgSolver
@@ -30,7 +30,10 @@ end
 numvar(m::SCIPMathProgModel) = length(keys(m.varmap))
 
 function addconstr!(m::SCIPMathProgModel, varidx, coeff, lb, ub)
-    cons = SCIPcreateConsBasicLinear(m.ptr, [m.varmap[idx] for idx in varidx], coeff, lb, ub)
+    cons = SCIPcreateConsBasicLinear(m.ptr, [m.varmap[idx] for idx in varidx], 
+                                            convert(Vector{_SCIP_Real},coeff), 
+                                            convert(_SCIP_Real,lb), 
+                                            convert(_SCIP_Real,ub))
     _SCIPaddCons(m.ptr, cons)
 end
 

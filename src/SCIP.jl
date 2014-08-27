@@ -11,8 +11,11 @@ end
 using .CInterface
 
 # some convenience functions
-include("convenience.jl")
-
+module Helper
+    using SCIP.CInterface
+    include("convenience.jl")
+end
+using .Helper
 
 # MathProgBase interface
 include("SCIPSolverInterface.jl")
