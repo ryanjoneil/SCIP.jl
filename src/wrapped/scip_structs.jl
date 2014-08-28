@@ -5,6 +5,7 @@ export _SCIP_t, _SCIP_BDCHGIDX_t, _SCIP_BDCHGINFO_t, _SCIP_BILINTERM_t, _SCIP_Bo
 type _SCIP_t
     array_ptr_scip::Array{Ptr{_SCIP}}
 end
+_SCIP_t() = _SCIP_t(Array(Ptr{_SCIP},1))
 type _SCIP_BDCHGIDX_t
     array_ptr_scip_bdchgidx::Array{Ptr{_SCIP_BDCHGIDX}}
 end
@@ -269,13 +270,15 @@ end
 type _SCIP_VAR_t
     array_ptr_scip_var::Array{Ptr{_SCIP_VAR}}
 end
+_SCIP_VAR_t() = _SCIP_VAR_t(Array(Ptr{_SCIP_VAR},1))
 type _SCIP_VARDATA_t
     array_ptr_scip_vardata::Array{Ptr{_SCIP_VARDATA}}
 end
 
 # Pointer and array access functions
 array(scip::_SCIP_t) = scip.array_ptr_scip
-pointer(scip::_SCIP_t) = array(scip)[1]
+Base.pointer(scip::_SCIP_t) = pointer(scip.array_ptr_scip)
+Base.convert(::Type{Ptr{_SCIP}},scip::_SCIP_t) = scip.array_ptr_scip[1]
 array(scip_bdchgidx::_SCIP_BDCHGIDX_t) = scip_bdchgidx.array_ptr_scip_bdchgidx
 pointer(scip_bdchgidx::_SCIP_BDCHGIDX_t) = array(scip_bdchgidx)[1]
 array(scip_bdchginfo::_SCIP_BDCHGINFO_t) = scip_bdchginfo.array_ptr_scip_bdchginfo
@@ -451,6 +454,7 @@ pointer(scip_sparsesol::_SCIP_SPARSESOL_t) = array(scip_sparsesol)[1]
 array(scip_valuehistory::_SCIP_VALUEHISTORY_t) = scip_valuehistory.array_ptr_scip_valuehistory
 pointer(scip_valuehistory::_SCIP_VALUEHISTORY_t) = array(scip_valuehistory)[1]
 array(scip_var::_SCIP_VAR_t) = scip_var.array_ptr_scip_var
-pointer(scip_var::_SCIP_VAR_t) = array(scip_var)[1]
+Base.pointer(scip_var::_SCIP_VAR_t) = pointer(scip_var.array_ptr_scip_var)
+Base.convert(::Type{Ptr{_SCIP_VAR}},scip_var::_SCIP_VAR_t) = scip_var.array_ptr_scip_var[1]
 array(scip_vardata::_SCIP_VARDATA_t) = scip_vardata.array_ptr_scip_vardata
 pointer(scip_vardata::_SCIP_VARDATA_t) = array(scip_vardata)[1]

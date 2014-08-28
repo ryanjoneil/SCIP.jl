@@ -13,7 +13,8 @@ using .CInterface
 # some convenience functions
 module Helper
     using SCIP.CInterface
-    include("convenience.jl")
+    # include("helper/scip_structs.jl")
+    include("helper/convenience.jl")
 end
 using .Helper
 
