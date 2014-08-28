@@ -1,6 +1,11 @@
 # TODO: exports
 export {{ (parser.unchecked_functions.keys() + parser.checked_functions.keys())|sort|join(', ') }}
 
+type SCIPError# <: Exception
+    msg::ASCIIString
+    SCIPError(code::SCIP_RETCODE) = new(SCIP_Retcode_MAP[code])
+end
+
 # Macro for calling SCIP functions that return misc. types
 macro scip_ccall(func, args...)
     return quote
@@ -12,9 +17,7 @@ end
 macro scip_ccall_check(func, args...)
     return quote
         ret = ccall(($func, "libscipopt"), SCIP_RETCODE, $(args...))
-        if ret != SCIP_OKAY
-            error("SCIP Error: $ret")
-        end
+        ret == SCIP_OKAY || throw(SCIPError(ret))
     end
 end
 

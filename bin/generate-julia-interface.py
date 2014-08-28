@@ -7,8 +7,6 @@ import os
 import sys
 import time
 
-# TODO: add xml dir to source
-
 def log(msg):
     print '[%s] %s' % (time.asctime(), msg)
 
@@ -39,9 +37,10 @@ class SCIPXMLParser(object):
 
     def __init__(self):
         self.typealiases = OrderedDict() # {SCIP_Bool: Uint, ...}
-        self.defines  = OrderedDict()    # {TRUE: 1, ...}
-        self.enums    = OrderedDict()    # {SCIP_Retcode: {SCIP_OKAY: 1, ...}, ...}
-        self.typedefs = OrderedDict()    # {SCIP_Retcode: SCIP_RETCODE}
+        self.defines   = OrderedDict()    # {TRUE: 1, ...}
+        self.enums     = OrderedDict()    # {SCIP_Retcode: {SCIP_OKAY: 1, ...}, ...}
+        self.enum_desc = {}               # {SCIP_OKAY: 'normal termination', ...}
+        self.typedefs  = OrderedDict()    # {SCIP_Retcode: SCIP_RETCODE}
 
         self.checked_functions = OrderedDict()   # {SCIPversion: (SCIP_Real, ...)}
         self.unchecked_functions = OrderedDict() # {SCIPcreate: (SCIP_Retcode, ...}}
@@ -112,6 +111,9 @@ class SCIPXMLParser(object):
         #     <enumvalue>
         #         <name>SCIP_OKAY</name>
         #         <initializer>=  +1</initializer>
+        #         <detaileddescription>
+        #             <para>normal termination</para>
+        #         </detaileddescription>        
         #     </enumvalue>
         #     ...
         # </memberdef>
@@ -135,6 +137,8 @@ class SCIPXMLParser(object):
                             name = valnode.text
                         elif valnode.tag == 'initializer':
                             initializer = valnode.text.replace('=', '').strip()
+                        elif valnode.tag == 'detaileddescription':
+                            self.enum_desc[name] = ' '.join(s.strip() for s in valnode.itertext()).strip()
 
                     enum_vals[name] = initializer
 
