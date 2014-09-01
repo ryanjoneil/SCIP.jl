@@ -52,17 +52,32 @@ const obj_sense_map = [
 setsense!(m::SCIPMathProgModel, sns::Symbol) = _SCIPsetObjsense(m.ptr, obj_sense_map[sns])
 
 const var_type_map = [
-    'B' => _SCIP_VARTYPE_BINARY,
-    'C' => _SCIP_VARTYPE_CONTINUOUS,
-    'I' => _SCIP_VARTYPE_INTEGER,
-    'M' => _SCIP_VARTYPE_IMPLINT
+    :Bin => _SCIP_VARTYPE_BINARY,
+    :Cont => _SCIP_VARTYPE_CONTINUOUS,
+    :Int => _SCIP_VARTYPE_INTEGER,
+    :ImpliedInt => _SCIP_VARTYPE_IMPLINT
 ]
-function setvartype!(m::SCIPMathProgModel, v::Vector{Char})
+function setvartype!(m::SCIPMathProgModel, v::Vector{Symbol})
     (n = numvar(m)) == length(v) || error("Input variable type vector length not equal to number of model variables")
     for i in 1:n
-        _SCIPchgVarType(m.ptr, m.varmap[i], var_type_map[v[i]], pointer(Array(_SCIP_Bool,1)))
-        # pp = _SCIP_Bool_t(Array(Ptr{_SCIP_Bool},1))
-        # _SCIPchgVarType(m.ptr, m.varmap[i], var_type_map[v[i]], pp)
+        _SCIPchgVarType(m.ptr, m.varmap[i], var_type_map[v[i]], Array(_SCIP_Bool,1))
+    end
+    nothing
+end
+
+loadproblem!(model::SCIPMathProgModel, A, l::Vector{Real}, u::Vector{Real}, c::Vector{Real}, lb::Vector{Real}, ub::Vector{Real}, sense::Symbol) = 
+    loadproblem!(model, sparse(A), l, u, c, lb, ub, sense)
+function loadproblem!(model::SCIPMathProgModel, A::SparseMatrixCSC, l::Vector{Real}, u::Vector{Real}, c::Vector{Real}, lb::Vector{Real}, ub::Vector{Real}, sense::Symbol)
+    m, n = size(A)
+    setsense!(model, sense)
+    for i in 1:n
+        addvar!(model, l[i], u[i], c[i])
+    end
+    At = A'
+    for i in 1:length(At.colptr)-1
+        r, s = At.colptr[i], At.colptr[i+1]
+        r == s && continue
+        addconstr!(model, At.rowval[r:(s-1)], At.nzval[r:(s-1)], lb[i], ub[i])
     end
     nothing
 end
@@ -71,4 +86,35 @@ function optimize!(m::SCIPMathProgModel)
     ret = _SCIPsolve(m.ptr)
     ret == _SCIP_OKAY || throw(SCIPError(ret))
     nothing
+end
+
+const sol_stat_map = [
+    _SCIP_STATUS_UNKNOWN  => :Error,
+    _SCIP_STATUS_USERINTERRUPT  => :Error,
+    _SCIP_STATUS_NODELIMIT => :UserLimit,
+    _SCIP_STATUS_TOTALNODELIMIT => :UserLimit,
+    _SCIP_STATUS_STALLNODELIMIT => :UserLimit,
+    _SCIP_STATUS_TIMELIMIT => :UserLimit ,
+    _SCIP_STATUS_MEMLIMIT => :UserLimit,
+    _SCIP_STATUS_GAPLIMIT => :UserLimit,
+    _SCIP_STATUS_SOLLIMIT => :UserLimit,
+    _SCIP_STATUS_BESTSOLLIMIT  => :UserLimit,
+    _SCIP_STATUS_OPTIMAL => :Optimal,
+    _SCIP_STATUS_INFEASIBLE => :Infeasible,
+    _SCIP_STATUS_UNBOUNDED => :Unbounded,
+    _SCIP_STATUS_INFORUNBD => :InfOrUnbounded
+]
+
+status(m::SCIPMathProgModel) = sol_stat_map[_SCIPgetStatus(m.ptr)]
+
+getobjval(m::SCIPMathProgModel) = _SCIPgetPrimalbound(m.ptr)
+
+function getsolution(m::SCIPMathProgModel)
+    nvar = numvar(m)
+    sol = SPtr(_SCIP_SOL)
+    vars = [m.varmap[i] for i in 1:nvar]
+    vals = Array(Cdouble, nvar)
+    ret = _SCIPgetSolVals(m.ptr, pointer(sol), nvar, pointer(vars), pointer(vals))
+    ret == _SCIP_OKAY || throw(SCIPError(ret))
+    return vals
 end
