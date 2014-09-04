@@ -1,9 +1,9 @@
 # TODO: exports
-export {{ (parser.unchecked_functions.keys() + parser.checked_functions.keys())|sort|join(', ') }}
+export {{ (parser.unchecked_functions.keys() + parser.checked_functions.keys())|sort|join(', ')|replace('SCIP', '_SCIP') }}
 
 type SCIPError# <: Exception
     msg::ASCIIString
-    SCIPError(code::SCIP_RETCODE) = new(SCIP_Retcode_MAP[code])
+    SCIPError(code::_SCIP_RETCODE) = new(SCIP_Retcode_MAP[code])
 end
 
 # Macro for calling SCIP functions that return misc. types
@@ -16,8 +16,8 @@ end
 # Macro for calling SCIP functions that have checked return codes
 macro scip_ccall_check(func, args...)
     return quote
-        ret = ccall(($func, "libscipopt"), SCIP_RETCODE, $(args...))
-        ret == SCIP_OKAY || throw(SCIPError(ret))
+        ret = ccall(($func, "libscipopt"), _SCIP_RETCODE, $(args...))
+        ret == _SCIP_OKAY || throw(SCIPError(ret))
     end
 end
 

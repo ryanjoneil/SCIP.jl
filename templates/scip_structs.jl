@@ -2,7 +2,7 @@
 import Base: pointer
 
 {% for type_name in parser.structs|sort %}type {{ type_name }}_t
-    array_ptr_{{ type_name|lower }}::{{ 'Array{Ptr{%s}}'|format(type_name) }}
+    array_ptr_{{ type_name|lower }}::{{ 'Array{Ptr{_%s}}'|format(type_name) }}
 end
 {% endfor %}
 # Pointer and array access functions

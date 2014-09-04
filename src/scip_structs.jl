@@ -2,274 +2,274 @@
 import Base: pointer
 
 type SCIP_t
-    array_ptr_scip::Array{Ptr{SCIP}}
+    array_ptr_scip::Array{Ptr{_SCIP}}
 end
 type SCIP_BDCHGIDX_t
-    array_ptr_scip_bdchgidx::Array{Ptr{SCIP_BDCHGIDX}}
+    array_ptr_scip_bdchgidx::Array{Ptr{_SCIP_BDCHGIDX}}
 end
 type SCIP_BDCHGINFO_t
-    array_ptr_scip_bdchginfo::Array{Ptr{SCIP_BDCHGINFO}}
+    array_ptr_scip_bdchginfo::Array{Ptr{_SCIP_BDCHGINFO}}
 end
 type SCIP_BILINTERM_t
-    array_ptr_scip_bilinterm::Array{Ptr{SCIP_BILINTERM}}
+    array_ptr_scip_bilinterm::Array{Ptr{_SCIP_BILINTERM}}
 end
 type SCIP_Bool_t
-    array_ptr_scip_bool::Array{Ptr{SCIP_Bool}}
+    array_ptr_scip_bool::Array{Ptr{_SCIP_Bool}}
 end
 type SCIP_BOOLARRAY_t
-    array_ptr_scip_boolarray::Array{Ptr{SCIP_BOOLARRAY}}
+    array_ptr_scip_boolarray::Array{Ptr{_SCIP_BOOLARRAY}}
 end
 type SCIP_BOUNDCHG_t
-    array_ptr_scip_boundchg::Array{Ptr{SCIP_BOUNDCHG}}
+    array_ptr_scip_boundchg::Array{Ptr{_SCIP_BOUNDCHG}}
 end
 type SCIP_BOUNDTYPE_t
-    array_ptr_scip_boundtype::Array{Ptr{SCIP_BOUNDTYPE}}
+    array_ptr_scip_boundtype::Array{Ptr{_SCIP_BOUNDTYPE}}
 end
 type SCIP_BRANCHRULE_t
-    array_ptr_scip_branchrule::Array{Ptr{SCIP_BRANCHRULE}}
+    array_ptr_scip_branchrule::Array{Ptr{_SCIP_BRANCHRULE}}
 end
 type SCIP_BRANCHRULEDATA_t
-    array_ptr_scip_branchruledata::Array{Ptr{SCIP_BRANCHRULEDATA}}
+    array_ptr_scip_branchruledata::Array{Ptr{_SCIP_BRANCHRULEDATA}}
 end
 type SCIP_BT_t
-    array_ptr_scip_bt::Array{Ptr{SCIP_BT}}
+    array_ptr_scip_bt::Array{Ptr{_SCIP_BT}}
 end
 type SCIP_BTNODE_t
-    array_ptr_scip_btnode::Array{Ptr{SCIP_BTNODE}}
+    array_ptr_scip_btnode::Array{Ptr{_SCIP_BTNODE}}
 end
 type SCIP_CLIQUE_t
-    array_ptr_scip_clique::Array{Ptr{SCIP_CLIQUE}}
+    array_ptr_scip_clique::Array{Ptr{_SCIP_CLIQUE}}
 end
 type SCIP_CLOCK_t
-    array_ptr_scip_clock::Array{Ptr{SCIP_CLOCK}}
+    array_ptr_scip_clock::Array{Ptr{_SCIP_CLOCK}}
 end
 type SCIP_COL_t
-    array_ptr_scip_col::Array{Ptr{SCIP_COL}}
+    array_ptr_scip_col::Array{Ptr{_SCIP_COL}}
 end
 type SCIP_CONFLICTHDLR_t
-    array_ptr_scip_conflicthdlr::Array{Ptr{SCIP_CONFLICTHDLR}}
+    array_ptr_scip_conflicthdlr::Array{Ptr{_SCIP_CONFLICTHDLR}}
 end
 type SCIP_CONFLICTHDLRDATA_t
-    array_ptr_scip_conflicthdlrdata::Array{Ptr{SCIP_CONFLICTHDLRDATA}}
+    array_ptr_scip_conflicthdlrdata::Array{Ptr{_SCIP_CONFLICTHDLRDATA}}
 end
 type SCIP_CONS_t
-    array_ptr_scip_cons::Array{Ptr{SCIP_CONS}}
+    array_ptr_scip_cons::Array{Ptr{_SCIP_CONS}}
 end
 type SCIP_CONSDATA_t
-    array_ptr_scip_consdata::Array{Ptr{SCIP_CONSDATA}}
+    array_ptr_scip_consdata::Array{Ptr{_SCIP_CONSDATA}}
 end
 type SCIP_CONSHDLR_t
-    array_ptr_scip_conshdlr::Array{Ptr{SCIP_CONSHDLR}}
+    array_ptr_scip_conshdlr::Array{Ptr{_SCIP_CONSHDLR}}
 end
 type SCIP_CONSHDLRDATA_t
-    array_ptr_scip_conshdlrdata::Array{Ptr{SCIP_CONSHDLRDATA}}
+    array_ptr_scip_conshdlrdata::Array{Ptr{_SCIP_CONSHDLRDATA}}
 end
 type SCIP_CUT_t
-    array_ptr_scip_cut::Array{Ptr{SCIP_CUT}}
+    array_ptr_scip_cut::Array{Ptr{_SCIP_CUT}}
 end
 type SCIP_CUTPOOL_t
-    array_ptr_scip_cutpool::Array{Ptr{SCIP_CUTPOOL}}
+    array_ptr_scip_cutpool::Array{Ptr{_SCIP_CUTPOOL}}
 end
 type SCIP_DIALOG_t
-    array_ptr_scip_dialog::Array{Ptr{SCIP_DIALOG}}
+    array_ptr_scip_dialog::Array{Ptr{_SCIP_DIALOG}}
 end
 type SCIP_DIALOGDATA_t
-    array_ptr_scip_dialogdata::Array{Ptr{SCIP_DIALOGDATA}}
+    array_ptr_scip_dialogdata::Array{Ptr{_SCIP_DIALOGDATA}}
 end
 type SCIP_DIALOGHDLR_t
-    array_ptr_scip_dialoghdlr::Array{Ptr{SCIP_DIALOGHDLR}}
+    array_ptr_scip_dialoghdlr::Array{Ptr{_SCIP_DIALOGHDLR}}
 end
 type SCIP_DIGRAPH_t
-    array_ptr_scip_digraph::Array{Ptr{SCIP_DIGRAPH}}
+    array_ptr_scip_digraph::Array{Ptr{_SCIP_DIGRAPH}}
 end
 type SCIP_DISP_t
-    array_ptr_scip_disp::Array{Ptr{SCIP_DISP}}
+    array_ptr_scip_disp::Array{Ptr{_SCIP_DISP}}
 end
 type SCIP_DISPDATA_t
-    array_ptr_scip_dispdata::Array{Ptr{SCIP_DISPDATA}}
+    array_ptr_scip_dispdata::Array{Ptr{_SCIP_DISPDATA}}
 end
 type SCIP_DOMCHG_t
-    array_ptr_scip_domchg::Array{Ptr{SCIP_DOMCHG}}
+    array_ptr_scip_domchg::Array{Ptr{_SCIP_DOMCHG}}
 end
 type SCIP_EVENT_t
-    array_ptr_scip_event::Array{Ptr{SCIP_EVENT}}
+    array_ptr_scip_event::Array{Ptr{_SCIP_EVENT}}
 end
 type SCIP_EVENTDATA_t
-    array_ptr_scip_eventdata::Array{Ptr{SCIP_EVENTDATA}}
+    array_ptr_scip_eventdata::Array{Ptr{_SCIP_EVENTDATA}}
 end
 type SCIP_EVENTHDLR_t
-    array_ptr_scip_eventhdlr::Array{Ptr{SCIP_EVENTHDLR}}
+    array_ptr_scip_eventhdlr::Array{Ptr{_SCIP_EVENTHDLR}}
 end
 type SCIP_EVENTHDLRDATA_t
-    array_ptr_scip_eventhdlrdata::Array{Ptr{SCIP_EVENTHDLRDATA}}
+    array_ptr_scip_eventhdlrdata::Array{Ptr{_SCIP_EVENTHDLRDATA}}
 end
 type SCIP_EXPR_t
-    array_ptr_scip_expr::Array{Ptr{SCIP_EXPR}}
+    array_ptr_scip_expr::Array{Ptr{_SCIP_EXPR}}
 end
 type SCIP_EXPRCURV_t
-    array_ptr_scip_exprcurv::Array{Ptr{SCIP_EXPRCURV}}
+    array_ptr_scip_exprcurv::Array{Ptr{_SCIP_EXPRCURV}}
 end
 type SCIP_EXPRDATA_MONOMIAL_t
-    array_ptr_scip_exprdata_monomial::Array{Ptr{SCIP_EXPRDATA_MONOMIAL}}
+    array_ptr_scip_exprdata_monomial::Array{Ptr{_SCIP_EXPRDATA_MONOMIAL}}
 end
 type SCIP_EXPRGRAPH_t
-    array_ptr_scip_exprgraph::Array{Ptr{SCIP_EXPRGRAPH}}
+    array_ptr_scip_exprgraph::Array{Ptr{_SCIP_EXPRGRAPH}}
 end
 type SCIP_EXPRGRAPHNODE_t
-    array_ptr_scip_exprgraphnode::Array{Ptr{SCIP_EXPRGRAPHNODE}}
+    array_ptr_scip_exprgraphnode::Array{Ptr{_SCIP_EXPRGRAPHNODE}}
 end
 type SCIP_EXPRINTDATA_t
-    array_ptr_scip_exprintdata::Array{Ptr{SCIP_EXPRINTDATA}}
+    array_ptr_scip_exprintdata::Array{Ptr{_SCIP_EXPRINTDATA}}
 end
 type SCIP_EXPRTREE_t
-    array_ptr_scip_exprtree::Array{Ptr{SCIP_EXPRTREE}}
+    array_ptr_scip_exprtree::Array{Ptr{_SCIP_EXPRTREE}}
 end
 type SCIP_HASHMAP_t
-    array_ptr_scip_hashmap::Array{Ptr{SCIP_HASHMAP}}
+    array_ptr_scip_hashmap::Array{Ptr{_SCIP_HASHMAP}}
 end
 type SCIP_HASHMAPLIST_t
-    array_ptr_scip_hashmaplist::Array{Ptr{SCIP_HASHMAPLIST}}
+    array_ptr_scip_hashmaplist::Array{Ptr{_SCIP_HASHMAPLIST}}
 end
 type SCIP_HASHTABLE_t
-    array_ptr_scip_hashtable::Array{Ptr{SCIP_HASHTABLE}}
+    array_ptr_scip_hashtable::Array{Ptr{_SCIP_HASHTABLE}}
 end
 type SCIP_HEUR_t
-    array_ptr_scip_heur::Array{Ptr{SCIP_HEUR}}
+    array_ptr_scip_heur::Array{Ptr{_SCIP_HEUR}}
 end
 type SCIP_HEURDATA_t
-    array_ptr_scip_heurdata::Array{Ptr{SCIP_HEURDATA}}
+    array_ptr_scip_heurdata::Array{Ptr{_SCIP_HEURDATA}}
 end
 type SCIP_HISTORY_t
-    array_ptr_scip_history::Array{Ptr{SCIP_HISTORY}}
+    array_ptr_scip_history::Array{Ptr{_SCIP_HISTORY}}
 end
 type SCIP_HOLELIST_t
-    array_ptr_scip_holelist::Array{Ptr{SCIP_HOLELIST}}
+    array_ptr_scip_holelist::Array{Ptr{_SCIP_HOLELIST}}
 end
 type SCIP_INTARRAY_t
-    array_ptr_scip_intarray::Array{Ptr{SCIP_INTARRAY}}
+    array_ptr_scip_intarray::Array{Ptr{_SCIP_INTARRAY}}
 end
 type SCIP_INTERVAL_t
-    array_ptr_scip_interval::Array{Ptr{SCIP_INTERVAL}}
+    array_ptr_scip_interval::Array{Ptr{_SCIP_INTERVAL}}
 end
 type SCIP_LPI_t
-    array_ptr_scip_lpi::Array{Ptr{SCIP_LPI}}
+    array_ptr_scip_lpi::Array{Ptr{_SCIP_LPI}}
 end
 type SCIP_MESSAGEHDLR_t
-    array_ptr_scip_messagehdlr::Array{Ptr{SCIP_MESSAGEHDLR}}
+    array_ptr_scip_messagehdlr::Array{Ptr{_SCIP_MESSAGEHDLR}}
 end
 type SCIP_MESSAGEHDLRDATA_t
-    array_ptr_scip_messagehdlrdata::Array{Ptr{SCIP_MESSAGEHDLRDATA}}
+    array_ptr_scip_messagehdlrdata::Array{Ptr{_SCIP_MESSAGEHDLRDATA}}
 end
 type SCIP_NLPI_t
-    array_ptr_scip_nlpi::Array{Ptr{SCIP_NLPI}}
+    array_ptr_scip_nlpi::Array{Ptr{_SCIP_NLPI}}
 end
 type SCIP_NLPIPROBLEM_t
-    array_ptr_scip_nlpiproblem::Array{Ptr{SCIP_NLPIPROBLEM}}
+    array_ptr_scip_nlpiproblem::Array{Ptr{_SCIP_NLPIPROBLEM}}
 end
 type SCIP_NLPSTATISTICS_t
-    array_ptr_scip_nlpstatistics::Array{Ptr{SCIP_NLPSTATISTICS}}
+    array_ptr_scip_nlpstatistics::Array{Ptr{_SCIP_NLPSTATISTICS}}
 end
 type SCIP_NLROW_t
-    array_ptr_scip_nlrow::Array{Ptr{SCIP_NLROW}}
+    array_ptr_scip_nlrow::Array{Ptr{_SCIP_NLROW}}
 end
 type SCIP_NODE_t
-    array_ptr_scip_node::Array{Ptr{SCIP_NODE}}
+    array_ptr_scip_node::Array{Ptr{_SCIP_NODE}}
 end
 type SCIP_NODESEL_t
-    array_ptr_scip_nodesel::Array{Ptr{SCIP_NODESEL}}
+    array_ptr_scip_nodesel::Array{Ptr{_SCIP_NODESEL}}
 end
 type SCIP_NODESELDATA_t
-    array_ptr_scip_nodeseldata::Array{Ptr{SCIP_NODESELDATA}}
+    array_ptr_scip_nodeseldata::Array{Ptr{_SCIP_NODESELDATA}}
 end
 type SCIP_PARAM_t
-    array_ptr_scip_param::Array{Ptr{SCIP_PARAM}}
+    array_ptr_scip_param::Array{Ptr{_SCIP_PARAM}}
 end
 type SCIP_PQUEUE_t
-    array_ptr_scip_pqueue::Array{Ptr{SCIP_PQUEUE}}
+    array_ptr_scip_pqueue::Array{Ptr{_SCIP_PQUEUE}}
 end
 type SCIP_PRESOL_t
-    array_ptr_scip_presol::Array{Ptr{SCIP_PRESOL}}
+    array_ptr_scip_presol::Array{Ptr{_SCIP_PRESOL}}
 end
 type SCIP_PRESOLDATA_t
-    array_ptr_scip_presoldata::Array{Ptr{SCIP_PRESOLDATA}}
+    array_ptr_scip_presoldata::Array{Ptr{_SCIP_PRESOLDATA}}
 end
 type SCIP_PRICER_t
-    array_ptr_scip_pricer::Array{Ptr{SCIP_PRICER}}
+    array_ptr_scip_pricer::Array{Ptr{_SCIP_PRICER}}
 end
 type SCIP_PRICERDATA_t
-    array_ptr_scip_pricerdata::Array{Ptr{SCIP_PRICERDATA}}
+    array_ptr_scip_pricerdata::Array{Ptr{_SCIP_PRICERDATA}}
 end
 type SCIP_PROBDATA_t
-    array_ptr_scip_probdata::Array{Ptr{SCIP_PROBDATA}}
+    array_ptr_scip_probdata::Array{Ptr{_SCIP_PROBDATA}}
 end
 type SCIP_PROFILE_t
-    array_ptr_scip_profile::Array{Ptr{SCIP_PROFILE}}
+    array_ptr_scip_profile::Array{Ptr{_SCIP_PROFILE}}
 end
 type SCIP_PROP_t
-    array_ptr_scip_prop::Array{Ptr{SCIP_PROP}}
+    array_ptr_scip_prop::Array{Ptr{_SCIP_PROP}}
 end
 type SCIP_PROPDATA_t
-    array_ptr_scip_propdata::Array{Ptr{SCIP_PROPDATA}}
+    array_ptr_scip_propdata::Array{Ptr{_SCIP_PROPDATA}}
 end
 type SCIP_PTRARRAY_t
-    array_ptr_scip_ptrarray::Array{Ptr{SCIP_PTRARRAY}}
+    array_ptr_scip_ptrarray::Array{Ptr{_SCIP_PTRARRAY}}
 end
 type SCIP_QUADELEM_t
-    array_ptr_scip_quadelem::Array{Ptr{SCIP_QUADELEM}}
+    array_ptr_scip_quadelem::Array{Ptr{_SCIP_QUADELEM}}
 end
 type SCIP_QUADVARTERM_t
-    array_ptr_scip_quadvarterm::Array{Ptr{SCIP_QUADVARTERM}}
+    array_ptr_scip_quadvarterm::Array{Ptr{_SCIP_QUADVARTERM}}
 end
 type SCIP_QUEUE_t
-    array_ptr_scip_queue::Array{Ptr{SCIP_QUEUE}}
+    array_ptr_scip_queue::Array{Ptr{_SCIP_QUEUE}}
 end
 type SCIP_READER_t
-    array_ptr_scip_reader::Array{Ptr{SCIP_READER}}
+    array_ptr_scip_reader::Array{Ptr{_SCIP_READER}}
 end
 type SCIP_READERDATA_t
-    array_ptr_scip_readerdata::Array{Ptr{SCIP_READERDATA}}
+    array_ptr_scip_readerdata::Array{Ptr{_SCIP_READERDATA}}
 end
 type SCIP_Real_t
-    array_ptr_scip_real::Array{Ptr{SCIP_Real}}
+    array_ptr_scip_real::Array{Ptr{_SCIP_Real}}
 end
 type SCIP_REALARRAY_t
-    array_ptr_scip_realarray::Array{Ptr{SCIP_REALARRAY}}
+    array_ptr_scip_realarray::Array{Ptr{_SCIP_REALARRAY}}
 end
 type SCIP_RELAX_t
-    array_ptr_scip_relax::Array{Ptr{SCIP_RELAX}}
+    array_ptr_scip_relax::Array{Ptr{_SCIP_RELAX}}
 end
 type SCIP_RELAXDATA_t
-    array_ptr_scip_relaxdata::Array{Ptr{SCIP_RELAXDATA}}
+    array_ptr_scip_relaxdata::Array{Ptr{_SCIP_RELAXDATA}}
 end
 type SCIP_RESOURCEACTIVITY_t
-    array_ptr_scip_resourceactivity::Array{Ptr{SCIP_RESOURCEACTIVITY}}
+    array_ptr_scip_resourceactivity::Array{Ptr{_SCIP_RESOURCEACTIVITY}}
 end
 type SCIP_RESULT_t
-    array_ptr_scip_result::Array{Ptr{SCIP_RESULT}}
+    array_ptr_scip_result::Array{Ptr{_SCIP_RESULT}}
 end
 type SCIP_ROW_t
-    array_ptr_scip_row::Array{Ptr{SCIP_ROW}}
+    array_ptr_scip_row::Array{Ptr{_SCIP_ROW}}
 end
 type SCIP_SEPA_t
-    array_ptr_scip_sepa::Array{Ptr{SCIP_SEPA}}
+    array_ptr_scip_sepa::Array{Ptr{_SCIP_SEPA}}
 end
 type SCIP_SEPADATA_t
-    array_ptr_scip_sepadata::Array{Ptr{SCIP_SEPADATA}}
+    array_ptr_scip_sepadata::Array{Ptr{_SCIP_SEPADATA}}
 end
 type SCIP_SOL_t
-    array_ptr_scip_sol::Array{Ptr{SCIP_SOL}}
+    array_ptr_scip_sol::Array{Ptr{_SCIP_SOL}}
 end
 type SCIP_SPARSESOL_t
-    array_ptr_scip_sparsesol::Array{Ptr{SCIP_SPARSESOL}}
+    array_ptr_scip_sparsesol::Array{Ptr{_SCIP_SPARSESOL}}
 end
 type SCIP_VALUEHISTORY_t
-    array_ptr_scip_valuehistory::Array{Ptr{SCIP_VALUEHISTORY}}
+    array_ptr_scip_valuehistory::Array{Ptr{_SCIP_VALUEHISTORY}}
 end
 type SCIP_VAR_t
-    array_ptr_scip_var::Array{Ptr{SCIP_VAR}}
+    array_ptr_scip_var::Array{Ptr{_SCIP_VAR}}
 end
 type SCIP_VARDATA_t
-    array_ptr_scip_vardata::Array{Ptr{SCIP_VARDATA}}
+    array_ptr_scip_vardata::Array{Ptr{_SCIP_VARDATA}}
 end
 
 # Pointer and array access functions
