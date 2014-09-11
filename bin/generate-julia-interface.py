@@ -1,6 +1,6 @@
 #!/usr/bin/env python2.7
 from collections import OrderedDict
-from jinja2 import Template
+from jinja2 import Environment, FileSystemLoader
 from lxml import etree
 from itertools import chain
 import os
@@ -299,6 +299,17 @@ class SCIPXMLParser(object):
                 if func_name not in self.unchecked_functions:
                     self.unchecked_functions[func_name] = (ret_type, arg_types, arg_names, arg_vals)
 
+def scipname(name):
+    '''Prefixes internal SCIP names with _.'''
+    if isinstance(name, str):
+        if name.endswith('_t'):
+            return name
+        else:
+            return name.replace('SCIP', '_SCIP')
+    else:
+        return [scipname(n) for n in name]
+    
+
 if __name__ == '__main__':
     try:
         xmldir, tmpldir, srcdir = sys.argv[1:]
@@ -324,9 +335,15 @@ if __name__ == '__main__':
         #    continue
         parser.parse(os.path.join(xmldir, filename))
 
+    # Jinja2 environment
+    env = Environment(loader=FileSystemLoader(tmpldir))
+    env.filters['scipname'] = scipname
+
     # Template -> src conversion.
     for filename in os.listdir(tmpldir):
         with open(os.path.join(srcdir, filename), 'w') as outfile:
-            with open(os.path.join(tmpldir, filename)) as infile:
-                template = Template(infile.read())
-                outfile.write(template.render(parser=parser))
+            template = env.get_template(filename)
+            outfile.write(template.render(parser=parser))
+
+            #with open() as infile:
+                

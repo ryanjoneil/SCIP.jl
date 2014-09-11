@@ -22,8 +22,16 @@ macro scip_ccall_check(func, args...)
 end
 
 # SCIP function wrappers: unchecked functions
-{% for func_name, (ret_type, arg_types, arg_names, arg_vals) in parser.unchecked_functions.items() %}{{ func_name }}({{ arg_names|join(', ') }}) = @scip_ccall("{{ func_name }}", {% if ret_type %}{{ ret_type }}{% else %}Void{% endif %}, ({{ arg_types|join(', ') }}{% if arg_types|length == 1 %},{% endif %}){% if arg_vals %}, {{ arg_vals|join(', ') }}{% endif %})
-{% endfor %}
+{% for func_name, (ret_type, arg_types, arg_names, arg_vals) in parser.unchecked_functions.items() %}
+{{ func_name }}({{ arg_names|scipname|join(', ') }}) = @scip_ccall("{{ func_name }}", 
+	{% if ret_type %}{{ ret_type|scipname }}{% else %}Void{% endif %}, 
+	({{ arg_types|scipname|join(', ') }}{% if arg_types|length == 1 %},{% endif %}){% if arg_vals %}, 
+	{{ arg_vals|scipname|join(', ') }}{% endif %}
+){% endfor %}
+
 # SCIP function wrappers: unchecked functions
-{% for func_name, (arg_types, arg_names, arg_vals) in parser.checked_functions.items() %}{{ func_name }}({{ arg_names|join(', ') }}) = @scip_ccall_check("{{ func_name }}", ({{ arg_types|join(', ') }}{% if arg_types|length == 1 %},{% endif %}){% if arg_vals %}, {{ arg_vals|join(', ') }}{% endif %})
-{% endfor %}
+{% for func_name, (arg_types, arg_names, arg_vals) in parser.checked_functions.items() %}
+{{ func_name }}({{ arg_names|join(', ') }}) = @scip_ccall_check("{{ func_name }}",
+	({{ arg_types|join(', ') }}{% if arg_types|length == 1 %},{% endif %}){% if arg_vals %}, 
+	{{ arg_vals|join(', ') }}{% endif %}
+){% endfor %}

@@ -1,7 +1,7 @@
 # SCIP defines for character, string, and numeric constants
-const _ARTIFICIALVARNAMEPREFIX = "andresultant_"
-const _TRUE = 1
-const _FALSE = 0
+const ARTIFICIALVARNAMEPREFIX = "andresultant_"
+const TRUE = 1
+const FALSE = 0
 const _SCIP_VERSION = 310
 const _SCIP_SUBVERSION = 0
 const _SCIP_COPYRIGHT = "Copyright (c) 2002-2014 Konrad-Zuse-Zentrum fuer Informationstechnik Berlin (ZIB)"

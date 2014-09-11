@@ -22,1964 +22,9182 @@ macro scip_ccall_check(func, args...)
 end
 
 # SCIP function wrappers: unchecked functions
-SCIPcolSort(col::SCIP_COL_t) = @scip_ccall("SCIPcolSort", Void, (Ptr{SCIP_COL},), pointer(col))
-SCIPcolGetObj(col::SCIP_COL_t) = @scip_ccall("SCIPcolGetObj", SCIP_Real, (Ptr{SCIP_COL},), pointer(col))
-SCIPcolGetLb(col::SCIP_COL_t) = @scip_ccall("SCIPcolGetLb", SCIP_Real, (Ptr{SCIP_COL},), pointer(col))
-SCIPcolGetUb(col::SCIP_COL_t) = @scip_ccall("SCIPcolGetUb", SCIP_Real, (Ptr{SCIP_COL},), pointer(col))
-SCIPcolGetBestBound(col::SCIP_COL_t) = @scip_ccall("SCIPcolGetBestBound", SCIP_Real, (Ptr{SCIP_COL},), pointer(col))
-SCIPcolGetPrimsol(col::SCIP_COL_t) = @scip_ccall("SCIPcolGetPrimsol", SCIP_Real, (Ptr{SCIP_COL},), pointer(col))
-SCIPcolGetMinPrimsol(col::SCIP_COL_t) = @scip_ccall("SCIPcolGetMinPrimsol", SCIP_Real, (Ptr{SCIP_COL},), pointer(col))
-SCIPcolGetMaxPrimsol(col::SCIP_COL_t) = @scip_ccall("SCIPcolGetMaxPrimsol", SCIP_Real, (Ptr{SCIP_COL},), pointer(col))
-SCIPcolGetBasisStatus(col::SCIP_COL_t) = @scip_ccall("SCIPcolGetBasisStatus", SCIP_BASESTAT, (Ptr{SCIP_COL},), pointer(col))
-SCIPcolGetVar(col::SCIP_COL_t) = @scip_ccall("SCIPcolGetVar", Ptr{SCIP_VAR}, (Ptr{SCIP_COL},), pointer(col))
-SCIPcolGetIndex(col::SCIP_COL_t) = @scip_ccall("SCIPcolGetIndex", Int, (Ptr{SCIP_COL},), pointer(col))
-SCIPcolIsIntegral(col::SCIP_COL_t) = @scip_ccall("SCIPcolIsIntegral", SCIP_Bool, (Ptr{SCIP_COL},), pointer(col))
-SCIPcolIsRemovable(col::SCIP_COL_t) = @scip_ccall("SCIPcolIsRemovable", SCIP_Bool, (Ptr{SCIP_COL},), pointer(col))
-SCIPcolGetLPPos(col::SCIP_COL_t) = @scip_ccall("SCIPcolGetLPPos", Int, (Ptr{SCIP_COL},), pointer(col))
-SCIPcolGetLPDepth(col::SCIP_COL_t) = @scip_ccall("SCIPcolGetLPDepth", Int, (Ptr{SCIP_COL},), pointer(col))
-SCIPcolIsInLP(col::SCIP_COL_t) = @scip_ccall("SCIPcolIsInLP", SCIP_Bool, (Ptr{SCIP_COL},), pointer(col))
-SCIPcolGetNNonz(col::SCIP_COL_t) = @scip_ccall("SCIPcolGetNNonz", Int, (Ptr{SCIP_COL},), pointer(col))
-SCIPcolGetNLPNonz(col::SCIP_COL_t) = @scip_ccall("SCIPcolGetNLPNonz", Int, (Ptr{SCIP_COL},), pointer(col))
-SCIPcolGetRows(col::SCIP_COL_t) = @scip_ccall("SCIPcolGetRows", Ptr{Ptr{SCIP_ROW}}, (Ptr{SCIP_COL},), pointer(col))
-SCIPcolGetVals(col::SCIP_COL_t) = @scip_ccall("SCIPcolGetVals", Ptr{SCIP_Real}, (Ptr{SCIP_COL},), pointer(col))
-SCIPcolGetStrongbranchNode(col::SCIP_COL_t) = @scip_ccall("SCIPcolGetStrongbranchNode", Int64, (Ptr{SCIP_COL},), pointer(col))
-SCIPcolGetNStrongbranchs(col::SCIP_COL_t) = @scip_ccall("SCIPcolGetNStrongbranchs", Int, (Ptr{SCIP_COL},), pointer(col))
-SCIPboundtypeOpposite(boundtype::SCIP_BOUNDTYPE) = @scip_ccall("SCIPboundtypeOpposite", SCIP_BOUNDTYPE, (SCIP_BOUNDTYPE,), boundtype)
-SCIProwLock(row::SCIP_ROW_t) = @scip_ccall("SCIProwLock", Void, (Ptr{SCIP_ROW},), pointer(row))
-SCIProwUnlock(row::SCIP_ROW_t) = @scip_ccall("SCIProwUnlock", Void, (Ptr{SCIP_ROW},), pointer(row))
-SCIProwGetScalarProduct(row1::SCIP_ROW_t, row2::SCIP_ROW_t) = @scip_ccall("SCIProwGetScalarProduct", SCIP_Real, (Ptr{SCIP_ROW}, Ptr{SCIP_ROW}), pointer(row1), pointer(row2))
-SCIProwGetParallelism(row1::SCIP_ROW_t, row2::SCIP_ROW_t, orthofunc::Char) = @scip_ccall("SCIProwGetParallelism", SCIP_Real, (Ptr{SCIP_ROW}, Ptr{SCIP_ROW}, Char), pointer(row1), pointer(row2), orthofunc)
-SCIProwGetOrthogonality(row1::SCIP_ROW_t, row2::SCIP_ROW_t, orthofunc::Char) = @scip_ccall("SCIProwGetOrthogonality", SCIP_Real, (Ptr{SCIP_ROW}, Ptr{SCIP_ROW}, Char), pointer(row1), pointer(row2), orthofunc)
-SCIProwSort(row::SCIP_ROW_t) = @scip_ccall("SCIProwSort", Void, (Ptr{SCIP_ROW},), pointer(row))
-SCIProwGetNNonz(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetNNonz", Int, (Ptr{SCIP_ROW},), pointer(row))
-SCIProwGetNLPNonz(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetNLPNonz", Int, (Ptr{SCIP_ROW},), pointer(row))
-SCIProwGetCols(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetCols", Ptr{Ptr{SCIP_COL}}, (Ptr{SCIP_ROW},), pointer(row))
-SCIProwGetVals(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetVals", Ptr{SCIP_Real}, (Ptr{SCIP_ROW},), pointer(row))
-SCIProwGetConstant(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetConstant", SCIP_Real, (Ptr{SCIP_ROW},), pointer(row))
-SCIProwGetNorm(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetNorm", SCIP_Real, (Ptr{SCIP_ROW},), pointer(row))
-SCIProwGetSumNorm(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetSumNorm", SCIP_Real, (Ptr{SCIP_ROW},), pointer(row))
-SCIProwGetLhs(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetLhs", SCIP_Real, (Ptr{SCIP_ROW},), pointer(row))
-SCIProwGetRhs(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetRhs", SCIP_Real, (Ptr{SCIP_ROW},), pointer(row))
-SCIProwGetDualsol(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetDualsol", SCIP_Real, (Ptr{SCIP_ROW},), pointer(row))
-SCIProwGetDualfarkas(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetDualfarkas", SCIP_Real, (Ptr{SCIP_ROW},), pointer(row))
-SCIProwGetBasisStatus(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetBasisStatus", SCIP_BASESTAT, (Ptr{SCIP_ROW},), pointer(row))
-SCIProwGetName(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetName", String, (Ptr{SCIP_ROW},), pointer(row))
-SCIProwGetIndex(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetIndex", Int, (Ptr{SCIP_ROW},), pointer(row))
-SCIProwGetAge(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetAge", Int, (Ptr{SCIP_ROW},), pointer(row))
-SCIProwGetRank(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetRank", Int, (Ptr{SCIP_ROW},), pointer(row))
-SCIProwIsIntegral(row::SCIP_ROW_t) = @scip_ccall("SCIProwIsIntegral", SCIP_Bool, (Ptr{SCIP_ROW},), pointer(row))
-SCIProwIsLocal(row::SCIP_ROW_t) = @scip_ccall("SCIProwIsLocal", SCIP_Bool, (Ptr{SCIP_ROW},), pointer(row))
-SCIProwIsModifiable(row::SCIP_ROW_t) = @scip_ccall("SCIProwIsModifiable", SCIP_Bool, (Ptr{SCIP_ROW},), pointer(row))
-SCIProwIsRemovable(row::SCIP_ROW_t) = @scip_ccall("SCIProwIsRemovable", SCIP_Bool, (Ptr{SCIP_ROW},), pointer(row))
-SCIProwGetOrigintype(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetOrigintype", SCIP_ROWORIGINTYPE, (Ptr{SCIP_ROW},), pointer(row))
-SCIProwGetOriginCons(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetOriginCons", Ptr{SCIP_CONSHDLR}, (Ptr{SCIP_ROW},), pointer(row))
-SCIProwGetOriginSepa(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetOriginSepa", Ptr{SCIP_SEPA}, (Ptr{SCIP_ROW},), pointer(row))
-SCIProwIsInGlobalCutpool(row::SCIP_ROW_t) = @scip_ccall("SCIProwIsInGlobalCutpool", SCIP_Bool, (Ptr{SCIP_ROW},), pointer(row))
-SCIProwGetLPPos(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetLPPos", Int, (Ptr{SCIP_ROW},), pointer(row))
-SCIProwGetLPDepth(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetLPDepth", Int, (Ptr{SCIP_ROW},), pointer(row))
-SCIProwIsInLP(row::SCIP_ROW_t) = @scip_ccall("SCIProwIsInLP", SCIP_Bool, (Ptr{SCIP_ROW},), pointer(row))
-SCIProwChgRank(row::SCIP_ROW_t, rank::Int) = @scip_ccall("SCIProwChgRank", Void, (Ptr{SCIP_ROW}, Int), pointer(row), rank)
-SCIPpricerGetData(pricer::SCIP_PRICER_t) = @scip_ccall("SCIPpricerGetData", Ptr{SCIP_PRICERDATA}, (Ptr{SCIP_PRICER},), pointer(pricer))
-SCIPpricerSetData(pricer::SCIP_PRICER_t, pricerdata::SCIP_PRICERDATA_t) = @scip_ccall("SCIPpricerSetData", Void, (Ptr{SCIP_PRICER}, Ptr{SCIP_PRICERDATA}), pointer(pricer), pointer(pricerdata))
-SCIPpricerGetName(pricer::SCIP_PRICER_t) = @scip_ccall("SCIPpricerGetName", String, (Ptr{SCIP_PRICER},), pointer(pricer))
-SCIPpricerGetDesc(pricer::SCIP_PRICER_t) = @scip_ccall("SCIPpricerGetDesc", String, (Ptr{SCIP_PRICER},), pointer(pricer))
-SCIPpricerGetPriority(pricer::SCIP_PRICER_t) = @scip_ccall("SCIPpricerGetPriority", Int, (Ptr{SCIP_PRICER},), pointer(pricer))
-SCIPpricerGetNCalls(pricer::SCIP_PRICER_t) = @scip_ccall("SCIPpricerGetNCalls", Int, (Ptr{SCIP_PRICER},), pointer(pricer))
-SCIPpricerGetNVarsFound(pricer::SCIP_PRICER_t) = @scip_ccall("SCIPpricerGetNVarsFound", Int, (Ptr{SCIP_PRICER},), pointer(pricer))
-SCIPpricerGetSetupTime(pricer::SCIP_PRICER_t) = @scip_ccall("SCIPpricerGetSetupTime", SCIP_Real, (Ptr{SCIP_PRICER},), pointer(pricer))
-SCIPpricerGetTime(pricer::SCIP_PRICER_t) = @scip_ccall("SCIPpricerGetTime", SCIP_Real, (Ptr{SCIP_PRICER},), pointer(pricer))
-SCIPpricerIsActive(pricer::SCIP_PRICER_t) = @scip_ccall("SCIPpricerIsActive", SCIP_Bool, (Ptr{SCIP_PRICER},), pointer(pricer))
-SCIPpricerIsDelayed(pricer::SCIP_PRICER_t) = @scip_ccall("SCIPpricerIsDelayed", SCIP_Bool, (Ptr{SCIP_PRICER},), pointer(pricer))
-SCIPpricerIsInitialized(pricer::SCIP_PRICER_t) = @scip_ccall("SCIPpricerIsInitialized", SCIP_Bool, (Ptr{SCIP_PRICER},), pointer(pricer))
-SCIPreaderGetData(reader::SCIP_READER_t) = @scip_ccall("SCIPreaderGetData", Ptr{SCIP_READERDATA}, (Ptr{SCIP_READER},), pointer(reader))
-SCIPreaderSetData(reader::SCIP_READER_t, readerdata::SCIP_READERDATA_t) = @scip_ccall("SCIPreaderSetData", Void, (Ptr{SCIP_READER}, Ptr{SCIP_READERDATA}), pointer(reader), pointer(readerdata))
-SCIPreaderGetName(reader::SCIP_READER_t) = @scip_ccall("SCIPreaderGetName", String, (Ptr{SCIP_READER},), pointer(reader))
-SCIPreaderGetDesc(reader::SCIP_READER_t) = @scip_ccall("SCIPreaderGetDesc", String, (Ptr{SCIP_READER},), pointer(reader))
-SCIPreaderGetExtension(reader::SCIP_READER_t) = @scip_ccall("SCIPreaderGetExtension", String, (Ptr{SCIP_READER},), pointer(reader))
-SCIPreaderCanRead(reader::SCIP_READER_t) = @scip_ccall("SCIPreaderCanRead", SCIP_Bool, (Ptr{SCIP_READER},), pointer(reader))
-SCIPreaderCanWrite(reader::SCIP_READER_t) = @scip_ccall("SCIPreaderCanWrite", SCIP_Bool, (Ptr{SCIP_READER},), pointer(reader))
-SCIPbranchruleGetData(branchrule::SCIP_BRANCHRULE_t) = @scip_ccall("SCIPbranchruleGetData", Ptr{SCIP_BRANCHRULEDATA}, (Ptr{SCIP_BRANCHRULE},), pointer(branchrule))
-SCIPbranchruleSetData(branchrule::SCIP_BRANCHRULE_t, branchruledata::SCIP_BRANCHRULEDATA_t) = @scip_ccall("SCIPbranchruleSetData", Void, (Ptr{SCIP_BRANCHRULE}, Ptr{SCIP_BRANCHRULEDATA}), pointer(branchrule), pointer(branchruledata))
-SCIPbranchruleGetName(branchrule::SCIP_BRANCHRULE_t) = @scip_ccall("SCIPbranchruleGetName", String, (Ptr{SCIP_BRANCHRULE},), pointer(branchrule))
-SCIPbranchruleGetDesc(branchrule::SCIP_BRANCHRULE_t) = @scip_ccall("SCIPbranchruleGetDesc", String, (Ptr{SCIP_BRANCHRULE},), pointer(branchrule))
-SCIPbranchruleGetPriority(branchrule::SCIP_BRANCHRULE_t) = @scip_ccall("SCIPbranchruleGetPriority", Int, (Ptr{SCIP_BRANCHRULE},), pointer(branchrule))
-SCIPbranchruleGetMaxdepth(branchrule::SCIP_BRANCHRULE_t) = @scip_ccall("SCIPbranchruleGetMaxdepth", Int, (Ptr{SCIP_BRANCHRULE},), pointer(branchrule))
-SCIPbranchruleGetMaxbounddist(branchrule::SCIP_BRANCHRULE_t) = @scip_ccall("SCIPbranchruleGetMaxbounddist", SCIP_Real, (Ptr{SCIP_BRANCHRULE},), pointer(branchrule))
-SCIPbranchruleGetSetupTime(branchrule::SCIP_BRANCHRULE_t) = @scip_ccall("SCIPbranchruleGetSetupTime", SCIP_Real, (Ptr{SCIP_BRANCHRULE},), pointer(branchrule))
-SCIPbranchruleGetTime(branchrule::SCIP_BRANCHRULE_t) = @scip_ccall("SCIPbranchruleGetTime", SCIP_Real, (Ptr{SCIP_BRANCHRULE},), pointer(branchrule))
-SCIPbranchruleGetNLPCalls(branchrule::SCIP_BRANCHRULE_t) = @scip_ccall("SCIPbranchruleGetNLPCalls", Int64, (Ptr{SCIP_BRANCHRULE},), pointer(branchrule))
-SCIPbranchruleGetNExternCalls(branchrule::SCIP_BRANCHRULE_t) = @scip_ccall("SCIPbranchruleGetNExternCalls", Int64, (Ptr{SCIP_BRANCHRULE},), pointer(branchrule))
-SCIPbranchruleGetNPseudoCalls(branchrule::SCIP_BRANCHRULE_t) = @scip_ccall("SCIPbranchruleGetNPseudoCalls", Int64, (Ptr{SCIP_BRANCHRULE},), pointer(branchrule))
-SCIPbranchruleGetNCutoffs(branchrule::SCIP_BRANCHRULE_t) = @scip_ccall("SCIPbranchruleGetNCutoffs", Int64, (Ptr{SCIP_BRANCHRULE},), pointer(branchrule))
-SCIPbranchruleGetNCutsFound(branchrule::SCIP_BRANCHRULE_t) = @scip_ccall("SCIPbranchruleGetNCutsFound", Int64, (Ptr{SCIP_BRANCHRULE},), pointer(branchrule))
-SCIPbranchruleGetNConssFound(branchrule::SCIP_BRANCHRULE_t) = @scip_ccall("SCIPbranchruleGetNConssFound", Int64, (Ptr{SCIP_BRANCHRULE},), pointer(branchrule))
-SCIPbranchruleGetNDomredsFound(branchrule::SCIP_BRANCHRULE_t) = @scip_ccall("SCIPbranchruleGetNDomredsFound", Int64, (Ptr{SCIP_BRANCHRULE},), pointer(branchrule))
-SCIPbranchruleGetNChildren(branchrule::SCIP_BRANCHRULE_t) = @scip_ccall("SCIPbranchruleGetNChildren", Int64, (Ptr{SCIP_BRANCHRULE},), pointer(branchrule))
-SCIPbranchruleIsInitialized(branchrule::SCIP_BRANCHRULE_t) = @scip_ccall("SCIPbranchruleIsInitialized", SCIP_Bool, (Ptr{SCIP_BRANCHRULE},), pointer(branchrule))
-SCIPgetLhsVarbound(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetLhsVarbound", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetRhsVarbound(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetRhsVarbound", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetVarVarbound(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetVarVarbound", Ptr{SCIP_VAR}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetVbdvarVarbound(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetVbdvarVarbound", Ptr{SCIP_VAR}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetVbdcoefVarbound(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetVbdcoefVarbound", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetDualsolVarbound(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetDualsolVarbound", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetDualfarkasVarbound(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetDualfarkasVarbound", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetRowVarbound(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetRowVarbound", Ptr{SCIP_ROW}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPmessagehdlrCapture(messagehdlr::SCIP_MESSAGEHDLR_t) = @scip_ccall("SCIPmessagehdlrCapture", Void, (Ptr{SCIP_MESSAGEHDLR},), pointer(messagehdlr))
-SCIPmessagehdlrSetLogfile(messagehdlr::SCIP_MESSAGEHDLR_t, filename::String) = @scip_ccall("SCIPmessagehdlrSetLogfile", Void, (Ptr{SCIP_MESSAGEHDLR}, String), pointer(messagehdlr), filename)
-SCIPmessagehdlrSetQuiet(messagehdlr::SCIP_MESSAGEHDLR_t, quiet::SCIP_Bool) = @scip_ccall("SCIPmessagehdlrSetQuiet", Void, (Ptr{SCIP_MESSAGEHDLR}, SCIP_Bool), pointer(messagehdlr), quiet)
-SCIPmessagePrintErrorHeader(sourcefile::String, sourceline::Int) = @scip_ccall("SCIPmessagePrintErrorHeader", Void, (String, Int), sourcefile, sourceline)
-SCIPmessageSetErrorPrintingDefault() = @scip_ccall("SCIPmessageSetErrorPrintingDefault", Void, ())
-SCIPmessagehdlrGetData(messagehdlr::SCIP_MESSAGEHDLR_t) = @scip_ccall("SCIPmessagehdlrGetData", Ptr{SCIP_MESSAGEHDLRDATA}, (Ptr{SCIP_MESSAGEHDLR},), pointer(messagehdlr))
-SCIPmessagehdlrIsQuiet(messagehdlr::SCIP_MESSAGEHDLR_t) = @scip_ccall("SCIPmessagehdlrIsQuiet", SCIP_Bool, (Ptr{SCIP_MESSAGEHDLR},), pointer(messagehdlr))
-SCIPnodeselGetName(nodesel::SCIP_NODESEL_t) = @scip_ccall("SCIPnodeselGetName", String, (Ptr{SCIP_NODESEL},), pointer(nodesel))
-SCIPnodeselGetDesc(nodesel::SCIP_NODESEL_t) = @scip_ccall("SCIPnodeselGetDesc", String, (Ptr{SCIP_NODESEL},), pointer(nodesel))
-SCIPnodeselGetStdPriority(nodesel::SCIP_NODESEL_t) = @scip_ccall("SCIPnodeselGetStdPriority", Int, (Ptr{SCIP_NODESEL},), pointer(nodesel))
-SCIPnodeselGetMemsavePriority(nodesel::SCIP_NODESEL_t) = @scip_ccall("SCIPnodeselGetMemsavePriority", Int, (Ptr{SCIP_NODESEL},), pointer(nodesel))
-SCIPnodeselGetData(nodesel::SCIP_NODESEL_t) = @scip_ccall("SCIPnodeselGetData", Ptr{SCIP_NODESELDATA}, (Ptr{SCIP_NODESEL},), pointer(nodesel))
-SCIPnodeselSetData(nodesel::SCIP_NODESEL_t, nodeseldata::SCIP_NODESELDATA_t) = @scip_ccall("SCIPnodeselSetData", Void, (Ptr{SCIP_NODESEL}, Ptr{SCIP_NODESELDATA}), pointer(nodesel), pointer(nodeseldata))
-SCIPnodeselIsInitialized(nodesel::SCIP_NODESEL_t) = @scip_ccall("SCIPnodeselIsInitialized", SCIP_Bool, (Ptr{SCIP_NODESEL},), pointer(nodesel))
-SCIPnodeselGetSetupTime(nodesel::SCIP_NODESEL_t) = @scip_ccall("SCIPnodeselGetSetupTime", SCIP_Real, (Ptr{SCIP_NODESEL},), pointer(nodesel))
-SCIPnodeselGetTime(nodesel::SCIP_NODESEL_t) = @scip_ccall("SCIPnodeselGetTime", SCIP_Real, (Ptr{SCIP_NODESEL},), pointer(nodesel))
-SCIPnodesSharePath(node1::SCIP_NODE_t, node2::SCIP_NODE_t) = @scip_ccall("SCIPnodesSharePath", SCIP_Bool, (Ptr{SCIP_NODE}, Ptr{SCIP_NODE}), pointer(node1), pointer(node2))
-SCIPnodesGetCommonAncestor(node1::SCIP_NODE_t, node2::SCIP_NODE_t) = @scip_ccall("SCIPnodesGetCommonAncestor", Ptr{SCIP_NODE}, (Ptr{SCIP_NODE}, Ptr{SCIP_NODE}), pointer(node1), pointer(node2))
-SCIPnodeGetType(node::SCIP_NODE_t) = @scip_ccall("SCIPnodeGetType", SCIP_NODETYPE, (Ptr{SCIP_NODE},), pointer(node))
-SCIPnodeGetNumber(node::SCIP_NODE_t) = @scip_ccall("SCIPnodeGetNumber", Int64, (Ptr{SCIP_NODE},), pointer(node))
-SCIPnodeGetDepth(node::SCIP_NODE_t) = @scip_ccall("SCIPnodeGetDepth", Int, (Ptr{SCIP_NODE},), pointer(node))
-SCIPnodeGetLowerbound(node::SCIP_NODE_t) = @scip_ccall("SCIPnodeGetLowerbound", SCIP_Real, (Ptr{SCIP_NODE},), pointer(node))
-SCIPnodeGetEstimate(node::SCIP_NODE_t) = @scip_ccall("SCIPnodeGetEstimate", SCIP_Real, (Ptr{SCIP_NODE},), pointer(node))
-SCIPnodeGetDomchg(node::SCIP_NODE_t) = @scip_ccall("SCIPnodeGetDomchg", Ptr{SCIP_DOMCHG}, (Ptr{SCIP_NODE},), pointer(node))
-SCIPnodeGetParent(node::SCIP_NODE_t) = @scip_ccall("SCIPnodeGetParent", Ptr{SCIP_NODE}, (Ptr{SCIP_NODE},), pointer(node))
-SCIPnodeIsActive(node::SCIP_NODE_t) = @scip_ccall("SCIPnodeIsActive", SCIP_Bool, (Ptr{SCIP_NODE},), pointer(node))
-SCIPnodeIsPropagatedAgain(node::SCIP_NODE_t) = @scip_ccall("SCIPnodeIsPropagatedAgain", SCIP_Bool, (Ptr{SCIP_NODE},), pointer(node))
-SCIPgetNVarsSOS1(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNVarsSOS1", Int, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetVarsSOS1(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetVarsSOS1", Ptr{Ptr{SCIP_VAR}}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetWeightsSOS1(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetWeightsSOS1", Ptr{SCIP_Real}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPcutGetRow(cut::SCIP_CUT_t) = @scip_ccall("SCIPcutGetRow", Ptr{SCIP_ROW}, (Ptr{SCIP_CUT},), pointer(cut))
-SCIPcutGetAge(cut::SCIP_CUT_t) = @scip_ccall("SCIPcutGetAge", Int, (Ptr{SCIP_CUT},), pointer(cut))
-SCIPcutpoolGetCuts(cutpool::SCIP_CUTPOOL_t) = @scip_ccall("SCIPcutpoolGetCuts", Ptr{Ptr{SCIP_CUT}}, (Ptr{SCIP_CUTPOOL},), pointer(cutpool))
-SCIPcutpoolGetNCuts(cutpool::SCIP_CUTPOOL_t) = @scip_ccall("SCIPcutpoolGetNCuts", Int, (Ptr{SCIP_CUTPOOL},), pointer(cutpool))
-SCIPcutpoolGetMaxNCuts(cutpool::SCIP_CUTPOOL_t) = @scip_ccall("SCIPcutpoolGetMaxNCuts", Int, (Ptr{SCIP_CUTPOOL},), pointer(cutpool))
-SCIPcutpoolGetTime(cutpool::SCIP_CUTPOOL_t) = @scip_ccall("SCIPcutpoolGetTime", SCIP_Real, (Ptr{SCIP_CUTPOOL},), pointer(cutpool))
-SCIPcutpoolGetNCalls(cutpool::SCIP_CUTPOOL_t) = @scip_ccall("SCIPcutpoolGetNCalls", Int64, (Ptr{SCIP_CUTPOOL},), pointer(cutpool))
-SCIPcutpoolGetNCutsFound(cutpool::SCIP_CUTPOOL_t) = @scip_ccall("SCIPcutpoolGetNCutsFound", Int64, (Ptr{SCIP_CUTPOOL},), pointer(cutpool))
-SCIPexprtreeGetVars(tree::SCIP_EXPRTREE_t) = @scip_ccall("SCIPexprtreeGetVars", Ptr{Ptr{SCIP_VAR}}, (Ptr{SCIP_EXPRTREE},), pointer(tree))
-SCIPexprtreeFindVar(tree::SCIP_EXPRTREE_t, var::SCIP_VAR_t) = @scip_ccall("SCIPexprtreeFindVar", Int, (Ptr{SCIP_EXPRTREE}, Ptr{SCIP_VAR}), pointer(tree), pointer(var))
-SCIPnlrowGetConstant(nlrow::SCIP_NLROW_t) = @scip_ccall("SCIPnlrowGetConstant", SCIP_Real, (Ptr{SCIP_NLROW},), pointer(nlrow))
-SCIPnlrowGetNLinearVars(nlrow::SCIP_NLROW_t) = @scip_ccall("SCIPnlrowGetNLinearVars", Int, (Ptr{SCIP_NLROW},), pointer(nlrow))
-SCIPnlrowGetLinearVars(nlrow::SCIP_NLROW_t) = @scip_ccall("SCIPnlrowGetLinearVars", Ptr{Ptr{SCIP_VAR}}, (Ptr{SCIP_NLROW},), pointer(nlrow))
-SCIPnlrowGetLinearCoefs(nlrow::SCIP_NLROW_t) = @scip_ccall("SCIPnlrowGetLinearCoefs", Ptr{SCIP_Real}, (Ptr{SCIP_NLROW},), pointer(nlrow))
-SCIPnlrowGetNQuadVars(nlrow::SCIP_NLROW_t) = @scip_ccall("SCIPnlrowGetNQuadVars", Int, (Ptr{SCIP_NLROW},), pointer(nlrow))
-SCIPnlrowGetQuadVars(nlrow::SCIP_NLROW_t) = @scip_ccall("SCIPnlrowGetQuadVars", Ptr{Ptr{SCIP_VAR}}, (Ptr{SCIP_NLROW},), pointer(nlrow))
-SCIPnlrowSearchQuadVar(nlrow::SCIP_NLROW_t, var::SCIP_VAR_t) = @scip_ccall("SCIPnlrowSearchQuadVar", Int, (Ptr{SCIP_NLROW}, Ptr{SCIP_VAR}), pointer(nlrow), pointer(var))
-SCIPnlrowGetNQuadElems(nlrow::SCIP_NLROW_t) = @scip_ccall("SCIPnlrowGetNQuadElems", Int, (Ptr{SCIP_NLROW},), pointer(nlrow))
-SCIPnlrowGetQuadElems(nlrow::SCIP_NLROW_t) = @scip_ccall("SCIPnlrowGetQuadElems", Ptr{SCIP_QUADELEM}, (Ptr{SCIP_NLROW},), pointer(nlrow))
-SCIPnlrowGetExprtree(nlrow::SCIP_NLROW_t) = @scip_ccall("SCIPnlrowGetExprtree", Ptr{SCIP_EXPRTREE}, (Ptr{SCIP_NLROW},), pointer(nlrow))
-SCIPnlrowGetLhs(nlrow::SCIP_NLROW_t) = @scip_ccall("SCIPnlrowGetLhs", SCIP_Real, (Ptr{SCIP_NLROW},), pointer(nlrow))
-SCIPnlrowGetRhs(nlrow::SCIP_NLROW_t) = @scip_ccall("SCIPnlrowGetRhs", SCIP_Real, (Ptr{SCIP_NLROW},), pointer(nlrow))
-SCIPnlrowGetName(nlrow::SCIP_NLROW_t) = @scip_ccall("SCIPnlrowGetName", String, (Ptr{SCIP_NLROW},), pointer(nlrow))
-SCIPnlrowGetNLPPos(nlrow::SCIP_NLROW_t) = @scip_ccall("SCIPnlrowGetNLPPos", Int, (Ptr{SCIP_NLROW},), pointer(nlrow))
-SCIPnlrowIsInNLP(nlrow::SCIP_NLROW_t) = @scip_ccall("SCIPnlrowIsInNLP", SCIP_Bool, (Ptr{SCIP_NLROW},), pointer(nlrow))
-SCIPnlrowGetDualsol(nlrow::SCIP_NLROW_t) = @scip_ccall("SCIPnlrowGetDualsol", SCIP_Real, (Ptr{SCIP_NLROW},), pointer(nlrow))
-SCIPexistsConsLinking(scip::SCIP_t, intvar::SCIP_VAR_t) = @scip_ccall("SCIPexistsConsLinking", SCIP_Bool, (Ptr{SCIP}, Ptr{SCIP_VAR}), pointer(scip), pointer(intvar))
-SCIPgetConsLinking(scip::SCIP_t, intvar::SCIP_VAR_t) = @scip_ccall("SCIPgetConsLinking", Ptr{SCIP_CONS}, (Ptr{SCIP}, Ptr{SCIP_VAR}), pointer(scip), pointer(intvar))
-SCIPgetIntvarLinking(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetIntvarLinking", Ptr{SCIP_VAR}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetNBinvarsLinking(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNBinvarsLinking", Int, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetLinearConsIndicator(cons::SCIP_CONS_t) = @scip_ccall("SCIPgetLinearConsIndicator", Ptr{SCIP_CONS}, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPgetBinaryVarIndicator(cons::SCIP_CONS_t) = @scip_ccall("SCIPgetBinaryVarIndicator", Ptr{SCIP_VAR}, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPgetSlackVarIndicator(cons::SCIP_CONS_t) = @scip_ccall("SCIPgetSlackVarIndicator", Ptr{SCIP_VAR}, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPisViolatedIndicator(scip::SCIP_t, cons::SCIP_CONS_t, sol::SCIP_SOL_t) = @scip_ccall("SCIPisViolatedIndicator", SCIP_Bool, (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_SOL}), pointer(scip), pointer(cons), pointer(sol))
-SCIPcliqueSearchVar(clique::SCIP_CLIQUE_t, var::SCIP_VAR_t, value::SCIP_Bool) = @scip_ccall("SCIPcliqueSearchVar", Int, (Ptr{SCIP_CLIQUE}, Ptr{SCIP_VAR}, SCIP_Bool), pointer(clique), pointer(var), value)
-SCIPcliqueHasVar(clique::SCIP_CLIQUE_t, var::SCIP_VAR_t, value::SCIP_Bool) = @scip_ccall("SCIPcliqueHasVar", SCIP_Bool, (Ptr{SCIP_CLIQUE}, Ptr{SCIP_VAR}, SCIP_Bool), pointer(clique), pointer(var), value)
-SCIPcliqueGetNVars(clique::SCIP_CLIQUE_t) = @scip_ccall("SCIPcliqueGetNVars", Int, (Ptr{SCIP_CLIQUE},), pointer(clique))
-SCIPcliqueGetVars(clique::SCIP_CLIQUE_t) = @scip_ccall("SCIPcliqueGetVars", Ptr{Ptr{SCIP_VAR}}, (Ptr{SCIP_CLIQUE},), pointer(clique))
-SCIPcliqueGetValues(clique::SCIP_CLIQUE_t) = @scip_ccall("SCIPcliqueGetValues", Ptr{SCIP_Bool}, (Ptr{SCIP_CLIQUE},), pointer(clique))
-SCIPcliqueGetId(clique::SCIP_CLIQUE_t) = @scip_ccall("SCIPcliqueGetId", Int, (Ptr{SCIP_CLIQUE},), pointer(clique))
-SCIPgetNVarsXor(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNVarsXor", Int, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetVarsXor(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetVarsXor", Ptr{Ptr{SCIP_VAR}}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetRhsXor(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetRhsXor", SCIP_Bool, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetCapacityKnapsack(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetCapacityKnapsack", Int64, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetNVarsKnapsack(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNVarsKnapsack", Int, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetVarsKnapsack(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetVarsKnapsack", Ptr{Ptr{SCIP_VAR}}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetWeightsKnapsack(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetWeightsKnapsack", Ptr{Int64}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetDualsolKnapsack(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetDualsolKnapsack", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetDualfarkasKnapsack(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetDualfarkasKnapsack", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetRowKnapsack(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetRowKnapsack", Ptr{SCIP_ROW}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetNVarsSOS2(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNVarsSOS2", Int, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetVarsSOS2(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetVarsSOS2", Ptr{Ptr{SCIP_VAR}}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetWeightsSOS2(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetWeightsSOS2", Ptr{SCIP_Real}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetNVarsBounddisjunction(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNVarsBounddisjunction", Int, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetVarsBounddisjunction(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetVarsBounddisjunction", Ptr{Ptr{SCIP_VAR}}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetBoundtypesBounddisjunction(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetBoundtypesBounddisjunction", Ptr{SCIP_BOUNDTYPE}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetBoundsBounddisjunction(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetBoundsBounddisjunction", Ptr{SCIP_Real}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPconflicthdlrGetData(conflicthdlr::SCIP_CONFLICTHDLR_t) = @scip_ccall("SCIPconflicthdlrGetData", Ptr{SCIP_CONFLICTHDLRDATA}, (Ptr{SCIP_CONFLICTHDLR},), pointer(conflicthdlr))
-SCIPconflicthdlrSetData(conflicthdlr::SCIP_CONFLICTHDLR_t, conflicthdlrdata::SCIP_CONFLICTHDLRDATA_t) = @scip_ccall("SCIPconflicthdlrSetData", Void, (Ptr{SCIP_CONFLICTHDLR}, Ptr{SCIP_CONFLICTHDLRDATA}), pointer(conflicthdlr), pointer(conflicthdlrdata))
-SCIPconflicthdlrGetName(conflicthdlr::SCIP_CONFLICTHDLR_t) = @scip_ccall("SCIPconflicthdlrGetName", String, (Ptr{SCIP_CONFLICTHDLR},), pointer(conflicthdlr))
-SCIPconflicthdlrGetDesc(conflicthdlr::SCIP_CONFLICTHDLR_t) = @scip_ccall("SCIPconflicthdlrGetDesc", String, (Ptr{SCIP_CONFLICTHDLR},), pointer(conflicthdlr))
-SCIPconflicthdlrGetPriority(conflicthdlr::SCIP_CONFLICTHDLR_t) = @scip_ccall("SCIPconflicthdlrGetPriority", Int, (Ptr{SCIP_CONFLICTHDLR},), pointer(conflicthdlr))
-SCIPconflicthdlrIsInitialized(conflicthdlr::SCIP_CONFLICTHDLR_t) = @scip_ccall("SCIPconflicthdlrIsInitialized", SCIP_Bool, (Ptr{SCIP_CONFLICTHDLR},), pointer(conflicthdlr))
-SCIPconflicthdlrGetSetupTime(conflicthdlr::SCIP_CONFLICTHDLR_t) = @scip_ccall("SCIPconflicthdlrGetSetupTime", SCIP_Real, (Ptr{SCIP_CONFLICTHDLR},), pointer(conflicthdlr))
-SCIPconflicthdlrGetTime(conflicthdlr::SCIP_CONFLICTHDLR_t) = @scip_ccall("SCIPconflicthdlrGetTime", SCIP_Real, (Ptr{SCIP_CONFLICTHDLR},), pointer(conflicthdlr))
-SCIPgetNVarsAnd(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNVarsAnd", Int, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetVarsAnd(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetVarsAnd", Ptr{Ptr{SCIP_VAR}}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetResultantAnd(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetResultantAnd", Ptr{SCIP_VAR}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPisAndConsSorted(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPisAndConsSorted", SCIP_Bool, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetBinaryVarSuperindicator(cons::SCIP_CONS_t) = @scip_ccall("SCIPgetBinaryVarSuperindicator", Ptr{SCIP_VAR}, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPgetSlackConsSuperindicator(cons::SCIP_CONS_t) = @scip_ccall("SCIPgetSlackConsSuperindicator", Ptr{SCIP_CONS}, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPpropGetData(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetData", Ptr{SCIP_PROPDATA}, (Ptr{SCIP_PROP},), pointer(prop))
-SCIPpropSetData(prop::SCIP_PROP_t, propdata::SCIP_PROPDATA_t) = @scip_ccall("SCIPpropSetData", Void, (Ptr{SCIP_PROP}, Ptr{SCIP_PROPDATA}), pointer(prop), pointer(propdata))
-SCIPpropGetName(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetName", String, (Ptr{SCIP_PROP},), pointer(prop))
-SCIPpropGetDesc(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetDesc", String, (Ptr{SCIP_PROP},), pointer(prop))
-SCIPpropGetPriority(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetPriority", Int, (Ptr{SCIP_PROP},), pointer(prop))
-SCIPpropGetPresolPriority(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetPresolPriority", Int, (Ptr{SCIP_PROP},), pointer(prop))
-SCIPpropGetFreq(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetFreq", Int, (Ptr{SCIP_PROP},), pointer(prop))
-SCIPpropGetSetupTime(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetSetupTime", SCIP_Real, (Ptr{SCIP_PROP},), pointer(prop))
-SCIPpropSetFreq(prop::SCIP_PROP_t, freq::Int) = @scip_ccall("SCIPpropSetFreq", Void, (Ptr{SCIP_PROP}, Int), pointer(prop), freq)
-SCIPpropGetTime(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetTime", SCIP_Real, (Ptr{SCIP_PROP},), pointer(prop))
-SCIPpropGetStrongBranchPropTime(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetStrongBranchPropTime", SCIP_Real, (Ptr{SCIP_PROP},), pointer(prop))
-SCIPpropGetRespropTime(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetRespropTime", SCIP_Real, (Ptr{SCIP_PROP},), pointer(prop))
-SCIPpropGetPresolTime(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetPresolTime", SCIP_Real, (Ptr{SCIP_PROP},), pointer(prop))
-SCIPpropGetNCalls(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetNCalls", Int64, (Ptr{SCIP_PROP},), pointer(prop))
-SCIPpropGetNRespropCalls(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetNRespropCalls", Int64, (Ptr{SCIP_PROP},), pointer(prop))
-SCIPpropGetNCutoffs(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetNCutoffs", Int64, (Ptr{SCIP_PROP},), pointer(prop))
-SCIPpropGetNDomredsFound(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetNDomredsFound", Int64, (Ptr{SCIP_PROP},), pointer(prop))
-SCIPpropIsDelayed(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropIsDelayed", SCIP_Bool, (Ptr{SCIP_PROP},), pointer(prop))
-SCIPpropIsPresolDelayed(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropIsPresolDelayed", SCIP_Bool, (Ptr{SCIP_PROP},), pointer(prop))
-SCIPpropWasDelayed(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropWasDelayed", SCIP_Bool, (Ptr{SCIP_PROP},), pointer(prop))
-SCIPpropWasPresolDelayed(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropWasPresolDelayed", SCIP_Bool, (Ptr{SCIP_PROP},), pointer(prop))
-SCIPpropIsInitialized(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropIsInitialized", SCIP_Bool, (Ptr{SCIP_PROP},), pointer(prop))
-SCIPpropGetNFixedVars(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetNFixedVars", Int, (Ptr{SCIP_PROP},), pointer(prop))
-SCIPpropGetNAggrVars(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetNAggrVars", Int, (Ptr{SCIP_PROP},), pointer(prop))
-SCIPpropGetNChgVarTypes(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetNChgVarTypes", Int, (Ptr{SCIP_PROP},), pointer(prop))
-SCIPpropGetNChgBds(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetNChgBds", Int, (Ptr{SCIP_PROP},), pointer(prop))
-SCIPpropGetNAddHoles(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetNAddHoles", Int, (Ptr{SCIP_PROP},), pointer(prop))
-SCIPpropGetNDelConss(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetNDelConss", Int, (Ptr{SCIP_PROP},), pointer(prop))
-SCIPpropGetNAddConss(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetNAddConss", Int, (Ptr{SCIP_PROP},), pointer(prop))
-SCIPpropGetNUpgdConss(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetNUpgdConss", Int, (Ptr{SCIP_PROP},), pointer(prop))
-SCIPpropGetNChgCoefs(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetNChgCoefs", Int, (Ptr{SCIP_PROP},), pointer(prop))
-SCIPpropGetNChgSides(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetNChgSides", Int, (Ptr{SCIP_PROP},), pointer(prop))
-SCIPpropGetNPresolCalls(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetNPresolCalls", Int, (Ptr{SCIP_PROP},), pointer(prop))
-SCIPpropGetTimingmask(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetTimingmask", SCIP_PROPTIMING, (Ptr{SCIP_PROP},), pointer(prop))
-SCIPpropDoesPresolve(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropDoesPresolve", SCIP_Bool, (Ptr{SCIP_PROP},), pointer(prop))
-SCIPaddConstantQuadratic(scip::SCIP_t, cons::SCIP_CONS_t, constant::SCIP_Real) = @scip_ccall("SCIPaddConstantQuadratic", Void, (Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Real), pointer(scip), pointer(cons), constant)
-SCIPgetNLinearVarsQuadratic(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNLinearVarsQuadratic", Int, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetLinearVarsQuadratic(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetLinearVarsQuadratic", Ptr{Ptr{SCIP_VAR}}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetCoefsLinearVarsQuadratic(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetCoefsLinearVarsQuadratic", Ptr{SCIP_Real}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetNQuadVarTermsQuadratic(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNQuadVarTermsQuadratic", Int, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetQuadVarTermsQuadratic(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetQuadVarTermsQuadratic", Ptr{SCIP_QUADVARTERM}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetNBilinTermsQuadratic(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNBilinTermsQuadratic", Int, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetBilinTermsQuadratic(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetBilinTermsQuadratic", Ptr{SCIP_BILINTERM}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetLhsQuadratic(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetLhsQuadratic", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetRhsQuadratic(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetRhsQuadratic", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPisConvexQuadratic(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPisConvexQuadratic", SCIP_Bool, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPisConcaveQuadratic(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPisConcaveQuadratic", SCIP_Bool, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPisLinearLocalQuadratic(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPisLinearLocalQuadratic", SCIP_Bool, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetLhsLinear(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetLhsLinear", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetRhsLinear(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetRhsLinear", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetNVarsLinear(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNVarsLinear", Int, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetVarsLinear(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetVarsLinear", Ptr{Ptr{SCIP_VAR}}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetValsLinear(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetValsLinear", Ptr{SCIP_Real}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetActivityLinear(scip::SCIP_t, cons::SCIP_CONS_t, sol::SCIP_SOL_t) = @scip_ccall("SCIPgetActivityLinear", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_SOL}), pointer(scip), pointer(cons), pointer(sol))
-SCIPgetFeasibilityLinear(scip::SCIP_t, cons::SCIP_CONS_t, sol::SCIP_SOL_t) = @scip_ccall("SCIPgetFeasibilityLinear", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_SOL}), pointer(scip), pointer(cons), pointer(sol))
-SCIPgetDualsolLinear(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetDualsolLinear", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetDualfarkasLinear(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetDualfarkasLinear", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetRowLinear(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetRowLinear", Ptr{SCIP_ROW}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetNLhsVarsSOC(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNLhsVarsSOC", Int, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetLhsVarsSOC(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetLhsVarsSOC", Ptr{Ptr{SCIP_VAR}}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetLhsCoefsSOC(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetLhsCoefsSOC", Ptr{SCIP_Real}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetLhsOffsetsSOC(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetLhsOffsetsSOC", Ptr{SCIP_Real}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetLhsConstantSOC(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetLhsConstantSOC", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetRhsVarSOC(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetRhsVarSOC", Ptr{SCIP_VAR}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetRhsCoefSOC(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetRhsCoefSOC", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetRhsOffsetSOC(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetRhsOffsetSOC", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPconshdlrGetName(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetName", String, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetDesc(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetDesc", String, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetData(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetData", Ptr{SCIP_CONSHDLRDATA}, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrSetData(conshdlr::SCIP_CONSHDLR_t, conshdlrdata::SCIP_CONSHDLRDATA_t) = @scip_ccall("SCIPconshdlrSetData", Void, (Ptr{SCIP_CONSHDLR}, Ptr{SCIP_CONSHDLRDATA}), pointer(conshdlr), pointer(conshdlrdata))
-SCIPconshdlrGetConss(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetConss", Ptr{Ptr{SCIP_CONS}}, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetEnfoConss(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetEnfoConss", Ptr{Ptr{SCIP_CONS}}, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetCheckConss(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetCheckConss", Ptr{Ptr{SCIP_CONS}}, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetNConss(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNConss", Int, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetNEnfoConss(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNEnfoConss", Int, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetNCheckConss(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNCheckConss", Int, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetNActiveConss(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNActiveConss", Int, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetNEnabledConss(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNEnabledConss", Int, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetSetupTime(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetSetupTime", SCIP_Real, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetPresolTime(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetPresolTime", SCIP_Real, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetSepaTime(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetSepaTime", SCIP_Real, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetEnfoLPTime(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetEnfoLPTime", SCIP_Real, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetEnfoPSTime(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetEnfoPSTime", SCIP_Real, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetPropTime(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetPropTime", SCIP_Real, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetStrongBranchPropTime(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetStrongBranchPropTime", SCIP_Real, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetCheckTime(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetCheckTime", SCIP_Real, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetRespropTime(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetRespropTime", SCIP_Real, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetNSepaCalls(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNSepaCalls", Int64, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetNEnfoLPCalls(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNEnfoLPCalls", Int64, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetNEnfoPSCalls(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNEnfoPSCalls", Int64, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetNPropCalls(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNPropCalls", Int64, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetNCheckCalls(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNCheckCalls", Int64, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetNRespropCalls(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNRespropCalls", Int64, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetNCutoffs(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNCutoffs", Int64, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetNCutsFound(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNCutsFound", Int64, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetNCutsApplied(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNCutsApplied", Int64, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetNConssFound(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNConssFound", Int64, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetNDomredsFound(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNDomredsFound", Int64, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetNChildren(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNChildren", Int64, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetMaxNActiveConss(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetMaxNActiveConss", Int, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetStartNActiveConss(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetStartNActiveConss", Int, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetNFixedVars(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNFixedVars", Int, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetNAggrVars(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNAggrVars", Int, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetNChgVarTypes(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNChgVarTypes", Int, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetNChgBds(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNChgBds", Int, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetNAddHoles(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNAddHoles", Int, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetNDelConss(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNDelConss", Int, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetNAddConss(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNAddConss", Int, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetNUpgdConss(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNUpgdConss", Int, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetNChgCoefs(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNChgCoefs", Int, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetNChgSides(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNChgSides", Int, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetNPresolCalls(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNPresolCalls", Int, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetSepaPriority(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetSepaPriority", Int, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetEnfoPriority(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetEnfoPriority", Int, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetCheckPriority(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetCheckPriority", Int, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetSepaFreq(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetSepaFreq", Int, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetPropFreq(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetPropFreq", Int, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetEagerFreq(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetEagerFreq", Int, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrNeedsCons(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrNeedsCons", SCIP_Bool, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrDoesPresolve(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrDoesPresolve", SCIP_Bool, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrIsSeparationDelayed(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrIsSeparationDelayed", SCIP_Bool, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrIsPropagationDelayed(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrIsPropagationDelayed", SCIP_Bool, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrIsPresolvingDelayed(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrIsPresolvingDelayed", SCIP_Bool, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrWasLPSeparationDelayed(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrWasLPSeparationDelayed", SCIP_Bool, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrWasSolSeparationDelayed(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrWasSolSeparationDelayed", SCIP_Bool, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrWasPropagationDelayed(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrWasPropagationDelayed", SCIP_Bool, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrWasPresolvingDelayed(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrWasPresolvingDelayed", SCIP_Bool, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrIsInitialized(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrIsInitialized", SCIP_Bool, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrIsClonable(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrIsClonable", SCIP_Bool, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconshdlrGetPropTimingmask(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetPropTimingmask", SCIP_PROPTIMING, (Ptr{SCIP_CONSHDLR},), pointer(conshdlr))
-SCIPconsGetName(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsGetName", String, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPconsGetPos(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsGetPos", Int, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPconsGetHdlr(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsGetHdlr", Ptr{SCIP_CONSHDLR}, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPconsGetData(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsGetData", Ptr{SCIP_CONSDATA}, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPconsGetNUses(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsGetNUses", Int, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPconsGetActiveDepth(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsGetActiveDepth", Int, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPconsGetValidDepth(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsGetValidDepth", Int, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPconsIsActive(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsActive", SCIP_Bool, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPconsIsEnabled(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsEnabled", SCIP_Bool, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPconsIsSeparationEnabled(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsSeparationEnabled", SCIP_Bool, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPconsIsPropagationEnabled(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsPropagationEnabled", SCIP_Bool, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPconsIsDeleted(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsDeleted", SCIP_Bool, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPconsIsObsolete(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsObsolete", SCIP_Bool, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPconsGetAge(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsGetAge", SCIP_Real, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPconsIsInitial(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsInitial", SCIP_Bool, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPconsIsSeparated(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsSeparated", SCIP_Bool, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPconsIsEnforced(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsEnforced", SCIP_Bool, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPconsIsChecked(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsChecked", SCIP_Bool, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPconsIsMarkedPropagate(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsMarkedPropagate", SCIP_Bool, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPconsIsPropagated(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsPropagated", SCIP_Bool, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPconsIsGlobal(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsGlobal", SCIP_Bool, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPconsIsLocal(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsLocal", SCIP_Bool, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPconsIsModifiable(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsModifiable", SCIP_Bool, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPconsIsDynamic(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsDynamic", SCIP_Bool, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPconsIsRemovable(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsRemovable", SCIP_Bool, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPconsIsStickingAtNode(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsStickingAtNode", SCIP_Bool, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPconsIsInProb(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsInProb", SCIP_Bool, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPconsIsOriginal(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsOriginal", SCIP_Bool, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPconsIsTransformed(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsTransformed", SCIP_Bool, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPconsIsLockedPos(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsLockedPos", SCIP_Bool, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPconsIsLockedNeg(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsLockedNeg", SCIP_Bool, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPconsIsLocked(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsLocked", SCIP_Bool, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPconsGetNLocksPos(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsGetNLocksPos", Int, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPconsGetNLocksNeg(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsGetNLocksNeg", Int, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPconsIsAdded(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsAdded", SCIP_Bool, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPconsAddUpgradeLocks(cons::SCIP_CONS_t, nlocks::Int) = @scip_ccall("SCIPconsAddUpgradeLocks", Void, (Ptr{SCIP_CONS}, Int), pointer(cons), nlocks)
-SCIPconsGetNUpgradeLocks(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsGetNUpgradeLocks", Int, (Ptr{SCIP_CONS},), pointer(cons))
-SCIPexprcurvAdd(curv1::SCIP_EXPRCURV, curv2::SCIP_EXPRCURV) = @scip_ccall("SCIPexprcurvAdd", SCIP_EXPRCURV, (SCIP_EXPRCURV, SCIP_EXPRCURV), curv1, curv2)
-SCIPexprcurvNegate(curvature::SCIP_EXPRCURV) = @scip_ccall("SCIPexprcurvNegate", SCIP_EXPRCURV, (SCIP_EXPRCURV,), curvature)
-SCIPexprcurvMultiply(factor::SCIP_Real, curvature::SCIP_EXPRCURV) = @scip_ccall("SCIPexprcurvMultiply", SCIP_EXPRCURV, (SCIP_Real, SCIP_EXPRCURV), factor, curvature)
-SCIPexprcurvPower(basebounds::SCIP_INTERVAL, basecurv::SCIP_EXPRCURV, exponent::SCIP_Real) = @scip_ccall("SCIPexprcurvPower", SCIP_EXPRCURV, (SCIP_INTERVAL, SCIP_EXPRCURV, SCIP_Real), basebounds, basecurv, exponent)
-SCIPexprcurvGetName(curv::SCIP_EXPRCURV) = @scip_ccall("SCIPexprcurvGetName", String, (SCIP_EXPRCURV,), curv)
-SCIPexpropGetName(op::SCIP_EXPROP) = @scip_ccall("SCIPexpropGetName", String, (SCIP_EXPROP,), op)
-SCIPexpropGetNChildren(op::SCIP_EXPROP) = @scip_ccall("SCIPexpropGetNChildren", Int, (SCIP_EXPROP,), op)
-SCIPexprGetOperator(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprGetOperator", SCIP_EXPROP, (Ptr{SCIP_EXPR},), pointer(expr))
-SCIPexprGetNChildren(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprGetNChildren", Int, (Ptr{SCIP_EXPR},), pointer(expr))
-SCIPexprGetChildren(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprGetChildren", Ptr{Ptr{SCIP_EXPR}}, (Ptr{SCIP_EXPR},), pointer(expr))
-SCIPexprGetOpIndex(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprGetOpIndex", Int, (Ptr{SCIP_EXPR},), pointer(expr))
-SCIPexprGetOpReal(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprGetOpReal", SCIP_Real, (Ptr{SCIP_EXPR},), pointer(expr))
-SCIPexprGetRealPowerExponent(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprGetRealPowerExponent", SCIP_Real, (Ptr{SCIP_EXPR},), pointer(expr))
-SCIPexprGetIntPowerExponent(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprGetIntPowerExponent", Int, (Ptr{SCIP_EXPR},), pointer(expr))
-SCIPexprGetSignPowerExponent(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprGetSignPowerExponent", SCIP_Real, (Ptr{SCIP_EXPR},), pointer(expr))
-SCIPexprGetLinearCoefs(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprGetLinearCoefs", Ptr{SCIP_Real}, (Ptr{SCIP_EXPR},), pointer(expr))
-SCIPexprGetLinearConstant(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprGetLinearConstant", SCIP_Real, (Ptr{SCIP_EXPR},), pointer(expr))
-SCIPexprGetQuadElements(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprGetQuadElements", Ptr{SCIP_QUADELEM}, (Ptr{SCIP_EXPR},), pointer(expr))
-SCIPexprGetQuadConstant(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprGetQuadConstant", SCIP_Real, (Ptr{SCIP_EXPR},), pointer(expr))
-SCIPexprGetQuadLinearCoefs(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprGetQuadLinearCoefs", Ptr{SCIP_Real}, (Ptr{SCIP_EXPR},), pointer(expr))
-SCIPexprGetNQuadElements(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprGetNQuadElements", Int, (Ptr{SCIP_EXPR},), pointer(expr))
-SCIPexprGetMonomials(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprGetMonomials", Ptr{Ptr{SCIP_EXPRDATA_MONOMIAL}}, (Ptr{SCIP_EXPR},), pointer(expr))
-SCIPexprGetNMonomials(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprGetNMonomials", Int, (Ptr{SCIP_EXPR},), pointer(expr))
-SCIPexprGetPolynomialConstant(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprGetPolynomialConstant", SCIP_Real, (Ptr{SCIP_EXPR},), pointer(expr))
-SCIPexprGetMonomialCoef(monomial::SCIP_EXPRDATA_MONOMIAL_t) = @scip_ccall("SCIPexprGetMonomialCoef", SCIP_Real, (Ptr{SCIP_EXPRDATA_MONOMIAL},), pointer(monomial))
-SCIPexprGetMonomialNFactors(monomial::SCIP_EXPRDATA_MONOMIAL_t) = @scip_ccall("SCIPexprGetMonomialNFactors", Int, (Ptr{SCIP_EXPRDATA_MONOMIAL},), pointer(monomial))
-SCIPexprGetMonomialExponents(monomial::SCIP_EXPRDATA_MONOMIAL_t) = @scip_ccall("SCIPexprGetMonomialExponents", Ptr{SCIP_Real}, (Ptr{SCIP_EXPRDATA_MONOMIAL},), pointer(monomial))
-SCIPexprSortQuadElems(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprSortQuadElems", Void, (Ptr{SCIP_EXPR},), pointer(expr))
-SCIPexprChgPolynomialConstant(expr::SCIP_EXPR_t, constant::SCIP_Real) = @scip_ccall("SCIPexprChgPolynomialConstant", Void, (Ptr{SCIP_EXPR}, SCIP_Real), pointer(expr), constant)
-SCIPexprSortMonomialFactors(monomial::SCIP_EXPRDATA_MONOMIAL_t) = @scip_ccall("SCIPexprSortMonomialFactors", Void, (Ptr{SCIP_EXPRDATA_MONOMIAL},), pointer(monomial))
-SCIPexprAreMonomialsEqual(monomial1::SCIP_EXPRDATA_MONOMIAL_t, monomial2::SCIP_EXPRDATA_MONOMIAL_t, eps::SCIP_Real) = @scip_ccall("SCIPexprAreMonomialsEqual", SCIP_Bool, (Ptr{SCIP_EXPRDATA_MONOMIAL}, Ptr{SCIP_EXPRDATA_MONOMIAL}, SCIP_Real), pointer(monomial1), pointer(monomial2), eps)
-SCIPexprChgMonomialCoef(monomial::SCIP_EXPRDATA_MONOMIAL_t, newcoef::SCIP_Real) = @scip_ccall("SCIPexprChgMonomialCoef", Void, (Ptr{SCIP_EXPRDATA_MONOMIAL}, SCIP_Real), pointer(monomial), newcoef)
-SCIPexprMonomialPower(monomial::SCIP_EXPRDATA_MONOMIAL_t, exponent::Int) = @scip_ccall("SCIPexprMonomialPower", Void, (Ptr{SCIP_EXPRDATA_MONOMIAL}, Int), pointer(monomial), exponent)
-SCIPexprMergeMonomialFactors(monomial::SCIP_EXPRDATA_MONOMIAL_t, eps::SCIP_Real) = @scip_ccall("SCIPexprMergeMonomialFactors", Void, (Ptr{SCIP_EXPRDATA_MONOMIAL}, SCIP_Real), pointer(monomial), eps)
-SCIPexprSortMonomials(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprSortMonomials", Void, (Ptr{SCIP_EXPR},), pointer(expr))
-SCIPexprHasParam(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprHasParam", SCIP_Bool, (Ptr{SCIP_EXPR},), pointer(expr))
-SCIPexprAreEqual(expr1::SCIP_EXPR_t, expr2::SCIP_EXPR_t, eps::SCIP_Real) = @scip_ccall("SCIPexprAreEqual", SCIP_Bool, (Ptr{SCIP_EXPR}, Ptr{SCIP_EXPR}, SCIP_Real), pointer(expr1), pointer(expr2), eps)
-SCIPexprtreeGetRoot(tree::SCIP_EXPRTREE_t) = @scip_ccall("SCIPexprtreeGetRoot", Ptr{SCIP_EXPR}, (Ptr{SCIP_EXPRTREE},), pointer(tree))
-SCIPexprtreeGetNVars(tree::SCIP_EXPRTREE_t) = @scip_ccall("SCIPexprtreeGetNVars", Int, (Ptr{SCIP_EXPRTREE},), pointer(tree))
-SCIPexprtreeGetNParams(tree::SCIP_EXPRTREE_t) = @scip_ccall("SCIPexprtreeGetNParams", Int, (Ptr{SCIP_EXPRTREE},), pointer(tree))
-SCIPexprtreeGetParamVals(tree::SCIP_EXPRTREE_t) = @scip_ccall("SCIPexprtreeGetParamVals", Ptr{SCIP_Real}, (Ptr{SCIP_EXPRTREE},), pointer(tree))
-SCIPexprtreeSetParamVal(tree::SCIP_EXPRTREE_t, paramidx::Int, paramval::SCIP_Real) = @scip_ccall("SCIPexprtreeSetParamVal", Void, (Ptr{SCIP_EXPRTREE}, Int, SCIP_Real), pointer(tree), paramidx, paramval)
-SCIPexprtreeGetInterpreterData(tree::SCIP_EXPRTREE_t) = @scip_ccall("SCIPexprtreeGetInterpreterData", Ptr{SCIP_EXPRINTDATA}, (Ptr{SCIP_EXPRTREE},), pointer(tree))
-SCIPexprtreeSetInterpreterData(tree::SCIP_EXPRTREE_t, interpreterdata::SCIP_EXPRINTDATA_t) = @scip_ccall("SCIPexprtreeSetInterpreterData", Void, (Ptr{SCIP_EXPRTREE}, Ptr{SCIP_EXPRINTDATA}), pointer(tree), pointer(interpreterdata))
-SCIPexprtreeHasParam(tree::SCIP_EXPRTREE_t) = @scip_ccall("SCIPexprtreeHasParam", SCIP_Bool, (Ptr{SCIP_EXPRTREE},), pointer(tree))
-SCIPquadelemSort(quadelems::SCIP_QUADELEM_t, nquadelems::Int) = @scip_ccall("SCIPquadelemSort", Void, (Ptr{SCIP_QUADELEM}, Int), pointer(quadelems), nquadelems)
-SCIPexprgraphCaptureNode(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphCaptureNode", Void, (Ptr{SCIP_EXPRGRAPHNODE},), pointer(node))
-SCIPexprgraphIsNodeEnabled(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphIsNodeEnabled", SCIP_Bool, (Ptr{SCIP_EXPRGRAPHNODE},), pointer(node))
-SCIPexprgraphGetNodeNChildren(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeNChildren", Int, (Ptr{SCIP_EXPRGRAPHNODE},), pointer(node))
-SCIPexprgraphGetNodeChildren(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeChildren", Ptr{Ptr{SCIP_EXPRGRAPHNODE}}, (Ptr{SCIP_EXPRGRAPHNODE},), pointer(node))
-SCIPexprgraphGetNodeNParents(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeNParents", Int, (Ptr{SCIP_EXPRGRAPHNODE},), pointer(node))
-SCIPexprgraphGetNodeParents(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeParents", Ptr{Ptr{SCIP_EXPRGRAPHNODE}}, (Ptr{SCIP_EXPRGRAPHNODE},), pointer(node))
-SCIPexprgraphGetNodeDepth(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeDepth", Int, (Ptr{SCIP_EXPRGRAPHNODE},), pointer(node))
-SCIPexprgraphGetNodePosition(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodePosition", Int, (Ptr{SCIP_EXPRGRAPHNODE},), pointer(node))
-SCIPexprgraphGetNodeOperator(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeOperator", SCIP_EXPROP, (Ptr{SCIP_EXPRGRAPHNODE},), pointer(node))
-SCIPexprgraphGetNodeOperatorIndex(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeOperatorIndex", Int, (Ptr{SCIP_EXPRGRAPHNODE},), pointer(node))
-SCIPexprgraphGetNodeOperatorReal(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeOperatorReal", SCIP_Real, (Ptr{SCIP_EXPRGRAPHNODE},), pointer(node))
-SCIPexprgraphGetNodeRealPowerExponent(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeRealPowerExponent", SCIP_Real, (Ptr{SCIP_EXPRGRAPHNODE},), pointer(node))
-SCIPexprgraphGetNodeIntPowerExponent(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeIntPowerExponent", Int, (Ptr{SCIP_EXPRGRAPHNODE},), pointer(node))
-SCIPexprgraphGetNodeSignPowerExponent(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeSignPowerExponent", SCIP_Real, (Ptr{SCIP_EXPRGRAPHNODE},), pointer(node))
-SCIPexprgraphGetNodeLinearCoefs(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeLinearCoefs", Ptr{SCIP_Real}, (Ptr{SCIP_EXPRGRAPHNODE},), pointer(node))
-SCIPexprgraphGetNodeLinearConstant(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeLinearConstant", SCIP_Real, (Ptr{SCIP_EXPRGRAPHNODE},), pointer(node))
-SCIPexprgraphGetNodeQuadraticConstant(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeQuadraticConstant", SCIP_Real, (Ptr{SCIP_EXPRGRAPHNODE},), pointer(node))
-SCIPexprgraphGetNodeQuadraticLinearCoefs(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeQuadraticLinearCoefs", Ptr{SCIP_Real}, (Ptr{SCIP_EXPRGRAPHNODE},), pointer(node))
-SCIPexprgraphGetNodeQuadraticQuadElements(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeQuadraticQuadElements", Ptr{SCIP_QUADELEM}, (Ptr{SCIP_EXPRGRAPHNODE},), pointer(node))
-SCIPexprgraphGetNodeQuadraticNQuadElements(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeQuadraticNQuadElements", Int, (Ptr{SCIP_EXPRGRAPHNODE},), pointer(node))
-SCIPexprgraphGetNodePolynomialMonomials(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodePolynomialMonomials", Ptr{Ptr{SCIP_EXPRDATA_MONOMIAL}}, (Ptr{SCIP_EXPRGRAPHNODE},), pointer(node))
-SCIPexprgraphGetNodePolynomialNMonomials(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodePolynomialNMonomials", Int, (Ptr{SCIP_EXPRGRAPHNODE},), pointer(node))
-SCIPexprgraphGetNodePolynomialConstant(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodePolynomialConstant", SCIP_Real, (Ptr{SCIP_EXPRGRAPHNODE},), pointer(node))
-SCIPexprgraphGetNodeBounds(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeBounds", SCIP_INTERVAL, (Ptr{SCIP_EXPRGRAPHNODE},), pointer(node))
-SCIPexprgraphGetNodeVal(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeVal", SCIP_Real, (Ptr{SCIP_EXPRGRAPHNODE},), pointer(node))
-SCIPexprgraphGetNodeCurvature(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeCurvature", SCIP_EXPRCURV, (Ptr{SCIP_EXPRGRAPHNODE},), pointer(node))
-SCIPexprgraphEnableNode(exprgraph::SCIP_EXPRGRAPH_t, node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphEnableNode", Void, (Ptr{SCIP_EXPRGRAPH}, Ptr{SCIP_EXPRGRAPHNODE}), pointer(exprgraph), pointer(node))
-SCIPexprgraphDisableNode(exprgraph::SCIP_EXPRGRAPH_t, node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphDisableNode", Void, (Ptr{SCIP_EXPRGRAPH}, Ptr{SCIP_EXPRGRAPHNODE}), pointer(exprgraph), pointer(node))
-SCIPexprgraphHasNodeSibling(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphHasNodeSibling", SCIP_Bool, (Ptr{SCIP_EXPRGRAPHNODE},), pointer(node))
-SCIPexprgraphAreAllNodeChildrenVars(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphAreAllNodeChildrenVars", SCIP_Bool, (Ptr{SCIP_EXPRGRAPHNODE},), pointer(node))
-SCIPexprgraphHasNodeNonlinearAncestor(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphHasNodeNonlinearAncestor", SCIP_Bool, (Ptr{SCIP_EXPRGRAPHNODE},), pointer(node))
-SCIPexprgraphTightenNodeBounds(exprgraph::SCIP_EXPRGRAPH_t, node::SCIP_EXPRGRAPHNODE_t, nodebounds::SCIP_INTERVAL, minstrength::SCIP_Real, cutoff::SCIP_Bool_t) = @scip_ccall("SCIPexprgraphTightenNodeBounds", Void, (Ptr{SCIP_EXPRGRAPH}, Ptr{SCIP_EXPRGRAPHNODE}, SCIP_INTERVAL, SCIP_Real, Ptr{SCIP_Bool}), pointer(exprgraph), pointer(node), nodebounds, minstrength, pointer(cutoff))
-SCIPexprgraphGetDepth(exprgraph::SCIP_EXPRGRAPH_t) = @scip_ccall("SCIPexprgraphGetDepth", Int, (Ptr{SCIP_EXPRGRAPH},), pointer(exprgraph))
-SCIPexprgraphGetNodes(exprgraph::SCIP_EXPRGRAPH_t) = @scip_ccall("SCIPexprgraphGetNodes", Ptr{Ptr{Ptr{SCIP_EXPRGRAPHNODE}}}, (Ptr{SCIP_EXPRGRAPH},), pointer(exprgraph))
-SCIPexprgraphGetNVars(exprgraph::SCIP_EXPRGRAPH_t) = @scip_ccall("SCIPexprgraphGetNVars", Int, (Ptr{SCIP_EXPRGRAPH},), pointer(exprgraph))
-SCIPexprgraphGetVarNodes(exprgraph::SCIP_EXPRGRAPH_t) = @scip_ccall("SCIPexprgraphGetVarNodes", Ptr{Ptr{SCIP_EXPRGRAPHNODE}}, (Ptr{SCIP_EXPRGRAPH},), pointer(exprgraph))
-SCIPexprgraphSetVarNodeValue(varnode::SCIP_EXPRGRAPHNODE_t, value::SCIP_Real) = @scip_ccall("SCIPexprgraphSetVarNodeValue", Void, (Ptr{SCIP_EXPRGRAPHNODE}, SCIP_Real), pointer(varnode), value)
-SCIPexprgraphSetVarsBounds(exprgraph::SCIP_EXPRGRAPH_t, varbounds::SCIP_INTERVAL_t) = @scip_ccall("SCIPexprgraphSetVarsBounds", Void, (Ptr{SCIP_EXPRGRAPH}, Ptr{SCIP_INTERVAL}), pointer(exprgraph), pointer(varbounds))
-SCIPexprgraphSetVarNodeBounds(exprgraph::SCIP_EXPRGRAPH_t, varnode::SCIP_EXPRGRAPHNODE_t, varbounds::SCIP_INTERVAL) = @scip_ccall("SCIPexprgraphSetVarNodeBounds", Void, (Ptr{SCIP_EXPRGRAPH}, Ptr{SCIP_EXPRGRAPHNODE}, SCIP_INTERVAL), pointer(exprgraph), pointer(varnode), varbounds)
-SCIPexprgraphSetVarNodeLb(exprgraph::SCIP_EXPRGRAPH_t, varnode::SCIP_EXPRGRAPHNODE_t, lb::SCIP_Real) = @scip_ccall("SCIPexprgraphSetVarNodeLb", Void, (Ptr{SCIP_EXPRGRAPH}, Ptr{SCIP_EXPRGRAPHNODE}, SCIP_Real), pointer(exprgraph), pointer(varnode), lb)
-SCIPexprgraphSetVarNodeUb(exprgraph::SCIP_EXPRGRAPH_t, varnode::SCIP_EXPRGRAPHNODE_t, ub::SCIP_Real) = @scip_ccall("SCIPexprgraphSetVarNodeUb", Void, (Ptr{SCIP_EXPRGRAPH}, Ptr{SCIP_EXPRGRAPHNODE}, SCIP_Real), pointer(exprgraph), pointer(varnode), ub)
-SCIPexprgraphGetVarsBounds(exprgraph::SCIP_EXPRGRAPH_t) = @scip_ccall("SCIPexprgraphGetVarsBounds", Ptr{SCIP_INTERVAL}, (Ptr{SCIP_EXPRGRAPH},), pointer(exprgraph))
-SCIPexprgraphFindConstNode(exprgraph::SCIP_EXPRGRAPH_t, constant::SCIP_Real, constnode::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphFindConstNode", SCIP_Bool, (Ptr{SCIP_EXPRGRAPH}, SCIP_Real, Ptr{Ptr{SCIP_EXPRGRAPHNODE}}), pointer(exprgraph), constant, array(constnode))
-SCIPexprgraphPropagateNodeBounds(exprgraph::SCIP_EXPRGRAPH_t, infinity::SCIP_Real, minstrength::SCIP_Real, cutoff::SCIP_Bool_t) = @scip_ccall("SCIPexprgraphPropagateNodeBounds", Void, (Ptr{SCIP_EXPRGRAPH}, SCIP_Real, SCIP_Real, Ptr{SCIP_Bool}), pointer(exprgraph), infinity, minstrength, pointer(cutoff))
-SCIPexprgraphGetSumTreesNSummands(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetSumTreesNSummands", Int, (Ptr{SCIP_EXPRGRAPHNODE},), pointer(node))
-SCIPgetNVarsOr(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNVarsOr", Int, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetVarsOr(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetVarsOr", Ptr{Ptr{SCIP_VAR}}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetResultantOr(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetResultantOr", Ptr{SCIP_VAR}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPdispGetData(disp::SCIP_DISP_t) = @scip_ccall("SCIPdispGetData", Ptr{SCIP_DISPDATA}, (Ptr{SCIP_DISP},), pointer(disp))
-SCIPdispSetData(disp::SCIP_DISP_t, dispdata::SCIP_DISPDATA_t) = @scip_ccall("SCIPdispSetData", Void, (Ptr{SCIP_DISP}, Ptr{SCIP_DISPDATA}), pointer(disp), pointer(dispdata))
-SCIPdispGetName(disp::SCIP_DISP_t) = @scip_ccall("SCIPdispGetName", String, (Ptr{SCIP_DISP},), pointer(disp))
-SCIPdispGetDesc(disp::SCIP_DISP_t) = @scip_ccall("SCIPdispGetDesc", String, (Ptr{SCIP_DISP},), pointer(disp))
-SCIPdispGetHeader(disp::SCIP_DISP_t) = @scip_ccall("SCIPdispGetHeader", String, (Ptr{SCIP_DISP},), pointer(disp))
-SCIPdispGetWidth(disp::SCIP_DISP_t) = @scip_ccall("SCIPdispGetWidth", Int, (Ptr{SCIP_DISP},), pointer(disp))
-SCIPdispGetPriority(disp::SCIP_DISP_t) = @scip_ccall("SCIPdispGetPriority", Int, (Ptr{SCIP_DISP},), pointer(disp))
-SCIPdispGetPosition(disp::SCIP_DISP_t) = @scip_ccall("SCIPdispGetPosition", Int, (Ptr{SCIP_DISP},), pointer(disp))
-SCIPdispGetStatus(disp::SCIP_DISP_t) = @scip_ccall("SCIPdispGetStatus", SCIP_DISPSTATUS, (Ptr{SCIP_DISP},), pointer(disp))
-SCIPdispIsInitialized(disp::SCIP_DISP_t) = @scip_ccall("SCIPdispIsInitialized", SCIP_Bool, (Ptr{SCIP_DISP},), pointer(disp))
-SCIPpresolGetData(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolGetData", Ptr{SCIP_PRESOLDATA}, (Ptr{SCIP_PRESOL},), pointer(presol))
-SCIPpresolSetData(presol::SCIP_PRESOL_t, presoldata::SCIP_PRESOLDATA_t) = @scip_ccall("SCIPpresolSetData", Void, (Ptr{SCIP_PRESOL}, Ptr{SCIP_PRESOLDATA}), pointer(presol), pointer(presoldata))
-SCIPpresolGetName(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolGetName", String, (Ptr{SCIP_PRESOL},), pointer(presol))
-SCIPpresolGetDesc(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolGetDesc", String, (Ptr{SCIP_PRESOL},), pointer(presol))
-SCIPpresolGetPriority(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolGetPriority", Int, (Ptr{SCIP_PRESOL},), pointer(presol))
-SCIPpresolIsDelayed(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolIsDelayed", SCIP_Bool, (Ptr{SCIP_PRESOL},), pointer(presol))
-SCIPpresolWasDelayed(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolWasDelayed", SCIP_Bool, (Ptr{SCIP_PRESOL},), pointer(presol))
-SCIPpresolIsInitialized(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolIsInitialized", SCIP_Bool, (Ptr{SCIP_PRESOL},), pointer(presol))
-SCIPpresolGetSetupTime(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolGetSetupTime", SCIP_Real, (Ptr{SCIP_PRESOL},), pointer(presol))
-SCIPpresolGetTime(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolGetTime", SCIP_Real, (Ptr{SCIP_PRESOL},), pointer(presol))
-SCIPpresolGetNFixedVars(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolGetNFixedVars", Int, (Ptr{SCIP_PRESOL},), pointer(presol))
-SCIPpresolGetNAggrVars(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolGetNAggrVars", Int, (Ptr{SCIP_PRESOL},), pointer(presol))
-SCIPpresolGetNChgVarTypes(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolGetNChgVarTypes", Int, (Ptr{SCIP_PRESOL},), pointer(presol))
-SCIPpresolGetNChgBds(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolGetNChgBds", Int, (Ptr{SCIP_PRESOL},), pointer(presol))
-SCIPpresolGetNAddHoles(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolGetNAddHoles", Int, (Ptr{SCIP_PRESOL},), pointer(presol))
-SCIPpresolGetNDelConss(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolGetNDelConss", Int, (Ptr{SCIP_PRESOL},), pointer(presol))
-SCIPpresolGetNAddConss(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolGetNAddConss", Int, (Ptr{SCIP_PRESOL},), pointer(presol))
-SCIPpresolGetNUpgdConss(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolGetNUpgdConss", Int, (Ptr{SCIP_PRESOL},), pointer(presol))
-SCIPpresolGetNChgCoefs(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolGetNChgCoefs", Int, (Ptr{SCIP_PRESOL},), pointer(presol))
-SCIPpresolGetNChgSides(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolGetNChgSides", Int, (Ptr{SCIP_PRESOL},), pointer(presol))
-SCIPpresolGetNCalls(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolGetNCalls", Int, (Ptr{SCIP_PRESOL},), pointer(presol))
-SCIPhistoryGetVSIDS(history::SCIP_HISTORY_t, dir::SCIP_BRANCHDIR) = @scip_ccall("SCIPhistoryGetVSIDS", SCIP_Real, (Ptr{SCIP_HISTORY}, SCIP_BRANCHDIR), pointer(history), dir)
-SCIPhistoryGetCutoffSum(history::SCIP_HISTORY_t, dir::SCIP_BRANCHDIR) = @scip_ccall("SCIPhistoryGetCutoffSum", SCIP_Real, (Ptr{SCIP_HISTORY}, SCIP_BRANCHDIR), pointer(history), dir)
-SCIPvaluehistoryGetNValues(valuehistory::SCIP_VALUEHISTORY_t) = @scip_ccall("SCIPvaluehistoryGetNValues", Int, (Ptr{SCIP_VALUEHISTORY},), pointer(valuehistory))
-SCIPvaluehistoryGetHistories(valuehistory::SCIP_VALUEHISTORY_t) = @scip_ccall("SCIPvaluehistoryGetHistories", Ptr{Ptr{SCIP_HISTORY}}, (Ptr{SCIP_VALUEHISTORY},), pointer(valuehistory))
-SCIPvaluehistoryGetValues(valuehistory::SCIP_VALUEHISTORY_t) = @scip_ccall("SCIPvaluehistoryGetValues", Ptr{SCIP_Real}, (Ptr{SCIP_VALUEHISTORY},), pointer(valuehistory))
-SCIPsparseSolFree(sparsesol::SCIP_SPARSESOL_t) = @scip_ccall("SCIPsparseSolFree", Void, (Ptr{Ptr{SCIP_SPARSESOL}},), array(sparsesol))
-SCIPsparseSolGetVars(sparsesol::SCIP_SPARSESOL_t) = @scip_ccall("SCIPsparseSolGetVars", Ptr{Ptr{SCIP_VAR}}, (Ptr{SCIP_SPARSESOL},), pointer(sparsesol))
-SCIPsparseSolGetNVars(sparsesol::SCIP_SPARSESOL_t) = @scip_ccall("SCIPsparseSolGetNVars", Int, (Ptr{SCIP_SPARSESOL},), pointer(sparsesol))
-SCIPsparseSolGetLbs(sparsesol::SCIP_SPARSESOL_t) = @scip_ccall("SCIPsparseSolGetLbs", Ptr{Int64}, (Ptr{SCIP_SPARSESOL},), pointer(sparsesol))
-SCIPsparseSolGetUbs(sparsesol::SCIP_SPARSESOL_t) = @scip_ccall("SCIPsparseSolGetUbs", Ptr{Int64}, (Ptr{SCIP_SPARSESOL},), pointer(sparsesol))
-SCIPsparseSolGetFirstSol(sparsesol::SCIP_SPARSESOL_t, sol::Int64, nvars::Int) = @scip_ccall("SCIPsparseSolGetFirstSol", Void, (Ptr{SCIP_SPARSESOL}, Ptr{Int64}, Int), pointer(sparsesol), pointer(sol), nvars)
-SCIPsparseSolGetNextSol(sparsesol::SCIP_SPARSESOL_t, sol::Int64, nvars::Int) = @scip_ccall("SCIPsparseSolGetNextSol", SCIP_Bool, (Ptr{SCIP_SPARSESOL}, Ptr{Int64}, Int), pointer(sparsesol), pointer(sol), nvars)
-SCIPqueueFree(queue::SCIP_QUEUE_t) = @scip_ccall("SCIPqueueFree", Void, (Ptr{Ptr{SCIP_QUEUE}},), array(queue))
-SCIPqueueClear(queue::SCIP_QUEUE_t) = @scip_ccall("SCIPqueueClear", Void, (Ptr{SCIP_QUEUE},), pointer(queue))
-SCIPqueueIsEmpty(queue::SCIP_QUEUE_t) = @scip_ccall("SCIPqueueIsEmpty", SCIP_Bool, (Ptr{SCIP_QUEUE},), pointer(queue))
-SCIPqueueNElems(queue::SCIP_QUEUE_t) = @scip_ccall("SCIPqueueNElems", Int, (Ptr{SCIP_QUEUE},), pointer(queue))
-SCIPpqueueFree(pqueue::SCIP_PQUEUE_t) = @scip_ccall("SCIPpqueueFree", Void, (Ptr{Ptr{SCIP_PQUEUE}},), array(pqueue))
-SCIPpqueueClear(pqueue::SCIP_PQUEUE_t) = @scip_ccall("SCIPpqueueClear", Void, (Ptr{SCIP_PQUEUE},), pointer(pqueue))
-SCIPpqueueNElems(pqueue::SCIP_PQUEUE_t) = @scip_ccall("SCIPpqueueNElems", Int, (Ptr{SCIP_PQUEUE},), pointer(pqueue))
-SCIPcalcHashtableSize(minsize::Int) = @scip_ccall("SCIPcalcHashtableSize", Int, (Int,), minsize)
-SCIPhashtableFree(hashtable::SCIP_HASHTABLE_t) = @scip_ccall("SCIPhashtableFree", Void, (Ptr{Ptr{SCIP_HASHTABLE}},), array(hashtable))
-SCIPhashtableClear(hashtable::SCIP_HASHTABLE_t) = @scip_ccall("SCIPhashtableClear", Void, (Ptr{SCIP_HASHTABLE},), pointer(hashtable))
-SCIPhashtableRemoveAll(hashtable::SCIP_HASHTABLE_t) = @scip_ccall("SCIPhashtableRemoveAll", Void, (Ptr{SCIP_HASHTABLE},), pointer(hashtable))
-SCIPhashtableGetNElements(hashtable::SCIP_HASHTABLE_t) = @scip_ccall("SCIPhashtableGetNElements", Int64, (Ptr{SCIP_HASHTABLE},), pointer(hashtable))
-SCIPhashtableGetLoad(hashtable::SCIP_HASHTABLE_t) = @scip_ccall("SCIPhashtableGetLoad", SCIP_Real, (Ptr{SCIP_HASHTABLE},), pointer(hashtable))
-SCIPhashtablePrintStatistics(hashtable::SCIP_HASHTABLE_t, messagehdlr::SCIP_MESSAGEHDLR_t) = @scip_ccall("SCIPhashtablePrintStatistics", Void, (Ptr{SCIP_HASHTABLE}, Ptr{SCIP_MESSAGEHDLR}), pointer(hashtable), pointer(messagehdlr))
-SCIPhashmapFree(hashmap::SCIP_HASHMAP_t) = @scip_ccall("SCIPhashmapFree", Void, (Ptr{Ptr{SCIP_HASHMAP}},), array(hashmap))
-SCIPhashmapPrintStatistics(hashmap::SCIP_HASHMAP_t, messagehdlr::SCIP_MESSAGEHDLR_t) = @scip_ccall("SCIPhashmapPrintStatistics", Void, (Ptr{SCIP_HASHMAP}, Ptr{SCIP_MESSAGEHDLR}), pointer(hashmap), pointer(messagehdlr))
-SCIPhashmapIsEmpty(hashmap::SCIP_HASHMAP_t) = @scip_ccall("SCIPhashmapIsEmpty", SCIP_Bool, (Ptr{SCIP_HASHMAP},), pointer(hashmap))
-SCIPhashmapGetNEntries(hashmap::SCIP_HASHMAP_t) = @scip_ccall("SCIPhashmapGetNEntries", Int, (Ptr{SCIP_HASHMAP},), pointer(hashmap))
-SCIPhashmapGetNLists(hashmap::SCIP_HASHMAP_t) = @scip_ccall("SCIPhashmapGetNLists", Int, (Ptr{SCIP_HASHMAP},), pointer(hashmap))
-SCIPhashmapGetList(hashmap::SCIP_HASHMAP_t, listindex::Int) = @scip_ccall("SCIPhashmapGetList", Ptr{SCIP_HASHMAPLIST}, (Ptr{SCIP_HASHMAP}, Int), pointer(hashmap), listindex)
-SCIPhashmapListGetNEntries(hashmaplist::SCIP_HASHMAPLIST_t) = @scip_ccall("SCIPhashmapListGetNEntries", Int, (Ptr{SCIP_HASHMAPLIST},), pointer(hashmaplist))
-SCIPhashmapListGetNext(hashmaplist::SCIP_HASHMAPLIST_t) = @scip_ccall("SCIPhashmapListGetNext", Ptr{SCIP_HASHMAPLIST}, (Ptr{SCIP_HASHMAPLIST},), pointer(hashmaplist))
-SCIPactivityFree(activity::SCIP_RESOURCEACTIVITY_t) = @scip_ccall("SCIPactivityFree", Void, (Ptr{Ptr{SCIP_RESOURCEACTIVITY}},), array(activity))
-SCIPactivityGetVar(activity::SCIP_RESOURCEACTIVITY_t) = @scip_ccall("SCIPactivityGetVar", Ptr{SCIP_VAR}, (Ptr{SCIP_RESOURCEACTIVITY},), pointer(activity))
-SCIPactivityGetDuration(activity::SCIP_RESOURCEACTIVITY_t) = @scip_ccall("SCIPactivityGetDuration", Int, (Ptr{SCIP_RESOURCEACTIVITY},), pointer(activity))
-SCIPactivityGetDemand(activity::SCIP_RESOURCEACTIVITY_t) = @scip_ccall("SCIPactivityGetDemand", Int, (Ptr{SCIP_RESOURCEACTIVITY},), pointer(activity))
-SCIPactivityGetEnergy(activity::SCIP_RESOURCEACTIVITY_t) = @scip_ccall("SCIPactivityGetEnergy", Int, (Ptr{SCIP_RESOURCEACTIVITY},), pointer(activity))
-SCIPprofileFree(profile::SCIP_PROFILE_t) = @scip_ccall("SCIPprofileFree", Void, (Ptr{Ptr{SCIP_PROFILE}},), array(profile))
-SCIPprofileGetCapacity(profile::SCIP_PROFILE_t) = @scip_ccall("SCIPprofileGetCapacity", Int, (Ptr{SCIP_PROFILE},), pointer(profile))
-SCIPprofileGetNTimepoints(profile::SCIP_PROFILE_t) = @scip_ccall("SCIPprofileGetNTimepoints", Int, (Ptr{SCIP_PROFILE},), pointer(profile))
-SCIPprofileGetTime(profile::SCIP_PROFILE_t, pos::Int) = @scip_ccall("SCIPprofileGetTime", Int, (Ptr{SCIP_PROFILE}, Int), pointer(profile), pos)
-SCIPprofileGetLoad(profile::SCIP_PROFILE_t, pos::Int) = @scip_ccall("SCIPprofileGetLoad", Int, (Ptr{SCIP_PROFILE}, Int), pointer(profile), pos)
-SCIPprofileGetEarliestFeasibleStart(profile::SCIP_PROFILE_t, est::Int, lst::Int, duration::Int, height::Int, infeasible::SCIP_Bool_t) = @scip_ccall("SCIPprofileGetEarliestFeasibleStart", Int, (Ptr{SCIP_PROFILE}, Int, Int, Int, Int, Ptr{SCIP_Bool}), pointer(profile), est, lst, duration, height, pointer(infeasible))
-SCIPprofileGetLatestFeasibleStart(profile::SCIP_PROFILE_t, lb::Int, ub::Int, duration::Int, height::Int, infeasible::SCIP_Bool_t) = @scip_ccall("SCIPprofileGetLatestFeasibleStart", Int, (Ptr{SCIP_PROFILE}, Int, Int, Int, Int, Ptr{SCIP_Bool}), pointer(profile), lb, ub, duration, height, pointer(infeasible))
-SCIPdigraphFree(digraph::SCIP_DIGRAPH_t) = @scip_ccall("SCIPdigraphFree", Void, (Ptr{Ptr{SCIP_DIGRAPH}},), array(digraph))
-SCIPdigraphGetNNodes(digraph::SCIP_DIGRAPH_t) = @scip_ccall("SCIPdigraphGetNNodes", Int, (Ptr{SCIP_DIGRAPH},), pointer(digraph))
-SCIPdigraphGetNArcs(digraph::SCIP_DIGRAPH_t) = @scip_ccall("SCIPdigraphGetNArcs", Int, (Ptr{SCIP_DIGRAPH},), pointer(digraph))
-SCIPdigraphGetNSuccessors(digraph::SCIP_DIGRAPH_t, node::Int) = @scip_ccall("SCIPdigraphGetNSuccessors", Int, (Ptr{SCIP_DIGRAPH}, Int), pointer(digraph), node)
-SCIPdigraphGetNComponents(digraph::SCIP_DIGRAPH_t) = @scip_ccall("SCIPdigraphGetNComponents", Int, (Ptr{SCIP_DIGRAPH},), pointer(digraph))
-SCIPdigraphFreeComponents(digraph::SCIP_DIGRAPH_t) = @scip_ccall("SCIPdigraphFreeComponents", Void, (Ptr{SCIP_DIGRAPH},), pointer(digraph))
-SCIPbtnodeFree(tree::SCIP_BT_t, node::SCIP_BTNODE_t) = @scip_ccall("SCIPbtnodeFree", Void, (Ptr{SCIP_BT}, Ptr{Ptr{SCIP_BTNODE}}), pointer(tree), array(node))
-SCIPbtnodeGetParent(node::SCIP_BTNODE_t) = @scip_ccall("SCIPbtnodeGetParent", Ptr{SCIP_BTNODE}, (Ptr{SCIP_BTNODE},), pointer(node))
-SCIPbtnodeGetLeftchild(node::SCIP_BTNODE_t) = @scip_ccall("SCIPbtnodeGetLeftchild", Ptr{SCIP_BTNODE}, (Ptr{SCIP_BTNODE},), pointer(node))
-SCIPbtnodeGetRightchild(node::SCIP_BTNODE_t) = @scip_ccall("SCIPbtnodeGetRightchild", Ptr{SCIP_BTNODE}, (Ptr{SCIP_BTNODE},), pointer(node))
-SCIPbtnodeGetSibling(node::SCIP_BTNODE_t) = @scip_ccall("SCIPbtnodeGetSibling", Ptr{SCIP_BTNODE}, (Ptr{SCIP_BTNODE},), pointer(node))
-SCIPbtnodeIsRoot(node::SCIP_BTNODE_t) = @scip_ccall("SCIPbtnodeIsRoot", SCIP_Bool, (Ptr{SCIP_BTNODE},), pointer(node))
-SCIPbtnodeIsLeaf(node::SCIP_BTNODE_t) = @scip_ccall("SCIPbtnodeIsLeaf", SCIP_Bool, (Ptr{SCIP_BTNODE},), pointer(node))
-SCIPbtnodeIsLeftchild(node::SCIP_BTNODE_t) = @scip_ccall("SCIPbtnodeIsLeftchild", SCIP_Bool, (Ptr{SCIP_BTNODE},), pointer(node))
-SCIPbtnodeIsRightchild(node::SCIP_BTNODE_t) = @scip_ccall("SCIPbtnodeIsRightchild", SCIP_Bool, (Ptr{SCIP_BTNODE},), pointer(node))
-SCIPbtnodeSetParent(node::SCIP_BTNODE_t, parent::SCIP_BTNODE_t) = @scip_ccall("SCIPbtnodeSetParent", Void, (Ptr{SCIP_BTNODE}, Ptr{SCIP_BTNODE}), pointer(node), pointer(parent))
-SCIPbtnodeSetLeftchild(node::SCIP_BTNODE_t, left::SCIP_BTNODE_t) = @scip_ccall("SCIPbtnodeSetLeftchild", Void, (Ptr{SCIP_BTNODE}, Ptr{SCIP_BTNODE}), pointer(node), pointer(left))
-SCIPbtnodeSetRightchild(node::SCIP_BTNODE_t, right::SCIP_BTNODE_t) = @scip_ccall("SCIPbtnodeSetRightchild", Void, (Ptr{SCIP_BTNODE}, Ptr{SCIP_BTNODE}), pointer(node), pointer(right))
-SCIPbtFree(tree::SCIP_BT_t) = @scip_ccall("SCIPbtFree", Void, (Ptr{Ptr{SCIP_BT}},), array(tree))
-SCIPbtIsEmpty(tree::SCIP_BT_t) = @scip_ccall("SCIPbtIsEmpty", SCIP_Bool, (Ptr{SCIP_BT},), pointer(tree))
-SCIPbtGetRoot(tree::SCIP_BT_t) = @scip_ccall("SCIPbtGetRoot", Ptr{SCIP_BTNODE}, (Ptr{SCIP_BT},), pointer(tree))
-SCIPbtSetRoot(tree::SCIP_BT_t, root::SCIP_BTNODE_t) = @scip_ccall("SCIPbtSetRoot", Void, (Ptr{SCIP_BT}, Ptr{SCIP_BTNODE}), pointer(tree), pointer(root))
-SCIPsortReal(realarray::SCIP_Real_t, len::Int) = @scip_ccall("SCIPsortReal", Void, (Ptr{SCIP_Real}, Int), pointer(realarray), len)
-SCIPsortLong(longarray::Int64, len::Int) = @scip_ccall("SCIPsortLong", Void, (Ptr{Int64}, Int), pointer(longarray), len)
-SCIPsortDownReal(realarray::SCIP_Real_t, len::Int) = @scip_ccall("SCIPsortDownReal", Void, (Ptr{SCIP_Real}, Int), pointer(realarray), len)
-SCIPsortDownLong(longarray::Int64, len::Int) = @scip_ccall("SCIPsortDownLong", Void, (Ptr{Int64}, Int), pointer(longarray), len)
-SCIPcalcMachineEpsilon() = @scip_ccall("SCIPcalcMachineEpsilon", SCIP_Real, ())
-SCIPcalcGreComDiv(val1::Int64, val2::Int64) = @scip_ccall("SCIPcalcGreComDiv", Int64, (Int64, Int64), val1, val2)
-SCIPcalcSmaComMul(val1::Int64, val2::Int64) = @scip_ccall("SCIPcalcSmaComMul", Int64, (Int64, Int64), val1, val2)
-SCIPrealToRational(val::SCIP_Real, mindelta::SCIP_Real, maxdelta::SCIP_Real, maxdnom::Int64, nominator::Int64, denominator::Int64) = @scip_ccall("SCIPrealToRational", SCIP_Bool, (SCIP_Real, SCIP_Real, SCIP_Real, Int64, Ptr{Int64}, Ptr{Int64}), val, mindelta, maxdelta, maxdnom, pointer(nominator), pointer(denominator))
-SCIPfindSimpleRational(lb::SCIP_Real, ub::SCIP_Real, maxdnom::Int64, nominator::Int64, denominator::Int64) = @scip_ccall("SCIPfindSimpleRational", SCIP_Bool, (SCIP_Real, SCIP_Real, Int64, Ptr{Int64}, Ptr{Int64}), lb, ub, maxdnom, pointer(nominator), pointer(denominator))
-SCIPselectSimpleValue(lb::SCIP_Real, ub::SCIP_Real, maxdnom::Int64) = @scip_ccall("SCIPselectSimpleValue", SCIP_Real, (SCIP_Real, SCIP_Real, Int64), lb, ub, maxdnom)
-SCIPrelDiff(val1::SCIP_Real, val2::SCIP_Real) = @scip_ccall("SCIPrelDiff", SCIP_Real, (SCIP_Real, SCIP_Real), val1, val2)
-SCIPcalcBinomCoef(n::Int, m::Int) = @scip_ccall("SCIPcalcBinomCoef", Int64, (Int, Int), n, m)
-SCIPprintSysError(message::String) = @scip_ccall("SCIPprintSysError", Void, (String,), message)
-SCIPfileExists(filename::String) = @scip_ccall("SCIPfileExists", SCIP_Bool, (String,), filename)
-SCIPversion() = @scip_ccall("SCIPversion", SCIP_Real, ())
-SCIPmajorVersion() = @scip_ccall("SCIPmajorVersion", Int, ())
-SCIPminorVersion() = @scip_ccall("SCIPminorVersion", Int, ())
-SCIPtechVersion() = @scip_ccall("SCIPtechVersion", Int, ())
-SCIPsubversion() = @scip_ccall("SCIPsubversion", Int, ())
-SCIPprintError(retcode::SCIP_RETCODE) = @scip_ccall("SCIPprintError", Void, (SCIP_RETCODE,), retcode)
-SCIPstoreSolutionGap(scip::SCIP_t) = @scip_ccall("SCIPstoreSolutionGap", Void, (Ptr{SCIP},), pointer(scip))
-SCIPgetStage(scip::SCIP_t) = @scip_ccall("SCIPgetStage", SCIP_STAGE, (Ptr{SCIP},), pointer(scip))
-SCIPgetStatus(scip::SCIP_t) = @scip_ccall("SCIPgetStatus", SCIP_STATUS, (Ptr{SCIP},), pointer(scip))
-SCIPisTransformed(scip::SCIP_t) = @scip_ccall("SCIPisTransformed", SCIP_Bool, (Ptr{SCIP},), pointer(scip))
-SCIPisExactSolve(scip::SCIP_t) = @scip_ccall("SCIPisExactSolve", SCIP_Bool, (Ptr{SCIP},), pointer(scip))
-SCIPisPresolveFinished(scip::SCIP_t) = @scip_ccall("SCIPisPresolveFinished", SCIP_Bool, (Ptr{SCIP},), pointer(scip))
-SCIPpressedCtrlC(scip::SCIP_t) = @scip_ccall("SCIPpressedCtrlC", SCIP_Bool, (Ptr{SCIP},), pointer(scip))
-SCIPisStopped(scip::SCIP_t) = @scip_ccall("SCIPisStopped", SCIP_Bool, (Ptr{SCIP},), pointer(scip))
-SCIPgetMessagehdlr(scip::SCIP_t) = @scip_ccall("SCIPgetMessagehdlr", Ptr{SCIP_MESSAGEHDLR}, (Ptr{SCIP},), pointer(scip))
-SCIPsetMessagehdlrLogfile(scip::SCIP_t, filename::String) = @scip_ccall("SCIPsetMessagehdlrLogfile", Void, (Ptr{SCIP}, String), pointer(scip), filename)
-SCIPsetMessagehdlrQuiet(scip::SCIP_t, quiet::SCIP_Bool) = @scip_ccall("SCIPsetMessagehdlrQuiet", Void, (Ptr{SCIP}, SCIP_Bool), pointer(scip), quiet)
-SCIPgetVerbLevel(scip::SCIP_t) = @scip_ccall("SCIPgetVerbLevel", SCIP_VERBLEVEL, (Ptr{SCIP},), pointer(scip))
-SCIPgetSubscipDepth(scip::SCIP_t) = @scip_ccall("SCIPgetSubscipDepth", Int, (Ptr{SCIP},), pointer(scip))
-SCIPisParamFixed(scip::SCIP_t, name::String) = @scip_ccall("SCIPisParamFixed", SCIP_Bool, (Ptr{SCIP}, String), pointer(scip), name)
-SCIPgetParam(scip::SCIP_t, name::String) = @scip_ccall("SCIPgetParam", Ptr{SCIP_PARAM}, (Ptr{SCIP}, String), pointer(scip), name)
-SCIPgetParams(scip::SCIP_t) = @scip_ccall("SCIPgetParams", Ptr{Ptr{SCIP_PARAM}}, (Ptr{SCIP},), pointer(scip))
-SCIPgetNParams(scip::SCIP_t) = @scip_ccall("SCIPgetNParams", Int, (Ptr{SCIP},), pointer(scip))
-SCIPfindReader(scip::SCIP_t, name::String) = @scip_ccall("SCIPfindReader", Ptr{SCIP_READER}, (Ptr{SCIP}, String), pointer(scip), name)
-SCIPgetReaders(scip::SCIP_t) = @scip_ccall("SCIPgetReaders", Ptr{Ptr{SCIP_READER}}, (Ptr{SCIP},), pointer(scip))
-SCIPgetNReaders(scip::SCIP_t) = @scip_ccall("SCIPgetNReaders", Int, (Ptr{SCIP},), pointer(scip))
-SCIPfindPricer(scip::SCIP_t, name::String) = @scip_ccall("SCIPfindPricer", Ptr{SCIP_PRICER}, (Ptr{SCIP}, String), pointer(scip), name)
-SCIPgetPricers(scip::SCIP_t) = @scip_ccall("SCIPgetPricers", Ptr{Ptr{SCIP_PRICER}}, (Ptr{SCIP},), pointer(scip))
-SCIPgetNPricers(scip::SCIP_t) = @scip_ccall("SCIPgetNPricers", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNActivePricers(scip::SCIP_t) = @scip_ccall("SCIPgetNActivePricers", Int, (Ptr{SCIP},), pointer(scip))
-SCIPfindConshdlr(scip::SCIP_t, name::String) = @scip_ccall("SCIPfindConshdlr", Ptr{SCIP_CONSHDLR}, (Ptr{SCIP}, String), pointer(scip), name)
-SCIPgetConshdlrs(scip::SCIP_t) = @scip_ccall("SCIPgetConshdlrs", Ptr{Ptr{SCIP_CONSHDLR}}, (Ptr{SCIP},), pointer(scip))
-SCIPgetNConshdlrs(scip::SCIP_t) = @scip_ccall("SCIPgetNConshdlrs", Int, (Ptr{SCIP},), pointer(scip))
-SCIPfindConflicthdlr(scip::SCIP_t, name::String) = @scip_ccall("SCIPfindConflicthdlr", Ptr{SCIP_CONFLICTHDLR}, (Ptr{SCIP}, String), pointer(scip), name)
-SCIPgetConflicthdlrs(scip::SCIP_t) = @scip_ccall("SCIPgetConflicthdlrs", Ptr{Ptr{SCIP_CONFLICTHDLR}}, (Ptr{SCIP},), pointer(scip))
-SCIPgetNConflicthdlrs(scip::SCIP_t) = @scip_ccall("SCIPgetNConflicthdlrs", Int, (Ptr{SCIP},), pointer(scip))
-SCIPfindPresol(scip::SCIP_t, name::String) = @scip_ccall("SCIPfindPresol", Ptr{SCIP_PRESOL}, (Ptr{SCIP}, String), pointer(scip), name)
-SCIPgetPresols(scip::SCIP_t) = @scip_ccall("SCIPgetPresols", Ptr{Ptr{SCIP_PRESOL}}, (Ptr{SCIP},), pointer(scip))
-SCIPgetNPresols(scip::SCIP_t) = @scip_ccall("SCIPgetNPresols", Int, (Ptr{SCIP},), pointer(scip))
-SCIPfindRelax(scip::SCIP_t, name::String) = @scip_ccall("SCIPfindRelax", Ptr{SCIP_RELAX}, (Ptr{SCIP}, String), pointer(scip), name)
-SCIPgetRelaxs(scip::SCIP_t) = @scip_ccall("SCIPgetRelaxs", Ptr{Ptr{SCIP_RELAX}}, (Ptr{SCIP},), pointer(scip))
-SCIPgetNRelaxs(scip::SCIP_t) = @scip_ccall("SCIPgetNRelaxs", Int, (Ptr{SCIP},), pointer(scip))
-SCIPfindSepa(scip::SCIP_t, name::String) = @scip_ccall("SCIPfindSepa", Ptr{SCIP_SEPA}, (Ptr{SCIP}, String), pointer(scip), name)
-SCIPgetSepas(scip::SCIP_t) = @scip_ccall("SCIPgetSepas", Ptr{Ptr{SCIP_SEPA}}, (Ptr{SCIP},), pointer(scip))
-SCIPgetNSepas(scip::SCIP_t) = @scip_ccall("SCIPgetNSepas", Int, (Ptr{SCIP},), pointer(scip))
-SCIPfindProp(scip::SCIP_t, name::String) = @scip_ccall("SCIPfindProp", Ptr{SCIP_PROP}, (Ptr{SCIP}, String), pointer(scip), name)
-SCIPgetProps(scip::SCIP_t) = @scip_ccall("SCIPgetProps", Ptr{Ptr{SCIP_PROP}}, (Ptr{SCIP},), pointer(scip))
-SCIPgetNProps(scip::SCIP_t) = @scip_ccall("SCIPgetNProps", Int, (Ptr{SCIP},), pointer(scip))
-SCIPfindHeur(scip::SCIP_t, name::String) = @scip_ccall("SCIPfindHeur", Ptr{SCIP_HEUR}, (Ptr{SCIP}, String), pointer(scip), name)
-SCIPgetHeurs(scip::SCIP_t) = @scip_ccall("SCIPgetHeurs", Ptr{Ptr{SCIP_HEUR}}, (Ptr{SCIP},), pointer(scip))
-SCIPgetNHeurs(scip::SCIP_t) = @scip_ccall("SCIPgetNHeurs", Int, (Ptr{SCIP},), pointer(scip))
-SCIPfindEventhdlr(scip::SCIP_t, name::String) = @scip_ccall("SCIPfindEventhdlr", Ptr{SCIP_EVENTHDLR}, (Ptr{SCIP}, String), pointer(scip), name)
-SCIPgetEventhdlrs(scip::SCIP_t) = @scip_ccall("SCIPgetEventhdlrs", Ptr{Ptr{SCIP_EVENTHDLR}}, (Ptr{SCIP},), pointer(scip))
-SCIPgetNEventhdlrs(scip::SCIP_t) = @scip_ccall("SCIPgetNEventhdlrs", Int, (Ptr{SCIP},), pointer(scip))
-SCIPfindNodesel(scip::SCIP_t, name::String) = @scip_ccall("SCIPfindNodesel", Ptr{SCIP_NODESEL}, (Ptr{SCIP}, String), pointer(scip), name)
-SCIPgetNodesels(scip::SCIP_t) = @scip_ccall("SCIPgetNodesels", Ptr{Ptr{SCIP_NODESEL}}, (Ptr{SCIP},), pointer(scip))
-SCIPgetNNodesels(scip::SCIP_t) = @scip_ccall("SCIPgetNNodesels", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNodesel(scip::SCIP_t) = @scip_ccall("SCIPgetNodesel", Ptr{SCIP_NODESEL}, (Ptr{SCIP},), pointer(scip))
-SCIPfindBranchrule(scip::SCIP_t, name::String) = @scip_ccall("SCIPfindBranchrule", Ptr{SCIP_BRANCHRULE}, (Ptr{SCIP}, String), pointer(scip), name)
-SCIPgetBranchrules(scip::SCIP_t) = @scip_ccall("SCIPgetBranchrules", Ptr{Ptr{SCIP_BRANCHRULE}}, (Ptr{SCIP},), pointer(scip))
-SCIPgetNBranchrules(scip::SCIP_t) = @scip_ccall("SCIPgetNBranchrules", Int, (Ptr{SCIP},), pointer(scip))
-SCIPfindDisp(scip::SCIP_t, name::String) = @scip_ccall("SCIPfindDisp", Ptr{SCIP_DISP}, (Ptr{SCIP}, String), pointer(scip), name)
-SCIPgetDisps(scip::SCIP_t) = @scip_ccall("SCIPgetDisps", Ptr{Ptr{SCIP_DISP}}, (Ptr{SCIP},), pointer(scip))
-SCIPgetNDisps(scip::SCIP_t) = @scip_ccall("SCIPgetNDisps", Int, (Ptr{SCIP},), pointer(scip))
-SCIPfindNlpi(scip::SCIP_t, name::String) = @scip_ccall("SCIPfindNlpi", Ptr{SCIP_NLPI}, (Ptr{SCIP}, String), pointer(scip), name)
-SCIPgetNlpis(scip::SCIP_t) = @scip_ccall("SCIPgetNlpis", Ptr{Ptr{SCIP_NLPI}}, (Ptr{SCIP},), pointer(scip))
-SCIPgetNNlpis(scip::SCIP_t) = @scip_ccall("SCIPgetNNlpis", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNExternalCodes(scip::SCIP_t) = @scip_ccall("SCIPgetNExternalCodes", Int, (Ptr{SCIP},), pointer(scip))
-SCIPexistsDialog(scip::SCIP_t, dialog::SCIP_DIALOG_t) = @scip_ccall("SCIPexistsDialog", SCIP_Bool, (Ptr{SCIP}, Ptr{SCIP_DIALOG}), pointer(scip), pointer(dialog))
-SCIPgetRootDialog(scip::SCIP_t) = @scip_ccall("SCIPgetRootDialog", Ptr{SCIP_DIALOG}, (Ptr{SCIP},), pointer(scip))
-SCIPgetProbData(scip::SCIP_t) = @scip_ccall("SCIPgetProbData", Ptr{SCIP_PROBDATA}, (Ptr{SCIP},), pointer(scip))
-SCIPgetProbName(scip::SCIP_t) = @scip_ccall("SCIPgetProbName", String, (Ptr{SCIP},), pointer(scip))
-SCIPgetObjsense(scip::SCIP_t) = @scip_ccall("SCIPgetObjsense", SCIP_OBJSENSE, (Ptr{SCIP},), pointer(scip))
-SCIPgetOrigObjoffset(scip::SCIP_t) = @scip_ccall("SCIPgetOrigObjoffset", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetOrigObjscale(scip::SCIP_t) = @scip_ccall("SCIPgetOrigObjscale", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetTransObjoffset(scip::SCIP_t) = @scip_ccall("SCIPgetTransObjoffset", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetTransObjscale(scip::SCIP_t) = @scip_ccall("SCIPgetTransObjscale", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetObjlimit(scip::SCIP_t) = @scip_ccall("SCIPgetObjlimit", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPisObjIntegral(scip::SCIP_t) = @scip_ccall("SCIPisObjIntegral", SCIP_Bool, (Ptr{SCIP},), pointer(scip))
-SCIPgetObjNorm(scip::SCIP_t) = @scip_ccall("SCIPgetObjNorm", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetVars(scip::SCIP_t) = @scip_ccall("SCIPgetVars", Ptr{Ptr{SCIP_VAR}}, (Ptr{SCIP},), pointer(scip))
-SCIPgetNVars(scip::SCIP_t) = @scip_ccall("SCIPgetNVars", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNBinVars(scip::SCIP_t) = @scip_ccall("SCIPgetNBinVars", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNIntVars(scip::SCIP_t) = @scip_ccall("SCIPgetNIntVars", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNImplVars(scip::SCIP_t) = @scip_ccall("SCIPgetNImplVars", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNContVars(scip::SCIP_t) = @scip_ccall("SCIPgetNContVars", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNObjVars(scip::SCIP_t) = @scip_ccall("SCIPgetNObjVars", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetFixedVars(scip::SCIP_t) = @scip_ccall("SCIPgetFixedVars", Ptr{Ptr{SCIP_VAR}}, (Ptr{SCIP},), pointer(scip))
-SCIPgetNFixedVars(scip::SCIP_t) = @scip_ccall("SCIPgetNFixedVars", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetOrigVars(scip::SCIP_t) = @scip_ccall("SCIPgetOrigVars", Ptr{Ptr{SCIP_VAR}}, (Ptr{SCIP},), pointer(scip))
-SCIPgetNOrigVars(scip::SCIP_t) = @scip_ccall("SCIPgetNOrigVars", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNOrigBinVars(scip::SCIP_t) = @scip_ccall("SCIPgetNOrigBinVars", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNOrigIntVars(scip::SCIP_t) = @scip_ccall("SCIPgetNOrigIntVars", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNOrigImplVars(scip::SCIP_t) = @scip_ccall("SCIPgetNOrigImplVars", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNOrigContVars(scip::SCIP_t) = @scip_ccall("SCIPgetNOrigContVars", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNTotalVars(scip::SCIP_t) = @scip_ccall("SCIPgetNTotalVars", Int, (Ptr{SCIP},), pointer(scip))
-SCIPfindVar(scip::SCIP_t, name::String) = @scip_ccall("SCIPfindVar", Ptr{SCIP_VAR}, (Ptr{SCIP}, String), pointer(scip), name)
-SCIPallVarsInProb(scip::SCIP_t) = @scip_ccall("SCIPallVarsInProb", SCIP_Bool, (Ptr{SCIP},), pointer(scip))
-SCIPfindOrigCons(scip::SCIP_t, name::String) = @scip_ccall("SCIPfindOrigCons", Ptr{SCIP_CONS}, (Ptr{SCIP}, String), pointer(scip), name)
-SCIPfindCons(scip::SCIP_t, name::String) = @scip_ccall("SCIPfindCons", Ptr{SCIP_CONS}, (Ptr{SCIP}, String), pointer(scip), name)
-SCIPgetNUpgrConss(scip::SCIP_t) = @scip_ccall("SCIPgetNUpgrConss", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNConss(scip::SCIP_t) = @scip_ccall("SCIPgetNConss", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetConss(scip::SCIP_t) = @scip_ccall("SCIPgetConss", Ptr{Ptr{SCIP_CONS}}, (Ptr{SCIP},), pointer(scip))
-SCIPgetNOrigConss(scip::SCIP_t) = @scip_ccall("SCIPgetNOrigConss", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetOrigConss(scip::SCIP_t) = @scip_ccall("SCIPgetOrigConss", Ptr{Ptr{SCIP_CONS}}, (Ptr{SCIP},), pointer(scip))
-SCIPgetNCheckConss(scip::SCIP_t) = @scip_ccall("SCIPgetNCheckConss", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetLocalOrigEstimate(scip::SCIP_t) = @scip_ccall("SCIPgetLocalOrigEstimate", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetLocalTransEstimate(scip::SCIP_t) = @scip_ccall("SCIPgetLocalTransEstimate", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetLocalDualbound(scip::SCIP_t) = @scip_ccall("SCIPgetLocalDualbound", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetLocalLowerbound(scip::SCIP_t) = @scip_ccall("SCIPgetLocalLowerbound", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetNodeDualbound(scip::SCIP_t, node::SCIP_NODE_t) = @scip_ccall("SCIPgetNodeDualbound", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_NODE}), pointer(scip), pointer(node))
-SCIPgetNodeLowerbound(scip::SCIP_t, node::SCIP_NODE_t) = @scip_ccall("SCIPgetNodeLowerbound", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_NODE}), pointer(scip), pointer(node))
-SCIPisInRestart(scip::SCIP_t) = @scip_ccall("SCIPisInRestart", SCIP_Bool, (Ptr{SCIP},), pointer(scip))
-SCIPgetVarRedcost(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetVarRedcost", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}), pointer(scip), pointer(var))
-SCIPgetVarImplRedcost(scip::SCIP_t, var::SCIP_VAR_t, varfixing::SCIP_Bool) = @scip_ccall("SCIPgetVarImplRedcost", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Bool), pointer(scip), pointer(var), varfixing)
-SCIPgetVarFarkasCoef(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetVarFarkasCoef", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}), pointer(scip), pointer(var))
-SCIPgetVarSol(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetVarSol", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}), pointer(scip), pointer(var))
-SCIPisRelaxSolValid(scip::SCIP_t) = @scip_ccall("SCIPisRelaxSolValid", SCIP_Bool, (Ptr{SCIP},), pointer(scip))
-SCIPgetRelaxSolVal(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetRelaxSolVal", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}), pointer(scip), pointer(var))
-SCIPgetRelaxSolObj(scip::SCIP_t) = @scip_ccall("SCIPgetRelaxSolObj", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetVarStrongbranchNode(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetVarStrongbranchNode", Int64, (Ptr{SCIP}, Ptr{SCIP_VAR}), pointer(scip), pointer(var))
-SCIPgetVarStrongbranchLPAge(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetVarStrongbranchLPAge", Int64, (Ptr{SCIP}, Ptr{SCIP_VAR}), pointer(scip), pointer(var))
-SCIPgetVarNStrongbranchs(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetVarNStrongbranchs", Int, (Ptr{SCIP}, Ptr{SCIP_VAR}), pointer(scip), pointer(var))
-SCIPadjustedVarLb(scip::SCIP_t, var::SCIP_VAR_t, lb::SCIP_Real) = @scip_ccall("SCIPadjustedVarLb", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(var), lb)
-SCIPadjustedVarUb(scip::SCIP_t, var::SCIP_VAR_t, ub::SCIP_Real) = @scip_ccall("SCIPadjustedVarUb", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(var), ub)
-SCIPcomputeVarLbGlobal(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPcomputeVarLbGlobal", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}), pointer(scip), pointer(var))
-SCIPcomputeVarUbGlobal(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPcomputeVarUbGlobal", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}), pointer(scip), pointer(var))
-SCIPcomputeVarLbLocal(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPcomputeVarLbLocal", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}), pointer(scip), pointer(var))
-SCIPcomputeVarUbLocal(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPcomputeVarUbLocal", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}), pointer(scip), pointer(var))
-SCIPgetNCliques(scip::SCIP_t) = @scip_ccall("SCIPgetNCliques", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetCliques(scip::SCIP_t) = @scip_ccall("SCIPgetCliques", Ptr{Ptr{SCIP_CLIQUE}}, (Ptr{SCIP},), pointer(scip))
-SCIPhaveVarsCommonClique(scip::SCIP_t, var1::SCIP_VAR_t, value1::SCIP_Bool, var2::SCIP_VAR_t, value2::SCIP_Bool, regardimplics::SCIP_Bool) = @scip_ccall("SCIPhaveVarsCommonClique", SCIP_Bool, (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Bool, Ptr{SCIP_VAR}, SCIP_Bool, SCIP_Bool), pointer(scip), pointer(var1), value1, pointer(var2), value2, regardimplics)
-SCIPdoNotAggr(scip::SCIP_t) = @scip_ccall("SCIPdoNotAggr", SCIP_Bool, (Ptr{SCIP},), pointer(scip))
-SCIPdoNotMultaggr(scip::SCIP_t) = @scip_ccall("SCIPdoNotMultaggr", SCIP_Bool, (Ptr{SCIP},), pointer(scip))
-SCIPdoNotMultaggrVar(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPdoNotMultaggrVar", SCIP_Bool, (Ptr{SCIP}, Ptr{SCIP_VAR}), pointer(scip), pointer(var))
-SCIPenableVarHistory(scip::SCIP_t) = @scip_ccall("SCIPenableVarHistory", Void, (Ptr{SCIP},), pointer(scip))
-SCIPdisableVarHistory(scip::SCIP_t) = @scip_ccall("SCIPdisableVarHistory", Void, (Ptr{SCIP},), pointer(scip))
-SCIPgetVarPseudocostVal(scip::SCIP_t, var::SCIP_VAR_t, solvaldelta::SCIP_Real) = @scip_ccall("SCIPgetVarPseudocostVal", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(var), solvaldelta)
-SCIPgetVarPseudocostValCurrentRun(scip::SCIP_t, var::SCIP_VAR_t, solvaldelta::SCIP_Real) = @scip_ccall("SCIPgetVarPseudocostValCurrentRun", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(var), solvaldelta)
-SCIPgetVarPseudocost(scip::SCIP_t, var::SCIP_VAR_t, dir::SCIP_BRANCHDIR) = @scip_ccall("SCIPgetVarPseudocost", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_BRANCHDIR), pointer(scip), pointer(var), dir)
-SCIPgetVarPseudocostCurrentRun(scip::SCIP_t, var::SCIP_VAR_t, dir::SCIP_BRANCHDIR) = @scip_ccall("SCIPgetVarPseudocostCurrentRun", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_BRANCHDIR), pointer(scip), pointer(var), dir)
-SCIPgetVarPseudocostCount(scip::SCIP_t, var::SCIP_VAR_t, dir::SCIP_BRANCHDIR) = @scip_ccall("SCIPgetVarPseudocostCount", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_BRANCHDIR), pointer(scip), pointer(var), dir)
-SCIPgetVarPseudocostCountCurrentRun(scip::SCIP_t, var::SCIP_VAR_t, dir::SCIP_BRANCHDIR) = @scip_ccall("SCIPgetVarPseudocostCountCurrentRun", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_BRANCHDIR), pointer(scip), pointer(var), dir)
-SCIPgetVarPseudocostScore(scip::SCIP_t, var::SCIP_VAR_t, solval::SCIP_Real) = @scip_ccall("SCIPgetVarPseudocostScore", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(var), solval)
-SCIPgetVarPseudocostScoreCurrentRun(scip::SCIP_t, var::SCIP_VAR_t, solval::SCIP_Real) = @scip_ccall("SCIPgetVarPseudocostScoreCurrentRun", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(var), solval)
-SCIPgetVarVSIDS(scip::SCIP_t, var::SCIP_VAR_t, dir::SCIP_BRANCHDIR) = @scip_ccall("SCIPgetVarVSIDS", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_BRANCHDIR), pointer(scip), pointer(var), dir)
-SCIPgetVarVSIDSCurrentRun(scip::SCIP_t, var::SCIP_VAR_t, dir::SCIP_BRANCHDIR) = @scip_ccall("SCIPgetVarVSIDSCurrentRun", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_BRANCHDIR), pointer(scip), pointer(var), dir)
-SCIPgetVarConflictScore(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetVarConflictScore", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}), pointer(scip), pointer(var))
-SCIPgetVarConflictScoreCurrentRun(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetVarConflictScoreCurrentRun", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}), pointer(scip), pointer(var))
-SCIPgetVarConflictlengthScore(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetVarConflictlengthScore", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}), pointer(scip), pointer(var))
-SCIPgetVarConflictlengthScoreCurrentRun(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetVarConflictlengthScoreCurrentRun", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}), pointer(scip), pointer(var))
-SCIPgetVarAvgConflictlength(scip::SCIP_t, var::SCIP_VAR_t, dir::SCIP_BRANCHDIR) = @scip_ccall("SCIPgetVarAvgConflictlength", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_BRANCHDIR), pointer(scip), pointer(var), dir)
-SCIPgetVarAvgConflictlengthCurrentRun(scip::SCIP_t, var::SCIP_VAR_t, dir::SCIP_BRANCHDIR) = @scip_ccall("SCIPgetVarAvgConflictlengthCurrentRun", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_BRANCHDIR), pointer(scip), pointer(var), dir)
-SCIPgetVarAvgInferences(scip::SCIP_t, var::SCIP_VAR_t, dir::SCIP_BRANCHDIR) = @scip_ccall("SCIPgetVarAvgInferences", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_BRANCHDIR), pointer(scip), pointer(var), dir)
-SCIPgetVarAvgInferencesCurrentRun(scip::SCIP_t, var::SCIP_VAR_t, dir::SCIP_BRANCHDIR) = @scip_ccall("SCIPgetVarAvgInferencesCurrentRun", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_BRANCHDIR), pointer(scip), pointer(var), dir)
-SCIPgetVarAvgInferenceScore(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetVarAvgInferenceScore", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}), pointer(scip), pointer(var))
-SCIPgetVarAvgInferenceScoreCurrentRun(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetVarAvgInferenceScoreCurrentRun", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}), pointer(scip), pointer(var))
-SCIPgetVarAvgCutoffs(scip::SCIP_t, var::SCIP_VAR_t, dir::SCIP_BRANCHDIR) = @scip_ccall("SCIPgetVarAvgCutoffs", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_BRANCHDIR), pointer(scip), pointer(var), dir)
-SCIPgetVarAvgCutoffsCurrentRun(scip::SCIP_t, var::SCIP_VAR_t, dir::SCIP_BRANCHDIR) = @scip_ccall("SCIPgetVarAvgCutoffsCurrentRun", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_BRANCHDIR), pointer(scip), pointer(var), dir)
-SCIPgetVarAvgCutoffScore(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetVarAvgCutoffScore", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}), pointer(scip), pointer(var))
-SCIPgetVarAvgCutoffScoreCurrentRun(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetVarAvgCutoffScoreCurrentRun", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}), pointer(scip), pointer(var))
-SCIPgetVarAvgInferenceCutoffScore(scip::SCIP_t, var::SCIP_VAR_t, cutoffweight::SCIP_Real) = @scip_ccall("SCIPgetVarAvgInferenceCutoffScore", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(var), cutoffweight)
-SCIPgetVarAvgInferenceCutoffScoreCurrentRun(scip::SCIP_t, var::SCIP_VAR_t, cutoffweight::SCIP_Real) = @scip_ccall("SCIPgetVarAvgInferenceCutoffScoreCurrentRun", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(var), cutoffweight)
-SCIPisConflictAnalysisApplicable(scip::SCIP_t) = @scip_ccall("SCIPisConflictAnalysisApplicable", SCIP_Bool, (Ptr{SCIP},), pointer(scip))
-SCIPgetConflictVarLb(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetConflictVarLb", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}), pointer(scip), pointer(var))
-SCIPgetConflictVarUb(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetConflictVarUb", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}), pointer(scip), pointer(var))
-SCIPhasCurrentNodeLP(scip::SCIP_t) = @scip_ccall("SCIPhasCurrentNodeLP", SCIP_Bool, (Ptr{SCIP},), pointer(scip))
-SCIPisLPConstructed(scip::SCIP_t) = @scip_ccall("SCIPisLPConstructed", SCIP_Bool, (Ptr{SCIP},), pointer(scip))
-SCIPgetLPSolstat(scip::SCIP_t) = @scip_ccall("SCIPgetLPSolstat", SCIP_LPSOLSTAT, (Ptr{SCIP},), pointer(scip))
-SCIPisLPRelax(scip::SCIP_t) = @scip_ccall("SCIPisLPRelax", SCIP_Bool, (Ptr{SCIP},), pointer(scip))
-SCIPgetLPObjval(scip::SCIP_t) = @scip_ccall("SCIPgetLPObjval", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetLPColumnObjval(scip::SCIP_t) = @scip_ccall("SCIPgetLPColumnObjval", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetLPLooseObjval(scip::SCIP_t) = @scip_ccall("SCIPgetLPLooseObjval", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetGlobalPseudoObjval(scip::SCIP_t) = @scip_ccall("SCIPgetGlobalPseudoObjval", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetPseudoObjval(scip::SCIP_t) = @scip_ccall("SCIPgetPseudoObjval", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPisRootLPRelax(scip::SCIP_t) = @scip_ccall("SCIPisRootLPRelax", SCIP_Bool, (Ptr{SCIP},), pointer(scip))
-SCIPgetLPRootObjval(scip::SCIP_t) = @scip_ccall("SCIPgetLPRootObjval", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetLPRootColumnObjval(scip::SCIP_t) = @scip_ccall("SCIPgetLPRootColumnObjval", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetLPRootLooseObjval(scip::SCIP_t) = @scip_ccall("SCIPgetLPRootLooseObjval", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetLPCols(scip::SCIP_t) = @scip_ccall("SCIPgetLPCols", Ptr{Ptr{SCIP_COL}}, (Ptr{SCIP},), pointer(scip))
-SCIPgetNLPCols(scip::SCIP_t) = @scip_ccall("SCIPgetNLPCols", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetLPRows(scip::SCIP_t) = @scip_ccall("SCIPgetLPRows", Ptr{Ptr{SCIP_ROW}}, (Ptr{SCIP},), pointer(scip))
-SCIPgetNLPRows(scip::SCIP_t) = @scip_ccall("SCIPgetNLPRows", Int, (Ptr{SCIP},), pointer(scip))
-SCIPallColsInLP(scip::SCIP_t) = @scip_ccall("SCIPallColsInLP", SCIP_Bool, (Ptr{SCIP},), pointer(scip))
-SCIPisLPSolBasic(scip::SCIP_t) = @scip_ccall("SCIPisLPSolBasic", SCIP_Bool, (Ptr{SCIP},), pointer(scip))
-SCIPgetColRedcost(scip::SCIP_t, col::SCIP_COL_t) = @scip_ccall("SCIPgetColRedcost", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_COL}), pointer(scip), pointer(col))
-SCIPgetColFarkasCoef(scip::SCIP_t, col::SCIP_COL_t) = @scip_ccall("SCIPgetColFarkasCoef", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_COL}), pointer(scip), pointer(col))
-SCIPmarkColNotRemovableLocal(scip::SCIP_t, col::SCIP_COL_t) = @scip_ccall("SCIPmarkColNotRemovableLocal", Void, (Ptr{SCIP}, Ptr{SCIP_COL}), pointer(scip), pointer(col))
-SCIPmarkRowNotRemovableLocal(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall("SCIPmarkRowNotRemovableLocal", Void, (Ptr{SCIP}, Ptr{SCIP_ROW}), pointer(scip), pointer(row))
-SCIPgetRowMinCoef(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall("SCIPgetRowMinCoef", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_ROW}), pointer(scip), pointer(row))
-SCIPgetRowMaxCoef(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall("SCIPgetRowMaxCoef", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_ROW}), pointer(scip), pointer(row))
-SCIPgetRowMinActivity(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall("SCIPgetRowMinActivity", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_ROW}), pointer(scip), pointer(row))
-SCIPgetRowMaxActivity(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall("SCIPgetRowMaxActivity", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_ROW}), pointer(scip), pointer(row))
-SCIPgetRowLPActivity(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall("SCIPgetRowLPActivity", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_ROW}), pointer(scip), pointer(row))
-SCIPgetRowLPFeasibility(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall("SCIPgetRowLPFeasibility", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_ROW}), pointer(scip), pointer(row))
-SCIPgetRowPseudoActivity(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall("SCIPgetRowPseudoActivity", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_ROW}), pointer(scip), pointer(row))
-SCIPgetRowPseudoFeasibility(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall("SCIPgetRowPseudoFeasibility", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_ROW}), pointer(scip), pointer(row))
-SCIPgetRowActivity(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall("SCIPgetRowActivity", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_ROW}), pointer(scip), pointer(row))
-SCIPgetRowFeasibility(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall("SCIPgetRowFeasibility", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_ROW}), pointer(scip), pointer(row))
-SCIPgetRowSolActivity(scip::SCIP_t, row::SCIP_ROW_t, sol::SCIP_SOL_t) = @scip_ccall("SCIPgetRowSolActivity", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_ROW}, Ptr{SCIP_SOL}), pointer(scip), pointer(row), pointer(sol))
-SCIPgetRowSolFeasibility(scip::SCIP_t, row::SCIP_ROW_t, sol::SCIP_SOL_t) = @scip_ccall("SCIPgetRowSolFeasibility", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_ROW}, Ptr{SCIP_SOL}), pointer(scip), pointer(row), pointer(sol))
-SCIPisNLPEnabled(scip::SCIP_t) = @scip_ccall("SCIPisNLPEnabled", SCIP_Bool, (Ptr{SCIP},), pointer(scip))
-SCIPenableNLP(scip::SCIP_t) = @scip_ccall("SCIPenableNLP", Void, (Ptr{SCIP},), pointer(scip))
-SCIPisNLPConstructed(scip::SCIP_t) = @scip_ccall("SCIPisNLPConstructed", SCIP_Bool, (Ptr{SCIP},), pointer(scip))
-SCIPhasNLPContinuousNonlinearity(scip::SCIP_t) = @scip_ccall("SCIPhasNLPContinuousNonlinearity", SCIP_Bool, (Ptr{SCIP},), pointer(scip))
-SCIPgetNLPVars(scip::SCIP_t) = @scip_ccall("SCIPgetNLPVars", Ptr{Ptr{SCIP_VAR}}, (Ptr{SCIP},), pointer(scip))
-SCIPgetNNLPVars(scip::SCIP_t) = @scip_ccall("SCIPgetNNLPVars", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNLPVarsLbDualsol(scip::SCIP_t) = @scip_ccall("SCIPgetNLPVarsLbDualsol", Ptr{SCIP_Real}, (Ptr{SCIP},), pointer(scip))
-SCIPgetNLPVarsUbDualsol(scip::SCIP_t) = @scip_ccall("SCIPgetNLPVarsUbDualsol", Ptr{SCIP_Real}, (Ptr{SCIP},), pointer(scip))
-SCIPgetNLPNlRows(scip::SCIP_t) = @scip_ccall("SCIPgetNLPNlRows", Ptr{Ptr{SCIP_NLROW}}, (Ptr{SCIP},), pointer(scip))
-SCIPgetNNLPNlRows(scip::SCIP_t) = @scip_ccall("SCIPgetNNLPNlRows", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNLPSolstat(scip::SCIP_t) = @scip_ccall("SCIPgetNLPSolstat", SCIP_NLPSOLSTAT, (Ptr{SCIP},), pointer(scip))
-SCIPgetNLPTermstat(scip::SCIP_t) = @scip_ccall("SCIPgetNLPTermstat", SCIP_NLPTERMSTAT, (Ptr{SCIP},), pointer(scip))
-SCIPgetNLPObjval(scip::SCIP_t) = @scip_ccall("SCIPgetNLPObjval", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPhasNLPSolution(scip::SCIP_t) = @scip_ccall("SCIPhasNLPSolution", SCIP_Bool, (Ptr{SCIP},), pointer(scip))
-SCIPgetCutEfficacy(scip::SCIP_t, sol::SCIP_SOL_t, cut::SCIP_ROW_t) = @scip_ccall("SCIPgetCutEfficacy", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_SOL}, Ptr{SCIP_ROW}), pointer(scip), pointer(sol), pointer(cut))
-SCIPisCutEfficacious(scip::SCIP_t, sol::SCIP_SOL_t, cut::SCIP_ROW_t) = @scip_ccall("SCIPisCutEfficacious", SCIP_Bool, (Ptr{SCIP}, Ptr{SCIP_SOL}, Ptr{SCIP_ROW}), pointer(scip), pointer(sol), pointer(cut))
-SCIPisEfficacious(scip::SCIP_t, efficacy::SCIP_Real) = @scip_ccall("SCIPisEfficacious", SCIP_Bool, (Ptr{SCIP}, SCIP_Real), pointer(scip), efficacy)
-SCIPgetVectorEfficacyNorm(scip::SCIP_t, vals::SCIP_Real_t, nvals::Int) = @scip_ccall("SCIPgetVectorEfficacyNorm", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_Real}, Int), pointer(scip), pointer(vals), nvals)
-SCIPisCutApplicable(scip::SCIP_t, cut::SCIP_ROW_t) = @scip_ccall("SCIPisCutApplicable", SCIP_Bool, (Ptr{SCIP}, Ptr{SCIP_ROW}), pointer(scip), pointer(cut))
-SCIPgetPoolCuts(scip::SCIP_t) = @scip_ccall("SCIPgetPoolCuts", Ptr{Ptr{SCIP_CUT}}, (Ptr{SCIP},), pointer(scip))
-SCIPgetNPoolCuts(scip::SCIP_t) = @scip_ccall("SCIPgetNPoolCuts", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetGlobalCutpool(scip::SCIP_t) = @scip_ccall("SCIPgetGlobalCutpool", Ptr{SCIP_CUTPOOL}, (Ptr{SCIP},), pointer(scip))
-SCIPgetDelayedPoolCuts(scip::SCIP_t) = @scip_ccall("SCIPgetDelayedPoolCuts", Ptr{Ptr{SCIP_CUT}}, (Ptr{SCIP},), pointer(scip))
-SCIPgetNDelayedPoolCuts(scip::SCIP_t) = @scip_ccall("SCIPgetNDelayedPoolCuts", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetDelayedGlobalCutpool(scip::SCIP_t) = @scip_ccall("SCIPgetDelayedGlobalCutpool", Ptr{SCIP_CUTPOOL}, (Ptr{SCIP},), pointer(scip))
-SCIPgetCuts(scip::SCIP_t) = @scip_ccall("SCIPgetCuts", Ptr{Ptr{SCIP_ROW}}, (Ptr{SCIP},), pointer(scip))
-SCIPgetNCuts(scip::SCIP_t) = @scip_ccall("SCIPgetNCuts", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetRelaxFeastolFactor(scip::SCIP_t) = @scip_ccall("SCIPgetRelaxFeastolFactor", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetVarObjDive(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetVarObjDive", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}), pointer(scip), pointer(var))
-SCIPgetVarLbDive(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetVarLbDive", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}), pointer(scip), pointer(var))
-SCIPgetVarUbDive(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetVarUbDive", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}), pointer(scip), pointer(var))
-SCIPgetLastDivenode(scip::SCIP_t) = @scip_ccall("SCIPgetLastDivenode", Int64, (Ptr{SCIP},), pointer(scip))
-SCIPinDive(scip::SCIP_t) = @scip_ccall("SCIPinDive", SCIP_Bool, (Ptr{SCIP},), pointer(scip))
-SCIPinProbing(scip::SCIP_t) = @scip_ccall("SCIPinProbing", SCIP_Bool, (Ptr{SCIP},), pointer(scip))
-SCIPgetProbingDepth(scip::SCIP_t) = @scip_ccall("SCIPgetProbingDepth", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNLPBranchCands(scip::SCIP_t) = @scip_ccall("SCIPgetNLPBranchCands", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNPrioLPBranchCands(scip::SCIP_t) = @scip_ccall("SCIPgetNPrioLPBranchCands", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNExternBranchCands(scip::SCIP_t) = @scip_ccall("SCIPgetNExternBranchCands", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNPrioExternBranchCands(scip::SCIP_t) = @scip_ccall("SCIPgetNPrioExternBranchCands", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNPrioExternBranchBins(scip::SCIP_t) = @scip_ccall("SCIPgetNPrioExternBranchBins", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNPrioExternBranchInts(scip::SCIP_t) = @scip_ccall("SCIPgetNPrioExternBranchInts", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNPrioExternBranchImpls(scip::SCIP_t) = @scip_ccall("SCIPgetNPrioExternBranchImpls", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNPrioExternBranchConts(scip::SCIP_t) = @scip_ccall("SCIPgetNPrioExternBranchConts", Int, (Ptr{SCIP},), pointer(scip))
-SCIPclearExternBranchCands(scip::SCIP_t) = @scip_ccall("SCIPclearExternBranchCands", Void, (Ptr{SCIP},), pointer(scip))
-SCIPcontainsExternBranchCand(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPcontainsExternBranchCand", SCIP_Bool, (Ptr{SCIP}, Ptr{SCIP_VAR}), pointer(scip), pointer(var))
-SCIPgetNPseudoBranchCands(scip::SCIP_t) = @scip_ccall("SCIPgetNPseudoBranchCands", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNPrioPseudoBranchCands(scip::SCIP_t) = @scip_ccall("SCIPgetNPrioPseudoBranchCands", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNPrioPseudoBranchBins(scip::SCIP_t) = @scip_ccall("SCIPgetNPrioPseudoBranchBins", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNPrioPseudoBranchInts(scip::SCIP_t) = @scip_ccall("SCIPgetNPrioPseudoBranchInts", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNPrioPseudoBranchImpls(scip::SCIP_t) = @scip_ccall("SCIPgetNPrioPseudoBranchImpls", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetBranchScore(scip::SCIP_t, var::SCIP_VAR_t, downgain::SCIP_Real, upgain::SCIP_Real) = @scip_ccall("SCIPgetBranchScore", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Real), pointer(scip), pointer(var), downgain, upgain)
-SCIPgetBranchScoreMultiple(scip::SCIP_t, var::SCIP_VAR_t, nchildren::Int, gains::SCIP_Real_t) = @scip_ccall("SCIPgetBranchScoreMultiple", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}, Int, Ptr{SCIP_Real}), pointer(scip), pointer(var), nchildren, pointer(gains))
-SCIPgetBranchingPoint(scip::SCIP_t, var::SCIP_VAR_t, suggestion::SCIP_Real) = @scip_ccall("SCIPgetBranchingPoint", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(var), suggestion)
-SCIPcalcNodeselPriority(scip::SCIP_t, var::SCIP_VAR_t, branchdir::SCIP_BRANCHDIR, targetvalue::SCIP_Real) = @scip_ccall("SCIPcalcNodeselPriority", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_BRANCHDIR, SCIP_Real), pointer(scip), pointer(var), branchdir, targetvalue)
-SCIPcalcChildEstimate(scip::SCIP_t, var::SCIP_VAR_t, targetvalue::SCIP_Real) = @scip_ccall("SCIPcalcChildEstimate", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(var), targetvalue)
-SCIPgetSolVal(scip::SCIP_t, sol::SCIP_SOL_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetSolVal", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_SOL}, Ptr{SCIP_VAR}), pointer(scip), pointer(sol), pointer(var))
-SCIPgetSolOrigObj(scip::SCIP_t, sol::SCIP_SOL_t) = @scip_ccall("SCIPgetSolOrigObj", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_SOL}), pointer(scip), pointer(sol))
-SCIPgetSolTransObj(scip::SCIP_t, sol::SCIP_SOL_t) = @scip_ccall("SCIPgetSolTransObj", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_SOL}), pointer(scip), pointer(sol))
-SCIPtransformObj(scip::SCIP_t, obj::SCIP_Real) = @scip_ccall("SCIPtransformObj", SCIP_Real, (Ptr{SCIP}, SCIP_Real), pointer(scip), obj)
-SCIPretransformObj(scip::SCIP_t, obj::SCIP_Real) = @scip_ccall("SCIPretransformObj", SCIP_Real, (Ptr{SCIP}, SCIP_Real), pointer(scip), obj)
-SCIPgetSolTime(scip::SCIP_t, sol::SCIP_SOL_t) = @scip_ccall("SCIPgetSolTime", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_SOL}), pointer(scip), pointer(sol))
-SCIPgetSolRunnum(scip::SCIP_t, sol::SCIP_SOL_t) = @scip_ccall("SCIPgetSolRunnum", Int, (Ptr{SCIP}, Ptr{SCIP_SOL}), pointer(scip), pointer(sol))
-SCIPgetSolNodenum(scip::SCIP_t, sol::SCIP_SOL_t) = @scip_ccall("SCIPgetSolNodenum", Int64, (Ptr{SCIP}, Ptr{SCIP_SOL}), pointer(scip), pointer(sol))
-SCIPgetSolHeur(scip::SCIP_t, sol::SCIP_SOL_t) = @scip_ccall("SCIPgetSolHeur", Ptr{SCIP_HEUR}, (Ptr{SCIP}, Ptr{SCIP_SOL}), pointer(scip), pointer(sol))
-SCIPareSolsEqual(scip::SCIP_t, sol1::SCIP_SOL_t, sol2::SCIP_SOL_t) = @scip_ccall("SCIPareSolsEqual", SCIP_Bool, (Ptr{SCIP}, Ptr{SCIP_SOL}, Ptr{SCIP_SOL}), pointer(scip), pointer(sol1), pointer(sol2))
-SCIPgetNSols(scip::SCIP_t) = @scip_ccall("SCIPgetNSols", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetSols(scip::SCIP_t) = @scip_ccall("SCIPgetSols", Ptr{Ptr{SCIP_SOL}}, (Ptr{SCIP},), pointer(scip))
-SCIPgetBestSol(scip::SCIP_t) = @scip_ccall("SCIPgetBestSol", Ptr{SCIP_SOL}, (Ptr{SCIP},), pointer(scip))
-SCIPhasPrimalRay(scip::SCIP_t) = @scip_ccall("SCIPhasPrimalRay", SCIP_Bool, (Ptr{SCIP},), pointer(scip))
-SCIPgetPrimalRayVal(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetPrimalRayVal", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_VAR}), pointer(scip), pointer(var))
-SCIPgetCurrentNode(scip::SCIP_t) = @scip_ccall("SCIPgetCurrentNode", Ptr{SCIP_NODE}, (Ptr{SCIP},), pointer(scip))
-SCIPgetRootNode(scip::SCIP_t) = @scip_ccall("SCIPgetRootNode", Ptr{SCIP_NODE}, (Ptr{SCIP},), pointer(scip))
-SCIPinRepropagation(scip::SCIP_t) = @scip_ccall("SCIPinRepropagation", SCIP_Bool, (Ptr{SCIP},), pointer(scip))
-SCIPgetNChildren(scip::SCIP_t) = @scip_ccall("SCIPgetNChildren", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNSiblings(scip::SCIP_t) = @scip_ccall("SCIPgetNSiblings", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNLeaves(scip::SCIP_t) = @scip_ccall("SCIPgetNLeaves", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetPrioChild(scip::SCIP_t) = @scip_ccall("SCIPgetPrioChild", Ptr{SCIP_NODE}, (Ptr{SCIP},), pointer(scip))
-SCIPgetPrioSibling(scip::SCIP_t) = @scip_ccall("SCIPgetPrioSibling", Ptr{SCIP_NODE}, (Ptr{SCIP},), pointer(scip))
-SCIPgetBestChild(scip::SCIP_t) = @scip_ccall("SCIPgetBestChild", Ptr{SCIP_NODE}, (Ptr{SCIP},), pointer(scip))
-SCIPgetBestSibling(scip::SCIP_t) = @scip_ccall("SCIPgetBestSibling", Ptr{SCIP_NODE}, (Ptr{SCIP},), pointer(scip))
-SCIPgetBestLeaf(scip::SCIP_t) = @scip_ccall("SCIPgetBestLeaf", Ptr{SCIP_NODE}, (Ptr{SCIP},), pointer(scip))
-SCIPgetBestNode(scip::SCIP_t) = @scip_ccall("SCIPgetBestNode", Ptr{SCIP_NODE}, (Ptr{SCIP},), pointer(scip))
-SCIPgetBestboundNode(scip::SCIP_t) = @scip_ccall("SCIPgetBestboundNode", Ptr{SCIP_NODE}, (Ptr{SCIP},), pointer(scip))
-SCIPgetCutoffdepth(scip::SCIP_t) = @scip_ccall("SCIPgetCutoffdepth", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetRepropdepth(scip::SCIP_t) = @scip_ccall("SCIPgetRepropdepth", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNRuns(scip::SCIP_t) = @scip_ccall("SCIPgetNRuns", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNNodes(scip::SCIP_t) = @scip_ccall("SCIPgetNNodes", Int64, (Ptr{SCIP},), pointer(scip))
-SCIPgetNTotalNodes(scip::SCIP_t) = @scip_ccall("SCIPgetNTotalNodes", Int64, (Ptr{SCIP},), pointer(scip))
-SCIPgetNNodesLeft(scip::SCIP_t) = @scip_ccall("SCIPgetNNodesLeft", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNLPs(scip::SCIP_t) = @scip_ccall("SCIPgetNLPs", Int64, (Ptr{SCIP},), pointer(scip))
-SCIPgetNLPIterations(scip::SCIP_t) = @scip_ccall("SCIPgetNLPIterations", Int64, (Ptr{SCIP},), pointer(scip))
-SCIPgetNRootLPIterations(scip::SCIP_t) = @scip_ccall("SCIPgetNRootLPIterations", Int64, (Ptr{SCIP},), pointer(scip))
-SCIPgetNRootFirstLPIterations(scip::SCIP_t) = @scip_ccall("SCIPgetNRootFirstLPIterations", Int64, (Ptr{SCIP},), pointer(scip))
-SCIPgetNPrimalLPs(scip::SCIP_t) = @scip_ccall("SCIPgetNPrimalLPs", Int64, (Ptr{SCIP},), pointer(scip))
-SCIPgetNPrimalLPIterations(scip::SCIP_t) = @scip_ccall("SCIPgetNPrimalLPIterations", Int64, (Ptr{SCIP},), pointer(scip))
-SCIPgetNDualLPs(scip::SCIP_t) = @scip_ccall("SCIPgetNDualLPs", Int64, (Ptr{SCIP},), pointer(scip))
-SCIPgetNDualLPIterations(scip::SCIP_t) = @scip_ccall("SCIPgetNDualLPIterations", Int64, (Ptr{SCIP},), pointer(scip))
-SCIPgetNBarrierLPs(scip::SCIP_t) = @scip_ccall("SCIPgetNBarrierLPs", Int64, (Ptr{SCIP},), pointer(scip))
-SCIPgetNBarrierLPIterations(scip::SCIP_t) = @scip_ccall("SCIPgetNBarrierLPIterations", Int64, (Ptr{SCIP},), pointer(scip))
-SCIPgetNResolveLPs(scip::SCIP_t) = @scip_ccall("SCIPgetNResolveLPs", Int64, (Ptr{SCIP},), pointer(scip))
-SCIPgetNResolveLPIterations(scip::SCIP_t) = @scip_ccall("SCIPgetNResolveLPIterations", Int64, (Ptr{SCIP},), pointer(scip))
-SCIPgetNPrimalResolveLPs(scip::SCIP_t) = @scip_ccall("SCIPgetNPrimalResolveLPs", Int64, (Ptr{SCIP},), pointer(scip))
-SCIPgetNPrimalResolveLPIterations(scip::SCIP_t) = @scip_ccall("SCIPgetNPrimalResolveLPIterations", Int64, (Ptr{SCIP},), pointer(scip))
-SCIPgetNDualResolveLPs(scip::SCIP_t) = @scip_ccall("SCIPgetNDualResolveLPs", Int64, (Ptr{SCIP},), pointer(scip))
-SCIPgetNDualResolveLPIterations(scip::SCIP_t) = @scip_ccall("SCIPgetNDualResolveLPIterations", Int64, (Ptr{SCIP},), pointer(scip))
-SCIPgetNNodeLPs(scip::SCIP_t) = @scip_ccall("SCIPgetNNodeLPs", Int64, (Ptr{SCIP},), pointer(scip))
-SCIPgetNNodeLPIterations(scip::SCIP_t) = @scip_ccall("SCIPgetNNodeLPIterations", Int64, (Ptr{SCIP},), pointer(scip))
-SCIPgetNNodeInitLPs(scip::SCIP_t) = @scip_ccall("SCIPgetNNodeInitLPs", Int64, (Ptr{SCIP},), pointer(scip))
-SCIPgetNNodeInitLPIterations(scip::SCIP_t) = @scip_ccall("SCIPgetNNodeInitLPIterations", Int64, (Ptr{SCIP},), pointer(scip))
-SCIPgetNDivingLPs(scip::SCIP_t) = @scip_ccall("SCIPgetNDivingLPs", Int64, (Ptr{SCIP},), pointer(scip))
-SCIPgetNDivingLPIterations(scip::SCIP_t) = @scip_ccall("SCIPgetNDivingLPIterations", Int64, (Ptr{SCIP},), pointer(scip))
-SCIPgetNStrongbranchs(scip::SCIP_t) = @scip_ccall("SCIPgetNStrongbranchs", Int64, (Ptr{SCIP},), pointer(scip))
-SCIPgetNStrongbranchLPIterations(scip::SCIP_t) = @scip_ccall("SCIPgetNStrongbranchLPIterations", Int64, (Ptr{SCIP},), pointer(scip))
-SCIPgetNRootStrongbranchs(scip::SCIP_t) = @scip_ccall("SCIPgetNRootStrongbranchs", Int64, (Ptr{SCIP},), pointer(scip))
-SCIPgetNRootStrongbranchLPIterations(scip::SCIP_t) = @scip_ccall("SCIPgetNRootStrongbranchLPIterations", Int64, (Ptr{SCIP},), pointer(scip))
-SCIPgetNPriceRounds(scip::SCIP_t) = @scip_ccall("SCIPgetNPriceRounds", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNPricevars(scip::SCIP_t) = @scip_ccall("SCIPgetNPricevars", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNPricevarsFound(scip::SCIP_t) = @scip_ccall("SCIPgetNPricevarsFound", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNPricevarsApplied(scip::SCIP_t) = @scip_ccall("SCIPgetNPricevarsApplied", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNSepaRounds(scip::SCIP_t) = @scip_ccall("SCIPgetNSepaRounds", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNCutsFound(scip::SCIP_t) = @scip_ccall("SCIPgetNCutsFound", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNCutsFoundRound(scip::SCIP_t) = @scip_ccall("SCIPgetNCutsFoundRound", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNCutsApplied(scip::SCIP_t) = @scip_ccall("SCIPgetNCutsApplied", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNConflictConssFound(scip::SCIP_t) = @scip_ccall("SCIPgetNConflictConssFound", Int64, (Ptr{SCIP},), pointer(scip))
-SCIPgetNConflictConssFoundNode(scip::SCIP_t) = @scip_ccall("SCIPgetNConflictConssFoundNode", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNConflictConssApplied(scip::SCIP_t) = @scip_ccall("SCIPgetNConflictConssApplied", Int64, (Ptr{SCIP},), pointer(scip))
-SCIPgetDepth(scip::SCIP_t) = @scip_ccall("SCIPgetDepth", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetFocusDepth(scip::SCIP_t) = @scip_ccall("SCIPgetFocusDepth", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetMaxDepth(scip::SCIP_t) = @scip_ccall("SCIPgetMaxDepth", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetMaxTotalDepth(scip::SCIP_t) = @scip_ccall("SCIPgetMaxTotalDepth", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNBacktracks(scip::SCIP_t) = @scip_ccall("SCIPgetNBacktracks", Int64, (Ptr{SCIP},), pointer(scip))
-SCIPgetPlungeDepth(scip::SCIP_t) = @scip_ccall("SCIPgetPlungeDepth", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNActiveConss(scip::SCIP_t) = @scip_ccall("SCIPgetNActiveConss", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetNEnabledConss(scip::SCIP_t) = @scip_ccall("SCIPgetNEnabledConss", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetAvgDualbound(scip::SCIP_t) = @scip_ccall("SCIPgetAvgDualbound", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetAvgLowerbound(scip::SCIP_t) = @scip_ccall("SCIPgetAvgLowerbound", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetDualbound(scip::SCIP_t) = @scip_ccall("SCIPgetDualbound", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetLowerbound(scip::SCIP_t) = @scip_ccall("SCIPgetLowerbound", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetDualboundRoot(scip::SCIP_t) = @scip_ccall("SCIPgetDualboundRoot", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetLowerboundRoot(scip::SCIP_t) = @scip_ccall("SCIPgetLowerboundRoot", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetFirstLPDualboundRoot(scip::SCIP_t) = @scip_ccall("SCIPgetFirstLPDualboundRoot", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetFirstLPLowerboundRoot(scip::SCIP_t) = @scip_ccall("SCIPgetFirstLPLowerboundRoot", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetPrimalbound(scip::SCIP_t) = @scip_ccall("SCIPgetPrimalbound", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetUpperbound(scip::SCIP_t) = @scip_ccall("SCIPgetUpperbound", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetCutoffbound(scip::SCIP_t) = @scip_ccall("SCIPgetCutoffbound", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPisPrimalboundSol(scip::SCIP_t) = @scip_ccall("SCIPisPrimalboundSol", SCIP_Bool, (Ptr{SCIP},), pointer(scip))
-SCIPgetGap(scip::SCIP_t) = @scip_ccall("SCIPgetGap", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetTransGap(scip::SCIP_t) = @scip_ccall("SCIPgetTransGap", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetNSolsFound(scip::SCIP_t) = @scip_ccall("SCIPgetNSolsFound", Int64, (Ptr{SCIP},), pointer(scip))
-SCIPgetNLimSolsFound(scip::SCIP_t) = @scip_ccall("SCIPgetNLimSolsFound", Int64, (Ptr{SCIP},), pointer(scip))
-SCIPgetNBestSolsFound(scip::SCIP_t) = @scip_ccall("SCIPgetNBestSolsFound", Int64, (Ptr{SCIP},), pointer(scip))
-SCIPgetAvgPseudocost(scip::SCIP_t, solvaldelta::SCIP_Real) = @scip_ccall("SCIPgetAvgPseudocost", SCIP_Real, (Ptr{SCIP}, SCIP_Real), pointer(scip), solvaldelta)
-SCIPgetAvgPseudocostCurrentRun(scip::SCIP_t, solvaldelta::SCIP_Real) = @scip_ccall("SCIPgetAvgPseudocostCurrentRun", SCIP_Real, (Ptr{SCIP}, SCIP_Real), pointer(scip), solvaldelta)
-SCIPgetAvgPseudocostCount(scip::SCIP_t, dir::SCIP_BRANCHDIR) = @scip_ccall("SCIPgetAvgPseudocostCount", SCIP_Real, (Ptr{SCIP}, SCIP_BRANCHDIR), pointer(scip), dir)
-SCIPgetAvgPseudocostCountCurrentRun(scip::SCIP_t, dir::SCIP_BRANCHDIR) = @scip_ccall("SCIPgetAvgPseudocostCountCurrentRun", SCIP_Real, (Ptr{SCIP}, SCIP_BRANCHDIR), pointer(scip), dir)
-SCIPgetAvgPseudocostScore(scip::SCIP_t) = @scip_ccall("SCIPgetAvgPseudocostScore", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetAvgPseudocostScoreCurrentRun(scip::SCIP_t) = @scip_ccall("SCIPgetAvgPseudocostScoreCurrentRun", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetAvgConflictScore(scip::SCIP_t) = @scip_ccall("SCIPgetAvgConflictScore", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetAvgConflictScoreCurrentRun(scip::SCIP_t) = @scip_ccall("SCIPgetAvgConflictScoreCurrentRun", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetAvgConflictlengthScore(scip::SCIP_t) = @scip_ccall("SCIPgetAvgConflictlengthScore", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetAvgConflictlengthScoreCurrentRun(scip::SCIP_t) = @scip_ccall("SCIPgetAvgConflictlengthScoreCurrentRun", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetAvgInferences(scip::SCIP_t, dir::SCIP_BRANCHDIR) = @scip_ccall("SCIPgetAvgInferences", SCIP_Real, (Ptr{SCIP}, SCIP_BRANCHDIR), pointer(scip), dir)
-SCIPgetAvgInferencesCurrentRun(scip::SCIP_t, dir::SCIP_BRANCHDIR) = @scip_ccall("SCIPgetAvgInferencesCurrentRun", SCIP_Real, (Ptr{SCIP}, SCIP_BRANCHDIR), pointer(scip), dir)
-SCIPgetAvgInferenceScore(scip::SCIP_t) = @scip_ccall("SCIPgetAvgInferenceScore", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetAvgInferenceScoreCurrentRun(scip::SCIP_t) = @scip_ccall("SCIPgetAvgInferenceScoreCurrentRun", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetAvgCutoffs(scip::SCIP_t, dir::SCIP_BRANCHDIR) = @scip_ccall("SCIPgetAvgCutoffs", SCIP_Real, (Ptr{SCIP}, SCIP_BRANCHDIR), pointer(scip), dir)
-SCIPgetAvgCutoffsCurrentRun(scip::SCIP_t, dir::SCIP_BRANCHDIR) = @scip_ccall("SCIPgetAvgCutoffsCurrentRun", SCIP_Real, (Ptr{SCIP}, SCIP_BRANCHDIR), pointer(scip), dir)
-SCIPgetAvgCutoffScore(scip::SCIP_t) = @scip_ccall("SCIPgetAvgCutoffScore", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetAvgCutoffScoreCurrentRun(scip::SCIP_t) = @scip_ccall("SCIPgetAvgCutoffScoreCurrentRun", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetNImplications(scip::SCIP_t) = @scip_ccall("SCIPgetNImplications", Int, (Ptr{SCIP},), pointer(scip))
-SCIPgetTimeOfDay(scip::SCIP_t) = @scip_ccall("SCIPgetTimeOfDay", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetClockTime(scip::SCIP_t, clck::SCIP_CLOCK_t) = @scip_ccall("SCIPgetClockTime", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_CLOCK}), pointer(scip), pointer(clck))
-SCIPgetTotalTime(scip::SCIP_t) = @scip_ccall("SCIPgetTotalTime", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetSolvingTime(scip::SCIP_t) = @scip_ccall("SCIPgetSolvingTime", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetReadingTime(scip::SCIP_t) = @scip_ccall("SCIPgetReadingTime", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetPresolvingTime(scip::SCIP_t) = @scip_ccall("SCIPgetPresolvingTime", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetFirstLPTime(scip::SCIP_t) = @scip_ccall("SCIPgetFirstLPTime", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPepsilon(scip::SCIP_t) = @scip_ccall("SCIPepsilon", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPsumepsilon(scip::SCIP_t) = @scip_ccall("SCIPsumepsilon", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPfeastol(scip::SCIP_t) = @scip_ccall("SCIPfeastol", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPlpfeastol(scip::SCIP_t) = @scip_ccall("SCIPlpfeastol", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPdualfeastol(scip::SCIP_t) = @scip_ccall("SCIPdualfeastol", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPbarrierconvtol(scip::SCIP_t) = @scip_ccall("SCIPbarrierconvtol", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPcutoffbounddelta(scip::SCIP_t) = @scip_ccall("SCIPcutoffbounddelta", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPmarkLimitChanged(scip::SCIP_t) = @scip_ccall("SCIPmarkLimitChanged", Void, (Ptr{SCIP},), pointer(scip))
-SCIPinfinity(scip::SCIP_t) = @scip_ccall("SCIPinfinity", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPgetHugeValue(scip::SCIP_t) = @scip_ccall("SCIPgetHugeValue", SCIP_Real, (Ptr{SCIP},), pointer(scip))
-SCIPisEQ(scip::SCIP_t, val1::SCIP_Real, val2::SCIP_Real) = @scip_ccall("SCIPisEQ", SCIP_Bool, (Ptr{SCIP}, SCIP_Real, SCIP_Real), pointer(scip), val1, val2)
-SCIPisLT(scip::SCIP_t, val1::SCIP_Real, val2::SCIP_Real) = @scip_ccall("SCIPisLT", SCIP_Bool, (Ptr{SCIP}, SCIP_Real, SCIP_Real), pointer(scip), val1, val2)
-SCIPisLE(scip::SCIP_t, val1::SCIP_Real, val2::SCIP_Real) = @scip_ccall("SCIPisLE", SCIP_Bool, (Ptr{SCIP}, SCIP_Real, SCIP_Real), pointer(scip), val1, val2)
-SCIPisGT(scip::SCIP_t, val1::SCIP_Real, val2::SCIP_Real) = @scip_ccall("SCIPisGT", SCIP_Bool, (Ptr{SCIP}, SCIP_Real, SCIP_Real), pointer(scip), val1, val2)
-SCIPisGE(scip::SCIP_t, val1::SCIP_Real, val2::SCIP_Real) = @scip_ccall("SCIPisGE", SCIP_Bool, (Ptr{SCIP}, SCIP_Real, SCIP_Real), pointer(scip), val1, val2)
-SCIPisInfinity(scip::SCIP_t, val::SCIP_Real) = @scip_ccall("SCIPisInfinity", SCIP_Bool, (Ptr{SCIP}, SCIP_Real), pointer(scip), val)
-SCIPisHugeValue(scip::SCIP_t, val::SCIP_Real) = @scip_ccall("SCIPisHugeValue", SCIP_Bool, (Ptr{SCIP}, SCIP_Real), pointer(scip), val)
-SCIPisZero(scip::SCIP_t, val::SCIP_Real) = @scip_ccall("SCIPisZero", SCIP_Bool, (Ptr{SCIP}, SCIP_Real), pointer(scip), val)
-SCIPisPositive(scip::SCIP_t, val::SCIP_Real) = @scip_ccall("SCIPisPositive", SCIP_Bool, (Ptr{SCIP}, SCIP_Real), pointer(scip), val)
-SCIPisNegative(scip::SCIP_t, val::SCIP_Real) = @scip_ccall("SCIPisNegative", SCIP_Bool, (Ptr{SCIP}, SCIP_Real), pointer(scip), val)
-SCIPisIntegral(scip::SCIP_t, val::SCIP_Real) = @scip_ccall("SCIPisIntegral", SCIP_Bool, (Ptr{SCIP}, SCIP_Real), pointer(scip), val)
-SCIPisScalingIntegral(scip::SCIP_t, val::SCIP_Real, scalar::SCIP_Real) = @scip_ccall("SCIPisScalingIntegral", SCIP_Bool, (Ptr{SCIP}, SCIP_Real, SCIP_Real), pointer(scip), val, scalar)
-SCIPisFracIntegral(scip::SCIP_t, val::SCIP_Real) = @scip_ccall("SCIPisFracIntegral", SCIP_Bool, (Ptr{SCIP}, SCIP_Real), pointer(scip), val)
-SCIPfloor(scip::SCIP_t, val::SCIP_Real) = @scip_ccall("SCIPfloor", SCIP_Real, (Ptr{SCIP}, SCIP_Real), pointer(scip), val)
-SCIPceil(scip::SCIP_t, val::SCIP_Real) = @scip_ccall("SCIPceil", SCIP_Real, (Ptr{SCIP}, SCIP_Real), pointer(scip), val)
-SCIPround(scip::SCIP_t, val::SCIP_Real) = @scip_ccall("SCIPround", SCIP_Real, (Ptr{SCIP}, SCIP_Real), pointer(scip), val)
-SCIPfrac(scip::SCIP_t, val::SCIP_Real) = @scip_ccall("SCIPfrac", SCIP_Real, (Ptr{SCIP}, SCIP_Real), pointer(scip), val)
-SCIPisSumEQ(scip::SCIP_t, val1::SCIP_Real, val2::SCIP_Real) = @scip_ccall("SCIPisSumEQ", SCIP_Bool, (Ptr{SCIP}, SCIP_Real, SCIP_Real), pointer(scip), val1, val2)
-SCIPisSumLT(scip::SCIP_t, val1::SCIP_Real, val2::SCIP_Real) = @scip_ccall("SCIPisSumLT", SCIP_Bool, (Ptr{SCIP}, SCIP_Real, SCIP_Real), pointer(scip), val1, val2)
-SCIPisSumLE(scip::SCIP_t, val1::SCIP_Real, val2::SCIP_Real) = @scip_ccall("SCIPisSumLE", SCIP_Bool, (Ptr{SCIP}, SCIP_Real, SCIP_Real), pointer(scip), val1, val2)
-SCIPisSumGT(scip::SCIP_t, val1::SCIP_Real, val2::SCIP_Real) = @scip_ccall("SCIPisSumGT", SCIP_Bool, (Ptr{SCIP}, SCIP_Real, SCIP_Real), pointer(scip), val1, val2)
-SCIPisSumGE(scip::SCIP_t, val1::SCIP_Real, val2::SCIP_Real) = @scip_ccall("SCIPisSumGE", SCIP_Bool, (Ptr{SCIP}, SCIP_Real, SCIP_Real), pointer(scip), val1, val2)
-SCIPisSumZero(scip::SCIP_t, val::SCIP_Real) = @scip_ccall("SCIPisSumZero", SCIP_Bool, (Ptr{SCIP}, SCIP_Real), pointer(scip), val)
-SCIPisSumPositive(scip::SCIP_t, val::SCIP_Real) = @scip_ccall("SCIPisSumPositive", SCIP_Bool, (Ptr{SCIP}, SCIP_Real), pointer(scip), val)
-SCIPisSumNegative(scip::SCIP_t, val::SCIP_Real) = @scip_ccall("SCIPisSumNegative", SCIP_Bool, (Ptr{SCIP}, SCIP_Real), pointer(scip), val)
-SCIPisFeasEQ(scip::SCIP_t, val1::SCIP_Real, val2::SCIP_Real) = @scip_ccall("SCIPisFeasEQ", SCIP_Bool, (Ptr{SCIP}, SCIP_Real, SCIP_Real), pointer(scip), val1, val2)
-SCIPisFeasLT(scip::SCIP_t, val1::SCIP_Real, val2::SCIP_Real) = @scip_ccall("SCIPisFeasLT", SCIP_Bool, (Ptr{SCIP}, SCIP_Real, SCIP_Real), pointer(scip), val1, val2)
-SCIPisFeasLE(scip::SCIP_t, val1::SCIP_Real, val2::SCIP_Real) = @scip_ccall("SCIPisFeasLE", SCIP_Bool, (Ptr{SCIP}, SCIP_Real, SCIP_Real), pointer(scip), val1, val2)
-SCIPisFeasGT(scip::SCIP_t, val1::SCIP_Real, val2::SCIP_Real) = @scip_ccall("SCIPisFeasGT", SCIP_Bool, (Ptr{SCIP}, SCIP_Real, SCIP_Real), pointer(scip), val1, val2)
-SCIPisFeasGE(scip::SCIP_t, val1::SCIP_Real, val2::SCIP_Real) = @scip_ccall("SCIPisFeasGE", SCIP_Bool, (Ptr{SCIP}, SCIP_Real, SCIP_Real), pointer(scip), val1, val2)
-SCIPisFeasZero(scip::SCIP_t, val::SCIP_Real) = @scip_ccall("SCIPisFeasZero", SCIP_Bool, (Ptr{SCIP}, SCIP_Real), pointer(scip), val)
-SCIPisFeasPositive(scip::SCIP_t, val::SCIP_Real) = @scip_ccall("SCIPisFeasPositive", SCIP_Bool, (Ptr{SCIP}, SCIP_Real), pointer(scip), val)
-SCIPisFeasNegative(scip::SCIP_t, val::SCIP_Real) = @scip_ccall("SCIPisFeasNegative", SCIP_Bool, (Ptr{SCIP}, SCIP_Real), pointer(scip), val)
-SCIPisFeasIntegral(scip::SCIP_t, val::SCIP_Real) = @scip_ccall("SCIPisFeasIntegral", SCIP_Bool, (Ptr{SCIP}, SCIP_Real), pointer(scip), val)
-SCIPisFeasFracIntegral(scip::SCIP_t, val::SCIP_Real) = @scip_ccall("SCIPisFeasFracIntegral", SCIP_Bool, (Ptr{SCIP}, SCIP_Real), pointer(scip), val)
-SCIPfeasFloor(scip::SCIP_t, val::SCIP_Real) = @scip_ccall("SCIPfeasFloor", SCIP_Real, (Ptr{SCIP}, SCIP_Real), pointer(scip), val)
-SCIPfeasCeil(scip::SCIP_t, val::SCIP_Real) = @scip_ccall("SCIPfeasCeil", SCIP_Real, (Ptr{SCIP}, SCIP_Real), pointer(scip), val)
-SCIPfeasRound(scip::SCIP_t, val::SCIP_Real) = @scip_ccall("SCIPfeasRound", SCIP_Real, (Ptr{SCIP}, SCIP_Real), pointer(scip), val)
-SCIPfeasFrac(scip::SCIP_t, val::SCIP_Real) = @scip_ccall("SCIPfeasFrac", SCIP_Real, (Ptr{SCIP}, SCIP_Real), pointer(scip), val)
-SCIPisLbBetter(scip::SCIP_t, newlb::SCIP_Real, oldlb::SCIP_Real, oldub::SCIP_Real) = @scip_ccall("SCIPisLbBetter", SCIP_Bool, (Ptr{SCIP}, SCIP_Real, SCIP_Real, SCIP_Real), pointer(scip), newlb, oldlb, oldub)
-SCIPisUbBetter(scip::SCIP_t, newub::SCIP_Real, oldlb::SCIP_Real, oldub::SCIP_Real) = @scip_ccall("SCIPisUbBetter", SCIP_Bool, (Ptr{SCIP}, SCIP_Real, SCIP_Real, SCIP_Real), pointer(scip), newub, oldlb, oldub)
-SCIPisRelEQ(scip::SCIP_t, val1::SCIP_Real, val2::SCIP_Real) = @scip_ccall("SCIPisRelEQ", SCIP_Bool, (Ptr{SCIP}, SCIP_Real, SCIP_Real), pointer(scip), val1, val2)
-SCIPisRelLT(scip::SCIP_t, val1::SCIP_Real, val2::SCIP_Real) = @scip_ccall("SCIPisRelLT", SCIP_Bool, (Ptr{SCIP}, SCIP_Real, SCIP_Real), pointer(scip), val1, val2)
-SCIPisRelLE(scip::SCIP_t, val1::SCIP_Real, val2::SCIP_Real) = @scip_ccall("SCIPisRelLE", SCIP_Bool, (Ptr{SCIP}, SCIP_Real, SCIP_Real), pointer(scip), val1, val2)
-SCIPisRelGT(scip::SCIP_t, val1::SCIP_Real, val2::SCIP_Real) = @scip_ccall("SCIPisRelGT", SCIP_Bool, (Ptr{SCIP}, SCIP_Real, SCIP_Real), pointer(scip), val1, val2)
-SCIPisRelGE(scip::SCIP_t, val1::SCIP_Real, val2::SCIP_Real) = @scip_ccall("SCIPisRelGE", SCIP_Bool, (Ptr{SCIP}, SCIP_Real, SCIP_Real), pointer(scip), val1, val2)
-SCIPisSumRelEQ(scip::SCIP_t, val1::SCIP_Real, val2::SCIP_Real) = @scip_ccall("SCIPisSumRelEQ", SCIP_Bool, (Ptr{SCIP}, SCIP_Real, SCIP_Real), pointer(scip), val1, val2)
-SCIPisSumRelLT(scip::SCIP_t, val1::SCIP_Real, val2::SCIP_Real) = @scip_ccall("SCIPisSumRelLT", SCIP_Bool, (Ptr{SCIP}, SCIP_Real, SCIP_Real), pointer(scip), val1, val2)
-SCIPisSumRelLE(scip::SCIP_t, val1::SCIP_Real, val2::SCIP_Real) = @scip_ccall("SCIPisSumRelLE", SCIP_Bool, (Ptr{SCIP}, SCIP_Real, SCIP_Real), pointer(scip), val1, val2)
-SCIPisSumRelGT(scip::SCIP_t, val1::SCIP_Real, val2::SCIP_Real) = @scip_ccall("SCIPisSumRelGT", SCIP_Bool, (Ptr{SCIP}, SCIP_Real, SCIP_Real), pointer(scip), val1, val2)
-SCIPisSumRelGE(scip::SCIP_t, val1::SCIP_Real, val2::SCIP_Real) = @scip_ccall("SCIPisSumRelGE", SCIP_Bool, (Ptr{SCIP}, SCIP_Real, SCIP_Real), pointer(scip), val1, val2)
-SCIPisUpdateUnreliable(scip::SCIP_t, newvalue::SCIP_Real, oldvalue::SCIP_Real) = @scip_ccall("SCIPisUpdateUnreliable", SCIP_Bool, (Ptr{SCIP}, SCIP_Real, SCIP_Real), pointer(scip), newvalue, oldvalue)
-SCIPgetMemUsed(scip::SCIP_t) = @scip_ccall("SCIPgetMemUsed", Int64, (Ptr{SCIP},), pointer(scip))
-SCIPgetMemExternEstim(scip::SCIP_t) = @scip_ccall("SCIPgetMemExternEstim", Int64, (Ptr{SCIP},), pointer(scip))
-SCIPcalcMemGrowSize(scip::SCIP_t, num::Int) = @scip_ccall("SCIPcalcMemGrowSize", Int, (Ptr{SCIP}, Int), pointer(scip), num)
-SCIPprintMemoryDiagnostic(scip::SCIP_t) = @scip_ccall("SCIPprintMemoryDiagnostic", Void, (Ptr{SCIP},), pointer(scip))
-SCIPgetRealarrayVal(scip::SCIP_t, realarray::SCIP_REALARRAY_t, idx::Int) = @scip_ccall("SCIPgetRealarrayVal", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_REALARRAY}, Int), pointer(scip), pointer(realarray), idx)
-SCIPgetRealarrayMinIdx(scip::SCIP_t, realarray::SCIP_REALARRAY_t) = @scip_ccall("SCIPgetRealarrayMinIdx", Int, (Ptr{SCIP}, Ptr{SCIP_REALARRAY}), pointer(scip), pointer(realarray))
-SCIPgetRealarrayMaxIdx(scip::SCIP_t, realarray::SCIP_REALARRAY_t) = @scip_ccall("SCIPgetRealarrayMaxIdx", Int, (Ptr{SCIP}, Ptr{SCIP_REALARRAY}), pointer(scip), pointer(realarray))
-SCIPgetIntarrayVal(scip::SCIP_t, intarray::SCIP_INTARRAY_t, idx::Int) = @scip_ccall("SCIPgetIntarrayVal", Int, (Ptr{SCIP}, Ptr{SCIP_INTARRAY}, Int), pointer(scip), pointer(intarray), idx)
-SCIPgetIntarrayMinIdx(scip::SCIP_t, intarray::SCIP_INTARRAY_t) = @scip_ccall("SCIPgetIntarrayMinIdx", Int, (Ptr{SCIP}, Ptr{SCIP_INTARRAY}), pointer(scip), pointer(intarray))
-SCIPgetIntarrayMaxIdx(scip::SCIP_t, intarray::SCIP_INTARRAY_t) = @scip_ccall("SCIPgetIntarrayMaxIdx", Int, (Ptr{SCIP}, Ptr{SCIP_INTARRAY}), pointer(scip), pointer(intarray))
-SCIPgetBoolarrayVal(scip::SCIP_t, boolarray::SCIP_BOOLARRAY_t, idx::Int) = @scip_ccall("SCIPgetBoolarrayVal", SCIP_Bool, (Ptr{SCIP}, Ptr{SCIP_BOOLARRAY}, Int), pointer(scip), pointer(boolarray), idx)
-SCIPgetBoolarrayMinIdx(scip::SCIP_t, boolarray::SCIP_BOOLARRAY_t) = @scip_ccall("SCIPgetBoolarrayMinIdx", Int, (Ptr{SCIP}, Ptr{SCIP_BOOLARRAY}), pointer(scip), pointer(boolarray))
-SCIPgetBoolarrayMaxIdx(scip::SCIP_t, boolarray::SCIP_BOOLARRAY_t) = @scip_ccall("SCIPgetBoolarrayMaxIdx", Int, (Ptr{SCIP}, Ptr{SCIP_BOOLARRAY}), pointer(scip), pointer(boolarray))
-SCIPgetPtrarrayMinIdx(scip::SCIP_t, ptrarray::SCIP_PTRARRAY_t) = @scip_ccall("SCIPgetPtrarrayMinIdx", Int, (Ptr{SCIP}, Ptr{SCIP_PTRARRAY}), pointer(scip), pointer(ptrarray))
-SCIPgetPtrarrayMaxIdx(scip::SCIP_t, ptrarray::SCIP_PTRARRAY_t) = @scip_ccall("SCIPgetPtrarrayMaxIdx", Int, (Ptr{SCIP}, Ptr{SCIP_PTRARRAY}), pointer(scip), pointer(ptrarray))
-SCIPgetNCountedSols(scip::SCIP_t, valid::SCIP_Bool_t) = @scip_ccall("SCIPgetNCountedSols", Int64, (Ptr{SCIP}, Ptr{SCIP_Bool}), pointer(scip), pointer(valid))
-SCIPgetNCountedFeasSubtrees(scip::SCIP_t) = @scip_ccall("SCIPgetNCountedFeasSubtrees", Int64, (Ptr{SCIP},), pointer(scip))
-SCIPgetNVarsLogicor(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNVarsLogicor", Int, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetVarsLogicor(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetVarsLogicor", Ptr{Ptr{SCIP_VAR}}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetDualsolLogicor(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetDualsolLogicor", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetDualfarkasLogicor(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetDualfarkasLogicor", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetRowLogicor(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetRowLogicor", Ptr{SCIP_ROW}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPeventhdlrGetName(eventhdlr::SCIP_EVENTHDLR_t) = @scip_ccall("SCIPeventhdlrGetName", String, (Ptr{SCIP_EVENTHDLR},), pointer(eventhdlr))
-SCIPeventhdlrGetData(eventhdlr::SCIP_EVENTHDLR_t) = @scip_ccall("SCIPeventhdlrGetData", Ptr{SCIP_EVENTHDLRDATA}, (Ptr{SCIP_EVENTHDLR},), pointer(eventhdlr))
-SCIPeventhdlrSetData(eventhdlr::SCIP_EVENTHDLR_t, eventhdlrdata::SCIP_EVENTHDLRDATA_t) = @scip_ccall("SCIPeventhdlrSetData", Void, (Ptr{SCIP_EVENTHDLR}, Ptr{SCIP_EVENTHDLRDATA}), pointer(eventhdlr), pointer(eventhdlrdata))
-SCIPeventhdlrIsInitialized(eventhdlr::SCIP_EVENTHDLR_t) = @scip_ccall("SCIPeventhdlrIsInitialized", SCIP_Bool, (Ptr{SCIP_EVENTHDLR},), pointer(eventhdlr))
-SCIPeventhdlrGetSetupTime(eventhdlr::SCIP_EVENTHDLR_t) = @scip_ccall("SCIPeventhdlrGetSetupTime", SCIP_Real, (Ptr{SCIP_EVENTHDLR},), pointer(eventhdlr))
-SCIPeventhdlrGetTime(eventhdlr::SCIP_EVENTHDLR_t) = @scip_ccall("SCIPeventhdlrGetTime", SCIP_Real, (Ptr{SCIP_EVENTHDLR},), pointer(eventhdlr))
-SCIPeventGetType(event::SCIP_EVENT_t) = @scip_ccall("SCIPeventGetType", SCIP_EVENTTYPE, (Ptr{SCIP_EVENT},), pointer(event))
-SCIPeventGetVar(event::SCIP_EVENT_t) = @scip_ccall("SCIPeventGetVar", Ptr{SCIP_VAR}, (Ptr{SCIP_EVENT},), pointer(event))
-SCIPeventGetOldobj(event::SCIP_EVENT_t) = @scip_ccall("SCIPeventGetOldobj", SCIP_Real, (Ptr{SCIP_EVENT},), pointer(event))
-SCIPeventGetNewobj(event::SCIP_EVENT_t) = @scip_ccall("SCIPeventGetNewobj", SCIP_Real, (Ptr{SCIP_EVENT},), pointer(event))
-SCIPeventGetOldbound(event::SCIP_EVENT_t) = @scip_ccall("SCIPeventGetOldbound", SCIP_Real, (Ptr{SCIP_EVENT},), pointer(event))
-SCIPeventGetNewbound(event::SCIP_EVENT_t) = @scip_ccall("SCIPeventGetNewbound", SCIP_Real, (Ptr{SCIP_EVENT},), pointer(event))
-SCIPeventGetNode(event::SCIP_EVENT_t) = @scip_ccall("SCIPeventGetNode", Ptr{SCIP_NODE}, (Ptr{SCIP_EVENT},), pointer(event))
-SCIPeventGetSol(event::SCIP_EVENT_t) = @scip_ccall("SCIPeventGetSol", Ptr{SCIP_SOL}, (Ptr{SCIP_EVENT},), pointer(event))
-SCIPeventGetHoleLeft(event::SCIP_EVENT_t) = @scip_ccall("SCIPeventGetHoleLeft", SCIP_Real, (Ptr{SCIP_EVENT},), pointer(event))
-SCIPeventGetHoleRight(event::SCIP_EVENT_t) = @scip_ccall("SCIPeventGetHoleRight", SCIP_Real, (Ptr{SCIP_EVENT},), pointer(event))
-SCIPeventGetRow(event::SCIP_EVENT_t) = @scip_ccall("SCIPeventGetRow", Ptr{SCIP_ROW}, (Ptr{SCIP_EVENT},), pointer(event))
-SCIPeventGetRowCol(event::SCIP_EVENT_t) = @scip_ccall("SCIPeventGetRowCol", Ptr{SCIP_COL}, (Ptr{SCIP_EVENT},), pointer(event))
-SCIPeventGetRowOldCoefVal(event::SCIP_EVENT_t) = @scip_ccall("SCIPeventGetRowOldCoefVal", SCIP_Real, (Ptr{SCIP_EVENT},), pointer(event))
-SCIPeventGetRowNewCoefVal(event::SCIP_EVENT_t) = @scip_ccall("SCIPeventGetRowNewCoefVal", SCIP_Real, (Ptr{SCIP_EVENT},), pointer(event))
-SCIPeventGetRowOldConstVal(event::SCIP_EVENT_t) = @scip_ccall("SCIPeventGetRowOldConstVal", SCIP_Real, (Ptr{SCIP_EVENT},), pointer(event))
-SCIPeventGetRowNewConstVal(event::SCIP_EVENT_t) = @scip_ccall("SCIPeventGetRowNewConstVal", SCIP_Real, (Ptr{SCIP_EVENT},), pointer(event))
-SCIPeventGetRowSide(event::SCIP_EVENT_t) = @scip_ccall("SCIPeventGetRowSide", SCIP_SIDETYPE, (Ptr{SCIP_EVENT},), pointer(event))
-SCIPeventGetRowOldSideVal(event::SCIP_EVENT_t) = @scip_ccall("SCIPeventGetRowOldSideVal", SCIP_Real, (Ptr{SCIP_EVENT},), pointer(event))
-SCIPeventGetRowNewSideVal(event::SCIP_EVENT_t) = @scip_ccall("SCIPeventGetRowNewSideVal", SCIP_Real, (Ptr{SCIP_EVENT},), pointer(event))
-SCIPgetNLinearVarsNonlinear(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNLinearVarsNonlinear", Int, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetLinearVarsNonlinear(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetLinearVarsNonlinear", Ptr{Ptr{SCIP_VAR}}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetLinearCoefsNonlinear(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetLinearCoefsNonlinear", Ptr{SCIP_Real}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetNExprtreesNonlinear(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNExprtreesNonlinear", Int, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetExprtreesNonlinear(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetExprtreesNonlinear", Ptr{Ptr{SCIP_EXPRTREE}}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetExprtreeCoefsNonlinear(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetExprtreeCoefsNonlinear", Ptr{SCIP_Real}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetExprgraphNodeNonlinear(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetExprgraphNodeNonlinear", Ptr{SCIP_EXPRGRAPHNODE}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetLhsNonlinear(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetLhsNonlinear", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetRhsNonlinear(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetRhsNonlinear", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetExprgraphNonlinear(scip::SCIP_t, conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPgetExprgraphNonlinear", Ptr{SCIP_EXPRGRAPH}, (Ptr{SCIP}, Ptr{SCIP_CONSHDLR}), pointer(scip), pointer(conshdlr))
-SCIPgetNVarsSetppc(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNVarsSetppc", Int, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetVarsSetppc(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetVarsSetppc", Ptr{Ptr{SCIP_VAR}}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetTypeSetppc(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetTypeSetppc", SCIP_SETPPCTYPE, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetDualsolSetppc(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetDualsolSetppc", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetDualfarkasSetppc(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetDualfarkasSetppc", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetRowSetppc(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetRowSetppc", Ptr{SCIP_ROW}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetNFixedonesSetppc(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNFixedonesSetppc", Int, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetNFixedzerosSetppc(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNFixedzerosSetppc", Int, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPparamGetType(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetType", SCIP_PARAMTYPE, (Ptr{SCIP_PARAM},), pointer(param))
-SCIPparamGetName(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetName", String, (Ptr{SCIP_PARAM},), pointer(param))
-SCIPparamGetDesc(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetDesc", String, (Ptr{SCIP_PARAM},), pointer(param))
-SCIPparamGetData(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetData", Ptr{SCIP_PARAMDATA}, (Ptr{SCIP_PARAM},), pointer(param))
-SCIPparamIsAdvanced(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamIsAdvanced", SCIP_Bool, (Ptr{SCIP_PARAM},), pointer(param))
-SCIPparamIsFixed(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamIsFixed", SCIP_Bool, (Ptr{SCIP_PARAM},), pointer(param))
-SCIPparamSetFixed(param::SCIP_PARAM_t, fixed::SCIP_Bool) = @scip_ccall("SCIPparamSetFixed", Void, (Ptr{SCIP_PARAM}, SCIP_Bool), pointer(param), fixed)
-SCIPparamGetBool(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetBool", SCIP_Bool, (Ptr{SCIP_PARAM},), pointer(param))
-SCIPparamGetBoolDefault(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetBoolDefault", SCIP_Bool, (Ptr{SCIP_PARAM},), pointer(param))
-SCIPparamGetInt(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetInt", Int, (Ptr{SCIP_PARAM},), pointer(param))
-SCIPparamGetIntMin(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetIntMin", Int, (Ptr{SCIP_PARAM},), pointer(param))
-SCIPparamGetIntMax(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetIntMax", Int, (Ptr{SCIP_PARAM},), pointer(param))
-SCIPparamGetIntDefault(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetIntDefault", Int, (Ptr{SCIP_PARAM},), pointer(param))
-SCIPparamGetLongint(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetLongint", Int64, (Ptr{SCIP_PARAM},), pointer(param))
-SCIPparamGetLongintMin(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetLongintMin", Int64, (Ptr{SCIP_PARAM},), pointer(param))
-SCIPparamGetLongintMax(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetLongintMax", Int64, (Ptr{SCIP_PARAM},), pointer(param))
-SCIPparamGetLongintDefault(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetLongintDefault", Int64, (Ptr{SCIP_PARAM},), pointer(param))
-SCIPparamGetReal(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetReal", SCIP_Real, (Ptr{SCIP_PARAM},), pointer(param))
-SCIPparamGetRealMin(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetRealMin", SCIP_Real, (Ptr{SCIP_PARAM},), pointer(param))
-SCIPparamGetRealMax(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetRealMax", SCIP_Real, (Ptr{SCIP_PARAM},), pointer(param))
-SCIPparamGetRealDefault(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetRealDefault", SCIP_Real, (Ptr{SCIP_PARAM},), pointer(param))
-SCIPparamGetChar(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetChar", Char, (Ptr{SCIP_PARAM},), pointer(param))
-SCIPparamGetCharDefault(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetCharDefault", Char, (Ptr{SCIP_PARAM},), pointer(param))
-SCIPparamIsDefault(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamIsDefault", SCIP_Bool, (Ptr{SCIP_PARAM},), pointer(param))
-SCIPdialoghdlrGetRoot(dialoghdlr::SCIP_DIALOGHDLR_t) = @scip_ccall("SCIPdialoghdlrGetRoot", Ptr{SCIP_DIALOG}, (Ptr{SCIP_DIALOGHDLR},), pointer(dialoghdlr))
-SCIPdialoghdlrClearBuffer(dialoghdlr::SCIP_DIALOGHDLR_t) = @scip_ccall("SCIPdialoghdlrClearBuffer", Void, (Ptr{SCIP_DIALOGHDLR},), pointer(dialoghdlr))
-SCIPdialoghdlrIsBufferEmpty(dialoghdlr::SCIP_DIALOGHDLR_t) = @scip_ccall("SCIPdialoghdlrIsBufferEmpty", SCIP_Bool, (Ptr{SCIP_DIALOGHDLR},), pointer(dialoghdlr))
-SCIPdialogHasEntry(dialog::SCIP_DIALOG_t, entryname::String) = @scip_ccall("SCIPdialogHasEntry", SCIP_Bool, (Ptr{SCIP_DIALOG}, String), pointer(dialog), entryname)
-SCIPdialogFindEntry(dialog::SCIP_DIALOG_t, entryname::String, subdialog::SCIP_DIALOG_t) = @scip_ccall("SCIPdialogFindEntry", Int, (Ptr{SCIP_DIALOG}, String, Ptr{Ptr{SCIP_DIALOG}}), pointer(dialog), entryname, array(subdialog))
-SCIPdialogGetName(dialog::SCIP_DIALOG_t) = @scip_ccall("SCIPdialogGetName", String, (Ptr{SCIP_DIALOG},), pointer(dialog))
-SCIPdialogGetDesc(dialog::SCIP_DIALOG_t) = @scip_ccall("SCIPdialogGetDesc", String, (Ptr{SCIP_DIALOG},), pointer(dialog))
-SCIPdialogIsSubmenu(dialog::SCIP_DIALOG_t) = @scip_ccall("SCIPdialogIsSubmenu", SCIP_Bool, (Ptr{SCIP_DIALOG},), pointer(dialog))
-SCIPdialogGetParent(dialog::SCIP_DIALOG_t) = @scip_ccall("SCIPdialogGetParent", Ptr{SCIP_DIALOG}, (Ptr{SCIP_DIALOG},), pointer(dialog))
-SCIPdialogGetSubdialogs(dialog::SCIP_DIALOG_t) = @scip_ccall("SCIPdialogGetSubdialogs", Ptr{Ptr{SCIP_DIALOG}}, (Ptr{SCIP_DIALOG},), pointer(dialog))
-SCIPdialogGetNSubdialogs(dialog::SCIP_DIALOG_t) = @scip_ccall("SCIPdialogGetNSubdialogs", Int, (Ptr{SCIP_DIALOG},), pointer(dialog))
-SCIPdialogGetData(dialog::SCIP_DIALOG_t) = @scip_ccall("SCIPdialogGetData", Ptr{SCIP_DIALOGDATA}, (Ptr{SCIP_DIALOG},), pointer(dialog))
-SCIPdialogSetData(dialog::SCIP_DIALOG_t, dialogdata::SCIP_DIALOGDATA_t) = @scip_ccall("SCIPdialogSetData", Void, (Ptr{SCIP_DIALOG}, Ptr{SCIP_DIALOGDATA}), pointer(dialog), pointer(dialogdata))
-SCIPsepaGetData(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaGetData", Ptr{SCIP_SEPADATA}, (Ptr{SCIP_SEPA},), pointer(sepa))
-SCIPsepaSetData(sepa::SCIP_SEPA_t, sepadata::SCIP_SEPADATA_t) = @scip_ccall("SCIPsepaSetData", Void, (Ptr{SCIP_SEPA}, Ptr{SCIP_SEPADATA}), pointer(sepa), pointer(sepadata))
-SCIPsepaGetName(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaGetName", String, (Ptr{SCIP_SEPA},), pointer(sepa))
-SCIPsepaGetDesc(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaGetDesc", String, (Ptr{SCIP_SEPA},), pointer(sepa))
-SCIPsepaGetPriority(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaGetPriority", Int, (Ptr{SCIP_SEPA},), pointer(sepa))
-SCIPsepaGetFreq(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaGetFreq", Int, (Ptr{SCIP_SEPA},), pointer(sepa))
-SCIPsepaSetFreq(sepa::SCIP_SEPA_t, freq::Int) = @scip_ccall("SCIPsepaSetFreq", Void, (Ptr{SCIP_SEPA}, Int), pointer(sepa), freq)
-SCIPsepaGetMaxbounddist(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaGetMaxbounddist", SCIP_Real, (Ptr{SCIP_SEPA},), pointer(sepa))
-SCIPsepaUsesSubscip(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaUsesSubscip", SCIP_Bool, (Ptr{SCIP_SEPA},), pointer(sepa))
-SCIPsepaGetSetupTime(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaGetSetupTime", SCIP_Real, (Ptr{SCIP_SEPA},), pointer(sepa))
-SCIPsepaGetTime(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaGetTime", SCIP_Real, (Ptr{SCIP_SEPA},), pointer(sepa))
-SCIPsepaGetNCalls(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaGetNCalls", Int64, (Ptr{SCIP_SEPA},), pointer(sepa))
-SCIPsepaGetNCallsAtNode(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaGetNCallsAtNode", Int, (Ptr{SCIP_SEPA},), pointer(sepa))
-SCIPsepaGetNCutoffs(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaGetNCutoffs", Int64, (Ptr{SCIP_SEPA},), pointer(sepa))
-SCIPsepaGetNCutsFound(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaGetNCutsFound", Int64, (Ptr{SCIP_SEPA},), pointer(sepa))
-SCIPsepaGetNCutsApplied(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaGetNCutsApplied", Int64, (Ptr{SCIP_SEPA},), pointer(sepa))
-SCIPsepaGetNCutsFoundAtNode(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaGetNCutsFoundAtNode", Int64, (Ptr{SCIP_SEPA},), pointer(sepa))
-SCIPsepaGetNConssFound(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaGetNConssFound", Int64, (Ptr{SCIP_SEPA},), pointer(sepa))
-SCIPsepaGetNDomredsFound(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaGetNDomredsFound", Int64, (Ptr{SCIP_SEPA},), pointer(sepa))
-SCIPsepaIsDelayed(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaIsDelayed", SCIP_Bool, (Ptr{SCIP_SEPA},), pointer(sepa))
-SCIPsepaWasLPDelayed(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaWasLPDelayed", SCIP_Bool, (Ptr{SCIP_SEPA},), pointer(sepa))
-SCIPsepaWasSolDelayed(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaWasSolDelayed", SCIP_Bool, (Ptr{SCIP_SEPA},), pointer(sepa))
-SCIPsepaIsInitialized(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaIsInitialized", SCIP_Bool, (Ptr{SCIP_SEPA},), pointer(sepa))
-SCIPvarGetNLocksDown(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetNLocksDown", Int, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetNLocksUp(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetNLocksUp", Int, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarMayRoundDown(var::SCIP_VAR_t) = @scip_ccall("SCIPvarMayRoundDown", SCIP_Bool, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarMayRoundUp(var::SCIP_VAR_t) = @scip_ccall("SCIPvarMayRoundUp", SCIP_Bool, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarCompareActiveAndNegated(var1::SCIP_VAR_t, var2::SCIP_VAR_t) = @scip_ccall("SCIPvarCompareActiveAndNegated", Int, (Ptr{SCIP_VAR}, Ptr{SCIP_VAR}), pointer(var1), pointer(var2))
-SCIPvarCompare(var1::SCIP_VAR_t, var2::SCIP_VAR_t) = @scip_ccall("SCIPvarCompare", Int, (Ptr{SCIP_VAR}, Ptr{SCIP_VAR}), pointer(var1), pointer(var2))
-SCIPvarsGetProbvar(vars::SCIP_VAR_t, nvars::Int) = @scip_ccall("SCIPvarsGetProbvar", Void, (Ptr{Ptr{SCIP_VAR}}, Int), array(vars), nvars)
-SCIPvarGetProbvar(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetProbvar", Ptr{SCIP_VAR}, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarIsTransformedOrigvar(var::SCIP_VAR_t) = @scip_ccall("SCIPvarIsTransformedOrigvar", SCIP_Bool, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetNBranchings(var::SCIP_VAR_t, dir::SCIP_BRANCHDIR) = @scip_ccall("SCIPvarGetNBranchings", Int64, (Ptr{SCIP_VAR}, SCIP_BRANCHDIR), pointer(var), dir)
-SCIPvarGetNBranchingsCurrentRun(var::SCIP_VAR_t, dir::SCIP_BRANCHDIR) = @scip_ccall("SCIPvarGetNBranchingsCurrentRun", Int64, (Ptr{SCIP_VAR}, SCIP_BRANCHDIR), pointer(var), dir)
-SCIPvarGetInferenceSum(var::SCIP_VAR_t, dir::SCIP_BRANCHDIR) = @scip_ccall("SCIPvarGetInferenceSum", SCIP_Real, (Ptr{SCIP_VAR}, SCIP_BRANCHDIR), pointer(var), dir)
-SCIPvarGetInferenceSumCurrentRun(var::SCIP_VAR_t, dir::SCIP_BRANCHDIR) = @scip_ccall("SCIPvarGetInferenceSumCurrentRun", SCIP_Real, (Ptr{SCIP_VAR}, SCIP_BRANCHDIR), pointer(var), dir)
-SCIPvarGetCutoffSum(var::SCIP_VAR_t, dir::SCIP_BRANCHDIR) = @scip_ccall("SCIPvarGetCutoffSum", SCIP_Real, (Ptr{SCIP_VAR}, SCIP_BRANCHDIR), pointer(var), dir)
-SCIPvarGetCutoffSumCurrentRun(var::SCIP_VAR_t, dir::SCIP_BRANCHDIR) = @scip_ccall("SCIPvarGetCutoffSumCurrentRun", SCIP_Real, (Ptr{SCIP_VAR}, SCIP_BRANCHDIR), pointer(var), dir)
-SCIPvarGetAvgBranchdepth(var::SCIP_VAR_t, dir::SCIP_BRANCHDIR) = @scip_ccall("SCIPvarGetAvgBranchdepth", SCIP_Real, (Ptr{SCIP_VAR}, SCIP_BRANCHDIR), pointer(var), dir)
-SCIPvarGetAvgBranchdepthCurrentRun(var::SCIP_VAR_t, dir::SCIP_BRANCHDIR) = @scip_ccall("SCIPvarGetAvgBranchdepthCurrentRun", SCIP_Real, (Ptr{SCIP_VAR}, SCIP_BRANCHDIR), pointer(var), dir)
-SCIPvarHasImplic(var::SCIP_VAR_t, varfixing::SCIP_Bool, implvar::SCIP_VAR_t, impltype::SCIP_BOUNDTYPE) = @scip_ccall("SCIPvarHasImplic", SCIP_Bool, (Ptr{SCIP_VAR}, SCIP_Bool, Ptr{SCIP_VAR}, SCIP_BOUNDTYPE), pointer(var), varfixing, pointer(implvar), impltype)
-SCIPvarHasBinaryImplic(var::SCIP_VAR_t, varfixing::SCIP_Bool, implvar::SCIP_VAR_t, implvarfixing::SCIP_Bool) = @scip_ccall("SCIPvarHasBinaryImplic", SCIP_Bool, (Ptr{SCIP_VAR}, SCIP_Bool, Ptr{SCIP_VAR}, SCIP_Bool), pointer(var), varfixing, pointer(implvar), implvarfixing)
-SCIPvarsHaveCommonClique(var1::SCIP_VAR_t, value1::SCIP_Bool, var2::SCIP_VAR_t, value2::SCIP_Bool, regardimplics::SCIP_Bool) = @scip_ccall("SCIPvarsHaveCommonClique", SCIP_Bool, (Ptr{SCIP_VAR}, SCIP_Bool, Ptr{SCIP_VAR}, SCIP_Bool, SCIP_Bool), pointer(var1), value1, pointer(var2), value2, regardimplics)
-SCIPvarGetName(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetName", String, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetNUses(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetNUses", Int, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetData(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetData", Ptr{SCIP_VARDATA}, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarSetData(var::SCIP_VAR_t, vardata::SCIP_VARDATA_t) = @scip_ccall("SCIPvarSetData", Void, (Ptr{SCIP_VAR}, Ptr{SCIP_VARDATA}), pointer(var), pointer(vardata))
-SCIPvarGetStatus(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetStatus", SCIP_VARSTATUS, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarIsOriginal(var::SCIP_VAR_t) = @scip_ccall("SCIPvarIsOriginal", SCIP_Bool, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarIsTransformed(var::SCIP_VAR_t) = @scip_ccall("SCIPvarIsTransformed", SCIP_Bool, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarIsNegated(var::SCIP_VAR_t) = @scip_ccall("SCIPvarIsNegated", SCIP_Bool, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetType(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetType", SCIP_VARTYPE, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarIsBinary(var::SCIP_VAR_t) = @scip_ccall("SCIPvarIsBinary", SCIP_Bool, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarIsIntegral(var::SCIP_VAR_t) = @scip_ccall("SCIPvarIsIntegral", SCIP_Bool, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarIsInitial(var::SCIP_VAR_t) = @scip_ccall("SCIPvarIsInitial", SCIP_Bool, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarIsRemovable(var::SCIP_VAR_t) = @scip_ccall("SCIPvarIsRemovable", SCIP_Bool, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarIsDeleted(var::SCIP_VAR_t) = @scip_ccall("SCIPvarIsDeleted", SCIP_Bool, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarMarkDeletable(var::SCIP_VAR_t) = @scip_ccall("SCIPvarMarkDeletable", Void, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarMarkNotDeletable(var::SCIP_VAR_t) = @scip_ccall("SCIPvarMarkNotDeletable", Void, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarIsDeletable(var::SCIP_VAR_t) = @scip_ccall("SCIPvarIsDeletable", SCIP_Bool, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarIsActive(var::SCIP_VAR_t) = @scip_ccall("SCIPvarIsActive", SCIP_Bool, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetIndex(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetIndex", Int, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetProbindex(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetProbindex", Int, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetTransVar(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetTransVar", Ptr{SCIP_VAR}, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetCol(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetCol", Ptr{SCIP_COL}, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarIsInLP(var::SCIP_VAR_t) = @scip_ccall("SCIPvarIsInLP", SCIP_Bool, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetAggrVar(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetAggrVar", Ptr{SCIP_VAR}, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetAggrScalar(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetAggrScalar", SCIP_Real, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetAggrConstant(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetAggrConstant", SCIP_Real, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetMultaggrNVars(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetMultaggrNVars", Int, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetMultaggrVars(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetMultaggrVars", Ptr{Ptr{SCIP_VAR}}, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetMultaggrScalars(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetMultaggrScalars", Ptr{SCIP_Real}, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetMultaggrConstant(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetMultaggrConstant", SCIP_Real, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetNegatedVar(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetNegatedVar", Ptr{SCIP_VAR}, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetNegationVar(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetNegationVar", Ptr{SCIP_VAR}, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetNegationConstant(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetNegationConstant", SCIP_Real, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetObj(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetObj", SCIP_Real, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetLbOriginal(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetLbOriginal", SCIP_Real, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetUbOriginal(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetUbOriginal", SCIP_Real, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetHolelistOriginal(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetHolelistOriginal", Ptr{SCIP_HOLELIST}, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetLbGlobal(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetLbGlobal", SCIP_Real, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetUbGlobal(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetUbGlobal", SCIP_Real, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetHolelistGlobal(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetHolelistGlobal", Ptr{SCIP_HOLELIST}, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetBestBoundGlobal(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetBestBoundGlobal", SCIP_Real, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetWorstBoundGlobal(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetWorstBoundGlobal", SCIP_Real, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetLbLocal(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetLbLocal", SCIP_Real, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetUbLocal(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetUbLocal", SCIP_Real, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetHolelistLocal(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetHolelistLocal", Ptr{SCIP_HOLELIST}, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetBestBoundLocal(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetBestBoundLocal", SCIP_Real, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetWorstBoundLocal(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetWorstBoundLocal", SCIP_Real, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetBestBoundType(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetBestBoundType", SCIP_BOUNDTYPE, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetWorstBoundType(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetWorstBoundType", SCIP_BOUNDTYPE, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetLbLazy(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetLbLazy", SCIP_Real, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetUbLazy(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetUbLazy", SCIP_Real, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetBranchFactor(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetBranchFactor", SCIP_Real, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetBranchPriority(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetBranchPriority", Int, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetBranchDirection(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetBranchDirection", SCIP_BRANCHDIR, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetNVlbs(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetNVlbs", Int, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetVlbVars(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetVlbVars", Ptr{Ptr{SCIP_VAR}}, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetVlbCoefs(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetVlbCoefs", Ptr{SCIP_Real}, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetVlbConstants(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetVlbConstants", Ptr{SCIP_Real}, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetNVubs(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetNVubs", Int, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetVubVars(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetVubVars", Ptr{Ptr{SCIP_VAR}}, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetVubCoefs(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetVubCoefs", Ptr{SCIP_Real}, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetVubConstants(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetVubConstants", Ptr{SCIP_Real}, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetNImpls(var::SCIP_VAR_t, varfixing::SCIP_Bool) = @scip_ccall("SCIPvarGetNImpls", Int, (Ptr{SCIP_VAR}, SCIP_Bool), pointer(var), varfixing)
-SCIPvarGetNBinImpls(var::SCIP_VAR_t, varfixing::SCIP_Bool) = @scip_ccall("SCIPvarGetNBinImpls", Int, (Ptr{SCIP_VAR}, SCIP_Bool), pointer(var), varfixing)
-SCIPvarGetImplVars(var::SCIP_VAR_t, varfixing::SCIP_Bool) = @scip_ccall("SCIPvarGetImplVars", Ptr{Ptr{SCIP_VAR}}, (Ptr{SCIP_VAR}, SCIP_Bool), pointer(var), varfixing)
-SCIPvarGetImplTypes(var::SCIP_VAR_t, varfixing::SCIP_Bool) = @scip_ccall("SCIPvarGetImplTypes", Ptr{SCIP_BOUNDTYPE}, (Ptr{SCIP_VAR}, SCIP_Bool), pointer(var), varfixing)
-SCIPvarGetImplBounds(var::SCIP_VAR_t, varfixing::SCIP_Bool) = @scip_ccall("SCIPvarGetImplBounds", Ptr{SCIP_Real}, (Ptr{SCIP_VAR}, SCIP_Bool), pointer(var), varfixing)
-SCIPvarGetNCliques(var::SCIP_VAR_t, varfixing::SCIP_Bool) = @scip_ccall("SCIPvarGetNCliques", Int, (Ptr{SCIP_VAR}, SCIP_Bool), pointer(var), varfixing)
-SCIPvarGetCliques(var::SCIP_VAR_t, varfixing::SCIP_Bool) = @scip_ccall("SCIPvarGetCliques", Ptr{Ptr{SCIP_CLIQUE}}, (Ptr{SCIP_VAR}, SCIP_Bool), pointer(var), varfixing)
-SCIPvarGetLPSol(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetLPSol", SCIP_Real, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetNLPSol(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetNLPSol", SCIP_Real, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetBdchgInfoLb(var::SCIP_VAR_t, pos::Int) = @scip_ccall("SCIPvarGetBdchgInfoLb", Ptr{SCIP_BDCHGINFO}, (Ptr{SCIP_VAR}, Int), pointer(var), pos)
-SCIPvarGetNBdchgInfosLb(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetNBdchgInfosLb", Int, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetBdchgInfoUb(var::SCIP_VAR_t, pos::Int) = @scip_ccall("SCIPvarGetBdchgInfoUb", Ptr{SCIP_BDCHGINFO}, (Ptr{SCIP_VAR}, Int), pointer(var), pos)
-SCIPvarGetNBdchgInfosUb(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetNBdchgInfosUb", Int, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetValuehistory(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetValuehistory", Ptr{SCIP_VALUEHISTORY}, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetLPSol_rec(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetLPSol_rec", SCIP_Real, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetNLPSol_rec(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetNLPSol_rec", SCIP_Real, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetPseudoSol(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetPseudoSol", SCIP_Real, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetSol(var::SCIP_VAR_t, getlpval::SCIP_Bool) = @scip_ccall("SCIPvarGetSol", SCIP_Real, (Ptr{SCIP_VAR}, SCIP_Bool), pointer(var), getlpval)
-SCIPvarGetRootSol(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetRootSol", SCIP_Real, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetBestRootSol(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetBestRootSol", SCIP_Real, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetBestRootRedcost(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetBestRootRedcost", SCIP_Real, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetBestRootLPObjval(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetBestRootLPObjval", SCIP_Real, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarSetBestRootSol(var::SCIP_VAR_t, rootsol::SCIP_Real, rootredcost::SCIP_Real, rootlpobjval::SCIP_Real) = @scip_ccall("SCIPvarSetBestRootSol", Void, (Ptr{SCIP_VAR}, SCIP_Real, SCIP_Real, SCIP_Real), pointer(var), rootsol, rootredcost, rootlpobjval)
-SCIPvarGetAvgSol(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetAvgSol", SCIP_Real, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetLbchgInfo(var::SCIP_VAR_t, bdchgidx::SCIP_BDCHGIDX_t, after::SCIP_Bool) = @scip_ccall("SCIPvarGetLbchgInfo", Ptr{SCIP_BDCHGINFO}, (Ptr{SCIP_VAR}, Ptr{SCIP_BDCHGIDX}, SCIP_Bool), pointer(var), pointer(bdchgidx), after)
-SCIPvarGetUbchgInfo(var::SCIP_VAR_t, bdchgidx::SCIP_BDCHGIDX_t, after::SCIP_Bool) = @scip_ccall("SCIPvarGetUbchgInfo", Ptr{SCIP_BDCHGINFO}, (Ptr{SCIP_VAR}, Ptr{SCIP_BDCHGIDX}, SCIP_Bool), pointer(var), pointer(bdchgidx), after)
-SCIPvarGetBdchgInfo(var::SCIP_VAR_t, boundtype::SCIP_BOUNDTYPE, bdchgidx::SCIP_BDCHGIDX_t, after::SCIP_Bool) = @scip_ccall("SCIPvarGetBdchgInfo", Ptr{SCIP_BDCHGINFO}, (Ptr{SCIP_VAR}, SCIP_BOUNDTYPE, Ptr{SCIP_BDCHGIDX}, SCIP_Bool), pointer(var), boundtype, pointer(bdchgidx), after)
-SCIPvarGetLbAtIndex(var::SCIP_VAR_t, bdchgidx::SCIP_BDCHGIDX_t, after::SCIP_Bool) = @scip_ccall("SCIPvarGetLbAtIndex", SCIP_Real, (Ptr{SCIP_VAR}, Ptr{SCIP_BDCHGIDX}, SCIP_Bool), pointer(var), pointer(bdchgidx), after)
-SCIPvarGetUbAtIndex(var::SCIP_VAR_t, bdchgidx::SCIP_BDCHGIDX_t, after::SCIP_Bool) = @scip_ccall("SCIPvarGetUbAtIndex", SCIP_Real, (Ptr{SCIP_VAR}, Ptr{SCIP_BDCHGIDX}, SCIP_Bool), pointer(var), pointer(bdchgidx), after)
-SCIPvarGetBdAtIndex(var::SCIP_VAR_t, boundtype::SCIP_BOUNDTYPE, bdchgidx::SCIP_BDCHGIDX_t, after::SCIP_Bool) = @scip_ccall("SCIPvarGetBdAtIndex", SCIP_Real, (Ptr{SCIP_VAR}, SCIP_BOUNDTYPE, Ptr{SCIP_BDCHGIDX}, SCIP_Bool), pointer(var), boundtype, pointer(bdchgidx), after)
-SCIPvarWasFixedAtIndex(var::SCIP_VAR_t, bdchgidx::SCIP_BDCHGIDX_t, after::SCIP_Bool) = @scip_ccall("SCIPvarWasFixedAtIndex", SCIP_Bool, (Ptr{SCIP_VAR}, Ptr{SCIP_BDCHGIDX}, SCIP_Bool), pointer(var), pointer(bdchgidx), after)
-SCIPvarGetLastBdchgIndex(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetLastBdchgIndex", Ptr{SCIP_BDCHGIDX}, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarGetLastBdchgDepth(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetLastBdchgDepth", Int, (Ptr{SCIP_VAR},), pointer(var))
-SCIPvarWasFixedEarlier(var1::SCIP_VAR_t, var2::SCIP_VAR_t) = @scip_ccall("SCIPvarWasFixedEarlier", SCIP_Bool, (Ptr{SCIP_VAR}, Ptr{SCIP_VAR}), pointer(var1), pointer(var2))
-SCIPbdchgidxIsEarlier(bdchgidx1::SCIP_BDCHGIDX_t, bdchgidx2::SCIP_BDCHGIDX_t) = @scip_ccall("SCIPbdchgidxIsEarlier", SCIP_Bool, (Ptr{SCIP_BDCHGIDX}, Ptr{SCIP_BDCHGIDX}), pointer(bdchgidx1), pointer(bdchgidx2))
-SCIPbdchgidxIsEarlierNonNull(bdchgidx1::SCIP_BDCHGIDX_t, bdchgidx2::SCIP_BDCHGIDX_t) = @scip_ccall("SCIPbdchgidxIsEarlierNonNull", SCIP_Bool, (Ptr{SCIP_BDCHGIDX}, Ptr{SCIP_BDCHGIDX}), pointer(bdchgidx1), pointer(bdchgidx2))
-SCIPbdchginfoGetOldbound(bdchginfo::SCIP_BDCHGINFO_t) = @scip_ccall("SCIPbdchginfoGetOldbound", SCIP_Real, (Ptr{SCIP_BDCHGINFO},), pointer(bdchginfo))
-SCIPbdchginfoGetNewbound(bdchginfo::SCIP_BDCHGINFO_t) = @scip_ccall("SCIPbdchginfoGetNewbound", SCIP_Real, (Ptr{SCIP_BDCHGINFO},), pointer(bdchginfo))
-SCIPbdchginfoGetVar(bdchginfo::SCIP_BDCHGINFO_t) = @scip_ccall("SCIPbdchginfoGetVar", Ptr{SCIP_VAR}, (Ptr{SCIP_BDCHGINFO},), pointer(bdchginfo))
-SCIPbdchginfoGetChgtype(bdchginfo::SCIP_BDCHGINFO_t) = @scip_ccall("SCIPbdchginfoGetChgtype", SCIP_BOUNDCHGTYPE, (Ptr{SCIP_BDCHGINFO},), pointer(bdchginfo))
-SCIPbdchginfoGetBoundtype(bdchginfo::SCIP_BDCHGINFO_t) = @scip_ccall("SCIPbdchginfoGetBoundtype", SCIP_BOUNDTYPE, (Ptr{SCIP_BDCHGINFO},), pointer(bdchginfo))
-SCIPbdchginfoGetDepth(bdchginfo::SCIP_BDCHGINFO_t) = @scip_ccall("SCIPbdchginfoGetDepth", Int, (Ptr{SCIP_BDCHGINFO},), pointer(bdchginfo))
-SCIPbdchginfoGetPos(bdchginfo::SCIP_BDCHGINFO_t) = @scip_ccall("SCIPbdchginfoGetPos", Int, (Ptr{SCIP_BDCHGINFO},), pointer(bdchginfo))
-SCIPbdchginfoGetIdx(bdchginfo::SCIP_BDCHGINFO_t) = @scip_ccall("SCIPbdchginfoGetIdx", Ptr{SCIP_BDCHGIDX}, (Ptr{SCIP_BDCHGINFO},), pointer(bdchginfo))
-SCIPbdchginfoGetInferVar(bdchginfo::SCIP_BDCHGINFO_t) = @scip_ccall("SCIPbdchginfoGetInferVar", Ptr{SCIP_VAR}, (Ptr{SCIP_BDCHGINFO},), pointer(bdchginfo))
-SCIPbdchginfoGetInferCons(bdchginfo::SCIP_BDCHGINFO_t) = @scip_ccall("SCIPbdchginfoGetInferCons", Ptr{SCIP_CONS}, (Ptr{SCIP_BDCHGINFO},), pointer(bdchginfo))
-SCIPbdchginfoGetInferProp(bdchginfo::SCIP_BDCHGINFO_t) = @scip_ccall("SCIPbdchginfoGetInferProp", Ptr{SCIP_PROP}, (Ptr{SCIP_BDCHGINFO},), pointer(bdchginfo))
-SCIPbdchginfoGetInferInfo(bdchginfo::SCIP_BDCHGINFO_t) = @scip_ccall("SCIPbdchginfoGetInferInfo", Int, (Ptr{SCIP_BDCHGINFO},), pointer(bdchginfo))
-SCIPbdchginfoGetInferBoundtype(bdchginfo::SCIP_BDCHGINFO_t) = @scip_ccall("SCIPbdchginfoGetInferBoundtype", SCIP_BOUNDTYPE, (Ptr{SCIP_BDCHGINFO},), pointer(bdchginfo))
-SCIPbdchginfoIsRedundant(bdchginfo::SCIP_BDCHGINFO_t) = @scip_ccall("SCIPbdchginfoIsRedundant", SCIP_Bool, (Ptr{SCIP_BDCHGINFO},), pointer(bdchginfo))
-SCIPbdchginfoHasInferenceReason(bdchginfo::SCIP_BDCHGINFO_t) = @scip_ccall("SCIPbdchginfoHasInferenceReason", SCIP_Bool, (Ptr{SCIP_BDCHGINFO},), pointer(bdchginfo))
-SCIPbdchginfoIsTighter(bdchginfo1::SCIP_BDCHGINFO_t, bdchginfo2::SCIP_BDCHGINFO_t) = @scip_ccall("SCIPbdchginfoIsTighter", SCIP_Bool, (Ptr{SCIP_BDCHGINFO}, Ptr{SCIP_BDCHGINFO}), pointer(bdchginfo1), pointer(bdchginfo2))
-SCIPboundchgGetNewbound(boundchg::SCIP_BOUNDCHG_t) = @scip_ccall("SCIPboundchgGetNewbound", SCIP_Real, (Ptr{SCIP_BOUNDCHG},), pointer(boundchg))
-SCIPboundchgGetVar(boundchg::SCIP_BOUNDCHG_t) = @scip_ccall("SCIPboundchgGetVar", Ptr{SCIP_VAR}, (Ptr{SCIP_BOUNDCHG},), pointer(boundchg))
-SCIPboundchgGetBoundchgtype(boundchg::SCIP_BOUNDCHG_t) = @scip_ccall("SCIPboundchgGetBoundchgtype", SCIP_BOUNDCHGTYPE, (Ptr{SCIP_BOUNDCHG},), pointer(boundchg))
-SCIPboundchgGetBoundtype(boundchg::SCIP_BOUNDCHG_t) = @scip_ccall("SCIPboundchgGetBoundtype", SCIP_BOUNDTYPE, (Ptr{SCIP_BOUNDCHG},), pointer(boundchg))
-SCIPboundchgIsRedundant(boundchg::SCIP_BOUNDCHG_t) = @scip_ccall("SCIPboundchgIsRedundant", SCIP_Bool, (Ptr{SCIP_BOUNDCHG},), pointer(boundchg))
-SCIPdomchgGetNBoundchgs(domchg::SCIP_DOMCHG_t) = @scip_ccall("SCIPdomchgGetNBoundchgs", Int, (Ptr{SCIP_DOMCHG},), pointer(domchg))
-SCIPdomchgGetBoundchg(domchg::SCIP_DOMCHG_t, pos::Int) = @scip_ccall("SCIPdomchgGetBoundchg", Ptr{SCIP_BOUNDCHG}, (Ptr{SCIP_DOMCHG}, Int), pointer(domchg), pos)
-SCIPholelistGetLeft(holelist::SCIP_HOLELIST_t) = @scip_ccall("SCIPholelistGetLeft", SCIP_Real, (Ptr{SCIP_HOLELIST},), pointer(holelist))
-SCIPholelistGetRight(holelist::SCIP_HOLELIST_t) = @scip_ccall("SCIPholelistGetRight", SCIP_Real, (Ptr{SCIP_HOLELIST},), pointer(holelist))
-SCIPholelistGetNext(holelist::SCIP_HOLELIST_t) = @scip_ccall("SCIPholelistGetNext", Ptr{SCIP_HOLELIST}, (Ptr{SCIP_HOLELIST},), pointer(holelist))
-SCIPgetLinearVarBivariate(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetLinearVarBivariate", Ptr{SCIP_VAR}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetLinearCoefBivariate(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetLinearCoefBivariate", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetExprtreeBivariate(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetExprtreeBivariate", Ptr{SCIP_EXPRTREE}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetLhsBivariate(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetLhsBivariate", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetRhsBivariate(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetRhsBivariate", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPrelaxGetData(relax::SCIP_RELAX_t) = @scip_ccall("SCIPrelaxGetData", Ptr{SCIP_RELAXDATA}, (Ptr{SCIP_RELAX},), pointer(relax))
-SCIPrelaxSetData(relax::SCIP_RELAX_t, relaxdata::SCIP_RELAXDATA_t) = @scip_ccall("SCIPrelaxSetData", Void, (Ptr{SCIP_RELAX}, Ptr{SCIP_RELAXDATA}), pointer(relax), pointer(relaxdata))
-SCIPrelaxGetName(relax::SCIP_RELAX_t) = @scip_ccall("SCIPrelaxGetName", String, (Ptr{SCIP_RELAX},), pointer(relax))
-SCIPrelaxGetDesc(relax::SCIP_RELAX_t) = @scip_ccall("SCIPrelaxGetDesc", String, (Ptr{SCIP_RELAX},), pointer(relax))
-SCIPrelaxGetPriority(relax::SCIP_RELAX_t) = @scip_ccall("SCIPrelaxGetPriority", Int, (Ptr{SCIP_RELAX},), pointer(relax))
-SCIPrelaxGetFreq(relax::SCIP_RELAX_t) = @scip_ccall("SCIPrelaxGetFreq", Int, (Ptr{SCIP_RELAX},), pointer(relax))
-SCIPrelaxGetSetupTime(relax::SCIP_RELAX_t) = @scip_ccall("SCIPrelaxGetSetupTime", SCIP_Real, (Ptr{SCIP_RELAX},), pointer(relax))
-SCIPrelaxGetTime(relax::SCIP_RELAX_t) = @scip_ccall("SCIPrelaxGetTime", SCIP_Real, (Ptr{SCIP_RELAX},), pointer(relax))
-SCIPrelaxGetNCalls(relax::SCIP_RELAX_t) = @scip_ccall("SCIPrelaxGetNCalls", Int64, (Ptr{SCIP_RELAX},), pointer(relax))
-SCIPrelaxIsInitialized(relax::SCIP_RELAX_t) = @scip_ccall("SCIPrelaxIsInitialized", SCIP_Bool, (Ptr{SCIP_RELAX},), pointer(relax))
-SCIPrelaxMarkUnsolved(relax::SCIP_RELAX_t) = @scip_ccall("SCIPrelaxMarkUnsolved", Void, (Ptr{SCIP_RELAX},), pointer(relax))
-SCIPgetNonlinearVarAbspower(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNonlinearVarAbspower", Ptr{SCIP_VAR}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetLinearVarAbspower(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetLinearVarAbspower", Ptr{SCIP_VAR}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetExponentAbspower(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetExponentAbspower", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetOffsetAbspower(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetOffsetAbspower", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetCoefLinearAbspower(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetCoefLinearAbspower", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetLhsAbspower(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetLhsAbspower", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetRhsAbspower(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetRhsAbspower", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetViolationAbspower(scip::SCIP_t, cons::SCIP_CONS_t, sol::SCIP_SOL_t) = @scip_ccall("SCIPgetViolationAbspower", SCIP_Real, (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_SOL}), pointer(scip), pointer(cons), pointer(sol))
-SCIPsolGetOrigin(sol::SCIP_SOL_t) = @scip_ccall("SCIPsolGetOrigin", SCIP_SOLORIGIN, (Ptr{SCIP_SOL},), pointer(sol))
-SCIPsolIsOriginal(sol::SCIP_SOL_t) = @scip_ccall("SCIPsolIsOriginal", SCIP_Bool, (Ptr{SCIP_SOL},), pointer(sol))
-SCIPsolGetOrigObj(sol::SCIP_SOL_t) = @scip_ccall("SCIPsolGetOrigObj", SCIP_Real, (Ptr{SCIP_SOL},), pointer(sol))
-SCIPsolGetTime(sol::SCIP_SOL_t) = @scip_ccall("SCIPsolGetTime", SCIP_Real, (Ptr{SCIP_SOL},), pointer(sol))
-SCIPsolGetRunnum(sol::SCIP_SOL_t) = @scip_ccall("SCIPsolGetRunnum", Int, (Ptr{SCIP_SOL},), pointer(sol))
-SCIPsolGetNodenum(sol::SCIP_SOL_t) = @scip_ccall("SCIPsolGetNodenum", Int64, (Ptr{SCIP_SOL},), pointer(sol))
-SCIPsolGetDepth(sol::SCIP_SOL_t) = @scip_ccall("SCIPsolGetDepth", Int, (Ptr{SCIP_SOL},), pointer(sol))
-SCIPsolGetHeur(sol::SCIP_SOL_t) = @scip_ccall("SCIPsolGetHeur", Ptr{SCIP_HEUR}, (Ptr{SCIP_SOL},), pointer(sol))
-SCIPsolSetHeur(sol::SCIP_SOL_t, heur::SCIP_HEUR_t) = @scip_ccall("SCIPsolSetHeur", Void, (Ptr{SCIP_SOL}, Ptr{SCIP_HEUR}), pointer(sol), pointer(heur))
-SCIPsolGetIndex(sol::SCIP_SOL_t) = @scip_ccall("SCIPsolGetIndex", Int, (Ptr{SCIP_SOL},), pointer(sol))
-SCIPheurGetData(heur::SCIP_HEUR_t) = @scip_ccall("SCIPheurGetData", Ptr{SCIP_HEURDATA}, (Ptr{SCIP_HEUR},), pointer(heur))
-SCIPheurSetData(heur::SCIP_HEUR_t, heurdata::SCIP_HEURDATA_t) = @scip_ccall("SCIPheurSetData", Void, (Ptr{SCIP_HEUR}, Ptr{SCIP_HEURDATA}), pointer(heur), pointer(heurdata))
-SCIPheurGetName(heur::SCIP_HEUR_t) = @scip_ccall("SCIPheurGetName", String, (Ptr{SCIP_HEUR},), pointer(heur))
-SCIPheurGetDesc(heur::SCIP_HEUR_t) = @scip_ccall("SCIPheurGetDesc", String, (Ptr{SCIP_HEUR},), pointer(heur))
-SCIPheurGetDispchar(heur::SCIP_HEUR_t) = @scip_ccall("SCIPheurGetDispchar", Char, (Ptr{SCIP_HEUR},), pointer(heur))
-SCIPheurGetTimingmask(heur::SCIP_HEUR_t) = @scip_ccall("SCIPheurGetTimingmask", SCIP_HEURTIMING, (Ptr{SCIP_HEUR},), pointer(heur))
-SCIPheurSetTimingmask(heur::SCIP_HEUR_t, timingmask::SCIP_HEURTIMING) = @scip_ccall("SCIPheurSetTimingmask", Void, (Ptr{SCIP_HEUR}, SCIP_HEURTIMING), pointer(heur), timingmask)
-SCIPheurUsesSubscip(heur::SCIP_HEUR_t) = @scip_ccall("SCIPheurUsesSubscip", SCIP_Bool, (Ptr{SCIP_HEUR},), pointer(heur))
-SCIPheurGetPriority(heur::SCIP_HEUR_t) = @scip_ccall("SCIPheurGetPriority", Int, (Ptr{SCIP_HEUR},), pointer(heur))
-SCIPheurGetFreq(heur::SCIP_HEUR_t) = @scip_ccall("SCIPheurGetFreq", Int, (Ptr{SCIP_HEUR},), pointer(heur))
-SCIPheurSetFreq(heur::SCIP_HEUR_t, freq::Int) = @scip_ccall("SCIPheurSetFreq", Void, (Ptr{SCIP_HEUR}, Int), pointer(heur), freq)
-SCIPheurGetFreqofs(heur::SCIP_HEUR_t) = @scip_ccall("SCIPheurGetFreqofs", Int, (Ptr{SCIP_HEUR},), pointer(heur))
-SCIPheurGetMaxdepth(heur::SCIP_HEUR_t) = @scip_ccall("SCIPheurGetMaxdepth", Int, (Ptr{SCIP_HEUR},), pointer(heur))
-SCIPheurGetNCalls(heur::SCIP_HEUR_t) = @scip_ccall("SCIPheurGetNCalls", Int64, (Ptr{SCIP_HEUR},), pointer(heur))
-SCIPheurGetNSolsFound(heur::SCIP_HEUR_t) = @scip_ccall("SCIPheurGetNSolsFound", Int64, (Ptr{SCIP_HEUR},), pointer(heur))
-SCIPheurGetNBestSolsFound(heur::SCIP_HEUR_t) = @scip_ccall("SCIPheurGetNBestSolsFound", Int64, (Ptr{SCIP_HEUR},), pointer(heur))
-SCIPheurIsInitialized(heur::SCIP_HEUR_t) = @scip_ccall("SCIPheurIsInitialized", SCIP_Bool, (Ptr{SCIP_HEUR},), pointer(heur))
-SCIPheurGetSetupTime(heur::SCIP_HEUR_t) = @scip_ccall("SCIPheurGetSetupTime", SCIP_Real, (Ptr{SCIP_HEUR},), pointer(heur))
-SCIPheurGetTime(heur::SCIP_HEUR_t) = @scip_ccall("SCIPheurGetTime", SCIP_Real, (Ptr{SCIP_HEUR},), pointer(heur))
-SCIPgetHminCumulative(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetHminCumulative", Int, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetHmaxCumulative(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetHmaxCumulative", Int, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetVarsCumulative(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetVarsCumulative", Ptr{Ptr{SCIP_VAR}}, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetNVarsCumulative(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNVarsCumulative", Int, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetCapacityCumulative(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetCapacityCumulative", Int, (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPcomputeHmin(scip::SCIP_t, profile::SCIP_PROFILE_t, capacity::Int) = @scip_ccall("SCIPcomputeHmin", Int, (Ptr{SCIP}, Ptr{SCIP_PROFILE}, Int), pointer(scip), pointer(profile), capacity)
-SCIPcomputeHmax(scip::SCIP_t, profile::SCIP_PROFILE_t, capacity::Int) = @scip_ccall("SCIPcomputeHmax", Int, (Ptr{SCIP}, Ptr{SCIP_PROFILE}, Int), pointer(scip), pointer(profile), capacity)
+
+SCIPcolSort(col::SCIP_COL_t) = @scip_ccall("SCIPcolSort", 
+	Void, 
+	(Ptr{_SCIP_COL},), 
+	pointer(col)
+)
+SCIPcolGetObj(col::SCIP_COL_t) = @scip_ccall("SCIPcolGetObj", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_COL},), 
+	pointer(col)
+)
+SCIPcolGetLb(col::SCIP_COL_t) = @scip_ccall("SCIPcolGetLb", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_COL},), 
+	pointer(col)
+)
+SCIPcolGetUb(col::SCIP_COL_t) = @scip_ccall("SCIPcolGetUb", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_COL},), 
+	pointer(col)
+)
+SCIPcolGetBestBound(col::SCIP_COL_t) = @scip_ccall("SCIPcolGetBestBound", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_COL},), 
+	pointer(col)
+)
+SCIPcolGetPrimsol(col::SCIP_COL_t) = @scip_ccall("SCIPcolGetPrimsol", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_COL},), 
+	pointer(col)
+)
+SCIPcolGetMinPrimsol(col::SCIP_COL_t) = @scip_ccall("SCIPcolGetMinPrimsol", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_COL},), 
+	pointer(col)
+)
+SCIPcolGetMaxPrimsol(col::SCIP_COL_t) = @scip_ccall("SCIPcolGetMaxPrimsol", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_COL},), 
+	pointer(col)
+)
+SCIPcolGetBasisStatus(col::SCIP_COL_t) = @scip_ccall("SCIPcolGetBasisStatus", 
+	_SCIP_BASESTAT, 
+	(Ptr{_SCIP_COL},), 
+	pointer(col)
+)
+SCIPcolGetVar(col::SCIP_COL_t) = @scip_ccall("SCIPcolGetVar", 
+	Ptr{_SCIP_VAR}, 
+	(Ptr{_SCIP_COL},), 
+	pointer(col)
+)
+SCIPcolGetIndex(col::SCIP_COL_t) = @scip_ccall("SCIPcolGetIndex", 
+	Int, 
+	(Ptr{_SCIP_COL},), 
+	pointer(col)
+)
+SCIPcolIsIntegral(col::SCIP_COL_t) = @scip_ccall("SCIPcolIsIntegral", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_COL},), 
+	pointer(col)
+)
+SCIPcolIsRemovable(col::SCIP_COL_t) = @scip_ccall("SCIPcolIsRemovable", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_COL},), 
+	pointer(col)
+)
+SCIPcolGetLPPos(col::SCIP_COL_t) = @scip_ccall("SCIPcolGetLPPos", 
+	Int, 
+	(Ptr{_SCIP_COL},), 
+	pointer(col)
+)
+SCIPcolGetLPDepth(col::SCIP_COL_t) = @scip_ccall("SCIPcolGetLPDepth", 
+	Int, 
+	(Ptr{_SCIP_COL},), 
+	pointer(col)
+)
+SCIPcolIsInLP(col::SCIP_COL_t) = @scip_ccall("SCIPcolIsInLP", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_COL},), 
+	pointer(col)
+)
+SCIPcolGetNNonz(col::SCIP_COL_t) = @scip_ccall("SCIPcolGetNNonz", 
+	Int, 
+	(Ptr{_SCIP_COL},), 
+	pointer(col)
+)
+SCIPcolGetNLPNonz(col::SCIP_COL_t) = @scip_ccall("SCIPcolGetNLPNonz", 
+	Int, 
+	(Ptr{_SCIP_COL},), 
+	pointer(col)
+)
+SCIPcolGetRows(col::SCIP_COL_t) = @scip_ccall("SCIPcolGetRows", 
+	Ptr{Ptr{_SCIP_ROW}}, 
+	(Ptr{_SCIP_COL},), 
+	pointer(col)
+)
+SCIPcolGetVals(col::SCIP_COL_t) = @scip_ccall("SCIPcolGetVals", 
+	Ptr{_SCIP_Real}, 
+	(Ptr{_SCIP_COL},), 
+	pointer(col)
+)
+SCIPcolGetStrongbranchNode(col::SCIP_COL_t) = @scip_ccall("SCIPcolGetStrongbranchNode", 
+	Int64, 
+	(Ptr{_SCIP_COL},), 
+	pointer(col)
+)
+SCIPcolGetNStrongbranchs(col::SCIP_COL_t) = @scip_ccall("SCIPcolGetNStrongbranchs", 
+	Int, 
+	(Ptr{_SCIP_COL},), 
+	pointer(col)
+)
+SCIPboundtypeOpposite(boundtype::_SCIP_BOUNDTYPE) = @scip_ccall("SCIPboundtypeOpposite", 
+	_SCIP_BOUNDTYPE, 
+	(_SCIP_BOUNDTYPE,), 
+	boundtype
+)
+SCIProwLock(row::SCIP_ROW_t) = @scip_ccall("SCIProwLock", 
+	Void, 
+	(Ptr{_SCIP_ROW},), 
+	pointer(row)
+)
+SCIProwUnlock(row::SCIP_ROW_t) = @scip_ccall("SCIProwUnlock", 
+	Void, 
+	(Ptr{_SCIP_ROW},), 
+	pointer(row)
+)
+SCIProwGetScalarProduct(row1::SCIP_ROW_t, row2::SCIP_ROW_t) = @scip_ccall("SCIProwGetScalarProduct", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_ROW}, Ptr{_SCIP_ROW}), 
+	pointer(row1), pointer(row2)
+)
+SCIProwGetParallelism(row1::SCIP_ROW_t, row2::SCIP_ROW_t, orthofunc::Char) = @scip_ccall("SCIProwGetParallelism", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_ROW}, Ptr{_SCIP_ROW}, Char), 
+	pointer(row1), pointer(row2), orthofunc
+)
+SCIProwGetOrthogonality(row1::SCIP_ROW_t, row2::SCIP_ROW_t, orthofunc::Char) = @scip_ccall("SCIProwGetOrthogonality", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_ROW}, Ptr{_SCIP_ROW}, Char), 
+	pointer(row1), pointer(row2), orthofunc
+)
+SCIProwSort(row::SCIP_ROW_t) = @scip_ccall("SCIProwSort", 
+	Void, 
+	(Ptr{_SCIP_ROW},), 
+	pointer(row)
+)
+SCIProwGetNNonz(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetNNonz", 
+	Int, 
+	(Ptr{_SCIP_ROW},), 
+	pointer(row)
+)
+SCIProwGetNLPNonz(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetNLPNonz", 
+	Int, 
+	(Ptr{_SCIP_ROW},), 
+	pointer(row)
+)
+SCIProwGetCols(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetCols", 
+	Ptr{Ptr{_SCIP_COL}}, 
+	(Ptr{_SCIP_ROW},), 
+	pointer(row)
+)
+SCIProwGetVals(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetVals", 
+	Ptr{_SCIP_Real}, 
+	(Ptr{_SCIP_ROW},), 
+	pointer(row)
+)
+SCIProwGetConstant(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetConstant", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_ROW},), 
+	pointer(row)
+)
+SCIProwGetNorm(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetNorm", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_ROW},), 
+	pointer(row)
+)
+SCIProwGetSumNorm(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetSumNorm", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_ROW},), 
+	pointer(row)
+)
+SCIProwGetLhs(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetLhs", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_ROW},), 
+	pointer(row)
+)
+SCIProwGetRhs(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetRhs", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_ROW},), 
+	pointer(row)
+)
+SCIProwGetDualsol(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetDualsol", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_ROW},), 
+	pointer(row)
+)
+SCIProwGetDualfarkas(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetDualfarkas", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_ROW},), 
+	pointer(row)
+)
+SCIProwGetBasisStatus(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetBasisStatus", 
+	_SCIP_BASESTAT, 
+	(Ptr{_SCIP_ROW},), 
+	pointer(row)
+)
+SCIProwGetName(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetName", 
+	String, 
+	(Ptr{_SCIP_ROW},), 
+	pointer(row)
+)
+SCIProwGetIndex(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetIndex", 
+	Int, 
+	(Ptr{_SCIP_ROW},), 
+	pointer(row)
+)
+SCIProwGetAge(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetAge", 
+	Int, 
+	(Ptr{_SCIP_ROW},), 
+	pointer(row)
+)
+SCIProwGetRank(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetRank", 
+	Int, 
+	(Ptr{_SCIP_ROW},), 
+	pointer(row)
+)
+SCIProwIsIntegral(row::SCIP_ROW_t) = @scip_ccall("SCIProwIsIntegral", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_ROW},), 
+	pointer(row)
+)
+SCIProwIsLocal(row::SCIP_ROW_t) = @scip_ccall("SCIProwIsLocal", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_ROW},), 
+	pointer(row)
+)
+SCIProwIsModifiable(row::SCIP_ROW_t) = @scip_ccall("SCIProwIsModifiable", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_ROW},), 
+	pointer(row)
+)
+SCIProwIsRemovable(row::SCIP_ROW_t) = @scip_ccall("SCIProwIsRemovable", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_ROW},), 
+	pointer(row)
+)
+SCIProwGetOrigintype(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetOrigintype", 
+	_SCIP_ROWORIGINTYPE, 
+	(Ptr{_SCIP_ROW},), 
+	pointer(row)
+)
+SCIProwGetOriginCons(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetOriginCons", 
+	Ptr{_SCIP_CONSHDLR}, 
+	(Ptr{_SCIP_ROW},), 
+	pointer(row)
+)
+SCIProwGetOriginSepa(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetOriginSepa", 
+	Ptr{_SCIP_SEPA}, 
+	(Ptr{_SCIP_ROW},), 
+	pointer(row)
+)
+SCIProwIsInGlobalCutpool(row::SCIP_ROW_t) = @scip_ccall("SCIProwIsInGlobalCutpool", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_ROW},), 
+	pointer(row)
+)
+SCIProwGetLPPos(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetLPPos", 
+	Int, 
+	(Ptr{_SCIP_ROW},), 
+	pointer(row)
+)
+SCIProwGetLPDepth(row::SCIP_ROW_t) = @scip_ccall("SCIProwGetLPDepth", 
+	Int, 
+	(Ptr{_SCIP_ROW},), 
+	pointer(row)
+)
+SCIProwIsInLP(row::SCIP_ROW_t) = @scip_ccall("SCIProwIsInLP", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_ROW},), 
+	pointer(row)
+)
+SCIProwChgRank(row::SCIP_ROW_t, rank::Int) = @scip_ccall("SCIProwChgRank", 
+	Void, 
+	(Ptr{_SCIP_ROW}, Int), 
+	pointer(row), rank
+)
+SCIPpricerGetData(pricer::SCIP_PRICER_t) = @scip_ccall("SCIPpricerGetData", 
+	Ptr{_SCIP_PRICERDATA}, 
+	(Ptr{_SCIP_PRICER},), 
+	pointer(pricer)
+)
+SCIPpricerSetData(pricer::SCIP_PRICER_t, pricerdata::SCIP_PRICERDATA_t) = @scip_ccall("SCIPpricerSetData", 
+	Void, 
+	(Ptr{_SCIP_PRICER}, Ptr{_SCIP_PRICERDATA}), 
+	pointer(pricer), pointer(pricerdata)
+)
+SCIPpricerGetName(pricer::SCIP_PRICER_t) = @scip_ccall("SCIPpricerGetName", 
+	String, 
+	(Ptr{_SCIP_PRICER},), 
+	pointer(pricer)
+)
+SCIPpricerGetDesc(pricer::SCIP_PRICER_t) = @scip_ccall("SCIPpricerGetDesc", 
+	String, 
+	(Ptr{_SCIP_PRICER},), 
+	pointer(pricer)
+)
+SCIPpricerGetPriority(pricer::SCIP_PRICER_t) = @scip_ccall("SCIPpricerGetPriority", 
+	Int, 
+	(Ptr{_SCIP_PRICER},), 
+	pointer(pricer)
+)
+SCIPpricerGetNCalls(pricer::SCIP_PRICER_t) = @scip_ccall("SCIPpricerGetNCalls", 
+	Int, 
+	(Ptr{_SCIP_PRICER},), 
+	pointer(pricer)
+)
+SCIPpricerGetNVarsFound(pricer::SCIP_PRICER_t) = @scip_ccall("SCIPpricerGetNVarsFound", 
+	Int, 
+	(Ptr{_SCIP_PRICER},), 
+	pointer(pricer)
+)
+SCIPpricerGetSetupTime(pricer::SCIP_PRICER_t) = @scip_ccall("SCIPpricerGetSetupTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_PRICER},), 
+	pointer(pricer)
+)
+SCIPpricerGetTime(pricer::SCIP_PRICER_t) = @scip_ccall("SCIPpricerGetTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_PRICER},), 
+	pointer(pricer)
+)
+SCIPpricerIsActive(pricer::SCIP_PRICER_t) = @scip_ccall("SCIPpricerIsActive", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_PRICER},), 
+	pointer(pricer)
+)
+SCIPpricerIsDelayed(pricer::SCIP_PRICER_t) = @scip_ccall("SCIPpricerIsDelayed", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_PRICER},), 
+	pointer(pricer)
+)
+SCIPpricerIsInitialized(pricer::SCIP_PRICER_t) = @scip_ccall("SCIPpricerIsInitialized", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_PRICER},), 
+	pointer(pricer)
+)
+SCIPreaderGetData(reader::SCIP_READER_t) = @scip_ccall("SCIPreaderGetData", 
+	Ptr{_SCIP_READERDATA}, 
+	(Ptr{_SCIP_READER},), 
+	pointer(reader)
+)
+SCIPreaderSetData(reader::SCIP_READER_t, readerdata::SCIP_READERDATA_t) = @scip_ccall("SCIPreaderSetData", 
+	Void, 
+	(Ptr{_SCIP_READER}, Ptr{_SCIP_READERDATA}), 
+	pointer(reader), pointer(readerdata)
+)
+SCIPreaderGetName(reader::SCIP_READER_t) = @scip_ccall("SCIPreaderGetName", 
+	String, 
+	(Ptr{_SCIP_READER},), 
+	pointer(reader)
+)
+SCIPreaderGetDesc(reader::SCIP_READER_t) = @scip_ccall("SCIPreaderGetDesc", 
+	String, 
+	(Ptr{_SCIP_READER},), 
+	pointer(reader)
+)
+SCIPreaderGetExtension(reader::SCIP_READER_t) = @scip_ccall("SCIPreaderGetExtension", 
+	String, 
+	(Ptr{_SCIP_READER},), 
+	pointer(reader)
+)
+SCIPreaderCanRead(reader::SCIP_READER_t) = @scip_ccall("SCIPreaderCanRead", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_READER},), 
+	pointer(reader)
+)
+SCIPreaderCanWrite(reader::SCIP_READER_t) = @scip_ccall("SCIPreaderCanWrite", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_READER},), 
+	pointer(reader)
+)
+SCIPbranchruleGetData(branchrule::SCIP_BRANCHRULE_t) = @scip_ccall("SCIPbranchruleGetData", 
+	Ptr{_SCIP_BRANCHRULEDATA}, 
+	(Ptr{_SCIP_BRANCHRULE},), 
+	pointer(branchrule)
+)
+SCIPbranchruleSetData(branchrule::SCIP_BRANCHRULE_t, branchruledata::SCIP_BRANCHRULEDATA_t) = @scip_ccall("SCIPbranchruleSetData", 
+	Void, 
+	(Ptr{_SCIP_BRANCHRULE}, Ptr{_SCIP_BRANCHRULEDATA}), 
+	pointer(branchrule), pointer(branchruledata)
+)
+SCIPbranchruleGetName(branchrule::SCIP_BRANCHRULE_t) = @scip_ccall("SCIPbranchruleGetName", 
+	String, 
+	(Ptr{_SCIP_BRANCHRULE},), 
+	pointer(branchrule)
+)
+SCIPbranchruleGetDesc(branchrule::SCIP_BRANCHRULE_t) = @scip_ccall("SCIPbranchruleGetDesc", 
+	String, 
+	(Ptr{_SCIP_BRANCHRULE},), 
+	pointer(branchrule)
+)
+SCIPbranchruleGetPriority(branchrule::SCIP_BRANCHRULE_t) = @scip_ccall("SCIPbranchruleGetPriority", 
+	Int, 
+	(Ptr{_SCIP_BRANCHRULE},), 
+	pointer(branchrule)
+)
+SCIPbranchruleGetMaxdepth(branchrule::SCIP_BRANCHRULE_t) = @scip_ccall("SCIPbranchruleGetMaxdepth", 
+	Int, 
+	(Ptr{_SCIP_BRANCHRULE},), 
+	pointer(branchrule)
+)
+SCIPbranchruleGetMaxbounddist(branchrule::SCIP_BRANCHRULE_t) = @scip_ccall("SCIPbranchruleGetMaxbounddist", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_BRANCHRULE},), 
+	pointer(branchrule)
+)
+SCIPbranchruleGetSetupTime(branchrule::SCIP_BRANCHRULE_t) = @scip_ccall("SCIPbranchruleGetSetupTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_BRANCHRULE},), 
+	pointer(branchrule)
+)
+SCIPbranchruleGetTime(branchrule::SCIP_BRANCHRULE_t) = @scip_ccall("SCIPbranchruleGetTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_BRANCHRULE},), 
+	pointer(branchrule)
+)
+SCIPbranchruleGetNLPCalls(branchrule::SCIP_BRANCHRULE_t) = @scip_ccall("SCIPbranchruleGetNLPCalls", 
+	Int64, 
+	(Ptr{_SCIP_BRANCHRULE},), 
+	pointer(branchrule)
+)
+SCIPbranchruleGetNExternCalls(branchrule::SCIP_BRANCHRULE_t) = @scip_ccall("SCIPbranchruleGetNExternCalls", 
+	Int64, 
+	(Ptr{_SCIP_BRANCHRULE},), 
+	pointer(branchrule)
+)
+SCIPbranchruleGetNPseudoCalls(branchrule::SCIP_BRANCHRULE_t) = @scip_ccall("SCIPbranchruleGetNPseudoCalls", 
+	Int64, 
+	(Ptr{_SCIP_BRANCHRULE},), 
+	pointer(branchrule)
+)
+SCIPbranchruleGetNCutoffs(branchrule::SCIP_BRANCHRULE_t) = @scip_ccall("SCIPbranchruleGetNCutoffs", 
+	Int64, 
+	(Ptr{_SCIP_BRANCHRULE},), 
+	pointer(branchrule)
+)
+SCIPbranchruleGetNCutsFound(branchrule::SCIP_BRANCHRULE_t) = @scip_ccall("SCIPbranchruleGetNCutsFound", 
+	Int64, 
+	(Ptr{_SCIP_BRANCHRULE},), 
+	pointer(branchrule)
+)
+SCIPbranchruleGetNConssFound(branchrule::SCIP_BRANCHRULE_t) = @scip_ccall("SCIPbranchruleGetNConssFound", 
+	Int64, 
+	(Ptr{_SCIP_BRANCHRULE},), 
+	pointer(branchrule)
+)
+SCIPbranchruleGetNDomredsFound(branchrule::SCIP_BRANCHRULE_t) = @scip_ccall("SCIPbranchruleGetNDomredsFound", 
+	Int64, 
+	(Ptr{_SCIP_BRANCHRULE},), 
+	pointer(branchrule)
+)
+SCIPbranchruleGetNChildren(branchrule::SCIP_BRANCHRULE_t) = @scip_ccall("SCIPbranchruleGetNChildren", 
+	Int64, 
+	(Ptr{_SCIP_BRANCHRULE},), 
+	pointer(branchrule)
+)
+SCIPbranchruleIsInitialized(branchrule::SCIP_BRANCHRULE_t) = @scip_ccall("SCIPbranchruleIsInitialized", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_BRANCHRULE},), 
+	pointer(branchrule)
+)
+SCIPgetLhsVarbound(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetLhsVarbound", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetRhsVarbound(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetRhsVarbound", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetVarVarbound(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetVarVarbound", 
+	Ptr{_SCIP_VAR}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetVbdvarVarbound(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetVbdvarVarbound", 
+	Ptr{_SCIP_VAR}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetVbdcoefVarbound(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetVbdcoefVarbound", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetDualsolVarbound(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetDualsolVarbound", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetDualfarkasVarbound(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetDualfarkasVarbound", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetRowVarbound(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetRowVarbound", 
+	Ptr{_SCIP_ROW}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPmessagehdlrCapture(messagehdlr::SCIP_MESSAGEHDLR_t) = @scip_ccall("SCIPmessagehdlrCapture", 
+	Void, 
+	(Ptr{_SCIP_MESSAGEHDLR},), 
+	pointer(messagehdlr)
+)
+SCIPmessagehdlrSetLogfile(messagehdlr::SCIP_MESSAGEHDLR_t, filename::String) = @scip_ccall("SCIPmessagehdlrSetLogfile", 
+	Void, 
+	(Ptr{_SCIP_MESSAGEHDLR}, String), 
+	pointer(messagehdlr), filename
+)
+SCIPmessagehdlrSetQuiet(messagehdlr::SCIP_MESSAGEHDLR_t, quiet::_SCIP_Bool) = @scip_ccall("SCIPmessagehdlrSetQuiet", 
+	Void, 
+	(Ptr{_SCIP_MESSAGEHDLR}, _SCIP_Bool), 
+	pointer(messagehdlr), quiet
+)
+SCIPmessagePrintErrorHeader(sourcefile::String, sourceline::Int) = @scip_ccall("SCIPmessagePrintErrorHeader", 
+	Void, 
+	(String, Int), 
+	sourcefile, sourceline
+)
+SCIPmessageSetErrorPrintingDefault() = @scip_ccall("SCIPmessageSetErrorPrintingDefault", 
+	Void, 
+	()
+)
+SCIPmessagehdlrGetData(messagehdlr::SCIP_MESSAGEHDLR_t) = @scip_ccall("SCIPmessagehdlrGetData", 
+	Ptr{_SCIP_MESSAGEHDLRDATA}, 
+	(Ptr{_SCIP_MESSAGEHDLR},), 
+	pointer(messagehdlr)
+)
+SCIPmessagehdlrIsQuiet(messagehdlr::SCIP_MESSAGEHDLR_t) = @scip_ccall("SCIPmessagehdlrIsQuiet", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_MESSAGEHDLR},), 
+	pointer(messagehdlr)
+)
+SCIPnodeselGetName(nodesel::SCIP_NODESEL_t) = @scip_ccall("SCIPnodeselGetName", 
+	String, 
+	(Ptr{_SCIP_NODESEL},), 
+	pointer(nodesel)
+)
+SCIPnodeselGetDesc(nodesel::SCIP_NODESEL_t) = @scip_ccall("SCIPnodeselGetDesc", 
+	String, 
+	(Ptr{_SCIP_NODESEL},), 
+	pointer(nodesel)
+)
+SCIPnodeselGetStdPriority(nodesel::SCIP_NODESEL_t) = @scip_ccall("SCIPnodeselGetStdPriority", 
+	Int, 
+	(Ptr{_SCIP_NODESEL},), 
+	pointer(nodesel)
+)
+SCIPnodeselGetMemsavePriority(nodesel::SCIP_NODESEL_t) = @scip_ccall("SCIPnodeselGetMemsavePriority", 
+	Int, 
+	(Ptr{_SCIP_NODESEL},), 
+	pointer(nodesel)
+)
+SCIPnodeselGetData(nodesel::SCIP_NODESEL_t) = @scip_ccall("SCIPnodeselGetData", 
+	Ptr{_SCIP_NODESELDATA}, 
+	(Ptr{_SCIP_NODESEL},), 
+	pointer(nodesel)
+)
+SCIPnodeselSetData(nodesel::SCIP_NODESEL_t, nodeseldata::SCIP_NODESELDATA_t) = @scip_ccall("SCIPnodeselSetData", 
+	Void, 
+	(Ptr{_SCIP_NODESEL}, Ptr{_SCIP_NODESELDATA}), 
+	pointer(nodesel), pointer(nodeseldata)
+)
+SCIPnodeselIsInitialized(nodesel::SCIP_NODESEL_t) = @scip_ccall("SCIPnodeselIsInitialized", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_NODESEL},), 
+	pointer(nodesel)
+)
+SCIPnodeselGetSetupTime(nodesel::SCIP_NODESEL_t) = @scip_ccall("SCIPnodeselGetSetupTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_NODESEL},), 
+	pointer(nodesel)
+)
+SCIPnodeselGetTime(nodesel::SCIP_NODESEL_t) = @scip_ccall("SCIPnodeselGetTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_NODESEL},), 
+	pointer(nodesel)
+)
+SCIPnodesSharePath(node1::SCIP_NODE_t, node2::SCIP_NODE_t) = @scip_ccall("SCIPnodesSharePath", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_NODE}, Ptr{_SCIP_NODE}), 
+	pointer(node1), pointer(node2)
+)
+SCIPnodesGetCommonAncestor(node1::SCIP_NODE_t, node2::SCIP_NODE_t) = @scip_ccall("SCIPnodesGetCommonAncestor", 
+	Ptr{_SCIP_NODE}, 
+	(Ptr{_SCIP_NODE}, Ptr{_SCIP_NODE}), 
+	pointer(node1), pointer(node2)
+)
+SCIPnodeGetType(node::SCIP_NODE_t) = @scip_ccall("SCIPnodeGetType", 
+	_SCIP_NODETYPE, 
+	(Ptr{_SCIP_NODE},), 
+	pointer(node)
+)
+SCIPnodeGetNumber(node::SCIP_NODE_t) = @scip_ccall("SCIPnodeGetNumber", 
+	Int64, 
+	(Ptr{_SCIP_NODE},), 
+	pointer(node)
+)
+SCIPnodeGetDepth(node::SCIP_NODE_t) = @scip_ccall("SCIPnodeGetDepth", 
+	Int, 
+	(Ptr{_SCIP_NODE},), 
+	pointer(node)
+)
+SCIPnodeGetLowerbound(node::SCIP_NODE_t) = @scip_ccall("SCIPnodeGetLowerbound", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_NODE},), 
+	pointer(node)
+)
+SCIPnodeGetEstimate(node::SCIP_NODE_t) = @scip_ccall("SCIPnodeGetEstimate", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_NODE},), 
+	pointer(node)
+)
+SCIPnodeGetDomchg(node::SCIP_NODE_t) = @scip_ccall("SCIPnodeGetDomchg", 
+	Ptr{_SCIP_DOMCHG}, 
+	(Ptr{_SCIP_NODE},), 
+	pointer(node)
+)
+SCIPnodeGetParent(node::SCIP_NODE_t) = @scip_ccall("SCIPnodeGetParent", 
+	Ptr{_SCIP_NODE}, 
+	(Ptr{_SCIP_NODE},), 
+	pointer(node)
+)
+SCIPnodeIsActive(node::SCIP_NODE_t) = @scip_ccall("SCIPnodeIsActive", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_NODE},), 
+	pointer(node)
+)
+SCIPnodeIsPropagatedAgain(node::SCIP_NODE_t) = @scip_ccall("SCIPnodeIsPropagatedAgain", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_NODE},), 
+	pointer(node)
+)
+SCIPgetNVarsSOS1(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNVarsSOS1", 
+	Int, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetVarsSOS1(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetVarsSOS1", 
+	Ptr{Ptr{_SCIP_VAR}}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetWeightsSOS1(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetWeightsSOS1", 
+	Ptr{_SCIP_Real}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPcutGetRow(cut::SCIP_CUT_t) = @scip_ccall("SCIPcutGetRow", 
+	Ptr{_SCIP_ROW}, 
+	(Ptr{_SCIP_CUT},), 
+	pointer(cut)
+)
+SCIPcutGetAge(cut::SCIP_CUT_t) = @scip_ccall("SCIPcutGetAge", 
+	Int, 
+	(Ptr{_SCIP_CUT},), 
+	pointer(cut)
+)
+SCIPcutpoolGetCuts(cutpool::SCIP_CUTPOOL_t) = @scip_ccall("SCIPcutpoolGetCuts", 
+	Ptr{Ptr{_SCIP_CUT}}, 
+	(Ptr{_SCIP_CUTPOOL},), 
+	pointer(cutpool)
+)
+SCIPcutpoolGetNCuts(cutpool::SCIP_CUTPOOL_t) = @scip_ccall("SCIPcutpoolGetNCuts", 
+	Int, 
+	(Ptr{_SCIP_CUTPOOL},), 
+	pointer(cutpool)
+)
+SCIPcutpoolGetMaxNCuts(cutpool::SCIP_CUTPOOL_t) = @scip_ccall("SCIPcutpoolGetMaxNCuts", 
+	Int, 
+	(Ptr{_SCIP_CUTPOOL},), 
+	pointer(cutpool)
+)
+SCIPcutpoolGetTime(cutpool::SCIP_CUTPOOL_t) = @scip_ccall("SCIPcutpoolGetTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_CUTPOOL},), 
+	pointer(cutpool)
+)
+SCIPcutpoolGetNCalls(cutpool::SCIP_CUTPOOL_t) = @scip_ccall("SCIPcutpoolGetNCalls", 
+	Int64, 
+	(Ptr{_SCIP_CUTPOOL},), 
+	pointer(cutpool)
+)
+SCIPcutpoolGetNCutsFound(cutpool::SCIP_CUTPOOL_t) = @scip_ccall("SCIPcutpoolGetNCutsFound", 
+	Int64, 
+	(Ptr{_SCIP_CUTPOOL},), 
+	pointer(cutpool)
+)
+SCIPexprtreeGetVars(tree::SCIP_EXPRTREE_t) = @scip_ccall("SCIPexprtreeGetVars", 
+	Ptr{Ptr{_SCIP_VAR}}, 
+	(Ptr{_SCIP_EXPRTREE},), 
+	pointer(tree)
+)
+SCIPexprtreeFindVar(tree::SCIP_EXPRTREE_t, var::SCIP_VAR_t) = @scip_ccall("SCIPexprtreeFindVar", 
+	Int, 
+	(Ptr{_SCIP_EXPRTREE}, Ptr{_SCIP_VAR}), 
+	pointer(tree), pointer(var)
+)
+SCIPnlrowGetConstant(nlrow::SCIP_NLROW_t) = @scip_ccall("SCIPnlrowGetConstant", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_NLROW},), 
+	pointer(nlrow)
+)
+SCIPnlrowGetNLinearVars(nlrow::SCIP_NLROW_t) = @scip_ccall("SCIPnlrowGetNLinearVars", 
+	Int, 
+	(Ptr{_SCIP_NLROW},), 
+	pointer(nlrow)
+)
+SCIPnlrowGetLinearVars(nlrow::SCIP_NLROW_t) = @scip_ccall("SCIPnlrowGetLinearVars", 
+	Ptr{Ptr{_SCIP_VAR}}, 
+	(Ptr{_SCIP_NLROW},), 
+	pointer(nlrow)
+)
+SCIPnlrowGetLinearCoefs(nlrow::SCIP_NLROW_t) = @scip_ccall("SCIPnlrowGetLinearCoefs", 
+	Ptr{_SCIP_Real}, 
+	(Ptr{_SCIP_NLROW},), 
+	pointer(nlrow)
+)
+SCIPnlrowGetNQuadVars(nlrow::SCIP_NLROW_t) = @scip_ccall("SCIPnlrowGetNQuadVars", 
+	Int, 
+	(Ptr{_SCIP_NLROW},), 
+	pointer(nlrow)
+)
+SCIPnlrowGetQuadVars(nlrow::SCIP_NLROW_t) = @scip_ccall("SCIPnlrowGetQuadVars", 
+	Ptr{Ptr{_SCIP_VAR}}, 
+	(Ptr{_SCIP_NLROW},), 
+	pointer(nlrow)
+)
+SCIPnlrowSearchQuadVar(nlrow::SCIP_NLROW_t, var::SCIP_VAR_t) = @scip_ccall("SCIPnlrowSearchQuadVar", 
+	Int, 
+	(Ptr{_SCIP_NLROW}, Ptr{_SCIP_VAR}), 
+	pointer(nlrow), pointer(var)
+)
+SCIPnlrowGetNQuadElems(nlrow::SCIP_NLROW_t) = @scip_ccall("SCIPnlrowGetNQuadElems", 
+	Int, 
+	(Ptr{_SCIP_NLROW},), 
+	pointer(nlrow)
+)
+SCIPnlrowGetQuadElems(nlrow::SCIP_NLROW_t) = @scip_ccall("SCIPnlrowGetQuadElems", 
+	Ptr{_SCIP_QUADELEM}, 
+	(Ptr{_SCIP_NLROW},), 
+	pointer(nlrow)
+)
+SCIPnlrowGetExprtree(nlrow::SCIP_NLROW_t) = @scip_ccall("SCIPnlrowGetExprtree", 
+	Ptr{_SCIP_EXPRTREE}, 
+	(Ptr{_SCIP_NLROW},), 
+	pointer(nlrow)
+)
+SCIPnlrowGetLhs(nlrow::SCIP_NLROW_t) = @scip_ccall("SCIPnlrowGetLhs", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_NLROW},), 
+	pointer(nlrow)
+)
+SCIPnlrowGetRhs(nlrow::SCIP_NLROW_t) = @scip_ccall("SCIPnlrowGetRhs", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_NLROW},), 
+	pointer(nlrow)
+)
+SCIPnlrowGetName(nlrow::SCIP_NLROW_t) = @scip_ccall("SCIPnlrowGetName", 
+	String, 
+	(Ptr{_SCIP_NLROW},), 
+	pointer(nlrow)
+)
+SCIPnlrowGetNLPPos(nlrow::SCIP_NLROW_t) = @scip_ccall("SCIPnlrowGetNLPPos", 
+	Int, 
+	(Ptr{_SCIP_NLROW},), 
+	pointer(nlrow)
+)
+SCIPnlrowIsInNLP(nlrow::SCIP_NLROW_t) = @scip_ccall("SCIPnlrowIsInNLP", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_NLROW},), 
+	pointer(nlrow)
+)
+SCIPnlrowGetDualsol(nlrow::SCIP_NLROW_t) = @scip_ccall("SCIPnlrowGetDualsol", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_NLROW},), 
+	pointer(nlrow)
+)
+SCIPexistsConsLinking(scip::SCIP_t, intvar::SCIP_VAR_t) = @scip_ccall("SCIPexistsConsLinking", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}), 
+	pointer(scip), pointer(intvar)
+)
+SCIPgetConsLinking(scip::SCIP_t, intvar::SCIP_VAR_t) = @scip_ccall("SCIPgetConsLinking", 
+	Ptr{_SCIP_CONS}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}), 
+	pointer(scip), pointer(intvar)
+)
+SCIPgetIntvarLinking(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetIntvarLinking", 
+	Ptr{_SCIP_VAR}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetNBinvarsLinking(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNBinvarsLinking", 
+	Int, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetLinearConsIndicator(cons::SCIP_CONS_t) = @scip_ccall("SCIPgetLinearConsIndicator", 
+	Ptr{_SCIP_CONS}, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPgetBinaryVarIndicator(cons::SCIP_CONS_t) = @scip_ccall("SCIPgetBinaryVarIndicator", 
+	Ptr{_SCIP_VAR}, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPgetSlackVarIndicator(cons::SCIP_CONS_t) = @scip_ccall("SCIPgetSlackVarIndicator", 
+	Ptr{_SCIP_VAR}, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPisViolatedIndicator(scip::SCIP_t, cons::SCIP_CONS_t, sol::SCIP_SOL_t) = @scip_ccall("SCIPisViolatedIndicator", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{_SCIP_SOL}), 
+	pointer(scip), pointer(cons), pointer(sol)
+)
+SCIPcliqueSearchVar(clique::SCIP_CLIQUE_t, var::SCIP_VAR_t, value::_SCIP_Bool) = @scip_ccall("SCIPcliqueSearchVar", 
+	Int, 
+	(Ptr{_SCIP_CLIQUE}, Ptr{_SCIP_VAR}, _SCIP_Bool), 
+	pointer(clique), pointer(var), value
+)
+SCIPcliqueHasVar(clique::SCIP_CLIQUE_t, var::SCIP_VAR_t, value::_SCIP_Bool) = @scip_ccall("SCIPcliqueHasVar", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_CLIQUE}, Ptr{_SCIP_VAR}, _SCIP_Bool), 
+	pointer(clique), pointer(var), value
+)
+SCIPcliqueGetNVars(clique::SCIP_CLIQUE_t) = @scip_ccall("SCIPcliqueGetNVars", 
+	Int, 
+	(Ptr{_SCIP_CLIQUE},), 
+	pointer(clique)
+)
+SCIPcliqueGetVars(clique::SCIP_CLIQUE_t) = @scip_ccall("SCIPcliqueGetVars", 
+	Ptr{Ptr{_SCIP_VAR}}, 
+	(Ptr{_SCIP_CLIQUE},), 
+	pointer(clique)
+)
+SCIPcliqueGetValues(clique::SCIP_CLIQUE_t) = @scip_ccall("SCIPcliqueGetValues", 
+	Ptr{_SCIP_Bool}, 
+	(Ptr{_SCIP_CLIQUE},), 
+	pointer(clique)
+)
+SCIPcliqueGetId(clique::SCIP_CLIQUE_t) = @scip_ccall("SCIPcliqueGetId", 
+	Int, 
+	(Ptr{_SCIP_CLIQUE},), 
+	pointer(clique)
+)
+SCIPgetNVarsXor(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNVarsXor", 
+	Int, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetVarsXor(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetVarsXor", 
+	Ptr{Ptr{_SCIP_VAR}}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetRhsXor(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetRhsXor", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetCapacityKnapsack(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetCapacityKnapsack", 
+	Int64, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetNVarsKnapsack(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNVarsKnapsack", 
+	Int, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetVarsKnapsack(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetVarsKnapsack", 
+	Ptr{Ptr{_SCIP_VAR}}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetWeightsKnapsack(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetWeightsKnapsack", 
+	Ptr{Int64}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetDualsolKnapsack(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetDualsolKnapsack", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetDualfarkasKnapsack(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetDualfarkasKnapsack", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetRowKnapsack(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetRowKnapsack", 
+	Ptr{_SCIP_ROW}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetNVarsSOS2(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNVarsSOS2", 
+	Int, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetVarsSOS2(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetVarsSOS2", 
+	Ptr{Ptr{_SCIP_VAR}}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetWeightsSOS2(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetWeightsSOS2", 
+	Ptr{_SCIP_Real}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetNVarsBounddisjunction(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNVarsBounddisjunction", 
+	Int, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetVarsBounddisjunction(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetVarsBounddisjunction", 
+	Ptr{Ptr{_SCIP_VAR}}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetBoundtypesBounddisjunction(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetBoundtypesBounddisjunction", 
+	Ptr{_SCIP_BOUNDTYPE}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetBoundsBounddisjunction(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetBoundsBounddisjunction", 
+	Ptr{_SCIP_Real}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPconflicthdlrGetData(conflicthdlr::SCIP_CONFLICTHDLR_t) = @scip_ccall("SCIPconflicthdlrGetData", 
+	Ptr{_SCIP_CONFLICTHDLRDATA}, 
+	(Ptr{_SCIP_CONFLICTHDLR},), 
+	pointer(conflicthdlr)
+)
+SCIPconflicthdlrSetData(conflicthdlr::SCIP_CONFLICTHDLR_t, conflicthdlrdata::SCIP_CONFLICTHDLRDATA_t) = @scip_ccall("SCIPconflicthdlrSetData", 
+	Void, 
+	(Ptr{_SCIP_CONFLICTHDLR}, Ptr{_SCIP_CONFLICTHDLRDATA}), 
+	pointer(conflicthdlr), pointer(conflicthdlrdata)
+)
+SCIPconflicthdlrGetName(conflicthdlr::SCIP_CONFLICTHDLR_t) = @scip_ccall("SCIPconflicthdlrGetName", 
+	String, 
+	(Ptr{_SCIP_CONFLICTHDLR},), 
+	pointer(conflicthdlr)
+)
+SCIPconflicthdlrGetDesc(conflicthdlr::SCIP_CONFLICTHDLR_t) = @scip_ccall("SCIPconflicthdlrGetDesc", 
+	String, 
+	(Ptr{_SCIP_CONFLICTHDLR},), 
+	pointer(conflicthdlr)
+)
+SCIPconflicthdlrGetPriority(conflicthdlr::SCIP_CONFLICTHDLR_t) = @scip_ccall("SCIPconflicthdlrGetPriority", 
+	Int, 
+	(Ptr{_SCIP_CONFLICTHDLR},), 
+	pointer(conflicthdlr)
+)
+SCIPconflicthdlrIsInitialized(conflicthdlr::SCIP_CONFLICTHDLR_t) = @scip_ccall("SCIPconflicthdlrIsInitialized", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_CONFLICTHDLR},), 
+	pointer(conflicthdlr)
+)
+SCIPconflicthdlrGetSetupTime(conflicthdlr::SCIP_CONFLICTHDLR_t) = @scip_ccall("SCIPconflicthdlrGetSetupTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_CONFLICTHDLR},), 
+	pointer(conflicthdlr)
+)
+SCIPconflicthdlrGetTime(conflicthdlr::SCIP_CONFLICTHDLR_t) = @scip_ccall("SCIPconflicthdlrGetTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_CONFLICTHDLR},), 
+	pointer(conflicthdlr)
+)
+SCIPgetNVarsAnd(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNVarsAnd", 
+	Int, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetVarsAnd(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetVarsAnd", 
+	Ptr{Ptr{_SCIP_VAR}}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetResultantAnd(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetResultantAnd", 
+	Ptr{_SCIP_VAR}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPisAndConsSorted(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPisAndConsSorted", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetBinaryVarSuperindicator(cons::SCIP_CONS_t) = @scip_ccall("SCIPgetBinaryVarSuperindicator", 
+	Ptr{_SCIP_VAR}, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPgetSlackConsSuperindicator(cons::SCIP_CONS_t) = @scip_ccall("SCIPgetSlackConsSuperindicator", 
+	Ptr{_SCIP_CONS}, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPpropGetData(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetData", 
+	Ptr{_SCIP_PROPDATA}, 
+	(Ptr{_SCIP_PROP},), 
+	pointer(prop)
+)
+SCIPpropSetData(prop::SCIP_PROP_t, propdata::SCIP_PROPDATA_t) = @scip_ccall("SCIPpropSetData", 
+	Void, 
+	(Ptr{_SCIP_PROP}, Ptr{_SCIP_PROPDATA}), 
+	pointer(prop), pointer(propdata)
+)
+SCIPpropGetName(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetName", 
+	String, 
+	(Ptr{_SCIP_PROP},), 
+	pointer(prop)
+)
+SCIPpropGetDesc(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetDesc", 
+	String, 
+	(Ptr{_SCIP_PROP},), 
+	pointer(prop)
+)
+SCIPpropGetPriority(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetPriority", 
+	Int, 
+	(Ptr{_SCIP_PROP},), 
+	pointer(prop)
+)
+SCIPpropGetPresolPriority(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetPresolPriority", 
+	Int, 
+	(Ptr{_SCIP_PROP},), 
+	pointer(prop)
+)
+SCIPpropGetFreq(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetFreq", 
+	Int, 
+	(Ptr{_SCIP_PROP},), 
+	pointer(prop)
+)
+SCIPpropGetSetupTime(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetSetupTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_PROP},), 
+	pointer(prop)
+)
+SCIPpropSetFreq(prop::SCIP_PROP_t, freq::Int) = @scip_ccall("SCIPpropSetFreq", 
+	Void, 
+	(Ptr{_SCIP_PROP}, Int), 
+	pointer(prop), freq
+)
+SCIPpropGetTime(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_PROP},), 
+	pointer(prop)
+)
+SCIPpropGetStrongBranchPropTime(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetStrongBranchPropTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_PROP},), 
+	pointer(prop)
+)
+SCIPpropGetRespropTime(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetRespropTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_PROP},), 
+	pointer(prop)
+)
+SCIPpropGetPresolTime(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetPresolTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_PROP},), 
+	pointer(prop)
+)
+SCIPpropGetNCalls(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetNCalls", 
+	Int64, 
+	(Ptr{_SCIP_PROP},), 
+	pointer(prop)
+)
+SCIPpropGetNRespropCalls(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetNRespropCalls", 
+	Int64, 
+	(Ptr{_SCIP_PROP},), 
+	pointer(prop)
+)
+SCIPpropGetNCutoffs(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetNCutoffs", 
+	Int64, 
+	(Ptr{_SCIP_PROP},), 
+	pointer(prop)
+)
+SCIPpropGetNDomredsFound(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetNDomredsFound", 
+	Int64, 
+	(Ptr{_SCIP_PROP},), 
+	pointer(prop)
+)
+SCIPpropIsDelayed(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropIsDelayed", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_PROP},), 
+	pointer(prop)
+)
+SCIPpropIsPresolDelayed(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropIsPresolDelayed", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_PROP},), 
+	pointer(prop)
+)
+SCIPpropWasDelayed(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropWasDelayed", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_PROP},), 
+	pointer(prop)
+)
+SCIPpropWasPresolDelayed(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropWasPresolDelayed", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_PROP},), 
+	pointer(prop)
+)
+SCIPpropIsInitialized(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropIsInitialized", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_PROP},), 
+	pointer(prop)
+)
+SCIPpropGetNFixedVars(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetNFixedVars", 
+	Int, 
+	(Ptr{_SCIP_PROP},), 
+	pointer(prop)
+)
+SCIPpropGetNAggrVars(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetNAggrVars", 
+	Int, 
+	(Ptr{_SCIP_PROP},), 
+	pointer(prop)
+)
+SCIPpropGetNChgVarTypes(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetNChgVarTypes", 
+	Int, 
+	(Ptr{_SCIP_PROP},), 
+	pointer(prop)
+)
+SCIPpropGetNChgBds(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetNChgBds", 
+	Int, 
+	(Ptr{_SCIP_PROP},), 
+	pointer(prop)
+)
+SCIPpropGetNAddHoles(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetNAddHoles", 
+	Int, 
+	(Ptr{_SCIP_PROP},), 
+	pointer(prop)
+)
+SCIPpropGetNDelConss(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetNDelConss", 
+	Int, 
+	(Ptr{_SCIP_PROP},), 
+	pointer(prop)
+)
+SCIPpropGetNAddConss(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetNAddConss", 
+	Int, 
+	(Ptr{_SCIP_PROP},), 
+	pointer(prop)
+)
+SCIPpropGetNUpgdConss(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetNUpgdConss", 
+	Int, 
+	(Ptr{_SCIP_PROP},), 
+	pointer(prop)
+)
+SCIPpropGetNChgCoefs(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetNChgCoefs", 
+	Int, 
+	(Ptr{_SCIP_PROP},), 
+	pointer(prop)
+)
+SCIPpropGetNChgSides(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetNChgSides", 
+	Int, 
+	(Ptr{_SCIP_PROP},), 
+	pointer(prop)
+)
+SCIPpropGetNPresolCalls(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetNPresolCalls", 
+	Int, 
+	(Ptr{_SCIP_PROP},), 
+	pointer(prop)
+)
+SCIPpropGetTimingmask(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropGetTimingmask", 
+	_SCIP_PROPTIMING, 
+	(Ptr{_SCIP_PROP},), 
+	pointer(prop)
+)
+SCIPpropDoesPresolve(prop::SCIP_PROP_t) = @scip_ccall("SCIPpropDoesPresolve", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_PROP},), 
+	pointer(prop)
+)
+SCIPaddConstantQuadratic(scip::SCIP_t, cons::SCIP_CONS_t, constant::_SCIP_Real) = @scip_ccall("SCIPaddConstantQuadratic", 
+	Void, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}, _SCIP_Real), 
+	pointer(scip), pointer(cons), constant
+)
+SCIPgetNLinearVarsQuadratic(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNLinearVarsQuadratic", 
+	Int, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetLinearVarsQuadratic(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetLinearVarsQuadratic", 
+	Ptr{Ptr{_SCIP_VAR}}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetCoefsLinearVarsQuadratic(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetCoefsLinearVarsQuadratic", 
+	Ptr{_SCIP_Real}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetNQuadVarTermsQuadratic(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNQuadVarTermsQuadratic", 
+	Int, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetQuadVarTermsQuadratic(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetQuadVarTermsQuadratic", 
+	Ptr{_SCIP_QUADVARTERM}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetNBilinTermsQuadratic(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNBilinTermsQuadratic", 
+	Int, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetBilinTermsQuadratic(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetBilinTermsQuadratic", 
+	Ptr{_SCIP_BILINTERM}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetLhsQuadratic(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetLhsQuadratic", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetRhsQuadratic(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetRhsQuadratic", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPisConvexQuadratic(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPisConvexQuadratic", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPisConcaveQuadratic(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPisConcaveQuadratic", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPisLinearLocalQuadratic(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPisLinearLocalQuadratic", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetLhsLinear(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetLhsLinear", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetRhsLinear(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetRhsLinear", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetNVarsLinear(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNVarsLinear", 
+	Int, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetVarsLinear(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetVarsLinear", 
+	Ptr{Ptr{_SCIP_VAR}}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetValsLinear(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetValsLinear", 
+	Ptr{_SCIP_Real}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetActivityLinear(scip::SCIP_t, cons::SCIP_CONS_t, sol::SCIP_SOL_t) = @scip_ccall("SCIPgetActivityLinear", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{_SCIP_SOL}), 
+	pointer(scip), pointer(cons), pointer(sol)
+)
+SCIPgetFeasibilityLinear(scip::SCIP_t, cons::SCIP_CONS_t, sol::SCIP_SOL_t) = @scip_ccall("SCIPgetFeasibilityLinear", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{_SCIP_SOL}), 
+	pointer(scip), pointer(cons), pointer(sol)
+)
+SCIPgetDualsolLinear(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetDualsolLinear", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetDualfarkasLinear(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetDualfarkasLinear", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetRowLinear(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetRowLinear", 
+	Ptr{_SCIP_ROW}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetNLhsVarsSOC(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNLhsVarsSOC", 
+	Int, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetLhsVarsSOC(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetLhsVarsSOC", 
+	Ptr{Ptr{_SCIP_VAR}}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetLhsCoefsSOC(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetLhsCoefsSOC", 
+	Ptr{_SCIP_Real}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetLhsOffsetsSOC(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetLhsOffsetsSOC", 
+	Ptr{_SCIP_Real}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetLhsConstantSOC(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetLhsConstantSOC", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetRhsVarSOC(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetRhsVarSOC", 
+	Ptr{_SCIP_VAR}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetRhsCoefSOC(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetRhsCoefSOC", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetRhsOffsetSOC(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetRhsOffsetSOC", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPconshdlrGetName(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetName", 
+	String, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetDesc(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetDesc", 
+	String, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetData(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetData", 
+	Ptr{_SCIP_CONSHDLRDATA}, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrSetData(conshdlr::SCIP_CONSHDLR_t, conshdlrdata::SCIP_CONSHDLRDATA_t) = @scip_ccall("SCIPconshdlrSetData", 
+	Void, 
+	(Ptr{_SCIP_CONSHDLR}, Ptr{_SCIP_CONSHDLRDATA}), 
+	pointer(conshdlr), pointer(conshdlrdata)
+)
+SCIPconshdlrGetConss(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetConss", 
+	Ptr{Ptr{_SCIP_CONS}}, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetEnfoConss(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetEnfoConss", 
+	Ptr{Ptr{_SCIP_CONS}}, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetCheckConss(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetCheckConss", 
+	Ptr{Ptr{_SCIP_CONS}}, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetNConss(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNConss", 
+	Int, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetNEnfoConss(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNEnfoConss", 
+	Int, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetNCheckConss(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNCheckConss", 
+	Int, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetNActiveConss(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNActiveConss", 
+	Int, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetNEnabledConss(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNEnabledConss", 
+	Int, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetSetupTime(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetSetupTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetPresolTime(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetPresolTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetSepaTime(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetSepaTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetEnfoLPTime(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetEnfoLPTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetEnfoPSTime(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetEnfoPSTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetPropTime(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetPropTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetStrongBranchPropTime(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetStrongBranchPropTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetCheckTime(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetCheckTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetRespropTime(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetRespropTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetNSepaCalls(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNSepaCalls", 
+	Int64, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetNEnfoLPCalls(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNEnfoLPCalls", 
+	Int64, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetNEnfoPSCalls(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNEnfoPSCalls", 
+	Int64, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetNPropCalls(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNPropCalls", 
+	Int64, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetNCheckCalls(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNCheckCalls", 
+	Int64, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetNRespropCalls(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNRespropCalls", 
+	Int64, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetNCutoffs(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNCutoffs", 
+	Int64, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetNCutsFound(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNCutsFound", 
+	Int64, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetNCutsApplied(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNCutsApplied", 
+	Int64, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetNConssFound(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNConssFound", 
+	Int64, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetNDomredsFound(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNDomredsFound", 
+	Int64, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetNChildren(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNChildren", 
+	Int64, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetMaxNActiveConss(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetMaxNActiveConss", 
+	Int, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetStartNActiveConss(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetStartNActiveConss", 
+	Int, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetNFixedVars(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNFixedVars", 
+	Int, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetNAggrVars(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNAggrVars", 
+	Int, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetNChgVarTypes(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNChgVarTypes", 
+	Int, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetNChgBds(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNChgBds", 
+	Int, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetNAddHoles(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNAddHoles", 
+	Int, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetNDelConss(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNDelConss", 
+	Int, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetNAddConss(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNAddConss", 
+	Int, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetNUpgdConss(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNUpgdConss", 
+	Int, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetNChgCoefs(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNChgCoefs", 
+	Int, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetNChgSides(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNChgSides", 
+	Int, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetNPresolCalls(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetNPresolCalls", 
+	Int, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetSepaPriority(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetSepaPriority", 
+	Int, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetEnfoPriority(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetEnfoPriority", 
+	Int, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetCheckPriority(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetCheckPriority", 
+	Int, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetSepaFreq(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetSepaFreq", 
+	Int, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetPropFreq(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetPropFreq", 
+	Int, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetEagerFreq(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetEagerFreq", 
+	Int, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrNeedsCons(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrNeedsCons", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrDoesPresolve(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrDoesPresolve", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrIsSeparationDelayed(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrIsSeparationDelayed", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrIsPropagationDelayed(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrIsPropagationDelayed", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrIsPresolvingDelayed(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrIsPresolvingDelayed", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrWasLPSeparationDelayed(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrWasLPSeparationDelayed", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrWasSolSeparationDelayed(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrWasSolSeparationDelayed", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrWasPropagationDelayed(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrWasPropagationDelayed", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrWasPresolvingDelayed(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrWasPresolvingDelayed", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrIsInitialized(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrIsInitialized", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrIsClonable(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrIsClonable", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconshdlrGetPropTimingmask(conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPconshdlrGetPropTimingmask", 
+	_SCIP_PROPTIMING, 
+	(Ptr{_SCIP_CONSHDLR},), 
+	pointer(conshdlr)
+)
+SCIPconsGetName(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsGetName", 
+	String, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPconsGetPos(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsGetPos", 
+	Int, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPconsGetHdlr(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsGetHdlr", 
+	Ptr{_SCIP_CONSHDLR}, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPconsGetData(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsGetData", 
+	Ptr{_SCIP_CONSDATA}, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPconsGetNUses(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsGetNUses", 
+	Int, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPconsGetActiveDepth(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsGetActiveDepth", 
+	Int, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPconsGetValidDepth(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsGetValidDepth", 
+	Int, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPconsIsActive(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsActive", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPconsIsEnabled(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsEnabled", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPconsIsSeparationEnabled(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsSeparationEnabled", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPconsIsPropagationEnabled(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsPropagationEnabled", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPconsIsDeleted(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsDeleted", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPconsIsObsolete(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsObsolete", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPconsGetAge(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsGetAge", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPconsIsInitial(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsInitial", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPconsIsSeparated(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsSeparated", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPconsIsEnforced(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsEnforced", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPconsIsChecked(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsChecked", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPconsIsMarkedPropagate(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsMarkedPropagate", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPconsIsPropagated(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsPropagated", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPconsIsGlobal(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsGlobal", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPconsIsLocal(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsLocal", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPconsIsModifiable(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsModifiable", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPconsIsDynamic(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsDynamic", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPconsIsRemovable(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsRemovable", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPconsIsStickingAtNode(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsStickingAtNode", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPconsIsInProb(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsInProb", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPconsIsOriginal(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsOriginal", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPconsIsTransformed(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsTransformed", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPconsIsLockedPos(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsLockedPos", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPconsIsLockedNeg(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsLockedNeg", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPconsIsLocked(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsLocked", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPconsGetNLocksPos(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsGetNLocksPos", 
+	Int, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPconsGetNLocksNeg(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsGetNLocksNeg", 
+	Int, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPconsIsAdded(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsIsAdded", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPconsAddUpgradeLocks(cons::SCIP_CONS_t, nlocks::Int) = @scip_ccall("SCIPconsAddUpgradeLocks", 
+	Void, 
+	(Ptr{_SCIP_CONS}, Int), 
+	pointer(cons), nlocks
+)
+SCIPconsGetNUpgradeLocks(cons::SCIP_CONS_t) = @scip_ccall("SCIPconsGetNUpgradeLocks", 
+	Int, 
+	(Ptr{_SCIP_CONS},), 
+	pointer(cons)
+)
+SCIPexprcurvAdd(curv1::_SCIP_EXPRCURV, curv2::_SCIP_EXPRCURV) = @scip_ccall("SCIPexprcurvAdd", 
+	_SCIP_EXPRCURV, 
+	(_SCIP_EXPRCURV, _SCIP_EXPRCURV), 
+	curv1, curv2
+)
+SCIPexprcurvNegate(curvature::_SCIP_EXPRCURV) = @scip_ccall("SCIPexprcurvNegate", 
+	_SCIP_EXPRCURV, 
+	(_SCIP_EXPRCURV,), 
+	curvature
+)
+SCIPexprcurvMultiply(factor::_SCIP_Real, curvature::_SCIP_EXPRCURV) = @scip_ccall("SCIPexprcurvMultiply", 
+	_SCIP_EXPRCURV, 
+	(_SCIP_Real, _SCIP_EXPRCURV), 
+	factor, curvature
+)
+SCIPexprcurvPower(basebounds::_SCIP_INTERVAL, basecurv::_SCIP_EXPRCURV, exponent::_SCIP_Real) = @scip_ccall("SCIPexprcurvPower", 
+	_SCIP_EXPRCURV, 
+	(_SCIP_INTERVAL, _SCIP_EXPRCURV, _SCIP_Real), 
+	basebounds, basecurv, exponent
+)
+SCIPexprcurvGetName(curv::_SCIP_EXPRCURV) = @scip_ccall("SCIPexprcurvGetName", 
+	String, 
+	(_SCIP_EXPRCURV,), 
+	curv
+)
+SCIPexpropGetName(op::_SCIP_EXPROP) = @scip_ccall("SCIPexpropGetName", 
+	String, 
+	(_SCIP_EXPROP,), 
+	op
+)
+SCIPexpropGetNChildren(op::_SCIP_EXPROP) = @scip_ccall("SCIPexpropGetNChildren", 
+	Int, 
+	(_SCIP_EXPROP,), 
+	op
+)
+SCIPexprGetOperator(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprGetOperator", 
+	_SCIP_EXPROP, 
+	(Ptr{_SCIP_EXPR},), 
+	pointer(expr)
+)
+SCIPexprGetNChildren(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprGetNChildren", 
+	Int, 
+	(Ptr{_SCIP_EXPR},), 
+	pointer(expr)
+)
+SCIPexprGetChildren(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprGetChildren", 
+	Ptr{Ptr{_SCIP_EXPR}}, 
+	(Ptr{_SCIP_EXPR},), 
+	pointer(expr)
+)
+SCIPexprGetOpIndex(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprGetOpIndex", 
+	Int, 
+	(Ptr{_SCIP_EXPR},), 
+	pointer(expr)
+)
+SCIPexprGetOpReal(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprGetOpReal", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_EXPR},), 
+	pointer(expr)
+)
+SCIPexprGetRealPowerExponent(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprGetRealPowerExponent", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_EXPR},), 
+	pointer(expr)
+)
+SCIPexprGetIntPowerExponent(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprGetIntPowerExponent", 
+	Int, 
+	(Ptr{_SCIP_EXPR},), 
+	pointer(expr)
+)
+SCIPexprGetSignPowerExponent(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprGetSignPowerExponent", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_EXPR},), 
+	pointer(expr)
+)
+SCIPexprGetLinearCoefs(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprGetLinearCoefs", 
+	Ptr{_SCIP_Real}, 
+	(Ptr{_SCIP_EXPR},), 
+	pointer(expr)
+)
+SCIPexprGetLinearConstant(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprGetLinearConstant", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_EXPR},), 
+	pointer(expr)
+)
+SCIPexprGetQuadElements(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprGetQuadElements", 
+	Ptr{_SCIP_QUADELEM}, 
+	(Ptr{_SCIP_EXPR},), 
+	pointer(expr)
+)
+SCIPexprGetQuadConstant(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprGetQuadConstant", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_EXPR},), 
+	pointer(expr)
+)
+SCIPexprGetQuadLinearCoefs(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprGetQuadLinearCoefs", 
+	Ptr{_SCIP_Real}, 
+	(Ptr{_SCIP_EXPR},), 
+	pointer(expr)
+)
+SCIPexprGetNQuadElements(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprGetNQuadElements", 
+	Int, 
+	(Ptr{_SCIP_EXPR},), 
+	pointer(expr)
+)
+SCIPexprGetMonomials(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprGetMonomials", 
+	Ptr{Ptr{_SCIP_EXPRDATA_MONOMIAL}}, 
+	(Ptr{_SCIP_EXPR},), 
+	pointer(expr)
+)
+SCIPexprGetNMonomials(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprGetNMonomials", 
+	Int, 
+	(Ptr{_SCIP_EXPR},), 
+	pointer(expr)
+)
+SCIPexprGetPolynomialConstant(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprGetPolynomialConstant", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_EXPR},), 
+	pointer(expr)
+)
+SCIPexprGetMonomialCoef(monomial::SCIP_EXPRDATA_MONOMIAL_t) = @scip_ccall("SCIPexprGetMonomialCoef", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_EXPRDATA_MONOMIAL},), 
+	pointer(monomial)
+)
+SCIPexprGetMonomialNFactors(monomial::SCIP_EXPRDATA_MONOMIAL_t) = @scip_ccall("SCIPexprGetMonomialNFactors", 
+	Int, 
+	(Ptr{_SCIP_EXPRDATA_MONOMIAL},), 
+	pointer(monomial)
+)
+SCIPexprGetMonomialExponents(monomial::SCIP_EXPRDATA_MONOMIAL_t) = @scip_ccall("SCIPexprGetMonomialExponents", 
+	Ptr{_SCIP_Real}, 
+	(Ptr{_SCIP_EXPRDATA_MONOMIAL},), 
+	pointer(monomial)
+)
+SCIPexprSortQuadElems(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprSortQuadElems", 
+	Void, 
+	(Ptr{_SCIP_EXPR},), 
+	pointer(expr)
+)
+SCIPexprChgPolynomialConstant(expr::SCIP_EXPR_t, constant::_SCIP_Real) = @scip_ccall("SCIPexprChgPolynomialConstant", 
+	Void, 
+	(Ptr{_SCIP_EXPR}, _SCIP_Real), 
+	pointer(expr), constant
+)
+SCIPexprSortMonomialFactors(monomial::SCIP_EXPRDATA_MONOMIAL_t) = @scip_ccall("SCIPexprSortMonomialFactors", 
+	Void, 
+	(Ptr{_SCIP_EXPRDATA_MONOMIAL},), 
+	pointer(monomial)
+)
+SCIPexprAreMonomialsEqual(monomial1::SCIP_EXPRDATA_MONOMIAL_t, monomial2::SCIP_EXPRDATA_MONOMIAL_t, eps::_SCIP_Real) = @scip_ccall("SCIPexprAreMonomialsEqual", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_EXPRDATA_MONOMIAL}, Ptr{_SCIP_EXPRDATA_MONOMIAL}, _SCIP_Real), 
+	pointer(monomial1), pointer(monomial2), eps
+)
+SCIPexprChgMonomialCoef(monomial::SCIP_EXPRDATA_MONOMIAL_t, newcoef::_SCIP_Real) = @scip_ccall("SCIPexprChgMonomialCoef", 
+	Void, 
+	(Ptr{_SCIP_EXPRDATA_MONOMIAL}, _SCIP_Real), 
+	pointer(monomial), newcoef
+)
+SCIPexprMonomialPower(monomial::SCIP_EXPRDATA_MONOMIAL_t, exponent::Int) = @scip_ccall("SCIPexprMonomialPower", 
+	Void, 
+	(Ptr{_SCIP_EXPRDATA_MONOMIAL}, Int), 
+	pointer(monomial), exponent
+)
+SCIPexprMergeMonomialFactors(monomial::SCIP_EXPRDATA_MONOMIAL_t, eps::_SCIP_Real) = @scip_ccall("SCIPexprMergeMonomialFactors", 
+	Void, 
+	(Ptr{_SCIP_EXPRDATA_MONOMIAL}, _SCIP_Real), 
+	pointer(monomial), eps
+)
+SCIPexprSortMonomials(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprSortMonomials", 
+	Void, 
+	(Ptr{_SCIP_EXPR},), 
+	pointer(expr)
+)
+SCIPexprHasParam(expr::SCIP_EXPR_t) = @scip_ccall("SCIPexprHasParam", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_EXPR},), 
+	pointer(expr)
+)
+SCIPexprAreEqual(expr1::SCIP_EXPR_t, expr2::SCIP_EXPR_t, eps::_SCIP_Real) = @scip_ccall("SCIPexprAreEqual", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_EXPR}, Ptr{_SCIP_EXPR}, _SCIP_Real), 
+	pointer(expr1), pointer(expr2), eps
+)
+SCIPexprtreeGetRoot(tree::SCIP_EXPRTREE_t) = @scip_ccall("SCIPexprtreeGetRoot", 
+	Ptr{_SCIP_EXPR}, 
+	(Ptr{_SCIP_EXPRTREE},), 
+	pointer(tree)
+)
+SCIPexprtreeGetNVars(tree::SCIP_EXPRTREE_t) = @scip_ccall("SCIPexprtreeGetNVars", 
+	Int, 
+	(Ptr{_SCIP_EXPRTREE},), 
+	pointer(tree)
+)
+SCIPexprtreeGetNParams(tree::SCIP_EXPRTREE_t) = @scip_ccall("SCIPexprtreeGetNParams", 
+	Int, 
+	(Ptr{_SCIP_EXPRTREE},), 
+	pointer(tree)
+)
+SCIPexprtreeGetParamVals(tree::SCIP_EXPRTREE_t) = @scip_ccall("SCIPexprtreeGetParamVals", 
+	Ptr{_SCIP_Real}, 
+	(Ptr{_SCIP_EXPRTREE},), 
+	pointer(tree)
+)
+SCIPexprtreeSetParamVal(tree::SCIP_EXPRTREE_t, paramidx::Int, paramval::_SCIP_Real) = @scip_ccall("SCIPexprtreeSetParamVal", 
+	Void, 
+	(Ptr{_SCIP_EXPRTREE}, Int, _SCIP_Real), 
+	pointer(tree), paramidx, paramval
+)
+SCIPexprtreeGetInterpreterData(tree::SCIP_EXPRTREE_t) = @scip_ccall("SCIPexprtreeGetInterpreterData", 
+	Ptr{_SCIP_EXPRINTDATA}, 
+	(Ptr{_SCIP_EXPRTREE},), 
+	pointer(tree)
+)
+SCIPexprtreeSetInterpreterData(tree::SCIP_EXPRTREE_t, interpreterdata::SCIP_EXPRINTDATA_t) = @scip_ccall("SCIPexprtreeSetInterpreterData", 
+	Void, 
+	(Ptr{_SCIP_EXPRTREE}, Ptr{_SCIP_EXPRINTDATA}), 
+	pointer(tree), pointer(interpreterdata)
+)
+SCIPexprtreeHasParam(tree::SCIP_EXPRTREE_t) = @scip_ccall("SCIPexprtreeHasParam", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_EXPRTREE},), 
+	pointer(tree)
+)
+SCIPquadelemSort(quadelems::SCIP_QUADELEM_t, nquadelems::Int) = @scip_ccall("SCIPquadelemSort", 
+	Void, 
+	(Ptr{_SCIP_QUADELEM}, Int), 
+	pointer(quadelems), nquadelems
+)
+SCIPexprgraphCaptureNode(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphCaptureNode", 
+	Void, 
+	(Ptr{_SCIP_EXPRGRAPHNODE},), 
+	pointer(node)
+)
+SCIPexprgraphIsNodeEnabled(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphIsNodeEnabled", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_EXPRGRAPHNODE},), 
+	pointer(node)
+)
+SCIPexprgraphGetNodeNChildren(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeNChildren", 
+	Int, 
+	(Ptr{_SCIP_EXPRGRAPHNODE},), 
+	pointer(node)
+)
+SCIPexprgraphGetNodeChildren(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeChildren", 
+	Ptr{Ptr{_SCIP_EXPRGRAPHNODE}}, 
+	(Ptr{_SCIP_EXPRGRAPHNODE},), 
+	pointer(node)
+)
+SCIPexprgraphGetNodeNParents(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeNParents", 
+	Int, 
+	(Ptr{_SCIP_EXPRGRAPHNODE},), 
+	pointer(node)
+)
+SCIPexprgraphGetNodeParents(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeParents", 
+	Ptr{Ptr{_SCIP_EXPRGRAPHNODE}}, 
+	(Ptr{_SCIP_EXPRGRAPHNODE},), 
+	pointer(node)
+)
+SCIPexprgraphGetNodeDepth(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeDepth", 
+	Int, 
+	(Ptr{_SCIP_EXPRGRAPHNODE},), 
+	pointer(node)
+)
+SCIPexprgraphGetNodePosition(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodePosition", 
+	Int, 
+	(Ptr{_SCIP_EXPRGRAPHNODE},), 
+	pointer(node)
+)
+SCIPexprgraphGetNodeOperator(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeOperator", 
+	_SCIP_EXPROP, 
+	(Ptr{_SCIP_EXPRGRAPHNODE},), 
+	pointer(node)
+)
+SCIPexprgraphGetNodeOperatorIndex(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeOperatorIndex", 
+	Int, 
+	(Ptr{_SCIP_EXPRGRAPHNODE},), 
+	pointer(node)
+)
+SCIPexprgraphGetNodeOperatorReal(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeOperatorReal", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_EXPRGRAPHNODE},), 
+	pointer(node)
+)
+SCIPexprgraphGetNodeRealPowerExponent(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeRealPowerExponent", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_EXPRGRAPHNODE},), 
+	pointer(node)
+)
+SCIPexprgraphGetNodeIntPowerExponent(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeIntPowerExponent", 
+	Int, 
+	(Ptr{_SCIP_EXPRGRAPHNODE},), 
+	pointer(node)
+)
+SCIPexprgraphGetNodeSignPowerExponent(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeSignPowerExponent", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_EXPRGRAPHNODE},), 
+	pointer(node)
+)
+SCIPexprgraphGetNodeLinearCoefs(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeLinearCoefs", 
+	Ptr{_SCIP_Real}, 
+	(Ptr{_SCIP_EXPRGRAPHNODE},), 
+	pointer(node)
+)
+SCIPexprgraphGetNodeLinearConstant(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeLinearConstant", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_EXPRGRAPHNODE},), 
+	pointer(node)
+)
+SCIPexprgraphGetNodeQuadraticConstant(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeQuadraticConstant", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_EXPRGRAPHNODE},), 
+	pointer(node)
+)
+SCIPexprgraphGetNodeQuadraticLinearCoefs(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeQuadraticLinearCoefs", 
+	Ptr{_SCIP_Real}, 
+	(Ptr{_SCIP_EXPRGRAPHNODE},), 
+	pointer(node)
+)
+SCIPexprgraphGetNodeQuadraticQuadElements(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeQuadraticQuadElements", 
+	Ptr{_SCIP_QUADELEM}, 
+	(Ptr{_SCIP_EXPRGRAPHNODE},), 
+	pointer(node)
+)
+SCIPexprgraphGetNodeQuadraticNQuadElements(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeQuadraticNQuadElements", 
+	Int, 
+	(Ptr{_SCIP_EXPRGRAPHNODE},), 
+	pointer(node)
+)
+SCIPexprgraphGetNodePolynomialMonomials(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodePolynomialMonomials", 
+	Ptr{Ptr{_SCIP_EXPRDATA_MONOMIAL}}, 
+	(Ptr{_SCIP_EXPRGRAPHNODE},), 
+	pointer(node)
+)
+SCIPexprgraphGetNodePolynomialNMonomials(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodePolynomialNMonomials", 
+	Int, 
+	(Ptr{_SCIP_EXPRGRAPHNODE},), 
+	pointer(node)
+)
+SCIPexprgraphGetNodePolynomialConstant(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodePolynomialConstant", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_EXPRGRAPHNODE},), 
+	pointer(node)
+)
+SCIPexprgraphGetNodeBounds(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeBounds", 
+	_SCIP_INTERVAL, 
+	(Ptr{_SCIP_EXPRGRAPHNODE},), 
+	pointer(node)
+)
+SCIPexprgraphGetNodeVal(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeVal", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_EXPRGRAPHNODE},), 
+	pointer(node)
+)
+SCIPexprgraphGetNodeCurvature(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetNodeCurvature", 
+	_SCIP_EXPRCURV, 
+	(Ptr{_SCIP_EXPRGRAPHNODE},), 
+	pointer(node)
+)
+SCIPexprgraphEnableNode(exprgraph::SCIP_EXPRGRAPH_t, node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphEnableNode", 
+	Void, 
+	(Ptr{_SCIP_EXPRGRAPH}, Ptr{_SCIP_EXPRGRAPHNODE}), 
+	pointer(exprgraph), pointer(node)
+)
+SCIPexprgraphDisableNode(exprgraph::SCIP_EXPRGRAPH_t, node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphDisableNode", 
+	Void, 
+	(Ptr{_SCIP_EXPRGRAPH}, Ptr{_SCIP_EXPRGRAPHNODE}), 
+	pointer(exprgraph), pointer(node)
+)
+SCIPexprgraphHasNodeSibling(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphHasNodeSibling", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_EXPRGRAPHNODE},), 
+	pointer(node)
+)
+SCIPexprgraphAreAllNodeChildrenVars(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphAreAllNodeChildrenVars", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_EXPRGRAPHNODE},), 
+	pointer(node)
+)
+SCIPexprgraphHasNodeNonlinearAncestor(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphHasNodeNonlinearAncestor", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_EXPRGRAPHNODE},), 
+	pointer(node)
+)
+SCIPexprgraphTightenNodeBounds(exprgraph::SCIP_EXPRGRAPH_t, node::SCIP_EXPRGRAPHNODE_t, nodebounds::_SCIP_INTERVAL, minstrength::_SCIP_Real, cutoff::SCIP_Bool_t) = @scip_ccall("SCIPexprgraphTightenNodeBounds", 
+	Void, 
+	(Ptr{_SCIP_EXPRGRAPH}, Ptr{_SCIP_EXPRGRAPHNODE}, _SCIP_INTERVAL, _SCIP_Real, Ptr{_SCIP_Bool}), 
+	pointer(exprgraph), pointer(node), nodebounds, minstrength, pointer(cutoff)
+)
+SCIPexprgraphGetDepth(exprgraph::SCIP_EXPRGRAPH_t) = @scip_ccall("SCIPexprgraphGetDepth", 
+	Int, 
+	(Ptr{_SCIP_EXPRGRAPH},), 
+	pointer(exprgraph)
+)
+SCIPexprgraphGetNodes(exprgraph::SCIP_EXPRGRAPH_t) = @scip_ccall("SCIPexprgraphGetNodes", 
+	Ptr{Ptr{Ptr{_SCIP_EXPRGRAPHNODE}}}, 
+	(Ptr{_SCIP_EXPRGRAPH},), 
+	pointer(exprgraph)
+)
+SCIPexprgraphGetNVars(exprgraph::SCIP_EXPRGRAPH_t) = @scip_ccall("SCIPexprgraphGetNVars", 
+	Int, 
+	(Ptr{_SCIP_EXPRGRAPH},), 
+	pointer(exprgraph)
+)
+SCIPexprgraphGetVarNodes(exprgraph::SCIP_EXPRGRAPH_t) = @scip_ccall("SCIPexprgraphGetVarNodes", 
+	Ptr{Ptr{_SCIP_EXPRGRAPHNODE}}, 
+	(Ptr{_SCIP_EXPRGRAPH},), 
+	pointer(exprgraph)
+)
+SCIPexprgraphSetVarNodeValue(varnode::SCIP_EXPRGRAPHNODE_t, value::_SCIP_Real) = @scip_ccall("SCIPexprgraphSetVarNodeValue", 
+	Void, 
+	(Ptr{_SCIP_EXPRGRAPHNODE}, _SCIP_Real), 
+	pointer(varnode), value
+)
+SCIPexprgraphSetVarsBounds(exprgraph::SCIP_EXPRGRAPH_t, varbounds::SCIP_INTERVAL_t) = @scip_ccall("SCIPexprgraphSetVarsBounds", 
+	Void, 
+	(Ptr{_SCIP_EXPRGRAPH}, Ptr{_SCIP_INTERVAL}), 
+	pointer(exprgraph), pointer(varbounds)
+)
+SCIPexprgraphSetVarNodeBounds(exprgraph::SCIP_EXPRGRAPH_t, varnode::SCIP_EXPRGRAPHNODE_t, varbounds::_SCIP_INTERVAL) = @scip_ccall("SCIPexprgraphSetVarNodeBounds", 
+	Void, 
+	(Ptr{_SCIP_EXPRGRAPH}, Ptr{_SCIP_EXPRGRAPHNODE}, _SCIP_INTERVAL), 
+	pointer(exprgraph), pointer(varnode), varbounds
+)
+SCIPexprgraphSetVarNodeLb(exprgraph::SCIP_EXPRGRAPH_t, varnode::SCIP_EXPRGRAPHNODE_t, lb::_SCIP_Real) = @scip_ccall("SCIPexprgraphSetVarNodeLb", 
+	Void, 
+	(Ptr{_SCIP_EXPRGRAPH}, Ptr{_SCIP_EXPRGRAPHNODE}, _SCIP_Real), 
+	pointer(exprgraph), pointer(varnode), lb
+)
+SCIPexprgraphSetVarNodeUb(exprgraph::SCIP_EXPRGRAPH_t, varnode::SCIP_EXPRGRAPHNODE_t, ub::_SCIP_Real) = @scip_ccall("SCIPexprgraphSetVarNodeUb", 
+	Void, 
+	(Ptr{_SCIP_EXPRGRAPH}, Ptr{_SCIP_EXPRGRAPHNODE}, _SCIP_Real), 
+	pointer(exprgraph), pointer(varnode), ub
+)
+SCIPexprgraphGetVarsBounds(exprgraph::SCIP_EXPRGRAPH_t) = @scip_ccall("SCIPexprgraphGetVarsBounds", 
+	Ptr{_SCIP_INTERVAL}, 
+	(Ptr{_SCIP_EXPRGRAPH},), 
+	pointer(exprgraph)
+)
+SCIPexprgraphFindConstNode(exprgraph::SCIP_EXPRGRAPH_t, constant::_SCIP_Real, constnode::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphFindConstNode", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_EXPRGRAPH}, _SCIP_Real, Ptr{Ptr{_SCIP_EXPRGRAPHNODE}}), 
+	pointer(exprgraph), constant, array(constnode)
+)
+SCIPexprgraphPropagateNodeBounds(exprgraph::SCIP_EXPRGRAPH_t, infinity::_SCIP_Real, minstrength::_SCIP_Real, cutoff::SCIP_Bool_t) = @scip_ccall("SCIPexprgraphPropagateNodeBounds", 
+	Void, 
+	(Ptr{_SCIP_EXPRGRAPH}, _SCIP_Real, _SCIP_Real, Ptr{_SCIP_Bool}), 
+	pointer(exprgraph), infinity, minstrength, pointer(cutoff)
+)
+SCIPexprgraphGetSumTreesNSummands(node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall("SCIPexprgraphGetSumTreesNSummands", 
+	Int, 
+	(Ptr{_SCIP_EXPRGRAPHNODE},), 
+	pointer(node)
+)
+SCIPgetNVarsOr(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNVarsOr", 
+	Int, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetVarsOr(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetVarsOr", 
+	Ptr{Ptr{_SCIP_VAR}}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetResultantOr(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetResultantOr", 
+	Ptr{_SCIP_VAR}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPdispGetData(disp::SCIP_DISP_t) = @scip_ccall("SCIPdispGetData", 
+	Ptr{_SCIP_DISPDATA}, 
+	(Ptr{_SCIP_DISP},), 
+	pointer(disp)
+)
+SCIPdispSetData(disp::SCIP_DISP_t, dispdata::SCIP_DISPDATA_t) = @scip_ccall("SCIPdispSetData", 
+	Void, 
+	(Ptr{_SCIP_DISP}, Ptr{_SCIP_DISPDATA}), 
+	pointer(disp), pointer(dispdata)
+)
+SCIPdispGetName(disp::SCIP_DISP_t) = @scip_ccall("SCIPdispGetName", 
+	String, 
+	(Ptr{_SCIP_DISP},), 
+	pointer(disp)
+)
+SCIPdispGetDesc(disp::SCIP_DISP_t) = @scip_ccall("SCIPdispGetDesc", 
+	String, 
+	(Ptr{_SCIP_DISP},), 
+	pointer(disp)
+)
+SCIPdispGetHeader(disp::SCIP_DISP_t) = @scip_ccall("SCIPdispGetHeader", 
+	String, 
+	(Ptr{_SCIP_DISP},), 
+	pointer(disp)
+)
+SCIPdispGetWidth(disp::SCIP_DISP_t) = @scip_ccall("SCIPdispGetWidth", 
+	Int, 
+	(Ptr{_SCIP_DISP},), 
+	pointer(disp)
+)
+SCIPdispGetPriority(disp::SCIP_DISP_t) = @scip_ccall("SCIPdispGetPriority", 
+	Int, 
+	(Ptr{_SCIP_DISP},), 
+	pointer(disp)
+)
+SCIPdispGetPosition(disp::SCIP_DISP_t) = @scip_ccall("SCIPdispGetPosition", 
+	Int, 
+	(Ptr{_SCIP_DISP},), 
+	pointer(disp)
+)
+SCIPdispGetStatus(disp::SCIP_DISP_t) = @scip_ccall("SCIPdispGetStatus", 
+	_SCIP_DISPSTATUS, 
+	(Ptr{_SCIP_DISP},), 
+	pointer(disp)
+)
+SCIPdispIsInitialized(disp::SCIP_DISP_t) = @scip_ccall("SCIPdispIsInitialized", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_DISP},), 
+	pointer(disp)
+)
+SCIPpresolGetData(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolGetData", 
+	Ptr{_SCIP_PRESOLDATA}, 
+	(Ptr{_SCIP_PRESOL},), 
+	pointer(presol)
+)
+SCIPpresolSetData(presol::SCIP_PRESOL_t, presoldata::SCIP_PRESOLDATA_t) = @scip_ccall("SCIPpresolSetData", 
+	Void, 
+	(Ptr{_SCIP_PRESOL}, Ptr{_SCIP_PRESOLDATA}), 
+	pointer(presol), pointer(presoldata)
+)
+SCIPpresolGetName(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolGetName", 
+	String, 
+	(Ptr{_SCIP_PRESOL},), 
+	pointer(presol)
+)
+SCIPpresolGetDesc(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolGetDesc", 
+	String, 
+	(Ptr{_SCIP_PRESOL},), 
+	pointer(presol)
+)
+SCIPpresolGetPriority(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolGetPriority", 
+	Int, 
+	(Ptr{_SCIP_PRESOL},), 
+	pointer(presol)
+)
+SCIPpresolIsDelayed(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolIsDelayed", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_PRESOL},), 
+	pointer(presol)
+)
+SCIPpresolWasDelayed(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolWasDelayed", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_PRESOL},), 
+	pointer(presol)
+)
+SCIPpresolIsInitialized(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolIsInitialized", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_PRESOL},), 
+	pointer(presol)
+)
+SCIPpresolGetSetupTime(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolGetSetupTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_PRESOL},), 
+	pointer(presol)
+)
+SCIPpresolGetTime(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolGetTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_PRESOL},), 
+	pointer(presol)
+)
+SCIPpresolGetNFixedVars(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolGetNFixedVars", 
+	Int, 
+	(Ptr{_SCIP_PRESOL},), 
+	pointer(presol)
+)
+SCIPpresolGetNAggrVars(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolGetNAggrVars", 
+	Int, 
+	(Ptr{_SCIP_PRESOL},), 
+	pointer(presol)
+)
+SCIPpresolGetNChgVarTypes(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolGetNChgVarTypes", 
+	Int, 
+	(Ptr{_SCIP_PRESOL},), 
+	pointer(presol)
+)
+SCIPpresolGetNChgBds(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolGetNChgBds", 
+	Int, 
+	(Ptr{_SCIP_PRESOL},), 
+	pointer(presol)
+)
+SCIPpresolGetNAddHoles(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolGetNAddHoles", 
+	Int, 
+	(Ptr{_SCIP_PRESOL},), 
+	pointer(presol)
+)
+SCIPpresolGetNDelConss(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolGetNDelConss", 
+	Int, 
+	(Ptr{_SCIP_PRESOL},), 
+	pointer(presol)
+)
+SCIPpresolGetNAddConss(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolGetNAddConss", 
+	Int, 
+	(Ptr{_SCIP_PRESOL},), 
+	pointer(presol)
+)
+SCIPpresolGetNUpgdConss(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolGetNUpgdConss", 
+	Int, 
+	(Ptr{_SCIP_PRESOL},), 
+	pointer(presol)
+)
+SCIPpresolGetNChgCoefs(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolGetNChgCoefs", 
+	Int, 
+	(Ptr{_SCIP_PRESOL},), 
+	pointer(presol)
+)
+SCIPpresolGetNChgSides(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolGetNChgSides", 
+	Int, 
+	(Ptr{_SCIP_PRESOL},), 
+	pointer(presol)
+)
+SCIPpresolGetNCalls(presol::SCIP_PRESOL_t) = @scip_ccall("SCIPpresolGetNCalls", 
+	Int, 
+	(Ptr{_SCIP_PRESOL},), 
+	pointer(presol)
+)
+SCIPhistoryGetVSIDS(history::SCIP_HISTORY_t, dir::_SCIP_BRANCHDIR) = @scip_ccall("SCIPhistoryGetVSIDS", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_HISTORY}, _SCIP_BRANCHDIR), 
+	pointer(history), dir
+)
+SCIPhistoryGetCutoffSum(history::SCIP_HISTORY_t, dir::_SCIP_BRANCHDIR) = @scip_ccall("SCIPhistoryGetCutoffSum", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_HISTORY}, _SCIP_BRANCHDIR), 
+	pointer(history), dir
+)
+SCIPvaluehistoryGetNValues(valuehistory::SCIP_VALUEHISTORY_t) = @scip_ccall("SCIPvaluehistoryGetNValues", 
+	Int, 
+	(Ptr{_SCIP_VALUEHISTORY},), 
+	pointer(valuehistory)
+)
+SCIPvaluehistoryGetHistories(valuehistory::SCIP_VALUEHISTORY_t) = @scip_ccall("SCIPvaluehistoryGetHistories", 
+	Ptr{Ptr{_SCIP_HISTORY}}, 
+	(Ptr{_SCIP_VALUEHISTORY},), 
+	pointer(valuehistory)
+)
+SCIPvaluehistoryGetValues(valuehistory::SCIP_VALUEHISTORY_t) = @scip_ccall("SCIPvaluehistoryGetValues", 
+	Ptr{_SCIP_Real}, 
+	(Ptr{_SCIP_VALUEHISTORY},), 
+	pointer(valuehistory)
+)
+SCIPsparseSolFree(sparsesol::SCIP_SPARSESOL_t) = @scip_ccall("SCIPsparseSolFree", 
+	Void, 
+	(Ptr{Ptr{_SCIP_SPARSESOL}},), 
+	array(sparsesol)
+)
+SCIPsparseSolGetVars(sparsesol::SCIP_SPARSESOL_t) = @scip_ccall("SCIPsparseSolGetVars", 
+	Ptr{Ptr{_SCIP_VAR}}, 
+	(Ptr{_SCIP_SPARSESOL},), 
+	pointer(sparsesol)
+)
+SCIPsparseSolGetNVars(sparsesol::SCIP_SPARSESOL_t) = @scip_ccall("SCIPsparseSolGetNVars", 
+	Int, 
+	(Ptr{_SCIP_SPARSESOL},), 
+	pointer(sparsesol)
+)
+SCIPsparseSolGetLbs(sparsesol::SCIP_SPARSESOL_t) = @scip_ccall("SCIPsparseSolGetLbs", 
+	Ptr{Int64}, 
+	(Ptr{_SCIP_SPARSESOL},), 
+	pointer(sparsesol)
+)
+SCIPsparseSolGetUbs(sparsesol::SCIP_SPARSESOL_t) = @scip_ccall("SCIPsparseSolGetUbs", 
+	Ptr{Int64}, 
+	(Ptr{_SCIP_SPARSESOL},), 
+	pointer(sparsesol)
+)
+SCIPsparseSolGetFirstSol(sparsesol::SCIP_SPARSESOL_t, sol::Int64, nvars::Int) = @scip_ccall("SCIPsparseSolGetFirstSol", 
+	Void, 
+	(Ptr{_SCIP_SPARSESOL}, Ptr{Int64}, Int), 
+	pointer(sparsesol), pointer(sol), nvars
+)
+SCIPsparseSolGetNextSol(sparsesol::SCIP_SPARSESOL_t, sol::Int64, nvars::Int) = @scip_ccall("SCIPsparseSolGetNextSol", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_SPARSESOL}, Ptr{Int64}, Int), 
+	pointer(sparsesol), pointer(sol), nvars
+)
+SCIPqueueFree(queue::SCIP_QUEUE_t) = @scip_ccall("SCIPqueueFree", 
+	Void, 
+	(Ptr{Ptr{_SCIP_QUEUE}},), 
+	array(queue)
+)
+SCIPqueueClear(queue::SCIP_QUEUE_t) = @scip_ccall("SCIPqueueClear", 
+	Void, 
+	(Ptr{_SCIP_QUEUE},), 
+	pointer(queue)
+)
+SCIPqueueIsEmpty(queue::SCIP_QUEUE_t) = @scip_ccall("SCIPqueueIsEmpty", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_QUEUE},), 
+	pointer(queue)
+)
+SCIPqueueNElems(queue::SCIP_QUEUE_t) = @scip_ccall("SCIPqueueNElems", 
+	Int, 
+	(Ptr{_SCIP_QUEUE},), 
+	pointer(queue)
+)
+SCIPpqueueFree(pqueue::SCIP_PQUEUE_t) = @scip_ccall("SCIPpqueueFree", 
+	Void, 
+	(Ptr{Ptr{_SCIP_PQUEUE}},), 
+	array(pqueue)
+)
+SCIPpqueueClear(pqueue::SCIP_PQUEUE_t) = @scip_ccall("SCIPpqueueClear", 
+	Void, 
+	(Ptr{_SCIP_PQUEUE},), 
+	pointer(pqueue)
+)
+SCIPpqueueNElems(pqueue::SCIP_PQUEUE_t) = @scip_ccall("SCIPpqueueNElems", 
+	Int, 
+	(Ptr{_SCIP_PQUEUE},), 
+	pointer(pqueue)
+)
+SCIPcalcHashtableSize(minsize::Int) = @scip_ccall("SCIPcalcHashtableSize", 
+	Int, 
+	(Int,), 
+	minsize
+)
+SCIPhashtableFree(hashtable::SCIP_HASHTABLE_t) = @scip_ccall("SCIPhashtableFree", 
+	Void, 
+	(Ptr{Ptr{_SCIP_HASHTABLE}},), 
+	array(hashtable)
+)
+SCIPhashtableClear(hashtable::SCIP_HASHTABLE_t) = @scip_ccall("SCIPhashtableClear", 
+	Void, 
+	(Ptr{_SCIP_HASHTABLE},), 
+	pointer(hashtable)
+)
+SCIPhashtableRemoveAll(hashtable::SCIP_HASHTABLE_t) = @scip_ccall("SCIPhashtableRemoveAll", 
+	Void, 
+	(Ptr{_SCIP_HASHTABLE},), 
+	pointer(hashtable)
+)
+SCIPhashtableGetNElements(hashtable::SCIP_HASHTABLE_t) = @scip_ccall("SCIPhashtableGetNElements", 
+	Int64, 
+	(Ptr{_SCIP_HASHTABLE},), 
+	pointer(hashtable)
+)
+SCIPhashtableGetLoad(hashtable::SCIP_HASHTABLE_t) = @scip_ccall("SCIPhashtableGetLoad", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_HASHTABLE},), 
+	pointer(hashtable)
+)
+SCIPhashtablePrintStatistics(hashtable::SCIP_HASHTABLE_t, messagehdlr::SCIP_MESSAGEHDLR_t) = @scip_ccall("SCIPhashtablePrintStatistics", 
+	Void, 
+	(Ptr{_SCIP_HASHTABLE}, Ptr{_SCIP_MESSAGEHDLR}), 
+	pointer(hashtable), pointer(messagehdlr)
+)
+SCIPhashmapFree(hashmap::SCIP_HASHMAP_t) = @scip_ccall("SCIPhashmapFree", 
+	Void, 
+	(Ptr{Ptr{_SCIP_HASHMAP}},), 
+	array(hashmap)
+)
+SCIPhashmapPrintStatistics(hashmap::SCIP_HASHMAP_t, messagehdlr::SCIP_MESSAGEHDLR_t) = @scip_ccall("SCIPhashmapPrintStatistics", 
+	Void, 
+	(Ptr{_SCIP_HASHMAP}, Ptr{_SCIP_MESSAGEHDLR}), 
+	pointer(hashmap), pointer(messagehdlr)
+)
+SCIPhashmapIsEmpty(hashmap::SCIP_HASHMAP_t) = @scip_ccall("SCIPhashmapIsEmpty", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_HASHMAP},), 
+	pointer(hashmap)
+)
+SCIPhashmapGetNEntries(hashmap::SCIP_HASHMAP_t) = @scip_ccall("SCIPhashmapGetNEntries", 
+	Int, 
+	(Ptr{_SCIP_HASHMAP},), 
+	pointer(hashmap)
+)
+SCIPhashmapGetNLists(hashmap::SCIP_HASHMAP_t) = @scip_ccall("SCIPhashmapGetNLists", 
+	Int, 
+	(Ptr{_SCIP_HASHMAP},), 
+	pointer(hashmap)
+)
+SCIPhashmapGetList(hashmap::SCIP_HASHMAP_t, listindex::Int) = @scip_ccall("SCIPhashmapGetList", 
+	Ptr{_SCIP_HASHMAPLIST}, 
+	(Ptr{_SCIP_HASHMAP}, Int), 
+	pointer(hashmap), listindex
+)
+SCIPhashmapListGetNEntries(hashmaplist::SCIP_HASHMAPLIST_t) = @scip_ccall("SCIPhashmapListGetNEntries", 
+	Int, 
+	(Ptr{_SCIP_HASHMAPLIST},), 
+	pointer(hashmaplist)
+)
+SCIPhashmapListGetNext(hashmaplist::SCIP_HASHMAPLIST_t) = @scip_ccall("SCIPhashmapListGetNext", 
+	Ptr{_SCIP_HASHMAPLIST}, 
+	(Ptr{_SCIP_HASHMAPLIST},), 
+	pointer(hashmaplist)
+)
+SCIPactivityFree(activity::SCIP_RESOURCEACTIVITY_t) = @scip_ccall("SCIPactivityFree", 
+	Void, 
+	(Ptr{Ptr{_SCIP_RESOURCEACTIVITY}},), 
+	array(activity)
+)
+SCIPactivityGetVar(activity::SCIP_RESOURCEACTIVITY_t) = @scip_ccall("SCIPactivityGetVar", 
+	Ptr{_SCIP_VAR}, 
+	(Ptr{_SCIP_RESOURCEACTIVITY},), 
+	pointer(activity)
+)
+SCIPactivityGetDuration(activity::SCIP_RESOURCEACTIVITY_t) = @scip_ccall("SCIPactivityGetDuration", 
+	Int, 
+	(Ptr{_SCIP_RESOURCEACTIVITY},), 
+	pointer(activity)
+)
+SCIPactivityGetDemand(activity::SCIP_RESOURCEACTIVITY_t) = @scip_ccall("SCIPactivityGetDemand", 
+	Int, 
+	(Ptr{_SCIP_RESOURCEACTIVITY},), 
+	pointer(activity)
+)
+SCIPactivityGetEnergy(activity::SCIP_RESOURCEACTIVITY_t) = @scip_ccall("SCIPactivityGetEnergy", 
+	Int, 
+	(Ptr{_SCIP_RESOURCEACTIVITY},), 
+	pointer(activity)
+)
+SCIPprofileFree(profile::SCIP_PROFILE_t) = @scip_ccall("SCIPprofileFree", 
+	Void, 
+	(Ptr{Ptr{_SCIP_PROFILE}},), 
+	array(profile)
+)
+SCIPprofileGetCapacity(profile::SCIP_PROFILE_t) = @scip_ccall("SCIPprofileGetCapacity", 
+	Int, 
+	(Ptr{_SCIP_PROFILE},), 
+	pointer(profile)
+)
+SCIPprofileGetNTimepoints(profile::SCIP_PROFILE_t) = @scip_ccall("SCIPprofileGetNTimepoints", 
+	Int, 
+	(Ptr{_SCIP_PROFILE},), 
+	pointer(profile)
+)
+SCIPprofileGetTime(profile::SCIP_PROFILE_t, pos::Int) = @scip_ccall("SCIPprofileGetTime", 
+	Int, 
+	(Ptr{_SCIP_PROFILE}, Int), 
+	pointer(profile), pos
+)
+SCIPprofileGetLoad(profile::SCIP_PROFILE_t, pos::Int) = @scip_ccall("SCIPprofileGetLoad", 
+	Int, 
+	(Ptr{_SCIP_PROFILE}, Int), 
+	pointer(profile), pos
+)
+SCIPprofileGetEarliestFeasibleStart(profile::SCIP_PROFILE_t, est::Int, lst::Int, duration::Int, height::Int, infeasible::SCIP_Bool_t) = @scip_ccall("SCIPprofileGetEarliestFeasibleStart", 
+	Int, 
+	(Ptr{_SCIP_PROFILE}, Int, Int, Int, Int, Ptr{_SCIP_Bool}), 
+	pointer(profile), est, lst, duration, height, pointer(infeasible)
+)
+SCIPprofileGetLatestFeasibleStart(profile::SCIP_PROFILE_t, lb::Int, ub::Int, duration::Int, height::Int, infeasible::SCIP_Bool_t) = @scip_ccall("SCIPprofileGetLatestFeasibleStart", 
+	Int, 
+	(Ptr{_SCIP_PROFILE}, Int, Int, Int, Int, Ptr{_SCIP_Bool}), 
+	pointer(profile), lb, ub, duration, height, pointer(infeasible)
+)
+SCIPdigraphFree(digraph::SCIP_DIGRAPH_t) = @scip_ccall("SCIPdigraphFree", 
+	Void, 
+	(Ptr{Ptr{_SCIP_DIGRAPH}},), 
+	array(digraph)
+)
+SCIPdigraphGetNNodes(digraph::SCIP_DIGRAPH_t) = @scip_ccall("SCIPdigraphGetNNodes", 
+	Int, 
+	(Ptr{_SCIP_DIGRAPH},), 
+	pointer(digraph)
+)
+SCIPdigraphGetNArcs(digraph::SCIP_DIGRAPH_t) = @scip_ccall("SCIPdigraphGetNArcs", 
+	Int, 
+	(Ptr{_SCIP_DIGRAPH},), 
+	pointer(digraph)
+)
+SCIPdigraphGetNSuccessors(digraph::SCIP_DIGRAPH_t, node::Int) = @scip_ccall("SCIPdigraphGetNSuccessors", 
+	Int, 
+	(Ptr{_SCIP_DIGRAPH}, Int), 
+	pointer(digraph), node
+)
+SCIPdigraphGetNComponents(digraph::SCIP_DIGRAPH_t) = @scip_ccall("SCIPdigraphGetNComponents", 
+	Int, 
+	(Ptr{_SCIP_DIGRAPH},), 
+	pointer(digraph)
+)
+SCIPdigraphFreeComponents(digraph::SCIP_DIGRAPH_t) = @scip_ccall("SCIPdigraphFreeComponents", 
+	Void, 
+	(Ptr{_SCIP_DIGRAPH},), 
+	pointer(digraph)
+)
+SCIPbtnodeFree(tree::SCIP_BT_t, node::SCIP_BTNODE_t) = @scip_ccall("SCIPbtnodeFree", 
+	Void, 
+	(Ptr{_SCIP_BT}, Ptr{Ptr{_SCIP_BTNODE}}), 
+	pointer(tree), array(node)
+)
+SCIPbtnodeGetParent(node::SCIP_BTNODE_t) = @scip_ccall("SCIPbtnodeGetParent", 
+	Ptr{_SCIP_BTNODE}, 
+	(Ptr{_SCIP_BTNODE},), 
+	pointer(node)
+)
+SCIPbtnodeGetLeftchild(node::SCIP_BTNODE_t) = @scip_ccall("SCIPbtnodeGetLeftchild", 
+	Ptr{_SCIP_BTNODE}, 
+	(Ptr{_SCIP_BTNODE},), 
+	pointer(node)
+)
+SCIPbtnodeGetRightchild(node::SCIP_BTNODE_t) = @scip_ccall("SCIPbtnodeGetRightchild", 
+	Ptr{_SCIP_BTNODE}, 
+	(Ptr{_SCIP_BTNODE},), 
+	pointer(node)
+)
+SCIPbtnodeGetSibling(node::SCIP_BTNODE_t) = @scip_ccall("SCIPbtnodeGetSibling", 
+	Ptr{_SCIP_BTNODE}, 
+	(Ptr{_SCIP_BTNODE},), 
+	pointer(node)
+)
+SCIPbtnodeIsRoot(node::SCIP_BTNODE_t) = @scip_ccall("SCIPbtnodeIsRoot", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_BTNODE},), 
+	pointer(node)
+)
+SCIPbtnodeIsLeaf(node::SCIP_BTNODE_t) = @scip_ccall("SCIPbtnodeIsLeaf", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_BTNODE},), 
+	pointer(node)
+)
+SCIPbtnodeIsLeftchild(node::SCIP_BTNODE_t) = @scip_ccall("SCIPbtnodeIsLeftchild", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_BTNODE},), 
+	pointer(node)
+)
+SCIPbtnodeIsRightchild(node::SCIP_BTNODE_t) = @scip_ccall("SCIPbtnodeIsRightchild", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_BTNODE},), 
+	pointer(node)
+)
+SCIPbtnodeSetParent(node::SCIP_BTNODE_t, parent::SCIP_BTNODE_t) = @scip_ccall("SCIPbtnodeSetParent", 
+	Void, 
+	(Ptr{_SCIP_BTNODE}, Ptr{_SCIP_BTNODE}), 
+	pointer(node), pointer(parent)
+)
+SCIPbtnodeSetLeftchild(node::SCIP_BTNODE_t, left::SCIP_BTNODE_t) = @scip_ccall("SCIPbtnodeSetLeftchild", 
+	Void, 
+	(Ptr{_SCIP_BTNODE}, Ptr{_SCIP_BTNODE}), 
+	pointer(node), pointer(left)
+)
+SCIPbtnodeSetRightchild(node::SCIP_BTNODE_t, right::SCIP_BTNODE_t) = @scip_ccall("SCIPbtnodeSetRightchild", 
+	Void, 
+	(Ptr{_SCIP_BTNODE}, Ptr{_SCIP_BTNODE}), 
+	pointer(node), pointer(right)
+)
+SCIPbtFree(tree::SCIP_BT_t) = @scip_ccall("SCIPbtFree", 
+	Void, 
+	(Ptr{Ptr{_SCIP_BT}},), 
+	array(tree)
+)
+SCIPbtIsEmpty(tree::SCIP_BT_t) = @scip_ccall("SCIPbtIsEmpty", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_BT},), 
+	pointer(tree)
+)
+SCIPbtGetRoot(tree::SCIP_BT_t) = @scip_ccall("SCIPbtGetRoot", 
+	Ptr{_SCIP_BTNODE}, 
+	(Ptr{_SCIP_BT},), 
+	pointer(tree)
+)
+SCIPbtSetRoot(tree::SCIP_BT_t, root::SCIP_BTNODE_t) = @scip_ccall("SCIPbtSetRoot", 
+	Void, 
+	(Ptr{_SCIP_BT}, Ptr{_SCIP_BTNODE}), 
+	pointer(tree), pointer(root)
+)
+SCIPsortReal(realarray::SCIP_Real_t, len::Int) = @scip_ccall("SCIPsortReal", 
+	Void, 
+	(Ptr{_SCIP_Real}, Int), 
+	pointer(realarray), len
+)
+SCIPsortLong(longarray::Int64, len::Int) = @scip_ccall("SCIPsortLong", 
+	Void, 
+	(Ptr{Int64}, Int), 
+	pointer(longarray), len
+)
+SCIPsortDownReal(realarray::SCIP_Real_t, len::Int) = @scip_ccall("SCIPsortDownReal", 
+	Void, 
+	(Ptr{_SCIP_Real}, Int), 
+	pointer(realarray), len
+)
+SCIPsortDownLong(longarray::Int64, len::Int) = @scip_ccall("SCIPsortDownLong", 
+	Void, 
+	(Ptr{Int64}, Int), 
+	pointer(longarray), len
+)
+SCIPcalcMachineEpsilon() = @scip_ccall("SCIPcalcMachineEpsilon", 
+	_SCIP_Real, 
+	()
+)
+SCIPcalcGreComDiv(val1::Int64, val2::Int64) = @scip_ccall("SCIPcalcGreComDiv", 
+	Int64, 
+	(Int64, Int64), 
+	val1, val2
+)
+SCIPcalcSmaComMul(val1::Int64, val2::Int64) = @scip_ccall("SCIPcalcSmaComMul", 
+	Int64, 
+	(Int64, Int64), 
+	val1, val2
+)
+SCIPrealToRational(val::_SCIP_Real, mindelta::_SCIP_Real, maxdelta::_SCIP_Real, maxdnom::Int64, nominator::Int64, denominator::Int64) = @scip_ccall("SCIPrealToRational", 
+	_SCIP_Bool, 
+	(_SCIP_Real, _SCIP_Real, _SCIP_Real, Int64, Ptr{Int64}, Ptr{Int64}), 
+	val, mindelta, maxdelta, maxdnom, pointer(nominator), pointer(denominator)
+)
+SCIPfindSimpleRational(lb::_SCIP_Real, ub::_SCIP_Real, maxdnom::Int64, nominator::Int64, denominator::Int64) = @scip_ccall("SCIPfindSimpleRational", 
+	_SCIP_Bool, 
+	(_SCIP_Real, _SCIP_Real, Int64, Ptr{Int64}, Ptr{Int64}), 
+	lb, ub, maxdnom, pointer(nominator), pointer(denominator)
+)
+SCIPselectSimpleValue(lb::_SCIP_Real, ub::_SCIP_Real, maxdnom::Int64) = @scip_ccall("SCIPselectSimpleValue", 
+	_SCIP_Real, 
+	(_SCIP_Real, _SCIP_Real, Int64), 
+	lb, ub, maxdnom
+)
+SCIPrelDiff(val1::_SCIP_Real, val2::_SCIP_Real) = @scip_ccall("SCIPrelDiff", 
+	_SCIP_Real, 
+	(_SCIP_Real, _SCIP_Real), 
+	val1, val2
+)
+SCIPcalcBinomCoef(n::Int, m::Int) = @scip_ccall("SCIPcalcBinomCoef", 
+	Int64, 
+	(Int, Int), 
+	n, m
+)
+SCIPprintSysError(message::String) = @scip_ccall("SCIPprintSysError", 
+	Void, 
+	(String,), 
+	message
+)
+SCIPfileExists(filename::String) = @scip_ccall("SCIPfileExists", 
+	_SCIP_Bool, 
+	(String,), 
+	filename
+)
+SCIPversion() = @scip_ccall("SCIPversion", 
+	_SCIP_Real, 
+	()
+)
+SCIPmajorVersion() = @scip_ccall("SCIPmajorVersion", 
+	Int, 
+	()
+)
+SCIPminorVersion() = @scip_ccall("SCIPminorVersion", 
+	Int, 
+	()
+)
+SCIPtechVersion() = @scip_ccall("SCIPtechVersion", 
+	Int, 
+	()
+)
+SCIPsubversion() = @scip_ccall("SCIPsubversion", 
+	Int, 
+	()
+)
+SCIPprintError(retcode::_SCIP_RETCODE) = @scip_ccall("SCIPprintError", 
+	Void, 
+	(_SCIP_RETCODE,), 
+	retcode
+)
+SCIPstoreSolutionGap(scip::SCIP_t) = @scip_ccall("SCIPstoreSolutionGap", 
+	Void, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetStage(scip::SCIP_t) = @scip_ccall("SCIPgetStage", 
+	_SCIP_STAGE, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetStatus(scip::SCIP_t) = @scip_ccall("SCIPgetStatus", 
+	_SCIP_STATUS, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPisTransformed(scip::SCIP_t) = @scip_ccall("SCIPisTransformed", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPisExactSolve(scip::SCIP_t) = @scip_ccall("SCIPisExactSolve", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPisPresolveFinished(scip::SCIP_t) = @scip_ccall("SCIPisPresolveFinished", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPpressedCtrlC(scip::SCIP_t) = @scip_ccall("SCIPpressedCtrlC", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPisStopped(scip::SCIP_t) = @scip_ccall("SCIPisStopped", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetMessagehdlr(scip::SCIP_t) = @scip_ccall("SCIPgetMessagehdlr", 
+	Ptr{_SCIP_MESSAGEHDLR}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPsetMessagehdlrLogfile(scip::SCIP_t, filename::String) = @scip_ccall("SCIPsetMessagehdlrLogfile", 
+	Void, 
+	(Ptr{_SCIP}, String), 
+	pointer(scip), filename
+)
+SCIPsetMessagehdlrQuiet(scip::SCIP_t, quiet::_SCIP_Bool) = @scip_ccall("SCIPsetMessagehdlrQuiet", 
+	Void, 
+	(Ptr{_SCIP}, _SCIP_Bool), 
+	pointer(scip), quiet
+)
+SCIPgetVerbLevel(scip::SCIP_t) = @scip_ccall("SCIPgetVerbLevel", 
+	_SCIP_VERBLEVEL, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetSubscipDepth(scip::SCIP_t) = @scip_ccall("SCIPgetSubscipDepth", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPisParamFixed(scip::SCIP_t, name::String) = @scip_ccall("SCIPisParamFixed", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, String), 
+	pointer(scip), name
+)
+SCIPgetParam(scip::SCIP_t, name::String) = @scip_ccall("SCIPgetParam", 
+	Ptr{_SCIP_PARAM}, 
+	(Ptr{_SCIP}, String), 
+	pointer(scip), name
+)
+SCIPgetParams(scip::SCIP_t) = @scip_ccall("SCIPgetParams", 
+	Ptr{Ptr{_SCIP_PARAM}}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNParams(scip::SCIP_t) = @scip_ccall("SCIPgetNParams", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPfindReader(scip::SCIP_t, name::String) = @scip_ccall("SCIPfindReader", 
+	Ptr{_SCIP_READER}, 
+	(Ptr{_SCIP}, String), 
+	pointer(scip), name
+)
+SCIPgetReaders(scip::SCIP_t) = @scip_ccall("SCIPgetReaders", 
+	Ptr{Ptr{_SCIP_READER}}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNReaders(scip::SCIP_t) = @scip_ccall("SCIPgetNReaders", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPfindPricer(scip::SCIP_t, name::String) = @scip_ccall("SCIPfindPricer", 
+	Ptr{_SCIP_PRICER}, 
+	(Ptr{_SCIP}, String), 
+	pointer(scip), name
+)
+SCIPgetPricers(scip::SCIP_t) = @scip_ccall("SCIPgetPricers", 
+	Ptr{Ptr{_SCIP_PRICER}}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNPricers(scip::SCIP_t) = @scip_ccall("SCIPgetNPricers", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNActivePricers(scip::SCIP_t) = @scip_ccall("SCIPgetNActivePricers", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPfindConshdlr(scip::SCIP_t, name::String) = @scip_ccall("SCIPfindConshdlr", 
+	Ptr{_SCIP_CONSHDLR}, 
+	(Ptr{_SCIP}, String), 
+	pointer(scip), name
+)
+SCIPgetConshdlrs(scip::SCIP_t) = @scip_ccall("SCIPgetConshdlrs", 
+	Ptr{Ptr{_SCIP_CONSHDLR}}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNConshdlrs(scip::SCIP_t) = @scip_ccall("SCIPgetNConshdlrs", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPfindConflicthdlr(scip::SCIP_t, name::String) = @scip_ccall("SCIPfindConflicthdlr", 
+	Ptr{_SCIP_CONFLICTHDLR}, 
+	(Ptr{_SCIP}, String), 
+	pointer(scip), name
+)
+SCIPgetConflicthdlrs(scip::SCIP_t) = @scip_ccall("SCIPgetConflicthdlrs", 
+	Ptr{Ptr{_SCIP_CONFLICTHDLR}}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNConflicthdlrs(scip::SCIP_t) = @scip_ccall("SCIPgetNConflicthdlrs", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPfindPresol(scip::SCIP_t, name::String) = @scip_ccall("SCIPfindPresol", 
+	Ptr{_SCIP_PRESOL}, 
+	(Ptr{_SCIP}, String), 
+	pointer(scip), name
+)
+SCIPgetPresols(scip::SCIP_t) = @scip_ccall("SCIPgetPresols", 
+	Ptr{Ptr{_SCIP_PRESOL}}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNPresols(scip::SCIP_t) = @scip_ccall("SCIPgetNPresols", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPfindRelax(scip::SCIP_t, name::String) = @scip_ccall("SCIPfindRelax", 
+	Ptr{_SCIP_RELAX}, 
+	(Ptr{_SCIP}, String), 
+	pointer(scip), name
+)
+SCIPgetRelaxs(scip::SCIP_t) = @scip_ccall("SCIPgetRelaxs", 
+	Ptr{Ptr{_SCIP_RELAX}}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNRelaxs(scip::SCIP_t) = @scip_ccall("SCIPgetNRelaxs", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPfindSepa(scip::SCIP_t, name::String) = @scip_ccall("SCIPfindSepa", 
+	Ptr{_SCIP_SEPA}, 
+	(Ptr{_SCIP}, String), 
+	pointer(scip), name
+)
+SCIPgetSepas(scip::SCIP_t) = @scip_ccall("SCIPgetSepas", 
+	Ptr{Ptr{_SCIP_SEPA}}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNSepas(scip::SCIP_t) = @scip_ccall("SCIPgetNSepas", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPfindProp(scip::SCIP_t, name::String) = @scip_ccall("SCIPfindProp", 
+	Ptr{_SCIP_PROP}, 
+	(Ptr{_SCIP}, String), 
+	pointer(scip), name
+)
+SCIPgetProps(scip::SCIP_t) = @scip_ccall("SCIPgetProps", 
+	Ptr{Ptr{_SCIP_PROP}}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNProps(scip::SCIP_t) = @scip_ccall("SCIPgetNProps", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPfindHeur(scip::SCIP_t, name::String) = @scip_ccall("SCIPfindHeur", 
+	Ptr{_SCIP_HEUR}, 
+	(Ptr{_SCIP}, String), 
+	pointer(scip), name
+)
+SCIPgetHeurs(scip::SCIP_t) = @scip_ccall("SCIPgetHeurs", 
+	Ptr{Ptr{_SCIP_HEUR}}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNHeurs(scip::SCIP_t) = @scip_ccall("SCIPgetNHeurs", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPfindEventhdlr(scip::SCIP_t, name::String) = @scip_ccall("SCIPfindEventhdlr", 
+	Ptr{_SCIP_EVENTHDLR}, 
+	(Ptr{_SCIP}, String), 
+	pointer(scip), name
+)
+SCIPgetEventhdlrs(scip::SCIP_t) = @scip_ccall("SCIPgetEventhdlrs", 
+	Ptr{Ptr{_SCIP_EVENTHDLR}}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNEventhdlrs(scip::SCIP_t) = @scip_ccall("SCIPgetNEventhdlrs", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPfindNodesel(scip::SCIP_t, name::String) = @scip_ccall("SCIPfindNodesel", 
+	Ptr{_SCIP_NODESEL}, 
+	(Ptr{_SCIP}, String), 
+	pointer(scip), name
+)
+SCIPgetNodesels(scip::SCIP_t) = @scip_ccall("SCIPgetNodesels", 
+	Ptr{Ptr{_SCIP_NODESEL}}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNNodesels(scip::SCIP_t) = @scip_ccall("SCIPgetNNodesels", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNodesel(scip::SCIP_t) = @scip_ccall("SCIPgetNodesel", 
+	Ptr{_SCIP_NODESEL}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPfindBranchrule(scip::SCIP_t, name::String) = @scip_ccall("SCIPfindBranchrule", 
+	Ptr{_SCIP_BRANCHRULE}, 
+	(Ptr{_SCIP}, String), 
+	pointer(scip), name
+)
+SCIPgetBranchrules(scip::SCIP_t) = @scip_ccall("SCIPgetBranchrules", 
+	Ptr{Ptr{_SCIP_BRANCHRULE}}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNBranchrules(scip::SCIP_t) = @scip_ccall("SCIPgetNBranchrules", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPfindDisp(scip::SCIP_t, name::String) = @scip_ccall("SCIPfindDisp", 
+	Ptr{_SCIP_DISP}, 
+	(Ptr{_SCIP}, String), 
+	pointer(scip), name
+)
+SCIPgetDisps(scip::SCIP_t) = @scip_ccall("SCIPgetDisps", 
+	Ptr{Ptr{_SCIP_DISP}}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNDisps(scip::SCIP_t) = @scip_ccall("SCIPgetNDisps", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPfindNlpi(scip::SCIP_t, name::String) = @scip_ccall("SCIPfindNlpi", 
+	Ptr{_SCIP_NLPI}, 
+	(Ptr{_SCIP}, String), 
+	pointer(scip), name
+)
+SCIPgetNlpis(scip::SCIP_t) = @scip_ccall("SCIPgetNlpis", 
+	Ptr{Ptr{_SCIP_NLPI}}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNNlpis(scip::SCIP_t) = @scip_ccall("SCIPgetNNlpis", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNExternalCodes(scip::SCIP_t) = @scip_ccall("SCIPgetNExternalCodes", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPexistsDialog(scip::SCIP_t, dialog::SCIP_DIALOG_t) = @scip_ccall("SCIPexistsDialog", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, Ptr{_SCIP_DIALOG}), 
+	pointer(scip), pointer(dialog)
+)
+SCIPgetRootDialog(scip::SCIP_t) = @scip_ccall("SCIPgetRootDialog", 
+	Ptr{_SCIP_DIALOG}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetProbData(scip::SCIP_t) = @scip_ccall("SCIPgetProbData", 
+	Ptr{_SCIP_PROBDATA}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetProbName(scip::SCIP_t) = @scip_ccall("SCIPgetProbName", 
+	String, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetObjsense(scip::SCIP_t) = @scip_ccall("SCIPgetObjsense", 
+	_SCIP_OBJSENSE, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetOrigObjoffset(scip::SCIP_t) = @scip_ccall("SCIPgetOrigObjoffset", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetOrigObjscale(scip::SCIP_t) = @scip_ccall("SCIPgetOrigObjscale", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetTransObjoffset(scip::SCIP_t) = @scip_ccall("SCIPgetTransObjoffset", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetTransObjscale(scip::SCIP_t) = @scip_ccall("SCIPgetTransObjscale", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetObjlimit(scip::SCIP_t) = @scip_ccall("SCIPgetObjlimit", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPisObjIntegral(scip::SCIP_t) = @scip_ccall("SCIPisObjIntegral", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetObjNorm(scip::SCIP_t) = @scip_ccall("SCIPgetObjNorm", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetVars(scip::SCIP_t) = @scip_ccall("SCIPgetVars", 
+	Ptr{Ptr{_SCIP_VAR}}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNVars(scip::SCIP_t) = @scip_ccall("SCIPgetNVars", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNBinVars(scip::SCIP_t) = @scip_ccall("SCIPgetNBinVars", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNIntVars(scip::SCIP_t) = @scip_ccall("SCIPgetNIntVars", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNImplVars(scip::SCIP_t) = @scip_ccall("SCIPgetNImplVars", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNContVars(scip::SCIP_t) = @scip_ccall("SCIPgetNContVars", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNObjVars(scip::SCIP_t) = @scip_ccall("SCIPgetNObjVars", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetFixedVars(scip::SCIP_t) = @scip_ccall("SCIPgetFixedVars", 
+	Ptr{Ptr{_SCIP_VAR}}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNFixedVars(scip::SCIP_t) = @scip_ccall("SCIPgetNFixedVars", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetOrigVars(scip::SCIP_t) = @scip_ccall("SCIPgetOrigVars", 
+	Ptr{Ptr{_SCIP_VAR}}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNOrigVars(scip::SCIP_t) = @scip_ccall("SCIPgetNOrigVars", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNOrigBinVars(scip::SCIP_t) = @scip_ccall("SCIPgetNOrigBinVars", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNOrigIntVars(scip::SCIP_t) = @scip_ccall("SCIPgetNOrigIntVars", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNOrigImplVars(scip::SCIP_t) = @scip_ccall("SCIPgetNOrigImplVars", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNOrigContVars(scip::SCIP_t) = @scip_ccall("SCIPgetNOrigContVars", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNTotalVars(scip::SCIP_t) = @scip_ccall("SCIPgetNTotalVars", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPfindVar(scip::SCIP_t, name::String) = @scip_ccall("SCIPfindVar", 
+	Ptr{_SCIP_VAR}, 
+	(Ptr{_SCIP}, String), 
+	pointer(scip), name
+)
+SCIPallVarsInProb(scip::SCIP_t) = @scip_ccall("SCIPallVarsInProb", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPfindOrigCons(scip::SCIP_t, name::String) = @scip_ccall("SCIPfindOrigCons", 
+	Ptr{_SCIP_CONS}, 
+	(Ptr{_SCIP}, String), 
+	pointer(scip), name
+)
+SCIPfindCons(scip::SCIP_t, name::String) = @scip_ccall("SCIPfindCons", 
+	Ptr{_SCIP_CONS}, 
+	(Ptr{_SCIP}, String), 
+	pointer(scip), name
+)
+SCIPgetNUpgrConss(scip::SCIP_t) = @scip_ccall("SCIPgetNUpgrConss", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNConss(scip::SCIP_t) = @scip_ccall("SCIPgetNConss", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetConss(scip::SCIP_t) = @scip_ccall("SCIPgetConss", 
+	Ptr{Ptr{_SCIP_CONS}}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNOrigConss(scip::SCIP_t) = @scip_ccall("SCIPgetNOrigConss", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetOrigConss(scip::SCIP_t) = @scip_ccall("SCIPgetOrigConss", 
+	Ptr{Ptr{_SCIP_CONS}}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNCheckConss(scip::SCIP_t) = @scip_ccall("SCIPgetNCheckConss", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetLocalOrigEstimate(scip::SCIP_t) = @scip_ccall("SCIPgetLocalOrigEstimate", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetLocalTransEstimate(scip::SCIP_t) = @scip_ccall("SCIPgetLocalTransEstimate", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetLocalDualbound(scip::SCIP_t) = @scip_ccall("SCIPgetLocalDualbound", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetLocalLowerbound(scip::SCIP_t) = @scip_ccall("SCIPgetLocalLowerbound", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNodeDualbound(scip::SCIP_t, node::SCIP_NODE_t) = @scip_ccall("SCIPgetNodeDualbound", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_NODE}), 
+	pointer(scip), pointer(node)
+)
+SCIPgetNodeLowerbound(scip::SCIP_t, node::SCIP_NODE_t) = @scip_ccall("SCIPgetNodeLowerbound", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_NODE}), 
+	pointer(scip), pointer(node)
+)
+SCIPisInRestart(scip::SCIP_t) = @scip_ccall("SCIPisInRestart", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetVarRedcost(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetVarRedcost", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}), 
+	pointer(scip), pointer(var)
+)
+SCIPgetVarImplRedcost(scip::SCIP_t, var::SCIP_VAR_t, varfixing::_SCIP_Bool) = @scip_ccall("SCIPgetVarImplRedcost", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Bool), 
+	pointer(scip), pointer(var), varfixing
+)
+SCIPgetVarFarkasCoef(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetVarFarkasCoef", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}), 
+	pointer(scip), pointer(var)
+)
+SCIPgetVarSol(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetVarSol", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}), 
+	pointer(scip), pointer(var)
+)
+SCIPisRelaxSolValid(scip::SCIP_t) = @scip_ccall("SCIPisRelaxSolValid", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetRelaxSolVal(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetRelaxSolVal", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}), 
+	pointer(scip), pointer(var)
+)
+SCIPgetRelaxSolObj(scip::SCIP_t) = @scip_ccall("SCIPgetRelaxSolObj", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetVarStrongbranchNode(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetVarStrongbranchNode", 
+	Int64, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}), 
+	pointer(scip), pointer(var)
+)
+SCIPgetVarStrongbranchLPAge(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetVarStrongbranchLPAge", 
+	Int64, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}), 
+	pointer(scip), pointer(var)
+)
+SCIPgetVarNStrongbranchs(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetVarNStrongbranchs", 
+	Int, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}), 
+	pointer(scip), pointer(var)
+)
+SCIPadjustedVarLb(scip::SCIP_t, var::SCIP_VAR_t, lb::_SCIP_Real) = @scip_ccall("SCIPadjustedVarLb", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Real), 
+	pointer(scip), pointer(var), lb
+)
+SCIPadjustedVarUb(scip::SCIP_t, var::SCIP_VAR_t, ub::_SCIP_Real) = @scip_ccall("SCIPadjustedVarUb", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Real), 
+	pointer(scip), pointer(var), ub
+)
+SCIPcomputeVarLbGlobal(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPcomputeVarLbGlobal", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}), 
+	pointer(scip), pointer(var)
+)
+SCIPcomputeVarUbGlobal(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPcomputeVarUbGlobal", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}), 
+	pointer(scip), pointer(var)
+)
+SCIPcomputeVarLbLocal(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPcomputeVarLbLocal", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}), 
+	pointer(scip), pointer(var)
+)
+SCIPcomputeVarUbLocal(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPcomputeVarUbLocal", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}), 
+	pointer(scip), pointer(var)
+)
+SCIPgetNCliques(scip::SCIP_t) = @scip_ccall("SCIPgetNCliques", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetCliques(scip::SCIP_t) = @scip_ccall("SCIPgetCliques", 
+	Ptr{Ptr{_SCIP_CLIQUE}}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPhaveVarsCommonClique(scip::SCIP_t, var1::SCIP_VAR_t, value1::_SCIP_Bool, var2::SCIP_VAR_t, value2::_SCIP_Bool, regardimplics::_SCIP_Bool) = @scip_ccall("SCIPhaveVarsCommonClique", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Bool, Ptr{_SCIP_VAR}, _SCIP_Bool, _SCIP_Bool), 
+	pointer(scip), pointer(var1), value1, pointer(var2), value2, regardimplics
+)
+SCIPdoNotAggr(scip::SCIP_t) = @scip_ccall("SCIPdoNotAggr", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPdoNotMultaggr(scip::SCIP_t) = @scip_ccall("SCIPdoNotMultaggr", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPdoNotMultaggrVar(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPdoNotMultaggrVar", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}), 
+	pointer(scip), pointer(var)
+)
+SCIPenableVarHistory(scip::SCIP_t) = @scip_ccall("SCIPenableVarHistory", 
+	Void, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPdisableVarHistory(scip::SCIP_t) = @scip_ccall("SCIPdisableVarHistory", 
+	Void, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetVarPseudocostVal(scip::SCIP_t, var::SCIP_VAR_t, solvaldelta::_SCIP_Real) = @scip_ccall("SCIPgetVarPseudocostVal", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Real), 
+	pointer(scip), pointer(var), solvaldelta
+)
+SCIPgetVarPseudocostValCurrentRun(scip::SCIP_t, var::SCIP_VAR_t, solvaldelta::_SCIP_Real) = @scip_ccall("SCIPgetVarPseudocostValCurrentRun", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Real), 
+	pointer(scip), pointer(var), solvaldelta
+)
+SCIPgetVarPseudocost(scip::SCIP_t, var::SCIP_VAR_t, dir::_SCIP_BRANCHDIR) = @scip_ccall("SCIPgetVarPseudocost", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_BRANCHDIR), 
+	pointer(scip), pointer(var), dir
+)
+SCIPgetVarPseudocostCurrentRun(scip::SCIP_t, var::SCIP_VAR_t, dir::_SCIP_BRANCHDIR) = @scip_ccall("SCIPgetVarPseudocostCurrentRun", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_BRANCHDIR), 
+	pointer(scip), pointer(var), dir
+)
+SCIPgetVarPseudocostCount(scip::SCIP_t, var::SCIP_VAR_t, dir::_SCIP_BRANCHDIR) = @scip_ccall("SCIPgetVarPseudocostCount", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_BRANCHDIR), 
+	pointer(scip), pointer(var), dir
+)
+SCIPgetVarPseudocostCountCurrentRun(scip::SCIP_t, var::SCIP_VAR_t, dir::_SCIP_BRANCHDIR) = @scip_ccall("SCIPgetVarPseudocostCountCurrentRun", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_BRANCHDIR), 
+	pointer(scip), pointer(var), dir
+)
+SCIPgetVarPseudocostScore(scip::SCIP_t, var::SCIP_VAR_t, solval::_SCIP_Real) = @scip_ccall("SCIPgetVarPseudocostScore", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Real), 
+	pointer(scip), pointer(var), solval
+)
+SCIPgetVarPseudocostScoreCurrentRun(scip::SCIP_t, var::SCIP_VAR_t, solval::_SCIP_Real) = @scip_ccall("SCIPgetVarPseudocostScoreCurrentRun", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Real), 
+	pointer(scip), pointer(var), solval
+)
+SCIPgetVarVSIDS(scip::SCIP_t, var::SCIP_VAR_t, dir::_SCIP_BRANCHDIR) = @scip_ccall("SCIPgetVarVSIDS", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_BRANCHDIR), 
+	pointer(scip), pointer(var), dir
+)
+SCIPgetVarVSIDSCurrentRun(scip::SCIP_t, var::SCIP_VAR_t, dir::_SCIP_BRANCHDIR) = @scip_ccall("SCIPgetVarVSIDSCurrentRun", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_BRANCHDIR), 
+	pointer(scip), pointer(var), dir
+)
+SCIPgetVarConflictScore(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetVarConflictScore", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}), 
+	pointer(scip), pointer(var)
+)
+SCIPgetVarConflictScoreCurrentRun(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetVarConflictScoreCurrentRun", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}), 
+	pointer(scip), pointer(var)
+)
+SCIPgetVarConflictlengthScore(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetVarConflictlengthScore", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}), 
+	pointer(scip), pointer(var)
+)
+SCIPgetVarConflictlengthScoreCurrentRun(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetVarConflictlengthScoreCurrentRun", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}), 
+	pointer(scip), pointer(var)
+)
+SCIPgetVarAvgConflictlength(scip::SCIP_t, var::SCIP_VAR_t, dir::_SCIP_BRANCHDIR) = @scip_ccall("SCIPgetVarAvgConflictlength", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_BRANCHDIR), 
+	pointer(scip), pointer(var), dir
+)
+SCIPgetVarAvgConflictlengthCurrentRun(scip::SCIP_t, var::SCIP_VAR_t, dir::_SCIP_BRANCHDIR) = @scip_ccall("SCIPgetVarAvgConflictlengthCurrentRun", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_BRANCHDIR), 
+	pointer(scip), pointer(var), dir
+)
+SCIPgetVarAvgInferences(scip::SCIP_t, var::SCIP_VAR_t, dir::_SCIP_BRANCHDIR) = @scip_ccall("SCIPgetVarAvgInferences", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_BRANCHDIR), 
+	pointer(scip), pointer(var), dir
+)
+SCIPgetVarAvgInferencesCurrentRun(scip::SCIP_t, var::SCIP_VAR_t, dir::_SCIP_BRANCHDIR) = @scip_ccall("SCIPgetVarAvgInferencesCurrentRun", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_BRANCHDIR), 
+	pointer(scip), pointer(var), dir
+)
+SCIPgetVarAvgInferenceScore(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetVarAvgInferenceScore", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}), 
+	pointer(scip), pointer(var)
+)
+SCIPgetVarAvgInferenceScoreCurrentRun(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetVarAvgInferenceScoreCurrentRun", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}), 
+	pointer(scip), pointer(var)
+)
+SCIPgetVarAvgCutoffs(scip::SCIP_t, var::SCIP_VAR_t, dir::_SCIP_BRANCHDIR) = @scip_ccall("SCIPgetVarAvgCutoffs", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_BRANCHDIR), 
+	pointer(scip), pointer(var), dir
+)
+SCIPgetVarAvgCutoffsCurrentRun(scip::SCIP_t, var::SCIP_VAR_t, dir::_SCIP_BRANCHDIR) = @scip_ccall("SCIPgetVarAvgCutoffsCurrentRun", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_BRANCHDIR), 
+	pointer(scip), pointer(var), dir
+)
+SCIPgetVarAvgCutoffScore(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetVarAvgCutoffScore", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}), 
+	pointer(scip), pointer(var)
+)
+SCIPgetVarAvgCutoffScoreCurrentRun(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetVarAvgCutoffScoreCurrentRun", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}), 
+	pointer(scip), pointer(var)
+)
+SCIPgetVarAvgInferenceCutoffScore(scip::SCIP_t, var::SCIP_VAR_t, cutoffweight::_SCIP_Real) = @scip_ccall("SCIPgetVarAvgInferenceCutoffScore", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Real), 
+	pointer(scip), pointer(var), cutoffweight
+)
+SCIPgetVarAvgInferenceCutoffScoreCurrentRun(scip::SCIP_t, var::SCIP_VAR_t, cutoffweight::_SCIP_Real) = @scip_ccall("SCIPgetVarAvgInferenceCutoffScoreCurrentRun", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Real), 
+	pointer(scip), pointer(var), cutoffweight
+)
+SCIPisConflictAnalysisApplicable(scip::SCIP_t) = @scip_ccall("SCIPisConflictAnalysisApplicable", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetConflictVarLb(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetConflictVarLb", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}), 
+	pointer(scip), pointer(var)
+)
+SCIPgetConflictVarUb(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetConflictVarUb", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}), 
+	pointer(scip), pointer(var)
+)
+SCIPhasCurrentNodeLP(scip::SCIP_t) = @scip_ccall("SCIPhasCurrentNodeLP", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPisLPConstructed(scip::SCIP_t) = @scip_ccall("SCIPisLPConstructed", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetLPSolstat(scip::SCIP_t) = @scip_ccall("SCIPgetLPSolstat", 
+	_SCIP_LPSOLSTAT, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPisLPRelax(scip::SCIP_t) = @scip_ccall("SCIPisLPRelax", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetLPObjval(scip::SCIP_t) = @scip_ccall("SCIPgetLPObjval", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetLPColumnObjval(scip::SCIP_t) = @scip_ccall("SCIPgetLPColumnObjval", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetLPLooseObjval(scip::SCIP_t) = @scip_ccall("SCIPgetLPLooseObjval", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetGlobalPseudoObjval(scip::SCIP_t) = @scip_ccall("SCIPgetGlobalPseudoObjval", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetPseudoObjval(scip::SCIP_t) = @scip_ccall("SCIPgetPseudoObjval", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPisRootLPRelax(scip::SCIP_t) = @scip_ccall("SCIPisRootLPRelax", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetLPRootObjval(scip::SCIP_t) = @scip_ccall("SCIPgetLPRootObjval", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetLPRootColumnObjval(scip::SCIP_t) = @scip_ccall("SCIPgetLPRootColumnObjval", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetLPRootLooseObjval(scip::SCIP_t) = @scip_ccall("SCIPgetLPRootLooseObjval", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetLPCols(scip::SCIP_t) = @scip_ccall("SCIPgetLPCols", 
+	Ptr{Ptr{_SCIP_COL}}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNLPCols(scip::SCIP_t) = @scip_ccall("SCIPgetNLPCols", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetLPRows(scip::SCIP_t) = @scip_ccall("SCIPgetLPRows", 
+	Ptr{Ptr{_SCIP_ROW}}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNLPRows(scip::SCIP_t) = @scip_ccall("SCIPgetNLPRows", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPallColsInLP(scip::SCIP_t) = @scip_ccall("SCIPallColsInLP", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPisLPSolBasic(scip::SCIP_t) = @scip_ccall("SCIPisLPSolBasic", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetColRedcost(scip::SCIP_t, col::SCIP_COL_t) = @scip_ccall("SCIPgetColRedcost", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_COL}), 
+	pointer(scip), pointer(col)
+)
+SCIPgetColFarkasCoef(scip::SCIP_t, col::SCIP_COL_t) = @scip_ccall("SCIPgetColFarkasCoef", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_COL}), 
+	pointer(scip), pointer(col)
+)
+SCIPmarkColNotRemovableLocal(scip::SCIP_t, col::SCIP_COL_t) = @scip_ccall("SCIPmarkColNotRemovableLocal", 
+	Void, 
+	(Ptr{_SCIP}, Ptr{_SCIP_COL}), 
+	pointer(scip), pointer(col)
+)
+SCIPmarkRowNotRemovableLocal(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall("SCIPmarkRowNotRemovableLocal", 
+	Void, 
+	(Ptr{_SCIP}, Ptr{_SCIP_ROW}), 
+	pointer(scip), pointer(row)
+)
+SCIPgetRowMinCoef(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall("SCIPgetRowMinCoef", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_ROW}), 
+	pointer(scip), pointer(row)
+)
+SCIPgetRowMaxCoef(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall("SCIPgetRowMaxCoef", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_ROW}), 
+	pointer(scip), pointer(row)
+)
+SCIPgetRowMinActivity(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall("SCIPgetRowMinActivity", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_ROW}), 
+	pointer(scip), pointer(row)
+)
+SCIPgetRowMaxActivity(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall("SCIPgetRowMaxActivity", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_ROW}), 
+	pointer(scip), pointer(row)
+)
+SCIPgetRowLPActivity(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall("SCIPgetRowLPActivity", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_ROW}), 
+	pointer(scip), pointer(row)
+)
+SCIPgetRowLPFeasibility(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall("SCIPgetRowLPFeasibility", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_ROW}), 
+	pointer(scip), pointer(row)
+)
+SCIPgetRowPseudoActivity(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall("SCIPgetRowPseudoActivity", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_ROW}), 
+	pointer(scip), pointer(row)
+)
+SCIPgetRowPseudoFeasibility(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall("SCIPgetRowPseudoFeasibility", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_ROW}), 
+	pointer(scip), pointer(row)
+)
+SCIPgetRowActivity(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall("SCIPgetRowActivity", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_ROW}), 
+	pointer(scip), pointer(row)
+)
+SCIPgetRowFeasibility(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall("SCIPgetRowFeasibility", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_ROW}), 
+	pointer(scip), pointer(row)
+)
+SCIPgetRowSolActivity(scip::SCIP_t, row::SCIP_ROW_t, sol::SCIP_SOL_t) = @scip_ccall("SCIPgetRowSolActivity", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_ROW}, Ptr{_SCIP_SOL}), 
+	pointer(scip), pointer(row), pointer(sol)
+)
+SCIPgetRowSolFeasibility(scip::SCIP_t, row::SCIP_ROW_t, sol::SCIP_SOL_t) = @scip_ccall("SCIPgetRowSolFeasibility", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_ROW}, Ptr{_SCIP_SOL}), 
+	pointer(scip), pointer(row), pointer(sol)
+)
+SCIPisNLPEnabled(scip::SCIP_t) = @scip_ccall("SCIPisNLPEnabled", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPenableNLP(scip::SCIP_t) = @scip_ccall("SCIPenableNLP", 
+	Void, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPisNLPConstructed(scip::SCIP_t) = @scip_ccall("SCIPisNLPConstructed", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPhasNLPContinuousNonlinearity(scip::SCIP_t) = @scip_ccall("SCIPhasNLPContinuousNonlinearity", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNLPVars(scip::SCIP_t) = @scip_ccall("SCIPgetNLPVars", 
+	Ptr{Ptr{_SCIP_VAR}}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNNLPVars(scip::SCIP_t) = @scip_ccall("SCIPgetNNLPVars", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNLPVarsLbDualsol(scip::SCIP_t) = @scip_ccall("SCIPgetNLPVarsLbDualsol", 
+	Ptr{_SCIP_Real}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNLPVarsUbDualsol(scip::SCIP_t) = @scip_ccall("SCIPgetNLPVarsUbDualsol", 
+	Ptr{_SCIP_Real}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNLPNlRows(scip::SCIP_t) = @scip_ccall("SCIPgetNLPNlRows", 
+	Ptr{Ptr{_SCIP_NLROW}}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNNLPNlRows(scip::SCIP_t) = @scip_ccall("SCIPgetNNLPNlRows", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNLPSolstat(scip::SCIP_t) = @scip_ccall("SCIPgetNLPSolstat", 
+	_SCIP_NLPSOLSTAT, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNLPTermstat(scip::SCIP_t) = @scip_ccall("SCIPgetNLPTermstat", 
+	_SCIP_NLPTERMSTAT, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNLPObjval(scip::SCIP_t) = @scip_ccall("SCIPgetNLPObjval", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPhasNLPSolution(scip::SCIP_t) = @scip_ccall("SCIPhasNLPSolution", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetCutEfficacy(scip::SCIP_t, sol::SCIP_SOL_t, cut::SCIP_ROW_t) = @scip_ccall("SCIPgetCutEfficacy", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_SOL}, Ptr{_SCIP_ROW}), 
+	pointer(scip), pointer(sol), pointer(cut)
+)
+SCIPisCutEfficacious(scip::SCIP_t, sol::SCIP_SOL_t, cut::SCIP_ROW_t) = @scip_ccall("SCIPisCutEfficacious", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, Ptr{_SCIP_SOL}, Ptr{_SCIP_ROW}), 
+	pointer(scip), pointer(sol), pointer(cut)
+)
+SCIPisEfficacious(scip::SCIP_t, efficacy::_SCIP_Real) = @scip_ccall("SCIPisEfficacious", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real), 
+	pointer(scip), efficacy
+)
+SCIPgetVectorEfficacyNorm(scip::SCIP_t, vals::SCIP_Real_t, nvals::Int) = @scip_ccall("SCIPgetVectorEfficacyNorm", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_Real}, Int), 
+	pointer(scip), pointer(vals), nvals
+)
+SCIPisCutApplicable(scip::SCIP_t, cut::SCIP_ROW_t) = @scip_ccall("SCIPisCutApplicable", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, Ptr{_SCIP_ROW}), 
+	pointer(scip), pointer(cut)
+)
+SCIPgetPoolCuts(scip::SCIP_t) = @scip_ccall("SCIPgetPoolCuts", 
+	Ptr{Ptr{_SCIP_CUT}}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNPoolCuts(scip::SCIP_t) = @scip_ccall("SCIPgetNPoolCuts", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetGlobalCutpool(scip::SCIP_t) = @scip_ccall("SCIPgetGlobalCutpool", 
+	Ptr{_SCIP_CUTPOOL}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetDelayedPoolCuts(scip::SCIP_t) = @scip_ccall("SCIPgetDelayedPoolCuts", 
+	Ptr{Ptr{_SCIP_CUT}}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNDelayedPoolCuts(scip::SCIP_t) = @scip_ccall("SCIPgetNDelayedPoolCuts", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetDelayedGlobalCutpool(scip::SCIP_t) = @scip_ccall("SCIPgetDelayedGlobalCutpool", 
+	Ptr{_SCIP_CUTPOOL}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetCuts(scip::SCIP_t) = @scip_ccall("SCIPgetCuts", 
+	Ptr{Ptr{_SCIP_ROW}}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNCuts(scip::SCIP_t) = @scip_ccall("SCIPgetNCuts", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetRelaxFeastolFactor(scip::SCIP_t) = @scip_ccall("SCIPgetRelaxFeastolFactor", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetVarObjDive(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetVarObjDive", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}), 
+	pointer(scip), pointer(var)
+)
+SCIPgetVarLbDive(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetVarLbDive", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}), 
+	pointer(scip), pointer(var)
+)
+SCIPgetVarUbDive(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetVarUbDive", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}), 
+	pointer(scip), pointer(var)
+)
+SCIPgetLastDivenode(scip::SCIP_t) = @scip_ccall("SCIPgetLastDivenode", 
+	Int64, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPinDive(scip::SCIP_t) = @scip_ccall("SCIPinDive", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPinProbing(scip::SCIP_t) = @scip_ccall("SCIPinProbing", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetProbingDepth(scip::SCIP_t) = @scip_ccall("SCIPgetProbingDepth", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNLPBranchCands(scip::SCIP_t) = @scip_ccall("SCIPgetNLPBranchCands", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNPrioLPBranchCands(scip::SCIP_t) = @scip_ccall("SCIPgetNPrioLPBranchCands", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNExternBranchCands(scip::SCIP_t) = @scip_ccall("SCIPgetNExternBranchCands", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNPrioExternBranchCands(scip::SCIP_t) = @scip_ccall("SCIPgetNPrioExternBranchCands", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNPrioExternBranchBins(scip::SCIP_t) = @scip_ccall("SCIPgetNPrioExternBranchBins", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNPrioExternBranchInts(scip::SCIP_t) = @scip_ccall("SCIPgetNPrioExternBranchInts", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNPrioExternBranchImpls(scip::SCIP_t) = @scip_ccall("SCIPgetNPrioExternBranchImpls", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNPrioExternBranchConts(scip::SCIP_t) = @scip_ccall("SCIPgetNPrioExternBranchConts", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPclearExternBranchCands(scip::SCIP_t) = @scip_ccall("SCIPclearExternBranchCands", 
+	Void, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPcontainsExternBranchCand(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPcontainsExternBranchCand", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}), 
+	pointer(scip), pointer(var)
+)
+SCIPgetNPseudoBranchCands(scip::SCIP_t) = @scip_ccall("SCIPgetNPseudoBranchCands", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNPrioPseudoBranchCands(scip::SCIP_t) = @scip_ccall("SCIPgetNPrioPseudoBranchCands", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNPrioPseudoBranchBins(scip::SCIP_t) = @scip_ccall("SCIPgetNPrioPseudoBranchBins", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNPrioPseudoBranchInts(scip::SCIP_t) = @scip_ccall("SCIPgetNPrioPseudoBranchInts", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNPrioPseudoBranchImpls(scip::SCIP_t) = @scip_ccall("SCIPgetNPrioPseudoBranchImpls", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetBranchScore(scip::SCIP_t, var::SCIP_VAR_t, downgain::_SCIP_Real, upgain::_SCIP_Real) = @scip_ccall("SCIPgetBranchScore", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Real), 
+	pointer(scip), pointer(var), downgain, upgain
+)
+SCIPgetBranchScoreMultiple(scip::SCIP_t, var::SCIP_VAR_t, nchildren::Int, gains::SCIP_Real_t) = @scip_ccall("SCIPgetBranchScoreMultiple", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}, Int, Ptr{_SCIP_Real}), 
+	pointer(scip), pointer(var), nchildren, pointer(gains)
+)
+SCIPgetBranchingPoint(scip::SCIP_t, var::SCIP_VAR_t, suggestion::_SCIP_Real) = @scip_ccall("SCIPgetBranchingPoint", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Real), 
+	pointer(scip), pointer(var), suggestion
+)
+SCIPcalcNodeselPriority(scip::SCIP_t, var::SCIP_VAR_t, branchdir::_SCIP_BRANCHDIR, targetvalue::_SCIP_Real) = @scip_ccall("SCIPcalcNodeselPriority", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_BRANCHDIR, _SCIP_Real), 
+	pointer(scip), pointer(var), branchdir, targetvalue
+)
+SCIPcalcChildEstimate(scip::SCIP_t, var::SCIP_VAR_t, targetvalue::_SCIP_Real) = @scip_ccall("SCIPcalcChildEstimate", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Real), 
+	pointer(scip), pointer(var), targetvalue
+)
+SCIPgetSolVal(scip::SCIP_t, sol::SCIP_SOL_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetSolVal", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_SOL}, Ptr{_SCIP_VAR}), 
+	pointer(scip), pointer(sol), pointer(var)
+)
+SCIPgetSolOrigObj(scip::SCIP_t, sol::SCIP_SOL_t) = @scip_ccall("SCIPgetSolOrigObj", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_SOL}), 
+	pointer(scip), pointer(sol)
+)
+SCIPgetSolTransObj(scip::SCIP_t, sol::SCIP_SOL_t) = @scip_ccall("SCIPgetSolTransObj", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_SOL}), 
+	pointer(scip), pointer(sol)
+)
+SCIPtransformObj(scip::SCIP_t, obj::_SCIP_Real) = @scip_ccall("SCIPtransformObj", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, _SCIP_Real), 
+	pointer(scip), obj
+)
+SCIPretransformObj(scip::SCIP_t, obj::_SCIP_Real) = @scip_ccall("SCIPretransformObj", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, _SCIP_Real), 
+	pointer(scip), obj
+)
+SCIPgetSolTime(scip::SCIP_t, sol::SCIP_SOL_t) = @scip_ccall("SCIPgetSolTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_SOL}), 
+	pointer(scip), pointer(sol)
+)
+SCIPgetSolRunnum(scip::SCIP_t, sol::SCIP_SOL_t) = @scip_ccall("SCIPgetSolRunnum", 
+	Int, 
+	(Ptr{_SCIP}, Ptr{_SCIP_SOL}), 
+	pointer(scip), pointer(sol)
+)
+SCIPgetSolNodenum(scip::SCIP_t, sol::SCIP_SOL_t) = @scip_ccall("SCIPgetSolNodenum", 
+	Int64, 
+	(Ptr{_SCIP}, Ptr{_SCIP_SOL}), 
+	pointer(scip), pointer(sol)
+)
+SCIPgetSolHeur(scip::SCIP_t, sol::SCIP_SOL_t) = @scip_ccall("SCIPgetSolHeur", 
+	Ptr{_SCIP_HEUR}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_SOL}), 
+	pointer(scip), pointer(sol)
+)
+SCIPareSolsEqual(scip::SCIP_t, sol1::SCIP_SOL_t, sol2::SCIP_SOL_t) = @scip_ccall("SCIPareSolsEqual", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, Ptr{_SCIP_SOL}, Ptr{_SCIP_SOL}), 
+	pointer(scip), pointer(sol1), pointer(sol2)
+)
+SCIPgetNSols(scip::SCIP_t) = @scip_ccall("SCIPgetNSols", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetSols(scip::SCIP_t) = @scip_ccall("SCIPgetSols", 
+	Ptr{Ptr{_SCIP_SOL}}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetBestSol(scip::SCIP_t) = @scip_ccall("SCIPgetBestSol", 
+	Ptr{_SCIP_SOL}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPhasPrimalRay(scip::SCIP_t) = @scip_ccall("SCIPhasPrimalRay", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetPrimalRayVal(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall("SCIPgetPrimalRayVal", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_VAR}), 
+	pointer(scip), pointer(var)
+)
+SCIPgetCurrentNode(scip::SCIP_t) = @scip_ccall("SCIPgetCurrentNode", 
+	Ptr{_SCIP_NODE}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetRootNode(scip::SCIP_t) = @scip_ccall("SCIPgetRootNode", 
+	Ptr{_SCIP_NODE}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPinRepropagation(scip::SCIP_t) = @scip_ccall("SCIPinRepropagation", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNChildren(scip::SCIP_t) = @scip_ccall("SCIPgetNChildren", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNSiblings(scip::SCIP_t) = @scip_ccall("SCIPgetNSiblings", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNLeaves(scip::SCIP_t) = @scip_ccall("SCIPgetNLeaves", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetPrioChild(scip::SCIP_t) = @scip_ccall("SCIPgetPrioChild", 
+	Ptr{_SCIP_NODE}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetPrioSibling(scip::SCIP_t) = @scip_ccall("SCIPgetPrioSibling", 
+	Ptr{_SCIP_NODE}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetBestChild(scip::SCIP_t) = @scip_ccall("SCIPgetBestChild", 
+	Ptr{_SCIP_NODE}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetBestSibling(scip::SCIP_t) = @scip_ccall("SCIPgetBestSibling", 
+	Ptr{_SCIP_NODE}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetBestLeaf(scip::SCIP_t) = @scip_ccall("SCIPgetBestLeaf", 
+	Ptr{_SCIP_NODE}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetBestNode(scip::SCIP_t) = @scip_ccall("SCIPgetBestNode", 
+	Ptr{_SCIP_NODE}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetBestboundNode(scip::SCIP_t) = @scip_ccall("SCIPgetBestboundNode", 
+	Ptr{_SCIP_NODE}, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetCutoffdepth(scip::SCIP_t) = @scip_ccall("SCIPgetCutoffdepth", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetRepropdepth(scip::SCIP_t) = @scip_ccall("SCIPgetRepropdepth", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNRuns(scip::SCIP_t) = @scip_ccall("SCIPgetNRuns", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNNodes(scip::SCIP_t) = @scip_ccall("SCIPgetNNodes", 
+	Int64, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNTotalNodes(scip::SCIP_t) = @scip_ccall("SCIPgetNTotalNodes", 
+	Int64, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNNodesLeft(scip::SCIP_t) = @scip_ccall("SCIPgetNNodesLeft", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNLPs(scip::SCIP_t) = @scip_ccall("SCIPgetNLPs", 
+	Int64, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNLPIterations(scip::SCIP_t) = @scip_ccall("SCIPgetNLPIterations", 
+	Int64, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNRootLPIterations(scip::SCIP_t) = @scip_ccall("SCIPgetNRootLPIterations", 
+	Int64, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNRootFirstLPIterations(scip::SCIP_t) = @scip_ccall("SCIPgetNRootFirstLPIterations", 
+	Int64, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNPrimalLPs(scip::SCIP_t) = @scip_ccall("SCIPgetNPrimalLPs", 
+	Int64, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNPrimalLPIterations(scip::SCIP_t) = @scip_ccall("SCIPgetNPrimalLPIterations", 
+	Int64, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNDualLPs(scip::SCIP_t) = @scip_ccall("SCIPgetNDualLPs", 
+	Int64, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNDualLPIterations(scip::SCIP_t) = @scip_ccall("SCIPgetNDualLPIterations", 
+	Int64, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNBarrierLPs(scip::SCIP_t) = @scip_ccall("SCIPgetNBarrierLPs", 
+	Int64, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNBarrierLPIterations(scip::SCIP_t) = @scip_ccall("SCIPgetNBarrierLPIterations", 
+	Int64, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNResolveLPs(scip::SCIP_t) = @scip_ccall("SCIPgetNResolveLPs", 
+	Int64, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNResolveLPIterations(scip::SCIP_t) = @scip_ccall("SCIPgetNResolveLPIterations", 
+	Int64, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNPrimalResolveLPs(scip::SCIP_t) = @scip_ccall("SCIPgetNPrimalResolveLPs", 
+	Int64, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNPrimalResolveLPIterations(scip::SCIP_t) = @scip_ccall("SCIPgetNPrimalResolveLPIterations", 
+	Int64, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNDualResolveLPs(scip::SCIP_t) = @scip_ccall("SCIPgetNDualResolveLPs", 
+	Int64, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNDualResolveLPIterations(scip::SCIP_t) = @scip_ccall("SCIPgetNDualResolveLPIterations", 
+	Int64, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNNodeLPs(scip::SCIP_t) = @scip_ccall("SCIPgetNNodeLPs", 
+	Int64, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNNodeLPIterations(scip::SCIP_t) = @scip_ccall("SCIPgetNNodeLPIterations", 
+	Int64, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNNodeInitLPs(scip::SCIP_t) = @scip_ccall("SCIPgetNNodeInitLPs", 
+	Int64, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNNodeInitLPIterations(scip::SCIP_t) = @scip_ccall("SCIPgetNNodeInitLPIterations", 
+	Int64, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNDivingLPs(scip::SCIP_t) = @scip_ccall("SCIPgetNDivingLPs", 
+	Int64, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNDivingLPIterations(scip::SCIP_t) = @scip_ccall("SCIPgetNDivingLPIterations", 
+	Int64, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNStrongbranchs(scip::SCIP_t) = @scip_ccall("SCIPgetNStrongbranchs", 
+	Int64, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNStrongbranchLPIterations(scip::SCIP_t) = @scip_ccall("SCIPgetNStrongbranchLPIterations", 
+	Int64, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNRootStrongbranchs(scip::SCIP_t) = @scip_ccall("SCIPgetNRootStrongbranchs", 
+	Int64, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNRootStrongbranchLPIterations(scip::SCIP_t) = @scip_ccall("SCIPgetNRootStrongbranchLPIterations", 
+	Int64, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNPriceRounds(scip::SCIP_t) = @scip_ccall("SCIPgetNPriceRounds", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNPricevars(scip::SCIP_t) = @scip_ccall("SCIPgetNPricevars", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNPricevarsFound(scip::SCIP_t) = @scip_ccall("SCIPgetNPricevarsFound", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNPricevarsApplied(scip::SCIP_t) = @scip_ccall("SCIPgetNPricevarsApplied", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNSepaRounds(scip::SCIP_t) = @scip_ccall("SCIPgetNSepaRounds", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNCutsFound(scip::SCIP_t) = @scip_ccall("SCIPgetNCutsFound", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNCutsFoundRound(scip::SCIP_t) = @scip_ccall("SCIPgetNCutsFoundRound", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNCutsApplied(scip::SCIP_t) = @scip_ccall("SCIPgetNCutsApplied", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNConflictConssFound(scip::SCIP_t) = @scip_ccall("SCIPgetNConflictConssFound", 
+	Int64, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNConflictConssFoundNode(scip::SCIP_t) = @scip_ccall("SCIPgetNConflictConssFoundNode", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNConflictConssApplied(scip::SCIP_t) = @scip_ccall("SCIPgetNConflictConssApplied", 
+	Int64, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetDepth(scip::SCIP_t) = @scip_ccall("SCIPgetDepth", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetFocusDepth(scip::SCIP_t) = @scip_ccall("SCIPgetFocusDepth", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetMaxDepth(scip::SCIP_t) = @scip_ccall("SCIPgetMaxDepth", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetMaxTotalDepth(scip::SCIP_t) = @scip_ccall("SCIPgetMaxTotalDepth", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNBacktracks(scip::SCIP_t) = @scip_ccall("SCIPgetNBacktracks", 
+	Int64, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetPlungeDepth(scip::SCIP_t) = @scip_ccall("SCIPgetPlungeDepth", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNActiveConss(scip::SCIP_t) = @scip_ccall("SCIPgetNActiveConss", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNEnabledConss(scip::SCIP_t) = @scip_ccall("SCIPgetNEnabledConss", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetAvgDualbound(scip::SCIP_t) = @scip_ccall("SCIPgetAvgDualbound", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetAvgLowerbound(scip::SCIP_t) = @scip_ccall("SCIPgetAvgLowerbound", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetDualbound(scip::SCIP_t) = @scip_ccall("SCIPgetDualbound", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetLowerbound(scip::SCIP_t) = @scip_ccall("SCIPgetLowerbound", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetDualboundRoot(scip::SCIP_t) = @scip_ccall("SCIPgetDualboundRoot", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetLowerboundRoot(scip::SCIP_t) = @scip_ccall("SCIPgetLowerboundRoot", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetFirstLPDualboundRoot(scip::SCIP_t) = @scip_ccall("SCIPgetFirstLPDualboundRoot", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetFirstLPLowerboundRoot(scip::SCIP_t) = @scip_ccall("SCIPgetFirstLPLowerboundRoot", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetPrimalbound(scip::SCIP_t) = @scip_ccall("SCIPgetPrimalbound", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetUpperbound(scip::SCIP_t) = @scip_ccall("SCIPgetUpperbound", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetCutoffbound(scip::SCIP_t) = @scip_ccall("SCIPgetCutoffbound", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPisPrimalboundSol(scip::SCIP_t) = @scip_ccall("SCIPisPrimalboundSol", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetGap(scip::SCIP_t) = @scip_ccall("SCIPgetGap", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetTransGap(scip::SCIP_t) = @scip_ccall("SCIPgetTransGap", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNSolsFound(scip::SCIP_t) = @scip_ccall("SCIPgetNSolsFound", 
+	Int64, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNLimSolsFound(scip::SCIP_t) = @scip_ccall("SCIPgetNLimSolsFound", 
+	Int64, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNBestSolsFound(scip::SCIP_t) = @scip_ccall("SCIPgetNBestSolsFound", 
+	Int64, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetAvgPseudocost(scip::SCIP_t, solvaldelta::_SCIP_Real) = @scip_ccall("SCIPgetAvgPseudocost", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, _SCIP_Real), 
+	pointer(scip), solvaldelta
+)
+SCIPgetAvgPseudocostCurrentRun(scip::SCIP_t, solvaldelta::_SCIP_Real) = @scip_ccall("SCIPgetAvgPseudocostCurrentRun", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, _SCIP_Real), 
+	pointer(scip), solvaldelta
+)
+SCIPgetAvgPseudocostCount(scip::SCIP_t, dir::_SCIP_BRANCHDIR) = @scip_ccall("SCIPgetAvgPseudocostCount", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, _SCIP_BRANCHDIR), 
+	pointer(scip), dir
+)
+SCIPgetAvgPseudocostCountCurrentRun(scip::SCIP_t, dir::_SCIP_BRANCHDIR) = @scip_ccall("SCIPgetAvgPseudocostCountCurrentRun", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, _SCIP_BRANCHDIR), 
+	pointer(scip), dir
+)
+SCIPgetAvgPseudocostScore(scip::SCIP_t) = @scip_ccall("SCIPgetAvgPseudocostScore", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetAvgPseudocostScoreCurrentRun(scip::SCIP_t) = @scip_ccall("SCIPgetAvgPseudocostScoreCurrentRun", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetAvgConflictScore(scip::SCIP_t) = @scip_ccall("SCIPgetAvgConflictScore", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetAvgConflictScoreCurrentRun(scip::SCIP_t) = @scip_ccall("SCIPgetAvgConflictScoreCurrentRun", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetAvgConflictlengthScore(scip::SCIP_t) = @scip_ccall("SCIPgetAvgConflictlengthScore", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetAvgConflictlengthScoreCurrentRun(scip::SCIP_t) = @scip_ccall("SCIPgetAvgConflictlengthScoreCurrentRun", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetAvgInferences(scip::SCIP_t, dir::_SCIP_BRANCHDIR) = @scip_ccall("SCIPgetAvgInferences", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, _SCIP_BRANCHDIR), 
+	pointer(scip), dir
+)
+SCIPgetAvgInferencesCurrentRun(scip::SCIP_t, dir::_SCIP_BRANCHDIR) = @scip_ccall("SCIPgetAvgInferencesCurrentRun", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, _SCIP_BRANCHDIR), 
+	pointer(scip), dir
+)
+SCIPgetAvgInferenceScore(scip::SCIP_t) = @scip_ccall("SCIPgetAvgInferenceScore", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetAvgInferenceScoreCurrentRun(scip::SCIP_t) = @scip_ccall("SCIPgetAvgInferenceScoreCurrentRun", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetAvgCutoffs(scip::SCIP_t, dir::_SCIP_BRANCHDIR) = @scip_ccall("SCIPgetAvgCutoffs", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, _SCIP_BRANCHDIR), 
+	pointer(scip), dir
+)
+SCIPgetAvgCutoffsCurrentRun(scip::SCIP_t, dir::_SCIP_BRANCHDIR) = @scip_ccall("SCIPgetAvgCutoffsCurrentRun", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, _SCIP_BRANCHDIR), 
+	pointer(scip), dir
+)
+SCIPgetAvgCutoffScore(scip::SCIP_t) = @scip_ccall("SCIPgetAvgCutoffScore", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetAvgCutoffScoreCurrentRun(scip::SCIP_t) = @scip_ccall("SCIPgetAvgCutoffScoreCurrentRun", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNImplications(scip::SCIP_t) = @scip_ccall("SCIPgetNImplications", 
+	Int, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetTimeOfDay(scip::SCIP_t) = @scip_ccall("SCIPgetTimeOfDay", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetClockTime(scip::SCIP_t, clck::SCIP_CLOCK_t) = @scip_ccall("SCIPgetClockTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CLOCK}), 
+	pointer(scip), pointer(clck)
+)
+SCIPgetTotalTime(scip::SCIP_t) = @scip_ccall("SCIPgetTotalTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetSolvingTime(scip::SCIP_t) = @scip_ccall("SCIPgetSolvingTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetReadingTime(scip::SCIP_t) = @scip_ccall("SCIPgetReadingTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetPresolvingTime(scip::SCIP_t) = @scip_ccall("SCIPgetPresolvingTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetFirstLPTime(scip::SCIP_t) = @scip_ccall("SCIPgetFirstLPTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPepsilon(scip::SCIP_t) = @scip_ccall("SCIPepsilon", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPsumepsilon(scip::SCIP_t) = @scip_ccall("SCIPsumepsilon", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPfeastol(scip::SCIP_t) = @scip_ccall("SCIPfeastol", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPlpfeastol(scip::SCIP_t) = @scip_ccall("SCIPlpfeastol", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPdualfeastol(scip::SCIP_t) = @scip_ccall("SCIPdualfeastol", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPbarrierconvtol(scip::SCIP_t) = @scip_ccall("SCIPbarrierconvtol", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPcutoffbounddelta(scip::SCIP_t) = @scip_ccall("SCIPcutoffbounddelta", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPmarkLimitChanged(scip::SCIP_t) = @scip_ccall("SCIPmarkLimitChanged", 
+	Void, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPinfinity(scip::SCIP_t) = @scip_ccall("SCIPinfinity", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetHugeValue(scip::SCIP_t) = @scip_ccall("SCIPgetHugeValue", 
+	_SCIP_Real, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPisEQ(scip::SCIP_t, val1::_SCIP_Real, val2::_SCIP_Real) = @scip_ccall("SCIPisEQ", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real, _SCIP_Real), 
+	pointer(scip), val1, val2
+)
+SCIPisLT(scip::SCIP_t, val1::_SCIP_Real, val2::_SCIP_Real) = @scip_ccall("SCIPisLT", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real, _SCIP_Real), 
+	pointer(scip), val1, val2
+)
+SCIPisLE(scip::SCIP_t, val1::_SCIP_Real, val2::_SCIP_Real) = @scip_ccall("SCIPisLE", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real, _SCIP_Real), 
+	pointer(scip), val1, val2
+)
+SCIPisGT(scip::SCIP_t, val1::_SCIP_Real, val2::_SCIP_Real) = @scip_ccall("SCIPisGT", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real, _SCIP_Real), 
+	pointer(scip), val1, val2
+)
+SCIPisGE(scip::SCIP_t, val1::_SCIP_Real, val2::_SCIP_Real) = @scip_ccall("SCIPisGE", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real, _SCIP_Real), 
+	pointer(scip), val1, val2
+)
+SCIPisInfinity(scip::SCIP_t, val::_SCIP_Real) = @scip_ccall("SCIPisInfinity", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real), 
+	pointer(scip), val
+)
+SCIPisHugeValue(scip::SCIP_t, val::_SCIP_Real) = @scip_ccall("SCIPisHugeValue", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real), 
+	pointer(scip), val
+)
+SCIPisZero(scip::SCIP_t, val::_SCIP_Real) = @scip_ccall("SCIPisZero", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real), 
+	pointer(scip), val
+)
+SCIPisPositive(scip::SCIP_t, val::_SCIP_Real) = @scip_ccall("SCIPisPositive", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real), 
+	pointer(scip), val
+)
+SCIPisNegative(scip::SCIP_t, val::_SCIP_Real) = @scip_ccall("SCIPisNegative", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real), 
+	pointer(scip), val
+)
+SCIPisIntegral(scip::SCIP_t, val::_SCIP_Real) = @scip_ccall("SCIPisIntegral", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real), 
+	pointer(scip), val
+)
+SCIPisScalingIntegral(scip::SCIP_t, val::_SCIP_Real, scalar::_SCIP_Real) = @scip_ccall("SCIPisScalingIntegral", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real, _SCIP_Real), 
+	pointer(scip), val, scalar
+)
+SCIPisFracIntegral(scip::SCIP_t, val::_SCIP_Real) = @scip_ccall("SCIPisFracIntegral", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real), 
+	pointer(scip), val
+)
+SCIPfloor(scip::SCIP_t, val::_SCIP_Real) = @scip_ccall("SCIPfloor", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, _SCIP_Real), 
+	pointer(scip), val
+)
+SCIPceil(scip::SCIP_t, val::_SCIP_Real) = @scip_ccall("SCIPceil", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, _SCIP_Real), 
+	pointer(scip), val
+)
+SCIPround(scip::SCIP_t, val::_SCIP_Real) = @scip_ccall("SCIPround", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, _SCIP_Real), 
+	pointer(scip), val
+)
+SCIPfrac(scip::SCIP_t, val::_SCIP_Real) = @scip_ccall("SCIPfrac", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, _SCIP_Real), 
+	pointer(scip), val
+)
+SCIPisSumEQ(scip::SCIP_t, val1::_SCIP_Real, val2::_SCIP_Real) = @scip_ccall("SCIPisSumEQ", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real, _SCIP_Real), 
+	pointer(scip), val1, val2
+)
+SCIPisSumLT(scip::SCIP_t, val1::_SCIP_Real, val2::_SCIP_Real) = @scip_ccall("SCIPisSumLT", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real, _SCIP_Real), 
+	pointer(scip), val1, val2
+)
+SCIPisSumLE(scip::SCIP_t, val1::_SCIP_Real, val2::_SCIP_Real) = @scip_ccall("SCIPisSumLE", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real, _SCIP_Real), 
+	pointer(scip), val1, val2
+)
+SCIPisSumGT(scip::SCIP_t, val1::_SCIP_Real, val2::_SCIP_Real) = @scip_ccall("SCIPisSumGT", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real, _SCIP_Real), 
+	pointer(scip), val1, val2
+)
+SCIPisSumGE(scip::SCIP_t, val1::_SCIP_Real, val2::_SCIP_Real) = @scip_ccall("SCIPisSumGE", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real, _SCIP_Real), 
+	pointer(scip), val1, val2
+)
+SCIPisSumZero(scip::SCIP_t, val::_SCIP_Real) = @scip_ccall("SCIPisSumZero", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real), 
+	pointer(scip), val
+)
+SCIPisSumPositive(scip::SCIP_t, val::_SCIP_Real) = @scip_ccall("SCIPisSumPositive", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real), 
+	pointer(scip), val
+)
+SCIPisSumNegative(scip::SCIP_t, val::_SCIP_Real) = @scip_ccall("SCIPisSumNegative", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real), 
+	pointer(scip), val
+)
+SCIPisFeasEQ(scip::SCIP_t, val1::_SCIP_Real, val2::_SCIP_Real) = @scip_ccall("SCIPisFeasEQ", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real, _SCIP_Real), 
+	pointer(scip), val1, val2
+)
+SCIPisFeasLT(scip::SCIP_t, val1::_SCIP_Real, val2::_SCIP_Real) = @scip_ccall("SCIPisFeasLT", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real, _SCIP_Real), 
+	pointer(scip), val1, val2
+)
+SCIPisFeasLE(scip::SCIP_t, val1::_SCIP_Real, val2::_SCIP_Real) = @scip_ccall("SCIPisFeasLE", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real, _SCIP_Real), 
+	pointer(scip), val1, val2
+)
+SCIPisFeasGT(scip::SCIP_t, val1::_SCIP_Real, val2::_SCIP_Real) = @scip_ccall("SCIPisFeasGT", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real, _SCIP_Real), 
+	pointer(scip), val1, val2
+)
+SCIPisFeasGE(scip::SCIP_t, val1::_SCIP_Real, val2::_SCIP_Real) = @scip_ccall("SCIPisFeasGE", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real, _SCIP_Real), 
+	pointer(scip), val1, val2
+)
+SCIPisFeasZero(scip::SCIP_t, val::_SCIP_Real) = @scip_ccall("SCIPisFeasZero", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real), 
+	pointer(scip), val
+)
+SCIPisFeasPositive(scip::SCIP_t, val::_SCIP_Real) = @scip_ccall("SCIPisFeasPositive", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real), 
+	pointer(scip), val
+)
+SCIPisFeasNegative(scip::SCIP_t, val::_SCIP_Real) = @scip_ccall("SCIPisFeasNegative", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real), 
+	pointer(scip), val
+)
+SCIPisFeasIntegral(scip::SCIP_t, val::_SCIP_Real) = @scip_ccall("SCIPisFeasIntegral", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real), 
+	pointer(scip), val
+)
+SCIPisFeasFracIntegral(scip::SCIP_t, val::_SCIP_Real) = @scip_ccall("SCIPisFeasFracIntegral", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real), 
+	pointer(scip), val
+)
+SCIPfeasFloor(scip::SCIP_t, val::_SCIP_Real) = @scip_ccall("SCIPfeasFloor", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, _SCIP_Real), 
+	pointer(scip), val
+)
+SCIPfeasCeil(scip::SCIP_t, val::_SCIP_Real) = @scip_ccall("SCIPfeasCeil", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, _SCIP_Real), 
+	pointer(scip), val
+)
+SCIPfeasRound(scip::SCIP_t, val::_SCIP_Real) = @scip_ccall("SCIPfeasRound", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, _SCIP_Real), 
+	pointer(scip), val
+)
+SCIPfeasFrac(scip::SCIP_t, val::_SCIP_Real) = @scip_ccall("SCIPfeasFrac", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, _SCIP_Real), 
+	pointer(scip), val
+)
+SCIPisLbBetter(scip::SCIP_t, newlb::_SCIP_Real, oldlb::_SCIP_Real, oldub::_SCIP_Real) = @scip_ccall("SCIPisLbBetter", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real, _SCIP_Real, _SCIP_Real), 
+	pointer(scip), newlb, oldlb, oldub
+)
+SCIPisUbBetter(scip::SCIP_t, newub::_SCIP_Real, oldlb::_SCIP_Real, oldub::_SCIP_Real) = @scip_ccall("SCIPisUbBetter", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real, _SCIP_Real, _SCIP_Real), 
+	pointer(scip), newub, oldlb, oldub
+)
+SCIPisRelEQ(scip::SCIP_t, val1::_SCIP_Real, val2::_SCIP_Real) = @scip_ccall("SCIPisRelEQ", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real, _SCIP_Real), 
+	pointer(scip), val1, val2
+)
+SCIPisRelLT(scip::SCIP_t, val1::_SCIP_Real, val2::_SCIP_Real) = @scip_ccall("SCIPisRelLT", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real, _SCIP_Real), 
+	pointer(scip), val1, val2
+)
+SCIPisRelLE(scip::SCIP_t, val1::_SCIP_Real, val2::_SCIP_Real) = @scip_ccall("SCIPisRelLE", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real, _SCIP_Real), 
+	pointer(scip), val1, val2
+)
+SCIPisRelGT(scip::SCIP_t, val1::_SCIP_Real, val2::_SCIP_Real) = @scip_ccall("SCIPisRelGT", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real, _SCIP_Real), 
+	pointer(scip), val1, val2
+)
+SCIPisRelGE(scip::SCIP_t, val1::_SCIP_Real, val2::_SCIP_Real) = @scip_ccall("SCIPisRelGE", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real, _SCIP_Real), 
+	pointer(scip), val1, val2
+)
+SCIPisSumRelEQ(scip::SCIP_t, val1::_SCIP_Real, val2::_SCIP_Real) = @scip_ccall("SCIPisSumRelEQ", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real, _SCIP_Real), 
+	pointer(scip), val1, val2
+)
+SCIPisSumRelLT(scip::SCIP_t, val1::_SCIP_Real, val2::_SCIP_Real) = @scip_ccall("SCIPisSumRelLT", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real, _SCIP_Real), 
+	pointer(scip), val1, val2
+)
+SCIPisSumRelLE(scip::SCIP_t, val1::_SCIP_Real, val2::_SCIP_Real) = @scip_ccall("SCIPisSumRelLE", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real, _SCIP_Real), 
+	pointer(scip), val1, val2
+)
+SCIPisSumRelGT(scip::SCIP_t, val1::_SCIP_Real, val2::_SCIP_Real) = @scip_ccall("SCIPisSumRelGT", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real, _SCIP_Real), 
+	pointer(scip), val1, val2
+)
+SCIPisSumRelGE(scip::SCIP_t, val1::_SCIP_Real, val2::_SCIP_Real) = @scip_ccall("SCIPisSumRelGE", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real, _SCIP_Real), 
+	pointer(scip), val1, val2
+)
+SCIPisUpdateUnreliable(scip::SCIP_t, newvalue::_SCIP_Real, oldvalue::_SCIP_Real) = @scip_ccall("SCIPisUpdateUnreliable", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, _SCIP_Real, _SCIP_Real), 
+	pointer(scip), newvalue, oldvalue
+)
+SCIPgetMemUsed(scip::SCIP_t) = @scip_ccall("SCIPgetMemUsed", 
+	Int64, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetMemExternEstim(scip::SCIP_t) = @scip_ccall("SCIPgetMemExternEstim", 
+	Int64, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPcalcMemGrowSize(scip::SCIP_t, num::Int) = @scip_ccall("SCIPcalcMemGrowSize", 
+	Int, 
+	(Ptr{_SCIP}, Int), 
+	pointer(scip), num
+)
+SCIPprintMemoryDiagnostic(scip::SCIP_t) = @scip_ccall("SCIPprintMemoryDiagnostic", 
+	Void, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetRealarrayVal(scip::SCIP_t, realarray::SCIP_REALARRAY_t, idx::Int) = @scip_ccall("SCIPgetRealarrayVal", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_REALARRAY}, Int), 
+	pointer(scip), pointer(realarray), idx
+)
+SCIPgetRealarrayMinIdx(scip::SCIP_t, realarray::SCIP_REALARRAY_t) = @scip_ccall("SCIPgetRealarrayMinIdx", 
+	Int, 
+	(Ptr{_SCIP}, Ptr{_SCIP_REALARRAY}), 
+	pointer(scip), pointer(realarray)
+)
+SCIPgetRealarrayMaxIdx(scip::SCIP_t, realarray::SCIP_REALARRAY_t) = @scip_ccall("SCIPgetRealarrayMaxIdx", 
+	Int, 
+	(Ptr{_SCIP}, Ptr{_SCIP_REALARRAY}), 
+	pointer(scip), pointer(realarray)
+)
+SCIPgetIntarrayVal(scip::SCIP_t, intarray::SCIP_INTARRAY_t, idx::Int) = @scip_ccall("SCIPgetIntarrayVal", 
+	Int, 
+	(Ptr{_SCIP}, Ptr{_SCIP_INTARRAY}, Int), 
+	pointer(scip), pointer(intarray), idx
+)
+SCIPgetIntarrayMinIdx(scip::SCIP_t, intarray::SCIP_INTARRAY_t) = @scip_ccall("SCIPgetIntarrayMinIdx", 
+	Int, 
+	(Ptr{_SCIP}, Ptr{_SCIP_INTARRAY}), 
+	pointer(scip), pointer(intarray)
+)
+SCIPgetIntarrayMaxIdx(scip::SCIP_t, intarray::SCIP_INTARRAY_t) = @scip_ccall("SCIPgetIntarrayMaxIdx", 
+	Int, 
+	(Ptr{_SCIP}, Ptr{_SCIP_INTARRAY}), 
+	pointer(scip), pointer(intarray)
+)
+SCIPgetBoolarrayVal(scip::SCIP_t, boolarray::SCIP_BOOLARRAY_t, idx::Int) = @scip_ccall("SCIPgetBoolarrayVal", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP}, Ptr{_SCIP_BOOLARRAY}, Int), 
+	pointer(scip), pointer(boolarray), idx
+)
+SCIPgetBoolarrayMinIdx(scip::SCIP_t, boolarray::SCIP_BOOLARRAY_t) = @scip_ccall("SCIPgetBoolarrayMinIdx", 
+	Int, 
+	(Ptr{_SCIP}, Ptr{_SCIP_BOOLARRAY}), 
+	pointer(scip), pointer(boolarray)
+)
+SCIPgetBoolarrayMaxIdx(scip::SCIP_t, boolarray::SCIP_BOOLARRAY_t) = @scip_ccall("SCIPgetBoolarrayMaxIdx", 
+	Int, 
+	(Ptr{_SCIP}, Ptr{_SCIP_BOOLARRAY}), 
+	pointer(scip), pointer(boolarray)
+)
+SCIPgetPtrarrayMinIdx(scip::SCIP_t, ptrarray::SCIP_PTRARRAY_t) = @scip_ccall("SCIPgetPtrarrayMinIdx", 
+	Int, 
+	(Ptr{_SCIP}, Ptr{_SCIP_PTRARRAY}), 
+	pointer(scip), pointer(ptrarray)
+)
+SCIPgetPtrarrayMaxIdx(scip::SCIP_t, ptrarray::SCIP_PTRARRAY_t) = @scip_ccall("SCIPgetPtrarrayMaxIdx", 
+	Int, 
+	(Ptr{_SCIP}, Ptr{_SCIP_PTRARRAY}), 
+	pointer(scip), pointer(ptrarray)
+)
+SCIPgetNCountedSols(scip::SCIP_t, valid::SCIP_Bool_t) = @scip_ccall("SCIPgetNCountedSols", 
+	Int64, 
+	(Ptr{_SCIP}, Ptr{_SCIP_Bool}), 
+	pointer(scip), pointer(valid)
+)
+SCIPgetNCountedFeasSubtrees(scip::SCIP_t) = @scip_ccall("SCIPgetNCountedFeasSubtrees", 
+	Int64, 
+	(Ptr{_SCIP},), 
+	pointer(scip)
+)
+SCIPgetNVarsLogicor(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNVarsLogicor", 
+	Int, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetVarsLogicor(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetVarsLogicor", 
+	Ptr{Ptr{_SCIP_VAR}}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetDualsolLogicor(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetDualsolLogicor", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetDualfarkasLogicor(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetDualfarkasLogicor", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetRowLogicor(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetRowLogicor", 
+	Ptr{_SCIP_ROW}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPeventhdlrGetName(eventhdlr::SCIP_EVENTHDLR_t) = @scip_ccall("SCIPeventhdlrGetName", 
+	String, 
+	(Ptr{_SCIP_EVENTHDLR},), 
+	pointer(eventhdlr)
+)
+SCIPeventhdlrGetData(eventhdlr::SCIP_EVENTHDLR_t) = @scip_ccall("SCIPeventhdlrGetData", 
+	Ptr{_SCIP_EVENTHDLRDATA}, 
+	(Ptr{_SCIP_EVENTHDLR},), 
+	pointer(eventhdlr)
+)
+SCIPeventhdlrSetData(eventhdlr::SCIP_EVENTHDLR_t, eventhdlrdata::SCIP_EVENTHDLRDATA_t) = @scip_ccall("SCIPeventhdlrSetData", 
+	Void, 
+	(Ptr{_SCIP_EVENTHDLR}, Ptr{_SCIP_EVENTHDLRDATA}), 
+	pointer(eventhdlr), pointer(eventhdlrdata)
+)
+SCIPeventhdlrIsInitialized(eventhdlr::SCIP_EVENTHDLR_t) = @scip_ccall("SCIPeventhdlrIsInitialized", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_EVENTHDLR},), 
+	pointer(eventhdlr)
+)
+SCIPeventhdlrGetSetupTime(eventhdlr::SCIP_EVENTHDLR_t) = @scip_ccall("SCIPeventhdlrGetSetupTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_EVENTHDLR},), 
+	pointer(eventhdlr)
+)
+SCIPeventhdlrGetTime(eventhdlr::SCIP_EVENTHDLR_t) = @scip_ccall("SCIPeventhdlrGetTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_EVENTHDLR},), 
+	pointer(eventhdlr)
+)
+SCIPeventGetType(event::SCIP_EVENT_t) = @scip_ccall("SCIPeventGetType", 
+	_SCIP_EVENTTYPE, 
+	(Ptr{_SCIP_EVENT},), 
+	pointer(event)
+)
+SCIPeventGetVar(event::SCIP_EVENT_t) = @scip_ccall("SCIPeventGetVar", 
+	Ptr{_SCIP_VAR}, 
+	(Ptr{_SCIP_EVENT},), 
+	pointer(event)
+)
+SCIPeventGetOldobj(event::SCIP_EVENT_t) = @scip_ccall("SCIPeventGetOldobj", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_EVENT},), 
+	pointer(event)
+)
+SCIPeventGetNewobj(event::SCIP_EVENT_t) = @scip_ccall("SCIPeventGetNewobj", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_EVENT},), 
+	pointer(event)
+)
+SCIPeventGetOldbound(event::SCIP_EVENT_t) = @scip_ccall("SCIPeventGetOldbound", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_EVENT},), 
+	pointer(event)
+)
+SCIPeventGetNewbound(event::SCIP_EVENT_t) = @scip_ccall("SCIPeventGetNewbound", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_EVENT},), 
+	pointer(event)
+)
+SCIPeventGetNode(event::SCIP_EVENT_t) = @scip_ccall("SCIPeventGetNode", 
+	Ptr{_SCIP_NODE}, 
+	(Ptr{_SCIP_EVENT},), 
+	pointer(event)
+)
+SCIPeventGetSol(event::SCIP_EVENT_t) = @scip_ccall("SCIPeventGetSol", 
+	Ptr{_SCIP_SOL}, 
+	(Ptr{_SCIP_EVENT},), 
+	pointer(event)
+)
+SCIPeventGetHoleLeft(event::SCIP_EVENT_t) = @scip_ccall("SCIPeventGetHoleLeft", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_EVENT},), 
+	pointer(event)
+)
+SCIPeventGetHoleRight(event::SCIP_EVENT_t) = @scip_ccall("SCIPeventGetHoleRight", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_EVENT},), 
+	pointer(event)
+)
+SCIPeventGetRow(event::SCIP_EVENT_t) = @scip_ccall("SCIPeventGetRow", 
+	Ptr{_SCIP_ROW}, 
+	(Ptr{_SCIP_EVENT},), 
+	pointer(event)
+)
+SCIPeventGetRowCol(event::SCIP_EVENT_t) = @scip_ccall("SCIPeventGetRowCol", 
+	Ptr{_SCIP_COL}, 
+	(Ptr{_SCIP_EVENT},), 
+	pointer(event)
+)
+SCIPeventGetRowOldCoefVal(event::SCIP_EVENT_t) = @scip_ccall("SCIPeventGetRowOldCoefVal", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_EVENT},), 
+	pointer(event)
+)
+SCIPeventGetRowNewCoefVal(event::SCIP_EVENT_t) = @scip_ccall("SCIPeventGetRowNewCoefVal", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_EVENT},), 
+	pointer(event)
+)
+SCIPeventGetRowOldConstVal(event::SCIP_EVENT_t) = @scip_ccall("SCIPeventGetRowOldConstVal", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_EVENT},), 
+	pointer(event)
+)
+SCIPeventGetRowNewConstVal(event::SCIP_EVENT_t) = @scip_ccall("SCIPeventGetRowNewConstVal", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_EVENT},), 
+	pointer(event)
+)
+SCIPeventGetRowSide(event::SCIP_EVENT_t) = @scip_ccall("SCIPeventGetRowSide", 
+	_SCIP_SIDETYPE, 
+	(Ptr{_SCIP_EVENT},), 
+	pointer(event)
+)
+SCIPeventGetRowOldSideVal(event::SCIP_EVENT_t) = @scip_ccall("SCIPeventGetRowOldSideVal", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_EVENT},), 
+	pointer(event)
+)
+SCIPeventGetRowNewSideVal(event::SCIP_EVENT_t) = @scip_ccall("SCIPeventGetRowNewSideVal", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_EVENT},), 
+	pointer(event)
+)
+SCIPgetNLinearVarsNonlinear(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNLinearVarsNonlinear", 
+	Int, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetLinearVarsNonlinear(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetLinearVarsNonlinear", 
+	Ptr{Ptr{_SCIP_VAR}}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetLinearCoefsNonlinear(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetLinearCoefsNonlinear", 
+	Ptr{_SCIP_Real}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetNExprtreesNonlinear(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNExprtreesNonlinear", 
+	Int, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetExprtreesNonlinear(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetExprtreesNonlinear", 
+	Ptr{Ptr{_SCIP_EXPRTREE}}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetExprtreeCoefsNonlinear(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetExprtreeCoefsNonlinear", 
+	Ptr{_SCIP_Real}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetExprgraphNodeNonlinear(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetExprgraphNodeNonlinear", 
+	Ptr{_SCIP_EXPRGRAPHNODE}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetLhsNonlinear(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetLhsNonlinear", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetRhsNonlinear(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetRhsNonlinear", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetExprgraphNonlinear(scip::SCIP_t, conshdlr::SCIP_CONSHDLR_t) = @scip_ccall("SCIPgetExprgraphNonlinear", 
+	Ptr{_SCIP_EXPRGRAPH}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONSHDLR}), 
+	pointer(scip), pointer(conshdlr)
+)
+SCIPgetNVarsSetppc(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNVarsSetppc", 
+	Int, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetVarsSetppc(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetVarsSetppc", 
+	Ptr{Ptr{_SCIP_VAR}}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetTypeSetppc(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetTypeSetppc", 
+	_SCIP_SETPPCTYPE, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetDualsolSetppc(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetDualsolSetppc", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetDualfarkasSetppc(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetDualfarkasSetppc", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetRowSetppc(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetRowSetppc", 
+	Ptr{_SCIP_ROW}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetNFixedonesSetppc(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNFixedonesSetppc", 
+	Int, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetNFixedzerosSetppc(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNFixedzerosSetppc", 
+	Int, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPparamGetType(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetType", 
+	_SCIP_PARAMTYPE, 
+	(Ptr{_SCIP_PARAM},), 
+	pointer(param)
+)
+SCIPparamGetName(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetName", 
+	String, 
+	(Ptr{_SCIP_PARAM},), 
+	pointer(param)
+)
+SCIPparamGetDesc(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetDesc", 
+	String, 
+	(Ptr{_SCIP_PARAM},), 
+	pointer(param)
+)
+SCIPparamGetData(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetData", 
+	Ptr{_SCIP_PARAMDATA}, 
+	(Ptr{_SCIP_PARAM},), 
+	pointer(param)
+)
+SCIPparamIsAdvanced(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamIsAdvanced", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_PARAM},), 
+	pointer(param)
+)
+SCIPparamIsFixed(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamIsFixed", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_PARAM},), 
+	pointer(param)
+)
+SCIPparamSetFixed(param::SCIP_PARAM_t, fixed::_SCIP_Bool) = @scip_ccall("SCIPparamSetFixed", 
+	Void, 
+	(Ptr{_SCIP_PARAM}, _SCIP_Bool), 
+	pointer(param), fixed
+)
+SCIPparamGetBool(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetBool", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_PARAM},), 
+	pointer(param)
+)
+SCIPparamGetBoolDefault(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetBoolDefault", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_PARAM},), 
+	pointer(param)
+)
+SCIPparamGetInt(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetInt", 
+	Int, 
+	(Ptr{_SCIP_PARAM},), 
+	pointer(param)
+)
+SCIPparamGetIntMin(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetIntMin", 
+	Int, 
+	(Ptr{_SCIP_PARAM},), 
+	pointer(param)
+)
+SCIPparamGetIntMax(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetIntMax", 
+	Int, 
+	(Ptr{_SCIP_PARAM},), 
+	pointer(param)
+)
+SCIPparamGetIntDefault(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetIntDefault", 
+	Int, 
+	(Ptr{_SCIP_PARAM},), 
+	pointer(param)
+)
+SCIPparamGetLongint(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetLongint", 
+	Int64, 
+	(Ptr{_SCIP_PARAM},), 
+	pointer(param)
+)
+SCIPparamGetLongintMin(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetLongintMin", 
+	Int64, 
+	(Ptr{_SCIP_PARAM},), 
+	pointer(param)
+)
+SCIPparamGetLongintMax(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetLongintMax", 
+	Int64, 
+	(Ptr{_SCIP_PARAM},), 
+	pointer(param)
+)
+SCIPparamGetLongintDefault(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetLongintDefault", 
+	Int64, 
+	(Ptr{_SCIP_PARAM},), 
+	pointer(param)
+)
+SCIPparamGetReal(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetReal", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_PARAM},), 
+	pointer(param)
+)
+SCIPparamGetRealMin(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetRealMin", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_PARAM},), 
+	pointer(param)
+)
+SCIPparamGetRealMax(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetRealMax", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_PARAM},), 
+	pointer(param)
+)
+SCIPparamGetRealDefault(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetRealDefault", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_PARAM},), 
+	pointer(param)
+)
+SCIPparamGetChar(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetChar", 
+	Char, 
+	(Ptr{_SCIP_PARAM},), 
+	pointer(param)
+)
+SCIPparamGetCharDefault(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamGetCharDefault", 
+	Char, 
+	(Ptr{_SCIP_PARAM},), 
+	pointer(param)
+)
+SCIPparamIsDefault(param::SCIP_PARAM_t) = @scip_ccall("SCIPparamIsDefault", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_PARAM},), 
+	pointer(param)
+)
+SCIPdialoghdlrGetRoot(dialoghdlr::SCIP_DIALOGHDLR_t) = @scip_ccall("SCIPdialoghdlrGetRoot", 
+	Ptr{_SCIP_DIALOG}, 
+	(Ptr{_SCIP_DIALOGHDLR},), 
+	pointer(dialoghdlr)
+)
+SCIPdialoghdlrClearBuffer(dialoghdlr::SCIP_DIALOGHDLR_t) = @scip_ccall("SCIPdialoghdlrClearBuffer", 
+	Void, 
+	(Ptr{_SCIP_DIALOGHDLR},), 
+	pointer(dialoghdlr)
+)
+SCIPdialoghdlrIsBufferEmpty(dialoghdlr::SCIP_DIALOGHDLR_t) = @scip_ccall("SCIPdialoghdlrIsBufferEmpty", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_DIALOGHDLR},), 
+	pointer(dialoghdlr)
+)
+SCIPdialogHasEntry(dialog::SCIP_DIALOG_t, entryname::String) = @scip_ccall("SCIPdialogHasEntry", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_DIALOG}, String), 
+	pointer(dialog), entryname
+)
+SCIPdialogFindEntry(dialog::SCIP_DIALOG_t, entryname::String, subdialog::SCIP_DIALOG_t) = @scip_ccall("SCIPdialogFindEntry", 
+	Int, 
+	(Ptr{_SCIP_DIALOG}, String, Ptr{Ptr{_SCIP_DIALOG}}), 
+	pointer(dialog), entryname, array(subdialog)
+)
+SCIPdialogGetName(dialog::SCIP_DIALOG_t) = @scip_ccall("SCIPdialogGetName", 
+	String, 
+	(Ptr{_SCIP_DIALOG},), 
+	pointer(dialog)
+)
+SCIPdialogGetDesc(dialog::SCIP_DIALOG_t) = @scip_ccall("SCIPdialogGetDesc", 
+	String, 
+	(Ptr{_SCIP_DIALOG},), 
+	pointer(dialog)
+)
+SCIPdialogIsSubmenu(dialog::SCIP_DIALOG_t) = @scip_ccall("SCIPdialogIsSubmenu", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_DIALOG},), 
+	pointer(dialog)
+)
+SCIPdialogGetParent(dialog::SCIP_DIALOG_t) = @scip_ccall("SCIPdialogGetParent", 
+	Ptr{_SCIP_DIALOG}, 
+	(Ptr{_SCIP_DIALOG},), 
+	pointer(dialog)
+)
+SCIPdialogGetSubdialogs(dialog::SCIP_DIALOG_t) = @scip_ccall("SCIPdialogGetSubdialogs", 
+	Ptr{Ptr{_SCIP_DIALOG}}, 
+	(Ptr{_SCIP_DIALOG},), 
+	pointer(dialog)
+)
+SCIPdialogGetNSubdialogs(dialog::SCIP_DIALOG_t) = @scip_ccall("SCIPdialogGetNSubdialogs", 
+	Int, 
+	(Ptr{_SCIP_DIALOG},), 
+	pointer(dialog)
+)
+SCIPdialogGetData(dialog::SCIP_DIALOG_t) = @scip_ccall("SCIPdialogGetData", 
+	Ptr{_SCIP_DIALOGDATA}, 
+	(Ptr{_SCIP_DIALOG},), 
+	pointer(dialog)
+)
+SCIPdialogSetData(dialog::SCIP_DIALOG_t, dialogdata::SCIP_DIALOGDATA_t) = @scip_ccall("SCIPdialogSetData", 
+	Void, 
+	(Ptr{_SCIP_DIALOG}, Ptr{_SCIP_DIALOGDATA}), 
+	pointer(dialog), pointer(dialogdata)
+)
+SCIPsepaGetData(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaGetData", 
+	Ptr{_SCIP_SEPADATA}, 
+	(Ptr{_SCIP_SEPA},), 
+	pointer(sepa)
+)
+SCIPsepaSetData(sepa::SCIP_SEPA_t, sepadata::SCIP_SEPADATA_t) = @scip_ccall("SCIPsepaSetData", 
+	Void, 
+	(Ptr{_SCIP_SEPA}, Ptr{_SCIP_SEPADATA}), 
+	pointer(sepa), pointer(sepadata)
+)
+SCIPsepaGetName(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaGetName", 
+	String, 
+	(Ptr{_SCIP_SEPA},), 
+	pointer(sepa)
+)
+SCIPsepaGetDesc(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaGetDesc", 
+	String, 
+	(Ptr{_SCIP_SEPA},), 
+	pointer(sepa)
+)
+SCIPsepaGetPriority(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaGetPriority", 
+	Int, 
+	(Ptr{_SCIP_SEPA},), 
+	pointer(sepa)
+)
+SCIPsepaGetFreq(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaGetFreq", 
+	Int, 
+	(Ptr{_SCIP_SEPA},), 
+	pointer(sepa)
+)
+SCIPsepaSetFreq(sepa::SCIP_SEPA_t, freq::Int) = @scip_ccall("SCIPsepaSetFreq", 
+	Void, 
+	(Ptr{_SCIP_SEPA}, Int), 
+	pointer(sepa), freq
+)
+SCIPsepaGetMaxbounddist(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaGetMaxbounddist", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_SEPA},), 
+	pointer(sepa)
+)
+SCIPsepaUsesSubscip(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaUsesSubscip", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_SEPA},), 
+	pointer(sepa)
+)
+SCIPsepaGetSetupTime(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaGetSetupTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_SEPA},), 
+	pointer(sepa)
+)
+SCIPsepaGetTime(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaGetTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_SEPA},), 
+	pointer(sepa)
+)
+SCIPsepaGetNCalls(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaGetNCalls", 
+	Int64, 
+	(Ptr{_SCIP_SEPA},), 
+	pointer(sepa)
+)
+SCIPsepaGetNCallsAtNode(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaGetNCallsAtNode", 
+	Int, 
+	(Ptr{_SCIP_SEPA},), 
+	pointer(sepa)
+)
+SCIPsepaGetNCutoffs(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaGetNCutoffs", 
+	Int64, 
+	(Ptr{_SCIP_SEPA},), 
+	pointer(sepa)
+)
+SCIPsepaGetNCutsFound(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaGetNCutsFound", 
+	Int64, 
+	(Ptr{_SCIP_SEPA},), 
+	pointer(sepa)
+)
+SCIPsepaGetNCutsApplied(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaGetNCutsApplied", 
+	Int64, 
+	(Ptr{_SCIP_SEPA},), 
+	pointer(sepa)
+)
+SCIPsepaGetNCutsFoundAtNode(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaGetNCutsFoundAtNode", 
+	Int64, 
+	(Ptr{_SCIP_SEPA},), 
+	pointer(sepa)
+)
+SCIPsepaGetNConssFound(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaGetNConssFound", 
+	Int64, 
+	(Ptr{_SCIP_SEPA},), 
+	pointer(sepa)
+)
+SCIPsepaGetNDomredsFound(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaGetNDomredsFound", 
+	Int64, 
+	(Ptr{_SCIP_SEPA},), 
+	pointer(sepa)
+)
+SCIPsepaIsDelayed(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaIsDelayed", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_SEPA},), 
+	pointer(sepa)
+)
+SCIPsepaWasLPDelayed(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaWasLPDelayed", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_SEPA},), 
+	pointer(sepa)
+)
+SCIPsepaWasSolDelayed(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaWasSolDelayed", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_SEPA},), 
+	pointer(sepa)
+)
+SCIPsepaIsInitialized(sepa::SCIP_SEPA_t) = @scip_ccall("SCIPsepaIsInitialized", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_SEPA},), 
+	pointer(sepa)
+)
+SCIPvarGetNLocksDown(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetNLocksDown", 
+	Int, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetNLocksUp(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetNLocksUp", 
+	Int, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarMayRoundDown(var::SCIP_VAR_t) = @scip_ccall("SCIPvarMayRoundDown", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarMayRoundUp(var::SCIP_VAR_t) = @scip_ccall("SCIPvarMayRoundUp", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarCompareActiveAndNegated(var1::SCIP_VAR_t, var2::SCIP_VAR_t) = @scip_ccall("SCIPvarCompareActiveAndNegated", 
+	Int, 
+	(Ptr{_SCIP_VAR}, Ptr{_SCIP_VAR}), 
+	pointer(var1), pointer(var2)
+)
+SCIPvarCompare(var1::SCIP_VAR_t, var2::SCIP_VAR_t) = @scip_ccall("SCIPvarCompare", 
+	Int, 
+	(Ptr{_SCIP_VAR}, Ptr{_SCIP_VAR}), 
+	pointer(var1), pointer(var2)
+)
+SCIPvarsGetProbvar(vars::SCIP_VAR_t, nvars::Int) = @scip_ccall("SCIPvarsGetProbvar", 
+	Void, 
+	(Ptr{Ptr{_SCIP_VAR}}, Int), 
+	array(vars), nvars
+)
+SCIPvarGetProbvar(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetProbvar", 
+	Ptr{_SCIP_VAR}, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarIsTransformedOrigvar(var::SCIP_VAR_t) = @scip_ccall("SCIPvarIsTransformedOrigvar", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetNBranchings(var::SCIP_VAR_t, dir::_SCIP_BRANCHDIR) = @scip_ccall("SCIPvarGetNBranchings", 
+	Int64, 
+	(Ptr{_SCIP_VAR}, _SCIP_BRANCHDIR), 
+	pointer(var), dir
+)
+SCIPvarGetNBranchingsCurrentRun(var::SCIP_VAR_t, dir::_SCIP_BRANCHDIR) = @scip_ccall("SCIPvarGetNBranchingsCurrentRun", 
+	Int64, 
+	(Ptr{_SCIP_VAR}, _SCIP_BRANCHDIR), 
+	pointer(var), dir
+)
+SCIPvarGetInferenceSum(var::SCIP_VAR_t, dir::_SCIP_BRANCHDIR) = @scip_ccall("SCIPvarGetInferenceSum", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_VAR}, _SCIP_BRANCHDIR), 
+	pointer(var), dir
+)
+SCIPvarGetInferenceSumCurrentRun(var::SCIP_VAR_t, dir::_SCIP_BRANCHDIR) = @scip_ccall("SCIPvarGetInferenceSumCurrentRun", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_VAR}, _SCIP_BRANCHDIR), 
+	pointer(var), dir
+)
+SCIPvarGetCutoffSum(var::SCIP_VAR_t, dir::_SCIP_BRANCHDIR) = @scip_ccall("SCIPvarGetCutoffSum", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_VAR}, _SCIP_BRANCHDIR), 
+	pointer(var), dir
+)
+SCIPvarGetCutoffSumCurrentRun(var::SCIP_VAR_t, dir::_SCIP_BRANCHDIR) = @scip_ccall("SCIPvarGetCutoffSumCurrentRun", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_VAR}, _SCIP_BRANCHDIR), 
+	pointer(var), dir
+)
+SCIPvarGetAvgBranchdepth(var::SCIP_VAR_t, dir::_SCIP_BRANCHDIR) = @scip_ccall("SCIPvarGetAvgBranchdepth", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_VAR}, _SCIP_BRANCHDIR), 
+	pointer(var), dir
+)
+SCIPvarGetAvgBranchdepthCurrentRun(var::SCIP_VAR_t, dir::_SCIP_BRANCHDIR) = @scip_ccall("SCIPvarGetAvgBranchdepthCurrentRun", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_VAR}, _SCIP_BRANCHDIR), 
+	pointer(var), dir
+)
+SCIPvarHasImplic(var::SCIP_VAR_t, varfixing::_SCIP_Bool, implvar::SCIP_VAR_t, impltype::_SCIP_BOUNDTYPE) = @scip_ccall("SCIPvarHasImplic", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_VAR}, _SCIP_Bool, Ptr{_SCIP_VAR}, _SCIP_BOUNDTYPE), 
+	pointer(var), varfixing, pointer(implvar), impltype
+)
+SCIPvarHasBinaryImplic(var::SCIP_VAR_t, varfixing::_SCIP_Bool, implvar::SCIP_VAR_t, implvarfixing::_SCIP_Bool) = @scip_ccall("SCIPvarHasBinaryImplic", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_VAR}, _SCIP_Bool, Ptr{_SCIP_VAR}, _SCIP_Bool), 
+	pointer(var), varfixing, pointer(implvar), implvarfixing
+)
+SCIPvarsHaveCommonClique(var1::SCIP_VAR_t, value1::_SCIP_Bool, var2::SCIP_VAR_t, value2::_SCIP_Bool, regardimplics::_SCIP_Bool) = @scip_ccall("SCIPvarsHaveCommonClique", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_VAR}, _SCIP_Bool, Ptr{_SCIP_VAR}, _SCIP_Bool, _SCIP_Bool), 
+	pointer(var1), value1, pointer(var2), value2, regardimplics
+)
+SCIPvarGetName(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetName", 
+	String, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetNUses(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetNUses", 
+	Int, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetData(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetData", 
+	Ptr{_SCIP_VARDATA}, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarSetData(var::SCIP_VAR_t, vardata::SCIP_VARDATA_t) = @scip_ccall("SCIPvarSetData", 
+	Void, 
+	(Ptr{_SCIP_VAR}, Ptr{_SCIP_VARDATA}), 
+	pointer(var), pointer(vardata)
+)
+SCIPvarGetStatus(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetStatus", 
+	_SCIP_VARSTATUS, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarIsOriginal(var::SCIP_VAR_t) = @scip_ccall("SCIPvarIsOriginal", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarIsTransformed(var::SCIP_VAR_t) = @scip_ccall("SCIPvarIsTransformed", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarIsNegated(var::SCIP_VAR_t) = @scip_ccall("SCIPvarIsNegated", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetType(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetType", 
+	_SCIP_VARTYPE, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarIsBinary(var::SCIP_VAR_t) = @scip_ccall("SCIPvarIsBinary", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarIsIntegral(var::SCIP_VAR_t) = @scip_ccall("SCIPvarIsIntegral", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarIsInitial(var::SCIP_VAR_t) = @scip_ccall("SCIPvarIsInitial", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarIsRemovable(var::SCIP_VAR_t) = @scip_ccall("SCIPvarIsRemovable", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarIsDeleted(var::SCIP_VAR_t) = @scip_ccall("SCIPvarIsDeleted", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarMarkDeletable(var::SCIP_VAR_t) = @scip_ccall("SCIPvarMarkDeletable", 
+	Void, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarMarkNotDeletable(var::SCIP_VAR_t) = @scip_ccall("SCIPvarMarkNotDeletable", 
+	Void, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarIsDeletable(var::SCIP_VAR_t) = @scip_ccall("SCIPvarIsDeletable", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarIsActive(var::SCIP_VAR_t) = @scip_ccall("SCIPvarIsActive", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetIndex(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetIndex", 
+	Int, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetProbindex(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetProbindex", 
+	Int, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetTransVar(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetTransVar", 
+	Ptr{_SCIP_VAR}, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetCol(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetCol", 
+	Ptr{_SCIP_COL}, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarIsInLP(var::SCIP_VAR_t) = @scip_ccall("SCIPvarIsInLP", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetAggrVar(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetAggrVar", 
+	Ptr{_SCIP_VAR}, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetAggrScalar(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetAggrScalar", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetAggrConstant(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetAggrConstant", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetMultaggrNVars(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetMultaggrNVars", 
+	Int, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetMultaggrVars(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetMultaggrVars", 
+	Ptr{Ptr{_SCIP_VAR}}, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetMultaggrScalars(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetMultaggrScalars", 
+	Ptr{_SCIP_Real}, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetMultaggrConstant(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetMultaggrConstant", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetNegatedVar(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetNegatedVar", 
+	Ptr{_SCIP_VAR}, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetNegationVar(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetNegationVar", 
+	Ptr{_SCIP_VAR}, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetNegationConstant(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetNegationConstant", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetObj(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetObj", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetLbOriginal(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetLbOriginal", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetUbOriginal(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetUbOriginal", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetHolelistOriginal(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetHolelistOriginal", 
+	Ptr{_SCIP_HOLELIST}, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetLbGlobal(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetLbGlobal", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetUbGlobal(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetUbGlobal", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetHolelistGlobal(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetHolelistGlobal", 
+	Ptr{_SCIP_HOLELIST}, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetBestBoundGlobal(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetBestBoundGlobal", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetWorstBoundGlobal(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetWorstBoundGlobal", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetLbLocal(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetLbLocal", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetUbLocal(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetUbLocal", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetHolelistLocal(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetHolelistLocal", 
+	Ptr{_SCIP_HOLELIST}, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetBestBoundLocal(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetBestBoundLocal", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetWorstBoundLocal(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetWorstBoundLocal", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetBestBoundType(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetBestBoundType", 
+	_SCIP_BOUNDTYPE, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetWorstBoundType(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetWorstBoundType", 
+	_SCIP_BOUNDTYPE, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetLbLazy(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetLbLazy", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetUbLazy(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetUbLazy", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetBranchFactor(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetBranchFactor", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetBranchPriority(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetBranchPriority", 
+	Int, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetBranchDirection(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetBranchDirection", 
+	_SCIP_BRANCHDIR, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetNVlbs(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetNVlbs", 
+	Int, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetVlbVars(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetVlbVars", 
+	Ptr{Ptr{_SCIP_VAR}}, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetVlbCoefs(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetVlbCoefs", 
+	Ptr{_SCIP_Real}, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetVlbConstants(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetVlbConstants", 
+	Ptr{_SCIP_Real}, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetNVubs(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetNVubs", 
+	Int, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetVubVars(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetVubVars", 
+	Ptr{Ptr{_SCIP_VAR}}, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetVubCoefs(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetVubCoefs", 
+	Ptr{_SCIP_Real}, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetVubConstants(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetVubConstants", 
+	Ptr{_SCIP_Real}, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetNImpls(var::SCIP_VAR_t, varfixing::_SCIP_Bool) = @scip_ccall("SCIPvarGetNImpls", 
+	Int, 
+	(Ptr{_SCIP_VAR}, _SCIP_Bool), 
+	pointer(var), varfixing
+)
+SCIPvarGetNBinImpls(var::SCIP_VAR_t, varfixing::_SCIP_Bool) = @scip_ccall("SCIPvarGetNBinImpls", 
+	Int, 
+	(Ptr{_SCIP_VAR}, _SCIP_Bool), 
+	pointer(var), varfixing
+)
+SCIPvarGetImplVars(var::SCIP_VAR_t, varfixing::_SCIP_Bool) = @scip_ccall("SCIPvarGetImplVars", 
+	Ptr{Ptr{_SCIP_VAR}}, 
+	(Ptr{_SCIP_VAR}, _SCIP_Bool), 
+	pointer(var), varfixing
+)
+SCIPvarGetImplTypes(var::SCIP_VAR_t, varfixing::_SCIP_Bool) = @scip_ccall("SCIPvarGetImplTypes", 
+	Ptr{_SCIP_BOUNDTYPE}, 
+	(Ptr{_SCIP_VAR}, _SCIP_Bool), 
+	pointer(var), varfixing
+)
+SCIPvarGetImplBounds(var::SCIP_VAR_t, varfixing::_SCIP_Bool) = @scip_ccall("SCIPvarGetImplBounds", 
+	Ptr{_SCIP_Real}, 
+	(Ptr{_SCIP_VAR}, _SCIP_Bool), 
+	pointer(var), varfixing
+)
+SCIPvarGetNCliques(var::SCIP_VAR_t, varfixing::_SCIP_Bool) = @scip_ccall("SCIPvarGetNCliques", 
+	Int, 
+	(Ptr{_SCIP_VAR}, _SCIP_Bool), 
+	pointer(var), varfixing
+)
+SCIPvarGetCliques(var::SCIP_VAR_t, varfixing::_SCIP_Bool) = @scip_ccall("SCIPvarGetCliques", 
+	Ptr{Ptr{_SCIP_CLIQUE}}, 
+	(Ptr{_SCIP_VAR}, _SCIP_Bool), 
+	pointer(var), varfixing
+)
+SCIPvarGetLPSol(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetLPSol", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetNLPSol(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetNLPSol", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetBdchgInfoLb(var::SCIP_VAR_t, pos::Int) = @scip_ccall("SCIPvarGetBdchgInfoLb", 
+	Ptr{_SCIP_BDCHGINFO}, 
+	(Ptr{_SCIP_VAR}, Int), 
+	pointer(var), pos
+)
+SCIPvarGetNBdchgInfosLb(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetNBdchgInfosLb", 
+	Int, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetBdchgInfoUb(var::SCIP_VAR_t, pos::Int) = @scip_ccall("SCIPvarGetBdchgInfoUb", 
+	Ptr{_SCIP_BDCHGINFO}, 
+	(Ptr{_SCIP_VAR}, Int), 
+	pointer(var), pos
+)
+SCIPvarGetNBdchgInfosUb(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetNBdchgInfosUb", 
+	Int, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetValuehistory(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetValuehistory", 
+	Ptr{_SCIP_VALUEHISTORY}, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetLPSol_rec(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetLPSol_rec", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetNLPSol_rec(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetNLPSol_rec", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetPseudoSol(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetPseudoSol", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetSol(var::SCIP_VAR_t, getlpval::_SCIP_Bool) = @scip_ccall("SCIPvarGetSol", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_VAR}, _SCIP_Bool), 
+	pointer(var), getlpval
+)
+SCIPvarGetRootSol(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetRootSol", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetBestRootSol(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetBestRootSol", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetBestRootRedcost(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetBestRootRedcost", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetBestRootLPObjval(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetBestRootLPObjval", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarSetBestRootSol(var::SCIP_VAR_t, rootsol::_SCIP_Real, rootredcost::_SCIP_Real, rootlpobjval::_SCIP_Real) = @scip_ccall("SCIPvarSetBestRootSol", 
+	Void, 
+	(Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Real, _SCIP_Real), 
+	pointer(var), rootsol, rootredcost, rootlpobjval
+)
+SCIPvarGetAvgSol(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetAvgSol", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetLbchgInfo(var::SCIP_VAR_t, bdchgidx::SCIP_BDCHGIDX_t, after::_SCIP_Bool) = @scip_ccall("SCIPvarGetLbchgInfo", 
+	Ptr{_SCIP_BDCHGINFO}, 
+	(Ptr{_SCIP_VAR}, Ptr{_SCIP_BDCHGIDX}, _SCIP_Bool), 
+	pointer(var), pointer(bdchgidx), after
+)
+SCIPvarGetUbchgInfo(var::SCIP_VAR_t, bdchgidx::SCIP_BDCHGIDX_t, after::_SCIP_Bool) = @scip_ccall("SCIPvarGetUbchgInfo", 
+	Ptr{_SCIP_BDCHGINFO}, 
+	(Ptr{_SCIP_VAR}, Ptr{_SCIP_BDCHGIDX}, _SCIP_Bool), 
+	pointer(var), pointer(bdchgidx), after
+)
+SCIPvarGetBdchgInfo(var::SCIP_VAR_t, boundtype::_SCIP_BOUNDTYPE, bdchgidx::SCIP_BDCHGIDX_t, after::_SCIP_Bool) = @scip_ccall("SCIPvarGetBdchgInfo", 
+	Ptr{_SCIP_BDCHGINFO}, 
+	(Ptr{_SCIP_VAR}, _SCIP_BOUNDTYPE, Ptr{_SCIP_BDCHGIDX}, _SCIP_Bool), 
+	pointer(var), boundtype, pointer(bdchgidx), after
+)
+SCIPvarGetLbAtIndex(var::SCIP_VAR_t, bdchgidx::SCIP_BDCHGIDX_t, after::_SCIP_Bool) = @scip_ccall("SCIPvarGetLbAtIndex", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_VAR}, Ptr{_SCIP_BDCHGIDX}, _SCIP_Bool), 
+	pointer(var), pointer(bdchgidx), after
+)
+SCIPvarGetUbAtIndex(var::SCIP_VAR_t, bdchgidx::SCIP_BDCHGIDX_t, after::_SCIP_Bool) = @scip_ccall("SCIPvarGetUbAtIndex", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_VAR}, Ptr{_SCIP_BDCHGIDX}, _SCIP_Bool), 
+	pointer(var), pointer(bdchgidx), after
+)
+SCIPvarGetBdAtIndex(var::SCIP_VAR_t, boundtype::_SCIP_BOUNDTYPE, bdchgidx::SCIP_BDCHGIDX_t, after::_SCIP_Bool) = @scip_ccall("SCIPvarGetBdAtIndex", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_VAR}, _SCIP_BOUNDTYPE, Ptr{_SCIP_BDCHGIDX}, _SCIP_Bool), 
+	pointer(var), boundtype, pointer(bdchgidx), after
+)
+SCIPvarWasFixedAtIndex(var::SCIP_VAR_t, bdchgidx::SCIP_BDCHGIDX_t, after::_SCIP_Bool) = @scip_ccall("SCIPvarWasFixedAtIndex", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_VAR}, Ptr{_SCIP_BDCHGIDX}, _SCIP_Bool), 
+	pointer(var), pointer(bdchgidx), after
+)
+SCIPvarGetLastBdchgIndex(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetLastBdchgIndex", 
+	Ptr{_SCIP_BDCHGIDX}, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarGetLastBdchgDepth(var::SCIP_VAR_t) = @scip_ccall("SCIPvarGetLastBdchgDepth", 
+	Int, 
+	(Ptr{_SCIP_VAR},), 
+	pointer(var)
+)
+SCIPvarWasFixedEarlier(var1::SCIP_VAR_t, var2::SCIP_VAR_t) = @scip_ccall("SCIPvarWasFixedEarlier", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_VAR}, Ptr{_SCIP_VAR}), 
+	pointer(var1), pointer(var2)
+)
+SCIPbdchgidxIsEarlier(bdchgidx1::SCIP_BDCHGIDX_t, bdchgidx2::SCIP_BDCHGIDX_t) = @scip_ccall("SCIPbdchgidxIsEarlier", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_BDCHGIDX}, Ptr{_SCIP_BDCHGIDX}), 
+	pointer(bdchgidx1), pointer(bdchgidx2)
+)
+SCIPbdchgidxIsEarlierNonNull(bdchgidx1::SCIP_BDCHGIDX_t, bdchgidx2::SCIP_BDCHGIDX_t) = @scip_ccall("SCIPbdchgidxIsEarlierNonNull", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_BDCHGIDX}, Ptr{_SCIP_BDCHGIDX}), 
+	pointer(bdchgidx1), pointer(bdchgidx2)
+)
+SCIPbdchginfoGetOldbound(bdchginfo::SCIP_BDCHGINFO_t) = @scip_ccall("SCIPbdchginfoGetOldbound", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_BDCHGINFO},), 
+	pointer(bdchginfo)
+)
+SCIPbdchginfoGetNewbound(bdchginfo::SCIP_BDCHGINFO_t) = @scip_ccall("SCIPbdchginfoGetNewbound", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_BDCHGINFO},), 
+	pointer(bdchginfo)
+)
+SCIPbdchginfoGetVar(bdchginfo::SCIP_BDCHGINFO_t) = @scip_ccall("SCIPbdchginfoGetVar", 
+	Ptr{_SCIP_VAR}, 
+	(Ptr{_SCIP_BDCHGINFO},), 
+	pointer(bdchginfo)
+)
+SCIPbdchginfoGetChgtype(bdchginfo::SCIP_BDCHGINFO_t) = @scip_ccall("SCIPbdchginfoGetChgtype", 
+	_SCIP_BOUNDCHGTYPE, 
+	(Ptr{_SCIP_BDCHGINFO},), 
+	pointer(bdchginfo)
+)
+SCIPbdchginfoGetBoundtype(bdchginfo::SCIP_BDCHGINFO_t) = @scip_ccall("SCIPbdchginfoGetBoundtype", 
+	_SCIP_BOUNDTYPE, 
+	(Ptr{_SCIP_BDCHGINFO},), 
+	pointer(bdchginfo)
+)
+SCIPbdchginfoGetDepth(bdchginfo::SCIP_BDCHGINFO_t) = @scip_ccall("SCIPbdchginfoGetDepth", 
+	Int, 
+	(Ptr{_SCIP_BDCHGINFO},), 
+	pointer(bdchginfo)
+)
+SCIPbdchginfoGetPos(bdchginfo::SCIP_BDCHGINFO_t) = @scip_ccall("SCIPbdchginfoGetPos", 
+	Int, 
+	(Ptr{_SCIP_BDCHGINFO},), 
+	pointer(bdchginfo)
+)
+SCIPbdchginfoGetIdx(bdchginfo::SCIP_BDCHGINFO_t) = @scip_ccall("SCIPbdchginfoGetIdx", 
+	Ptr{_SCIP_BDCHGIDX}, 
+	(Ptr{_SCIP_BDCHGINFO},), 
+	pointer(bdchginfo)
+)
+SCIPbdchginfoGetInferVar(bdchginfo::SCIP_BDCHGINFO_t) = @scip_ccall("SCIPbdchginfoGetInferVar", 
+	Ptr{_SCIP_VAR}, 
+	(Ptr{_SCIP_BDCHGINFO},), 
+	pointer(bdchginfo)
+)
+SCIPbdchginfoGetInferCons(bdchginfo::SCIP_BDCHGINFO_t) = @scip_ccall("SCIPbdchginfoGetInferCons", 
+	Ptr{_SCIP_CONS}, 
+	(Ptr{_SCIP_BDCHGINFO},), 
+	pointer(bdchginfo)
+)
+SCIPbdchginfoGetInferProp(bdchginfo::SCIP_BDCHGINFO_t) = @scip_ccall("SCIPbdchginfoGetInferProp", 
+	Ptr{_SCIP_PROP}, 
+	(Ptr{_SCIP_BDCHGINFO},), 
+	pointer(bdchginfo)
+)
+SCIPbdchginfoGetInferInfo(bdchginfo::SCIP_BDCHGINFO_t) = @scip_ccall("SCIPbdchginfoGetInferInfo", 
+	Int, 
+	(Ptr{_SCIP_BDCHGINFO},), 
+	pointer(bdchginfo)
+)
+SCIPbdchginfoGetInferBoundtype(bdchginfo::SCIP_BDCHGINFO_t) = @scip_ccall("SCIPbdchginfoGetInferBoundtype", 
+	_SCIP_BOUNDTYPE, 
+	(Ptr{_SCIP_BDCHGINFO},), 
+	pointer(bdchginfo)
+)
+SCIPbdchginfoIsRedundant(bdchginfo::SCIP_BDCHGINFO_t) = @scip_ccall("SCIPbdchginfoIsRedundant", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_BDCHGINFO},), 
+	pointer(bdchginfo)
+)
+SCIPbdchginfoHasInferenceReason(bdchginfo::SCIP_BDCHGINFO_t) = @scip_ccall("SCIPbdchginfoHasInferenceReason", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_BDCHGINFO},), 
+	pointer(bdchginfo)
+)
+SCIPbdchginfoIsTighter(bdchginfo1::SCIP_BDCHGINFO_t, bdchginfo2::SCIP_BDCHGINFO_t) = @scip_ccall("SCIPbdchginfoIsTighter", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_BDCHGINFO}, Ptr{_SCIP_BDCHGINFO}), 
+	pointer(bdchginfo1), pointer(bdchginfo2)
+)
+SCIPboundchgGetNewbound(boundchg::SCIP_BOUNDCHG_t) = @scip_ccall("SCIPboundchgGetNewbound", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_BOUNDCHG},), 
+	pointer(boundchg)
+)
+SCIPboundchgGetVar(boundchg::SCIP_BOUNDCHG_t) = @scip_ccall("SCIPboundchgGetVar", 
+	Ptr{_SCIP_VAR}, 
+	(Ptr{_SCIP_BOUNDCHG},), 
+	pointer(boundchg)
+)
+SCIPboundchgGetBoundchgtype(boundchg::SCIP_BOUNDCHG_t) = @scip_ccall("SCIPboundchgGetBoundchgtype", 
+	_SCIP_BOUNDCHGTYPE, 
+	(Ptr{_SCIP_BOUNDCHG},), 
+	pointer(boundchg)
+)
+SCIPboundchgGetBoundtype(boundchg::SCIP_BOUNDCHG_t) = @scip_ccall("SCIPboundchgGetBoundtype", 
+	_SCIP_BOUNDTYPE, 
+	(Ptr{_SCIP_BOUNDCHG},), 
+	pointer(boundchg)
+)
+SCIPboundchgIsRedundant(boundchg::SCIP_BOUNDCHG_t) = @scip_ccall("SCIPboundchgIsRedundant", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_BOUNDCHG},), 
+	pointer(boundchg)
+)
+SCIPdomchgGetNBoundchgs(domchg::SCIP_DOMCHG_t) = @scip_ccall("SCIPdomchgGetNBoundchgs", 
+	Int, 
+	(Ptr{_SCIP_DOMCHG},), 
+	pointer(domchg)
+)
+SCIPdomchgGetBoundchg(domchg::SCIP_DOMCHG_t, pos::Int) = @scip_ccall("SCIPdomchgGetBoundchg", 
+	Ptr{_SCIP_BOUNDCHG}, 
+	(Ptr{_SCIP_DOMCHG}, Int), 
+	pointer(domchg), pos
+)
+SCIPholelistGetLeft(holelist::SCIP_HOLELIST_t) = @scip_ccall("SCIPholelistGetLeft", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_HOLELIST},), 
+	pointer(holelist)
+)
+SCIPholelistGetRight(holelist::SCIP_HOLELIST_t) = @scip_ccall("SCIPholelistGetRight", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_HOLELIST},), 
+	pointer(holelist)
+)
+SCIPholelistGetNext(holelist::SCIP_HOLELIST_t) = @scip_ccall("SCIPholelistGetNext", 
+	Ptr{_SCIP_HOLELIST}, 
+	(Ptr{_SCIP_HOLELIST},), 
+	pointer(holelist)
+)
+SCIPgetLinearVarBivariate(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetLinearVarBivariate", 
+	Ptr{_SCIP_VAR}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetLinearCoefBivariate(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetLinearCoefBivariate", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetExprtreeBivariate(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetExprtreeBivariate", 
+	Ptr{_SCIP_EXPRTREE}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetLhsBivariate(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetLhsBivariate", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetRhsBivariate(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetRhsBivariate", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPrelaxGetData(relax::SCIP_RELAX_t) = @scip_ccall("SCIPrelaxGetData", 
+	Ptr{_SCIP_RELAXDATA}, 
+	(Ptr{_SCIP_RELAX},), 
+	pointer(relax)
+)
+SCIPrelaxSetData(relax::SCIP_RELAX_t, relaxdata::SCIP_RELAXDATA_t) = @scip_ccall("SCIPrelaxSetData", 
+	Void, 
+	(Ptr{_SCIP_RELAX}, Ptr{_SCIP_RELAXDATA}), 
+	pointer(relax), pointer(relaxdata)
+)
+SCIPrelaxGetName(relax::SCIP_RELAX_t) = @scip_ccall("SCIPrelaxGetName", 
+	String, 
+	(Ptr{_SCIP_RELAX},), 
+	pointer(relax)
+)
+SCIPrelaxGetDesc(relax::SCIP_RELAX_t) = @scip_ccall("SCIPrelaxGetDesc", 
+	String, 
+	(Ptr{_SCIP_RELAX},), 
+	pointer(relax)
+)
+SCIPrelaxGetPriority(relax::SCIP_RELAX_t) = @scip_ccall("SCIPrelaxGetPriority", 
+	Int, 
+	(Ptr{_SCIP_RELAX},), 
+	pointer(relax)
+)
+SCIPrelaxGetFreq(relax::SCIP_RELAX_t) = @scip_ccall("SCIPrelaxGetFreq", 
+	Int, 
+	(Ptr{_SCIP_RELAX},), 
+	pointer(relax)
+)
+SCIPrelaxGetSetupTime(relax::SCIP_RELAX_t) = @scip_ccall("SCIPrelaxGetSetupTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_RELAX},), 
+	pointer(relax)
+)
+SCIPrelaxGetTime(relax::SCIP_RELAX_t) = @scip_ccall("SCIPrelaxGetTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_RELAX},), 
+	pointer(relax)
+)
+SCIPrelaxGetNCalls(relax::SCIP_RELAX_t) = @scip_ccall("SCIPrelaxGetNCalls", 
+	Int64, 
+	(Ptr{_SCIP_RELAX},), 
+	pointer(relax)
+)
+SCIPrelaxIsInitialized(relax::SCIP_RELAX_t) = @scip_ccall("SCIPrelaxIsInitialized", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_RELAX},), 
+	pointer(relax)
+)
+SCIPrelaxMarkUnsolved(relax::SCIP_RELAX_t) = @scip_ccall("SCIPrelaxMarkUnsolved", 
+	Void, 
+	(Ptr{_SCIP_RELAX},), 
+	pointer(relax)
+)
+SCIPgetNonlinearVarAbspower(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNonlinearVarAbspower", 
+	Ptr{_SCIP_VAR}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetLinearVarAbspower(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetLinearVarAbspower", 
+	Ptr{_SCIP_VAR}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetExponentAbspower(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetExponentAbspower", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetOffsetAbspower(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetOffsetAbspower", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetCoefLinearAbspower(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetCoefLinearAbspower", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetLhsAbspower(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetLhsAbspower", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetRhsAbspower(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetRhsAbspower", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetViolationAbspower(scip::SCIP_t, cons::SCIP_CONS_t, sol::SCIP_SOL_t) = @scip_ccall("SCIPgetViolationAbspower", 
+	_SCIP_Real, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{_SCIP_SOL}), 
+	pointer(scip), pointer(cons), pointer(sol)
+)
+SCIPsolGetOrigin(sol::SCIP_SOL_t) = @scip_ccall("SCIPsolGetOrigin", 
+	_SCIP_SOLORIGIN, 
+	(Ptr{_SCIP_SOL},), 
+	pointer(sol)
+)
+SCIPsolIsOriginal(sol::SCIP_SOL_t) = @scip_ccall("SCIPsolIsOriginal", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_SOL},), 
+	pointer(sol)
+)
+SCIPsolGetOrigObj(sol::SCIP_SOL_t) = @scip_ccall("SCIPsolGetOrigObj", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_SOL},), 
+	pointer(sol)
+)
+SCIPsolGetTime(sol::SCIP_SOL_t) = @scip_ccall("SCIPsolGetTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_SOL},), 
+	pointer(sol)
+)
+SCIPsolGetRunnum(sol::SCIP_SOL_t) = @scip_ccall("SCIPsolGetRunnum", 
+	Int, 
+	(Ptr{_SCIP_SOL},), 
+	pointer(sol)
+)
+SCIPsolGetNodenum(sol::SCIP_SOL_t) = @scip_ccall("SCIPsolGetNodenum", 
+	Int64, 
+	(Ptr{_SCIP_SOL},), 
+	pointer(sol)
+)
+SCIPsolGetDepth(sol::SCIP_SOL_t) = @scip_ccall("SCIPsolGetDepth", 
+	Int, 
+	(Ptr{_SCIP_SOL},), 
+	pointer(sol)
+)
+SCIPsolGetHeur(sol::SCIP_SOL_t) = @scip_ccall("SCIPsolGetHeur", 
+	Ptr{_SCIP_HEUR}, 
+	(Ptr{_SCIP_SOL},), 
+	pointer(sol)
+)
+SCIPsolSetHeur(sol::SCIP_SOL_t, heur::SCIP_HEUR_t) = @scip_ccall("SCIPsolSetHeur", 
+	Void, 
+	(Ptr{_SCIP_SOL}, Ptr{_SCIP_HEUR}), 
+	pointer(sol), pointer(heur)
+)
+SCIPsolGetIndex(sol::SCIP_SOL_t) = @scip_ccall("SCIPsolGetIndex", 
+	Int, 
+	(Ptr{_SCIP_SOL},), 
+	pointer(sol)
+)
+SCIPheurGetData(heur::SCIP_HEUR_t) = @scip_ccall("SCIPheurGetData", 
+	Ptr{_SCIP_HEURDATA}, 
+	(Ptr{_SCIP_HEUR},), 
+	pointer(heur)
+)
+SCIPheurSetData(heur::SCIP_HEUR_t, heurdata::SCIP_HEURDATA_t) = @scip_ccall("SCIPheurSetData", 
+	Void, 
+	(Ptr{_SCIP_HEUR}, Ptr{_SCIP_HEURDATA}), 
+	pointer(heur), pointer(heurdata)
+)
+SCIPheurGetName(heur::SCIP_HEUR_t) = @scip_ccall("SCIPheurGetName", 
+	String, 
+	(Ptr{_SCIP_HEUR},), 
+	pointer(heur)
+)
+SCIPheurGetDesc(heur::SCIP_HEUR_t) = @scip_ccall("SCIPheurGetDesc", 
+	String, 
+	(Ptr{_SCIP_HEUR},), 
+	pointer(heur)
+)
+SCIPheurGetDispchar(heur::SCIP_HEUR_t) = @scip_ccall("SCIPheurGetDispchar", 
+	Char, 
+	(Ptr{_SCIP_HEUR},), 
+	pointer(heur)
+)
+SCIPheurGetTimingmask(heur::SCIP_HEUR_t) = @scip_ccall("SCIPheurGetTimingmask", 
+	_SCIP_HEURTIMING, 
+	(Ptr{_SCIP_HEUR},), 
+	pointer(heur)
+)
+SCIPheurSetTimingmask(heur::SCIP_HEUR_t, timingmask::_SCIP_HEURTIMING) = @scip_ccall("SCIPheurSetTimingmask", 
+	Void, 
+	(Ptr{_SCIP_HEUR}, _SCIP_HEURTIMING), 
+	pointer(heur), timingmask
+)
+SCIPheurUsesSubscip(heur::SCIP_HEUR_t) = @scip_ccall("SCIPheurUsesSubscip", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_HEUR},), 
+	pointer(heur)
+)
+SCIPheurGetPriority(heur::SCIP_HEUR_t) = @scip_ccall("SCIPheurGetPriority", 
+	Int, 
+	(Ptr{_SCIP_HEUR},), 
+	pointer(heur)
+)
+SCIPheurGetFreq(heur::SCIP_HEUR_t) = @scip_ccall("SCIPheurGetFreq", 
+	Int, 
+	(Ptr{_SCIP_HEUR},), 
+	pointer(heur)
+)
+SCIPheurSetFreq(heur::SCIP_HEUR_t, freq::Int) = @scip_ccall("SCIPheurSetFreq", 
+	Void, 
+	(Ptr{_SCIP_HEUR}, Int), 
+	pointer(heur), freq
+)
+SCIPheurGetFreqofs(heur::SCIP_HEUR_t) = @scip_ccall("SCIPheurGetFreqofs", 
+	Int, 
+	(Ptr{_SCIP_HEUR},), 
+	pointer(heur)
+)
+SCIPheurGetMaxdepth(heur::SCIP_HEUR_t) = @scip_ccall("SCIPheurGetMaxdepth", 
+	Int, 
+	(Ptr{_SCIP_HEUR},), 
+	pointer(heur)
+)
+SCIPheurGetNCalls(heur::SCIP_HEUR_t) = @scip_ccall("SCIPheurGetNCalls", 
+	Int64, 
+	(Ptr{_SCIP_HEUR},), 
+	pointer(heur)
+)
+SCIPheurGetNSolsFound(heur::SCIP_HEUR_t) = @scip_ccall("SCIPheurGetNSolsFound", 
+	Int64, 
+	(Ptr{_SCIP_HEUR},), 
+	pointer(heur)
+)
+SCIPheurGetNBestSolsFound(heur::SCIP_HEUR_t) = @scip_ccall("SCIPheurGetNBestSolsFound", 
+	Int64, 
+	(Ptr{_SCIP_HEUR},), 
+	pointer(heur)
+)
+SCIPheurIsInitialized(heur::SCIP_HEUR_t) = @scip_ccall("SCIPheurIsInitialized", 
+	_SCIP_Bool, 
+	(Ptr{_SCIP_HEUR},), 
+	pointer(heur)
+)
+SCIPheurGetSetupTime(heur::SCIP_HEUR_t) = @scip_ccall("SCIPheurGetSetupTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_HEUR},), 
+	pointer(heur)
+)
+SCIPheurGetTime(heur::SCIP_HEUR_t) = @scip_ccall("SCIPheurGetTime", 
+	_SCIP_Real, 
+	(Ptr{_SCIP_HEUR},), 
+	pointer(heur)
+)
+SCIPgetHminCumulative(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetHminCumulative", 
+	Int, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetHmaxCumulative(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetHmaxCumulative", 
+	Int, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetVarsCumulative(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetVarsCumulative", 
+	Ptr{Ptr{_SCIP_VAR}}, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetNVarsCumulative(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetNVarsCumulative", 
+	Int, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetCapacityCumulative(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall("SCIPgetCapacityCumulative", 
+	Int, 
+	(Ptr{_SCIP}, Ptr{_SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPcomputeHmin(scip::SCIP_t, profile::SCIP_PROFILE_t, capacity::Int) = @scip_ccall("SCIPcomputeHmin", 
+	Int, 
+	(Ptr{_SCIP}, Ptr{_SCIP_PROFILE}, Int), 
+	pointer(scip), pointer(profile), capacity
+)
+SCIPcomputeHmax(scip::SCIP_t, profile::SCIP_PROFILE_t, capacity::Int) = @scip_ccall("SCIPcomputeHmax", 
+	Int, 
+	(Ptr{_SCIP}, Ptr{_SCIP_PROFILE}, Int), 
+	pointer(scip), pointer(profile), capacity
+)
 
 # SCIP function wrappers: unchecked functions
-SCIPincludeConshdlrOrbitope(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrOrbitope", (Ptr{SCIP},), pointer(scip))
-SCIPcreateConsOrbitope(scip::SCIP_t, cons::SCIP_CONS_t, name::String, vars::SCIP_VAR_t, ispart::SCIP_Bool, nspcons::Int, nblocks::Int, resolveprop::SCIP_Bool, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsOrbitope", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{Ptr{Ptr{SCIP_VAR}}}, SCIP_Bool, Int, Int, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), pointer(scip), array(cons), name, array(vars), ispart, nspcons, nblocks, resolveprop, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
-SCIPcreateConsBasicOrbitope(scip::SCIP_t, cons::SCIP_CONS_t, name::String, vars::SCIP_VAR_t, ispart::SCIP_Bool, nspcons::Int, nblocks::Int, resolveprop::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsBasicOrbitope", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{Ptr{Ptr{SCIP_VAR}}}, SCIP_Bool, Int, Int, SCIP_Bool), pointer(scip), array(cons), name, array(vars), ispart, nspcons, nblocks, resolveprop)
-SCIPincludeConshdlrVarbound(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrVarbound", (Ptr{SCIP},), pointer(scip))
-SCIPcreateConsVarbound(scip::SCIP_t, cons::SCIP_CONS_t, name::String, var::SCIP_VAR_t, vbdvar::SCIP_VAR_t, vbdcoef::SCIP_Real, lhs::SCIP_Real, rhs::SCIP_Real, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsVarbound", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{SCIP_VAR}, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Real, SCIP_Real, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), pointer(scip), array(cons), name, pointer(var), pointer(vbdvar), vbdcoef, lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
-SCIPcreateConsBasicVarbound(scip::SCIP_t, cons::SCIP_CONS_t, name::String, var::SCIP_VAR_t, vbdvar::SCIP_VAR_t, vbdcoef::SCIP_Real, lhs::SCIP_Real, rhs::SCIP_Real) = @scip_ccall_check("SCIPcreateConsBasicVarbound", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{SCIP_VAR}, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Real, SCIP_Real), pointer(scip), array(cons), name, pointer(var), pointer(vbdvar), vbdcoef, lhs, rhs)
-SCIPmessagehdlrRelease(messagehdlr::SCIP_MESSAGEHDLR_t) = @scip_ccall_check("SCIPmessagehdlrRelease", (Ptr{Ptr{SCIP_MESSAGEHDLR}},), array(messagehdlr))
-SCIPmessagehdlrSetData(messagehdlr::SCIP_MESSAGEHDLR_t, messagehdlrdata::SCIP_MESSAGEHDLRDATA_t) = @scip_ccall_check("SCIPmessagehdlrSetData", (Ptr{SCIP_MESSAGEHDLR}, Ptr{SCIP_MESSAGEHDLRDATA}), pointer(messagehdlr), pointer(messagehdlrdata))
-SCIPincludeConshdlrIntegral(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrIntegral", (Ptr{SCIP},), pointer(scip))
-SCIPincludeConshdlrSOS1(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrSOS1", (Ptr{SCIP},), pointer(scip))
-SCIPcreateConsSOS1(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t, weights::SCIP_Real_t, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsSOS1", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), pointer(scip), array(cons), name, nvars, array(vars), pointer(weights), initial, separate, enforce, check, propagate, localVar, dynamic, removable, stickingatnode)
-SCIPcreateConsBasicSOS1(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t, weights::SCIP_Real_t) = @scip_ccall_check("SCIPcreateConsBasicSOS1", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}), pointer(scip), array(cons), name, nvars, array(vars), pointer(weights))
-SCIPaddVarSOS1(scip::SCIP_t, cons::SCIP_CONS_t, var::SCIP_VAR_t, weight::SCIP_Real) = @scip_ccall_check("SCIPaddVarSOS1", (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(cons), pointer(var), weight)
-SCIPappendVarSOS1(scip::SCIP_t, cons::SCIP_CONS_t, var::SCIP_VAR_t) = @scip_ccall_check("SCIPappendVarSOS1", (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_VAR}), pointer(scip), pointer(cons), pointer(var))
-SCIPexprtreeSetVars(tree::SCIP_EXPRTREE_t, nvars::Int, vars::SCIP_VAR_t) = @scip_ccall_check("SCIPexprtreeSetVars", (Ptr{SCIP_EXPRTREE}, Int, Ptr{Ptr{SCIP_VAR}}), pointer(tree), nvars, array(vars))
-SCIPexprtreeAddVars(tree::SCIP_EXPRTREE_t, nvars::Int, vars::SCIP_VAR_t) = @scip_ccall_check("SCIPexprtreeAddVars", (Ptr{SCIP_EXPRTREE}, Int, Ptr{Ptr{SCIP_VAR}}), pointer(tree), nvars, array(vars))
-SCIPincludeConshdlrLinking(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrLinking", (Ptr{SCIP},), pointer(scip))
-SCIPincludeConshdlrIndicator(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrIndicator", (Ptr{SCIP},), pointer(scip))
-SCIPcreateConsIndicator(scip::SCIP_t, cons::SCIP_CONS_t, name::String, binvar::SCIP_VAR_t, nvars::Int, vars::SCIP_VAR_t, vals::SCIP_Real_t, rhs::SCIP_Real, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsIndicator", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{SCIP_VAR}, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, SCIP_Real, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), pointer(scip), array(cons), name, pointer(binvar), nvars, array(vars), pointer(vals), rhs, initial, separate, enforce, check, propagate, localVar, dynamic, removable, stickingatnode)
-SCIPcreateConsBasicIndicator(scip::SCIP_t, cons::SCIP_CONS_t, name::String, binvar::SCIP_VAR_t, nvars::Int, vars::SCIP_VAR_t, vals::SCIP_Real_t, rhs::SCIP_Real) = @scip_ccall_check("SCIPcreateConsBasicIndicator", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{SCIP_VAR}, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, SCIP_Real), pointer(scip), array(cons), name, pointer(binvar), nvars, array(vars), pointer(vals), rhs)
-SCIPcreateConsIndicatorLinCons(scip::SCIP_t, cons::SCIP_CONS_t, name::String, binvar::SCIP_VAR_t, lincons::SCIP_CONS_t, slackvar::SCIP_VAR_t, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsIndicatorLinCons", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{SCIP_VAR}, Ptr{SCIP_CONS}, Ptr{SCIP_VAR}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), pointer(scip), array(cons), name, pointer(binvar), pointer(lincons), pointer(slackvar), initial, separate, enforce, check, propagate, localVar, dynamic, removable, stickingatnode)
-SCIPcreateConsBasicIndicatorLinCons(scip::SCIP_t, cons::SCIP_CONS_t, name::String, binvar::SCIP_VAR_t, lincons::SCIP_CONS_t, slackvar::SCIP_VAR_t) = @scip_ccall_check("SCIPcreateConsBasicIndicatorLinCons", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{SCIP_VAR}, Ptr{SCIP_CONS}, Ptr{SCIP_VAR}), pointer(scip), array(cons), name, pointer(binvar), pointer(lincons), pointer(slackvar))
-SCIPaddVarIndicator(scip::SCIP_t, cons::SCIP_CONS_t, var::SCIP_VAR_t, val::SCIP_Real) = @scip_ccall_check("SCIPaddVarIndicator", (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(cons), pointer(var), val)
-SCIPsetLinearConsIndicator(scip::SCIP_t, cons::SCIP_CONS_t, lincons::SCIP_CONS_t) = @scip_ccall_check("SCIPsetLinearConsIndicator", (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons), pointer(lincons))
-SCIPsetBinaryVarIndicator(scip::SCIP_t, cons::SCIP_CONS_t, binvar::SCIP_VAR_t) = @scip_ccall_check("SCIPsetBinaryVarIndicator", (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_VAR}), pointer(scip), pointer(cons), pointer(binvar))
-SCIPmakeIndicatorFeasible(scip::SCIP_t, cons::SCIP_CONS_t, sol::SCIP_SOL_t, changed::SCIP_Bool_t) = @scip_ccall_check("SCIPmakeIndicatorFeasible", (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_SOL}, Ptr{SCIP_Bool}), pointer(scip), pointer(cons), pointer(sol), pointer(changed))
-SCIPmakeIndicatorsFeasible(scip::SCIP_t, conshdlr::SCIP_CONSHDLR_t, sol::SCIP_SOL_t, changed::SCIP_Bool_t) = @scip_ccall_check("SCIPmakeIndicatorsFeasible", (Ptr{SCIP}, Ptr{SCIP_CONSHDLR}, Ptr{SCIP_SOL}, Ptr{SCIP_Bool}), pointer(scip), pointer(conshdlr), pointer(sol), pointer(changed))
-SCIPaddLinearConsIndicator(scip::SCIP_t, conshdlr::SCIP_CONSHDLR_t, lincons::SCIP_CONS_t) = @scip_ccall_check("SCIPaddLinearConsIndicator", (Ptr{SCIP}, Ptr{SCIP_CONSHDLR}, Ptr{SCIP_CONS}), pointer(scip), pointer(conshdlr), pointer(lincons))
-SCIPaddRowIndicator(scip::SCIP_t, conshdlr::SCIP_CONSHDLR_t, row::SCIP_ROW_t) = @scip_ccall_check("SCIPaddRowIndicator", (Ptr{SCIP}, Ptr{SCIP_CONSHDLR}, Ptr{SCIP_ROW}), pointer(scip), pointer(conshdlr), pointer(row))
-SCIPincludeConshdlrXor(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrXor", (Ptr{SCIP},), pointer(scip))
-SCIPcreateConsXor(scip::SCIP_t, cons::SCIP_CONS_t, name::String, rhs::SCIP_Bool, nvars::Int, vars::SCIP_VAR_t, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsXor", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, SCIP_Bool, Int, Ptr{Ptr{SCIP_VAR}}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), pointer(scip), array(cons), name, rhs, nvars, array(vars), initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
-SCIPcreateConsBasicXor(scip::SCIP_t, cons::SCIP_CONS_t, name::String, rhs::SCIP_Bool, nvars::Int, vars::SCIP_VAR_t) = @scip_ccall_check("SCIPcreateConsBasicXor", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, SCIP_Bool, Int, Ptr{Ptr{SCIP_VAR}}), pointer(scip), array(cons), name, rhs, nvars, array(vars))
-SCIPincludeConshdlrKnapsack(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrKnapsack", (Ptr{SCIP},), pointer(scip))
-SCIPcreateConsKnapsack(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t, weights::Int64, capacity::Int64, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsKnapsack", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{Int64}, Int64, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), pointer(scip), array(cons), name, nvars, array(vars), pointer(weights), capacity, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
-SCIPcreateConsBasicKnapsack(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t, weights::Int64, capacity::Int64) = @scip_ccall_check("SCIPcreateConsBasicKnapsack", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{Int64}, Int64), pointer(scip), array(cons), name, nvars, array(vars), pointer(weights), capacity)
-SCIPaddCoefKnapsack(scip::SCIP_t, cons::SCIP_CONS_t, var::SCIP_VAR_t, weight::Int64) = @scip_ccall_check("SCIPaddCoefKnapsack", (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_VAR}, Int64), pointer(scip), pointer(cons), pointer(var), weight)
-SCIPchgCapacityKnapsack(scip::SCIP_t, cons::SCIP_CONS_t, capacity::Int64) = @scip_ccall_check("SCIPchgCapacityKnapsack", (Ptr{SCIP}, Ptr{SCIP_CONS}, Int64), pointer(scip), pointer(cons), capacity)
-SCIPincludeConshdlrSOS2(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrSOS2", (Ptr{SCIP},), pointer(scip))
-SCIPcreateConsSOS2(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t, weights::SCIP_Real_t, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsSOS2", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), pointer(scip), array(cons), name, nvars, array(vars), pointer(weights), initial, separate, enforce, check, propagate, localVar, dynamic, removable, stickingatnode)
-SCIPcreateConsBasicSOS2(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t, weights::SCIP_Real_t) = @scip_ccall_check("SCIPcreateConsBasicSOS2", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}), pointer(scip), array(cons), name, nvars, array(vars), pointer(weights))
-SCIPaddVarSOS2(scip::SCIP_t, cons::SCIP_CONS_t, var::SCIP_VAR_t, weight::SCIP_Real) = @scip_ccall_check("SCIPaddVarSOS2", (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(cons), pointer(var), weight)
-SCIPappendVarSOS2(scip::SCIP_t, cons::SCIP_CONS_t, var::SCIP_VAR_t) = @scip_ccall_check("SCIPappendVarSOS2", (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_VAR}), pointer(scip), pointer(cons), pointer(var))
-SCIPincludeConshdlrBounddisjunction(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrBounddisjunction", (Ptr{SCIP},), pointer(scip))
-SCIPcreateConsBounddisjunction(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t, boundtypes::SCIP_BOUNDTYPE_t, bounds::SCIP_Real_t, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsBounddisjunction", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_BOUNDTYPE}, Ptr{SCIP_Real}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), pointer(scip), array(cons), name, nvars, array(vars), pointer(boundtypes), pointer(bounds), initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
-SCIPcreateConsBasicBounddisjunction(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t, boundtypes::SCIP_BOUNDTYPE_t, bounds::SCIP_Real_t) = @scip_ccall_check("SCIPcreateConsBasicBounddisjunction", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_BOUNDTYPE}, Ptr{SCIP_Real}), pointer(scip), array(cons), name, nvars, array(vars), pointer(boundtypes), pointer(bounds))
-SCIPincludeConshdlrPseudoboolean(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrPseudoboolean", (Ptr{SCIP},), pointer(scip))
-SCIPcreateConsPseudobooleanWithConss(scip::SCIP_t, cons::SCIP_CONS_t, name::String, lincons::SCIP_CONS_t, linconstype::SCIP_LINEARCONSTYPE, andconss::SCIP_CONS_t, andcoefs::SCIP_Real_t, nandconss::Int, indvar::SCIP_VAR_t, weight::SCIP_Real, issoftcons::SCIP_Bool, intvar::SCIP_VAR_t, lhs::SCIP_Real, rhs::SCIP_Real, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsPseudobooleanWithConss", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{SCIP_CONS}, SCIP_LINEARCONSTYPE, Ptr{Ptr{SCIP_CONS}}, Ptr{SCIP_Real}, Int, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Bool, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Real, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), pointer(scip), array(cons), name, pointer(lincons), linconstype, array(andconss), pointer(andcoefs), nandconss, pointer(indvar), weight, issoftcons, pointer(intvar), lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
-SCIPincludeConshdlrAnd(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrAnd", (Ptr{SCIP},), pointer(scip))
-SCIPcreateConsAnd(scip::SCIP_t, cons::SCIP_CONS_t, name::String, resvar::SCIP_VAR_t, nvars::Int, vars::SCIP_VAR_t, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsAnd", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{SCIP_VAR}, Int, Ptr{Ptr{SCIP_VAR}}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), pointer(scip), array(cons), name, pointer(resvar), nvars, array(vars), initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
-SCIPcreateConsBasicAnd(scip::SCIP_t, cons::SCIP_CONS_t, name::String, resvar::SCIP_VAR_t, nvars::Int, vars::SCIP_VAR_t) = @scip_ccall_check("SCIPcreateConsBasicAnd", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{SCIP_VAR}, Int, Ptr{Ptr{SCIP_VAR}}), pointer(scip), array(cons), name, pointer(resvar), nvars, array(vars))
-SCIPsortAndCons(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPsortAndCons", (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPchgAndConsCheckFlagWhenUpgr(scip::SCIP_t, cons::SCIP_CONS_t, flag::SCIP_Bool) = @scip_ccall_check("SCIPchgAndConsCheckFlagWhenUpgr", (Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool), pointer(scip), pointer(cons), flag)
-SCIPchgAndConsRemovableFlagWhenUpgr(scip::SCIP_t, cons::SCIP_CONS_t, flag::SCIP_Bool) = @scip_ccall_check("SCIPchgAndConsRemovableFlagWhenUpgr", (Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool), pointer(scip), pointer(cons), flag)
-SCIPincludeConshdlrSuperindicator(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrSuperindicator", (Ptr{SCIP},), pointer(scip))
-SCIPcreateConsSuperindicator(scip::SCIP_t, cons::SCIP_CONS_t, name::String, binvar::SCIP_VAR_t, slackcons::SCIP_CONS_t, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsSuperindicator", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{SCIP_VAR}, Ptr{SCIP_CONS}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), pointer(scip), array(cons), name, pointer(binvar), pointer(slackcons), initial, separate, enforce, check, propagate, localVar, dynamic, removable, stickingatnode)
-SCIPcreateConsBasicSuperindicator(scip::SCIP_t, cons::SCIP_CONS_t, name::String, binvar::SCIP_VAR_t, slackcons::SCIP_CONS_t) = @scip_ccall_check("SCIPcreateConsBasicSuperindicator", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{SCIP_VAR}, Ptr{SCIP_CONS}), pointer(scip), array(cons), name, pointer(binvar), pointer(slackcons))
-SCIPtransformMinUC(scip::SCIP_t, success::SCIP_Bool_t) = @scip_ccall_check("SCIPtransformMinUC", (Ptr{SCIP}, Ptr{SCIP_Bool}), pointer(scip), pointer(success))
-SCIPincludeConshdlrQuadratic(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrQuadratic", (Ptr{SCIP},), pointer(scip))
-SCIPcreateConsQuadratic(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nlinvars::Int, linvars::SCIP_VAR_t, lincoefs::SCIP_Real_t, nquadterms::Int, quadvars1::SCIP_VAR_t, quadvars2::SCIP_VAR_t, quadcoeffs::SCIP_Real_t, lhs::SCIP_Real, rhs::SCIP_Real, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsQuadratic", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, SCIP_Real, SCIP_Real, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), pointer(scip), array(cons), name, nlinvars, array(linvars), pointer(lincoefs), nquadterms, array(quadvars1), array(quadvars2), pointer(quadcoeffs), lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable)
-SCIPcreateConsBasicQuadratic(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nlinvars::Int, linvars::SCIP_VAR_t, lincoefs::SCIP_Real_t, nquadterms::Int, quadvars1::SCIP_VAR_t, quadvars2::SCIP_VAR_t, quadcoefs::SCIP_Real_t, lhs::SCIP_Real, rhs::SCIP_Real) = @scip_ccall_check("SCIPcreateConsBasicQuadratic", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, SCIP_Real, SCIP_Real), pointer(scip), array(cons), name, nlinvars, array(linvars), pointer(lincoefs), nquadterms, array(quadvars1), array(quadvars2), pointer(quadcoefs), lhs, rhs)
-SCIPcreateConsQuadratic2(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nlinvars::Int, linvars::SCIP_VAR_t, lincoefs::SCIP_Real_t, nquadvarterms::Int, quadvarterms::SCIP_QUADVARTERM_t, nbilinterms::Int, bilinterms::SCIP_BILINTERM_t, lhs::SCIP_Real, rhs::SCIP_Real, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsQuadratic2", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, Int, Ptr{SCIP_QUADVARTERM}, Int, Ptr{SCIP_BILINTERM}, SCIP_Real, SCIP_Real, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), pointer(scip), array(cons), name, nlinvars, array(linvars), pointer(lincoefs), nquadvarterms, pointer(quadvarterms), nbilinterms, pointer(bilinterms), lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable)
-SCIPcreateConsBasicQuadratic2(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nlinvars::Int, linvars::SCIP_VAR_t, lincoefs::SCIP_Real_t, nquadvarterms::Int, quadvarterms::SCIP_QUADVARTERM_t, nbilinterms::Int, bilinterms::SCIP_BILINTERM_t, lhs::SCIP_Real, rhs::SCIP_Real) = @scip_ccall_check("SCIPcreateConsBasicQuadratic2", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, Int, Ptr{SCIP_QUADVARTERM}, Int, Ptr{SCIP_BILINTERM}, SCIP_Real, SCIP_Real), pointer(scip), array(cons), name, nlinvars, array(linvars), pointer(lincoefs), nquadvarterms, pointer(quadvarterms), nbilinterms, pointer(bilinterms), lhs, rhs)
-SCIPaddLinearVarQuadratic(scip::SCIP_t, cons::SCIP_CONS_t, var::SCIP_VAR_t, coef::SCIP_Real) = @scip_ccall_check("SCIPaddLinearVarQuadratic", (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(cons), pointer(var), coef)
-SCIPaddQuadVarQuadratic(scip::SCIP_t, cons::SCIP_CONS_t, var::SCIP_VAR_t, lincoef::SCIP_Real, sqrcoef::SCIP_Real) = @scip_ccall_check("SCIPaddQuadVarQuadratic", (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Real), pointer(scip), pointer(cons), pointer(var), lincoef, sqrcoef)
-SCIPaddQuadVarLinearCoefQuadratic(scip::SCIP_t, cons::SCIP_CONS_t, var::SCIP_VAR_t, coef::SCIP_Real) = @scip_ccall_check("SCIPaddQuadVarLinearCoefQuadratic", (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(cons), pointer(var), coef)
-SCIPaddSquareCoefQuadratic(scip::SCIP_t, cons::SCIP_CONS_t, var::SCIP_VAR_t, coef::SCIP_Real) = @scip_ccall_check("SCIPaddSquareCoefQuadratic", (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(cons), pointer(var), coef)
-SCIPaddBilinTermQuadratic(scip::SCIP_t, cons::SCIP_CONS_t, var1::SCIP_VAR_t, var2::SCIP_VAR_t, coef::SCIP_Real) = @scip_ccall_check("SCIPaddBilinTermQuadratic", (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_VAR}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(cons), pointer(var1), pointer(var2), coef)
-SCIPgetNlRowQuadratic(scip::SCIP_t, cons::SCIP_CONS_t, nlrow::SCIP_NLROW_t) = @scip_ccall_check("SCIPgetNlRowQuadratic", (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{Ptr{SCIP_NLROW}}), pointer(scip), pointer(cons), array(nlrow))
-SCIPsortQuadVarTermsQuadratic(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPsortQuadVarTermsQuadratic", (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPcheckCurvatureQuadratic(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPcheckCurvatureQuadratic", (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetViolationQuadratic(scip::SCIP_t, cons::SCIP_CONS_t, sol::SCIP_SOL_t, violation::SCIP_Real_t) = @scip_ccall_check("SCIPgetViolationQuadratic", (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_SOL}, Ptr{SCIP_Real}), pointer(scip), pointer(cons), pointer(sol), pointer(violation))
-SCIPaddToNlpiProblemQuadratic(scip::SCIP_t, cons::SCIP_CONS_t, nlpi::SCIP_NLPI_t, nlpiprob::SCIP_NLPIPROBLEM_t, scipvar2nlpivar::SCIP_HASHMAP_t, names::SCIP_Bool) = @scip_ccall_check("SCIPaddToNlpiProblemQuadratic", (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_NLPI}, Ptr{SCIP_NLPIPROBLEM}, Ptr{SCIP_HASHMAP}, SCIP_Bool), pointer(scip), pointer(cons), pointer(nlpi), pointer(nlpiprob), pointer(scipvar2nlpivar), names)
-SCIPincludeConshdlrDisjunction(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrDisjunction", (Ptr{SCIP},), pointer(scip))
-SCIPcreateConsDisjunction(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nconss::Int, conss::SCIP_CONS_t, relaxcons::SCIP_CONS_t, initial::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsDisjunction", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_CONS}}, Ptr{SCIP_CONS}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), pointer(scip), array(cons), name, nconss, array(conss), pointer(relaxcons), initial, enforce, check, localVar, modifiable, dynamic)
-SCIPcreateConsBasicDisjunction(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nconss::Int, conss::SCIP_CONS_t, relaxcons::SCIP_CONS_t) = @scip_ccall_check("SCIPcreateConsBasicDisjunction", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_CONS}}, Ptr{SCIP_CONS}), pointer(scip), array(cons), name, nconss, array(conss), pointer(relaxcons))
-SCIPaddConsElemDisjunction(scip::SCIP_t, cons::SCIP_CONS_t, addcons::SCIP_CONS_t) = @scip_ccall_check("SCIPaddConsElemDisjunction", (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons), pointer(addcons))
-SCIPincludeConshdlrLinear(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrLinear", (Ptr{SCIP},), pointer(scip))
-SCIPcreateConsLinear(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t, vals::SCIP_Real_t, lhs::SCIP_Real, rhs::SCIP_Real, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsLinear", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, SCIP_Real, SCIP_Real, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), pointer(scip), array(cons), name, nvars, array(vars), pointer(vals), lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
-SCIPcreateConsBasicLinear(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t, vals::SCIP_Real_t, lhs::SCIP_Real, rhs::SCIP_Real) = @scip_ccall_check("SCIPcreateConsBasicLinear", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, SCIP_Real, SCIP_Real), pointer(scip), array(cons), name, nvars, array(vars), pointer(vals), lhs, rhs)
-SCIPcopyConsLinear(scip::SCIP_t, cons::SCIP_CONS_t, sourcescip::SCIP_t, name::String, nvars::Int, sourcevars::SCIP_VAR_t, sourcecoefs::SCIP_Real_t, lhs::SCIP_Real, rhs::SCIP_Real, varmap::SCIP_HASHMAP_t, consmap::SCIP_HASHMAP_t, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool, globalVar::SCIP_Bool, valid::SCIP_Bool_t) = @scip_ccall_check("SCIPcopyConsLinear", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, Ptr{SCIP}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, SCIP_Real, SCIP_Real, Ptr{SCIP_HASHMAP}, Ptr{SCIP_HASHMAP}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, Ptr{SCIP_Bool}), pointer(scip), array(cons), pointer(sourcescip), name, nvars, array(sourcevars), pointer(sourcecoefs), lhs, rhs, pointer(varmap), pointer(consmap), initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode, globalVar, pointer(valid))
-SCIPaddCoefLinear(scip::SCIP_t, cons::SCIP_CONS_t, var::SCIP_VAR_t, val::SCIP_Real) = @scip_ccall_check("SCIPaddCoefLinear", (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(cons), pointer(var), val)
-SCIPchgLhsLinear(scip::SCIP_t, cons::SCIP_CONS_t, lhs::SCIP_Real) = @scip_ccall_check("SCIPchgLhsLinear", (Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Real), pointer(scip), pointer(cons), lhs)
-SCIPchgRhsLinear(scip::SCIP_t, cons::SCIP_CONS_t, rhs::SCIP_Real) = @scip_ccall_check("SCIPchgRhsLinear", (Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Real), pointer(scip), pointer(cons), rhs)
-SCIPupgradeConsLinear(scip::SCIP_t, cons::SCIP_CONS_t, upgdcons::SCIP_CONS_t) = @scip_ccall_check("SCIPupgradeConsLinear", (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{Ptr{SCIP_CONS}}), pointer(scip), pointer(cons), array(upgdcons))
-SCIPincludeConshdlrConjunction(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrConjunction", (Ptr{SCIP},), pointer(scip))
-SCIPcreateConsConjunction(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nconss::Int, conss::SCIP_CONS_t, enforce::SCIP_Bool, check::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsConjunction", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_CONS}}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), pointer(scip), array(cons), name, nconss, array(conss), enforce, check, localVar, modifiable, dynamic)
-SCIPcreateConsBasicConjunction(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nconss::Int, conss::SCIP_CONS_t) = @scip_ccall_check("SCIPcreateConsBasicConjunction", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_CONS}}), pointer(scip), array(cons), name, nconss, array(conss))
-SCIPaddConsElemConjunction(scip::SCIP_t, cons::SCIP_CONS_t, addcons::SCIP_CONS_t) = @scip_ccall_check("SCIPaddConsElemConjunction", (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons), pointer(addcons))
-SCIPincludeConshdlrSOC(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrSOC", (Ptr{SCIP},), pointer(scip))
-SCIPcreateConsSOC(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t, coefs::SCIP_Real_t, offsets::SCIP_Real_t, constant::SCIP_Real, rhsvar::SCIP_VAR_t, rhscoeff::SCIP_Real, rhsoffset::SCIP_Real, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsSOC", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, Ptr{SCIP_Real}, SCIP_Real, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Real, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), pointer(scip), array(cons), name, nvars, array(vars), pointer(coefs), pointer(offsets), constant, pointer(rhsvar), rhscoeff, rhsoffset, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable)
-SCIPcreateConsBasicSOC(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t, coefs::SCIP_Real_t, offsets::SCIP_Real_t, constant::SCIP_Real, rhsvar::SCIP_VAR_t, rhscoeff::SCIP_Real, rhsoffset::SCIP_Real) = @scip_ccall_check("SCIPcreateConsBasicSOC", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, Ptr{SCIP_Real}, SCIP_Real, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Real), pointer(scip), array(cons), name, nvars, array(vars), pointer(coefs), pointer(offsets), constant, pointer(rhsvar), rhscoeff, rhsoffset)
-SCIPgetNlRowSOC(scip::SCIP_t, cons::SCIP_CONS_t, nlrow::SCIP_NLROW_t) = @scip_ccall_check("SCIPgetNlRowSOC", (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{Ptr{SCIP_NLROW}}), pointer(scip), pointer(cons), array(nlrow))
-SCIPaddToNlpiProblemSOC(scip::SCIP_t, cons::SCIP_CONS_t, nlpi::SCIP_NLPI_t, nlpiprob::SCIP_NLPIPROBLEM_t, scipvar2nlpivar::SCIP_HASHMAP_t, names::SCIP_Bool) = @scip_ccall_check("SCIPaddToNlpiProblemSOC", (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_NLPI}, Ptr{SCIP_NLPIPROBLEM}, Ptr{SCIP_HASHMAP}, SCIP_Bool), pointer(scip), pointer(cons), pointer(nlpi), pointer(nlpiprob), pointer(scipvar2nlpivar), names)
-SCIPexprEval(expr::SCIP_EXPR_t, varvals::SCIP_Real_t, param::SCIP_Real_t, val::SCIP_Real_t) = @scip_ccall_check("SCIPexprEval", (Ptr{SCIP_EXPR}, Ptr{SCIP_Real}, Ptr{SCIP_Real}, Ptr{SCIP_Real}), pointer(expr), pointer(varvals), pointer(param), pointer(val))
-SCIPexprEvalInt(expr::SCIP_EXPR_t, infinity::SCIP_Real, varvals::SCIP_INTERVAL_t, param::SCIP_Real_t, val::SCIP_INTERVAL_t) = @scip_ccall_check("SCIPexprEvalInt", (Ptr{SCIP_EXPR}, SCIP_Real, Ptr{SCIP_INTERVAL}, Ptr{SCIP_Real}, Ptr{SCIP_INTERVAL}), pointer(expr), infinity, pointer(varvals), pointer(param), pointer(val))
-SCIPexprCheckCurvature(expr::SCIP_EXPR_t, infinity::SCIP_Real, varbounds::SCIP_INTERVAL_t, param::SCIP_Real_t, curv::SCIP_EXPRCURV_t, bounds::SCIP_INTERVAL_t) = @scip_ccall_check("SCIPexprCheckCurvature", (Ptr{SCIP_EXPR}, SCIP_Real, Ptr{SCIP_INTERVAL}, Ptr{SCIP_Real}, Ptr{SCIP_EXPRCURV}, Ptr{SCIP_INTERVAL}), pointer(expr), infinity, pointer(varbounds), pointer(param), pointer(curv), pointer(bounds))
-SCIPexprtreeFreeInterpreterData(tree::SCIP_EXPRTREE_t) = @scip_ccall_check("SCIPexprtreeFreeInterpreterData", (Ptr{SCIP_EXPRTREE},), pointer(tree))
-SCIPexprtreeEval(tree::SCIP_EXPRTREE_t, varvals::SCIP_Real_t, val::SCIP_Real_t) = @scip_ccall_check("SCIPexprtreeEval", (Ptr{SCIP_EXPRTREE}, Ptr{SCIP_Real}, Ptr{SCIP_Real}), pointer(tree), pointer(varvals), pointer(val))
-SCIPexprtreeEvalInt(tree::SCIP_EXPRTREE_t, infinity::SCIP_Real, varvals::SCIP_INTERVAL_t, val::SCIP_INTERVAL_t) = @scip_ccall_check("SCIPexprtreeEvalInt", (Ptr{SCIP_EXPRTREE}, SCIP_Real, Ptr{SCIP_INTERVAL}, Ptr{SCIP_INTERVAL}), pointer(tree), infinity, pointer(varvals), pointer(val))
-SCIPexprtreeFree(tree::SCIP_EXPRTREE_t) = @scip_ccall_check("SCIPexprtreeFree", (Ptr{Ptr{SCIP_EXPRTREE}},), array(tree))
-SCIPexprtreeSetParams(tree::SCIP_EXPRTREE_t, nparams::Int, paramvals::SCIP_Real_t) = @scip_ccall_check("SCIPexprtreeSetParams", (Ptr{SCIP_EXPRTREE}, Int, Ptr{SCIP_Real}), pointer(tree), nparams, pointer(paramvals))
-SCIPexprtreeAddExpr(tree::SCIP_EXPRTREE_t, expr::SCIP_EXPR_t, copyexpr::SCIP_Bool) = @scip_ccall_check("SCIPexprtreeAddExpr", (Ptr{SCIP_EXPRTREE}, Ptr{SCIP_EXPR}, SCIP_Bool), pointer(tree), pointer(expr), copyexpr)
-SCIPexprtreeCheckCurvature(tree::SCIP_EXPRTREE_t, infinity::SCIP_Real, varbounds::SCIP_INTERVAL_t, curv::SCIP_EXPRCURV_t, bounds::SCIP_INTERVAL_t) = @scip_ccall_check("SCIPexprtreeCheckCurvature", (Ptr{SCIP_EXPRTREE}, SCIP_Real, Ptr{SCIP_INTERVAL}, Ptr{SCIP_EXPRCURV}, Ptr{SCIP_INTERVAL}), pointer(tree), infinity, pointer(varbounds), pointer(curv), pointer(bounds))
-SCIPexprtreeSubstituteVars(tree::SCIP_EXPRTREE_t, substexprs::SCIP_EXPR_t) = @scip_ccall_check("SCIPexprtreeSubstituteVars", (Ptr{SCIP_EXPRTREE}, Ptr{Ptr{SCIP_EXPR}}), pointer(tree), array(substexprs))
-SCIPexprgraphMoveNodeParents(exprgraph::SCIP_EXPRGRAPH_t, srcnode::SCIP_EXPRGRAPHNODE_t, targetnode::SCIP_EXPRGRAPHNODE_t) = @scip_ccall_check("SCIPexprgraphMoveNodeParents", (Ptr{SCIP_EXPRGRAPH}, Ptr{Ptr{SCIP_EXPRGRAPHNODE}}, Ptr{SCIP_EXPRGRAPHNODE}), pointer(exprgraph), array(srcnode), pointer(targetnode))
-SCIPexprgraphReleaseNode(exprgraph::SCIP_EXPRGRAPH_t, node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall_check("SCIPexprgraphReleaseNode", (Ptr{SCIP_EXPRGRAPH}, Ptr{Ptr{SCIP_EXPRGRAPHNODE}}), pointer(exprgraph), array(node))
-SCIPexprgraphUpdateNodeBoundsCurvature(node::SCIP_EXPRGRAPHNODE_t, infinity::SCIP_Real, minstrength::SCIP_Real, clearreverseprop::SCIP_Bool) = @scip_ccall_check("SCIPexprgraphUpdateNodeBoundsCurvature", (Ptr{SCIP_EXPRGRAPHNODE}, SCIP_Real, SCIP_Real, SCIP_Bool), pointer(node), infinity, minstrength, clearreverseprop)
-SCIPexprgraphFree(exprgraph::SCIP_EXPRGRAPH_t) = @scip_ccall_check("SCIPexprgraphFree", (Ptr{Ptr{SCIP_EXPRGRAPH}},), array(exprgraph))
-SCIPexprgraphAddNode(exprgraph::SCIP_EXPRGRAPH_t, node::SCIP_EXPRGRAPHNODE_t, mindepth::Int, nchildren::Int, children::SCIP_EXPRGRAPHNODE_t) = @scip_ccall_check("SCIPexprgraphAddNode", (Ptr{SCIP_EXPRGRAPH}, Ptr{SCIP_EXPRGRAPHNODE}, Int, Int, Ptr{Ptr{SCIP_EXPRGRAPHNODE}}), pointer(exprgraph), pointer(node), mindepth, nchildren, array(children))
-SCIPexprgraphAddConst(exprgraph::SCIP_EXPRGRAPH_t, constant::SCIP_Real, constnode::SCIP_EXPRGRAPHNODE_t) = @scip_ccall_check("SCIPexprgraphAddConst", (Ptr{SCIP_EXPRGRAPH}, SCIP_Real, Ptr{Ptr{SCIP_EXPRGRAPHNODE}}), pointer(exprgraph), constant, array(constnode))
-SCIPexprgraphAddExprtreeSum(exprgraph::SCIP_EXPRGRAPH_t, nexprtrees::Int, exprtrees::SCIP_EXPRTREE_t, coefs::SCIP_Real_t, rootnode::SCIP_EXPRGRAPHNODE_t, rootnodeisnew::SCIP_Bool_t) = @scip_ccall_check("SCIPexprgraphAddExprtreeSum", (Ptr{SCIP_EXPRGRAPH}, Int, Ptr{Ptr{SCIP_EXPRTREE}}, Ptr{SCIP_Real}, Ptr{Ptr{SCIP_EXPRGRAPHNODE}}, Ptr{SCIP_Bool}), pointer(exprgraph), nexprtrees, array(exprtrees), pointer(coefs), array(rootnode), pointer(rootnodeisnew))
-SCIPexprgraphEval(exprgraph::SCIP_EXPRGRAPH_t, varvals::SCIP_Real_t) = @scip_ccall_check("SCIPexprgraphEval", (Ptr{SCIP_EXPRGRAPH}, Ptr{SCIP_Real}), pointer(exprgraph), pointer(varvals))
-SCIPexprgraphPropagateVarBounds(exprgraph::SCIP_EXPRGRAPH_t, infinity::SCIP_Real, clearreverseprop::SCIP_Bool, domainerror::SCIP_Bool_t) = @scip_ccall_check("SCIPexprgraphPropagateVarBounds", (Ptr{SCIP_EXPRGRAPH}, SCIP_Real, SCIP_Bool, Ptr{SCIP_Bool}), pointer(exprgraph), infinity, clearreverseprop, pointer(domainerror))
-SCIPexprgraphCheckCurvature(exprgraph::SCIP_EXPRGRAPH_t, infinity::SCIP_Real, clearreverseprop::SCIP_Bool) = @scip_ccall_check("SCIPexprgraphCheckCurvature", (Ptr{SCIP_EXPRGRAPH}, SCIP_Real, SCIP_Bool), pointer(exprgraph), infinity, clearreverseprop)
-SCIPexprgraphSimplify(exprgraph::SCIP_EXPRGRAPH_t, messagehdlr::SCIP_MESSAGEHDLR_t, eps::SCIP_Real, maxexpansionexponent::Int, havechange::SCIP_Bool_t, domainerror::SCIP_Bool_t) = @scip_ccall_check("SCIPexprgraphSimplify", (Ptr{SCIP_EXPRGRAPH}, Ptr{SCIP_MESSAGEHDLR}, SCIP_Real, Int, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), pointer(exprgraph), pointer(messagehdlr), eps, maxexpansionexponent, pointer(havechange), pointer(domainerror))
-SCIPexprgraphGetTree(exprgraph::SCIP_EXPRGRAPH_t, rootnode::SCIP_EXPRGRAPHNODE_t, exprtree::SCIP_EXPRTREE_t) = @scip_ccall_check("SCIPexprgraphGetTree", (Ptr{SCIP_EXPRGRAPH}, Ptr{SCIP_EXPRGRAPHNODE}, Ptr{Ptr{SCIP_EXPRTREE}}), pointer(exprgraph), pointer(rootnode), array(exprtree))
-SCIPincludeConshdlrOr(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrOr", (Ptr{SCIP},), pointer(scip))
-SCIPcreateConsOr(scip::SCIP_t, cons::SCIP_CONS_t, name::String, resvar::SCIP_VAR_t, nvars::Int, vars::SCIP_VAR_t, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsOr", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{SCIP_VAR}, Int, Ptr{Ptr{SCIP_VAR}}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), pointer(scip), array(cons), name, pointer(resvar), nvars, array(vars), initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
-SCIPcreateConsBasicOr(scip::SCIP_t, cons::SCIP_CONS_t, name::String, resvar::SCIP_VAR_t, nvars::Int, vars::SCIP_VAR_t) = @scip_ccall_check("SCIPcreateConsBasicOr", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{SCIP_VAR}, Int, Ptr{Ptr{SCIP_VAR}}), pointer(scip), array(cons), name, pointer(resvar), nvars, array(vars))
-SCIPsparseSolCreate(sparsesol::SCIP_SPARSESOL_t, vars::SCIP_VAR_t, nvars::Int, cleared::SCIP_Bool) = @scip_ccall_check("SCIPsparseSolCreate", (Ptr{Ptr{SCIP_SPARSESOL}}, Ptr{Ptr{SCIP_VAR}}, Int, SCIP_Bool), array(sparsesol), array(vars), nvars, cleared)
-SCIPqueueCreate(queue::SCIP_QUEUE_t, initsize::Int, sizefac::SCIP_Real) = @scip_ccall_check("SCIPqueueCreate", (Ptr{Ptr{SCIP_QUEUE}}, Int, SCIP_Real), array(queue), initsize, sizefac)
-SCIPhashmapRemoveAll(hashmap::SCIP_HASHMAP_t) = @scip_ccall_check("SCIPhashmapRemoveAll", (Ptr{SCIP_HASHMAP},), pointer(hashmap))
-SCIPactivityCreate(activity::SCIP_RESOURCEACTIVITY_t, var::SCIP_VAR_t, duration::Int, demand::Int) = @scip_ccall_check("SCIPactivityCreate", (Ptr{Ptr{SCIP_RESOURCEACTIVITY}}, Ptr{SCIP_VAR}, Int, Int), array(activity), pointer(var), duration, demand)
-SCIPprofileCreate(profile::SCIP_PROFILE_t, capacity::Int) = @scip_ccall_check("SCIPprofileCreate", (Ptr{Ptr{SCIP_PROFILE}}, Int), array(profile), capacity)
-SCIPprofileDeleteCore(profile::SCIP_PROFILE_t, left::Int, right::Int, height::Int) = @scip_ccall_check("SCIPprofileDeleteCore", (Ptr{SCIP_PROFILE}, Int, Int, Int), pointer(profile), left, right, height)
-SCIPdigraphCreate(digraph::SCIP_DIGRAPH_t, nnodes::Int) = @scip_ccall_check("SCIPdigraphCreate", (Ptr{Ptr{SCIP_DIGRAPH}}, Int), array(digraph), nnodes)
-SCIPdigraphResize(digraph::SCIP_DIGRAPH_t, nnodes::Int) = @scip_ccall_check("SCIPdigraphResize", (Ptr{SCIP_DIGRAPH}, Int), pointer(digraph), nnodes)
-SCIPdigraphCopy(targetdigraph::SCIP_DIGRAPH_t, sourcedigraph::SCIP_DIGRAPH_t) = @scip_ccall_check("SCIPdigraphCopy", (Ptr{Ptr{SCIP_DIGRAPH}}, Ptr{SCIP_DIGRAPH}), array(targetdigraph), pointer(sourcedigraph))
-SCIPdigraphTopoSortComponents(digraph::SCIP_DIGRAPH_t) = @scip_ccall_check("SCIPdigraphTopoSortComponents", (Ptr{SCIP_DIGRAPH},), pointer(digraph))
-SCIPcalcIntegralScalar(vals::SCIP_Real_t, nvals::Int, mindelta::SCIP_Real, maxdelta::SCIP_Real, maxdnom::Int64, maxscale::SCIP_Real, intscalar::SCIP_Real_t, success::SCIP_Bool_t) = @scip_ccall_check("SCIPcalcIntegralScalar", (Ptr{SCIP_Real}, Int, SCIP_Real, SCIP_Real, Int64, SCIP_Real, Ptr{SCIP_Real}, Ptr{SCIP_Bool}), pointer(vals), nvals, mindelta, maxdelta, maxdnom, maxscale, pointer(intscalar), pointer(success))
-SCIPcreate(scip::SCIP_t) = @scip_ccall_check("SCIPcreate", (Ptr{Ptr{SCIP}},), array(scip))
-SCIPfree(scip::SCIP_t) = @scip_ccall_check("SCIPfree", (Ptr{Ptr{SCIP}},), array(scip))
-SCIPsetMessagehdlr(scip::SCIP_t, messagehdlr::SCIP_MESSAGEHDLR_t) = @scip_ccall_check("SCIPsetMessagehdlr", (Ptr{SCIP}, Ptr{SCIP_MESSAGEHDLR}), pointer(scip), pointer(messagehdlr))
-SCIPcopyPlugins(sourcescip::SCIP_t, targetscip::SCIP_t, copyreaders::SCIP_Bool, copypricers::SCIP_Bool, copyconshdlrs::SCIP_Bool, copyconflicthdlrs::SCIP_Bool, copypresolvers::SCIP_Bool, copyrelaxators::SCIP_Bool, copyseparators::SCIP_Bool, copypropagators::SCIP_Bool, copyheuristics::SCIP_Bool, copyeventhdlrs::SCIP_Bool, copynodeselectors::SCIP_Bool, copybranchrules::SCIP_Bool, copydisplays::SCIP_Bool, copydialogs::SCIP_Bool, copynlpis::SCIP_Bool, passmessagehdlr::SCIP_Bool, valid::SCIP_Bool_t) = @scip_ccall_check("SCIPcopyPlugins", (Ptr{SCIP}, Ptr{SCIP}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, Ptr{SCIP_Bool}), pointer(sourcescip), pointer(targetscip), copyreaders, copypricers, copyconshdlrs, copyconflicthdlrs, copypresolvers, copyrelaxators, copyseparators, copypropagators, copyheuristics, copyeventhdlrs, copynodeselectors, copybranchrules, copydisplays, copydialogs, copynlpis, passmessagehdlr, pointer(valid))
-SCIPcopyProb(sourcescip::SCIP_t, targetscip::SCIP_t, varmap::SCIP_HASHMAP_t, consmap::SCIP_HASHMAP_t, globalVar::SCIP_Bool, name::String) = @scip_ccall_check("SCIPcopyProb", (Ptr{SCIP}, Ptr{SCIP}, Ptr{SCIP_HASHMAP}, Ptr{SCIP_HASHMAP}, SCIP_Bool, String), pointer(sourcescip), pointer(targetscip), pointer(varmap), pointer(consmap), globalVar, name)
-SCIPcopyOrigProb(sourcescip::SCIP_t, targetscip::SCIP_t, varmap::SCIP_HASHMAP_t, consmap::SCIP_HASHMAP_t, name::String) = @scip_ccall_check("SCIPcopyOrigProb", (Ptr{SCIP}, Ptr{SCIP}, Ptr{SCIP_HASHMAP}, Ptr{SCIP_HASHMAP}, String), pointer(sourcescip), pointer(targetscip), pointer(varmap), pointer(consmap), name)
-SCIPgetVarCopy(sourcescip::SCIP_t, targetscip::SCIP_t, sourcevar::SCIP_VAR_t, targetvar::SCIP_VAR_t, varmap::SCIP_HASHMAP_t, consmap::SCIP_HASHMAP_t, globalVar::SCIP_Bool, success::SCIP_Bool_t) = @scip_ccall_check("SCIPgetVarCopy", (Ptr{SCIP}, Ptr{SCIP}, Ptr{SCIP_VAR}, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_HASHMAP}, Ptr{SCIP_HASHMAP}, SCIP_Bool, Ptr{SCIP_Bool}), pointer(sourcescip), pointer(targetscip), pointer(sourcevar), array(targetvar), pointer(varmap), pointer(consmap), globalVar, pointer(success))
-SCIPcopyVars(sourcescip::SCIP_t, targetscip::SCIP_t, varmap::SCIP_HASHMAP_t, consmap::SCIP_HASHMAP_t, globalVar::SCIP_Bool) = @scip_ccall_check("SCIPcopyVars", (Ptr{SCIP}, Ptr{SCIP}, Ptr{SCIP_HASHMAP}, Ptr{SCIP_HASHMAP}, SCIP_Bool), pointer(sourcescip), pointer(targetscip), pointer(varmap), pointer(consmap), globalVar)
-SCIPcopyOrigVars(sourcescip::SCIP_t, targetscip::SCIP_t, varmap::SCIP_HASHMAP_t, consmap::SCIP_HASHMAP_t) = @scip_ccall_check("SCIPcopyOrigVars", (Ptr{SCIP}, Ptr{SCIP}, Ptr{SCIP_HASHMAP}, Ptr{SCIP_HASHMAP}), pointer(sourcescip), pointer(targetscip), pointer(varmap), pointer(consmap))
-SCIPgetConsCopy(sourcescip::SCIP_t, targetscip::SCIP_t, sourcecons::SCIP_CONS_t, targetcons::SCIP_CONS_t, sourceconshdlr::SCIP_CONSHDLR_t, varmap::SCIP_HASHMAP_t, consmap::SCIP_HASHMAP_t, name::String, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool, globalVar::SCIP_Bool, success::SCIP_Bool_t) = @scip_ccall_check("SCIPgetConsCopy", (Ptr{SCIP}, Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{Ptr{SCIP_CONS}}, Ptr{SCIP_CONSHDLR}, Ptr{SCIP_HASHMAP}, Ptr{SCIP_HASHMAP}, String, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, Ptr{SCIP_Bool}), pointer(sourcescip), pointer(targetscip), pointer(sourcecons), array(targetcons), pointer(sourceconshdlr), pointer(varmap), pointer(consmap), name, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode, globalVar, pointer(success))
-SCIPcopyConss(sourcescip::SCIP_t, targetscip::SCIP_t, varmap::SCIP_HASHMAP_t, consmap::SCIP_HASHMAP_t, globalVar::SCIP_Bool, enablepricing::SCIP_Bool, valid::SCIP_Bool_t) = @scip_ccall_check("SCIPcopyConss", (Ptr{SCIP}, Ptr{SCIP}, Ptr{SCIP_HASHMAP}, Ptr{SCIP_HASHMAP}, SCIP_Bool, SCIP_Bool, Ptr{SCIP_Bool}), pointer(sourcescip), pointer(targetscip), pointer(varmap), pointer(consmap), globalVar, enablepricing, pointer(valid))
-SCIPcopyOrigConss(sourcescip::SCIP_t, targetscip::SCIP_t, varmap::SCIP_HASHMAP_t, consmap::SCIP_HASHMAP_t, enablepricing::SCIP_Bool, valid::SCIP_Bool_t) = @scip_ccall_check("SCIPcopyOrigConss", (Ptr{SCIP}, Ptr{SCIP}, Ptr{SCIP_HASHMAP}, Ptr{SCIP_HASHMAP}, SCIP_Bool, Ptr{SCIP_Bool}), pointer(sourcescip), pointer(targetscip), pointer(varmap), pointer(consmap), enablepricing, pointer(valid))
-SCIPcopyParamSettings(sourcescip::SCIP_t, targetscip::SCIP_t) = @scip_ccall_check("SCIPcopyParamSettings", (Ptr{SCIP}, Ptr{SCIP}), pointer(sourcescip), pointer(targetscip))
-SCIPcopy(sourcescip::SCIP_t, targetscip::SCIP_t, varmap::SCIP_HASHMAP_t, consmap::SCIP_HASHMAP_t, suffix::String, globalVar::SCIP_Bool, enablepricing::SCIP_Bool, passmessagehdlr::SCIP_Bool, valid::SCIP_Bool_t) = @scip_ccall_check("SCIPcopy", (Ptr{SCIP}, Ptr{SCIP}, Ptr{SCIP_HASHMAP}, Ptr{SCIP_HASHMAP}, String, SCIP_Bool, SCIP_Bool, SCIP_Bool, Ptr{SCIP_Bool}), pointer(sourcescip), pointer(targetscip), pointer(varmap), pointer(consmap), suffix, globalVar, enablepricing, passmessagehdlr, pointer(valid))
-SCIPcopyOrig(sourcescip::SCIP_t, targetscip::SCIP_t, varmap::SCIP_HASHMAP_t, consmap::SCIP_HASHMAP_t, suffix::String, enablepricing::SCIP_Bool, passmessagehdlr::SCIP_Bool, valid::SCIP_Bool_t) = @scip_ccall_check("SCIPcopyOrig", (Ptr{SCIP}, Ptr{SCIP}, Ptr{SCIP_HASHMAP}, Ptr{SCIP_HASHMAP}, String, SCIP_Bool, SCIP_Bool, Ptr{SCIP_Bool}), pointer(sourcescip), pointer(targetscip), pointer(varmap), pointer(consmap), suffix, enablepricing, passmessagehdlr, pointer(valid))
-SCIPgetBoolParam(scip::SCIP_t, name::String, value::SCIP_Bool_t) = @scip_ccall_check("SCIPgetBoolParam", (Ptr{SCIP}, String, Ptr{SCIP_Bool}), pointer(scip), name, pointer(value))
-SCIPgetLongintParam(scip::SCIP_t, name::String, value::Int64) = @scip_ccall_check("SCIPgetLongintParam", (Ptr{SCIP}, String, Ptr{Int64}), pointer(scip), name, pointer(value))
-SCIPgetRealParam(scip::SCIP_t, name::String, value::SCIP_Real_t) = @scip_ccall_check("SCIPgetRealParam", (Ptr{SCIP}, String, Ptr{SCIP_Real}), pointer(scip), name, pointer(value))
-SCIPfixParam(scip::SCIP_t, name::String) = @scip_ccall_check("SCIPfixParam", (Ptr{SCIP}, String), pointer(scip), name)
-SCIPunfixParam(scip::SCIP_t, name::String) = @scip_ccall_check("SCIPunfixParam", (Ptr{SCIP}, String), pointer(scip), name)
-SCIPchgBoolParam(scip::SCIP_t, param::SCIP_PARAM_t, value::SCIP_Bool) = @scip_ccall_check("SCIPchgBoolParam", (Ptr{SCIP}, Ptr{SCIP_PARAM}, SCIP_Bool), pointer(scip), pointer(param), value)
-SCIPsetBoolParam(scip::SCIP_t, name::String, value::SCIP_Bool) = @scip_ccall_check("SCIPsetBoolParam", (Ptr{SCIP}, String, SCIP_Bool), pointer(scip), name, value)
-SCIPchgIntParam(scip::SCIP_t, param::SCIP_PARAM_t, value::Int) = @scip_ccall_check("SCIPchgIntParam", (Ptr{SCIP}, Ptr{SCIP_PARAM}, Int), pointer(scip), pointer(param), value)
-SCIPsetIntParam(scip::SCIP_t, name::String, value::Int) = @scip_ccall_check("SCIPsetIntParam", (Ptr{SCIP}, String, Int), pointer(scip), name, value)
-SCIPchgLongintParam(scip::SCIP_t, param::SCIP_PARAM_t, value::Int64) = @scip_ccall_check("SCIPchgLongintParam", (Ptr{SCIP}, Ptr{SCIP_PARAM}, Int64), pointer(scip), pointer(param), value)
-SCIPsetLongintParam(scip::SCIP_t, name::String, value::Int64) = @scip_ccall_check("SCIPsetLongintParam", (Ptr{SCIP}, String, Int64), pointer(scip), name, value)
-SCIPchgRealParam(scip::SCIP_t, param::SCIP_PARAM_t, value::SCIP_Real) = @scip_ccall_check("SCIPchgRealParam", (Ptr{SCIP}, Ptr{SCIP_PARAM}, SCIP_Real), pointer(scip), pointer(param), value)
-SCIPsetRealParam(scip::SCIP_t, name::String, value::SCIP_Real) = @scip_ccall_check("SCIPsetRealParam", (Ptr{SCIP}, String, SCIP_Real), pointer(scip), name, value)
-SCIPchgCharParam(scip::SCIP_t, param::SCIP_PARAM_t, value::Char) = @scip_ccall_check("SCIPchgCharParam", (Ptr{SCIP}, Ptr{SCIP_PARAM}, Char), pointer(scip), pointer(param), value)
-SCIPsetCharParam(scip::SCIP_t, name::String, value::Char) = @scip_ccall_check("SCIPsetCharParam", (Ptr{SCIP}, String, Char), pointer(scip), name, value)
-SCIPchgStringParam(scip::SCIP_t, param::SCIP_PARAM_t, value::String) = @scip_ccall_check("SCIPchgStringParam", (Ptr{SCIP}, Ptr{SCIP_PARAM}, String), pointer(scip), pointer(param), value)
-SCIPsetStringParam(scip::SCIP_t, name::String, value::String) = @scip_ccall_check("SCIPsetStringParam", (Ptr{SCIP}, String, String), pointer(scip), name, value)
-SCIPreadParams(scip::SCIP_t, filename::String) = @scip_ccall_check("SCIPreadParams", (Ptr{SCIP}, String), pointer(scip), filename)
-SCIPwriteParams(scip::SCIP_t, filename::String, comments::SCIP_Bool, onlychanged::SCIP_Bool) = @scip_ccall_check("SCIPwriteParams", (Ptr{SCIP}, String, SCIP_Bool, SCIP_Bool), pointer(scip), filename, comments, onlychanged)
-SCIPresetParam(scip::SCIP_t, name::String) = @scip_ccall_check("SCIPresetParam", (Ptr{SCIP}, String), pointer(scip), name)
-SCIPresetParams(scip::SCIP_t) = @scip_ccall_check("SCIPresetParams", (Ptr{SCIP},), pointer(scip))
-SCIPsetEmphasis(scip::SCIP_t, paramemphasis::SCIP_PARAMEMPHASIS, quiet::SCIP_Bool) = @scip_ccall_check("SCIPsetEmphasis", (Ptr{SCIP}, SCIP_PARAMEMPHASIS, SCIP_Bool), pointer(scip), paramemphasis, quiet)
-SCIPsetSubscipsOff(scip::SCIP_t, quiet::SCIP_Bool) = @scip_ccall_check("SCIPsetSubscipsOff", (Ptr{SCIP}, SCIP_Bool), pointer(scip), quiet)
-SCIPsetHeuristics(scip::SCIP_t, paramsetting::SCIP_PARAMSETTING, quiet::SCIP_Bool) = @scip_ccall_check("SCIPsetHeuristics", (Ptr{SCIP}, SCIP_PARAMSETTING, SCIP_Bool), pointer(scip), paramsetting, quiet)
-SCIPsetPresolving(scip::SCIP_t, paramsetting::SCIP_PARAMSETTING, quiet::SCIP_Bool) = @scip_ccall_check("SCIPsetPresolving", (Ptr{SCIP}, SCIP_PARAMSETTING, SCIP_Bool), pointer(scip), paramsetting, quiet)
-SCIPsetSeparating(scip::SCIP_t, paramsetting::SCIP_PARAMSETTING, quiet::SCIP_Bool) = @scip_ccall_check("SCIPsetSeparating", (Ptr{SCIP}, SCIP_PARAMSETTING, SCIP_Bool), pointer(scip), paramsetting, quiet)
-SCIPincludeReaderBasic(scip::SCIP_t, readerptr::SCIP_READER_t, name::String, desc::String, extension::String, readerdata::SCIP_READERDATA_t) = @scip_ccall_check("SCIPincludeReaderBasic", (Ptr{SCIP}, Ptr{Ptr{SCIP_READER}}, String, String, String, Ptr{SCIP_READERDATA}), pointer(scip), array(readerptr), name, desc, extension, pointer(readerdata))
-SCIPsetPricerPriority(scip::SCIP_t, pricer::SCIP_PRICER_t, priority::Int) = @scip_ccall_check("SCIPsetPricerPriority", (Ptr{SCIP}, Ptr{SCIP_PRICER}, Int), pointer(scip), pointer(pricer), priority)
-SCIPactivatePricer(scip::SCIP_t, pricer::SCIP_PRICER_t) = @scip_ccall_check("SCIPactivatePricer", (Ptr{SCIP}, Ptr{SCIP_PRICER}), pointer(scip), pointer(pricer))
-SCIPdeactivatePricer(scip::SCIP_t, pricer::SCIP_PRICER_t) = @scip_ccall_check("SCIPdeactivatePricer", (Ptr{SCIP}, Ptr{SCIP_PRICER}), pointer(scip), pointer(pricer))
-SCIPsetConflicthdlrPriority(scip::SCIP_t, conflicthdlr::SCIP_CONFLICTHDLR_t, priority::Int) = @scip_ccall_check("SCIPsetConflicthdlrPriority", (Ptr{SCIP}, Ptr{SCIP_CONFLICTHDLR}, Int), pointer(scip), pointer(conflicthdlr), priority)
-SCIPsetPresolPriority(scip::SCIP_t, presol::SCIP_PRESOL_t, priority::Int) = @scip_ccall_check("SCIPsetPresolPriority", (Ptr{SCIP}, Ptr{SCIP_PRESOL}, Int), pointer(scip), pointer(presol), priority)
-SCIPsetRelaxPriority(scip::SCIP_t, relax::SCIP_RELAX_t, priority::Int) = @scip_ccall_check("SCIPsetRelaxPriority", (Ptr{SCIP}, Ptr{SCIP_RELAX}, Int), pointer(scip), pointer(relax), priority)
-SCIPsetSepaPriority(scip::SCIP_t, sepa::SCIP_SEPA_t, priority::Int) = @scip_ccall_check("SCIPsetSepaPriority", (Ptr{SCIP}, Ptr{SCIP_SEPA}, Int), pointer(scip), pointer(sepa), priority)
-SCIPsetPropPriority(scip::SCIP_t, prop::SCIP_PROP_t, priority::Int) = @scip_ccall_check("SCIPsetPropPriority", (Ptr{SCIP}, Ptr{SCIP_PROP}, Int), pointer(scip), pointer(prop), priority)
-SCIPsetPropPresolPriority(scip::SCIP_t, prop::SCIP_PROP_t, presolpriority::Int) = @scip_ccall_check("SCIPsetPropPresolPriority", (Ptr{SCIP}, Ptr{SCIP_PROP}, Int), pointer(scip), pointer(prop), presolpriority)
-SCIPsetHeurPriority(scip::SCIP_t, heur::SCIP_HEUR_t, priority::Int) = @scip_ccall_check("SCIPsetHeurPriority", (Ptr{SCIP}, Ptr{SCIP_HEUR}, Int), pointer(scip), pointer(heur), priority)
-SCIPsetNodeselStdPriority(scip::SCIP_t, nodesel::SCIP_NODESEL_t, priority::Int) = @scip_ccall_check("SCIPsetNodeselStdPriority", (Ptr{SCIP}, Ptr{SCIP_NODESEL}, Int), pointer(scip), pointer(nodesel), priority)
-SCIPsetNodeselMemsavePriority(scip::SCIP_t, nodesel::SCIP_NODESEL_t, priority::Int) = @scip_ccall_check("SCIPsetNodeselMemsavePriority", (Ptr{SCIP}, Ptr{SCIP_NODESEL}, Int), pointer(scip), pointer(nodesel), priority)
-SCIPincludeBranchruleBasic(scip::SCIP_t, branchruleptr::SCIP_BRANCHRULE_t, name::String, desc::String, priority::Int, maxdepth::Int, maxbounddist::SCIP_Real, branchruledata::SCIP_BRANCHRULEDATA_t) = @scip_ccall_check("SCIPincludeBranchruleBasic", (Ptr{SCIP}, Ptr{Ptr{SCIP_BRANCHRULE}}, String, String, Int, Int, SCIP_Real, Ptr{SCIP_BRANCHRULEDATA}), pointer(scip), array(branchruleptr), name, desc, priority, maxdepth, maxbounddist, pointer(branchruledata))
-SCIPsetBranchrulePriority(scip::SCIP_t, branchrule::SCIP_BRANCHRULE_t, priority::Int) = @scip_ccall_check("SCIPsetBranchrulePriority", (Ptr{SCIP}, Ptr{SCIP_BRANCHRULE}, Int), pointer(scip), pointer(branchrule), priority)
-SCIPsetBranchruleMaxdepth(scip::SCIP_t, branchrule::SCIP_BRANCHRULE_t, maxdepth::Int) = @scip_ccall_check("SCIPsetBranchruleMaxdepth", (Ptr{SCIP}, Ptr{SCIP_BRANCHRULE}, Int), pointer(scip), pointer(branchrule), maxdepth)
-SCIPsetBranchruleMaxbounddist(scip::SCIP_t, branchrule::SCIP_BRANCHRULE_t, maxbounddist::SCIP_Real) = @scip_ccall_check("SCIPsetBranchruleMaxbounddist", (Ptr{SCIP}, Ptr{SCIP_BRANCHRULE}, SCIP_Real), pointer(scip), pointer(branchrule), maxbounddist)
-SCIPautoselectDisps(scip::SCIP_t) = @scip_ccall_check("SCIPautoselectDisps", (Ptr{SCIP},), pointer(scip))
-SCIPincludeNlpi(scip::SCIP_t, nlpi::SCIP_NLPI_t) = @scip_ccall_check("SCIPincludeNlpi", (Ptr{SCIP}, Ptr{SCIP_NLPI}), pointer(scip), pointer(nlpi))
-SCIPsetNlpiPriority(scip::SCIP_t, nlpi::SCIP_NLPI_t, priority::Int) = @scip_ccall_check("SCIPsetNlpiPriority", (Ptr{SCIP}, Ptr{SCIP_NLPI}, Int), pointer(scip), pointer(nlpi), priority)
-SCIPincludeExternalCodeInformation(scip::SCIP_t, name::String, description::String) = @scip_ccall_check("SCIPincludeExternalCodeInformation", (Ptr{SCIP}, String, String), pointer(scip), name, description)
-SCIPcaptureDialog(scip::SCIP_t, dialog::SCIP_DIALOG_t) = @scip_ccall_check("SCIPcaptureDialog", (Ptr{SCIP}, Ptr{SCIP_DIALOG}), pointer(scip), pointer(dialog))
-SCIPreleaseDialog(scip::SCIP_t, dialog::SCIP_DIALOG_t) = @scip_ccall_check("SCIPreleaseDialog", (Ptr{SCIP}, Ptr{Ptr{SCIP_DIALOG}}), pointer(scip), array(dialog))
-SCIPsetRootDialog(scip::SCIP_t, dialog::SCIP_DIALOG_t) = @scip_ccall_check("SCIPsetRootDialog", (Ptr{SCIP}, Ptr{SCIP_DIALOG}), pointer(scip), pointer(dialog))
-SCIPaddDialogEntry(scip::SCIP_t, dialog::SCIP_DIALOG_t, subdialog::SCIP_DIALOG_t) = @scip_ccall_check("SCIPaddDialogEntry", (Ptr{SCIP}, Ptr{SCIP_DIALOG}, Ptr{SCIP_DIALOG}), pointer(scip), pointer(dialog), pointer(subdialog))
-SCIPaddDialogInputLine(scip::SCIP_t, inputline::String) = @scip_ccall_check("SCIPaddDialogInputLine", (Ptr{SCIP}, String), pointer(scip), inputline)
-SCIPaddDialogHistoryLine(scip::SCIP_t, inputline::String) = @scip_ccall_check("SCIPaddDialogHistoryLine", (Ptr{SCIP}, String), pointer(scip), inputline)
-SCIPstartInteraction(scip::SCIP_t) = @scip_ccall_check("SCIPstartInteraction", (Ptr{SCIP},), pointer(scip))
-SCIPcreateProbBasic(scip::SCIP_t, name::String) = @scip_ccall_check("SCIPcreateProbBasic", (Ptr{SCIP}, String), pointer(scip), name)
-SCIPreadProb(scip::SCIP_t, filename::String, extension::String) = @scip_ccall_check("SCIPreadProb", (Ptr{SCIP}, String, String), pointer(scip), filename, extension)
-SCIPwriteOrigProblem(scip::SCIP_t, filename::String, extension::String, genericnames::SCIP_Bool) = @scip_ccall_check("SCIPwriteOrigProblem", (Ptr{SCIP}, String, String, SCIP_Bool), pointer(scip), filename, extension, genericnames)
-SCIPwriteTransProblem(scip::SCIP_t, filename::String, extension::String, genericnames::SCIP_Bool) = @scip_ccall_check("SCIPwriteTransProblem", (Ptr{SCIP}, String, String, SCIP_Bool), pointer(scip), filename, extension, genericnames)
-SCIPfreeProb(scip::SCIP_t) = @scip_ccall_check("SCIPfreeProb", (Ptr{SCIP},), pointer(scip))
-SCIPpermuteProb(scip::SCIP_t, randseed::Uint, permuteconss::SCIP_Bool, permutebinvars::SCIP_Bool, permuteintvars::SCIP_Bool, permuteimplvars::SCIP_Bool, permutecontvars::SCIP_Bool) = @scip_ccall_check("SCIPpermuteProb", (Ptr{SCIP}, Uint, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), pointer(scip), randseed, permuteconss, permutebinvars, permuteintvars, permuteimplvars, permutecontvars)
-SCIPsetProbData(scip::SCIP_t, probdata::SCIP_PROBDATA_t) = @scip_ccall_check("SCIPsetProbData", (Ptr{SCIP}, Ptr{SCIP_PROBDATA}), pointer(scip), pointer(probdata))
-SCIPsetProbName(scip::SCIP_t, name::String) = @scip_ccall_check("SCIPsetProbName", (Ptr{SCIP}, String), pointer(scip), name)
-SCIPsetObjsense(scip::SCIP_t, objsense::SCIP_OBJSENSE) = @scip_ccall_check("SCIPsetObjsense", (Ptr{SCIP}, SCIP_OBJSENSE), pointer(scip), objsense)
-SCIPaddObjoffset(scip::SCIP_t, addval::SCIP_Real) = @scip_ccall_check("SCIPaddObjoffset", (Ptr{SCIP}, SCIP_Real), pointer(scip), addval)
-SCIPaddOrigObjoffset(scip::SCIP_t, addval::SCIP_Real) = @scip_ccall_check("SCIPaddOrigObjoffset", (Ptr{SCIP}, SCIP_Real), pointer(scip), addval)
-SCIPsetObjlimit(scip::SCIP_t, objlimit::SCIP_Real) = @scip_ccall_check("SCIPsetObjlimit", (Ptr{SCIP}, SCIP_Real), pointer(scip), objlimit)
-SCIPsetObjIntegral(scip::SCIP_t) = @scip_ccall_check("SCIPsetObjIntegral", (Ptr{SCIP},), pointer(scip))
-SCIPaddVar(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall_check("SCIPaddVar", (Ptr{SCIP}, Ptr{SCIP_VAR}), pointer(scip), pointer(var))
-SCIPaddPricedVar(scip::SCIP_t, var::SCIP_VAR_t, score::SCIP_Real) = @scip_ccall_check("SCIPaddPricedVar", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(var), score)
-SCIPdelVar(scip::SCIP_t, var::SCIP_VAR_t, deleted::SCIP_Bool_t) = @scip_ccall_check("SCIPdelVar", (Ptr{SCIP}, Ptr{SCIP_VAR}, Ptr{SCIP_Bool}), pointer(scip), pointer(var), pointer(deleted))
-SCIPaddCons(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPaddCons", (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPdelCons(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPdelCons", (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPaddConsNode(scip::SCIP_t, node::SCIP_NODE_t, cons::SCIP_CONS_t, validnode::SCIP_NODE_t) = @scip_ccall_check("SCIPaddConsNode", (Ptr{SCIP}, Ptr{SCIP_NODE}, Ptr{SCIP_CONS}, Ptr{SCIP_NODE}), pointer(scip), pointer(node), pointer(cons), pointer(validnode))
-SCIPaddConsLocal(scip::SCIP_t, cons::SCIP_CONS_t, validnode::SCIP_NODE_t) = @scip_ccall_check("SCIPaddConsLocal", (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_NODE}), pointer(scip), pointer(cons), pointer(validnode))
-SCIPdelConsNode(scip::SCIP_t, node::SCIP_NODE_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPdelConsNode", (Ptr{SCIP}, Ptr{SCIP_NODE}, Ptr{SCIP_CONS}), pointer(scip), pointer(node), pointer(cons))
-SCIPdelConsLocal(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPdelConsLocal", (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPupdateLocalDualbound(scip::SCIP_t, newbound::SCIP_Real) = @scip_ccall_check("SCIPupdateLocalDualbound", (Ptr{SCIP}, SCIP_Real), pointer(scip), newbound)
-SCIPupdateLocalLowerbound(scip::SCIP_t, newbound::SCIP_Real) = @scip_ccall_check("SCIPupdateLocalLowerbound", (Ptr{SCIP}, SCIP_Real), pointer(scip), newbound)
-SCIPupdateNodeDualbound(scip::SCIP_t, node::SCIP_NODE_t, newbound::SCIP_Real) = @scip_ccall_check("SCIPupdateNodeDualbound", (Ptr{SCIP}, Ptr{SCIP_NODE}, SCIP_Real), pointer(scip), pointer(node), newbound)
-SCIPupdateNodeLowerbound(scip::SCIP_t, node::SCIP_NODE_t, newbound::SCIP_Real) = @scip_ccall_check("SCIPupdateNodeLowerbound", (Ptr{SCIP}, Ptr{SCIP_NODE}, SCIP_Real), pointer(scip), pointer(node), newbound)
-SCIPchgChildPrio(scip::SCIP_t, child::SCIP_NODE_t, priority::SCIP_Real) = @scip_ccall_check("SCIPchgChildPrio", (Ptr{SCIP}, Ptr{SCIP_NODE}, SCIP_Real), pointer(scip), pointer(child), priority)
-SCIPtransformProb(scip::SCIP_t) = @scip_ccall_check("SCIPtransformProb", (Ptr{SCIP},), pointer(scip))
-SCIPpresolve(scip::SCIP_t) = @scip_ccall_check("SCIPpresolve", (Ptr{SCIP},), pointer(scip))
-SCIPsolve(scip::SCIP_t) = @scip_ccall_check("SCIPsolve", (Ptr{SCIP},), pointer(scip))
-SCIPfreeSolve(scip::SCIP_t, restart::SCIP_Bool) = @scip_ccall_check("SCIPfreeSolve", (Ptr{SCIP}, SCIP_Bool), pointer(scip), restart)
-SCIPfreeTransform(scip::SCIP_t) = @scip_ccall_check("SCIPfreeTransform", (Ptr{SCIP},), pointer(scip))
-SCIPinterruptSolve(scip::SCIP_t) = @scip_ccall_check("SCIPinterruptSolve", (Ptr{SCIP},), pointer(scip))
-SCIPrestartSolve(scip::SCIP_t) = @scip_ccall_check("SCIPrestartSolve", (Ptr{SCIP},), pointer(scip))
-SCIPcreateVarBasic(scip::SCIP_t, var::SCIP_VAR_t, name::String, lb::SCIP_Real, ub::SCIP_Real, obj::SCIP_Real, vartype::SCIP_VARTYPE) = @scip_ccall_check("SCIPcreateVarBasic", (Ptr{SCIP}, Ptr{Ptr{SCIP_VAR}}, String, SCIP_Real, SCIP_Real, SCIP_Real, SCIP_VARTYPE), pointer(scip), array(var), name, lb, ub, obj, vartype)
-SCIPcaptureVar(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall_check("SCIPcaptureVar", (Ptr{SCIP}, Ptr{SCIP_VAR}), pointer(scip), pointer(var))
-SCIPreleaseVar(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall_check("SCIPreleaseVar", (Ptr{SCIP}, Ptr{Ptr{SCIP_VAR}}), pointer(scip), array(var))
-SCIPchgVarName(scip::SCIP_t, var::SCIP_VAR_t, name::String) = @scip_ccall_check("SCIPchgVarName", (Ptr{SCIP}, Ptr{SCIP_VAR}, String), pointer(scip), pointer(var), name)
-SCIPtransformVar(scip::SCIP_t, var::SCIP_VAR_t, transvar::SCIP_VAR_t) = @scip_ccall_check("SCIPtransformVar", (Ptr{SCIP}, Ptr{SCIP_VAR}, Ptr{Ptr{SCIP_VAR}}), pointer(scip), pointer(var), array(transvar))
-SCIPtransformVars(scip::SCIP_t, nvars::Int, vars::SCIP_VAR_t, transvars::SCIP_VAR_t) = @scip_ccall_check("SCIPtransformVars", (Ptr{SCIP}, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{Ptr{SCIP_VAR}}), pointer(scip), nvars, array(vars), array(transvars))
-SCIPgetTransformedVar(scip::SCIP_t, var::SCIP_VAR_t, transvar::SCIP_VAR_t) = @scip_ccall_check("SCIPgetTransformedVar", (Ptr{SCIP}, Ptr{SCIP_VAR}, Ptr{Ptr{SCIP_VAR}}), pointer(scip), pointer(var), array(transvar))
-SCIPgetTransformedVars(scip::SCIP_t, nvars::Int, vars::SCIP_VAR_t, transvars::SCIP_VAR_t) = @scip_ccall_check("SCIPgetTransformedVars", (Ptr{SCIP}, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{Ptr{SCIP_VAR}}), pointer(scip), nvars, array(vars), array(transvars))
-SCIPgetNegatedVar(scip::SCIP_t, var::SCIP_VAR_t, negvar::SCIP_VAR_t) = @scip_ccall_check("SCIPgetNegatedVar", (Ptr{SCIP}, Ptr{SCIP_VAR}, Ptr{Ptr{SCIP_VAR}}), pointer(scip), pointer(var), array(negvar))
-SCIPgetNegatedVars(scip::SCIP_t, nvars::Int, vars::SCIP_VAR_t, negvars::SCIP_VAR_t) = @scip_ccall_check("SCIPgetNegatedVars", (Ptr{SCIP}, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{Ptr{SCIP_VAR}}), pointer(scip), nvars, array(vars), array(negvars))
-SCIPgetBinvarRepresentative(scip::SCIP_t, var::SCIP_VAR_t, repvar::SCIP_VAR_t, negated::SCIP_Bool_t) = @scip_ccall_check("SCIPgetBinvarRepresentative", (Ptr{SCIP}, Ptr{SCIP_VAR}, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Bool}), pointer(scip), pointer(var), array(repvar), pointer(negated))
-SCIPgetBinvarRepresentatives(scip::SCIP_t, nvars::Int, vars::SCIP_VAR_t, repvars::SCIP_VAR_t, negated::SCIP_Bool_t) = @scip_ccall_check("SCIPgetBinvarRepresentatives", (Ptr{SCIP}, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Bool}), pointer(scip), nvars, array(vars), array(repvars), pointer(negated))
-SCIPflattenVarAggregationGraph(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall_check("SCIPflattenVarAggregationGraph", (Ptr{SCIP}, Ptr{SCIP_VAR}), pointer(scip), pointer(var))
-SCIPgetProbvarSum(scip::SCIP_t, var::SCIP_VAR_t, scalar::SCIP_Real_t, constant::SCIP_Real_t) = @scip_ccall_check("SCIPgetProbvarSum", (Ptr{SCIP}, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, Ptr{SCIP_Real}), pointer(scip), array(var), pointer(scalar), pointer(constant))
-SCIPgetVarSols(scip::SCIP_t, nvars::Int, vars::SCIP_VAR_t, vals::SCIP_Real_t) = @scip_ccall_check("SCIPgetVarSols", (Ptr{SCIP}, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}), pointer(scip), nvars, array(vars), pointer(vals))
-SCIPclearRelaxSolVals(scip::SCIP_t) = @scip_ccall_check("SCIPclearRelaxSolVals", (Ptr{SCIP},), pointer(scip))
-SCIPsetRelaxSolVal(scip::SCIP_t, var::SCIP_VAR_t, val::SCIP_Real) = @scip_ccall_check("SCIPsetRelaxSolVal", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(var), val)
-SCIPsetRelaxSolVals(scip::SCIP_t, nvars::Int, vars::SCIP_VAR_t, vals::SCIP_Real_t) = @scip_ccall_check("SCIPsetRelaxSolVals", (Ptr{SCIP}, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}), pointer(scip), nvars, array(vars), pointer(vals))
-SCIPsetRelaxSolValsSol(scip::SCIP_t, sol::SCIP_SOL_t) = @scip_ccall_check("SCIPsetRelaxSolValsSol", (Ptr{SCIP}, Ptr{SCIP_SOL}), pointer(scip), pointer(sol))
-SCIPmarkRelaxSolValid(scip::SCIP_t) = @scip_ccall_check("SCIPmarkRelaxSolValid", (Ptr{SCIP},), pointer(scip))
-SCIPmarkRelaxSolInvalid(scip::SCIP_t) = @scip_ccall_check("SCIPmarkRelaxSolInvalid", (Ptr{SCIP},), pointer(scip))
-SCIPstartStrongbranch(scip::SCIP_t, enablepropagation::SCIP_Bool) = @scip_ccall_check("SCIPstartStrongbranch", (Ptr{SCIP}, SCIP_Bool), pointer(scip), enablepropagation)
-SCIPendStrongbranch(scip::SCIP_t) = @scip_ccall_check("SCIPendStrongbranch", (Ptr{SCIP},), pointer(scip))
-SCIPgetVarStrongbranchFrac(scip::SCIP_t, var::SCIP_VAR_t, itlim::Int, down::SCIP_Real_t, up::SCIP_Real_t, downvalid::SCIP_Bool_t, upvalid::SCIP_Bool_t, downinf::SCIP_Bool_t, upinf::SCIP_Bool_t, downconflict::SCIP_Bool_t, upconflict::SCIP_Bool_t, lperror::SCIP_Bool_t) = @scip_ccall_check("SCIPgetVarStrongbranchFrac", (Ptr{SCIP}, Ptr{SCIP_VAR}, Int, Ptr{SCIP_Real}, Ptr{SCIP_Real}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), pointer(scip), pointer(var), itlim, pointer(down), pointer(up), pointer(downvalid), pointer(upvalid), pointer(downinf), pointer(upinf), pointer(downconflict), pointer(upconflict), pointer(lperror))
-SCIPgetVarStrongbranchWithPropagation(scip::SCIP_t, var::SCIP_VAR_t, solval::SCIP_Real, lpobjval::SCIP_Real, itlim::Int, maxproprounds::Int, down::SCIP_Real_t, up::SCIP_Real_t, downvalid::SCIP_Bool_t, upvalid::SCIP_Bool_t, downinf::SCIP_Bool_t, upinf::SCIP_Bool_t, downconflict::SCIP_Bool_t, upconflict::SCIP_Bool_t, lperror::SCIP_Bool_t, newlbs::SCIP_Real_t, newubs::SCIP_Real_t) = @scip_ccall_check("SCIPgetVarStrongbranchWithPropagation", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Real, Int, Int, Ptr{SCIP_Real}, Ptr{SCIP_Real}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Real}, Ptr{SCIP_Real}), pointer(scip), pointer(var), solval, lpobjval, itlim, maxproprounds, pointer(down), pointer(up), pointer(downvalid), pointer(upvalid), pointer(downinf), pointer(upinf), pointer(downconflict), pointer(upconflict), pointer(lperror), pointer(newlbs), pointer(newubs))
-SCIPgetVarStrongbranchInt(scip::SCIP_t, var::SCIP_VAR_t, itlim::Int, down::SCIP_Real_t, up::SCIP_Real_t, downvalid::SCIP_Bool_t, upvalid::SCIP_Bool_t, downinf::SCIP_Bool_t, upinf::SCIP_Bool_t, downconflict::SCIP_Bool_t, upconflict::SCIP_Bool_t, lperror::SCIP_Bool_t) = @scip_ccall_check("SCIPgetVarStrongbranchInt", (Ptr{SCIP}, Ptr{SCIP_VAR}, Int, Ptr{SCIP_Real}, Ptr{SCIP_Real}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), pointer(scip), pointer(var), itlim, pointer(down), pointer(up), pointer(downvalid), pointer(upvalid), pointer(downinf), pointer(upinf), pointer(downconflict), pointer(upconflict), pointer(lperror))
-SCIPgetVarsStrongbranchesFrac(scip::SCIP_t, vars::SCIP_VAR_t, nvars::Int, itlim::Int, down::SCIP_Real_t, up::SCIP_Real_t, downvalid::SCIP_Bool_t, upvalid::SCIP_Bool_t, downinf::SCIP_Bool_t, upinf::SCIP_Bool_t, downconflict::SCIP_Bool_t, upconflict::SCIP_Bool_t, lperror::SCIP_Bool_t) = @scip_ccall_check("SCIPgetVarsStrongbranchesFrac", (Ptr{SCIP}, Ptr{Ptr{SCIP_VAR}}, Int, Int, Ptr{SCIP_Real}, Ptr{SCIP_Real}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), pointer(scip), array(vars), nvars, itlim, pointer(down), pointer(up), pointer(downvalid), pointer(upvalid), pointer(downinf), pointer(upinf), pointer(downconflict), pointer(upconflict), pointer(lperror))
-SCIPgetVarsStrongbranchesInt(scip::SCIP_t, vars::SCIP_VAR_t, nvars::Int, itlim::Int, down::SCIP_Real_t, up::SCIP_Real_t, downvalid::SCIP_Bool_t, upvalid::SCIP_Bool_t, downinf::SCIP_Bool_t, upinf::SCIP_Bool_t, downconflict::SCIP_Bool_t, upconflict::SCIP_Bool_t, lperror::SCIP_Bool_t) = @scip_ccall_check("SCIPgetVarsStrongbranchesInt", (Ptr{SCIP}, Ptr{Ptr{SCIP_VAR}}, Int, Int, Ptr{SCIP_Real}, Ptr{SCIP_Real}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), pointer(scip), array(vars), nvars, itlim, pointer(down), pointer(up), pointer(downvalid), pointer(upvalid), pointer(downinf), pointer(upinf), pointer(downconflict), pointer(upconflict), pointer(lperror))
-SCIPgetVarStrongbranchLast(scip::SCIP_t, var::SCIP_VAR_t, down::SCIP_Real_t, up::SCIP_Real_t, downvalid::SCIP_Bool_t, upvalid::SCIP_Bool_t, solval::SCIP_Real_t, lpobjval::SCIP_Real_t) = @scip_ccall_check("SCIPgetVarStrongbranchLast", (Ptr{SCIP}, Ptr{SCIP_VAR}, Ptr{SCIP_Real}, Ptr{SCIP_Real}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Real}, Ptr{SCIP_Real}), pointer(scip), pointer(var), pointer(down), pointer(up), pointer(downvalid), pointer(upvalid), pointer(solval), pointer(lpobjval))
-SCIPaddVarLocks(scip::SCIP_t, var::SCIP_VAR_t, nlocksdown::Int, nlocksup::Int) = @scip_ccall_check("SCIPaddVarLocks", (Ptr{SCIP}, Ptr{SCIP_VAR}, Int, Int), pointer(scip), pointer(var), nlocksdown, nlocksup)
-SCIPlockVarCons(scip::SCIP_t, var::SCIP_VAR_t, cons::SCIP_CONS_t, lockdown::SCIP_Bool, lockup::SCIP_Bool) = @scip_ccall_check("SCIPlockVarCons", (Ptr{SCIP}, Ptr{SCIP_VAR}, Ptr{SCIP_CONS}, SCIP_Bool, SCIP_Bool), pointer(scip), pointer(var), pointer(cons), lockdown, lockup)
-SCIPunlockVarCons(scip::SCIP_t, var::SCIP_VAR_t, cons::SCIP_CONS_t, lockdown::SCIP_Bool, lockup::SCIP_Bool) = @scip_ccall_check("SCIPunlockVarCons", (Ptr{SCIP}, Ptr{SCIP_VAR}, Ptr{SCIP_CONS}, SCIP_Bool, SCIP_Bool), pointer(scip), pointer(var), pointer(cons), lockdown, lockup)
-SCIPchgVarObj(scip::SCIP_t, var::SCIP_VAR_t, newobj::SCIP_Real) = @scip_ccall_check("SCIPchgVarObj", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(var), newobj)
-SCIPaddVarObj(scip::SCIP_t, var::SCIP_VAR_t, addobj::SCIP_Real) = @scip_ccall_check("SCIPaddVarObj", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(var), addobj)
-SCIPchgVarLb(scip::SCIP_t, var::SCIP_VAR_t, newbound::SCIP_Real) = @scip_ccall_check("SCIPchgVarLb", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(var), newbound)
-SCIPchgVarUb(scip::SCIP_t, var::SCIP_VAR_t, newbound::SCIP_Real) = @scip_ccall_check("SCIPchgVarUb", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(var), newbound)
-SCIPchgVarLbNode(scip::SCIP_t, node::SCIP_NODE_t, var::SCIP_VAR_t, newbound::SCIP_Real) = @scip_ccall_check("SCIPchgVarLbNode", (Ptr{SCIP}, Ptr{SCIP_NODE}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(node), pointer(var), newbound)
-SCIPchgVarUbNode(scip::SCIP_t, node::SCIP_NODE_t, var::SCIP_VAR_t, newbound::SCIP_Real) = @scip_ccall_check("SCIPchgVarUbNode", (Ptr{SCIP}, Ptr{SCIP_NODE}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(node), pointer(var), newbound)
-SCIPchgVarLbGlobal(scip::SCIP_t, var::SCIP_VAR_t, newbound::SCIP_Real) = @scip_ccall_check("SCIPchgVarLbGlobal", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(var), newbound)
-SCIPchgVarUbGlobal(scip::SCIP_t, var::SCIP_VAR_t, newbound::SCIP_Real) = @scip_ccall_check("SCIPchgVarUbGlobal", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(var), newbound)
-SCIPchgVarLbLazy(scip::SCIP_t, var::SCIP_VAR_t, lazylb::SCIP_Real) = @scip_ccall_check("SCIPchgVarLbLazy", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(var), lazylb)
-SCIPchgVarUbLazy(scip::SCIP_t, var::SCIP_VAR_t, lazyub::SCIP_Real) = @scip_ccall_check("SCIPchgVarUbLazy", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(var), lazyub)
-SCIPtightenVarLb(scip::SCIP_t, var::SCIP_VAR_t, newbound::SCIP_Real, force::SCIP_Bool, infeasible::SCIP_Bool_t, tightened::SCIP_Bool_t) = @scip_ccall_check("SCIPtightenVarLb", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Bool, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), pointer(scip), pointer(var), newbound, force, pointer(infeasible), pointer(tightened))
-SCIPtightenVarUb(scip::SCIP_t, var::SCIP_VAR_t, newbound::SCIP_Real, force::SCIP_Bool, infeasible::SCIP_Bool_t, tightened::SCIP_Bool_t) = @scip_ccall_check("SCIPtightenVarUb", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Bool, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), pointer(scip), pointer(var), newbound, force, pointer(infeasible), pointer(tightened))
-SCIPinferVarLbCons(scip::SCIP_t, var::SCIP_VAR_t, newbound::SCIP_Real, infercons::SCIP_CONS_t, inferinfo::Int, force::SCIP_Bool, infeasible::SCIP_Bool_t, tightened::SCIP_Bool_t) = @scip_ccall_check("SCIPinferVarLbCons", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real, Ptr{SCIP_CONS}, Int, SCIP_Bool, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), pointer(scip), pointer(var), newbound, pointer(infercons), inferinfo, force, pointer(infeasible), pointer(tightened))
-SCIPinferVarUbCons(scip::SCIP_t, var::SCIP_VAR_t, newbound::SCIP_Real, infercons::SCIP_CONS_t, inferinfo::Int, force::SCIP_Bool, infeasible::SCIP_Bool_t, tightened::SCIP_Bool_t) = @scip_ccall_check("SCIPinferVarUbCons", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real, Ptr{SCIP_CONS}, Int, SCIP_Bool, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), pointer(scip), pointer(var), newbound, pointer(infercons), inferinfo, force, pointer(infeasible), pointer(tightened))
-SCIPinferBinvarCons(scip::SCIP_t, var::SCIP_VAR_t, fixedval::SCIP_Bool, infercons::SCIP_CONS_t, inferinfo::Int, infeasible::SCIP_Bool_t, tightened::SCIP_Bool_t) = @scip_ccall_check("SCIPinferBinvarCons", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Bool, Ptr{SCIP_CONS}, Int, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), pointer(scip), pointer(var), fixedval, pointer(infercons), inferinfo, pointer(infeasible), pointer(tightened))
-SCIPinferVarLbProp(scip::SCIP_t, var::SCIP_VAR_t, newbound::SCIP_Real, inferprop::SCIP_PROP_t, inferinfo::Int, force::SCIP_Bool, infeasible::SCIP_Bool_t, tightened::SCIP_Bool_t) = @scip_ccall_check("SCIPinferVarLbProp", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real, Ptr{SCIP_PROP}, Int, SCIP_Bool, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), pointer(scip), pointer(var), newbound, pointer(inferprop), inferinfo, force, pointer(infeasible), pointer(tightened))
-SCIPinferVarUbProp(scip::SCIP_t, var::SCIP_VAR_t, newbound::SCIP_Real, inferprop::SCIP_PROP_t, inferinfo::Int, force::SCIP_Bool, infeasible::SCIP_Bool_t, tightened::SCIP_Bool_t) = @scip_ccall_check("SCIPinferVarUbProp", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real, Ptr{SCIP_PROP}, Int, SCIP_Bool, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), pointer(scip), pointer(var), newbound, pointer(inferprop), inferinfo, force, pointer(infeasible), pointer(tightened))
-SCIPinferBinvarProp(scip::SCIP_t, var::SCIP_VAR_t, fixedval::SCIP_Bool, inferprop::SCIP_PROP_t, inferinfo::Int, infeasible::SCIP_Bool_t, tightened::SCIP_Bool_t) = @scip_ccall_check("SCIPinferBinvarProp", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Bool, Ptr{SCIP_PROP}, Int, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), pointer(scip), pointer(var), fixedval, pointer(inferprop), inferinfo, pointer(infeasible), pointer(tightened))
-SCIPtightenVarLbGlobal(scip::SCIP_t, var::SCIP_VAR_t, newbound::SCIP_Real, force::SCIP_Bool, infeasible::SCIP_Bool_t, tightened::SCIP_Bool_t) = @scip_ccall_check("SCIPtightenVarLbGlobal", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Bool, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), pointer(scip), pointer(var), newbound, force, pointer(infeasible), pointer(tightened))
-SCIPtightenVarUbGlobal(scip::SCIP_t, var::SCIP_VAR_t, newbound::SCIP_Real, force::SCIP_Bool, infeasible::SCIP_Bool_t, tightened::SCIP_Bool_t) = @scip_ccall_check("SCIPtightenVarUbGlobal", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Bool, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), pointer(scip), pointer(var), newbound, force, pointer(infeasible), pointer(tightened))
-SCIPwriteCliqueGraph(scip::SCIP_t, fname::String, writeimplications::SCIP_Bool, writenodeweights::SCIP_Bool) = @scip_ccall_check("SCIPwriteCliqueGraph", (Ptr{SCIP}, String, SCIP_Bool, SCIP_Bool), pointer(scip), fname, writeimplications, writenodeweights)
-SCIPchgVarBranchFactor(scip::SCIP_t, var::SCIP_VAR_t, branchfactor::SCIP_Real) = @scip_ccall_check("SCIPchgVarBranchFactor", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(var), branchfactor)
-SCIPscaleVarBranchFactor(scip::SCIP_t, var::SCIP_VAR_t, scale::SCIP_Real) = @scip_ccall_check("SCIPscaleVarBranchFactor", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(var), scale)
-SCIPaddVarBranchFactor(scip::SCIP_t, var::SCIP_VAR_t, addfactor::SCIP_Real) = @scip_ccall_check("SCIPaddVarBranchFactor", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(var), addfactor)
-SCIPchgVarBranchPriority(scip::SCIP_t, var::SCIP_VAR_t, branchpriority::Int) = @scip_ccall_check("SCIPchgVarBranchPriority", (Ptr{SCIP}, Ptr{SCIP_VAR}, Int), pointer(scip), pointer(var), branchpriority)
-SCIPupdateVarBranchPriority(scip::SCIP_t, var::SCIP_VAR_t, branchpriority::Int) = @scip_ccall_check("SCIPupdateVarBranchPriority", (Ptr{SCIP}, Ptr{SCIP_VAR}, Int), pointer(scip), pointer(var), branchpriority)
-SCIPaddVarBranchPriority(scip::SCIP_t, var::SCIP_VAR_t, addpriority::Int) = @scip_ccall_check("SCIPaddVarBranchPriority", (Ptr{SCIP}, Ptr{SCIP_VAR}, Int), pointer(scip), pointer(var), addpriority)
-SCIPchgVarBranchDirection(scip::SCIP_t, var::SCIP_VAR_t, branchdirection::SCIP_BRANCHDIR) = @scip_ccall_check("SCIPchgVarBranchDirection", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_BRANCHDIR), pointer(scip), pointer(var), branchdirection)
-SCIPchgVarType(scip::SCIP_t, var::SCIP_VAR_t, vartype::SCIP_VARTYPE, infeasible::SCIP_Bool_t) = @scip_ccall_check("SCIPchgVarType", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_VARTYPE, Ptr{SCIP_Bool}), pointer(scip), pointer(var), vartype, pointer(infeasible))
-SCIPfixVar(scip::SCIP_t, var::SCIP_VAR_t, fixedval::SCIP_Real, infeasible::SCIP_Bool_t, fixed::SCIP_Bool_t) = @scip_ccall_check("SCIPfixVar", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), pointer(scip), pointer(var), fixedval, pointer(infeasible), pointer(fixed))
-SCIPaggregateVars(scip::SCIP_t, varx::SCIP_VAR_t, vary::SCIP_VAR_t, scalarx::SCIP_Real, scalary::SCIP_Real, rhs::SCIP_Real, infeasible::SCIP_Bool_t, redundant::SCIP_Bool_t, aggregated::SCIP_Bool_t) = @scip_ccall_check("SCIPaggregateVars", (Ptr{SCIP}, Ptr{SCIP_VAR}, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Real, SCIP_Real, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), pointer(scip), pointer(varx), pointer(vary), scalarx, scalary, rhs, pointer(infeasible), pointer(redundant), pointer(aggregated))
-SCIPmultiaggregateVar(scip::SCIP_t, var::SCIP_VAR_t, naggvars::Int, aggvars::SCIP_VAR_t, scalars::SCIP_Real_t, constant::SCIP_Real, infeasible::SCIP_Bool_t, aggregated::SCIP_Bool_t) = @scip_ccall_check("SCIPmultiaggregateVar", (Ptr{SCIP}, Ptr{SCIP_VAR}, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, SCIP_Real, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), pointer(scip), pointer(var), naggvars, array(aggvars), pointer(scalars), constant, pointer(infeasible), pointer(aggregated))
-SCIPmarkDoNotMultaggrVar(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall_check("SCIPmarkDoNotMultaggrVar", (Ptr{SCIP}, Ptr{SCIP_VAR}), pointer(scip), pointer(var))
-SCIPupdateVarPseudocost(scip::SCIP_t, var::SCIP_VAR_t, solvaldelta::SCIP_Real, objdelta::SCIP_Real, weight::SCIP_Real) = @scip_ccall_check("SCIPupdateVarPseudocost", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Real, SCIP_Real), pointer(scip), pointer(var), solvaldelta, objdelta, weight)
-SCIPinitVarBranchStats(scip::SCIP_t, var::SCIP_VAR_t, downpscost::SCIP_Real, uppscost::SCIP_Real, downvsids::SCIP_Real, upvsids::SCIP_Real, downconflen::SCIP_Real, upconflen::SCIP_Real, downinfer::SCIP_Real, upinfer::SCIP_Real, downcutoff::SCIP_Real, upcutoff::SCIP_Real) = @scip_ccall_check("SCIPinitVarBranchStats", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Real, SCIP_Real, SCIP_Real, SCIP_Real, SCIP_Real, SCIP_Real, SCIP_Real, SCIP_Real, SCIP_Real), pointer(scip), pointer(var), downpscost, uppscost, downvsids, upvsids, downconflen, upconflen, downinfer, upinfer, downcutoff, upcutoff)
-SCIPinitConflictAnalysis(scip::SCIP_t) = @scip_ccall_check("SCIPinitConflictAnalysis", (Ptr{SCIP},), pointer(scip))
-SCIPaddConflictLb(scip::SCIP_t, var::SCIP_VAR_t, bdchgidx::SCIP_BDCHGIDX_t) = @scip_ccall_check("SCIPaddConflictLb", (Ptr{SCIP}, Ptr{SCIP_VAR}, Ptr{SCIP_BDCHGIDX}), pointer(scip), pointer(var), pointer(bdchgidx))
-SCIPaddConflictRelaxedLb(scip::SCIP_t, var::SCIP_VAR_t, bdchgidx::SCIP_BDCHGIDX_t, relaxedlb::SCIP_Real) = @scip_ccall_check("SCIPaddConflictRelaxedLb", (Ptr{SCIP}, Ptr{SCIP_VAR}, Ptr{SCIP_BDCHGIDX}, SCIP_Real), pointer(scip), pointer(var), pointer(bdchgidx), relaxedlb)
-SCIPaddConflictUb(scip::SCIP_t, var::SCIP_VAR_t, bdchgidx::SCIP_BDCHGIDX_t) = @scip_ccall_check("SCIPaddConflictUb", (Ptr{SCIP}, Ptr{SCIP_VAR}, Ptr{SCIP_BDCHGIDX}), pointer(scip), pointer(var), pointer(bdchgidx))
-SCIPaddConflictRelaxedUb(scip::SCIP_t, var::SCIP_VAR_t, bdchgidx::SCIP_BDCHGIDX_t, relaxedub::SCIP_Real) = @scip_ccall_check("SCIPaddConflictRelaxedUb", (Ptr{SCIP}, Ptr{SCIP_VAR}, Ptr{SCIP_BDCHGIDX}, SCIP_Real), pointer(scip), pointer(var), pointer(bdchgidx), relaxedub)
-SCIPaddConflictBd(scip::SCIP_t, var::SCIP_VAR_t, boundtype::SCIP_BOUNDTYPE, bdchgidx::SCIP_BDCHGIDX_t) = @scip_ccall_check("SCIPaddConflictBd", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_BOUNDTYPE, Ptr{SCIP_BDCHGIDX}), pointer(scip), pointer(var), boundtype, pointer(bdchgidx))
-SCIPaddConflictRelaxedBd(scip::SCIP_t, var::SCIP_VAR_t, boundtype::SCIP_BOUNDTYPE, bdchgidx::SCIP_BDCHGIDX_t, relaxedbd::SCIP_Real) = @scip_ccall_check("SCIPaddConflictRelaxedBd", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_BOUNDTYPE, Ptr{SCIP_BDCHGIDX}, SCIP_Real), pointer(scip), pointer(var), boundtype, pointer(bdchgidx), relaxedbd)
-SCIPaddConflictBinvar(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall_check("SCIPaddConflictBinvar", (Ptr{SCIP}, Ptr{SCIP_VAR}), pointer(scip), pointer(var))
-SCIPisConflictVarUsed(scip::SCIP_t, var::SCIP_VAR_t, boundtype::SCIP_BOUNDTYPE, bdchgidx::SCIP_BDCHGIDX_t, used::SCIP_Bool_t) = @scip_ccall_check("SCIPisConflictVarUsed", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_BOUNDTYPE, Ptr{SCIP_BDCHGIDX}, Ptr{SCIP_Bool}), pointer(scip), pointer(var), boundtype, pointer(bdchgidx), pointer(used))
-SCIPanalyzeConflict(scip::SCIP_t, validdepth::Int, success::SCIP_Bool_t) = @scip_ccall_check("SCIPanalyzeConflict", (Ptr{SCIP}, Int, Ptr{SCIP_Bool}), pointer(scip), validdepth, pointer(success))
-SCIPanalyzeConflictCons(scip::SCIP_t, cons::SCIP_CONS_t, success::SCIP_Bool_t) = @scip_ccall_check("SCIPanalyzeConflictCons", (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_Bool}), pointer(scip), pointer(cons), pointer(success))
-SCIPcreateCons(scip::SCIP_t, cons::SCIP_CONS_t, name::String, conshdlr::SCIP_CONSHDLR_t, consdata::SCIP_CONSDATA_t, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateCons", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{SCIP_CONSHDLR}, Ptr{SCIP_CONSDATA}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), pointer(scip), array(cons), name, pointer(conshdlr), pointer(consdata), initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
-SCIPparseCons(scip::SCIP_t, cons::SCIP_CONS_t, str::String, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool, success::SCIP_Bool_t) = @scip_ccall_check("SCIPparseCons", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, Ptr{SCIP_Bool}), pointer(scip), array(cons), str, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode, pointer(success))
-SCIPcaptureCons(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPcaptureCons", (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPreleaseCons(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPreleaseCons", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}), pointer(scip), array(cons))
-SCIPchgConsName(scip::SCIP_t, cons::SCIP_CONS_t, name::String) = @scip_ccall_check("SCIPchgConsName", (Ptr{SCIP}, Ptr{SCIP_CONS}, String), pointer(scip), pointer(cons), name)
-SCIPsetConsInitial(scip::SCIP_t, cons::SCIP_CONS_t, initial::SCIP_Bool) = @scip_ccall_check("SCIPsetConsInitial", (Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool), pointer(scip), pointer(cons), initial)
-SCIPsetConsSeparated(scip::SCIP_t, cons::SCIP_CONS_t, separate::SCIP_Bool) = @scip_ccall_check("SCIPsetConsSeparated", (Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool), pointer(scip), pointer(cons), separate)
-SCIPsetConsEnforced(scip::SCIP_t, cons::SCIP_CONS_t, enforce::SCIP_Bool) = @scip_ccall_check("SCIPsetConsEnforced", (Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool), pointer(scip), pointer(cons), enforce)
-SCIPsetConsChecked(scip::SCIP_t, cons::SCIP_CONS_t, check::SCIP_Bool) = @scip_ccall_check("SCIPsetConsChecked", (Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool), pointer(scip), pointer(cons), check)
-SCIPsetConsPropagated(scip::SCIP_t, cons::SCIP_CONS_t, propagate::SCIP_Bool) = @scip_ccall_check("SCIPsetConsPropagated", (Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool), pointer(scip), pointer(cons), propagate)
-SCIPsetConsLocal(scip::SCIP_t, cons::SCIP_CONS_t, localVar::SCIP_Bool) = @scip_ccall_check("SCIPsetConsLocal", (Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool), pointer(scip), pointer(cons), localVar)
-SCIPsetConsModifiable(scip::SCIP_t, cons::SCIP_CONS_t, modifiable::SCIP_Bool) = @scip_ccall_check("SCIPsetConsModifiable", (Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool), pointer(scip), pointer(cons), modifiable)
-SCIPsetConsDynamic(scip::SCIP_t, cons::SCIP_CONS_t, dynamic::SCIP_Bool) = @scip_ccall_check("SCIPsetConsDynamic", (Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool), pointer(scip), pointer(cons), dynamic)
-SCIPsetConsRemovable(scip::SCIP_t, cons::SCIP_CONS_t, removable::SCIP_Bool) = @scip_ccall_check("SCIPsetConsRemovable", (Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool), pointer(scip), pointer(cons), removable)
-SCIPsetConsStickingAtNode(scip::SCIP_t, cons::SCIP_CONS_t, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPsetConsStickingAtNode", (Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool), pointer(scip), pointer(cons), stickingatnode)
-SCIPupdateConsFlags(scip::SCIP_t, cons0::SCIP_CONS_t, cons1::SCIP_CONS_t) = @scip_ccall_check("SCIPupdateConsFlags", (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons0), pointer(cons1))
-SCIPtransformCons(scip::SCIP_t, cons::SCIP_CONS_t, transcons::SCIP_CONS_t) = @scip_ccall_check("SCIPtransformCons", (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{Ptr{SCIP_CONS}}), pointer(scip), pointer(cons), array(transcons))
-SCIPtransformConss(scip::SCIP_t, nconss::Int, conss::SCIP_CONS_t, transconss::SCIP_CONS_t) = @scip_ccall_check("SCIPtransformConss", (Ptr{SCIP}, Int, Ptr{Ptr{SCIP_CONS}}, Ptr{Ptr{SCIP_CONS}}), pointer(scip), nconss, array(conss), array(transconss))
-SCIPgetTransformedCons(scip::SCIP_t, cons::SCIP_CONS_t, transcons::SCIP_CONS_t) = @scip_ccall_check("SCIPgetTransformedCons", (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{Ptr{SCIP_CONS}}), pointer(scip), pointer(cons), array(transcons))
-SCIPgetTransformedConss(scip::SCIP_t, nconss::Int, conss::SCIP_CONS_t, transconss::SCIP_CONS_t) = @scip_ccall_check("SCIPgetTransformedConss", (Ptr{SCIP}, Int, Ptr{Ptr{SCIP_CONS}}, Ptr{Ptr{SCIP_CONS}}), pointer(scip), nconss, array(conss), array(transconss))
-SCIPaddConsAge(scip::SCIP_t, cons::SCIP_CONS_t, deltaage::SCIP_Real) = @scip_ccall_check("SCIPaddConsAge", (Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Real), pointer(scip), pointer(cons), deltaage)
-SCIPincConsAge(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPincConsAge", (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPresetConsAge(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPresetConsAge", (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPenableCons(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPenableCons", (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPdisableCons(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPdisableCons", (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPenableConsSeparation(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPenableConsSeparation", (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPdisableConsSeparation(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPdisableConsSeparation", (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPenableConsPropagation(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPenableConsPropagation", (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPdisableConsPropagation(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPdisableConsPropagation", (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPmarkConsPropagate(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPmarkConsPropagate", (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPunmarkConsPropagate(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPunmarkConsPropagate", (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPaddConsLocks(scip::SCIP_t, cons::SCIP_CONS_t, nlockspos::Int, nlocksneg::Int) = @scip_ccall_check("SCIPaddConsLocks", (Ptr{SCIP}, Ptr{SCIP_CONS}, Int, Int), pointer(scip), pointer(cons), nlockspos, nlocksneg)
-SCIPcheckCons(scip::SCIP_t, cons::SCIP_CONS_t, sol::SCIP_SOL_t, checkintegrality::SCIP_Bool, checklprows::SCIP_Bool, printreason::SCIP_Bool, result::SCIP_RESULT_t) = @scip_ccall_check("SCIPcheckCons", (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_SOL}, SCIP_Bool, SCIP_Bool, SCIP_Bool, Ptr{SCIP_RESULT}), pointer(scip), pointer(cons), pointer(sol), checkintegrality, checklprows, printreason, pointer(result))
-SCIPenfopsCons(scip::SCIP_t, cons::SCIP_CONS_t, solinfeasible::SCIP_Bool, objinfeasible::SCIP_Bool, result::SCIP_RESULT_t) = @scip_ccall_check("SCIPenfopsCons", (Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool, SCIP_Bool, Ptr{SCIP_RESULT}), pointer(scip), pointer(cons), solinfeasible, objinfeasible, pointer(result))
-SCIPenfolpCons(scip::SCIP_t, cons::SCIP_CONS_t, solinfeasible::SCIP_Bool, result::SCIP_RESULT_t) = @scip_ccall_check("SCIPenfolpCons", (Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool, Ptr{SCIP_RESULT}), pointer(scip), pointer(cons), solinfeasible, pointer(result))
-SCIPinitlpCons(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPinitlpCons", (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPsepalpCons(scip::SCIP_t, cons::SCIP_CONS_t, result::SCIP_RESULT_t) = @scip_ccall_check("SCIPsepalpCons", (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_RESULT}), pointer(scip), pointer(cons), pointer(result))
-SCIPsepasolCons(scip::SCIP_t, cons::SCIP_CONS_t, sol::SCIP_SOL_t, result::SCIP_RESULT_t) = @scip_ccall_check("SCIPsepasolCons", (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_SOL}, Ptr{SCIP_RESULT}), pointer(scip), pointer(cons), pointer(sol), pointer(result))
-SCIPpropCons(scip::SCIP_t, cons::SCIP_CONS_t, proptiming::SCIP_PROPTIMING, result::SCIP_RESULT_t) = @scip_ccall_check("SCIPpropCons", (Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_PROPTIMING, Ptr{SCIP_RESULT}), pointer(scip), pointer(cons), proptiming, pointer(result))
-SCIPrespropCons(scip::SCIP_t, cons::SCIP_CONS_t, infervar::SCIP_VAR_t, inferinfo::Int, boundtype::SCIP_BOUNDTYPE, bdchgidx::SCIP_BDCHGIDX_t, relaxedbd::SCIP_Real, result::SCIP_RESULT_t) = @scip_ccall_check("SCIPrespropCons", (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_VAR}, Int, SCIP_BOUNDTYPE, Ptr{SCIP_BDCHGIDX}, SCIP_Real, Ptr{SCIP_RESULT}), pointer(scip), pointer(cons), pointer(infervar), inferinfo, boundtype, pointer(bdchgidx), relaxedbd, pointer(result))
-SCIPactiveCons(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPactiveCons", (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPdeactiveCons(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPdeactiveCons", (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetConsVars(scip::SCIP_t, cons::SCIP_CONS_t, vars::SCIP_VAR_t, varssize::Int, success::SCIP_Bool_t) = @scip_ccall_check("SCIPgetConsVars", (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{Ptr{SCIP_VAR}}, Int, Ptr{SCIP_Bool}), pointer(scip), pointer(cons), array(vars), varssize, pointer(success))
-SCIPconstructLP(scip::SCIP_t, cutoff::SCIP_Bool_t) = @scip_ccall_check("SCIPconstructLP", (Ptr{SCIP}, Ptr{SCIP_Bool}), pointer(scip), pointer(cutoff))
-SCIPflushLP(scip::SCIP_t) = @scip_ccall_check("SCIPflushLP", (Ptr{SCIP},), pointer(scip))
-SCIPgetLPBInvRow(scip::SCIP_t, r::Int, coef::SCIP_Real_t) = @scip_ccall_check("SCIPgetLPBInvRow", (Ptr{SCIP}, Int, Ptr{SCIP_Real}), pointer(scip), r, pointer(coef))
-SCIPgetLPBInvCol(scip::SCIP_t, c::Int, coef::SCIP_Real_t) = @scip_ccall_check("SCIPgetLPBInvCol", (Ptr{SCIP}, Int, Ptr{SCIP_Real}), pointer(scip), c, pointer(coef))
-SCIPgetLPBInvARow(scip::SCIP_t, r::Int, binvrow::SCIP_Real_t, coef::SCIP_Real_t) = @scip_ccall_check("SCIPgetLPBInvARow", (Ptr{SCIP}, Int, Ptr{SCIP_Real}, Ptr{SCIP_Real}), pointer(scip), r, pointer(binvrow), pointer(coef))
-SCIPgetLPBInvACol(scip::SCIP_t, c::Int, coef::SCIP_Real_t) = @scip_ccall_check("SCIPgetLPBInvACol", (Ptr{SCIP}, Int, Ptr{SCIP_Real}), pointer(scip), c, pointer(coef))
-SCIPsumLPRows(scip::SCIP_t, weights::SCIP_Real_t, sumcoef::SCIP_REALARRAY_t, sumlhs::SCIP_Real_t, sumrhs::SCIP_Real_t) = @scip_ccall_check("SCIPsumLPRows", (Ptr{SCIP}, Ptr{SCIP_Real}, Ptr{SCIP_REALARRAY}, Ptr{SCIP_Real}, Ptr{SCIP_Real}), pointer(scip), pointer(weights), pointer(sumcoef), pointer(sumlhs), pointer(sumrhs))
-SCIPwriteLP(scip::SCIP_t, filename::String) = @scip_ccall_check("SCIPwriteLP", (Ptr{SCIP}, String), pointer(scip), filename)
-SCIPwriteMIP(scip::SCIP_t, filename::String, genericnames::SCIP_Bool, origobj::SCIP_Bool, lazyconss::SCIP_Bool) = @scip_ccall_check("SCIPwriteMIP", (Ptr{SCIP}, String, SCIP_Bool, SCIP_Bool, SCIP_Bool), pointer(scip), filename, genericnames, origobj, lazyconss)
-SCIPgetLPI(scip::SCIP_t, lpi::SCIP_LPI_t) = @scip_ccall_check("SCIPgetLPI", (Ptr{SCIP}, Ptr{Ptr{SCIP_LPI}}), pointer(scip), array(lpi))
-SCIPcomputeLPRelIntPoint(scip::SCIP_t, relaxrows::SCIP_Bool, inclobjcutoff::SCIP_Bool, timelimit::SCIP_Real, iterlimit::Int, point::SCIP_SOL_t) = @scip_ccall_check("SCIPcomputeLPRelIntPoint", (Ptr{SCIP}, SCIP_Bool, SCIP_Bool, SCIP_Real, Int, Ptr{Ptr{SCIP_SOL}}), pointer(scip), relaxrows, inclobjcutoff, timelimit, iterlimit, array(point))
-SCIPcreateRowCons(scip::SCIP_t, row::SCIP_ROW_t, conshdlr::SCIP_CONSHDLR_t, name::String, len::Int, cols::SCIP_COL_t, vals::SCIP_Real_t, lhs::SCIP_Real, rhs::SCIP_Real, localVar::SCIP_Bool, modifiable::SCIP_Bool, removable::SCIP_Bool) = @scip_ccall_check("SCIPcreateRowCons", (Ptr{SCIP}, Ptr{Ptr{SCIP_ROW}}, Ptr{SCIP_CONSHDLR}, String, Int, Ptr{Ptr{SCIP_COL}}, Ptr{SCIP_Real}, SCIP_Real, SCIP_Real, SCIP_Bool, SCIP_Bool, SCIP_Bool), pointer(scip), array(row), pointer(conshdlr), name, len, array(cols), pointer(vals), lhs, rhs, localVar, modifiable, removable)
-SCIPcreateRowSepa(scip::SCIP_t, row::SCIP_ROW_t, sepa::SCIP_SEPA_t, name::String, len::Int, cols::SCIP_COL_t, vals::SCIP_Real_t, lhs::SCIP_Real, rhs::SCIP_Real, localVar::SCIP_Bool, modifiable::SCIP_Bool, removable::SCIP_Bool) = @scip_ccall_check("SCIPcreateRowSepa", (Ptr{SCIP}, Ptr{Ptr{SCIP_ROW}}, Ptr{SCIP_SEPA}, String, Int, Ptr{Ptr{SCIP_COL}}, Ptr{SCIP_Real}, SCIP_Real, SCIP_Real, SCIP_Bool, SCIP_Bool, SCIP_Bool), pointer(scip), array(row), pointer(sepa), name, len, array(cols), pointer(vals), lhs, rhs, localVar, modifiable, removable)
-SCIPcreateRowUnspec(scip::SCIP_t, row::SCIP_ROW_t, name::String, len::Int, cols::SCIP_COL_t, vals::SCIP_Real_t, lhs::SCIP_Real, rhs::SCIP_Real, localVar::SCIP_Bool, modifiable::SCIP_Bool, removable::SCIP_Bool) = @scip_ccall_check("SCIPcreateRowUnspec", (Ptr{SCIP}, Ptr{Ptr{SCIP_ROW}}, String, Int, Ptr{Ptr{SCIP_COL}}, Ptr{SCIP_Real}, SCIP_Real, SCIP_Real, SCIP_Bool, SCIP_Bool, SCIP_Bool), pointer(scip), array(row), name, len, array(cols), pointer(vals), lhs, rhs, localVar, modifiable, removable)
-SCIPcreateRow(scip::SCIP_t, row::SCIP_ROW_t, name::String, len::Int, cols::SCIP_COL_t, vals::SCIP_Real_t, lhs::SCIP_Real, rhs::SCIP_Real, localVar::SCIP_Bool, modifiable::SCIP_Bool, removable::SCIP_Bool) = @scip_ccall_check("SCIPcreateRow", (Ptr{SCIP}, Ptr{Ptr{SCIP_ROW}}, String, Int, Ptr{Ptr{SCIP_COL}}, Ptr{SCIP_Real}, SCIP_Real, SCIP_Real, SCIP_Bool, SCIP_Bool, SCIP_Bool), pointer(scip), array(row), name, len, array(cols), pointer(vals), lhs, rhs, localVar, modifiable, removable)
-SCIPcreateEmptyRowCons(scip::SCIP_t, row::SCIP_ROW_t, conshdlr::SCIP_CONSHDLR_t, name::String, lhs::SCIP_Real, rhs::SCIP_Real, localVar::SCIP_Bool, modifiable::SCIP_Bool, removable::SCIP_Bool) = @scip_ccall_check("SCIPcreateEmptyRowCons", (Ptr{SCIP}, Ptr{Ptr{SCIP_ROW}}, Ptr{SCIP_CONSHDLR}, String, SCIP_Real, SCIP_Real, SCIP_Bool, SCIP_Bool, SCIP_Bool), pointer(scip), array(row), pointer(conshdlr), name, lhs, rhs, localVar, modifiable, removable)
-SCIPcreateEmptyRowSepa(scip::SCIP_t, row::SCIP_ROW_t, sepa::SCIP_SEPA_t, name::String, lhs::SCIP_Real, rhs::SCIP_Real, localVar::SCIP_Bool, modifiable::SCIP_Bool, removable::SCIP_Bool) = @scip_ccall_check("SCIPcreateEmptyRowSepa", (Ptr{SCIP}, Ptr{Ptr{SCIP_ROW}}, Ptr{SCIP_SEPA}, String, SCIP_Real, SCIP_Real, SCIP_Bool, SCIP_Bool, SCIP_Bool), pointer(scip), array(row), pointer(sepa), name, lhs, rhs, localVar, modifiable, removable)
-SCIPcreateEmptyRowUnspec(scip::SCIP_t, row::SCIP_ROW_t, name::String, lhs::SCIP_Real, rhs::SCIP_Real, localVar::SCIP_Bool, modifiable::SCIP_Bool, removable::SCIP_Bool) = @scip_ccall_check("SCIPcreateEmptyRowUnspec", (Ptr{SCIP}, Ptr{Ptr{SCIP_ROW}}, String, SCIP_Real, SCIP_Real, SCIP_Bool, SCIP_Bool, SCIP_Bool), pointer(scip), array(row), name, lhs, rhs, localVar, modifiable, removable)
-SCIPcreateEmptyRow(scip::SCIP_t, row::SCIP_ROW_t, name::String, lhs::SCIP_Real, rhs::SCIP_Real, localVar::SCIP_Bool, modifiable::SCIP_Bool, removable::SCIP_Bool) = @scip_ccall_check("SCIPcreateEmptyRow", (Ptr{SCIP}, Ptr{Ptr{SCIP_ROW}}, String, SCIP_Real, SCIP_Real, SCIP_Bool, SCIP_Bool, SCIP_Bool), pointer(scip), array(row), name, lhs, rhs, localVar, modifiable, removable)
-SCIPcaptureRow(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall_check("SCIPcaptureRow", (Ptr{SCIP}, Ptr{SCIP_ROW}), pointer(scip), pointer(row))
-SCIPreleaseRow(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall_check("SCIPreleaseRow", (Ptr{SCIP}, Ptr{Ptr{SCIP_ROW}}), pointer(scip), array(row))
-SCIPchgRowLhs(scip::SCIP_t, row::SCIP_ROW_t, lhs::SCIP_Real) = @scip_ccall_check("SCIPchgRowLhs", (Ptr{SCIP}, Ptr{SCIP_ROW}, SCIP_Real), pointer(scip), pointer(row), lhs)
-SCIPchgRowRhs(scip::SCIP_t, row::SCIP_ROW_t, rhs::SCIP_Real) = @scip_ccall_check("SCIPchgRowRhs", (Ptr{SCIP}, Ptr{SCIP_ROW}, SCIP_Real), pointer(scip), pointer(row), rhs)
-SCIPcacheRowExtensions(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall_check("SCIPcacheRowExtensions", (Ptr{SCIP}, Ptr{SCIP_ROW}), pointer(scip), pointer(row))
-SCIPflushRowExtensions(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall_check("SCIPflushRowExtensions", (Ptr{SCIP}, Ptr{SCIP_ROW}), pointer(scip), pointer(row))
-SCIPaddVarToRow(scip::SCIP_t, row::SCIP_ROW_t, var::SCIP_VAR_t, val::SCIP_Real) = @scip_ccall_check("SCIPaddVarToRow", (Ptr{SCIP}, Ptr{SCIP_ROW}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(row), pointer(var), val)
-SCIPaddVarsToRow(scip::SCIP_t, row::SCIP_ROW_t, nvars::Int, vars::SCIP_VAR_t, vals::SCIP_Real_t) = @scip_ccall_check("SCIPaddVarsToRow", (Ptr{SCIP}, Ptr{SCIP_ROW}, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}), pointer(scip), pointer(row), nvars, array(vars), pointer(vals))
-SCIPaddVarsToRowSameCoef(scip::SCIP_t, row::SCIP_ROW_t, nvars::Int, vars::SCIP_VAR_t, val::SCIP_Real) = @scip_ccall_check("SCIPaddVarsToRowSameCoef", (Ptr{SCIP}, Ptr{SCIP_ROW}, Int, Ptr{Ptr{SCIP_VAR}}, SCIP_Real), pointer(scip), pointer(row), nvars, array(vars), val)
-SCIPcalcRowIntegralScalar(scip::SCIP_t, row::SCIP_ROW_t, mindelta::SCIP_Real, maxdelta::SCIP_Real, maxdnom::Int64, maxscale::SCIP_Real, usecontvars::SCIP_Bool, intscalar::SCIP_Real_t, success::SCIP_Bool_t) = @scip_ccall_check("SCIPcalcRowIntegralScalar", (Ptr{SCIP}, Ptr{SCIP_ROW}, SCIP_Real, SCIP_Real, Int64, SCIP_Real, SCIP_Bool, Ptr{SCIP_Real}, Ptr{SCIP_Bool}), pointer(scip), pointer(row), mindelta, maxdelta, maxdnom, maxscale, usecontvars, pointer(intscalar), pointer(success))
-SCIPmakeRowIntegral(scip::SCIP_t, row::SCIP_ROW_t, mindelta::SCIP_Real, maxdelta::SCIP_Real, maxdnom::Int64, maxscale::SCIP_Real, usecontvars::SCIP_Bool, success::SCIP_Bool_t) = @scip_ccall_check("SCIPmakeRowIntegral", (Ptr{SCIP}, Ptr{SCIP_ROW}, SCIP_Real, SCIP_Real, Int64, SCIP_Real, SCIP_Bool, Ptr{SCIP_Bool}), pointer(scip), pointer(row), mindelta, maxdelta, maxdnom, maxscale, usecontvars, pointer(success))
-SCIPrecalcRowLPActivity(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall_check("SCIPrecalcRowLPActivity", (Ptr{SCIP}, Ptr{SCIP_ROW}), pointer(scip), pointer(row))
-SCIPrecalcRowPseudoActivity(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall_check("SCIPrecalcRowPseudoActivity", (Ptr{SCIP}, Ptr{SCIP_ROW}), pointer(scip), pointer(row))
-SCIPrecalcRowActivity(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall_check("SCIPrecalcRowActivity", (Ptr{SCIP}, Ptr{SCIP_ROW}), pointer(scip), pointer(row))
-SCIPaddNlRow(scip::SCIP_t, nlrow::SCIP_NLROW_t) = @scip_ccall_check("SCIPaddNlRow", (Ptr{SCIP}, Ptr{SCIP_NLROW}), pointer(scip), pointer(nlrow))
-SCIPflushNLP(scip::SCIP_t) = @scip_ccall_check("SCIPflushNLP", (Ptr{SCIP},), pointer(scip))
-SCIPsetNLPInitialGuess(scip::SCIP_t, initialguess::SCIP_Real_t) = @scip_ccall_check("SCIPsetNLPInitialGuess", (Ptr{SCIP}, Ptr{SCIP_Real}), pointer(scip), pointer(initialguess))
-SCIPsetNLPInitialGuessSol(scip::SCIP_t, sol::SCIP_SOL_t) = @scip_ccall_check("SCIPsetNLPInitialGuessSol", (Ptr{SCIP}, Ptr{SCIP_SOL}), pointer(scip), pointer(sol))
-SCIPsolveNLP(scip::SCIP_t) = @scip_ccall_check("SCIPsolveNLP", (Ptr{SCIP},), pointer(scip))
-SCIPgetNLPStatistics(scip::SCIP_t, statistics::SCIP_NLPSTATISTICS_t) = @scip_ccall_check("SCIPgetNLPStatistics", (Ptr{SCIP}, Ptr{SCIP_NLPSTATISTICS}), pointer(scip), pointer(statistics))
-SCIPsetNLPIntPar(scip::SCIP_t, typeVar::SCIP_NLPPARAM, ival::Int) = @scip_ccall_check("SCIPsetNLPIntPar", (Ptr{SCIP}, SCIP_NLPPARAM, Int), pointer(scip), typeVar, ival)
-SCIPgetNLPRealPar(scip::SCIP_t, typeVar::SCIP_NLPPARAM, dval::SCIP_Real_t) = @scip_ccall_check("SCIPgetNLPRealPar", (Ptr{SCIP}, SCIP_NLPPARAM, Ptr{SCIP_Real}), pointer(scip), typeVar, pointer(dval))
-SCIPsetNLPRealPar(scip::SCIP_t, typeVar::SCIP_NLPPARAM, dval::SCIP_Real) = @scip_ccall_check("SCIPsetNLPRealPar", (Ptr{SCIP}, SCIP_NLPPARAM, SCIP_Real), pointer(scip), typeVar, dval)
-SCIPsetNLPStringPar(scip::SCIP_t, typeVar::SCIP_NLPPARAM, sval::String) = @scip_ccall_check("SCIPsetNLPStringPar", (Ptr{SCIP}, SCIP_NLPPARAM, String), pointer(scip), typeVar, sval)
-SCIPwriteNLP(scip::SCIP_t, filename::String) = @scip_ccall_check("SCIPwriteNLP", (Ptr{SCIP}, String), pointer(scip), filename)
-SCIPgetNLPI(scip::SCIP_t, nlpi::SCIP_NLPI_t, nlpiproblem::SCIP_NLPIPROBLEM_t) = @scip_ccall_check("SCIPgetNLPI", (Ptr{SCIP}, Ptr{Ptr{SCIP_NLPI}}, Ptr{Ptr{SCIP_NLPIPROBLEM}}), pointer(scip), array(nlpi), array(nlpiproblem))
-SCIPstartDiveNLP(scip::SCIP_t) = @scip_ccall_check("SCIPstartDiveNLP", (Ptr{SCIP},), pointer(scip))
-SCIPendDiveNLP(scip::SCIP_t) = @scip_ccall_check("SCIPendDiveNLP", (Ptr{SCIP},), pointer(scip))
-SCIPchgVarObjDiveNLP(scip::SCIP_t, var::SCIP_VAR_t, coef::SCIP_Real) = @scip_ccall_check("SCIPchgVarObjDiveNLP", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(var), coef)
-SCIPchgVarBoundsDiveNLP(scip::SCIP_t, var::SCIP_VAR_t, lb::SCIP_Real, ub::SCIP_Real) = @scip_ccall_check("SCIPchgVarBoundsDiveNLP", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Real), pointer(scip), pointer(var), lb, ub)
-SCIPchgVarsBoundsDiveNLP(scip::SCIP_t, nvars::Int, vars::SCIP_VAR_t, lbs::SCIP_Real_t, ubs::SCIP_Real_t) = @scip_ccall_check("SCIPchgVarsBoundsDiveNLP", (Ptr{SCIP}, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, Ptr{SCIP_Real}), pointer(scip), nvars, array(vars), pointer(lbs), pointer(ubs))
-SCIPsolveDiveNLP(scip::SCIP_t) = @scip_ccall_check("SCIPsolveDiveNLP", (Ptr{SCIP},), pointer(scip))
-SCIPcreateNlRow(scip::SCIP_t, nlrow::SCIP_NLROW_t, name::String, constant::SCIP_Real, nlinvars::Int, linvars::SCIP_VAR_t, lincoefs::SCIP_Real_t, nquadvars::Int, quadvars::SCIP_VAR_t, nquadelems::Int, quadelems::SCIP_QUADELEM_t, expression::SCIP_EXPRTREE_t, lhs::SCIP_Real, rhs::SCIP_Real) = @scip_ccall_check("SCIPcreateNlRow", (Ptr{SCIP}, Ptr{Ptr{SCIP_NLROW}}, String, SCIP_Real, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, Int, Ptr{Ptr{SCIP_VAR}}, Int, Ptr{SCIP_QUADELEM}, Ptr{SCIP_EXPRTREE}, SCIP_Real, SCIP_Real), pointer(scip), array(nlrow), name, constant, nlinvars, array(linvars), pointer(lincoefs), nquadvars, array(quadvars), nquadelems, pointer(quadelems), pointer(expression), lhs, rhs)
-SCIPcreateEmptyNlRow(scip::SCIP_t, nlrow::SCIP_NLROW_t, name::String, lhs::SCIP_Real, rhs::SCIP_Real) = @scip_ccall_check("SCIPcreateEmptyNlRow", (Ptr{SCIP}, Ptr{Ptr{SCIP_NLROW}}, String, SCIP_Real, SCIP_Real), pointer(scip), array(nlrow), name, lhs, rhs)
-SCIPcreateNlRowFromRow(scip::SCIP_t, nlrow::SCIP_NLROW_t, row::SCIP_ROW_t) = @scip_ccall_check("SCIPcreateNlRowFromRow", (Ptr{SCIP}, Ptr{Ptr{SCIP_NLROW}}, Ptr{SCIP_ROW}), pointer(scip), array(nlrow), pointer(row))
-SCIPcaptureNlRow(scip::SCIP_t, nlrow::SCIP_NLROW_t) = @scip_ccall_check("SCIPcaptureNlRow", (Ptr{SCIP}, Ptr{SCIP_NLROW}), pointer(scip), pointer(nlrow))
-SCIPreleaseNlRow(scip::SCIP_t, nlrow::SCIP_NLROW_t) = @scip_ccall_check("SCIPreleaseNlRow", (Ptr{SCIP}, Ptr{Ptr{SCIP_NLROW}}), pointer(scip), array(nlrow))
-SCIPchgNlRowLhs(scip::SCIP_t, nlrow::SCIP_NLROW_t, lhs::SCIP_Real) = @scip_ccall_check("SCIPchgNlRowLhs", (Ptr{SCIP}, Ptr{SCIP_NLROW}, SCIP_Real), pointer(scip), pointer(nlrow), lhs)
-SCIPchgNlRowRhs(scip::SCIP_t, nlrow::SCIP_NLROW_t, rhs::SCIP_Real) = @scip_ccall_check("SCIPchgNlRowRhs", (Ptr{SCIP}, Ptr{SCIP_NLROW}, SCIP_Real), pointer(scip), pointer(nlrow), rhs)
-SCIPchgNlRowConstant(scip::SCIP_t, nlrow::SCIP_NLROW_t, constant::SCIP_Real) = @scip_ccall_check("SCIPchgNlRowConstant", (Ptr{SCIP}, Ptr{SCIP_NLROW}, SCIP_Real), pointer(scip), pointer(nlrow), constant)
-SCIPaddLinearCoefToNlRow(scip::SCIP_t, nlrow::SCIP_NLROW_t, var::SCIP_VAR_t, val::SCIP_Real) = @scip_ccall_check("SCIPaddLinearCoefToNlRow", (Ptr{SCIP}, Ptr{SCIP_NLROW}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(nlrow), pointer(var), val)
-SCIPaddLinearCoefsToNlRow(scip::SCIP_t, nlrow::SCIP_NLROW_t, nvars::Int, vars::SCIP_VAR_t, vals::SCIP_Real_t) = @scip_ccall_check("SCIPaddLinearCoefsToNlRow", (Ptr{SCIP}, Ptr{SCIP_NLROW}, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}), pointer(scip), pointer(nlrow), nvars, array(vars), pointer(vals))
-SCIPchgNlRowLinearCoef(scip::SCIP_t, nlrow::SCIP_NLROW_t, var::SCIP_VAR_t, coef::SCIP_Real) = @scip_ccall_check("SCIPchgNlRowLinearCoef", (Ptr{SCIP}, Ptr{SCIP_NLROW}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(nlrow), pointer(var), coef)
-SCIPaddQuadVarToNlRow(scip::SCIP_t, nlrow::SCIP_NLROW_t, var::SCIP_VAR_t) = @scip_ccall_check("SCIPaddQuadVarToNlRow", (Ptr{SCIP}, Ptr{SCIP_NLROW}, Ptr{SCIP_VAR}), pointer(scip), pointer(nlrow), pointer(var))
-SCIPaddQuadVarsToNlRow(scip::SCIP_t, nlrow::SCIP_NLROW_t, nvars::Int, vars::SCIP_VAR_t) = @scip_ccall_check("SCIPaddQuadVarsToNlRow", (Ptr{SCIP}, Ptr{SCIP_NLROW}, Int, Ptr{Ptr{SCIP_VAR}}), pointer(scip), pointer(nlrow), nvars, array(vars))
-SCIPaddQuadElementToNlRow(scip::SCIP_t, nlrow::SCIP_NLROW_t, quadelem::SCIP_QUADELEM) = @scip_ccall_check("SCIPaddQuadElementToNlRow", (Ptr{SCIP}, Ptr{SCIP_NLROW}, SCIP_QUADELEM), pointer(scip), pointer(nlrow), quadelem)
-SCIPaddQuadElementsToNlRow(scip::SCIP_t, nlrow::SCIP_NLROW_t, nquadelems::Int, quadelems::SCIP_QUADELEM_t) = @scip_ccall_check("SCIPaddQuadElementsToNlRow", (Ptr{SCIP}, Ptr{SCIP_NLROW}, Int, Ptr{SCIP_QUADELEM}), pointer(scip), pointer(nlrow), nquadelems, pointer(quadelems))
-SCIPchgNlRowQuadElement(scip::SCIP_t, nlrow::SCIP_NLROW_t, quadelement::SCIP_QUADELEM) = @scip_ccall_check("SCIPchgNlRowQuadElement", (Ptr{SCIP}, Ptr{SCIP_NLROW}, SCIP_QUADELEM), pointer(scip), pointer(nlrow), quadelement)
-SCIPsetNlRowExprtree(scip::SCIP_t, nlrow::SCIP_NLROW_t, exprtree::SCIP_EXPRTREE_t) = @scip_ccall_check("SCIPsetNlRowExprtree", (Ptr{SCIP}, Ptr{SCIP_NLROW}, Ptr{SCIP_EXPRTREE}), pointer(scip), pointer(nlrow), pointer(exprtree))
-SCIPsetNlRowExprtreeParam(scip::SCIP_t, nlrow::SCIP_NLROW_t, paramidx::Int, paramval::SCIP_Real) = @scip_ccall_check("SCIPsetNlRowExprtreeParam", (Ptr{SCIP}, Ptr{SCIP_NLROW}, Int, SCIP_Real), pointer(scip), pointer(nlrow), paramidx, paramval)
-SCIPsetNlRowExprtreeParams(scip::SCIP_t, nlrow::SCIP_NLROW_t, paramvals::SCIP_Real_t) = @scip_ccall_check("SCIPsetNlRowExprtreeParams", (Ptr{SCIP}, Ptr{SCIP_NLROW}, Ptr{SCIP_Real}), pointer(scip), pointer(nlrow), pointer(paramvals))
-SCIPrecalcNlRowNLPActivity(scip::SCIP_t, nlrow::SCIP_NLROW_t) = @scip_ccall_check("SCIPrecalcNlRowNLPActivity", (Ptr{SCIP}, Ptr{SCIP_NLROW}), pointer(scip), pointer(nlrow))
-SCIPgetNlRowNLPActivity(scip::SCIP_t, nlrow::SCIP_NLROW_t, activity::SCIP_Real_t) = @scip_ccall_check("SCIPgetNlRowNLPActivity", (Ptr{SCIP}, Ptr{SCIP_NLROW}, Ptr{SCIP_Real}), pointer(scip), pointer(nlrow), pointer(activity))
-SCIPgetNlRowNLPFeasibility(scip::SCIP_t, nlrow::SCIP_NLROW_t, feasibility::SCIP_Real_t) = @scip_ccall_check("SCIPgetNlRowNLPFeasibility", (Ptr{SCIP}, Ptr{SCIP_NLROW}, Ptr{SCIP_Real}), pointer(scip), pointer(nlrow), pointer(feasibility))
-SCIPrecalcNlRowPseudoActivity(scip::SCIP_t, nlrow::SCIP_NLROW_t) = @scip_ccall_check("SCIPrecalcNlRowPseudoActivity", (Ptr{SCIP}, Ptr{SCIP_NLROW}), pointer(scip), pointer(nlrow))
-SCIPgetNlRowPseudoActivity(scip::SCIP_t, nlrow::SCIP_NLROW_t, pseudoactivity::SCIP_Real_t) = @scip_ccall_check("SCIPgetNlRowPseudoActivity", (Ptr{SCIP}, Ptr{SCIP_NLROW}, Ptr{SCIP_Real}), pointer(scip), pointer(nlrow), pointer(pseudoactivity))
-SCIPgetNlRowPseudoFeasibility(scip::SCIP_t, nlrow::SCIP_NLROW_t, pseudofeasibility::SCIP_Real_t) = @scip_ccall_check("SCIPgetNlRowPseudoFeasibility", (Ptr{SCIP}, Ptr{SCIP_NLROW}, Ptr{SCIP_Real}), pointer(scip), pointer(nlrow), pointer(pseudofeasibility))
-SCIPrecalcNlRowActivity(scip::SCIP_t, nlrow::SCIP_NLROW_t) = @scip_ccall_check("SCIPrecalcNlRowActivity", (Ptr{SCIP}, Ptr{SCIP_NLROW}), pointer(scip), pointer(nlrow))
-SCIPgetNlRowActivity(scip::SCIP_t, nlrow::SCIP_NLROW_t, activity::SCIP_Real_t) = @scip_ccall_check("SCIPgetNlRowActivity", (Ptr{SCIP}, Ptr{SCIP_NLROW}, Ptr{SCIP_Real}), pointer(scip), pointer(nlrow), pointer(activity))
-SCIPgetNlRowFeasibility(scip::SCIP_t, nlrow::SCIP_NLROW_t, feasibility::SCIP_Real_t) = @scip_ccall_check("SCIPgetNlRowFeasibility", (Ptr{SCIP}, Ptr{SCIP_NLROW}, Ptr{SCIP_Real}), pointer(scip), pointer(nlrow), pointer(feasibility))
-SCIPgetNlRowSolActivity(scip::SCIP_t, nlrow::SCIP_NLROW_t, sol::SCIP_SOL_t, activity::SCIP_Real_t) = @scip_ccall_check("SCIPgetNlRowSolActivity", (Ptr{SCIP}, Ptr{SCIP_NLROW}, Ptr{SCIP_SOL}, Ptr{SCIP_Real}), pointer(scip), pointer(nlrow), pointer(sol), pointer(activity))
-SCIPgetNlRowSolFeasibility(scip::SCIP_t, nlrow::SCIP_NLROW_t, sol::SCIP_SOL_t, feasibility::SCIP_Real_t) = @scip_ccall_check("SCIPgetNlRowSolFeasibility", (Ptr{SCIP}, Ptr{SCIP_NLROW}, Ptr{SCIP_SOL}, Ptr{SCIP_Real}), pointer(scip), pointer(nlrow), pointer(sol), pointer(feasibility))
-SCIPgetNlRowActivityBounds(scip::SCIP_t, nlrow::SCIP_NLROW_t, minactivity::SCIP_Real_t, maxactivity::SCIP_Real_t) = @scip_ccall_check("SCIPgetNlRowActivityBounds", (Ptr{SCIP}, Ptr{SCIP_NLROW}, Ptr{SCIP_Real}, Ptr{SCIP_Real}), pointer(scip), pointer(nlrow), pointer(minactivity), pointer(maxactivity))
-SCIPgetExprtreeTransformedVars(scip::SCIP_t, tree::SCIP_EXPRTREE_t) = @scip_ccall_check("SCIPgetExprtreeTransformedVars", (Ptr{SCIP}, Ptr{SCIP_EXPRTREE}), pointer(scip), pointer(tree))
-SCIPevalExprtreeSol(scip::SCIP_t, tree::SCIP_EXPRTREE_t, sol::SCIP_SOL_t, val::SCIP_Real_t) = @scip_ccall_check("SCIPevalExprtreeSol", (Ptr{SCIP}, Ptr{SCIP_EXPRTREE}, Ptr{SCIP_SOL}, Ptr{SCIP_Real}), pointer(scip), pointer(tree), pointer(sol), pointer(val))
-SCIPevalExprtreeGlobalBounds(scip::SCIP_t, tree::SCIP_EXPRTREE_t, infinity::SCIP_Real, val::SCIP_INTERVAL_t) = @scip_ccall_check("SCIPevalExprtreeGlobalBounds", (Ptr{SCIP}, Ptr{SCIP_EXPRTREE}, SCIP_Real, Ptr{SCIP_INTERVAL}), pointer(scip), pointer(tree), infinity, pointer(val))
-SCIPevalExprtreeLocalBounds(scip::SCIP_t, tree::SCIP_EXPRTREE_t, infinity::SCIP_Real, val::SCIP_INTERVAL_t) = @scip_ccall_check("SCIPevalExprtreeLocalBounds", (Ptr{SCIP}, Ptr{SCIP_EXPRTREE}, SCIP_Real, Ptr{SCIP_INTERVAL}), pointer(scip), pointer(tree), infinity, pointer(val))
-SCIPaddCut(scip::SCIP_t, sol::SCIP_SOL_t, cut::SCIP_ROW_t, forcecut::SCIP_Bool, infeasible::SCIP_Bool_t) = @scip_ccall_check("SCIPaddCut", (Ptr{SCIP}, Ptr{SCIP_SOL}, Ptr{SCIP_ROW}, SCIP_Bool, Ptr{SCIP_Bool}), pointer(scip), pointer(sol), pointer(cut), forcecut, pointer(infeasible))
-SCIPaddPoolCut(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall_check("SCIPaddPoolCut", (Ptr{SCIP}, Ptr{SCIP_ROW}), pointer(scip), pointer(row))
-SCIPdelPoolCut(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall_check("SCIPdelPoolCut", (Ptr{SCIP}, Ptr{SCIP_ROW}), pointer(scip), pointer(row))
-SCIPcreateCutpool(scip::SCIP_t, cutpool::SCIP_CUTPOOL_t, agelimit::Int) = @scip_ccall_check("SCIPcreateCutpool", (Ptr{SCIP}, Ptr{Ptr{SCIP_CUTPOOL}}, Int), pointer(scip), array(cutpool), agelimit)
-SCIPfreeCutpool(scip::SCIP_t, cutpool::SCIP_CUTPOOL_t) = @scip_ccall_check("SCIPfreeCutpool", (Ptr{SCIP}, Ptr{Ptr{SCIP_CUTPOOL}}), pointer(scip), array(cutpool))
-SCIPaddRowCutpool(scip::SCIP_t, cutpool::SCIP_CUTPOOL_t, row::SCIP_ROW_t) = @scip_ccall_check("SCIPaddRowCutpool", (Ptr{SCIP}, Ptr{SCIP_CUTPOOL}, Ptr{SCIP_ROW}), pointer(scip), pointer(cutpool), pointer(row))
-SCIPaddNewRowCutpool(scip::SCIP_t, cutpool::SCIP_CUTPOOL_t, row::SCIP_ROW_t) = @scip_ccall_check("SCIPaddNewRowCutpool", (Ptr{SCIP}, Ptr{SCIP_CUTPOOL}, Ptr{SCIP_ROW}), pointer(scip), pointer(cutpool), pointer(row))
-SCIPdelRowCutpool(scip::SCIP_t, cutpool::SCIP_CUTPOOL_t, row::SCIP_ROW_t) = @scip_ccall_check("SCIPdelRowCutpool", (Ptr{SCIP}, Ptr{SCIP_CUTPOOL}, Ptr{SCIP_ROW}), pointer(scip), pointer(cutpool), pointer(row))
-SCIPseparateCutpool(scip::SCIP_t, cutpool::SCIP_CUTPOOL_t, result::SCIP_RESULT_t) = @scip_ccall_check("SCIPseparateCutpool", (Ptr{SCIP}, Ptr{SCIP_CUTPOOL}, Ptr{SCIP_RESULT}), pointer(scip), pointer(cutpool), pointer(result))
-SCIPseparateSolCutpool(scip::SCIP_t, cutpool::SCIP_CUTPOOL_t, sol::SCIP_SOL_t, result::SCIP_RESULT_t) = @scip_ccall_check("SCIPseparateSolCutpool", (Ptr{SCIP}, Ptr{SCIP_CUTPOOL}, Ptr{SCIP_SOL}, Ptr{SCIP_RESULT}), pointer(scip), pointer(cutpool), pointer(sol), pointer(result))
-SCIPaddDelayedPoolCut(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall_check("SCIPaddDelayedPoolCut", (Ptr{SCIP}, Ptr{SCIP_ROW}), pointer(scip), pointer(row))
-SCIPdelDelayedPoolCut(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall_check("SCIPdelDelayedPoolCut", (Ptr{SCIP}, Ptr{SCIP_ROW}), pointer(scip), pointer(row))
-SCIPseparateSol(scip::SCIP_t, sol::SCIP_SOL_t, pretendroot::SCIP_Bool, onlydelayed::SCIP_Bool, delayed::SCIP_Bool_t, cutoff::SCIP_Bool_t) = @scip_ccall_check("SCIPseparateSol", (Ptr{SCIP}, Ptr{SCIP_SOL}, SCIP_Bool, SCIP_Bool, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), pointer(scip), pointer(sol), pretendroot, onlydelayed, pointer(delayed), pointer(cutoff))
-SCIPclearCuts(scip::SCIP_t) = @scip_ccall_check("SCIPclearCuts", (Ptr{SCIP},), pointer(scip))
-SCIPremoveInefficaciousCuts(scip::SCIP_t) = @scip_ccall_check("SCIPremoveInefficaciousCuts", (Ptr{SCIP},), pointer(scip))
-SCIPstartDive(scip::SCIP_t) = @scip_ccall_check("SCIPstartDive", (Ptr{SCIP},), pointer(scip))
-SCIPendDive(scip::SCIP_t) = @scip_ccall_check("SCIPendDive", (Ptr{SCIP},), pointer(scip))
-SCIPchgCutoffboundDive(scip::SCIP_t, newcutoffbound::SCIP_Real) = @scip_ccall_check("SCIPchgCutoffboundDive", (Ptr{SCIP}, SCIP_Real), pointer(scip), newcutoffbound)
-SCIPchgVarObjDive(scip::SCIP_t, var::SCIP_VAR_t, newobj::SCIP_Real) = @scip_ccall_check("SCIPchgVarObjDive", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(var), newobj)
-SCIPchgVarLbDive(scip::SCIP_t, var::SCIP_VAR_t, newbound::SCIP_Real) = @scip_ccall_check("SCIPchgVarLbDive", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(var), newbound)
-SCIPchgVarUbDive(scip::SCIP_t, var::SCIP_VAR_t, newbound::SCIP_Real) = @scip_ccall_check("SCIPchgVarUbDive", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(var), newbound)
-SCIPaddRowDive(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall_check("SCIPaddRowDive", (Ptr{SCIP}, Ptr{SCIP_ROW}), pointer(scip), pointer(row))
-SCIPchgRowLhsDive(scip::SCIP_t, row::SCIP_ROW_t, newlhs::SCIP_Real) = @scip_ccall_check("SCIPchgRowLhsDive", (Ptr{SCIP}, Ptr{SCIP_ROW}, SCIP_Real), pointer(scip), pointer(row), newlhs)
-SCIPchgRowRhsDive(scip::SCIP_t, row::SCIP_ROW_t, newrhs::SCIP_Real) = @scip_ccall_check("SCIPchgRowRhsDive", (Ptr{SCIP}, Ptr{SCIP_ROW}, SCIP_Real), pointer(scip), pointer(row), newrhs)
-SCIPsolveDiveLP(scip::SCIP_t, itlim::Int, lperror::SCIP_Bool_t, cutoff::SCIP_Bool_t) = @scip_ccall_check("SCIPsolveDiveLP", (Ptr{SCIP}, Int, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), pointer(scip), itlim, pointer(lperror), pointer(cutoff))
-SCIPstartProbing(scip::SCIP_t) = @scip_ccall_check("SCIPstartProbing", (Ptr{SCIP},), pointer(scip))
-SCIPnewProbingNode(scip::SCIP_t) = @scip_ccall_check("SCIPnewProbingNode", (Ptr{SCIP},), pointer(scip))
-SCIPbacktrackProbing(scip::SCIP_t, probingdepth::Int) = @scip_ccall_check("SCIPbacktrackProbing", (Ptr{SCIP}, Int), pointer(scip), probingdepth)
-SCIPendProbing(scip::SCIP_t) = @scip_ccall_check("SCIPendProbing", (Ptr{SCIP},), pointer(scip))
-SCIPchgVarLbProbing(scip::SCIP_t, var::SCIP_VAR_t, newbound::SCIP_Real) = @scip_ccall_check("SCIPchgVarLbProbing", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(var), newbound)
-SCIPchgVarUbProbing(scip::SCIP_t, var::SCIP_VAR_t, newbound::SCIP_Real) = @scip_ccall_check("SCIPchgVarUbProbing", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(var), newbound)
-SCIPfixVarProbing(scip::SCIP_t, var::SCIP_VAR_t, fixedval::SCIP_Real) = @scip_ccall_check("SCIPfixVarProbing", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(var), fixedval)
-SCIPpropagateProbing(scip::SCIP_t, maxproprounds::Int, cutoff::SCIP_Bool_t, ndomredsfound::Int64) = @scip_ccall_check("SCIPpropagateProbing", (Ptr{SCIP}, Int, Ptr{SCIP_Bool}, Ptr{Int64}), pointer(scip), maxproprounds, pointer(cutoff), pointer(ndomredsfound))
-SCIPpropagateProbingImplications(scip::SCIP_t, cutoff::SCIP_Bool_t) = @scip_ccall_check("SCIPpropagateProbingImplications", (Ptr{SCIP}, Ptr{SCIP_Bool}), pointer(scip), pointer(cutoff))
-SCIPsolveProbingLP(scip::SCIP_t, itlim::Int, lperror::SCIP_Bool_t, cutoff::SCIP_Bool_t) = @scip_ccall_check("SCIPsolveProbingLP", (Ptr{SCIP}, Int, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), pointer(scip), itlim, pointer(lperror), pointer(cutoff))
-SCIPsolveProbingLPWithPricing(scip::SCIP_t, pretendroot::SCIP_Bool, displayinfo::SCIP_Bool, maxpricerounds::Int, lperror::SCIP_Bool_t, cutoff::SCIP_Bool_t) = @scip_ccall_check("SCIPsolveProbingLPWithPricing", (Ptr{SCIP}, SCIP_Bool, SCIP_Bool, Int, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), pointer(scip), pretendroot, displayinfo, maxpricerounds, pointer(lperror), pointer(cutoff))
-SCIPaddExternBranchCand(scip::SCIP_t, var::SCIP_VAR_t, score::SCIP_Real, solval::SCIP_Real) = @scip_ccall_check("SCIPaddExternBranchCand", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Real), pointer(scip), pointer(var), score, solval)
-SCIPcreateChild(scip::SCIP_t, node::SCIP_NODE_t, nodeselprio::SCIP_Real, estimate::SCIP_Real) = @scip_ccall_check("SCIPcreateChild", (Ptr{SCIP}, Ptr{Ptr{SCIP_NODE}}, SCIP_Real, SCIP_Real), pointer(scip), array(node), nodeselprio, estimate)
-SCIPbranchVar(scip::SCIP_t, var::SCIP_VAR_t, downchild::SCIP_NODE_t, eqchild::SCIP_NODE_t, upchild::SCIP_NODE_t) = @scip_ccall_check("SCIPbranchVar", (Ptr{SCIP}, Ptr{SCIP_VAR}, Ptr{Ptr{SCIP_NODE}}, Ptr{Ptr{SCIP_NODE}}, Ptr{Ptr{SCIP_NODE}}), pointer(scip), pointer(var), array(downchild), array(eqchild), array(upchild))
-SCIPbranchVarHole(scip::SCIP_t, var::SCIP_VAR_t, left::SCIP_Real, right::SCIP_Real, downchild::SCIP_NODE_t, upchild::SCIP_NODE_t) = @scip_ccall_check("SCIPbranchVarHole", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Real, Ptr{Ptr{SCIP_NODE}}, Ptr{Ptr{SCIP_NODE}}), pointer(scip), pointer(var), left, right, array(downchild), array(upchild))
-SCIPbranchVarVal(scip::SCIP_t, var::SCIP_VAR_t, val::SCIP_Real, downchild::SCIP_NODE_t, eqchild::SCIP_NODE_t, upchild::SCIP_NODE_t) = @scip_ccall_check("SCIPbranchVarVal", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real, Ptr{Ptr{SCIP_NODE}}, Ptr{Ptr{SCIP_NODE}}, Ptr{Ptr{SCIP_NODE}}), pointer(scip), pointer(var), val, array(downchild), array(eqchild), array(upchild))
-SCIPbranchLP(scip::SCIP_t, result::SCIP_RESULT_t) = @scip_ccall_check("SCIPbranchLP", (Ptr{SCIP}, Ptr{SCIP_RESULT}), pointer(scip), pointer(result))
-SCIPbranchExtern(scip::SCIP_t, result::SCIP_RESULT_t) = @scip_ccall_check("SCIPbranchExtern", (Ptr{SCIP}, Ptr{SCIP_RESULT}), pointer(scip), pointer(result))
-SCIPbranchPseudo(scip::SCIP_t, result::SCIP_RESULT_t) = @scip_ccall_check("SCIPbranchPseudo", (Ptr{SCIP}, Ptr{SCIP_RESULT}), pointer(scip), pointer(result))
-SCIPcreateSol(scip::SCIP_t, sol::SCIP_SOL_t, heur::SCIP_HEUR_t) = @scip_ccall_check("SCIPcreateSol", (Ptr{SCIP}, Ptr{Ptr{SCIP_SOL}}, Ptr{SCIP_HEUR}), pointer(scip), array(sol), pointer(heur))
-SCIPcreateLPSol(scip::SCIP_t, sol::SCIP_SOL_t, heur::SCIP_HEUR_t) = @scip_ccall_check("SCIPcreateLPSol", (Ptr{SCIP}, Ptr{Ptr{SCIP_SOL}}, Ptr{SCIP_HEUR}), pointer(scip), array(sol), pointer(heur))
-SCIPcreateNLPSol(scip::SCIP_t, sol::SCIP_SOL_t, heur::SCIP_HEUR_t) = @scip_ccall_check("SCIPcreateNLPSol", (Ptr{SCIP}, Ptr{Ptr{SCIP_SOL}}, Ptr{SCIP_HEUR}), pointer(scip), array(sol), pointer(heur))
-SCIPcreateRelaxSol(scip::SCIP_t, sol::SCIP_SOL_t, heur::SCIP_HEUR_t) = @scip_ccall_check("SCIPcreateRelaxSol", (Ptr{SCIP}, Ptr{Ptr{SCIP_SOL}}, Ptr{SCIP_HEUR}), pointer(scip), array(sol), pointer(heur))
-SCIPcreatePseudoSol(scip::SCIP_t, sol::SCIP_SOL_t, heur::SCIP_HEUR_t) = @scip_ccall_check("SCIPcreatePseudoSol", (Ptr{SCIP}, Ptr{Ptr{SCIP_SOL}}, Ptr{SCIP_HEUR}), pointer(scip), array(sol), pointer(heur))
-SCIPcreateCurrentSol(scip::SCIP_t, sol::SCIP_SOL_t, heur::SCIP_HEUR_t) = @scip_ccall_check("SCIPcreateCurrentSol", (Ptr{SCIP}, Ptr{Ptr{SCIP_SOL}}, Ptr{SCIP_HEUR}), pointer(scip), array(sol), pointer(heur))
-SCIPcreateUnknownSol(scip::SCIP_t, sol::SCIP_SOL_t, heur::SCIP_HEUR_t) = @scip_ccall_check("SCIPcreateUnknownSol", (Ptr{SCIP}, Ptr{Ptr{SCIP_SOL}}, Ptr{SCIP_HEUR}), pointer(scip), array(sol), pointer(heur))
-SCIPcreateOrigSol(scip::SCIP_t, sol::SCIP_SOL_t, heur::SCIP_HEUR_t) = @scip_ccall_check("SCIPcreateOrigSol", (Ptr{SCIP}, Ptr{Ptr{SCIP_SOL}}, Ptr{SCIP_HEUR}), pointer(scip), array(sol), pointer(heur))
-SCIPcreateSolCopy(scip::SCIP_t, sol::SCIP_SOL_t, sourcesol::SCIP_SOL_t) = @scip_ccall_check("SCIPcreateSolCopy", (Ptr{SCIP}, Ptr{Ptr{SCIP_SOL}}, Ptr{SCIP_SOL}), pointer(scip), array(sol), pointer(sourcesol))
-SCIPcreateFiniteSolCopy(scip::SCIP_t, sol::SCIP_SOL_t, sourcesol::SCIP_SOL_t, success::SCIP_Bool_t) = @scip_ccall_check("SCIPcreateFiniteSolCopy", (Ptr{SCIP}, Ptr{Ptr{SCIP_SOL}}, Ptr{SCIP_SOL}, Ptr{SCIP_Bool}), pointer(scip), array(sol), pointer(sourcesol), pointer(success))
-SCIPfreeSol(scip::SCIP_t, sol::SCIP_SOL_t) = @scip_ccall_check("SCIPfreeSol", (Ptr{SCIP}, Ptr{Ptr{SCIP_SOL}}), pointer(scip), array(sol))
-SCIPlinkLPSol(scip::SCIP_t, sol::SCIP_SOL_t) = @scip_ccall_check("SCIPlinkLPSol", (Ptr{SCIP}, Ptr{SCIP_SOL}), pointer(scip), pointer(sol))
-SCIPlinkNLPSol(scip::SCIP_t, sol::SCIP_SOL_t) = @scip_ccall_check("SCIPlinkNLPSol", (Ptr{SCIP}, Ptr{SCIP_SOL}), pointer(scip), pointer(sol))
-SCIPlinkRelaxSol(scip::SCIP_t, sol::SCIP_SOL_t) = @scip_ccall_check("SCIPlinkRelaxSol", (Ptr{SCIP}, Ptr{SCIP_SOL}), pointer(scip), pointer(sol))
-SCIPlinkPseudoSol(scip::SCIP_t, sol::SCIP_SOL_t) = @scip_ccall_check("SCIPlinkPseudoSol", (Ptr{SCIP}, Ptr{SCIP_SOL}), pointer(scip), pointer(sol))
-SCIPlinkCurrentSol(scip::SCIP_t, sol::SCIP_SOL_t) = @scip_ccall_check("SCIPlinkCurrentSol", (Ptr{SCIP}, Ptr{SCIP_SOL}), pointer(scip), pointer(sol))
-SCIPclearSol(scip::SCIP_t, sol::SCIP_SOL_t) = @scip_ccall_check("SCIPclearSol", (Ptr{SCIP}, Ptr{SCIP_SOL}), pointer(scip), pointer(sol))
-SCIPunlinkSol(scip::SCIP_t, sol::SCIP_SOL_t) = @scip_ccall_check("SCIPunlinkSol", (Ptr{SCIP}, Ptr{SCIP_SOL}), pointer(scip), pointer(sol))
-SCIPsetSolVal(scip::SCIP_t, sol::SCIP_SOL_t, var::SCIP_VAR_t, val::SCIP_Real) = @scip_ccall_check("SCIPsetSolVal", (Ptr{SCIP}, Ptr{SCIP_SOL}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(sol), pointer(var), val)
-SCIPsetSolVals(scip::SCIP_t, sol::SCIP_SOL_t, nvars::Int, vars::SCIP_VAR_t, vals::SCIP_Real_t) = @scip_ccall_check("SCIPsetSolVals", (Ptr{SCIP}, Ptr{SCIP_SOL}, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}), pointer(scip), pointer(sol), nvars, array(vars), pointer(vals))
-SCIPincSolVal(scip::SCIP_t, sol::SCIP_SOL_t, var::SCIP_VAR_t, incval::SCIP_Real) = @scip_ccall_check("SCIPincSolVal", (Ptr{SCIP}, Ptr{SCIP_SOL}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(sol), pointer(var), incval)
-SCIPgetSolVals(scip::SCIP_t, sol::SCIP_SOL_t, nvars::Int, vars::SCIP_VAR_t, vals::SCIP_Real_t) = @scip_ccall_check("SCIPgetSolVals", (Ptr{SCIP}, Ptr{SCIP_SOL}, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}), pointer(scip), pointer(sol), nvars, array(vars), pointer(vals))
-SCIPadjustImplicitSolVals(scip::SCIP_t, sol::SCIP_SOL_t, uselprows::SCIP_Bool) = @scip_ccall_check("SCIPadjustImplicitSolVals", (Ptr{SCIP}, Ptr{SCIP_SOL}, SCIP_Bool), pointer(scip), pointer(sol), uselprows)
-SCIProundSol(scip::SCIP_t, sol::SCIP_SOL_t, success::SCIP_Bool_t) = @scip_ccall_check("SCIProundSol", (Ptr{SCIP}, Ptr{SCIP_SOL}, Ptr{SCIP_Bool}), pointer(scip), pointer(sol), pointer(success))
-SCIPretransformSol(scip::SCIP_t, sol::SCIP_SOL_t) = @scip_ccall_check("SCIPretransformSol", (Ptr{SCIP}, Ptr{SCIP_SOL}), pointer(scip), pointer(sol))
-SCIPreadSol(scip::SCIP_t, filename::String) = @scip_ccall_check("SCIPreadSol", (Ptr{SCIP}, String), pointer(scip), filename)
-SCIPaddSol(scip::SCIP_t, sol::SCIP_SOL_t, stored::SCIP_Bool_t) = @scip_ccall_check("SCIPaddSol", (Ptr{SCIP}, Ptr{SCIP_SOL}, Ptr{SCIP_Bool}), pointer(scip), pointer(sol), pointer(stored))
-SCIPaddSolFree(scip::SCIP_t, sol::SCIP_SOL_t, stored::SCIP_Bool_t) = @scip_ccall_check("SCIPaddSolFree", (Ptr{SCIP}, Ptr{Ptr{SCIP_SOL}}, Ptr{SCIP_Bool}), pointer(scip), array(sol), pointer(stored))
-SCIPaddCurrentSol(scip::SCIP_t, heur::SCIP_HEUR_t, stored::SCIP_Bool_t) = @scip_ccall_check("SCIPaddCurrentSol", (Ptr{SCIP}, Ptr{SCIP_HEUR}, Ptr{SCIP_Bool}), pointer(scip), pointer(heur), pointer(stored))
-SCIPtrySol(scip::SCIP_t, sol::SCIP_SOL_t, printreason::SCIP_Bool, checkbounds::SCIP_Bool, checkintegrality::SCIP_Bool, checklprows::SCIP_Bool, stored::SCIP_Bool_t) = @scip_ccall_check("SCIPtrySol", (Ptr{SCIP}, Ptr{SCIP_SOL}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, Ptr{SCIP_Bool}), pointer(scip), pointer(sol), printreason, checkbounds, checkintegrality, checklprows, pointer(stored))
-SCIPtrySolFree(scip::SCIP_t, sol::SCIP_SOL_t, printreason::SCIP_Bool, checkbounds::SCIP_Bool, checkintegrality::SCIP_Bool, checklprows::SCIP_Bool, stored::SCIP_Bool_t) = @scip_ccall_check("SCIPtrySolFree", (Ptr{SCIP}, Ptr{Ptr{SCIP_SOL}}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, Ptr{SCIP_Bool}), pointer(scip), array(sol), printreason, checkbounds, checkintegrality, checklprows, pointer(stored))
-SCIPtryCurrentSol(scip::SCIP_t, heur::SCIP_HEUR_t, printreason::SCIP_Bool, checkintegrality::SCIP_Bool, checklprows::SCIP_Bool, stored::SCIP_Bool_t) = @scip_ccall_check("SCIPtryCurrentSol", (Ptr{SCIP}, Ptr{SCIP_HEUR}, SCIP_Bool, SCIP_Bool, SCIP_Bool, Ptr{SCIP_Bool}), pointer(scip), pointer(heur), printreason, checkintegrality, checklprows, pointer(stored))
-SCIPcheckSol(scip::SCIP_t, sol::SCIP_SOL_t, printreason::SCIP_Bool, checkbounds::SCIP_Bool, checkintegrality::SCIP_Bool, checklprows::SCIP_Bool, feasible::SCIP_Bool_t) = @scip_ccall_check("SCIPcheckSol", (Ptr{SCIP}, Ptr{SCIP_SOL}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, Ptr{SCIP_Bool}), pointer(scip), pointer(sol), printreason, checkbounds, checkintegrality, checklprows, pointer(feasible))
-SCIPcheckSolOrig(scip::SCIP_t, sol::SCIP_SOL_t, feasible::SCIP_Bool_t, printreason::SCIP_Bool, completely::SCIP_Bool) = @scip_ccall_check("SCIPcheckSolOrig", (Ptr{SCIP}, Ptr{SCIP_SOL}, Ptr{SCIP_Bool}, SCIP_Bool, SCIP_Bool), pointer(scip), pointer(sol), pointer(feasible), printreason, completely)
-SCIPdropEvent(scip::SCIP_t, eventtype::SCIP_EVENTTYPE, eventhdlr::SCIP_EVENTHDLR_t, eventdata::SCIP_EVENTDATA_t, filterpos::Int) = @scip_ccall_check("SCIPdropEvent", (Ptr{SCIP}, SCIP_EVENTTYPE, Ptr{SCIP_EVENTHDLR}, Ptr{SCIP_EVENTDATA}, Int), pointer(scip), eventtype, pointer(eventhdlr), pointer(eventdata), filterpos)
-SCIPdropVarEvent(scip::SCIP_t, var::SCIP_VAR_t, eventtype::SCIP_EVENTTYPE, eventhdlr::SCIP_EVENTHDLR_t, eventdata::SCIP_EVENTDATA_t, filterpos::Int) = @scip_ccall_check("SCIPdropVarEvent", (Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_EVENTTYPE, Ptr{SCIP_EVENTHDLR}, Ptr{SCIP_EVENTDATA}, Int), pointer(scip), pointer(var), eventtype, pointer(eventhdlr), pointer(eventdata), filterpos)
-SCIPdropRowEvent(scip::SCIP_t, row::SCIP_ROW_t, eventtype::SCIP_EVENTTYPE, eventhdlr::SCIP_EVENTHDLR_t, eventdata::SCIP_EVENTDATA_t, filterpos::Int) = @scip_ccall_check("SCIPdropRowEvent", (Ptr{SCIP}, Ptr{SCIP_ROW}, SCIP_EVENTTYPE, Ptr{SCIP_EVENTHDLR}, Ptr{SCIP_EVENTDATA}, Int), pointer(scip), pointer(row), eventtype, pointer(eventhdlr), pointer(eventdata), filterpos)
-SCIPcutoffNode(scip::SCIP_t, node::SCIP_NODE_t) = @scip_ccall_check("SCIPcutoffNode", (Ptr{SCIP}, Ptr{SCIP_NODE}), pointer(scip), pointer(node))
-SCIPrepropagateNode(scip::SCIP_t, node::SCIP_NODE_t) = @scip_ccall_check("SCIPrepropagateNode", (Ptr{SCIP}, Ptr{SCIP_NODE}), pointer(scip), pointer(node))
-SCIPupdateCutoffbound(scip::SCIP_t, cutoffbound::SCIP_Real) = @scip_ccall_check("SCIPupdateCutoffbound", (Ptr{SCIP}, SCIP_Real), pointer(scip), cutoffbound)
-SCIPwriteImplicationConflictGraph(scip::SCIP_t, filename::String) = @scip_ccall_check("SCIPwriteImplicationConflictGraph", (Ptr{SCIP}, String), pointer(scip), filename)
-SCIPcreateClock(scip::SCIP_t, clck::SCIP_CLOCK_t) = @scip_ccall_check("SCIPcreateClock", (Ptr{SCIP}, Ptr{Ptr{SCIP_CLOCK}}), pointer(scip), array(clck))
-SCIPcreateCPUClock(scip::SCIP_t, clck::SCIP_CLOCK_t) = @scip_ccall_check("SCIPcreateCPUClock", (Ptr{SCIP}, Ptr{Ptr{SCIP_CLOCK}}), pointer(scip), array(clck))
-SCIPcreateWallClock(scip::SCIP_t, clck::SCIP_CLOCK_t) = @scip_ccall_check("SCIPcreateWallClock", (Ptr{SCIP}, Ptr{Ptr{SCIP_CLOCK}}), pointer(scip), array(clck))
-SCIPfreeClock(scip::SCIP_t, clck::SCIP_CLOCK_t) = @scip_ccall_check("SCIPfreeClock", (Ptr{SCIP}, Ptr{Ptr{SCIP_CLOCK}}), pointer(scip), array(clck))
-SCIPresetClock(scip::SCIP_t, clck::SCIP_CLOCK_t) = @scip_ccall_check("SCIPresetClock", (Ptr{SCIP}, Ptr{SCIP_CLOCK}), pointer(scip), pointer(clck))
-SCIPstartClock(scip::SCIP_t, clck::SCIP_CLOCK_t) = @scip_ccall_check("SCIPstartClock", (Ptr{SCIP}, Ptr{SCIP_CLOCK}), pointer(scip), pointer(clck))
-SCIPstopClock(scip::SCIP_t, clck::SCIP_CLOCK_t) = @scip_ccall_check("SCIPstopClock", (Ptr{SCIP}, Ptr{SCIP_CLOCK}), pointer(scip), pointer(clck))
-SCIPstartSolvingTime(scip::SCIP_t) = @scip_ccall_check("SCIPstartSolvingTime", (Ptr{SCIP},), pointer(scip))
-SCIPstopSolvingTime(scip::SCIP_t) = @scip_ccall_check("SCIPstopSolvingTime", (Ptr{SCIP},), pointer(scip))
-SCIPsetClockTime(scip::SCIP_t, clck::SCIP_CLOCK_t, sec::SCIP_Real) = @scip_ccall_check("SCIPsetClockTime", (Ptr{SCIP}, Ptr{SCIP_CLOCK}, SCIP_Real), pointer(scip), pointer(clck), sec)
-SCIPchgFeastol(scip::SCIP_t, feastol::SCIP_Real) = @scip_ccall_check("SCIPchgFeastol", (Ptr{SCIP}, SCIP_Real), pointer(scip), feastol)
-SCIPchgLpfeastol(scip::SCIP_t, lpfeastol::SCIP_Real, printnewvalue::SCIP_Bool) = @scip_ccall_check("SCIPchgLpfeastol", (Ptr{SCIP}, SCIP_Real, SCIP_Bool), pointer(scip), lpfeastol, printnewvalue)
-SCIPchgDualfeastol(scip::SCIP_t, dualfeastol::SCIP_Real) = @scip_ccall_check("SCIPchgDualfeastol", (Ptr{SCIP}, SCIP_Real), pointer(scip), dualfeastol)
-SCIPchgBarrierconvtol(scip::SCIP_t, barrierconvtol::SCIP_Real) = @scip_ccall_check("SCIPchgBarrierconvtol", (Ptr{SCIP}, SCIP_Real), pointer(scip), barrierconvtol)
-SCIPcreateRealarray(scip::SCIP_t, realarray::SCIP_REALARRAY_t) = @scip_ccall_check("SCIPcreateRealarray", (Ptr{SCIP}, Ptr{Ptr{SCIP_REALARRAY}}), pointer(scip), array(realarray))
-SCIPfreeRealarray(scip::SCIP_t, realarray::SCIP_REALARRAY_t) = @scip_ccall_check("SCIPfreeRealarray", (Ptr{SCIP}, Ptr{Ptr{SCIP_REALARRAY}}), pointer(scip), array(realarray))
-SCIPextendRealarray(scip::SCIP_t, realarray::SCIP_REALARRAY_t, minidx::Int, maxidx::Int) = @scip_ccall_check("SCIPextendRealarray", (Ptr{SCIP}, Ptr{SCIP_REALARRAY}, Int, Int), pointer(scip), pointer(realarray), minidx, maxidx)
-SCIPclearRealarray(scip::SCIP_t, realarray::SCIP_REALARRAY_t) = @scip_ccall_check("SCIPclearRealarray", (Ptr{SCIP}, Ptr{SCIP_REALARRAY}), pointer(scip), pointer(realarray))
-SCIPsetRealarrayVal(scip::SCIP_t, realarray::SCIP_REALARRAY_t, idx::Int, val::SCIP_Real) = @scip_ccall_check("SCIPsetRealarrayVal", (Ptr{SCIP}, Ptr{SCIP_REALARRAY}, Int, SCIP_Real), pointer(scip), pointer(realarray), idx, val)
-SCIPincRealarrayVal(scip::SCIP_t, realarray::SCIP_REALARRAY_t, idx::Int, incval::SCIP_Real) = @scip_ccall_check("SCIPincRealarrayVal", (Ptr{SCIP}, Ptr{SCIP_REALARRAY}, Int, SCIP_Real), pointer(scip), pointer(realarray), idx, incval)
-SCIPcreateIntarray(scip::SCIP_t, intarray::SCIP_INTARRAY_t) = @scip_ccall_check("SCIPcreateIntarray", (Ptr{SCIP}, Ptr{Ptr{SCIP_INTARRAY}}), pointer(scip), array(intarray))
-SCIPfreeIntarray(scip::SCIP_t, intarray::SCIP_INTARRAY_t) = @scip_ccall_check("SCIPfreeIntarray", (Ptr{SCIP}, Ptr{Ptr{SCIP_INTARRAY}}), pointer(scip), array(intarray))
-SCIPextendIntarray(scip::SCIP_t, intarray::SCIP_INTARRAY_t, minidx::Int, maxidx::Int) = @scip_ccall_check("SCIPextendIntarray", (Ptr{SCIP}, Ptr{SCIP_INTARRAY}, Int, Int), pointer(scip), pointer(intarray), minidx, maxidx)
-SCIPclearIntarray(scip::SCIP_t, intarray::SCIP_INTARRAY_t) = @scip_ccall_check("SCIPclearIntarray", (Ptr{SCIP}, Ptr{SCIP_INTARRAY}), pointer(scip), pointer(intarray))
-SCIPsetIntarrayVal(scip::SCIP_t, intarray::SCIP_INTARRAY_t, idx::Int, val::Int) = @scip_ccall_check("SCIPsetIntarrayVal", (Ptr{SCIP}, Ptr{SCIP_INTARRAY}, Int, Int), pointer(scip), pointer(intarray), idx, val)
-SCIPincIntarrayVal(scip::SCIP_t, intarray::SCIP_INTARRAY_t, idx::Int, incval::Int) = @scip_ccall_check("SCIPincIntarrayVal", (Ptr{SCIP}, Ptr{SCIP_INTARRAY}, Int, Int), pointer(scip), pointer(intarray), idx, incval)
-SCIPcreateBoolarray(scip::SCIP_t, boolarray::SCIP_BOOLARRAY_t) = @scip_ccall_check("SCIPcreateBoolarray", (Ptr{SCIP}, Ptr{Ptr{SCIP_BOOLARRAY}}), pointer(scip), array(boolarray))
-SCIPfreeBoolarray(scip::SCIP_t, boolarray::SCIP_BOOLARRAY_t) = @scip_ccall_check("SCIPfreeBoolarray", (Ptr{SCIP}, Ptr{Ptr{SCIP_BOOLARRAY}}), pointer(scip), array(boolarray))
-SCIPextendBoolarray(scip::SCIP_t, boolarray::SCIP_BOOLARRAY_t, minidx::Int, maxidx::Int) = @scip_ccall_check("SCIPextendBoolarray", (Ptr{SCIP}, Ptr{SCIP_BOOLARRAY}, Int, Int), pointer(scip), pointer(boolarray), minidx, maxidx)
-SCIPclearBoolarray(scip::SCIP_t, boolarray::SCIP_BOOLARRAY_t) = @scip_ccall_check("SCIPclearBoolarray", (Ptr{SCIP}, Ptr{SCIP_BOOLARRAY}), pointer(scip), pointer(boolarray))
-SCIPsetBoolarrayVal(scip::SCIP_t, boolarray::SCIP_BOOLARRAY_t, idx::Int, val::SCIP_Bool) = @scip_ccall_check("SCIPsetBoolarrayVal", (Ptr{SCIP}, Ptr{SCIP_BOOLARRAY}, Int, SCIP_Bool), pointer(scip), pointer(boolarray), idx, val)
-SCIPcreatePtrarray(scip::SCIP_t, ptrarray::SCIP_PTRARRAY_t) = @scip_ccall_check("SCIPcreatePtrarray", (Ptr{SCIP}, Ptr{Ptr{SCIP_PTRARRAY}}), pointer(scip), array(ptrarray))
-SCIPfreePtrarray(scip::SCIP_t, ptrarray::SCIP_PTRARRAY_t) = @scip_ccall_check("SCIPfreePtrarray", (Ptr{SCIP}, Ptr{Ptr{SCIP_PTRARRAY}}), pointer(scip), array(ptrarray))
-SCIPextendPtrarray(scip::SCIP_t, ptrarray::SCIP_PTRARRAY_t, minidx::Int, maxidx::Int) = @scip_ccall_check("SCIPextendPtrarray", (Ptr{SCIP}, Ptr{SCIP_PTRARRAY}, Int, Int), pointer(scip), pointer(ptrarray), minidx, maxidx)
-SCIPclearPtrarray(scip::SCIP_t, ptrarray::SCIP_PTRARRAY_t) = @scip_ccall_check("SCIPclearPtrarray", (Ptr{SCIP}, Ptr{SCIP_PTRARRAY}), pointer(scip), pointer(ptrarray))
-SCIPincludeConshdlrCountsols(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrCountsols", (Ptr{SCIP},), pointer(scip))
-SCIPcount(scip::SCIP_t) = @scip_ccall_check("SCIPcount", (Ptr{SCIP},), pointer(scip))
-SCIPsetParamsCountsols(scip::SCIP_t) = @scip_ccall_check("SCIPsetParamsCountsols", (Ptr{SCIP},), pointer(scip))
-SCIPincludeConshdlrLogicor(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrLogicor", (Ptr{SCIP},), pointer(scip))
-SCIPcreateConsLogicor(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsLogicor", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), pointer(scip), array(cons), name, nvars, array(vars), initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
-SCIPcreateConsBasicLogicor(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t) = @scip_ccall_check("SCIPcreateConsBasicLogicor", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}), pointer(scip), array(cons), name, nvars, array(vars))
-SCIPaddCoefLogicor(scip::SCIP_t, cons::SCIP_CONS_t, var::SCIP_VAR_t) = @scip_ccall_check("SCIPaddCoefLogicor", (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_VAR}), pointer(scip), pointer(cons), pointer(var))
-SCIPincludeConshdlrNonlinear(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrNonlinear", (Ptr{SCIP},), pointer(scip))
-SCIPcreateConsNonlinear(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nlinvars::Int, linvars::SCIP_VAR_t, lincoefs::SCIP_Real_t, nexprtrees::Int, exprtrees::SCIP_EXPRTREE_t, nonlincoefs::SCIP_Real_t, lhs::SCIP_Real, rhs::SCIP_Real, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsNonlinear", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, Int, Ptr{Ptr{SCIP_EXPRTREE}}, Ptr{SCIP_Real}, SCIP_Real, SCIP_Real, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), pointer(scip), array(cons), name, nlinvars, array(linvars), pointer(lincoefs), nexprtrees, array(exprtrees), pointer(nonlincoefs), lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
-SCIPcreateConsBasicNonlinear(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nlinvars::Int, linvars::SCIP_VAR_t, lincoefs::SCIP_Real_t, nexprtrees::Int, exprtrees::SCIP_EXPRTREE_t, nonlincoefs::SCIP_Real_t, lhs::SCIP_Real, rhs::SCIP_Real) = @scip_ccall_check("SCIPcreateConsBasicNonlinear", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, Int, Ptr{Ptr{SCIP_EXPRTREE}}, Ptr{SCIP_Real}, SCIP_Real, SCIP_Real), pointer(scip), array(cons), name, nlinvars, array(linvars), pointer(lincoefs), nexprtrees, array(exprtrees), pointer(nonlincoefs), lhs, rhs)
-SCIPcreateConsNonlinear2(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nlinvars::Int, linvars::SCIP_VAR_t, lincoefs::SCIP_Real_t, exprgraphnode::SCIP_EXPRGRAPHNODE_t, lhs::SCIP_Real, rhs::SCIP_Real, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsNonlinear2", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, Ptr{SCIP_EXPRGRAPHNODE}, SCIP_Real, SCIP_Real, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), pointer(scip), array(cons), name, nlinvars, array(linvars), pointer(lincoefs), pointer(exprgraphnode), lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
-SCIPcreateConsBasicNonlinear2(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nlinvars::Int, linvars::SCIP_VAR_t, lincoefs::SCIP_Real_t, exprgraphnode::SCIP_EXPRGRAPHNODE_t, lhs::SCIP_Real, rhs::SCIP_Real) = @scip_ccall_check("SCIPcreateConsBasicNonlinear2", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, Ptr{SCIP_EXPRGRAPHNODE}, SCIP_Real, SCIP_Real), pointer(scip), array(cons), name, nlinvars, array(linvars), pointer(lincoefs), pointer(exprgraphnode), lhs, rhs)
-SCIPaddLinearVarNonlinear(scip::SCIP_t, cons::SCIP_CONS_t, var::SCIP_VAR_t, coef::SCIP_Real) = @scip_ccall_check("SCIPaddLinearVarNonlinear", (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_VAR}, SCIP_Real), pointer(scip), pointer(cons), pointer(var), coef)
-SCIPsetExprtreesNonlinear(scip::SCIP_t, cons::SCIP_CONS_t, nexprtrees::Int, exprtrees::SCIP_EXPRTREE_t, coefs::SCIP_Real_t) = @scip_ccall_check("SCIPsetExprtreesNonlinear", (Ptr{SCIP}, Ptr{SCIP_CONS}, Int, Ptr{Ptr{SCIP_EXPRTREE}}, Ptr{SCIP_Real}), pointer(scip), pointer(cons), nexprtrees, array(exprtrees), pointer(coefs))
-SCIPaddExprtreesNonlinear(scip::SCIP_t, cons::SCIP_CONS_t, nexprtrees::Int, exprtrees::SCIP_EXPRTREE_t, coefs::SCIP_Real_t) = @scip_ccall_check("SCIPaddExprtreesNonlinear", (Ptr{SCIP}, Ptr{SCIP_CONS}, Int, Ptr{Ptr{SCIP_EXPRTREE}}, Ptr{SCIP_Real}), pointer(scip), pointer(cons), nexprtrees, array(exprtrees), pointer(coefs))
-SCIPgetNlRowNonlinear(scip::SCIP_t, cons::SCIP_CONS_t, nlrow::SCIP_NLROW_t) = @scip_ccall_check("SCIPgetNlRowNonlinear", (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{Ptr{SCIP_NLROW}}), pointer(scip), pointer(cons), array(nlrow))
-SCIPcheckCurvatureNonlinear(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPcheckCurvatureNonlinear", (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
-SCIPgetCurvatureNonlinear(scip::SCIP_t, cons::SCIP_CONS_t, checkcurv::SCIP_Bool, curvature::SCIP_EXPRCURV_t) = @scip_ccall_check("SCIPgetCurvatureNonlinear", (Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool, Ptr{SCIP_EXPRCURV}), pointer(scip), pointer(cons), checkcurv, pointer(curvature))
-SCIPgetExprtreeCurvaturesNonlinear(scip::SCIP_t, cons::SCIP_CONS_t, checkcurv::SCIP_Bool, curvatures::SCIP_EXPRCURV_t) = @scip_ccall_check("SCIPgetExprtreeCurvaturesNonlinear", (Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool, Ptr{Ptr{SCIP_EXPRCURV}}), pointer(scip), pointer(cons), checkcurv, array(curvatures))
-SCIPgetViolationNonlinear(scip::SCIP_t, cons::SCIP_CONS_t, sol::SCIP_SOL_t, violation::SCIP_Real_t) = @scip_ccall_check("SCIPgetViolationNonlinear", (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_SOL}, Ptr{SCIP_Real}), pointer(scip), pointer(cons), pointer(sol), pointer(violation))
-SCIPincludeConshdlrSetppc(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrSetppc", (Ptr{SCIP},), pointer(scip))
-SCIPcreateConsSetpart(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsSetpart", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), pointer(scip), array(cons), name, nvars, array(vars), initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
-SCIPcreateConsBasicSetpart(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t) = @scip_ccall_check("SCIPcreateConsBasicSetpart", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}), pointer(scip), array(cons), name, nvars, array(vars))
-SCIPcreateConsSetpack(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsSetpack", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), pointer(scip), array(cons), name, nvars, array(vars), initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
-SCIPcreateConsBasicSetpack(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t) = @scip_ccall_check("SCIPcreateConsBasicSetpack", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}), pointer(scip), array(cons), name, nvars, array(vars))
-SCIPcreateConsSetcover(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsSetcover", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), pointer(scip), array(cons), name, nvars, array(vars), initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
-SCIPcreateConsBasicSetcover(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t) = @scip_ccall_check("SCIPcreateConsBasicSetcover", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}), pointer(scip), array(cons), name, nvars, array(vars))
-SCIPaddCoefSetppc(scip::SCIP_t, cons::SCIP_CONS_t, var::SCIP_VAR_t) = @scip_ccall_check("SCIPaddCoefSetppc", (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_VAR}), pointer(scip), pointer(cons), pointer(var))
-SCIPdialoghdlrAddInputLine(dialoghdlr::SCIP_DIALOGHDLR_t, inputline::String) = @scip_ccall_check("SCIPdialoghdlrAddInputLine", (Ptr{SCIP_DIALOGHDLR}, String), pointer(dialoghdlr), inputline)
-SCIPdialoghdlrAddHistory(dialoghdlr::SCIP_DIALOGHDLR_t, dialog::SCIP_DIALOG_t, command::String, escapecommand::SCIP_Bool) = @scip_ccall_check("SCIPdialoghdlrAddHistory", (Ptr{SCIP_DIALOGHDLR}, Ptr{SCIP_DIALOG}, String, SCIP_Bool), pointer(dialoghdlr), pointer(dialog), command, escapecommand)
-SCIPdialogDisplayMenu(dialog::SCIP_DIALOG_t, scip::SCIP_t) = @scip_ccall_check("SCIPdialogDisplayMenu", (Ptr{SCIP_DIALOG}, Ptr{SCIP}), pointer(dialog), pointer(scip))
-SCIPdialogDisplayMenuEntry(dialog::SCIP_DIALOG_t, scip::SCIP_t) = @scip_ccall_check("SCIPdialogDisplayMenuEntry", (Ptr{SCIP_DIALOG}, Ptr{SCIP}), pointer(dialog), pointer(scip))
-SCIPdialogDisplayCompletions(dialog::SCIP_DIALOG_t, scip::SCIP_t, entryname::String) = @scip_ccall_check("SCIPdialogDisplayCompletions", (Ptr{SCIP_DIALOG}, Ptr{SCIP}, String), pointer(dialog), pointer(scip), entryname)
-SCIPvarsGetProbvarBinary(vars::SCIP_VAR_t, negatedarr::SCIP_Bool_t, nvars::Int) = @scip_ccall_check("SCIPvarsGetProbvarBinary", (Ptr{Ptr{Ptr{SCIP_VAR}}}, Ptr{Ptr{SCIP_Bool}}, Int), array(vars), array(negatedarr), nvars)
-SCIPvarGetProbvarBinary(var::SCIP_VAR_t, negated::SCIP_Bool_t) = @scip_ccall_check("SCIPvarGetProbvarBinary", (Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Bool}), array(var), pointer(negated))
-SCIPvarGetProbvarBound(var::SCIP_VAR_t, bound::SCIP_Real_t, boundtype::SCIP_BOUNDTYPE_t) = @scip_ccall_check("SCIPvarGetProbvarBound", (Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, Ptr{SCIP_BOUNDTYPE}), array(var), pointer(bound), pointer(boundtype))
-SCIPvarGetProbvarHole(var::SCIP_VAR_t, left::SCIP_Real_t, right::SCIP_Real_t) = @scip_ccall_check("SCIPvarGetProbvarHole", (Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, Ptr{SCIP_Real}), array(var), pointer(left), pointer(right))
-SCIPvarGetOrigvarSum(var::SCIP_VAR_t, scalar::SCIP_Real_t, constant::SCIP_Real_t) = @scip_ccall_check("SCIPvarGetOrigvarSum", (Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, Ptr{SCIP_Real}), array(var), pointer(scalar), pointer(constant))
-SCIPvarGetAggregatedObj(var::SCIP_VAR_t, aggrobj::SCIP_Real_t) = @scip_ccall_check("SCIPvarGetAggregatedObj", (Ptr{SCIP_VAR}, Ptr{SCIP_Real}), pointer(var), pointer(aggrobj))
-SCIPvarSetInitial(var::SCIP_VAR_t, initial::SCIP_Bool) = @scip_ccall_check("SCIPvarSetInitial", (Ptr{SCIP_VAR}, SCIP_Bool), pointer(var), initial)
-SCIPvarSetRemovable(var::SCIP_VAR_t, removable::SCIP_Bool) = @scip_ccall_check("SCIPvarSetRemovable", (Ptr{SCIP_VAR}, SCIP_Bool), pointer(var), removable)
-SCIPincludeConshdlrBivariate(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrBivariate", (Ptr{SCIP},), pointer(scip))
-SCIPcreateConsBivariate(scip::SCIP_t, cons::SCIP_CONS_t, name::String, f::SCIP_EXPRTREE_t, convextype::SCIP_BIVAR_CONVEXITY, z::SCIP_VAR_t, zcoef::SCIP_Real, lhs::SCIP_Real, rhs::SCIP_Real, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsBivariate", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{SCIP_EXPRTREE}, SCIP_BIVAR_CONVEXITY, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Real, SCIP_Real, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), pointer(scip), array(cons), name, pointer(f), convextype, pointer(z), zcoef, lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
-SCIPcreateConsBasicBivariate(scip::SCIP_t, cons::SCIP_CONS_t, name::String, f::SCIP_EXPRTREE_t, convextype::SCIP_BIVAR_CONVEXITY, z::SCIP_VAR_t, zcoef::SCIP_Real, lhs::SCIP_Real, rhs::SCIP_Real) = @scip_ccall_check("SCIPcreateConsBasicBivariate", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{SCIP_EXPRTREE}, SCIP_BIVAR_CONVEXITY, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Real, SCIP_Real), pointer(scip), array(cons), name, pointer(f), convextype, pointer(z), zcoef, lhs, rhs)
-SCIPincludeConshdlrAbspower(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrAbspower", (Ptr{SCIP},), pointer(scip))
-SCIPcreateConsAbspower(scip::SCIP_t, cons::SCIP_CONS_t, name::String, x::SCIP_VAR_t, z::SCIP_VAR_t, exponent::SCIP_Real, xoffset::SCIP_Real, zcoef::SCIP_Real, lhs::SCIP_Real, rhs::SCIP_Real, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsAbspower", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{SCIP_VAR}, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Real, SCIP_Real, SCIP_Real, SCIP_Real, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), pointer(scip), array(cons), name, pointer(x), pointer(z), exponent, xoffset, zcoef, lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
-SCIPcreateConsBasicAbspower(scip::SCIP_t, cons::SCIP_CONS_t, name::String, x::SCIP_VAR_t, z::SCIP_VAR_t, exponent::SCIP_Real, xoffset::SCIP_Real, zcoef::SCIP_Real, lhs::SCIP_Real, rhs::SCIP_Real) = @scip_ccall_check("SCIPcreateConsBasicAbspower", (Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{SCIP_VAR}, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Real, SCIP_Real, SCIP_Real, SCIP_Real), pointer(scip), array(cons), name, pointer(x), pointer(z), exponent, xoffset, zcoef, lhs, rhs)
-SCIPgetNlRowAbspower(scip::SCIP_t, cons::SCIP_CONS_t, nlrow::SCIP_NLROW_t) = @scip_ccall_check("SCIPgetNlRowAbspower", (Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{Ptr{SCIP_NLROW}}), pointer(scip), pointer(cons), array(nlrow))
-SCIPincludeDefaultPlugins(scip::SCIP_t) = @scip_ccall_check("SCIPincludeDefaultPlugins", (Ptr{SCIP},), pointer(scip))
-SCIPincludeConshdlrCumulative(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrCumulative", (Ptr{SCIP},), pointer(scip))
-SCIPsetHminCumulative(scip::SCIP_t, cons::SCIP_CONS_t, hmin::Int) = @scip_ccall_check("SCIPsetHminCumulative", (Ptr{SCIP}, Ptr{SCIP_CONS}, Int), pointer(scip), pointer(cons), hmin)
-SCIPsetHmaxCumulative(scip::SCIP_t, cons::SCIP_CONS_t, hmax::Int) = @scip_ccall_check("SCIPsetHmaxCumulative", (Ptr{SCIP}, Ptr{SCIP_CONS}, Int), pointer(scip), pointer(cons), hmax)
-SCIPvisualizeConsCumulative(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPvisualizeConsCumulative", (Ptr{SCIP}, Ptr{SCIP_CONS}), pointer(scip), pointer(cons))
+
+SCIPincludeConshdlrOrbitope(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrOrbitope",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPcreateConsOrbitope(scip::SCIP_t, cons::SCIP_CONS_t, name::String, vars::SCIP_VAR_t, ispart::SCIP_Bool, nspcons::Int, nblocks::Int, resolveprop::SCIP_Bool, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsOrbitope",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{Ptr{Ptr{SCIP_VAR}}}, SCIP_Bool, Int, Int, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), array(cons), name, array(vars), ispart, nspcons, nblocks, resolveprop, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode
+)
+SCIPcreateConsBasicOrbitope(scip::SCIP_t, cons::SCIP_CONS_t, name::String, vars::SCIP_VAR_t, ispart::SCIP_Bool, nspcons::Int, nblocks::Int, resolveprop::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsBasicOrbitope",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{Ptr{Ptr{SCIP_VAR}}}, SCIP_Bool, Int, Int, SCIP_Bool), 
+	pointer(scip), array(cons), name, array(vars), ispart, nspcons, nblocks, resolveprop
+)
+SCIPincludeConshdlrVarbound(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrVarbound",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPcreateConsVarbound(scip::SCIP_t, cons::SCIP_CONS_t, name::String, var::SCIP_VAR_t, vbdvar::SCIP_VAR_t, vbdcoef::SCIP_Real, lhs::SCIP_Real, rhs::SCIP_Real, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsVarbound",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{SCIP_VAR}, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Real, SCIP_Real, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), array(cons), name, pointer(var), pointer(vbdvar), vbdcoef, lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode
+)
+SCIPcreateConsBasicVarbound(scip::SCIP_t, cons::SCIP_CONS_t, name::String, var::SCIP_VAR_t, vbdvar::SCIP_VAR_t, vbdcoef::SCIP_Real, lhs::SCIP_Real, rhs::SCIP_Real) = @scip_ccall_check("SCIPcreateConsBasicVarbound",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{SCIP_VAR}, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Real, SCIP_Real), 
+	pointer(scip), array(cons), name, pointer(var), pointer(vbdvar), vbdcoef, lhs, rhs
+)
+SCIPmessagehdlrRelease(messagehdlr::SCIP_MESSAGEHDLR_t) = @scip_ccall_check("SCIPmessagehdlrRelease",
+	(Ptr{Ptr{SCIP_MESSAGEHDLR}},), 
+	array(messagehdlr)
+)
+SCIPmessagehdlrSetData(messagehdlr::SCIP_MESSAGEHDLR_t, messagehdlrdata::SCIP_MESSAGEHDLRDATA_t) = @scip_ccall_check("SCIPmessagehdlrSetData",
+	(Ptr{SCIP_MESSAGEHDLR}, Ptr{SCIP_MESSAGEHDLRDATA}), 
+	pointer(messagehdlr), pointer(messagehdlrdata)
+)
+SCIPincludeConshdlrIntegral(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrIntegral",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPincludeConshdlrSOS1(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrSOS1",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPcreateConsSOS1(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t, weights::SCIP_Real_t, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsSOS1",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), array(cons), name, nvars, array(vars), pointer(weights), initial, separate, enforce, check, propagate, localVar, dynamic, removable, stickingatnode
+)
+SCIPcreateConsBasicSOS1(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t, weights::SCIP_Real_t) = @scip_ccall_check("SCIPcreateConsBasicSOS1",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}), 
+	pointer(scip), array(cons), name, nvars, array(vars), pointer(weights)
+)
+SCIPaddVarSOS1(scip::SCIP_t, cons::SCIP_CONS_t, var::SCIP_VAR_t, weight::SCIP_Real) = @scip_ccall_check("SCIPaddVarSOS1",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_VAR}, SCIP_Real), 
+	pointer(scip), pointer(cons), pointer(var), weight
+)
+SCIPappendVarSOS1(scip::SCIP_t, cons::SCIP_CONS_t, var::SCIP_VAR_t) = @scip_ccall_check("SCIPappendVarSOS1",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_VAR}), 
+	pointer(scip), pointer(cons), pointer(var)
+)
+SCIPexprtreeSetVars(tree::SCIP_EXPRTREE_t, nvars::Int, vars::SCIP_VAR_t) = @scip_ccall_check("SCIPexprtreeSetVars",
+	(Ptr{SCIP_EXPRTREE}, Int, Ptr{Ptr{SCIP_VAR}}), 
+	pointer(tree), nvars, array(vars)
+)
+SCIPexprtreeAddVars(tree::SCIP_EXPRTREE_t, nvars::Int, vars::SCIP_VAR_t) = @scip_ccall_check("SCIPexprtreeAddVars",
+	(Ptr{SCIP_EXPRTREE}, Int, Ptr{Ptr{SCIP_VAR}}), 
+	pointer(tree), nvars, array(vars)
+)
+SCIPincludeConshdlrLinking(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrLinking",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPincludeConshdlrIndicator(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrIndicator",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPcreateConsIndicator(scip::SCIP_t, cons::SCIP_CONS_t, name::String, binvar::SCIP_VAR_t, nvars::Int, vars::SCIP_VAR_t, vals::SCIP_Real_t, rhs::SCIP_Real, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsIndicator",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{SCIP_VAR}, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, SCIP_Real, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), array(cons), name, pointer(binvar), nvars, array(vars), pointer(vals), rhs, initial, separate, enforce, check, propagate, localVar, dynamic, removable, stickingatnode
+)
+SCIPcreateConsBasicIndicator(scip::SCIP_t, cons::SCIP_CONS_t, name::String, binvar::SCIP_VAR_t, nvars::Int, vars::SCIP_VAR_t, vals::SCIP_Real_t, rhs::SCIP_Real) = @scip_ccall_check("SCIPcreateConsBasicIndicator",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{SCIP_VAR}, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, SCIP_Real), 
+	pointer(scip), array(cons), name, pointer(binvar), nvars, array(vars), pointer(vals), rhs
+)
+SCIPcreateConsIndicatorLinCons(scip::SCIP_t, cons::SCIP_CONS_t, name::String, binvar::SCIP_VAR_t, lincons::SCIP_CONS_t, slackvar::SCIP_VAR_t, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsIndicatorLinCons",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{SCIP_VAR}, Ptr{SCIP_CONS}, Ptr{SCIP_VAR}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), array(cons), name, pointer(binvar), pointer(lincons), pointer(slackvar), initial, separate, enforce, check, propagate, localVar, dynamic, removable, stickingatnode
+)
+SCIPcreateConsBasicIndicatorLinCons(scip::SCIP_t, cons::SCIP_CONS_t, name::String, binvar::SCIP_VAR_t, lincons::SCIP_CONS_t, slackvar::SCIP_VAR_t) = @scip_ccall_check("SCIPcreateConsBasicIndicatorLinCons",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{SCIP_VAR}, Ptr{SCIP_CONS}, Ptr{SCIP_VAR}), 
+	pointer(scip), array(cons), name, pointer(binvar), pointer(lincons), pointer(slackvar)
+)
+SCIPaddVarIndicator(scip::SCIP_t, cons::SCIP_CONS_t, var::SCIP_VAR_t, val::SCIP_Real) = @scip_ccall_check("SCIPaddVarIndicator",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_VAR}, SCIP_Real), 
+	pointer(scip), pointer(cons), pointer(var), val
+)
+SCIPsetLinearConsIndicator(scip::SCIP_t, cons::SCIP_CONS_t, lincons::SCIP_CONS_t) = @scip_ccall_check("SCIPsetLinearConsIndicator",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_CONS}), 
+	pointer(scip), pointer(cons), pointer(lincons)
+)
+SCIPsetBinaryVarIndicator(scip::SCIP_t, cons::SCIP_CONS_t, binvar::SCIP_VAR_t) = @scip_ccall_check("SCIPsetBinaryVarIndicator",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_VAR}), 
+	pointer(scip), pointer(cons), pointer(binvar)
+)
+SCIPmakeIndicatorFeasible(scip::SCIP_t, cons::SCIP_CONS_t, sol::SCIP_SOL_t, changed::SCIP_Bool_t) = @scip_ccall_check("SCIPmakeIndicatorFeasible",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_SOL}, Ptr{SCIP_Bool}), 
+	pointer(scip), pointer(cons), pointer(sol), pointer(changed)
+)
+SCIPmakeIndicatorsFeasible(scip::SCIP_t, conshdlr::SCIP_CONSHDLR_t, sol::SCIP_SOL_t, changed::SCIP_Bool_t) = @scip_ccall_check("SCIPmakeIndicatorsFeasible",
+	(Ptr{SCIP}, Ptr{SCIP_CONSHDLR}, Ptr{SCIP_SOL}, Ptr{SCIP_Bool}), 
+	pointer(scip), pointer(conshdlr), pointer(sol), pointer(changed)
+)
+SCIPaddLinearConsIndicator(scip::SCIP_t, conshdlr::SCIP_CONSHDLR_t, lincons::SCIP_CONS_t) = @scip_ccall_check("SCIPaddLinearConsIndicator",
+	(Ptr{SCIP}, Ptr{SCIP_CONSHDLR}, Ptr{SCIP_CONS}), 
+	pointer(scip), pointer(conshdlr), pointer(lincons)
+)
+SCIPaddRowIndicator(scip::SCIP_t, conshdlr::SCIP_CONSHDLR_t, row::SCIP_ROW_t) = @scip_ccall_check("SCIPaddRowIndicator",
+	(Ptr{SCIP}, Ptr{SCIP_CONSHDLR}, Ptr{SCIP_ROW}), 
+	pointer(scip), pointer(conshdlr), pointer(row)
+)
+SCIPincludeConshdlrXor(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrXor",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPcreateConsXor(scip::SCIP_t, cons::SCIP_CONS_t, name::String, rhs::SCIP_Bool, nvars::Int, vars::SCIP_VAR_t, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsXor",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, SCIP_Bool, Int, Ptr{Ptr{SCIP_VAR}}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), array(cons), name, rhs, nvars, array(vars), initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode
+)
+SCIPcreateConsBasicXor(scip::SCIP_t, cons::SCIP_CONS_t, name::String, rhs::SCIP_Bool, nvars::Int, vars::SCIP_VAR_t) = @scip_ccall_check("SCIPcreateConsBasicXor",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, SCIP_Bool, Int, Ptr{Ptr{SCIP_VAR}}), 
+	pointer(scip), array(cons), name, rhs, nvars, array(vars)
+)
+SCIPincludeConshdlrKnapsack(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrKnapsack",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPcreateConsKnapsack(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t, weights::Int64, capacity::Int64, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsKnapsack",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{Int64}, Int64, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), array(cons), name, nvars, array(vars), pointer(weights), capacity, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode
+)
+SCIPcreateConsBasicKnapsack(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t, weights::Int64, capacity::Int64) = @scip_ccall_check("SCIPcreateConsBasicKnapsack",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{Int64}, Int64), 
+	pointer(scip), array(cons), name, nvars, array(vars), pointer(weights), capacity
+)
+SCIPaddCoefKnapsack(scip::SCIP_t, cons::SCIP_CONS_t, var::SCIP_VAR_t, weight::Int64) = @scip_ccall_check("SCIPaddCoefKnapsack",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_VAR}, Int64), 
+	pointer(scip), pointer(cons), pointer(var), weight
+)
+SCIPchgCapacityKnapsack(scip::SCIP_t, cons::SCIP_CONS_t, capacity::Int64) = @scip_ccall_check("SCIPchgCapacityKnapsack",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Int64), 
+	pointer(scip), pointer(cons), capacity
+)
+SCIPincludeConshdlrSOS2(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrSOS2",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPcreateConsSOS2(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t, weights::SCIP_Real_t, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsSOS2",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), array(cons), name, nvars, array(vars), pointer(weights), initial, separate, enforce, check, propagate, localVar, dynamic, removable, stickingatnode
+)
+SCIPcreateConsBasicSOS2(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t, weights::SCIP_Real_t) = @scip_ccall_check("SCIPcreateConsBasicSOS2",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}), 
+	pointer(scip), array(cons), name, nvars, array(vars), pointer(weights)
+)
+SCIPaddVarSOS2(scip::SCIP_t, cons::SCIP_CONS_t, var::SCIP_VAR_t, weight::SCIP_Real) = @scip_ccall_check("SCIPaddVarSOS2",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_VAR}, SCIP_Real), 
+	pointer(scip), pointer(cons), pointer(var), weight
+)
+SCIPappendVarSOS2(scip::SCIP_t, cons::SCIP_CONS_t, var::SCIP_VAR_t) = @scip_ccall_check("SCIPappendVarSOS2",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_VAR}), 
+	pointer(scip), pointer(cons), pointer(var)
+)
+SCIPincludeConshdlrBounddisjunction(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrBounddisjunction",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPcreateConsBounddisjunction(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t, boundtypes::SCIP_BOUNDTYPE_t, bounds::SCIP_Real_t, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsBounddisjunction",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_BOUNDTYPE}, Ptr{SCIP_Real}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), array(cons), name, nvars, array(vars), pointer(boundtypes), pointer(bounds), initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode
+)
+SCIPcreateConsBasicBounddisjunction(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t, boundtypes::SCIP_BOUNDTYPE_t, bounds::SCIP_Real_t) = @scip_ccall_check("SCIPcreateConsBasicBounddisjunction",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_BOUNDTYPE}, Ptr{SCIP_Real}), 
+	pointer(scip), array(cons), name, nvars, array(vars), pointer(boundtypes), pointer(bounds)
+)
+SCIPincludeConshdlrPseudoboolean(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrPseudoboolean",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPcreateConsPseudobooleanWithConss(scip::SCIP_t, cons::SCIP_CONS_t, name::String, lincons::SCIP_CONS_t, linconstype::SCIP_LINEARCONSTYPE, andconss::SCIP_CONS_t, andcoefs::SCIP_Real_t, nandconss::Int, indvar::SCIP_VAR_t, weight::SCIP_Real, issoftcons::SCIP_Bool, intvar::SCIP_VAR_t, lhs::SCIP_Real, rhs::SCIP_Real, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsPseudobooleanWithConss",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{SCIP_CONS}, SCIP_LINEARCONSTYPE, Ptr{Ptr{SCIP_CONS}}, Ptr{SCIP_Real}, Int, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Bool, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Real, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), array(cons), name, pointer(lincons), linconstype, array(andconss), pointer(andcoefs), nandconss, pointer(indvar), weight, issoftcons, pointer(intvar), lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode
+)
+SCIPincludeConshdlrAnd(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrAnd",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPcreateConsAnd(scip::SCIP_t, cons::SCIP_CONS_t, name::String, resvar::SCIP_VAR_t, nvars::Int, vars::SCIP_VAR_t, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsAnd",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{SCIP_VAR}, Int, Ptr{Ptr{SCIP_VAR}}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), array(cons), name, pointer(resvar), nvars, array(vars), initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode
+)
+SCIPcreateConsBasicAnd(scip::SCIP_t, cons::SCIP_CONS_t, name::String, resvar::SCIP_VAR_t, nvars::Int, vars::SCIP_VAR_t) = @scip_ccall_check("SCIPcreateConsBasicAnd",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{SCIP_VAR}, Int, Ptr{Ptr{SCIP_VAR}}), 
+	pointer(scip), array(cons), name, pointer(resvar), nvars, array(vars)
+)
+SCIPsortAndCons(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPsortAndCons",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPchgAndConsCheckFlagWhenUpgr(scip::SCIP_t, cons::SCIP_CONS_t, flag::SCIP_Bool) = @scip_ccall_check("SCIPchgAndConsCheckFlagWhenUpgr",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool), 
+	pointer(scip), pointer(cons), flag
+)
+SCIPchgAndConsRemovableFlagWhenUpgr(scip::SCIP_t, cons::SCIP_CONS_t, flag::SCIP_Bool) = @scip_ccall_check("SCIPchgAndConsRemovableFlagWhenUpgr",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool), 
+	pointer(scip), pointer(cons), flag
+)
+SCIPincludeConshdlrSuperindicator(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrSuperindicator",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPcreateConsSuperindicator(scip::SCIP_t, cons::SCIP_CONS_t, name::String, binvar::SCIP_VAR_t, slackcons::SCIP_CONS_t, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsSuperindicator",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{SCIP_VAR}, Ptr{SCIP_CONS}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), array(cons), name, pointer(binvar), pointer(slackcons), initial, separate, enforce, check, propagate, localVar, dynamic, removable, stickingatnode
+)
+SCIPcreateConsBasicSuperindicator(scip::SCIP_t, cons::SCIP_CONS_t, name::String, binvar::SCIP_VAR_t, slackcons::SCIP_CONS_t) = @scip_ccall_check("SCIPcreateConsBasicSuperindicator",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{SCIP_VAR}, Ptr{SCIP_CONS}), 
+	pointer(scip), array(cons), name, pointer(binvar), pointer(slackcons)
+)
+SCIPtransformMinUC(scip::SCIP_t, success::SCIP_Bool_t) = @scip_ccall_check("SCIPtransformMinUC",
+	(Ptr{SCIP}, Ptr{SCIP_Bool}), 
+	pointer(scip), pointer(success)
+)
+SCIPincludeConshdlrQuadratic(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrQuadratic",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPcreateConsQuadratic(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nlinvars::Int, linvars::SCIP_VAR_t, lincoefs::SCIP_Real_t, nquadterms::Int, quadvars1::SCIP_VAR_t, quadvars2::SCIP_VAR_t, quadcoeffs::SCIP_Real_t, lhs::SCIP_Real, rhs::SCIP_Real, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsQuadratic",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, SCIP_Real, SCIP_Real, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), array(cons), name, nlinvars, array(linvars), pointer(lincoefs), nquadterms, array(quadvars1), array(quadvars2), pointer(quadcoeffs), lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable
+)
+SCIPcreateConsBasicQuadratic(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nlinvars::Int, linvars::SCIP_VAR_t, lincoefs::SCIP_Real_t, nquadterms::Int, quadvars1::SCIP_VAR_t, quadvars2::SCIP_VAR_t, quadcoefs::SCIP_Real_t, lhs::SCIP_Real, rhs::SCIP_Real) = @scip_ccall_check("SCIPcreateConsBasicQuadratic",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, SCIP_Real, SCIP_Real), 
+	pointer(scip), array(cons), name, nlinvars, array(linvars), pointer(lincoefs), nquadterms, array(quadvars1), array(quadvars2), pointer(quadcoefs), lhs, rhs
+)
+SCIPcreateConsQuadratic2(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nlinvars::Int, linvars::SCIP_VAR_t, lincoefs::SCIP_Real_t, nquadvarterms::Int, quadvarterms::SCIP_QUADVARTERM_t, nbilinterms::Int, bilinterms::SCIP_BILINTERM_t, lhs::SCIP_Real, rhs::SCIP_Real, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsQuadratic2",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, Int, Ptr{SCIP_QUADVARTERM}, Int, Ptr{SCIP_BILINTERM}, SCIP_Real, SCIP_Real, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), array(cons), name, nlinvars, array(linvars), pointer(lincoefs), nquadvarterms, pointer(quadvarterms), nbilinterms, pointer(bilinterms), lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable
+)
+SCIPcreateConsBasicQuadratic2(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nlinvars::Int, linvars::SCIP_VAR_t, lincoefs::SCIP_Real_t, nquadvarterms::Int, quadvarterms::SCIP_QUADVARTERM_t, nbilinterms::Int, bilinterms::SCIP_BILINTERM_t, lhs::SCIP_Real, rhs::SCIP_Real) = @scip_ccall_check("SCIPcreateConsBasicQuadratic2",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, Int, Ptr{SCIP_QUADVARTERM}, Int, Ptr{SCIP_BILINTERM}, SCIP_Real, SCIP_Real), 
+	pointer(scip), array(cons), name, nlinvars, array(linvars), pointer(lincoefs), nquadvarterms, pointer(quadvarterms), nbilinterms, pointer(bilinterms), lhs, rhs
+)
+SCIPaddLinearVarQuadratic(scip::SCIP_t, cons::SCIP_CONS_t, var::SCIP_VAR_t, coef::SCIP_Real) = @scip_ccall_check("SCIPaddLinearVarQuadratic",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_VAR}, SCIP_Real), 
+	pointer(scip), pointer(cons), pointer(var), coef
+)
+SCIPaddQuadVarQuadratic(scip::SCIP_t, cons::SCIP_CONS_t, var::SCIP_VAR_t, lincoef::SCIP_Real, sqrcoef::SCIP_Real) = @scip_ccall_check("SCIPaddQuadVarQuadratic",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Real), 
+	pointer(scip), pointer(cons), pointer(var), lincoef, sqrcoef
+)
+SCIPaddQuadVarLinearCoefQuadratic(scip::SCIP_t, cons::SCIP_CONS_t, var::SCIP_VAR_t, coef::SCIP_Real) = @scip_ccall_check("SCIPaddQuadVarLinearCoefQuadratic",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_VAR}, SCIP_Real), 
+	pointer(scip), pointer(cons), pointer(var), coef
+)
+SCIPaddSquareCoefQuadratic(scip::SCIP_t, cons::SCIP_CONS_t, var::SCIP_VAR_t, coef::SCIP_Real) = @scip_ccall_check("SCIPaddSquareCoefQuadratic",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_VAR}, SCIP_Real), 
+	pointer(scip), pointer(cons), pointer(var), coef
+)
+SCIPaddBilinTermQuadratic(scip::SCIP_t, cons::SCIP_CONS_t, var1::SCIP_VAR_t, var2::SCIP_VAR_t, coef::SCIP_Real) = @scip_ccall_check("SCIPaddBilinTermQuadratic",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_VAR}, Ptr{SCIP_VAR}, SCIP_Real), 
+	pointer(scip), pointer(cons), pointer(var1), pointer(var2), coef
+)
+SCIPgetNlRowQuadratic(scip::SCIP_t, cons::SCIP_CONS_t, nlrow::SCIP_NLROW_t) = @scip_ccall_check("SCIPgetNlRowQuadratic",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{Ptr{SCIP_NLROW}}), 
+	pointer(scip), pointer(cons), array(nlrow)
+)
+SCIPsortQuadVarTermsQuadratic(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPsortQuadVarTermsQuadratic",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPcheckCurvatureQuadratic(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPcheckCurvatureQuadratic",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetViolationQuadratic(scip::SCIP_t, cons::SCIP_CONS_t, sol::SCIP_SOL_t, violation::SCIP_Real_t) = @scip_ccall_check("SCIPgetViolationQuadratic",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_SOL}, Ptr{SCIP_Real}), 
+	pointer(scip), pointer(cons), pointer(sol), pointer(violation)
+)
+SCIPaddToNlpiProblemQuadratic(scip::SCIP_t, cons::SCIP_CONS_t, nlpi::SCIP_NLPI_t, nlpiprob::SCIP_NLPIPROBLEM_t, scipvar2nlpivar::SCIP_HASHMAP_t, names::SCIP_Bool) = @scip_ccall_check("SCIPaddToNlpiProblemQuadratic",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_NLPI}, Ptr{SCIP_NLPIPROBLEM}, Ptr{SCIP_HASHMAP}, SCIP_Bool), 
+	pointer(scip), pointer(cons), pointer(nlpi), pointer(nlpiprob), pointer(scipvar2nlpivar), names
+)
+SCIPincludeConshdlrDisjunction(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrDisjunction",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPcreateConsDisjunction(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nconss::Int, conss::SCIP_CONS_t, relaxcons::SCIP_CONS_t, initial::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsDisjunction",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_CONS}}, Ptr{SCIP_CONS}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), array(cons), name, nconss, array(conss), pointer(relaxcons), initial, enforce, check, localVar, modifiable, dynamic
+)
+SCIPcreateConsBasicDisjunction(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nconss::Int, conss::SCIP_CONS_t, relaxcons::SCIP_CONS_t) = @scip_ccall_check("SCIPcreateConsBasicDisjunction",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_CONS}}, Ptr{SCIP_CONS}), 
+	pointer(scip), array(cons), name, nconss, array(conss), pointer(relaxcons)
+)
+SCIPaddConsElemDisjunction(scip::SCIP_t, cons::SCIP_CONS_t, addcons::SCIP_CONS_t) = @scip_ccall_check("SCIPaddConsElemDisjunction",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_CONS}), 
+	pointer(scip), pointer(cons), pointer(addcons)
+)
+SCIPincludeConshdlrLinear(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrLinear",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPcreateConsLinear(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t, vals::SCIP_Real_t, lhs::SCIP_Real, rhs::SCIP_Real, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsLinear",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, SCIP_Real, SCIP_Real, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), array(cons), name, nvars, array(vars), pointer(vals), lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode
+)
+SCIPcreateConsBasicLinear(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t, vals::SCIP_Real_t, lhs::SCIP_Real, rhs::SCIP_Real) = @scip_ccall_check("SCIPcreateConsBasicLinear",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, SCIP_Real, SCIP_Real), 
+	pointer(scip), array(cons), name, nvars, array(vars), pointer(vals), lhs, rhs
+)
+SCIPcopyConsLinear(scip::SCIP_t, cons::SCIP_CONS_t, sourcescip::SCIP_t, name::String, nvars::Int, sourcevars::SCIP_VAR_t, sourcecoefs::SCIP_Real_t, lhs::SCIP_Real, rhs::SCIP_Real, varmap::SCIP_HASHMAP_t, consmap::SCIP_HASHMAP_t, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool, globalVar::SCIP_Bool, valid::SCIP_Bool_t) = @scip_ccall_check("SCIPcopyConsLinear",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, Ptr{SCIP}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, SCIP_Real, SCIP_Real, Ptr{SCIP_HASHMAP}, Ptr{SCIP_HASHMAP}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, Ptr{SCIP_Bool}), 
+	pointer(scip), array(cons), pointer(sourcescip), name, nvars, array(sourcevars), pointer(sourcecoefs), lhs, rhs, pointer(varmap), pointer(consmap), initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode, globalVar, pointer(valid)
+)
+SCIPaddCoefLinear(scip::SCIP_t, cons::SCIP_CONS_t, var::SCIP_VAR_t, val::SCIP_Real) = @scip_ccall_check("SCIPaddCoefLinear",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_VAR}, SCIP_Real), 
+	pointer(scip), pointer(cons), pointer(var), val
+)
+SCIPchgLhsLinear(scip::SCIP_t, cons::SCIP_CONS_t, lhs::SCIP_Real) = @scip_ccall_check("SCIPchgLhsLinear",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Real), 
+	pointer(scip), pointer(cons), lhs
+)
+SCIPchgRhsLinear(scip::SCIP_t, cons::SCIP_CONS_t, rhs::SCIP_Real) = @scip_ccall_check("SCIPchgRhsLinear",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Real), 
+	pointer(scip), pointer(cons), rhs
+)
+SCIPupgradeConsLinear(scip::SCIP_t, cons::SCIP_CONS_t, upgdcons::SCIP_CONS_t) = @scip_ccall_check("SCIPupgradeConsLinear",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{Ptr{SCIP_CONS}}), 
+	pointer(scip), pointer(cons), array(upgdcons)
+)
+SCIPincludeConshdlrConjunction(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrConjunction",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPcreateConsConjunction(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nconss::Int, conss::SCIP_CONS_t, enforce::SCIP_Bool, check::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsConjunction",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_CONS}}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), array(cons), name, nconss, array(conss), enforce, check, localVar, modifiable, dynamic
+)
+SCIPcreateConsBasicConjunction(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nconss::Int, conss::SCIP_CONS_t) = @scip_ccall_check("SCIPcreateConsBasicConjunction",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_CONS}}), 
+	pointer(scip), array(cons), name, nconss, array(conss)
+)
+SCIPaddConsElemConjunction(scip::SCIP_t, cons::SCIP_CONS_t, addcons::SCIP_CONS_t) = @scip_ccall_check("SCIPaddConsElemConjunction",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_CONS}), 
+	pointer(scip), pointer(cons), pointer(addcons)
+)
+SCIPincludeConshdlrSOC(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrSOC",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPcreateConsSOC(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t, coefs::SCIP_Real_t, offsets::SCIP_Real_t, constant::SCIP_Real, rhsvar::SCIP_VAR_t, rhscoeff::SCIP_Real, rhsoffset::SCIP_Real, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsSOC",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, Ptr{SCIP_Real}, SCIP_Real, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Real, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), array(cons), name, nvars, array(vars), pointer(coefs), pointer(offsets), constant, pointer(rhsvar), rhscoeff, rhsoffset, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable
+)
+SCIPcreateConsBasicSOC(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t, coefs::SCIP_Real_t, offsets::SCIP_Real_t, constant::SCIP_Real, rhsvar::SCIP_VAR_t, rhscoeff::SCIP_Real, rhsoffset::SCIP_Real) = @scip_ccall_check("SCIPcreateConsBasicSOC",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, Ptr{SCIP_Real}, SCIP_Real, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Real), 
+	pointer(scip), array(cons), name, nvars, array(vars), pointer(coefs), pointer(offsets), constant, pointer(rhsvar), rhscoeff, rhsoffset
+)
+SCIPgetNlRowSOC(scip::SCIP_t, cons::SCIP_CONS_t, nlrow::SCIP_NLROW_t) = @scip_ccall_check("SCIPgetNlRowSOC",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{Ptr{SCIP_NLROW}}), 
+	pointer(scip), pointer(cons), array(nlrow)
+)
+SCIPaddToNlpiProblemSOC(scip::SCIP_t, cons::SCIP_CONS_t, nlpi::SCIP_NLPI_t, nlpiprob::SCIP_NLPIPROBLEM_t, scipvar2nlpivar::SCIP_HASHMAP_t, names::SCIP_Bool) = @scip_ccall_check("SCIPaddToNlpiProblemSOC",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_NLPI}, Ptr{SCIP_NLPIPROBLEM}, Ptr{SCIP_HASHMAP}, SCIP_Bool), 
+	pointer(scip), pointer(cons), pointer(nlpi), pointer(nlpiprob), pointer(scipvar2nlpivar), names
+)
+SCIPexprEval(expr::SCIP_EXPR_t, varvals::SCIP_Real_t, param::SCIP_Real_t, val::SCIP_Real_t) = @scip_ccall_check("SCIPexprEval",
+	(Ptr{SCIP_EXPR}, Ptr{SCIP_Real}, Ptr{SCIP_Real}, Ptr{SCIP_Real}), 
+	pointer(expr), pointer(varvals), pointer(param), pointer(val)
+)
+SCIPexprEvalInt(expr::SCIP_EXPR_t, infinity::SCIP_Real, varvals::SCIP_INTERVAL_t, param::SCIP_Real_t, val::SCIP_INTERVAL_t) = @scip_ccall_check("SCIPexprEvalInt",
+	(Ptr{SCIP_EXPR}, SCIP_Real, Ptr{SCIP_INTERVAL}, Ptr{SCIP_Real}, Ptr{SCIP_INTERVAL}), 
+	pointer(expr), infinity, pointer(varvals), pointer(param), pointer(val)
+)
+SCIPexprCheckCurvature(expr::SCIP_EXPR_t, infinity::SCIP_Real, varbounds::SCIP_INTERVAL_t, param::SCIP_Real_t, curv::SCIP_EXPRCURV_t, bounds::SCIP_INTERVAL_t) = @scip_ccall_check("SCIPexprCheckCurvature",
+	(Ptr{SCIP_EXPR}, SCIP_Real, Ptr{SCIP_INTERVAL}, Ptr{SCIP_Real}, Ptr{SCIP_EXPRCURV}, Ptr{SCIP_INTERVAL}), 
+	pointer(expr), infinity, pointer(varbounds), pointer(param), pointer(curv), pointer(bounds)
+)
+SCIPexprtreeFreeInterpreterData(tree::SCIP_EXPRTREE_t) = @scip_ccall_check("SCIPexprtreeFreeInterpreterData",
+	(Ptr{SCIP_EXPRTREE},), 
+	pointer(tree)
+)
+SCIPexprtreeEval(tree::SCIP_EXPRTREE_t, varvals::SCIP_Real_t, val::SCIP_Real_t) = @scip_ccall_check("SCIPexprtreeEval",
+	(Ptr{SCIP_EXPRTREE}, Ptr{SCIP_Real}, Ptr{SCIP_Real}), 
+	pointer(tree), pointer(varvals), pointer(val)
+)
+SCIPexprtreeEvalInt(tree::SCIP_EXPRTREE_t, infinity::SCIP_Real, varvals::SCIP_INTERVAL_t, val::SCIP_INTERVAL_t) = @scip_ccall_check("SCIPexprtreeEvalInt",
+	(Ptr{SCIP_EXPRTREE}, SCIP_Real, Ptr{SCIP_INTERVAL}, Ptr{SCIP_INTERVAL}), 
+	pointer(tree), infinity, pointer(varvals), pointer(val)
+)
+SCIPexprtreeFree(tree::SCIP_EXPRTREE_t) = @scip_ccall_check("SCIPexprtreeFree",
+	(Ptr{Ptr{SCIP_EXPRTREE}},), 
+	array(tree)
+)
+SCIPexprtreeSetParams(tree::SCIP_EXPRTREE_t, nparams::Int, paramvals::SCIP_Real_t) = @scip_ccall_check("SCIPexprtreeSetParams",
+	(Ptr{SCIP_EXPRTREE}, Int, Ptr{SCIP_Real}), 
+	pointer(tree), nparams, pointer(paramvals)
+)
+SCIPexprtreeAddExpr(tree::SCIP_EXPRTREE_t, expr::SCIP_EXPR_t, copyexpr::SCIP_Bool) = @scip_ccall_check("SCIPexprtreeAddExpr",
+	(Ptr{SCIP_EXPRTREE}, Ptr{SCIP_EXPR}, SCIP_Bool), 
+	pointer(tree), pointer(expr), copyexpr
+)
+SCIPexprtreeCheckCurvature(tree::SCIP_EXPRTREE_t, infinity::SCIP_Real, varbounds::SCIP_INTERVAL_t, curv::SCIP_EXPRCURV_t, bounds::SCIP_INTERVAL_t) = @scip_ccall_check("SCIPexprtreeCheckCurvature",
+	(Ptr{SCIP_EXPRTREE}, SCIP_Real, Ptr{SCIP_INTERVAL}, Ptr{SCIP_EXPRCURV}, Ptr{SCIP_INTERVAL}), 
+	pointer(tree), infinity, pointer(varbounds), pointer(curv), pointer(bounds)
+)
+SCIPexprtreeSubstituteVars(tree::SCIP_EXPRTREE_t, substexprs::SCIP_EXPR_t) = @scip_ccall_check("SCIPexprtreeSubstituteVars",
+	(Ptr{SCIP_EXPRTREE}, Ptr{Ptr{SCIP_EXPR}}), 
+	pointer(tree), array(substexprs)
+)
+SCIPexprgraphMoveNodeParents(exprgraph::SCIP_EXPRGRAPH_t, srcnode::SCIP_EXPRGRAPHNODE_t, targetnode::SCIP_EXPRGRAPHNODE_t) = @scip_ccall_check("SCIPexprgraphMoveNodeParents",
+	(Ptr{SCIP_EXPRGRAPH}, Ptr{Ptr{SCIP_EXPRGRAPHNODE}}, Ptr{SCIP_EXPRGRAPHNODE}), 
+	pointer(exprgraph), array(srcnode), pointer(targetnode)
+)
+SCIPexprgraphReleaseNode(exprgraph::SCIP_EXPRGRAPH_t, node::SCIP_EXPRGRAPHNODE_t) = @scip_ccall_check("SCIPexprgraphReleaseNode",
+	(Ptr{SCIP_EXPRGRAPH}, Ptr{Ptr{SCIP_EXPRGRAPHNODE}}), 
+	pointer(exprgraph), array(node)
+)
+SCIPexprgraphUpdateNodeBoundsCurvature(node::SCIP_EXPRGRAPHNODE_t, infinity::SCIP_Real, minstrength::SCIP_Real, clearreverseprop::SCIP_Bool) = @scip_ccall_check("SCIPexprgraphUpdateNodeBoundsCurvature",
+	(Ptr{SCIP_EXPRGRAPHNODE}, SCIP_Real, SCIP_Real, SCIP_Bool), 
+	pointer(node), infinity, minstrength, clearreverseprop
+)
+SCIPexprgraphFree(exprgraph::SCIP_EXPRGRAPH_t) = @scip_ccall_check("SCIPexprgraphFree",
+	(Ptr{Ptr{SCIP_EXPRGRAPH}},), 
+	array(exprgraph)
+)
+SCIPexprgraphAddNode(exprgraph::SCIP_EXPRGRAPH_t, node::SCIP_EXPRGRAPHNODE_t, mindepth::Int, nchildren::Int, children::SCIP_EXPRGRAPHNODE_t) = @scip_ccall_check("SCIPexprgraphAddNode",
+	(Ptr{SCIP_EXPRGRAPH}, Ptr{SCIP_EXPRGRAPHNODE}, Int, Int, Ptr{Ptr{SCIP_EXPRGRAPHNODE}}), 
+	pointer(exprgraph), pointer(node), mindepth, nchildren, array(children)
+)
+SCIPexprgraphAddConst(exprgraph::SCIP_EXPRGRAPH_t, constant::SCIP_Real, constnode::SCIP_EXPRGRAPHNODE_t) = @scip_ccall_check("SCIPexprgraphAddConst",
+	(Ptr{SCIP_EXPRGRAPH}, SCIP_Real, Ptr{Ptr{SCIP_EXPRGRAPHNODE}}), 
+	pointer(exprgraph), constant, array(constnode)
+)
+SCIPexprgraphAddExprtreeSum(exprgraph::SCIP_EXPRGRAPH_t, nexprtrees::Int, exprtrees::SCIP_EXPRTREE_t, coefs::SCIP_Real_t, rootnode::SCIP_EXPRGRAPHNODE_t, rootnodeisnew::SCIP_Bool_t) = @scip_ccall_check("SCIPexprgraphAddExprtreeSum",
+	(Ptr{SCIP_EXPRGRAPH}, Int, Ptr{Ptr{SCIP_EXPRTREE}}, Ptr{SCIP_Real}, Ptr{Ptr{SCIP_EXPRGRAPHNODE}}, Ptr{SCIP_Bool}), 
+	pointer(exprgraph), nexprtrees, array(exprtrees), pointer(coefs), array(rootnode), pointer(rootnodeisnew)
+)
+SCIPexprgraphEval(exprgraph::SCIP_EXPRGRAPH_t, varvals::SCIP_Real_t) = @scip_ccall_check("SCIPexprgraphEval",
+	(Ptr{SCIP_EXPRGRAPH}, Ptr{SCIP_Real}), 
+	pointer(exprgraph), pointer(varvals)
+)
+SCIPexprgraphPropagateVarBounds(exprgraph::SCIP_EXPRGRAPH_t, infinity::SCIP_Real, clearreverseprop::SCIP_Bool, domainerror::SCIP_Bool_t) = @scip_ccall_check("SCIPexprgraphPropagateVarBounds",
+	(Ptr{SCIP_EXPRGRAPH}, SCIP_Real, SCIP_Bool, Ptr{SCIP_Bool}), 
+	pointer(exprgraph), infinity, clearreverseprop, pointer(domainerror)
+)
+SCIPexprgraphCheckCurvature(exprgraph::SCIP_EXPRGRAPH_t, infinity::SCIP_Real, clearreverseprop::SCIP_Bool) = @scip_ccall_check("SCIPexprgraphCheckCurvature",
+	(Ptr{SCIP_EXPRGRAPH}, SCIP_Real, SCIP_Bool), 
+	pointer(exprgraph), infinity, clearreverseprop
+)
+SCIPexprgraphSimplify(exprgraph::SCIP_EXPRGRAPH_t, messagehdlr::SCIP_MESSAGEHDLR_t, eps::SCIP_Real, maxexpansionexponent::Int, havechange::SCIP_Bool_t, domainerror::SCIP_Bool_t) = @scip_ccall_check("SCIPexprgraphSimplify",
+	(Ptr{SCIP_EXPRGRAPH}, Ptr{SCIP_MESSAGEHDLR}, SCIP_Real, Int, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), 
+	pointer(exprgraph), pointer(messagehdlr), eps, maxexpansionexponent, pointer(havechange), pointer(domainerror)
+)
+SCIPexprgraphGetTree(exprgraph::SCIP_EXPRGRAPH_t, rootnode::SCIP_EXPRGRAPHNODE_t, exprtree::SCIP_EXPRTREE_t) = @scip_ccall_check("SCIPexprgraphGetTree",
+	(Ptr{SCIP_EXPRGRAPH}, Ptr{SCIP_EXPRGRAPHNODE}, Ptr{Ptr{SCIP_EXPRTREE}}), 
+	pointer(exprgraph), pointer(rootnode), array(exprtree)
+)
+SCIPincludeConshdlrOr(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrOr",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPcreateConsOr(scip::SCIP_t, cons::SCIP_CONS_t, name::String, resvar::SCIP_VAR_t, nvars::Int, vars::SCIP_VAR_t, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsOr",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{SCIP_VAR}, Int, Ptr{Ptr{SCIP_VAR}}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), array(cons), name, pointer(resvar), nvars, array(vars), initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode
+)
+SCIPcreateConsBasicOr(scip::SCIP_t, cons::SCIP_CONS_t, name::String, resvar::SCIP_VAR_t, nvars::Int, vars::SCIP_VAR_t) = @scip_ccall_check("SCIPcreateConsBasicOr",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{SCIP_VAR}, Int, Ptr{Ptr{SCIP_VAR}}), 
+	pointer(scip), array(cons), name, pointer(resvar), nvars, array(vars)
+)
+SCIPsparseSolCreate(sparsesol::SCIP_SPARSESOL_t, vars::SCIP_VAR_t, nvars::Int, cleared::SCIP_Bool) = @scip_ccall_check("SCIPsparseSolCreate",
+	(Ptr{Ptr{SCIP_SPARSESOL}}, Ptr{Ptr{SCIP_VAR}}, Int, SCIP_Bool), 
+	array(sparsesol), array(vars), nvars, cleared
+)
+SCIPqueueCreate(queue::SCIP_QUEUE_t, initsize::Int, sizefac::SCIP_Real) = @scip_ccall_check("SCIPqueueCreate",
+	(Ptr{Ptr{SCIP_QUEUE}}, Int, SCIP_Real), 
+	array(queue), initsize, sizefac
+)
+SCIPhashmapRemoveAll(hashmap::SCIP_HASHMAP_t) = @scip_ccall_check("SCIPhashmapRemoveAll",
+	(Ptr{SCIP_HASHMAP},), 
+	pointer(hashmap)
+)
+SCIPactivityCreate(activity::SCIP_RESOURCEACTIVITY_t, var::SCIP_VAR_t, duration::Int, demand::Int) = @scip_ccall_check("SCIPactivityCreate",
+	(Ptr{Ptr{SCIP_RESOURCEACTIVITY}}, Ptr{SCIP_VAR}, Int, Int), 
+	array(activity), pointer(var), duration, demand
+)
+SCIPprofileCreate(profile::SCIP_PROFILE_t, capacity::Int) = @scip_ccall_check("SCIPprofileCreate",
+	(Ptr{Ptr{SCIP_PROFILE}}, Int), 
+	array(profile), capacity
+)
+SCIPprofileDeleteCore(profile::SCIP_PROFILE_t, left::Int, right::Int, height::Int) = @scip_ccall_check("SCIPprofileDeleteCore",
+	(Ptr{SCIP_PROFILE}, Int, Int, Int), 
+	pointer(profile), left, right, height
+)
+SCIPdigraphCreate(digraph::SCIP_DIGRAPH_t, nnodes::Int) = @scip_ccall_check("SCIPdigraphCreate",
+	(Ptr{Ptr{SCIP_DIGRAPH}}, Int), 
+	array(digraph), nnodes
+)
+SCIPdigraphResize(digraph::SCIP_DIGRAPH_t, nnodes::Int) = @scip_ccall_check("SCIPdigraphResize",
+	(Ptr{SCIP_DIGRAPH}, Int), 
+	pointer(digraph), nnodes
+)
+SCIPdigraphCopy(targetdigraph::SCIP_DIGRAPH_t, sourcedigraph::SCIP_DIGRAPH_t) = @scip_ccall_check("SCIPdigraphCopy",
+	(Ptr{Ptr{SCIP_DIGRAPH}}, Ptr{SCIP_DIGRAPH}), 
+	array(targetdigraph), pointer(sourcedigraph)
+)
+SCIPdigraphTopoSortComponents(digraph::SCIP_DIGRAPH_t) = @scip_ccall_check("SCIPdigraphTopoSortComponents",
+	(Ptr{SCIP_DIGRAPH},), 
+	pointer(digraph)
+)
+SCIPcalcIntegralScalar(vals::SCIP_Real_t, nvals::Int, mindelta::SCIP_Real, maxdelta::SCIP_Real, maxdnom::Int64, maxscale::SCIP_Real, intscalar::SCIP_Real_t, success::SCIP_Bool_t) = @scip_ccall_check("SCIPcalcIntegralScalar",
+	(Ptr{SCIP_Real}, Int, SCIP_Real, SCIP_Real, Int64, SCIP_Real, Ptr{SCIP_Real}, Ptr{SCIP_Bool}), 
+	pointer(vals), nvals, mindelta, maxdelta, maxdnom, maxscale, pointer(intscalar), pointer(success)
+)
+SCIPcreate(scip::SCIP_t) = @scip_ccall_check("SCIPcreate",
+	(Ptr{Ptr{SCIP}},), 
+	array(scip)
+)
+SCIPfree(scip::SCIP_t) = @scip_ccall_check("SCIPfree",
+	(Ptr{Ptr{SCIP}},), 
+	array(scip)
+)
+SCIPsetMessagehdlr(scip::SCIP_t, messagehdlr::SCIP_MESSAGEHDLR_t) = @scip_ccall_check("SCIPsetMessagehdlr",
+	(Ptr{SCIP}, Ptr{SCIP_MESSAGEHDLR}), 
+	pointer(scip), pointer(messagehdlr)
+)
+SCIPcopyPlugins(sourcescip::SCIP_t, targetscip::SCIP_t, copyreaders::SCIP_Bool, copypricers::SCIP_Bool, copyconshdlrs::SCIP_Bool, copyconflicthdlrs::SCIP_Bool, copypresolvers::SCIP_Bool, copyrelaxators::SCIP_Bool, copyseparators::SCIP_Bool, copypropagators::SCIP_Bool, copyheuristics::SCIP_Bool, copyeventhdlrs::SCIP_Bool, copynodeselectors::SCIP_Bool, copybranchrules::SCIP_Bool, copydisplays::SCIP_Bool, copydialogs::SCIP_Bool, copynlpis::SCIP_Bool, passmessagehdlr::SCIP_Bool, valid::SCIP_Bool_t) = @scip_ccall_check("SCIPcopyPlugins",
+	(Ptr{SCIP}, Ptr{SCIP}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, Ptr{SCIP_Bool}), 
+	pointer(sourcescip), pointer(targetscip), copyreaders, copypricers, copyconshdlrs, copyconflicthdlrs, copypresolvers, copyrelaxators, copyseparators, copypropagators, copyheuristics, copyeventhdlrs, copynodeselectors, copybranchrules, copydisplays, copydialogs, copynlpis, passmessagehdlr, pointer(valid)
+)
+SCIPcopyProb(sourcescip::SCIP_t, targetscip::SCIP_t, varmap::SCIP_HASHMAP_t, consmap::SCIP_HASHMAP_t, globalVar::SCIP_Bool, name::String) = @scip_ccall_check("SCIPcopyProb",
+	(Ptr{SCIP}, Ptr{SCIP}, Ptr{SCIP_HASHMAP}, Ptr{SCIP_HASHMAP}, SCIP_Bool, String), 
+	pointer(sourcescip), pointer(targetscip), pointer(varmap), pointer(consmap), globalVar, name
+)
+SCIPcopyOrigProb(sourcescip::SCIP_t, targetscip::SCIP_t, varmap::SCIP_HASHMAP_t, consmap::SCIP_HASHMAP_t, name::String) = @scip_ccall_check("SCIPcopyOrigProb",
+	(Ptr{SCIP}, Ptr{SCIP}, Ptr{SCIP_HASHMAP}, Ptr{SCIP_HASHMAP}, String), 
+	pointer(sourcescip), pointer(targetscip), pointer(varmap), pointer(consmap), name
+)
+SCIPgetVarCopy(sourcescip::SCIP_t, targetscip::SCIP_t, sourcevar::SCIP_VAR_t, targetvar::SCIP_VAR_t, varmap::SCIP_HASHMAP_t, consmap::SCIP_HASHMAP_t, globalVar::SCIP_Bool, success::SCIP_Bool_t) = @scip_ccall_check("SCIPgetVarCopy",
+	(Ptr{SCIP}, Ptr{SCIP}, Ptr{SCIP_VAR}, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_HASHMAP}, Ptr{SCIP_HASHMAP}, SCIP_Bool, Ptr{SCIP_Bool}), 
+	pointer(sourcescip), pointer(targetscip), pointer(sourcevar), array(targetvar), pointer(varmap), pointer(consmap), globalVar, pointer(success)
+)
+SCIPcopyVars(sourcescip::SCIP_t, targetscip::SCIP_t, varmap::SCIP_HASHMAP_t, consmap::SCIP_HASHMAP_t, globalVar::SCIP_Bool) = @scip_ccall_check("SCIPcopyVars",
+	(Ptr{SCIP}, Ptr{SCIP}, Ptr{SCIP_HASHMAP}, Ptr{SCIP_HASHMAP}, SCIP_Bool), 
+	pointer(sourcescip), pointer(targetscip), pointer(varmap), pointer(consmap), globalVar
+)
+SCIPcopyOrigVars(sourcescip::SCIP_t, targetscip::SCIP_t, varmap::SCIP_HASHMAP_t, consmap::SCIP_HASHMAP_t) = @scip_ccall_check("SCIPcopyOrigVars",
+	(Ptr{SCIP}, Ptr{SCIP}, Ptr{SCIP_HASHMAP}, Ptr{SCIP_HASHMAP}), 
+	pointer(sourcescip), pointer(targetscip), pointer(varmap), pointer(consmap)
+)
+SCIPgetConsCopy(sourcescip::SCIP_t, targetscip::SCIP_t, sourcecons::SCIP_CONS_t, targetcons::SCIP_CONS_t, sourceconshdlr::SCIP_CONSHDLR_t, varmap::SCIP_HASHMAP_t, consmap::SCIP_HASHMAP_t, name::String, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool, globalVar::SCIP_Bool, success::SCIP_Bool_t) = @scip_ccall_check("SCIPgetConsCopy",
+	(Ptr{SCIP}, Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{Ptr{SCIP_CONS}}, Ptr{SCIP_CONSHDLR}, Ptr{SCIP_HASHMAP}, Ptr{SCIP_HASHMAP}, String, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, Ptr{SCIP_Bool}), 
+	pointer(sourcescip), pointer(targetscip), pointer(sourcecons), array(targetcons), pointer(sourceconshdlr), pointer(varmap), pointer(consmap), name, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode, globalVar, pointer(success)
+)
+SCIPcopyConss(sourcescip::SCIP_t, targetscip::SCIP_t, varmap::SCIP_HASHMAP_t, consmap::SCIP_HASHMAP_t, globalVar::SCIP_Bool, enablepricing::SCIP_Bool, valid::SCIP_Bool_t) = @scip_ccall_check("SCIPcopyConss",
+	(Ptr{SCIP}, Ptr{SCIP}, Ptr{SCIP_HASHMAP}, Ptr{SCIP_HASHMAP}, SCIP_Bool, SCIP_Bool, Ptr{SCIP_Bool}), 
+	pointer(sourcescip), pointer(targetscip), pointer(varmap), pointer(consmap), globalVar, enablepricing, pointer(valid)
+)
+SCIPcopyOrigConss(sourcescip::SCIP_t, targetscip::SCIP_t, varmap::SCIP_HASHMAP_t, consmap::SCIP_HASHMAP_t, enablepricing::SCIP_Bool, valid::SCIP_Bool_t) = @scip_ccall_check("SCIPcopyOrigConss",
+	(Ptr{SCIP}, Ptr{SCIP}, Ptr{SCIP_HASHMAP}, Ptr{SCIP_HASHMAP}, SCIP_Bool, Ptr{SCIP_Bool}), 
+	pointer(sourcescip), pointer(targetscip), pointer(varmap), pointer(consmap), enablepricing, pointer(valid)
+)
+SCIPcopyParamSettings(sourcescip::SCIP_t, targetscip::SCIP_t) = @scip_ccall_check("SCIPcopyParamSettings",
+	(Ptr{SCIP}, Ptr{SCIP}), 
+	pointer(sourcescip), pointer(targetscip)
+)
+SCIPcopy(sourcescip::SCIP_t, targetscip::SCIP_t, varmap::SCIP_HASHMAP_t, consmap::SCIP_HASHMAP_t, suffix::String, globalVar::SCIP_Bool, enablepricing::SCIP_Bool, passmessagehdlr::SCIP_Bool, valid::SCIP_Bool_t) = @scip_ccall_check("SCIPcopy",
+	(Ptr{SCIP}, Ptr{SCIP}, Ptr{SCIP_HASHMAP}, Ptr{SCIP_HASHMAP}, String, SCIP_Bool, SCIP_Bool, SCIP_Bool, Ptr{SCIP_Bool}), 
+	pointer(sourcescip), pointer(targetscip), pointer(varmap), pointer(consmap), suffix, globalVar, enablepricing, passmessagehdlr, pointer(valid)
+)
+SCIPcopyOrig(sourcescip::SCIP_t, targetscip::SCIP_t, varmap::SCIP_HASHMAP_t, consmap::SCIP_HASHMAP_t, suffix::String, enablepricing::SCIP_Bool, passmessagehdlr::SCIP_Bool, valid::SCIP_Bool_t) = @scip_ccall_check("SCIPcopyOrig",
+	(Ptr{SCIP}, Ptr{SCIP}, Ptr{SCIP_HASHMAP}, Ptr{SCIP_HASHMAP}, String, SCIP_Bool, SCIP_Bool, Ptr{SCIP_Bool}), 
+	pointer(sourcescip), pointer(targetscip), pointer(varmap), pointer(consmap), suffix, enablepricing, passmessagehdlr, pointer(valid)
+)
+SCIPgetBoolParam(scip::SCIP_t, name::String, value::SCIP_Bool_t) = @scip_ccall_check("SCIPgetBoolParam",
+	(Ptr{SCIP}, String, Ptr{SCIP_Bool}), 
+	pointer(scip), name, pointer(value)
+)
+SCIPgetLongintParam(scip::SCIP_t, name::String, value::Int64) = @scip_ccall_check("SCIPgetLongintParam",
+	(Ptr{SCIP}, String, Ptr{Int64}), 
+	pointer(scip), name, pointer(value)
+)
+SCIPgetRealParam(scip::SCIP_t, name::String, value::SCIP_Real_t) = @scip_ccall_check("SCIPgetRealParam",
+	(Ptr{SCIP}, String, Ptr{SCIP_Real}), 
+	pointer(scip), name, pointer(value)
+)
+SCIPfixParam(scip::SCIP_t, name::String) = @scip_ccall_check("SCIPfixParam",
+	(Ptr{SCIP}, String), 
+	pointer(scip), name
+)
+SCIPunfixParam(scip::SCIP_t, name::String) = @scip_ccall_check("SCIPunfixParam",
+	(Ptr{SCIP}, String), 
+	pointer(scip), name
+)
+SCIPchgBoolParam(scip::SCIP_t, param::SCIP_PARAM_t, value::SCIP_Bool) = @scip_ccall_check("SCIPchgBoolParam",
+	(Ptr{SCIP}, Ptr{SCIP_PARAM}, SCIP_Bool), 
+	pointer(scip), pointer(param), value
+)
+SCIPsetBoolParam(scip::SCIP_t, name::String, value::SCIP_Bool) = @scip_ccall_check("SCIPsetBoolParam",
+	(Ptr{SCIP}, String, SCIP_Bool), 
+	pointer(scip), name, value
+)
+SCIPchgIntParam(scip::SCIP_t, param::SCIP_PARAM_t, value::Int) = @scip_ccall_check("SCIPchgIntParam",
+	(Ptr{SCIP}, Ptr{SCIP_PARAM}, Int), 
+	pointer(scip), pointer(param), value
+)
+SCIPsetIntParam(scip::SCIP_t, name::String, value::Int) = @scip_ccall_check("SCIPsetIntParam",
+	(Ptr{SCIP}, String, Int), 
+	pointer(scip), name, value
+)
+SCIPchgLongintParam(scip::SCIP_t, param::SCIP_PARAM_t, value::Int64) = @scip_ccall_check("SCIPchgLongintParam",
+	(Ptr{SCIP}, Ptr{SCIP_PARAM}, Int64), 
+	pointer(scip), pointer(param), value
+)
+SCIPsetLongintParam(scip::SCIP_t, name::String, value::Int64) = @scip_ccall_check("SCIPsetLongintParam",
+	(Ptr{SCIP}, String, Int64), 
+	pointer(scip), name, value
+)
+SCIPchgRealParam(scip::SCIP_t, param::SCIP_PARAM_t, value::SCIP_Real) = @scip_ccall_check("SCIPchgRealParam",
+	(Ptr{SCIP}, Ptr{SCIP_PARAM}, SCIP_Real), 
+	pointer(scip), pointer(param), value
+)
+SCIPsetRealParam(scip::SCIP_t, name::String, value::SCIP_Real) = @scip_ccall_check("SCIPsetRealParam",
+	(Ptr{SCIP}, String, SCIP_Real), 
+	pointer(scip), name, value
+)
+SCIPchgCharParam(scip::SCIP_t, param::SCIP_PARAM_t, value::Char) = @scip_ccall_check("SCIPchgCharParam",
+	(Ptr{SCIP}, Ptr{SCIP_PARAM}, Char), 
+	pointer(scip), pointer(param), value
+)
+SCIPsetCharParam(scip::SCIP_t, name::String, value::Char) = @scip_ccall_check("SCIPsetCharParam",
+	(Ptr{SCIP}, String, Char), 
+	pointer(scip), name, value
+)
+SCIPchgStringParam(scip::SCIP_t, param::SCIP_PARAM_t, value::String) = @scip_ccall_check("SCIPchgStringParam",
+	(Ptr{SCIP}, Ptr{SCIP_PARAM}, String), 
+	pointer(scip), pointer(param), value
+)
+SCIPsetStringParam(scip::SCIP_t, name::String, value::String) = @scip_ccall_check("SCIPsetStringParam",
+	(Ptr{SCIP}, String, String), 
+	pointer(scip), name, value
+)
+SCIPreadParams(scip::SCIP_t, filename::String) = @scip_ccall_check("SCIPreadParams",
+	(Ptr{SCIP}, String), 
+	pointer(scip), filename
+)
+SCIPwriteParams(scip::SCIP_t, filename::String, comments::SCIP_Bool, onlychanged::SCIP_Bool) = @scip_ccall_check("SCIPwriteParams",
+	(Ptr{SCIP}, String, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), filename, comments, onlychanged
+)
+SCIPresetParam(scip::SCIP_t, name::String) = @scip_ccall_check("SCIPresetParam",
+	(Ptr{SCIP}, String), 
+	pointer(scip), name
+)
+SCIPresetParams(scip::SCIP_t) = @scip_ccall_check("SCIPresetParams",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPsetEmphasis(scip::SCIP_t, paramemphasis::SCIP_PARAMEMPHASIS, quiet::SCIP_Bool) = @scip_ccall_check("SCIPsetEmphasis",
+	(Ptr{SCIP}, SCIP_PARAMEMPHASIS, SCIP_Bool), 
+	pointer(scip), paramemphasis, quiet
+)
+SCIPsetSubscipsOff(scip::SCIP_t, quiet::SCIP_Bool) = @scip_ccall_check("SCIPsetSubscipsOff",
+	(Ptr{SCIP}, SCIP_Bool), 
+	pointer(scip), quiet
+)
+SCIPsetHeuristics(scip::SCIP_t, paramsetting::SCIP_PARAMSETTING, quiet::SCIP_Bool) = @scip_ccall_check("SCIPsetHeuristics",
+	(Ptr{SCIP}, SCIP_PARAMSETTING, SCIP_Bool), 
+	pointer(scip), paramsetting, quiet
+)
+SCIPsetPresolving(scip::SCIP_t, paramsetting::SCIP_PARAMSETTING, quiet::SCIP_Bool) = @scip_ccall_check("SCIPsetPresolving",
+	(Ptr{SCIP}, SCIP_PARAMSETTING, SCIP_Bool), 
+	pointer(scip), paramsetting, quiet
+)
+SCIPsetSeparating(scip::SCIP_t, paramsetting::SCIP_PARAMSETTING, quiet::SCIP_Bool) = @scip_ccall_check("SCIPsetSeparating",
+	(Ptr{SCIP}, SCIP_PARAMSETTING, SCIP_Bool), 
+	pointer(scip), paramsetting, quiet
+)
+SCIPincludeReaderBasic(scip::SCIP_t, readerptr::SCIP_READER_t, name::String, desc::String, extension::String, readerdata::SCIP_READERDATA_t) = @scip_ccall_check("SCIPincludeReaderBasic",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_READER}}, String, String, String, Ptr{SCIP_READERDATA}), 
+	pointer(scip), array(readerptr), name, desc, extension, pointer(readerdata)
+)
+SCIPsetPricerPriority(scip::SCIP_t, pricer::SCIP_PRICER_t, priority::Int) = @scip_ccall_check("SCIPsetPricerPriority",
+	(Ptr{SCIP}, Ptr{SCIP_PRICER}, Int), 
+	pointer(scip), pointer(pricer), priority
+)
+SCIPactivatePricer(scip::SCIP_t, pricer::SCIP_PRICER_t) = @scip_ccall_check("SCIPactivatePricer",
+	(Ptr{SCIP}, Ptr{SCIP_PRICER}), 
+	pointer(scip), pointer(pricer)
+)
+SCIPdeactivatePricer(scip::SCIP_t, pricer::SCIP_PRICER_t) = @scip_ccall_check("SCIPdeactivatePricer",
+	(Ptr{SCIP}, Ptr{SCIP_PRICER}), 
+	pointer(scip), pointer(pricer)
+)
+SCIPsetConflicthdlrPriority(scip::SCIP_t, conflicthdlr::SCIP_CONFLICTHDLR_t, priority::Int) = @scip_ccall_check("SCIPsetConflicthdlrPriority",
+	(Ptr{SCIP}, Ptr{SCIP_CONFLICTHDLR}, Int), 
+	pointer(scip), pointer(conflicthdlr), priority
+)
+SCIPsetPresolPriority(scip::SCIP_t, presol::SCIP_PRESOL_t, priority::Int) = @scip_ccall_check("SCIPsetPresolPriority",
+	(Ptr{SCIP}, Ptr{SCIP_PRESOL}, Int), 
+	pointer(scip), pointer(presol), priority
+)
+SCIPsetRelaxPriority(scip::SCIP_t, relax::SCIP_RELAX_t, priority::Int) = @scip_ccall_check("SCIPsetRelaxPriority",
+	(Ptr{SCIP}, Ptr{SCIP_RELAX}, Int), 
+	pointer(scip), pointer(relax), priority
+)
+SCIPsetSepaPriority(scip::SCIP_t, sepa::SCIP_SEPA_t, priority::Int) = @scip_ccall_check("SCIPsetSepaPriority",
+	(Ptr{SCIP}, Ptr{SCIP_SEPA}, Int), 
+	pointer(scip), pointer(sepa), priority
+)
+SCIPsetPropPriority(scip::SCIP_t, prop::SCIP_PROP_t, priority::Int) = @scip_ccall_check("SCIPsetPropPriority",
+	(Ptr{SCIP}, Ptr{SCIP_PROP}, Int), 
+	pointer(scip), pointer(prop), priority
+)
+SCIPsetPropPresolPriority(scip::SCIP_t, prop::SCIP_PROP_t, presolpriority::Int) = @scip_ccall_check("SCIPsetPropPresolPriority",
+	(Ptr{SCIP}, Ptr{SCIP_PROP}, Int), 
+	pointer(scip), pointer(prop), presolpriority
+)
+SCIPsetHeurPriority(scip::SCIP_t, heur::SCIP_HEUR_t, priority::Int) = @scip_ccall_check("SCIPsetHeurPriority",
+	(Ptr{SCIP}, Ptr{SCIP_HEUR}, Int), 
+	pointer(scip), pointer(heur), priority
+)
+SCIPsetNodeselStdPriority(scip::SCIP_t, nodesel::SCIP_NODESEL_t, priority::Int) = @scip_ccall_check("SCIPsetNodeselStdPriority",
+	(Ptr{SCIP}, Ptr{SCIP_NODESEL}, Int), 
+	pointer(scip), pointer(nodesel), priority
+)
+SCIPsetNodeselMemsavePriority(scip::SCIP_t, nodesel::SCIP_NODESEL_t, priority::Int) = @scip_ccall_check("SCIPsetNodeselMemsavePriority",
+	(Ptr{SCIP}, Ptr{SCIP_NODESEL}, Int), 
+	pointer(scip), pointer(nodesel), priority
+)
+SCIPincludeBranchruleBasic(scip::SCIP_t, branchruleptr::SCIP_BRANCHRULE_t, name::String, desc::String, priority::Int, maxdepth::Int, maxbounddist::SCIP_Real, branchruledata::SCIP_BRANCHRULEDATA_t) = @scip_ccall_check("SCIPincludeBranchruleBasic",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_BRANCHRULE}}, String, String, Int, Int, SCIP_Real, Ptr{SCIP_BRANCHRULEDATA}), 
+	pointer(scip), array(branchruleptr), name, desc, priority, maxdepth, maxbounddist, pointer(branchruledata)
+)
+SCIPsetBranchrulePriority(scip::SCIP_t, branchrule::SCIP_BRANCHRULE_t, priority::Int) = @scip_ccall_check("SCIPsetBranchrulePriority",
+	(Ptr{SCIP}, Ptr{SCIP_BRANCHRULE}, Int), 
+	pointer(scip), pointer(branchrule), priority
+)
+SCIPsetBranchruleMaxdepth(scip::SCIP_t, branchrule::SCIP_BRANCHRULE_t, maxdepth::Int) = @scip_ccall_check("SCIPsetBranchruleMaxdepth",
+	(Ptr{SCIP}, Ptr{SCIP_BRANCHRULE}, Int), 
+	pointer(scip), pointer(branchrule), maxdepth
+)
+SCIPsetBranchruleMaxbounddist(scip::SCIP_t, branchrule::SCIP_BRANCHRULE_t, maxbounddist::SCIP_Real) = @scip_ccall_check("SCIPsetBranchruleMaxbounddist",
+	(Ptr{SCIP}, Ptr{SCIP_BRANCHRULE}, SCIP_Real), 
+	pointer(scip), pointer(branchrule), maxbounddist
+)
+SCIPautoselectDisps(scip::SCIP_t) = @scip_ccall_check("SCIPautoselectDisps",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPincludeNlpi(scip::SCIP_t, nlpi::SCIP_NLPI_t) = @scip_ccall_check("SCIPincludeNlpi",
+	(Ptr{SCIP}, Ptr{SCIP_NLPI}), 
+	pointer(scip), pointer(nlpi)
+)
+SCIPsetNlpiPriority(scip::SCIP_t, nlpi::SCIP_NLPI_t, priority::Int) = @scip_ccall_check("SCIPsetNlpiPriority",
+	(Ptr{SCIP}, Ptr{SCIP_NLPI}, Int), 
+	pointer(scip), pointer(nlpi), priority
+)
+SCIPincludeExternalCodeInformation(scip::SCIP_t, name::String, description::String) = @scip_ccall_check("SCIPincludeExternalCodeInformation",
+	(Ptr{SCIP}, String, String), 
+	pointer(scip), name, description
+)
+SCIPcaptureDialog(scip::SCIP_t, dialog::SCIP_DIALOG_t) = @scip_ccall_check("SCIPcaptureDialog",
+	(Ptr{SCIP}, Ptr{SCIP_DIALOG}), 
+	pointer(scip), pointer(dialog)
+)
+SCIPreleaseDialog(scip::SCIP_t, dialog::SCIP_DIALOG_t) = @scip_ccall_check("SCIPreleaseDialog",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_DIALOG}}), 
+	pointer(scip), array(dialog)
+)
+SCIPsetRootDialog(scip::SCIP_t, dialog::SCIP_DIALOG_t) = @scip_ccall_check("SCIPsetRootDialog",
+	(Ptr{SCIP}, Ptr{SCIP_DIALOG}), 
+	pointer(scip), pointer(dialog)
+)
+SCIPaddDialogEntry(scip::SCIP_t, dialog::SCIP_DIALOG_t, subdialog::SCIP_DIALOG_t) = @scip_ccall_check("SCIPaddDialogEntry",
+	(Ptr{SCIP}, Ptr{SCIP_DIALOG}, Ptr{SCIP_DIALOG}), 
+	pointer(scip), pointer(dialog), pointer(subdialog)
+)
+SCIPaddDialogInputLine(scip::SCIP_t, inputline::String) = @scip_ccall_check("SCIPaddDialogInputLine",
+	(Ptr{SCIP}, String), 
+	pointer(scip), inputline
+)
+SCIPaddDialogHistoryLine(scip::SCIP_t, inputline::String) = @scip_ccall_check("SCIPaddDialogHistoryLine",
+	(Ptr{SCIP}, String), 
+	pointer(scip), inputline
+)
+SCIPstartInteraction(scip::SCIP_t) = @scip_ccall_check("SCIPstartInteraction",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPcreateProbBasic(scip::SCIP_t, name::String) = @scip_ccall_check("SCIPcreateProbBasic",
+	(Ptr{SCIP}, String), 
+	pointer(scip), name
+)
+SCIPreadProb(scip::SCIP_t, filename::String, extension::String) = @scip_ccall_check("SCIPreadProb",
+	(Ptr{SCIP}, String, String), 
+	pointer(scip), filename, extension
+)
+SCIPwriteOrigProblem(scip::SCIP_t, filename::String, extension::String, genericnames::SCIP_Bool) = @scip_ccall_check("SCIPwriteOrigProblem",
+	(Ptr{SCIP}, String, String, SCIP_Bool), 
+	pointer(scip), filename, extension, genericnames
+)
+SCIPwriteTransProblem(scip::SCIP_t, filename::String, extension::String, genericnames::SCIP_Bool) = @scip_ccall_check("SCIPwriteTransProblem",
+	(Ptr{SCIP}, String, String, SCIP_Bool), 
+	pointer(scip), filename, extension, genericnames
+)
+SCIPfreeProb(scip::SCIP_t) = @scip_ccall_check("SCIPfreeProb",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPpermuteProb(scip::SCIP_t, randseed::Uint, permuteconss::SCIP_Bool, permutebinvars::SCIP_Bool, permuteintvars::SCIP_Bool, permuteimplvars::SCIP_Bool, permutecontvars::SCIP_Bool) = @scip_ccall_check("SCIPpermuteProb",
+	(Ptr{SCIP}, Uint, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), randseed, permuteconss, permutebinvars, permuteintvars, permuteimplvars, permutecontvars
+)
+SCIPsetProbData(scip::SCIP_t, probdata::SCIP_PROBDATA_t) = @scip_ccall_check("SCIPsetProbData",
+	(Ptr{SCIP}, Ptr{SCIP_PROBDATA}), 
+	pointer(scip), pointer(probdata)
+)
+SCIPsetProbName(scip::SCIP_t, name::String) = @scip_ccall_check("SCIPsetProbName",
+	(Ptr{SCIP}, String), 
+	pointer(scip), name
+)
+SCIPsetObjsense(scip::SCIP_t, objsense::SCIP_OBJSENSE) = @scip_ccall_check("SCIPsetObjsense",
+	(Ptr{SCIP}, SCIP_OBJSENSE), 
+	pointer(scip), objsense
+)
+SCIPaddObjoffset(scip::SCIP_t, addval::SCIP_Real) = @scip_ccall_check("SCIPaddObjoffset",
+	(Ptr{SCIP}, SCIP_Real), 
+	pointer(scip), addval
+)
+SCIPaddOrigObjoffset(scip::SCIP_t, addval::SCIP_Real) = @scip_ccall_check("SCIPaddOrigObjoffset",
+	(Ptr{SCIP}, SCIP_Real), 
+	pointer(scip), addval
+)
+SCIPsetObjlimit(scip::SCIP_t, objlimit::SCIP_Real) = @scip_ccall_check("SCIPsetObjlimit",
+	(Ptr{SCIP}, SCIP_Real), 
+	pointer(scip), objlimit
+)
+SCIPsetObjIntegral(scip::SCIP_t) = @scip_ccall_check("SCIPsetObjIntegral",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPaddVar(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall_check("SCIPaddVar",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}), 
+	pointer(scip), pointer(var)
+)
+SCIPaddPricedVar(scip::SCIP_t, var::SCIP_VAR_t, score::SCIP_Real) = @scip_ccall_check("SCIPaddPricedVar",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), 
+	pointer(scip), pointer(var), score
+)
+SCIPdelVar(scip::SCIP_t, var::SCIP_VAR_t, deleted::SCIP_Bool_t) = @scip_ccall_check("SCIPdelVar",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, Ptr{SCIP_Bool}), 
+	pointer(scip), pointer(var), pointer(deleted)
+)
+SCIPaddCons(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPaddCons",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPdelCons(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPdelCons",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPaddConsNode(scip::SCIP_t, node::SCIP_NODE_t, cons::SCIP_CONS_t, validnode::SCIP_NODE_t) = @scip_ccall_check("SCIPaddConsNode",
+	(Ptr{SCIP}, Ptr{SCIP_NODE}, Ptr{SCIP_CONS}, Ptr{SCIP_NODE}), 
+	pointer(scip), pointer(node), pointer(cons), pointer(validnode)
+)
+SCIPaddConsLocal(scip::SCIP_t, cons::SCIP_CONS_t, validnode::SCIP_NODE_t) = @scip_ccall_check("SCIPaddConsLocal",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_NODE}), 
+	pointer(scip), pointer(cons), pointer(validnode)
+)
+SCIPdelConsNode(scip::SCIP_t, node::SCIP_NODE_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPdelConsNode",
+	(Ptr{SCIP}, Ptr{SCIP_NODE}, Ptr{SCIP_CONS}), 
+	pointer(scip), pointer(node), pointer(cons)
+)
+SCIPdelConsLocal(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPdelConsLocal",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPupdateLocalDualbound(scip::SCIP_t, newbound::SCIP_Real) = @scip_ccall_check("SCIPupdateLocalDualbound",
+	(Ptr{SCIP}, SCIP_Real), 
+	pointer(scip), newbound
+)
+SCIPupdateLocalLowerbound(scip::SCIP_t, newbound::SCIP_Real) = @scip_ccall_check("SCIPupdateLocalLowerbound",
+	(Ptr{SCIP}, SCIP_Real), 
+	pointer(scip), newbound
+)
+SCIPupdateNodeDualbound(scip::SCIP_t, node::SCIP_NODE_t, newbound::SCIP_Real) = @scip_ccall_check("SCIPupdateNodeDualbound",
+	(Ptr{SCIP}, Ptr{SCIP_NODE}, SCIP_Real), 
+	pointer(scip), pointer(node), newbound
+)
+SCIPupdateNodeLowerbound(scip::SCIP_t, node::SCIP_NODE_t, newbound::SCIP_Real) = @scip_ccall_check("SCIPupdateNodeLowerbound",
+	(Ptr{SCIP}, Ptr{SCIP_NODE}, SCIP_Real), 
+	pointer(scip), pointer(node), newbound
+)
+SCIPchgChildPrio(scip::SCIP_t, child::SCIP_NODE_t, priority::SCIP_Real) = @scip_ccall_check("SCIPchgChildPrio",
+	(Ptr{SCIP}, Ptr{SCIP_NODE}, SCIP_Real), 
+	pointer(scip), pointer(child), priority
+)
+SCIPtransformProb(scip::SCIP_t) = @scip_ccall_check("SCIPtransformProb",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPpresolve(scip::SCIP_t) = @scip_ccall_check("SCIPpresolve",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPsolve(scip::SCIP_t) = @scip_ccall_check("SCIPsolve",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPfreeSolve(scip::SCIP_t, restart::SCIP_Bool) = @scip_ccall_check("SCIPfreeSolve",
+	(Ptr{SCIP}, SCIP_Bool), 
+	pointer(scip), restart
+)
+SCIPfreeTransform(scip::SCIP_t) = @scip_ccall_check("SCIPfreeTransform",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPinterruptSolve(scip::SCIP_t) = @scip_ccall_check("SCIPinterruptSolve",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPrestartSolve(scip::SCIP_t) = @scip_ccall_check("SCIPrestartSolve",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPcreateVarBasic(scip::SCIP_t, var::SCIP_VAR_t, name::String, lb::SCIP_Real, ub::SCIP_Real, obj::SCIP_Real, vartype::SCIP_VARTYPE) = @scip_ccall_check("SCIPcreateVarBasic",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_VAR}}, String, SCIP_Real, SCIP_Real, SCIP_Real, SCIP_VARTYPE), 
+	pointer(scip), array(var), name, lb, ub, obj, vartype
+)
+SCIPcaptureVar(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall_check("SCIPcaptureVar",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}), 
+	pointer(scip), pointer(var)
+)
+SCIPreleaseVar(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall_check("SCIPreleaseVar",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_VAR}}), 
+	pointer(scip), array(var)
+)
+SCIPchgVarName(scip::SCIP_t, var::SCIP_VAR_t, name::String) = @scip_ccall_check("SCIPchgVarName",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, String), 
+	pointer(scip), pointer(var), name
+)
+SCIPtransformVar(scip::SCIP_t, var::SCIP_VAR_t, transvar::SCIP_VAR_t) = @scip_ccall_check("SCIPtransformVar",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, Ptr{Ptr{SCIP_VAR}}), 
+	pointer(scip), pointer(var), array(transvar)
+)
+SCIPtransformVars(scip::SCIP_t, nvars::Int, vars::SCIP_VAR_t, transvars::SCIP_VAR_t) = @scip_ccall_check("SCIPtransformVars",
+	(Ptr{SCIP}, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{Ptr{SCIP_VAR}}), 
+	pointer(scip), nvars, array(vars), array(transvars)
+)
+SCIPgetTransformedVar(scip::SCIP_t, var::SCIP_VAR_t, transvar::SCIP_VAR_t) = @scip_ccall_check("SCIPgetTransformedVar",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, Ptr{Ptr{SCIP_VAR}}), 
+	pointer(scip), pointer(var), array(transvar)
+)
+SCIPgetTransformedVars(scip::SCIP_t, nvars::Int, vars::SCIP_VAR_t, transvars::SCIP_VAR_t) = @scip_ccall_check("SCIPgetTransformedVars",
+	(Ptr{SCIP}, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{Ptr{SCIP_VAR}}), 
+	pointer(scip), nvars, array(vars), array(transvars)
+)
+SCIPgetNegatedVar(scip::SCIP_t, var::SCIP_VAR_t, negvar::SCIP_VAR_t) = @scip_ccall_check("SCIPgetNegatedVar",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, Ptr{Ptr{SCIP_VAR}}), 
+	pointer(scip), pointer(var), array(negvar)
+)
+SCIPgetNegatedVars(scip::SCIP_t, nvars::Int, vars::SCIP_VAR_t, negvars::SCIP_VAR_t) = @scip_ccall_check("SCIPgetNegatedVars",
+	(Ptr{SCIP}, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{Ptr{SCIP_VAR}}), 
+	pointer(scip), nvars, array(vars), array(negvars)
+)
+SCIPgetBinvarRepresentative(scip::SCIP_t, var::SCIP_VAR_t, repvar::SCIP_VAR_t, negated::SCIP_Bool_t) = @scip_ccall_check("SCIPgetBinvarRepresentative",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Bool}), 
+	pointer(scip), pointer(var), array(repvar), pointer(negated)
+)
+SCIPgetBinvarRepresentatives(scip::SCIP_t, nvars::Int, vars::SCIP_VAR_t, repvars::SCIP_VAR_t, negated::SCIP_Bool_t) = @scip_ccall_check("SCIPgetBinvarRepresentatives",
+	(Ptr{SCIP}, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Bool}), 
+	pointer(scip), nvars, array(vars), array(repvars), pointer(negated)
+)
+SCIPflattenVarAggregationGraph(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall_check("SCIPflattenVarAggregationGraph",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}), 
+	pointer(scip), pointer(var)
+)
+SCIPgetProbvarSum(scip::SCIP_t, var::SCIP_VAR_t, scalar::SCIP_Real_t, constant::SCIP_Real_t) = @scip_ccall_check("SCIPgetProbvarSum",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, Ptr{SCIP_Real}), 
+	pointer(scip), array(var), pointer(scalar), pointer(constant)
+)
+SCIPgetVarSols(scip::SCIP_t, nvars::Int, vars::SCIP_VAR_t, vals::SCIP_Real_t) = @scip_ccall_check("SCIPgetVarSols",
+	(Ptr{SCIP}, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}), 
+	pointer(scip), nvars, array(vars), pointer(vals)
+)
+SCIPclearRelaxSolVals(scip::SCIP_t) = @scip_ccall_check("SCIPclearRelaxSolVals",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPsetRelaxSolVal(scip::SCIP_t, var::SCIP_VAR_t, val::SCIP_Real) = @scip_ccall_check("SCIPsetRelaxSolVal",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), 
+	pointer(scip), pointer(var), val
+)
+SCIPsetRelaxSolVals(scip::SCIP_t, nvars::Int, vars::SCIP_VAR_t, vals::SCIP_Real_t) = @scip_ccall_check("SCIPsetRelaxSolVals",
+	(Ptr{SCIP}, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}), 
+	pointer(scip), nvars, array(vars), pointer(vals)
+)
+SCIPsetRelaxSolValsSol(scip::SCIP_t, sol::SCIP_SOL_t) = @scip_ccall_check("SCIPsetRelaxSolValsSol",
+	(Ptr{SCIP}, Ptr{SCIP_SOL}), 
+	pointer(scip), pointer(sol)
+)
+SCIPmarkRelaxSolValid(scip::SCIP_t) = @scip_ccall_check("SCIPmarkRelaxSolValid",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPmarkRelaxSolInvalid(scip::SCIP_t) = @scip_ccall_check("SCIPmarkRelaxSolInvalid",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPstartStrongbranch(scip::SCIP_t, enablepropagation::SCIP_Bool) = @scip_ccall_check("SCIPstartStrongbranch",
+	(Ptr{SCIP}, SCIP_Bool), 
+	pointer(scip), enablepropagation
+)
+SCIPendStrongbranch(scip::SCIP_t) = @scip_ccall_check("SCIPendStrongbranch",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPgetVarStrongbranchFrac(scip::SCIP_t, var::SCIP_VAR_t, itlim::Int, down::SCIP_Real_t, up::SCIP_Real_t, downvalid::SCIP_Bool_t, upvalid::SCIP_Bool_t, downinf::SCIP_Bool_t, upinf::SCIP_Bool_t, downconflict::SCIP_Bool_t, upconflict::SCIP_Bool_t, lperror::SCIP_Bool_t) = @scip_ccall_check("SCIPgetVarStrongbranchFrac",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, Int, Ptr{SCIP_Real}, Ptr{SCIP_Real}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), 
+	pointer(scip), pointer(var), itlim, pointer(down), pointer(up), pointer(downvalid), pointer(upvalid), pointer(downinf), pointer(upinf), pointer(downconflict), pointer(upconflict), pointer(lperror)
+)
+SCIPgetVarStrongbranchWithPropagation(scip::SCIP_t, var::SCIP_VAR_t, solval::SCIP_Real, lpobjval::SCIP_Real, itlim::Int, maxproprounds::Int, down::SCIP_Real_t, up::SCIP_Real_t, downvalid::SCIP_Bool_t, upvalid::SCIP_Bool_t, downinf::SCIP_Bool_t, upinf::SCIP_Bool_t, downconflict::SCIP_Bool_t, upconflict::SCIP_Bool_t, lperror::SCIP_Bool_t, newlbs::SCIP_Real_t, newubs::SCIP_Real_t) = @scip_ccall_check("SCIPgetVarStrongbranchWithPropagation",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Real, Int, Int, Ptr{SCIP_Real}, Ptr{SCIP_Real}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Real}, Ptr{SCIP_Real}), 
+	pointer(scip), pointer(var), solval, lpobjval, itlim, maxproprounds, pointer(down), pointer(up), pointer(downvalid), pointer(upvalid), pointer(downinf), pointer(upinf), pointer(downconflict), pointer(upconflict), pointer(lperror), pointer(newlbs), pointer(newubs)
+)
+SCIPgetVarStrongbranchInt(scip::SCIP_t, var::SCIP_VAR_t, itlim::Int, down::SCIP_Real_t, up::SCIP_Real_t, downvalid::SCIP_Bool_t, upvalid::SCIP_Bool_t, downinf::SCIP_Bool_t, upinf::SCIP_Bool_t, downconflict::SCIP_Bool_t, upconflict::SCIP_Bool_t, lperror::SCIP_Bool_t) = @scip_ccall_check("SCIPgetVarStrongbranchInt",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, Int, Ptr{SCIP_Real}, Ptr{SCIP_Real}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), 
+	pointer(scip), pointer(var), itlim, pointer(down), pointer(up), pointer(downvalid), pointer(upvalid), pointer(downinf), pointer(upinf), pointer(downconflict), pointer(upconflict), pointer(lperror)
+)
+SCIPgetVarsStrongbranchesFrac(scip::SCIP_t, vars::SCIP_VAR_t, nvars::Int, itlim::Int, down::SCIP_Real_t, up::SCIP_Real_t, downvalid::SCIP_Bool_t, upvalid::SCIP_Bool_t, downinf::SCIP_Bool_t, upinf::SCIP_Bool_t, downconflict::SCIP_Bool_t, upconflict::SCIP_Bool_t, lperror::SCIP_Bool_t) = @scip_ccall_check("SCIPgetVarsStrongbranchesFrac",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_VAR}}, Int, Int, Ptr{SCIP_Real}, Ptr{SCIP_Real}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), 
+	pointer(scip), array(vars), nvars, itlim, pointer(down), pointer(up), pointer(downvalid), pointer(upvalid), pointer(downinf), pointer(upinf), pointer(downconflict), pointer(upconflict), pointer(lperror)
+)
+SCIPgetVarsStrongbranchesInt(scip::SCIP_t, vars::SCIP_VAR_t, nvars::Int, itlim::Int, down::SCIP_Real_t, up::SCIP_Real_t, downvalid::SCIP_Bool_t, upvalid::SCIP_Bool_t, downinf::SCIP_Bool_t, upinf::SCIP_Bool_t, downconflict::SCIP_Bool_t, upconflict::SCIP_Bool_t, lperror::SCIP_Bool_t) = @scip_ccall_check("SCIPgetVarsStrongbranchesInt",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_VAR}}, Int, Int, Ptr{SCIP_Real}, Ptr{SCIP_Real}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), 
+	pointer(scip), array(vars), nvars, itlim, pointer(down), pointer(up), pointer(downvalid), pointer(upvalid), pointer(downinf), pointer(upinf), pointer(downconflict), pointer(upconflict), pointer(lperror)
+)
+SCIPgetVarStrongbranchLast(scip::SCIP_t, var::SCIP_VAR_t, down::SCIP_Real_t, up::SCIP_Real_t, downvalid::SCIP_Bool_t, upvalid::SCIP_Bool_t, solval::SCIP_Real_t, lpobjval::SCIP_Real_t) = @scip_ccall_check("SCIPgetVarStrongbranchLast",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, Ptr{SCIP_Real}, Ptr{SCIP_Real}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Real}, Ptr{SCIP_Real}), 
+	pointer(scip), pointer(var), pointer(down), pointer(up), pointer(downvalid), pointer(upvalid), pointer(solval), pointer(lpobjval)
+)
+SCIPaddVarLocks(scip::SCIP_t, var::SCIP_VAR_t, nlocksdown::Int, nlocksup::Int) = @scip_ccall_check("SCIPaddVarLocks",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, Int, Int), 
+	pointer(scip), pointer(var), nlocksdown, nlocksup
+)
+SCIPlockVarCons(scip::SCIP_t, var::SCIP_VAR_t, cons::SCIP_CONS_t, lockdown::SCIP_Bool, lockup::SCIP_Bool) = @scip_ccall_check("SCIPlockVarCons",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, Ptr{SCIP_CONS}, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), pointer(var), pointer(cons), lockdown, lockup
+)
+SCIPunlockVarCons(scip::SCIP_t, var::SCIP_VAR_t, cons::SCIP_CONS_t, lockdown::SCIP_Bool, lockup::SCIP_Bool) = @scip_ccall_check("SCIPunlockVarCons",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, Ptr{SCIP_CONS}, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), pointer(var), pointer(cons), lockdown, lockup
+)
+SCIPchgVarObj(scip::SCIP_t, var::SCIP_VAR_t, newobj::SCIP_Real) = @scip_ccall_check("SCIPchgVarObj",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), 
+	pointer(scip), pointer(var), newobj
+)
+SCIPaddVarObj(scip::SCIP_t, var::SCIP_VAR_t, addobj::SCIP_Real) = @scip_ccall_check("SCIPaddVarObj",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), 
+	pointer(scip), pointer(var), addobj
+)
+SCIPchgVarLb(scip::SCIP_t, var::SCIP_VAR_t, newbound::SCIP_Real) = @scip_ccall_check("SCIPchgVarLb",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), 
+	pointer(scip), pointer(var), newbound
+)
+SCIPchgVarUb(scip::SCIP_t, var::SCIP_VAR_t, newbound::SCIP_Real) = @scip_ccall_check("SCIPchgVarUb",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), 
+	pointer(scip), pointer(var), newbound
+)
+SCIPchgVarLbNode(scip::SCIP_t, node::SCIP_NODE_t, var::SCIP_VAR_t, newbound::SCIP_Real) = @scip_ccall_check("SCIPchgVarLbNode",
+	(Ptr{SCIP}, Ptr{SCIP_NODE}, Ptr{SCIP_VAR}, SCIP_Real), 
+	pointer(scip), pointer(node), pointer(var), newbound
+)
+SCIPchgVarUbNode(scip::SCIP_t, node::SCIP_NODE_t, var::SCIP_VAR_t, newbound::SCIP_Real) = @scip_ccall_check("SCIPchgVarUbNode",
+	(Ptr{SCIP}, Ptr{SCIP_NODE}, Ptr{SCIP_VAR}, SCIP_Real), 
+	pointer(scip), pointer(node), pointer(var), newbound
+)
+SCIPchgVarLbGlobal(scip::SCIP_t, var::SCIP_VAR_t, newbound::SCIP_Real) = @scip_ccall_check("SCIPchgVarLbGlobal",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), 
+	pointer(scip), pointer(var), newbound
+)
+SCIPchgVarUbGlobal(scip::SCIP_t, var::SCIP_VAR_t, newbound::SCIP_Real) = @scip_ccall_check("SCIPchgVarUbGlobal",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), 
+	pointer(scip), pointer(var), newbound
+)
+SCIPchgVarLbLazy(scip::SCIP_t, var::SCIP_VAR_t, lazylb::SCIP_Real) = @scip_ccall_check("SCIPchgVarLbLazy",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), 
+	pointer(scip), pointer(var), lazylb
+)
+SCIPchgVarUbLazy(scip::SCIP_t, var::SCIP_VAR_t, lazyub::SCIP_Real) = @scip_ccall_check("SCIPchgVarUbLazy",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), 
+	pointer(scip), pointer(var), lazyub
+)
+SCIPtightenVarLb(scip::SCIP_t, var::SCIP_VAR_t, newbound::SCIP_Real, force::SCIP_Bool, infeasible::SCIP_Bool_t, tightened::SCIP_Bool_t) = @scip_ccall_check("SCIPtightenVarLb",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Bool, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), 
+	pointer(scip), pointer(var), newbound, force, pointer(infeasible), pointer(tightened)
+)
+SCIPtightenVarUb(scip::SCIP_t, var::SCIP_VAR_t, newbound::SCIP_Real, force::SCIP_Bool, infeasible::SCIP_Bool_t, tightened::SCIP_Bool_t) = @scip_ccall_check("SCIPtightenVarUb",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Bool, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), 
+	pointer(scip), pointer(var), newbound, force, pointer(infeasible), pointer(tightened)
+)
+SCIPinferVarLbCons(scip::SCIP_t, var::SCIP_VAR_t, newbound::SCIP_Real, infercons::SCIP_CONS_t, inferinfo::Int, force::SCIP_Bool, infeasible::SCIP_Bool_t, tightened::SCIP_Bool_t) = @scip_ccall_check("SCIPinferVarLbCons",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real, Ptr{SCIP_CONS}, Int, SCIP_Bool, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), 
+	pointer(scip), pointer(var), newbound, pointer(infercons), inferinfo, force, pointer(infeasible), pointer(tightened)
+)
+SCIPinferVarUbCons(scip::SCIP_t, var::SCIP_VAR_t, newbound::SCIP_Real, infercons::SCIP_CONS_t, inferinfo::Int, force::SCIP_Bool, infeasible::SCIP_Bool_t, tightened::SCIP_Bool_t) = @scip_ccall_check("SCIPinferVarUbCons",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real, Ptr{SCIP_CONS}, Int, SCIP_Bool, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), 
+	pointer(scip), pointer(var), newbound, pointer(infercons), inferinfo, force, pointer(infeasible), pointer(tightened)
+)
+SCIPinferBinvarCons(scip::SCIP_t, var::SCIP_VAR_t, fixedval::SCIP_Bool, infercons::SCIP_CONS_t, inferinfo::Int, infeasible::SCIP_Bool_t, tightened::SCIP_Bool_t) = @scip_ccall_check("SCIPinferBinvarCons",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Bool, Ptr{SCIP_CONS}, Int, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), 
+	pointer(scip), pointer(var), fixedval, pointer(infercons), inferinfo, pointer(infeasible), pointer(tightened)
+)
+SCIPinferVarLbProp(scip::SCIP_t, var::SCIP_VAR_t, newbound::SCIP_Real, inferprop::SCIP_PROP_t, inferinfo::Int, force::SCIP_Bool, infeasible::SCIP_Bool_t, tightened::SCIP_Bool_t) = @scip_ccall_check("SCIPinferVarLbProp",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real, Ptr{SCIP_PROP}, Int, SCIP_Bool, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), 
+	pointer(scip), pointer(var), newbound, pointer(inferprop), inferinfo, force, pointer(infeasible), pointer(tightened)
+)
+SCIPinferVarUbProp(scip::SCIP_t, var::SCIP_VAR_t, newbound::SCIP_Real, inferprop::SCIP_PROP_t, inferinfo::Int, force::SCIP_Bool, infeasible::SCIP_Bool_t, tightened::SCIP_Bool_t) = @scip_ccall_check("SCIPinferVarUbProp",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real, Ptr{SCIP_PROP}, Int, SCIP_Bool, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), 
+	pointer(scip), pointer(var), newbound, pointer(inferprop), inferinfo, force, pointer(infeasible), pointer(tightened)
+)
+SCIPinferBinvarProp(scip::SCIP_t, var::SCIP_VAR_t, fixedval::SCIP_Bool, inferprop::SCIP_PROP_t, inferinfo::Int, infeasible::SCIP_Bool_t, tightened::SCIP_Bool_t) = @scip_ccall_check("SCIPinferBinvarProp",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Bool, Ptr{SCIP_PROP}, Int, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), 
+	pointer(scip), pointer(var), fixedval, pointer(inferprop), inferinfo, pointer(infeasible), pointer(tightened)
+)
+SCIPtightenVarLbGlobal(scip::SCIP_t, var::SCIP_VAR_t, newbound::SCIP_Real, force::SCIP_Bool, infeasible::SCIP_Bool_t, tightened::SCIP_Bool_t) = @scip_ccall_check("SCIPtightenVarLbGlobal",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Bool, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), 
+	pointer(scip), pointer(var), newbound, force, pointer(infeasible), pointer(tightened)
+)
+SCIPtightenVarUbGlobal(scip::SCIP_t, var::SCIP_VAR_t, newbound::SCIP_Real, force::SCIP_Bool, infeasible::SCIP_Bool_t, tightened::SCIP_Bool_t) = @scip_ccall_check("SCIPtightenVarUbGlobal",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Bool, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), 
+	pointer(scip), pointer(var), newbound, force, pointer(infeasible), pointer(tightened)
+)
+SCIPwriteCliqueGraph(scip::SCIP_t, fname::String, writeimplications::SCIP_Bool, writenodeweights::SCIP_Bool) = @scip_ccall_check("SCIPwriteCliqueGraph",
+	(Ptr{SCIP}, String, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), fname, writeimplications, writenodeweights
+)
+SCIPchgVarBranchFactor(scip::SCIP_t, var::SCIP_VAR_t, branchfactor::SCIP_Real) = @scip_ccall_check("SCIPchgVarBranchFactor",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), 
+	pointer(scip), pointer(var), branchfactor
+)
+SCIPscaleVarBranchFactor(scip::SCIP_t, var::SCIP_VAR_t, scale::SCIP_Real) = @scip_ccall_check("SCIPscaleVarBranchFactor",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), 
+	pointer(scip), pointer(var), scale
+)
+SCIPaddVarBranchFactor(scip::SCIP_t, var::SCIP_VAR_t, addfactor::SCIP_Real) = @scip_ccall_check("SCIPaddVarBranchFactor",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), 
+	pointer(scip), pointer(var), addfactor
+)
+SCIPchgVarBranchPriority(scip::SCIP_t, var::SCIP_VAR_t, branchpriority::Int) = @scip_ccall_check("SCIPchgVarBranchPriority",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, Int), 
+	pointer(scip), pointer(var), branchpriority
+)
+SCIPupdateVarBranchPriority(scip::SCIP_t, var::SCIP_VAR_t, branchpriority::Int) = @scip_ccall_check("SCIPupdateVarBranchPriority",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, Int), 
+	pointer(scip), pointer(var), branchpriority
+)
+SCIPaddVarBranchPriority(scip::SCIP_t, var::SCIP_VAR_t, addpriority::Int) = @scip_ccall_check("SCIPaddVarBranchPriority",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, Int), 
+	pointer(scip), pointer(var), addpriority
+)
+SCIPchgVarBranchDirection(scip::SCIP_t, var::SCIP_VAR_t, branchdirection::SCIP_BRANCHDIR) = @scip_ccall_check("SCIPchgVarBranchDirection",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_BRANCHDIR), 
+	pointer(scip), pointer(var), branchdirection
+)
+SCIPchgVarType(scip::SCIP_t, var::SCIP_VAR_t, vartype::SCIP_VARTYPE, infeasible::SCIP_Bool_t) = @scip_ccall_check("SCIPchgVarType",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_VARTYPE, Ptr{SCIP_Bool}), 
+	pointer(scip), pointer(var), vartype, pointer(infeasible)
+)
+SCIPfixVar(scip::SCIP_t, var::SCIP_VAR_t, fixedval::SCIP_Real, infeasible::SCIP_Bool_t, fixed::SCIP_Bool_t) = @scip_ccall_check("SCIPfixVar",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), 
+	pointer(scip), pointer(var), fixedval, pointer(infeasible), pointer(fixed)
+)
+SCIPaggregateVars(scip::SCIP_t, varx::SCIP_VAR_t, vary::SCIP_VAR_t, scalarx::SCIP_Real, scalary::SCIP_Real, rhs::SCIP_Real, infeasible::SCIP_Bool_t, redundant::SCIP_Bool_t, aggregated::SCIP_Bool_t) = @scip_ccall_check("SCIPaggregateVars",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Real, SCIP_Real, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), 
+	pointer(scip), pointer(varx), pointer(vary), scalarx, scalary, rhs, pointer(infeasible), pointer(redundant), pointer(aggregated)
+)
+SCIPmultiaggregateVar(scip::SCIP_t, var::SCIP_VAR_t, naggvars::Int, aggvars::SCIP_VAR_t, scalars::SCIP_Real_t, constant::SCIP_Real, infeasible::SCIP_Bool_t, aggregated::SCIP_Bool_t) = @scip_ccall_check("SCIPmultiaggregateVar",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, SCIP_Real, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), 
+	pointer(scip), pointer(var), naggvars, array(aggvars), pointer(scalars), constant, pointer(infeasible), pointer(aggregated)
+)
+SCIPmarkDoNotMultaggrVar(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall_check("SCIPmarkDoNotMultaggrVar",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}), 
+	pointer(scip), pointer(var)
+)
+SCIPupdateVarPseudocost(scip::SCIP_t, var::SCIP_VAR_t, solvaldelta::SCIP_Real, objdelta::SCIP_Real, weight::SCIP_Real) = @scip_ccall_check("SCIPupdateVarPseudocost",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Real, SCIP_Real), 
+	pointer(scip), pointer(var), solvaldelta, objdelta, weight
+)
+SCIPinitVarBranchStats(scip::SCIP_t, var::SCIP_VAR_t, downpscost::SCIP_Real, uppscost::SCIP_Real, downvsids::SCIP_Real, upvsids::SCIP_Real, downconflen::SCIP_Real, upconflen::SCIP_Real, downinfer::SCIP_Real, upinfer::SCIP_Real, downcutoff::SCIP_Real, upcutoff::SCIP_Real) = @scip_ccall_check("SCIPinitVarBranchStats",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Real, SCIP_Real, SCIP_Real, SCIP_Real, SCIP_Real, SCIP_Real, SCIP_Real, SCIP_Real, SCIP_Real), 
+	pointer(scip), pointer(var), downpscost, uppscost, downvsids, upvsids, downconflen, upconflen, downinfer, upinfer, downcutoff, upcutoff
+)
+SCIPinitConflictAnalysis(scip::SCIP_t) = @scip_ccall_check("SCIPinitConflictAnalysis",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPaddConflictLb(scip::SCIP_t, var::SCIP_VAR_t, bdchgidx::SCIP_BDCHGIDX_t) = @scip_ccall_check("SCIPaddConflictLb",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, Ptr{SCIP_BDCHGIDX}), 
+	pointer(scip), pointer(var), pointer(bdchgidx)
+)
+SCIPaddConflictRelaxedLb(scip::SCIP_t, var::SCIP_VAR_t, bdchgidx::SCIP_BDCHGIDX_t, relaxedlb::SCIP_Real) = @scip_ccall_check("SCIPaddConflictRelaxedLb",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, Ptr{SCIP_BDCHGIDX}, SCIP_Real), 
+	pointer(scip), pointer(var), pointer(bdchgidx), relaxedlb
+)
+SCIPaddConflictUb(scip::SCIP_t, var::SCIP_VAR_t, bdchgidx::SCIP_BDCHGIDX_t) = @scip_ccall_check("SCIPaddConflictUb",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, Ptr{SCIP_BDCHGIDX}), 
+	pointer(scip), pointer(var), pointer(bdchgidx)
+)
+SCIPaddConflictRelaxedUb(scip::SCIP_t, var::SCIP_VAR_t, bdchgidx::SCIP_BDCHGIDX_t, relaxedub::SCIP_Real) = @scip_ccall_check("SCIPaddConflictRelaxedUb",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, Ptr{SCIP_BDCHGIDX}, SCIP_Real), 
+	pointer(scip), pointer(var), pointer(bdchgidx), relaxedub
+)
+SCIPaddConflictBd(scip::SCIP_t, var::SCIP_VAR_t, boundtype::SCIP_BOUNDTYPE, bdchgidx::SCIP_BDCHGIDX_t) = @scip_ccall_check("SCIPaddConflictBd",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_BOUNDTYPE, Ptr{SCIP_BDCHGIDX}), 
+	pointer(scip), pointer(var), boundtype, pointer(bdchgidx)
+)
+SCIPaddConflictRelaxedBd(scip::SCIP_t, var::SCIP_VAR_t, boundtype::SCIP_BOUNDTYPE, bdchgidx::SCIP_BDCHGIDX_t, relaxedbd::SCIP_Real) = @scip_ccall_check("SCIPaddConflictRelaxedBd",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_BOUNDTYPE, Ptr{SCIP_BDCHGIDX}, SCIP_Real), 
+	pointer(scip), pointer(var), boundtype, pointer(bdchgidx), relaxedbd
+)
+SCIPaddConflictBinvar(scip::SCIP_t, var::SCIP_VAR_t) = @scip_ccall_check("SCIPaddConflictBinvar",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}), 
+	pointer(scip), pointer(var)
+)
+SCIPisConflictVarUsed(scip::SCIP_t, var::SCIP_VAR_t, boundtype::SCIP_BOUNDTYPE, bdchgidx::SCIP_BDCHGIDX_t, used::SCIP_Bool_t) = @scip_ccall_check("SCIPisConflictVarUsed",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_BOUNDTYPE, Ptr{SCIP_BDCHGIDX}, Ptr{SCIP_Bool}), 
+	pointer(scip), pointer(var), boundtype, pointer(bdchgidx), pointer(used)
+)
+SCIPanalyzeConflict(scip::SCIP_t, validdepth::Int, success::SCIP_Bool_t) = @scip_ccall_check("SCIPanalyzeConflict",
+	(Ptr{SCIP}, Int, Ptr{SCIP_Bool}), 
+	pointer(scip), validdepth, pointer(success)
+)
+SCIPanalyzeConflictCons(scip::SCIP_t, cons::SCIP_CONS_t, success::SCIP_Bool_t) = @scip_ccall_check("SCIPanalyzeConflictCons",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_Bool}), 
+	pointer(scip), pointer(cons), pointer(success)
+)
+SCIPcreateCons(scip::SCIP_t, cons::SCIP_CONS_t, name::String, conshdlr::SCIP_CONSHDLR_t, consdata::SCIP_CONSDATA_t, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateCons",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{SCIP_CONSHDLR}, Ptr{SCIP_CONSDATA}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), array(cons), name, pointer(conshdlr), pointer(consdata), initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode
+)
+SCIPparseCons(scip::SCIP_t, cons::SCIP_CONS_t, str::String, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool, success::SCIP_Bool_t) = @scip_ccall_check("SCIPparseCons",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, Ptr{SCIP_Bool}), 
+	pointer(scip), array(cons), str, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode, pointer(success)
+)
+SCIPcaptureCons(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPcaptureCons",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPreleaseCons(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPreleaseCons",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}), 
+	pointer(scip), array(cons)
+)
+SCIPchgConsName(scip::SCIP_t, cons::SCIP_CONS_t, name::String) = @scip_ccall_check("SCIPchgConsName",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, String), 
+	pointer(scip), pointer(cons), name
+)
+SCIPsetConsInitial(scip::SCIP_t, cons::SCIP_CONS_t, initial::SCIP_Bool) = @scip_ccall_check("SCIPsetConsInitial",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool), 
+	pointer(scip), pointer(cons), initial
+)
+SCIPsetConsSeparated(scip::SCIP_t, cons::SCIP_CONS_t, separate::SCIP_Bool) = @scip_ccall_check("SCIPsetConsSeparated",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool), 
+	pointer(scip), pointer(cons), separate
+)
+SCIPsetConsEnforced(scip::SCIP_t, cons::SCIP_CONS_t, enforce::SCIP_Bool) = @scip_ccall_check("SCIPsetConsEnforced",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool), 
+	pointer(scip), pointer(cons), enforce
+)
+SCIPsetConsChecked(scip::SCIP_t, cons::SCIP_CONS_t, check::SCIP_Bool) = @scip_ccall_check("SCIPsetConsChecked",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool), 
+	pointer(scip), pointer(cons), check
+)
+SCIPsetConsPropagated(scip::SCIP_t, cons::SCIP_CONS_t, propagate::SCIP_Bool) = @scip_ccall_check("SCIPsetConsPropagated",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool), 
+	pointer(scip), pointer(cons), propagate
+)
+SCIPsetConsLocal(scip::SCIP_t, cons::SCIP_CONS_t, localVar::SCIP_Bool) = @scip_ccall_check("SCIPsetConsLocal",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool), 
+	pointer(scip), pointer(cons), localVar
+)
+SCIPsetConsModifiable(scip::SCIP_t, cons::SCIP_CONS_t, modifiable::SCIP_Bool) = @scip_ccall_check("SCIPsetConsModifiable",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool), 
+	pointer(scip), pointer(cons), modifiable
+)
+SCIPsetConsDynamic(scip::SCIP_t, cons::SCIP_CONS_t, dynamic::SCIP_Bool) = @scip_ccall_check("SCIPsetConsDynamic",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool), 
+	pointer(scip), pointer(cons), dynamic
+)
+SCIPsetConsRemovable(scip::SCIP_t, cons::SCIP_CONS_t, removable::SCIP_Bool) = @scip_ccall_check("SCIPsetConsRemovable",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool), 
+	pointer(scip), pointer(cons), removable
+)
+SCIPsetConsStickingAtNode(scip::SCIP_t, cons::SCIP_CONS_t, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPsetConsStickingAtNode",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool), 
+	pointer(scip), pointer(cons), stickingatnode
+)
+SCIPupdateConsFlags(scip::SCIP_t, cons0::SCIP_CONS_t, cons1::SCIP_CONS_t) = @scip_ccall_check("SCIPupdateConsFlags",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_CONS}), 
+	pointer(scip), pointer(cons0), pointer(cons1)
+)
+SCIPtransformCons(scip::SCIP_t, cons::SCIP_CONS_t, transcons::SCIP_CONS_t) = @scip_ccall_check("SCIPtransformCons",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{Ptr{SCIP_CONS}}), 
+	pointer(scip), pointer(cons), array(transcons)
+)
+SCIPtransformConss(scip::SCIP_t, nconss::Int, conss::SCIP_CONS_t, transconss::SCIP_CONS_t) = @scip_ccall_check("SCIPtransformConss",
+	(Ptr{SCIP}, Int, Ptr{Ptr{SCIP_CONS}}, Ptr{Ptr{SCIP_CONS}}), 
+	pointer(scip), nconss, array(conss), array(transconss)
+)
+SCIPgetTransformedCons(scip::SCIP_t, cons::SCIP_CONS_t, transcons::SCIP_CONS_t) = @scip_ccall_check("SCIPgetTransformedCons",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{Ptr{SCIP_CONS}}), 
+	pointer(scip), pointer(cons), array(transcons)
+)
+SCIPgetTransformedConss(scip::SCIP_t, nconss::Int, conss::SCIP_CONS_t, transconss::SCIP_CONS_t) = @scip_ccall_check("SCIPgetTransformedConss",
+	(Ptr{SCIP}, Int, Ptr{Ptr{SCIP_CONS}}, Ptr{Ptr{SCIP_CONS}}), 
+	pointer(scip), nconss, array(conss), array(transconss)
+)
+SCIPaddConsAge(scip::SCIP_t, cons::SCIP_CONS_t, deltaage::SCIP_Real) = @scip_ccall_check("SCIPaddConsAge",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Real), 
+	pointer(scip), pointer(cons), deltaage
+)
+SCIPincConsAge(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPincConsAge",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPresetConsAge(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPresetConsAge",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPenableCons(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPenableCons",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPdisableCons(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPdisableCons",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPenableConsSeparation(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPenableConsSeparation",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPdisableConsSeparation(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPdisableConsSeparation",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPenableConsPropagation(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPenableConsPropagation",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPdisableConsPropagation(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPdisableConsPropagation",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPmarkConsPropagate(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPmarkConsPropagate",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPunmarkConsPropagate(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPunmarkConsPropagate",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPaddConsLocks(scip::SCIP_t, cons::SCIP_CONS_t, nlockspos::Int, nlocksneg::Int) = @scip_ccall_check("SCIPaddConsLocks",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Int, Int), 
+	pointer(scip), pointer(cons), nlockspos, nlocksneg
+)
+SCIPcheckCons(scip::SCIP_t, cons::SCIP_CONS_t, sol::SCIP_SOL_t, checkintegrality::SCIP_Bool, checklprows::SCIP_Bool, printreason::SCIP_Bool, result::SCIP_RESULT_t) = @scip_ccall_check("SCIPcheckCons",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_SOL}, SCIP_Bool, SCIP_Bool, SCIP_Bool, Ptr{SCIP_RESULT}), 
+	pointer(scip), pointer(cons), pointer(sol), checkintegrality, checklprows, printreason, pointer(result)
+)
+SCIPenfopsCons(scip::SCIP_t, cons::SCIP_CONS_t, solinfeasible::SCIP_Bool, objinfeasible::SCIP_Bool, result::SCIP_RESULT_t) = @scip_ccall_check("SCIPenfopsCons",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool, SCIP_Bool, Ptr{SCIP_RESULT}), 
+	pointer(scip), pointer(cons), solinfeasible, objinfeasible, pointer(result)
+)
+SCIPenfolpCons(scip::SCIP_t, cons::SCIP_CONS_t, solinfeasible::SCIP_Bool, result::SCIP_RESULT_t) = @scip_ccall_check("SCIPenfolpCons",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool, Ptr{SCIP_RESULT}), 
+	pointer(scip), pointer(cons), solinfeasible, pointer(result)
+)
+SCIPinitlpCons(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPinitlpCons",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPsepalpCons(scip::SCIP_t, cons::SCIP_CONS_t, result::SCIP_RESULT_t) = @scip_ccall_check("SCIPsepalpCons",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_RESULT}), 
+	pointer(scip), pointer(cons), pointer(result)
+)
+SCIPsepasolCons(scip::SCIP_t, cons::SCIP_CONS_t, sol::SCIP_SOL_t, result::SCIP_RESULT_t) = @scip_ccall_check("SCIPsepasolCons",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_SOL}, Ptr{SCIP_RESULT}), 
+	pointer(scip), pointer(cons), pointer(sol), pointer(result)
+)
+SCIPpropCons(scip::SCIP_t, cons::SCIP_CONS_t, proptiming::SCIP_PROPTIMING, result::SCIP_RESULT_t) = @scip_ccall_check("SCIPpropCons",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_PROPTIMING, Ptr{SCIP_RESULT}), 
+	pointer(scip), pointer(cons), proptiming, pointer(result)
+)
+SCIPrespropCons(scip::SCIP_t, cons::SCIP_CONS_t, infervar::SCIP_VAR_t, inferinfo::Int, boundtype::SCIP_BOUNDTYPE, bdchgidx::SCIP_BDCHGIDX_t, relaxedbd::SCIP_Real, result::SCIP_RESULT_t) = @scip_ccall_check("SCIPrespropCons",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_VAR}, Int, SCIP_BOUNDTYPE, Ptr{SCIP_BDCHGIDX}, SCIP_Real, Ptr{SCIP_RESULT}), 
+	pointer(scip), pointer(cons), pointer(infervar), inferinfo, boundtype, pointer(bdchgidx), relaxedbd, pointer(result)
+)
+SCIPactiveCons(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPactiveCons",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPdeactiveCons(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPdeactiveCons",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetConsVars(scip::SCIP_t, cons::SCIP_CONS_t, vars::SCIP_VAR_t, varssize::Int, success::SCIP_Bool_t) = @scip_ccall_check("SCIPgetConsVars",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{Ptr{SCIP_VAR}}, Int, Ptr{SCIP_Bool}), 
+	pointer(scip), pointer(cons), array(vars), varssize, pointer(success)
+)
+SCIPconstructLP(scip::SCIP_t, cutoff::SCIP_Bool_t) = @scip_ccall_check("SCIPconstructLP",
+	(Ptr{SCIP}, Ptr{SCIP_Bool}), 
+	pointer(scip), pointer(cutoff)
+)
+SCIPflushLP(scip::SCIP_t) = @scip_ccall_check("SCIPflushLP",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPgetLPBInvRow(scip::SCIP_t, r::Int, coef::SCIP_Real_t) = @scip_ccall_check("SCIPgetLPBInvRow",
+	(Ptr{SCIP}, Int, Ptr{SCIP_Real}), 
+	pointer(scip), r, pointer(coef)
+)
+SCIPgetLPBInvCol(scip::SCIP_t, c::Int, coef::SCIP_Real_t) = @scip_ccall_check("SCIPgetLPBInvCol",
+	(Ptr{SCIP}, Int, Ptr{SCIP_Real}), 
+	pointer(scip), c, pointer(coef)
+)
+SCIPgetLPBInvARow(scip::SCIP_t, r::Int, binvrow::SCIP_Real_t, coef::SCIP_Real_t) = @scip_ccall_check("SCIPgetLPBInvARow",
+	(Ptr{SCIP}, Int, Ptr{SCIP_Real}, Ptr{SCIP_Real}), 
+	pointer(scip), r, pointer(binvrow), pointer(coef)
+)
+SCIPgetLPBInvACol(scip::SCIP_t, c::Int, coef::SCIP_Real_t) = @scip_ccall_check("SCIPgetLPBInvACol",
+	(Ptr{SCIP}, Int, Ptr{SCIP_Real}), 
+	pointer(scip), c, pointer(coef)
+)
+SCIPsumLPRows(scip::SCIP_t, weights::SCIP_Real_t, sumcoef::SCIP_REALARRAY_t, sumlhs::SCIP_Real_t, sumrhs::SCIP_Real_t) = @scip_ccall_check("SCIPsumLPRows",
+	(Ptr{SCIP}, Ptr{SCIP_Real}, Ptr{SCIP_REALARRAY}, Ptr{SCIP_Real}, Ptr{SCIP_Real}), 
+	pointer(scip), pointer(weights), pointer(sumcoef), pointer(sumlhs), pointer(sumrhs)
+)
+SCIPwriteLP(scip::SCIP_t, filename::String) = @scip_ccall_check("SCIPwriteLP",
+	(Ptr{SCIP}, String), 
+	pointer(scip), filename
+)
+SCIPwriteMIP(scip::SCIP_t, filename::String, genericnames::SCIP_Bool, origobj::SCIP_Bool, lazyconss::SCIP_Bool) = @scip_ccall_check("SCIPwriteMIP",
+	(Ptr{SCIP}, String, SCIP_Bool, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), filename, genericnames, origobj, lazyconss
+)
+SCIPgetLPI(scip::SCIP_t, lpi::SCIP_LPI_t) = @scip_ccall_check("SCIPgetLPI",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_LPI}}), 
+	pointer(scip), array(lpi)
+)
+SCIPcomputeLPRelIntPoint(scip::SCIP_t, relaxrows::SCIP_Bool, inclobjcutoff::SCIP_Bool, timelimit::SCIP_Real, iterlimit::Int, point::SCIP_SOL_t) = @scip_ccall_check("SCIPcomputeLPRelIntPoint",
+	(Ptr{SCIP}, SCIP_Bool, SCIP_Bool, SCIP_Real, Int, Ptr{Ptr{SCIP_SOL}}), 
+	pointer(scip), relaxrows, inclobjcutoff, timelimit, iterlimit, array(point)
+)
+SCIPcreateRowCons(scip::SCIP_t, row::SCIP_ROW_t, conshdlr::SCIP_CONSHDLR_t, name::String, len::Int, cols::SCIP_COL_t, vals::SCIP_Real_t, lhs::SCIP_Real, rhs::SCIP_Real, localVar::SCIP_Bool, modifiable::SCIP_Bool, removable::SCIP_Bool) = @scip_ccall_check("SCIPcreateRowCons",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_ROW}}, Ptr{SCIP_CONSHDLR}, String, Int, Ptr{Ptr{SCIP_COL}}, Ptr{SCIP_Real}, SCIP_Real, SCIP_Real, SCIP_Bool, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), array(row), pointer(conshdlr), name, len, array(cols), pointer(vals), lhs, rhs, localVar, modifiable, removable
+)
+SCIPcreateRowSepa(scip::SCIP_t, row::SCIP_ROW_t, sepa::SCIP_SEPA_t, name::String, len::Int, cols::SCIP_COL_t, vals::SCIP_Real_t, lhs::SCIP_Real, rhs::SCIP_Real, localVar::SCIP_Bool, modifiable::SCIP_Bool, removable::SCIP_Bool) = @scip_ccall_check("SCIPcreateRowSepa",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_ROW}}, Ptr{SCIP_SEPA}, String, Int, Ptr{Ptr{SCIP_COL}}, Ptr{SCIP_Real}, SCIP_Real, SCIP_Real, SCIP_Bool, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), array(row), pointer(sepa), name, len, array(cols), pointer(vals), lhs, rhs, localVar, modifiable, removable
+)
+SCIPcreateRowUnspec(scip::SCIP_t, row::SCIP_ROW_t, name::String, len::Int, cols::SCIP_COL_t, vals::SCIP_Real_t, lhs::SCIP_Real, rhs::SCIP_Real, localVar::SCIP_Bool, modifiable::SCIP_Bool, removable::SCIP_Bool) = @scip_ccall_check("SCIPcreateRowUnspec",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_ROW}}, String, Int, Ptr{Ptr{SCIP_COL}}, Ptr{SCIP_Real}, SCIP_Real, SCIP_Real, SCIP_Bool, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), array(row), name, len, array(cols), pointer(vals), lhs, rhs, localVar, modifiable, removable
+)
+SCIPcreateRow(scip::SCIP_t, row::SCIP_ROW_t, name::String, len::Int, cols::SCIP_COL_t, vals::SCIP_Real_t, lhs::SCIP_Real, rhs::SCIP_Real, localVar::SCIP_Bool, modifiable::SCIP_Bool, removable::SCIP_Bool) = @scip_ccall_check("SCIPcreateRow",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_ROW}}, String, Int, Ptr{Ptr{SCIP_COL}}, Ptr{SCIP_Real}, SCIP_Real, SCIP_Real, SCIP_Bool, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), array(row), name, len, array(cols), pointer(vals), lhs, rhs, localVar, modifiable, removable
+)
+SCIPcreateEmptyRowCons(scip::SCIP_t, row::SCIP_ROW_t, conshdlr::SCIP_CONSHDLR_t, name::String, lhs::SCIP_Real, rhs::SCIP_Real, localVar::SCIP_Bool, modifiable::SCIP_Bool, removable::SCIP_Bool) = @scip_ccall_check("SCIPcreateEmptyRowCons",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_ROW}}, Ptr{SCIP_CONSHDLR}, String, SCIP_Real, SCIP_Real, SCIP_Bool, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), array(row), pointer(conshdlr), name, lhs, rhs, localVar, modifiable, removable
+)
+SCIPcreateEmptyRowSepa(scip::SCIP_t, row::SCIP_ROW_t, sepa::SCIP_SEPA_t, name::String, lhs::SCIP_Real, rhs::SCIP_Real, localVar::SCIP_Bool, modifiable::SCIP_Bool, removable::SCIP_Bool) = @scip_ccall_check("SCIPcreateEmptyRowSepa",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_ROW}}, Ptr{SCIP_SEPA}, String, SCIP_Real, SCIP_Real, SCIP_Bool, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), array(row), pointer(sepa), name, lhs, rhs, localVar, modifiable, removable
+)
+SCIPcreateEmptyRowUnspec(scip::SCIP_t, row::SCIP_ROW_t, name::String, lhs::SCIP_Real, rhs::SCIP_Real, localVar::SCIP_Bool, modifiable::SCIP_Bool, removable::SCIP_Bool) = @scip_ccall_check("SCIPcreateEmptyRowUnspec",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_ROW}}, String, SCIP_Real, SCIP_Real, SCIP_Bool, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), array(row), name, lhs, rhs, localVar, modifiable, removable
+)
+SCIPcreateEmptyRow(scip::SCIP_t, row::SCIP_ROW_t, name::String, lhs::SCIP_Real, rhs::SCIP_Real, localVar::SCIP_Bool, modifiable::SCIP_Bool, removable::SCIP_Bool) = @scip_ccall_check("SCIPcreateEmptyRow",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_ROW}}, String, SCIP_Real, SCIP_Real, SCIP_Bool, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), array(row), name, lhs, rhs, localVar, modifiable, removable
+)
+SCIPcaptureRow(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall_check("SCIPcaptureRow",
+	(Ptr{SCIP}, Ptr{SCIP_ROW}), 
+	pointer(scip), pointer(row)
+)
+SCIPreleaseRow(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall_check("SCIPreleaseRow",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_ROW}}), 
+	pointer(scip), array(row)
+)
+SCIPchgRowLhs(scip::SCIP_t, row::SCIP_ROW_t, lhs::SCIP_Real) = @scip_ccall_check("SCIPchgRowLhs",
+	(Ptr{SCIP}, Ptr{SCIP_ROW}, SCIP_Real), 
+	pointer(scip), pointer(row), lhs
+)
+SCIPchgRowRhs(scip::SCIP_t, row::SCIP_ROW_t, rhs::SCIP_Real) = @scip_ccall_check("SCIPchgRowRhs",
+	(Ptr{SCIP}, Ptr{SCIP_ROW}, SCIP_Real), 
+	pointer(scip), pointer(row), rhs
+)
+SCIPcacheRowExtensions(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall_check("SCIPcacheRowExtensions",
+	(Ptr{SCIP}, Ptr{SCIP_ROW}), 
+	pointer(scip), pointer(row)
+)
+SCIPflushRowExtensions(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall_check("SCIPflushRowExtensions",
+	(Ptr{SCIP}, Ptr{SCIP_ROW}), 
+	pointer(scip), pointer(row)
+)
+SCIPaddVarToRow(scip::SCIP_t, row::SCIP_ROW_t, var::SCIP_VAR_t, val::SCIP_Real) = @scip_ccall_check("SCIPaddVarToRow",
+	(Ptr{SCIP}, Ptr{SCIP_ROW}, Ptr{SCIP_VAR}, SCIP_Real), 
+	pointer(scip), pointer(row), pointer(var), val
+)
+SCIPaddVarsToRow(scip::SCIP_t, row::SCIP_ROW_t, nvars::Int, vars::SCIP_VAR_t, vals::SCIP_Real_t) = @scip_ccall_check("SCIPaddVarsToRow",
+	(Ptr{SCIP}, Ptr{SCIP_ROW}, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}), 
+	pointer(scip), pointer(row), nvars, array(vars), pointer(vals)
+)
+SCIPaddVarsToRowSameCoef(scip::SCIP_t, row::SCIP_ROW_t, nvars::Int, vars::SCIP_VAR_t, val::SCIP_Real) = @scip_ccall_check("SCIPaddVarsToRowSameCoef",
+	(Ptr{SCIP}, Ptr{SCIP_ROW}, Int, Ptr{Ptr{SCIP_VAR}}, SCIP_Real), 
+	pointer(scip), pointer(row), nvars, array(vars), val
+)
+SCIPcalcRowIntegralScalar(scip::SCIP_t, row::SCIP_ROW_t, mindelta::SCIP_Real, maxdelta::SCIP_Real, maxdnom::Int64, maxscale::SCIP_Real, usecontvars::SCIP_Bool, intscalar::SCIP_Real_t, success::SCIP_Bool_t) = @scip_ccall_check("SCIPcalcRowIntegralScalar",
+	(Ptr{SCIP}, Ptr{SCIP_ROW}, SCIP_Real, SCIP_Real, Int64, SCIP_Real, SCIP_Bool, Ptr{SCIP_Real}, Ptr{SCIP_Bool}), 
+	pointer(scip), pointer(row), mindelta, maxdelta, maxdnom, maxscale, usecontvars, pointer(intscalar), pointer(success)
+)
+SCIPmakeRowIntegral(scip::SCIP_t, row::SCIP_ROW_t, mindelta::SCIP_Real, maxdelta::SCIP_Real, maxdnom::Int64, maxscale::SCIP_Real, usecontvars::SCIP_Bool, success::SCIP_Bool_t) = @scip_ccall_check("SCIPmakeRowIntegral",
+	(Ptr{SCIP}, Ptr{SCIP_ROW}, SCIP_Real, SCIP_Real, Int64, SCIP_Real, SCIP_Bool, Ptr{SCIP_Bool}), 
+	pointer(scip), pointer(row), mindelta, maxdelta, maxdnom, maxscale, usecontvars, pointer(success)
+)
+SCIPrecalcRowLPActivity(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall_check("SCIPrecalcRowLPActivity",
+	(Ptr{SCIP}, Ptr{SCIP_ROW}), 
+	pointer(scip), pointer(row)
+)
+SCIPrecalcRowPseudoActivity(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall_check("SCIPrecalcRowPseudoActivity",
+	(Ptr{SCIP}, Ptr{SCIP_ROW}), 
+	pointer(scip), pointer(row)
+)
+SCIPrecalcRowActivity(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall_check("SCIPrecalcRowActivity",
+	(Ptr{SCIP}, Ptr{SCIP_ROW}), 
+	pointer(scip), pointer(row)
+)
+SCIPaddNlRow(scip::SCIP_t, nlrow::SCIP_NLROW_t) = @scip_ccall_check("SCIPaddNlRow",
+	(Ptr{SCIP}, Ptr{SCIP_NLROW}), 
+	pointer(scip), pointer(nlrow)
+)
+SCIPflushNLP(scip::SCIP_t) = @scip_ccall_check("SCIPflushNLP",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPsetNLPInitialGuess(scip::SCIP_t, initialguess::SCIP_Real_t) = @scip_ccall_check("SCIPsetNLPInitialGuess",
+	(Ptr{SCIP}, Ptr{SCIP_Real}), 
+	pointer(scip), pointer(initialguess)
+)
+SCIPsetNLPInitialGuessSol(scip::SCIP_t, sol::SCIP_SOL_t) = @scip_ccall_check("SCIPsetNLPInitialGuessSol",
+	(Ptr{SCIP}, Ptr{SCIP_SOL}), 
+	pointer(scip), pointer(sol)
+)
+SCIPsolveNLP(scip::SCIP_t) = @scip_ccall_check("SCIPsolveNLP",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPgetNLPStatistics(scip::SCIP_t, statistics::SCIP_NLPSTATISTICS_t) = @scip_ccall_check("SCIPgetNLPStatistics",
+	(Ptr{SCIP}, Ptr{SCIP_NLPSTATISTICS}), 
+	pointer(scip), pointer(statistics)
+)
+SCIPsetNLPIntPar(scip::SCIP_t, typeVar::SCIP_NLPPARAM, ival::Int) = @scip_ccall_check("SCIPsetNLPIntPar",
+	(Ptr{SCIP}, SCIP_NLPPARAM, Int), 
+	pointer(scip), typeVar, ival
+)
+SCIPgetNLPRealPar(scip::SCIP_t, typeVar::SCIP_NLPPARAM, dval::SCIP_Real_t) = @scip_ccall_check("SCIPgetNLPRealPar",
+	(Ptr{SCIP}, SCIP_NLPPARAM, Ptr{SCIP_Real}), 
+	pointer(scip), typeVar, pointer(dval)
+)
+SCIPsetNLPRealPar(scip::SCIP_t, typeVar::SCIP_NLPPARAM, dval::SCIP_Real) = @scip_ccall_check("SCIPsetNLPRealPar",
+	(Ptr{SCIP}, SCIP_NLPPARAM, SCIP_Real), 
+	pointer(scip), typeVar, dval
+)
+SCIPsetNLPStringPar(scip::SCIP_t, typeVar::SCIP_NLPPARAM, sval::String) = @scip_ccall_check("SCIPsetNLPStringPar",
+	(Ptr{SCIP}, SCIP_NLPPARAM, String), 
+	pointer(scip), typeVar, sval
+)
+SCIPwriteNLP(scip::SCIP_t, filename::String) = @scip_ccall_check("SCIPwriteNLP",
+	(Ptr{SCIP}, String), 
+	pointer(scip), filename
+)
+SCIPgetNLPI(scip::SCIP_t, nlpi::SCIP_NLPI_t, nlpiproblem::SCIP_NLPIPROBLEM_t) = @scip_ccall_check("SCIPgetNLPI",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_NLPI}}, Ptr{Ptr{SCIP_NLPIPROBLEM}}), 
+	pointer(scip), array(nlpi), array(nlpiproblem)
+)
+SCIPstartDiveNLP(scip::SCIP_t) = @scip_ccall_check("SCIPstartDiveNLP",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPendDiveNLP(scip::SCIP_t) = @scip_ccall_check("SCIPendDiveNLP",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPchgVarObjDiveNLP(scip::SCIP_t, var::SCIP_VAR_t, coef::SCIP_Real) = @scip_ccall_check("SCIPchgVarObjDiveNLP",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), 
+	pointer(scip), pointer(var), coef
+)
+SCIPchgVarBoundsDiveNLP(scip::SCIP_t, var::SCIP_VAR_t, lb::SCIP_Real, ub::SCIP_Real) = @scip_ccall_check("SCIPchgVarBoundsDiveNLP",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Real), 
+	pointer(scip), pointer(var), lb, ub
+)
+SCIPchgVarsBoundsDiveNLP(scip::SCIP_t, nvars::Int, vars::SCIP_VAR_t, lbs::SCIP_Real_t, ubs::SCIP_Real_t) = @scip_ccall_check("SCIPchgVarsBoundsDiveNLP",
+	(Ptr{SCIP}, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, Ptr{SCIP_Real}), 
+	pointer(scip), nvars, array(vars), pointer(lbs), pointer(ubs)
+)
+SCIPsolveDiveNLP(scip::SCIP_t) = @scip_ccall_check("SCIPsolveDiveNLP",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPcreateNlRow(scip::SCIP_t, nlrow::SCIP_NLROW_t, name::String, constant::SCIP_Real, nlinvars::Int, linvars::SCIP_VAR_t, lincoefs::SCIP_Real_t, nquadvars::Int, quadvars::SCIP_VAR_t, nquadelems::Int, quadelems::SCIP_QUADELEM_t, expression::SCIP_EXPRTREE_t, lhs::SCIP_Real, rhs::SCIP_Real) = @scip_ccall_check("SCIPcreateNlRow",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_NLROW}}, String, SCIP_Real, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, Int, Ptr{Ptr{SCIP_VAR}}, Int, Ptr{SCIP_QUADELEM}, Ptr{SCIP_EXPRTREE}, SCIP_Real, SCIP_Real), 
+	pointer(scip), array(nlrow), name, constant, nlinvars, array(linvars), pointer(lincoefs), nquadvars, array(quadvars), nquadelems, pointer(quadelems), pointer(expression), lhs, rhs
+)
+SCIPcreateEmptyNlRow(scip::SCIP_t, nlrow::SCIP_NLROW_t, name::String, lhs::SCIP_Real, rhs::SCIP_Real) = @scip_ccall_check("SCIPcreateEmptyNlRow",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_NLROW}}, String, SCIP_Real, SCIP_Real), 
+	pointer(scip), array(nlrow), name, lhs, rhs
+)
+SCIPcreateNlRowFromRow(scip::SCIP_t, nlrow::SCIP_NLROW_t, row::SCIP_ROW_t) = @scip_ccall_check("SCIPcreateNlRowFromRow",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_NLROW}}, Ptr{SCIP_ROW}), 
+	pointer(scip), array(nlrow), pointer(row)
+)
+SCIPcaptureNlRow(scip::SCIP_t, nlrow::SCIP_NLROW_t) = @scip_ccall_check("SCIPcaptureNlRow",
+	(Ptr{SCIP}, Ptr{SCIP_NLROW}), 
+	pointer(scip), pointer(nlrow)
+)
+SCIPreleaseNlRow(scip::SCIP_t, nlrow::SCIP_NLROW_t) = @scip_ccall_check("SCIPreleaseNlRow",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_NLROW}}), 
+	pointer(scip), array(nlrow)
+)
+SCIPchgNlRowLhs(scip::SCIP_t, nlrow::SCIP_NLROW_t, lhs::SCIP_Real) = @scip_ccall_check("SCIPchgNlRowLhs",
+	(Ptr{SCIP}, Ptr{SCIP_NLROW}, SCIP_Real), 
+	pointer(scip), pointer(nlrow), lhs
+)
+SCIPchgNlRowRhs(scip::SCIP_t, nlrow::SCIP_NLROW_t, rhs::SCIP_Real) = @scip_ccall_check("SCIPchgNlRowRhs",
+	(Ptr{SCIP}, Ptr{SCIP_NLROW}, SCIP_Real), 
+	pointer(scip), pointer(nlrow), rhs
+)
+SCIPchgNlRowConstant(scip::SCIP_t, nlrow::SCIP_NLROW_t, constant::SCIP_Real) = @scip_ccall_check("SCIPchgNlRowConstant",
+	(Ptr{SCIP}, Ptr{SCIP_NLROW}, SCIP_Real), 
+	pointer(scip), pointer(nlrow), constant
+)
+SCIPaddLinearCoefToNlRow(scip::SCIP_t, nlrow::SCIP_NLROW_t, var::SCIP_VAR_t, val::SCIP_Real) = @scip_ccall_check("SCIPaddLinearCoefToNlRow",
+	(Ptr{SCIP}, Ptr{SCIP_NLROW}, Ptr{SCIP_VAR}, SCIP_Real), 
+	pointer(scip), pointer(nlrow), pointer(var), val
+)
+SCIPaddLinearCoefsToNlRow(scip::SCIP_t, nlrow::SCIP_NLROW_t, nvars::Int, vars::SCIP_VAR_t, vals::SCIP_Real_t) = @scip_ccall_check("SCIPaddLinearCoefsToNlRow",
+	(Ptr{SCIP}, Ptr{SCIP_NLROW}, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}), 
+	pointer(scip), pointer(nlrow), nvars, array(vars), pointer(vals)
+)
+SCIPchgNlRowLinearCoef(scip::SCIP_t, nlrow::SCIP_NLROW_t, var::SCIP_VAR_t, coef::SCIP_Real) = @scip_ccall_check("SCIPchgNlRowLinearCoef",
+	(Ptr{SCIP}, Ptr{SCIP_NLROW}, Ptr{SCIP_VAR}, SCIP_Real), 
+	pointer(scip), pointer(nlrow), pointer(var), coef
+)
+SCIPaddQuadVarToNlRow(scip::SCIP_t, nlrow::SCIP_NLROW_t, var::SCIP_VAR_t) = @scip_ccall_check("SCIPaddQuadVarToNlRow",
+	(Ptr{SCIP}, Ptr{SCIP_NLROW}, Ptr{SCIP_VAR}), 
+	pointer(scip), pointer(nlrow), pointer(var)
+)
+SCIPaddQuadVarsToNlRow(scip::SCIP_t, nlrow::SCIP_NLROW_t, nvars::Int, vars::SCIP_VAR_t) = @scip_ccall_check("SCIPaddQuadVarsToNlRow",
+	(Ptr{SCIP}, Ptr{SCIP_NLROW}, Int, Ptr{Ptr{SCIP_VAR}}), 
+	pointer(scip), pointer(nlrow), nvars, array(vars)
+)
+SCIPaddQuadElementToNlRow(scip::SCIP_t, nlrow::SCIP_NLROW_t, quadelem::SCIP_QUADELEM) = @scip_ccall_check("SCIPaddQuadElementToNlRow",
+	(Ptr{SCIP}, Ptr{SCIP_NLROW}, SCIP_QUADELEM), 
+	pointer(scip), pointer(nlrow), quadelem
+)
+SCIPaddQuadElementsToNlRow(scip::SCIP_t, nlrow::SCIP_NLROW_t, nquadelems::Int, quadelems::SCIP_QUADELEM_t) = @scip_ccall_check("SCIPaddQuadElementsToNlRow",
+	(Ptr{SCIP}, Ptr{SCIP_NLROW}, Int, Ptr{SCIP_QUADELEM}), 
+	pointer(scip), pointer(nlrow), nquadelems, pointer(quadelems)
+)
+SCIPchgNlRowQuadElement(scip::SCIP_t, nlrow::SCIP_NLROW_t, quadelement::SCIP_QUADELEM) = @scip_ccall_check("SCIPchgNlRowQuadElement",
+	(Ptr{SCIP}, Ptr{SCIP_NLROW}, SCIP_QUADELEM), 
+	pointer(scip), pointer(nlrow), quadelement
+)
+SCIPsetNlRowExprtree(scip::SCIP_t, nlrow::SCIP_NLROW_t, exprtree::SCIP_EXPRTREE_t) = @scip_ccall_check("SCIPsetNlRowExprtree",
+	(Ptr{SCIP}, Ptr{SCIP_NLROW}, Ptr{SCIP_EXPRTREE}), 
+	pointer(scip), pointer(nlrow), pointer(exprtree)
+)
+SCIPsetNlRowExprtreeParam(scip::SCIP_t, nlrow::SCIP_NLROW_t, paramidx::Int, paramval::SCIP_Real) = @scip_ccall_check("SCIPsetNlRowExprtreeParam",
+	(Ptr{SCIP}, Ptr{SCIP_NLROW}, Int, SCIP_Real), 
+	pointer(scip), pointer(nlrow), paramidx, paramval
+)
+SCIPsetNlRowExprtreeParams(scip::SCIP_t, nlrow::SCIP_NLROW_t, paramvals::SCIP_Real_t) = @scip_ccall_check("SCIPsetNlRowExprtreeParams",
+	(Ptr{SCIP}, Ptr{SCIP_NLROW}, Ptr{SCIP_Real}), 
+	pointer(scip), pointer(nlrow), pointer(paramvals)
+)
+SCIPrecalcNlRowNLPActivity(scip::SCIP_t, nlrow::SCIP_NLROW_t) = @scip_ccall_check("SCIPrecalcNlRowNLPActivity",
+	(Ptr{SCIP}, Ptr{SCIP_NLROW}), 
+	pointer(scip), pointer(nlrow)
+)
+SCIPgetNlRowNLPActivity(scip::SCIP_t, nlrow::SCIP_NLROW_t, activity::SCIP_Real_t) = @scip_ccall_check("SCIPgetNlRowNLPActivity",
+	(Ptr{SCIP}, Ptr{SCIP_NLROW}, Ptr{SCIP_Real}), 
+	pointer(scip), pointer(nlrow), pointer(activity)
+)
+SCIPgetNlRowNLPFeasibility(scip::SCIP_t, nlrow::SCIP_NLROW_t, feasibility::SCIP_Real_t) = @scip_ccall_check("SCIPgetNlRowNLPFeasibility",
+	(Ptr{SCIP}, Ptr{SCIP_NLROW}, Ptr{SCIP_Real}), 
+	pointer(scip), pointer(nlrow), pointer(feasibility)
+)
+SCIPrecalcNlRowPseudoActivity(scip::SCIP_t, nlrow::SCIP_NLROW_t) = @scip_ccall_check("SCIPrecalcNlRowPseudoActivity",
+	(Ptr{SCIP}, Ptr{SCIP_NLROW}), 
+	pointer(scip), pointer(nlrow)
+)
+SCIPgetNlRowPseudoActivity(scip::SCIP_t, nlrow::SCIP_NLROW_t, pseudoactivity::SCIP_Real_t) = @scip_ccall_check("SCIPgetNlRowPseudoActivity",
+	(Ptr{SCIP}, Ptr{SCIP_NLROW}, Ptr{SCIP_Real}), 
+	pointer(scip), pointer(nlrow), pointer(pseudoactivity)
+)
+SCIPgetNlRowPseudoFeasibility(scip::SCIP_t, nlrow::SCIP_NLROW_t, pseudofeasibility::SCIP_Real_t) = @scip_ccall_check("SCIPgetNlRowPseudoFeasibility",
+	(Ptr{SCIP}, Ptr{SCIP_NLROW}, Ptr{SCIP_Real}), 
+	pointer(scip), pointer(nlrow), pointer(pseudofeasibility)
+)
+SCIPrecalcNlRowActivity(scip::SCIP_t, nlrow::SCIP_NLROW_t) = @scip_ccall_check("SCIPrecalcNlRowActivity",
+	(Ptr{SCIP}, Ptr{SCIP_NLROW}), 
+	pointer(scip), pointer(nlrow)
+)
+SCIPgetNlRowActivity(scip::SCIP_t, nlrow::SCIP_NLROW_t, activity::SCIP_Real_t) = @scip_ccall_check("SCIPgetNlRowActivity",
+	(Ptr{SCIP}, Ptr{SCIP_NLROW}, Ptr{SCIP_Real}), 
+	pointer(scip), pointer(nlrow), pointer(activity)
+)
+SCIPgetNlRowFeasibility(scip::SCIP_t, nlrow::SCIP_NLROW_t, feasibility::SCIP_Real_t) = @scip_ccall_check("SCIPgetNlRowFeasibility",
+	(Ptr{SCIP}, Ptr{SCIP_NLROW}, Ptr{SCIP_Real}), 
+	pointer(scip), pointer(nlrow), pointer(feasibility)
+)
+SCIPgetNlRowSolActivity(scip::SCIP_t, nlrow::SCIP_NLROW_t, sol::SCIP_SOL_t, activity::SCIP_Real_t) = @scip_ccall_check("SCIPgetNlRowSolActivity",
+	(Ptr{SCIP}, Ptr{SCIP_NLROW}, Ptr{SCIP_SOL}, Ptr{SCIP_Real}), 
+	pointer(scip), pointer(nlrow), pointer(sol), pointer(activity)
+)
+SCIPgetNlRowSolFeasibility(scip::SCIP_t, nlrow::SCIP_NLROW_t, sol::SCIP_SOL_t, feasibility::SCIP_Real_t) = @scip_ccall_check("SCIPgetNlRowSolFeasibility",
+	(Ptr{SCIP}, Ptr{SCIP_NLROW}, Ptr{SCIP_SOL}, Ptr{SCIP_Real}), 
+	pointer(scip), pointer(nlrow), pointer(sol), pointer(feasibility)
+)
+SCIPgetNlRowActivityBounds(scip::SCIP_t, nlrow::SCIP_NLROW_t, minactivity::SCIP_Real_t, maxactivity::SCIP_Real_t) = @scip_ccall_check("SCIPgetNlRowActivityBounds",
+	(Ptr{SCIP}, Ptr{SCIP_NLROW}, Ptr{SCIP_Real}, Ptr{SCIP_Real}), 
+	pointer(scip), pointer(nlrow), pointer(minactivity), pointer(maxactivity)
+)
+SCIPgetExprtreeTransformedVars(scip::SCIP_t, tree::SCIP_EXPRTREE_t) = @scip_ccall_check("SCIPgetExprtreeTransformedVars",
+	(Ptr{SCIP}, Ptr{SCIP_EXPRTREE}), 
+	pointer(scip), pointer(tree)
+)
+SCIPevalExprtreeSol(scip::SCIP_t, tree::SCIP_EXPRTREE_t, sol::SCIP_SOL_t, val::SCIP_Real_t) = @scip_ccall_check("SCIPevalExprtreeSol",
+	(Ptr{SCIP}, Ptr{SCIP_EXPRTREE}, Ptr{SCIP_SOL}, Ptr{SCIP_Real}), 
+	pointer(scip), pointer(tree), pointer(sol), pointer(val)
+)
+SCIPevalExprtreeGlobalBounds(scip::SCIP_t, tree::SCIP_EXPRTREE_t, infinity::SCIP_Real, val::SCIP_INTERVAL_t) = @scip_ccall_check("SCIPevalExprtreeGlobalBounds",
+	(Ptr{SCIP}, Ptr{SCIP_EXPRTREE}, SCIP_Real, Ptr{SCIP_INTERVAL}), 
+	pointer(scip), pointer(tree), infinity, pointer(val)
+)
+SCIPevalExprtreeLocalBounds(scip::SCIP_t, tree::SCIP_EXPRTREE_t, infinity::SCIP_Real, val::SCIP_INTERVAL_t) = @scip_ccall_check("SCIPevalExprtreeLocalBounds",
+	(Ptr{SCIP}, Ptr{SCIP_EXPRTREE}, SCIP_Real, Ptr{SCIP_INTERVAL}), 
+	pointer(scip), pointer(tree), infinity, pointer(val)
+)
+SCIPaddCut(scip::SCIP_t, sol::SCIP_SOL_t, cut::SCIP_ROW_t, forcecut::SCIP_Bool, infeasible::SCIP_Bool_t) = @scip_ccall_check("SCIPaddCut",
+	(Ptr{SCIP}, Ptr{SCIP_SOL}, Ptr{SCIP_ROW}, SCIP_Bool, Ptr{SCIP_Bool}), 
+	pointer(scip), pointer(sol), pointer(cut), forcecut, pointer(infeasible)
+)
+SCIPaddPoolCut(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall_check("SCIPaddPoolCut",
+	(Ptr{SCIP}, Ptr{SCIP_ROW}), 
+	pointer(scip), pointer(row)
+)
+SCIPdelPoolCut(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall_check("SCIPdelPoolCut",
+	(Ptr{SCIP}, Ptr{SCIP_ROW}), 
+	pointer(scip), pointer(row)
+)
+SCIPcreateCutpool(scip::SCIP_t, cutpool::SCIP_CUTPOOL_t, agelimit::Int) = @scip_ccall_check("SCIPcreateCutpool",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CUTPOOL}}, Int), 
+	pointer(scip), array(cutpool), agelimit
+)
+SCIPfreeCutpool(scip::SCIP_t, cutpool::SCIP_CUTPOOL_t) = @scip_ccall_check("SCIPfreeCutpool",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CUTPOOL}}), 
+	pointer(scip), array(cutpool)
+)
+SCIPaddRowCutpool(scip::SCIP_t, cutpool::SCIP_CUTPOOL_t, row::SCIP_ROW_t) = @scip_ccall_check("SCIPaddRowCutpool",
+	(Ptr{SCIP}, Ptr{SCIP_CUTPOOL}, Ptr{SCIP_ROW}), 
+	pointer(scip), pointer(cutpool), pointer(row)
+)
+SCIPaddNewRowCutpool(scip::SCIP_t, cutpool::SCIP_CUTPOOL_t, row::SCIP_ROW_t) = @scip_ccall_check("SCIPaddNewRowCutpool",
+	(Ptr{SCIP}, Ptr{SCIP_CUTPOOL}, Ptr{SCIP_ROW}), 
+	pointer(scip), pointer(cutpool), pointer(row)
+)
+SCIPdelRowCutpool(scip::SCIP_t, cutpool::SCIP_CUTPOOL_t, row::SCIP_ROW_t) = @scip_ccall_check("SCIPdelRowCutpool",
+	(Ptr{SCIP}, Ptr{SCIP_CUTPOOL}, Ptr{SCIP_ROW}), 
+	pointer(scip), pointer(cutpool), pointer(row)
+)
+SCIPseparateCutpool(scip::SCIP_t, cutpool::SCIP_CUTPOOL_t, result::SCIP_RESULT_t) = @scip_ccall_check("SCIPseparateCutpool",
+	(Ptr{SCIP}, Ptr{SCIP_CUTPOOL}, Ptr{SCIP_RESULT}), 
+	pointer(scip), pointer(cutpool), pointer(result)
+)
+SCIPseparateSolCutpool(scip::SCIP_t, cutpool::SCIP_CUTPOOL_t, sol::SCIP_SOL_t, result::SCIP_RESULT_t) = @scip_ccall_check("SCIPseparateSolCutpool",
+	(Ptr{SCIP}, Ptr{SCIP_CUTPOOL}, Ptr{SCIP_SOL}, Ptr{SCIP_RESULT}), 
+	pointer(scip), pointer(cutpool), pointer(sol), pointer(result)
+)
+SCIPaddDelayedPoolCut(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall_check("SCIPaddDelayedPoolCut",
+	(Ptr{SCIP}, Ptr{SCIP_ROW}), 
+	pointer(scip), pointer(row)
+)
+SCIPdelDelayedPoolCut(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall_check("SCIPdelDelayedPoolCut",
+	(Ptr{SCIP}, Ptr{SCIP_ROW}), 
+	pointer(scip), pointer(row)
+)
+SCIPseparateSol(scip::SCIP_t, sol::SCIP_SOL_t, pretendroot::SCIP_Bool, onlydelayed::SCIP_Bool, delayed::SCIP_Bool_t, cutoff::SCIP_Bool_t) = @scip_ccall_check("SCIPseparateSol",
+	(Ptr{SCIP}, Ptr{SCIP_SOL}, SCIP_Bool, SCIP_Bool, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), 
+	pointer(scip), pointer(sol), pretendroot, onlydelayed, pointer(delayed), pointer(cutoff)
+)
+SCIPclearCuts(scip::SCIP_t) = @scip_ccall_check("SCIPclearCuts",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPremoveInefficaciousCuts(scip::SCIP_t) = @scip_ccall_check("SCIPremoveInefficaciousCuts",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPstartDive(scip::SCIP_t) = @scip_ccall_check("SCIPstartDive",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPendDive(scip::SCIP_t) = @scip_ccall_check("SCIPendDive",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPchgCutoffboundDive(scip::SCIP_t, newcutoffbound::SCIP_Real) = @scip_ccall_check("SCIPchgCutoffboundDive",
+	(Ptr{SCIP}, SCIP_Real), 
+	pointer(scip), newcutoffbound
+)
+SCIPchgVarObjDive(scip::SCIP_t, var::SCIP_VAR_t, newobj::SCIP_Real) = @scip_ccall_check("SCIPchgVarObjDive",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), 
+	pointer(scip), pointer(var), newobj
+)
+SCIPchgVarLbDive(scip::SCIP_t, var::SCIP_VAR_t, newbound::SCIP_Real) = @scip_ccall_check("SCIPchgVarLbDive",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), 
+	pointer(scip), pointer(var), newbound
+)
+SCIPchgVarUbDive(scip::SCIP_t, var::SCIP_VAR_t, newbound::SCIP_Real) = @scip_ccall_check("SCIPchgVarUbDive",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), 
+	pointer(scip), pointer(var), newbound
+)
+SCIPaddRowDive(scip::SCIP_t, row::SCIP_ROW_t) = @scip_ccall_check("SCIPaddRowDive",
+	(Ptr{SCIP}, Ptr{SCIP_ROW}), 
+	pointer(scip), pointer(row)
+)
+SCIPchgRowLhsDive(scip::SCIP_t, row::SCIP_ROW_t, newlhs::SCIP_Real) = @scip_ccall_check("SCIPchgRowLhsDive",
+	(Ptr{SCIP}, Ptr{SCIP_ROW}, SCIP_Real), 
+	pointer(scip), pointer(row), newlhs
+)
+SCIPchgRowRhsDive(scip::SCIP_t, row::SCIP_ROW_t, newrhs::SCIP_Real) = @scip_ccall_check("SCIPchgRowRhsDive",
+	(Ptr{SCIP}, Ptr{SCIP_ROW}, SCIP_Real), 
+	pointer(scip), pointer(row), newrhs
+)
+SCIPsolveDiveLP(scip::SCIP_t, itlim::Int, lperror::SCIP_Bool_t, cutoff::SCIP_Bool_t) = @scip_ccall_check("SCIPsolveDiveLP",
+	(Ptr{SCIP}, Int, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), 
+	pointer(scip), itlim, pointer(lperror), pointer(cutoff)
+)
+SCIPstartProbing(scip::SCIP_t) = @scip_ccall_check("SCIPstartProbing",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPnewProbingNode(scip::SCIP_t) = @scip_ccall_check("SCIPnewProbingNode",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPbacktrackProbing(scip::SCIP_t, probingdepth::Int) = @scip_ccall_check("SCIPbacktrackProbing",
+	(Ptr{SCIP}, Int), 
+	pointer(scip), probingdepth
+)
+SCIPendProbing(scip::SCIP_t) = @scip_ccall_check("SCIPendProbing",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPchgVarLbProbing(scip::SCIP_t, var::SCIP_VAR_t, newbound::SCIP_Real) = @scip_ccall_check("SCIPchgVarLbProbing",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), 
+	pointer(scip), pointer(var), newbound
+)
+SCIPchgVarUbProbing(scip::SCIP_t, var::SCIP_VAR_t, newbound::SCIP_Real) = @scip_ccall_check("SCIPchgVarUbProbing",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), 
+	pointer(scip), pointer(var), newbound
+)
+SCIPfixVarProbing(scip::SCIP_t, var::SCIP_VAR_t, fixedval::SCIP_Real) = @scip_ccall_check("SCIPfixVarProbing",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real), 
+	pointer(scip), pointer(var), fixedval
+)
+SCIPpropagateProbing(scip::SCIP_t, maxproprounds::Int, cutoff::SCIP_Bool_t, ndomredsfound::Int64) = @scip_ccall_check("SCIPpropagateProbing",
+	(Ptr{SCIP}, Int, Ptr{SCIP_Bool}, Ptr{Int64}), 
+	pointer(scip), maxproprounds, pointer(cutoff), pointer(ndomredsfound)
+)
+SCIPpropagateProbingImplications(scip::SCIP_t, cutoff::SCIP_Bool_t) = @scip_ccall_check("SCIPpropagateProbingImplications",
+	(Ptr{SCIP}, Ptr{SCIP_Bool}), 
+	pointer(scip), pointer(cutoff)
+)
+SCIPsolveProbingLP(scip::SCIP_t, itlim::Int, lperror::SCIP_Bool_t, cutoff::SCIP_Bool_t) = @scip_ccall_check("SCIPsolveProbingLP",
+	(Ptr{SCIP}, Int, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), 
+	pointer(scip), itlim, pointer(lperror), pointer(cutoff)
+)
+SCIPsolveProbingLPWithPricing(scip::SCIP_t, pretendroot::SCIP_Bool, displayinfo::SCIP_Bool, maxpricerounds::Int, lperror::SCIP_Bool_t, cutoff::SCIP_Bool_t) = @scip_ccall_check("SCIPsolveProbingLPWithPricing",
+	(Ptr{SCIP}, SCIP_Bool, SCIP_Bool, Int, Ptr{SCIP_Bool}, Ptr{SCIP_Bool}), 
+	pointer(scip), pretendroot, displayinfo, maxpricerounds, pointer(lperror), pointer(cutoff)
+)
+SCIPaddExternBranchCand(scip::SCIP_t, var::SCIP_VAR_t, score::SCIP_Real, solval::SCIP_Real) = @scip_ccall_check("SCIPaddExternBranchCand",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Real), 
+	pointer(scip), pointer(var), score, solval
+)
+SCIPcreateChild(scip::SCIP_t, node::SCIP_NODE_t, nodeselprio::SCIP_Real, estimate::SCIP_Real) = @scip_ccall_check("SCIPcreateChild",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_NODE}}, SCIP_Real, SCIP_Real), 
+	pointer(scip), array(node), nodeselprio, estimate
+)
+SCIPbranchVar(scip::SCIP_t, var::SCIP_VAR_t, downchild::SCIP_NODE_t, eqchild::SCIP_NODE_t, upchild::SCIP_NODE_t) = @scip_ccall_check("SCIPbranchVar",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, Ptr{Ptr{SCIP_NODE}}, Ptr{Ptr{SCIP_NODE}}, Ptr{Ptr{SCIP_NODE}}), 
+	pointer(scip), pointer(var), array(downchild), array(eqchild), array(upchild)
+)
+SCIPbranchVarHole(scip::SCIP_t, var::SCIP_VAR_t, left::SCIP_Real, right::SCIP_Real, downchild::SCIP_NODE_t, upchild::SCIP_NODE_t) = @scip_ccall_check("SCIPbranchVarHole",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Real, Ptr{Ptr{SCIP_NODE}}, Ptr{Ptr{SCIP_NODE}}), 
+	pointer(scip), pointer(var), left, right, array(downchild), array(upchild)
+)
+SCIPbranchVarVal(scip::SCIP_t, var::SCIP_VAR_t, val::SCIP_Real, downchild::SCIP_NODE_t, eqchild::SCIP_NODE_t, upchild::SCIP_NODE_t) = @scip_ccall_check("SCIPbranchVarVal",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_Real, Ptr{Ptr{SCIP_NODE}}, Ptr{Ptr{SCIP_NODE}}, Ptr{Ptr{SCIP_NODE}}), 
+	pointer(scip), pointer(var), val, array(downchild), array(eqchild), array(upchild)
+)
+SCIPbranchLP(scip::SCIP_t, result::SCIP_RESULT_t) = @scip_ccall_check("SCIPbranchLP",
+	(Ptr{SCIP}, Ptr{SCIP_RESULT}), 
+	pointer(scip), pointer(result)
+)
+SCIPbranchExtern(scip::SCIP_t, result::SCIP_RESULT_t) = @scip_ccall_check("SCIPbranchExtern",
+	(Ptr{SCIP}, Ptr{SCIP_RESULT}), 
+	pointer(scip), pointer(result)
+)
+SCIPbranchPseudo(scip::SCIP_t, result::SCIP_RESULT_t) = @scip_ccall_check("SCIPbranchPseudo",
+	(Ptr{SCIP}, Ptr{SCIP_RESULT}), 
+	pointer(scip), pointer(result)
+)
+SCIPcreateSol(scip::SCIP_t, sol::SCIP_SOL_t, heur::SCIP_HEUR_t) = @scip_ccall_check("SCIPcreateSol",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_SOL}}, Ptr{SCIP_HEUR}), 
+	pointer(scip), array(sol), pointer(heur)
+)
+SCIPcreateLPSol(scip::SCIP_t, sol::SCIP_SOL_t, heur::SCIP_HEUR_t) = @scip_ccall_check("SCIPcreateLPSol",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_SOL}}, Ptr{SCIP_HEUR}), 
+	pointer(scip), array(sol), pointer(heur)
+)
+SCIPcreateNLPSol(scip::SCIP_t, sol::SCIP_SOL_t, heur::SCIP_HEUR_t) = @scip_ccall_check("SCIPcreateNLPSol",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_SOL}}, Ptr{SCIP_HEUR}), 
+	pointer(scip), array(sol), pointer(heur)
+)
+SCIPcreateRelaxSol(scip::SCIP_t, sol::SCIP_SOL_t, heur::SCIP_HEUR_t) = @scip_ccall_check("SCIPcreateRelaxSol",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_SOL}}, Ptr{SCIP_HEUR}), 
+	pointer(scip), array(sol), pointer(heur)
+)
+SCIPcreatePseudoSol(scip::SCIP_t, sol::SCIP_SOL_t, heur::SCIP_HEUR_t) = @scip_ccall_check("SCIPcreatePseudoSol",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_SOL}}, Ptr{SCIP_HEUR}), 
+	pointer(scip), array(sol), pointer(heur)
+)
+SCIPcreateCurrentSol(scip::SCIP_t, sol::SCIP_SOL_t, heur::SCIP_HEUR_t) = @scip_ccall_check("SCIPcreateCurrentSol",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_SOL}}, Ptr{SCIP_HEUR}), 
+	pointer(scip), array(sol), pointer(heur)
+)
+SCIPcreateUnknownSol(scip::SCIP_t, sol::SCIP_SOL_t, heur::SCIP_HEUR_t) = @scip_ccall_check("SCIPcreateUnknownSol",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_SOL}}, Ptr{SCIP_HEUR}), 
+	pointer(scip), array(sol), pointer(heur)
+)
+SCIPcreateOrigSol(scip::SCIP_t, sol::SCIP_SOL_t, heur::SCIP_HEUR_t) = @scip_ccall_check("SCIPcreateOrigSol",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_SOL}}, Ptr{SCIP_HEUR}), 
+	pointer(scip), array(sol), pointer(heur)
+)
+SCIPcreateSolCopy(scip::SCIP_t, sol::SCIP_SOL_t, sourcesol::SCIP_SOL_t) = @scip_ccall_check("SCIPcreateSolCopy",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_SOL}}, Ptr{SCIP_SOL}), 
+	pointer(scip), array(sol), pointer(sourcesol)
+)
+SCIPcreateFiniteSolCopy(scip::SCIP_t, sol::SCIP_SOL_t, sourcesol::SCIP_SOL_t, success::SCIP_Bool_t) = @scip_ccall_check("SCIPcreateFiniteSolCopy",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_SOL}}, Ptr{SCIP_SOL}, Ptr{SCIP_Bool}), 
+	pointer(scip), array(sol), pointer(sourcesol), pointer(success)
+)
+SCIPfreeSol(scip::SCIP_t, sol::SCIP_SOL_t) = @scip_ccall_check("SCIPfreeSol",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_SOL}}), 
+	pointer(scip), array(sol)
+)
+SCIPlinkLPSol(scip::SCIP_t, sol::SCIP_SOL_t) = @scip_ccall_check("SCIPlinkLPSol",
+	(Ptr{SCIP}, Ptr{SCIP_SOL}), 
+	pointer(scip), pointer(sol)
+)
+SCIPlinkNLPSol(scip::SCIP_t, sol::SCIP_SOL_t) = @scip_ccall_check("SCIPlinkNLPSol",
+	(Ptr{SCIP}, Ptr{SCIP_SOL}), 
+	pointer(scip), pointer(sol)
+)
+SCIPlinkRelaxSol(scip::SCIP_t, sol::SCIP_SOL_t) = @scip_ccall_check("SCIPlinkRelaxSol",
+	(Ptr{SCIP}, Ptr{SCIP_SOL}), 
+	pointer(scip), pointer(sol)
+)
+SCIPlinkPseudoSol(scip::SCIP_t, sol::SCIP_SOL_t) = @scip_ccall_check("SCIPlinkPseudoSol",
+	(Ptr{SCIP}, Ptr{SCIP_SOL}), 
+	pointer(scip), pointer(sol)
+)
+SCIPlinkCurrentSol(scip::SCIP_t, sol::SCIP_SOL_t) = @scip_ccall_check("SCIPlinkCurrentSol",
+	(Ptr{SCIP}, Ptr{SCIP_SOL}), 
+	pointer(scip), pointer(sol)
+)
+SCIPclearSol(scip::SCIP_t, sol::SCIP_SOL_t) = @scip_ccall_check("SCIPclearSol",
+	(Ptr{SCIP}, Ptr{SCIP_SOL}), 
+	pointer(scip), pointer(sol)
+)
+SCIPunlinkSol(scip::SCIP_t, sol::SCIP_SOL_t) = @scip_ccall_check("SCIPunlinkSol",
+	(Ptr{SCIP}, Ptr{SCIP_SOL}), 
+	pointer(scip), pointer(sol)
+)
+SCIPsetSolVal(scip::SCIP_t, sol::SCIP_SOL_t, var::SCIP_VAR_t, val::SCIP_Real) = @scip_ccall_check("SCIPsetSolVal",
+	(Ptr{SCIP}, Ptr{SCIP_SOL}, Ptr{SCIP_VAR}, SCIP_Real), 
+	pointer(scip), pointer(sol), pointer(var), val
+)
+SCIPsetSolVals(scip::SCIP_t, sol::SCIP_SOL_t, nvars::Int, vars::SCIP_VAR_t, vals::SCIP_Real_t) = @scip_ccall_check("SCIPsetSolVals",
+	(Ptr{SCIP}, Ptr{SCIP_SOL}, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}), 
+	pointer(scip), pointer(sol), nvars, array(vars), pointer(vals)
+)
+SCIPincSolVal(scip::SCIP_t, sol::SCIP_SOL_t, var::SCIP_VAR_t, incval::SCIP_Real) = @scip_ccall_check("SCIPincSolVal",
+	(Ptr{SCIP}, Ptr{SCIP_SOL}, Ptr{SCIP_VAR}, SCIP_Real), 
+	pointer(scip), pointer(sol), pointer(var), incval
+)
+SCIPgetSolVals(scip::SCIP_t, sol::SCIP_SOL_t, nvars::Int, vars::SCIP_VAR_t, vals::SCIP_Real_t) = @scip_ccall_check("SCIPgetSolVals",
+	(Ptr{SCIP}, Ptr{SCIP_SOL}, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}), 
+	pointer(scip), pointer(sol), nvars, array(vars), pointer(vals)
+)
+SCIPadjustImplicitSolVals(scip::SCIP_t, sol::SCIP_SOL_t, uselprows::SCIP_Bool) = @scip_ccall_check("SCIPadjustImplicitSolVals",
+	(Ptr{SCIP}, Ptr{SCIP_SOL}, SCIP_Bool), 
+	pointer(scip), pointer(sol), uselprows
+)
+SCIProundSol(scip::SCIP_t, sol::SCIP_SOL_t, success::SCIP_Bool_t) = @scip_ccall_check("SCIProundSol",
+	(Ptr{SCIP}, Ptr{SCIP_SOL}, Ptr{SCIP_Bool}), 
+	pointer(scip), pointer(sol), pointer(success)
+)
+SCIPretransformSol(scip::SCIP_t, sol::SCIP_SOL_t) = @scip_ccall_check("SCIPretransformSol",
+	(Ptr{SCIP}, Ptr{SCIP_SOL}), 
+	pointer(scip), pointer(sol)
+)
+SCIPreadSol(scip::SCIP_t, filename::String) = @scip_ccall_check("SCIPreadSol",
+	(Ptr{SCIP}, String), 
+	pointer(scip), filename
+)
+SCIPaddSol(scip::SCIP_t, sol::SCIP_SOL_t, stored::SCIP_Bool_t) = @scip_ccall_check("SCIPaddSol",
+	(Ptr{SCIP}, Ptr{SCIP_SOL}, Ptr{SCIP_Bool}), 
+	pointer(scip), pointer(sol), pointer(stored)
+)
+SCIPaddSolFree(scip::SCIP_t, sol::SCIP_SOL_t, stored::SCIP_Bool_t) = @scip_ccall_check("SCIPaddSolFree",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_SOL}}, Ptr{SCIP_Bool}), 
+	pointer(scip), array(sol), pointer(stored)
+)
+SCIPaddCurrentSol(scip::SCIP_t, heur::SCIP_HEUR_t, stored::SCIP_Bool_t) = @scip_ccall_check("SCIPaddCurrentSol",
+	(Ptr{SCIP}, Ptr{SCIP_HEUR}, Ptr{SCIP_Bool}), 
+	pointer(scip), pointer(heur), pointer(stored)
+)
+SCIPtrySol(scip::SCIP_t, sol::SCIP_SOL_t, printreason::SCIP_Bool, checkbounds::SCIP_Bool, checkintegrality::SCIP_Bool, checklprows::SCIP_Bool, stored::SCIP_Bool_t) = @scip_ccall_check("SCIPtrySol",
+	(Ptr{SCIP}, Ptr{SCIP_SOL}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, Ptr{SCIP_Bool}), 
+	pointer(scip), pointer(sol), printreason, checkbounds, checkintegrality, checklprows, pointer(stored)
+)
+SCIPtrySolFree(scip::SCIP_t, sol::SCIP_SOL_t, printreason::SCIP_Bool, checkbounds::SCIP_Bool, checkintegrality::SCIP_Bool, checklprows::SCIP_Bool, stored::SCIP_Bool_t) = @scip_ccall_check("SCIPtrySolFree",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_SOL}}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, Ptr{SCIP_Bool}), 
+	pointer(scip), array(sol), printreason, checkbounds, checkintegrality, checklprows, pointer(stored)
+)
+SCIPtryCurrentSol(scip::SCIP_t, heur::SCIP_HEUR_t, printreason::SCIP_Bool, checkintegrality::SCIP_Bool, checklprows::SCIP_Bool, stored::SCIP_Bool_t) = @scip_ccall_check("SCIPtryCurrentSol",
+	(Ptr{SCIP}, Ptr{SCIP_HEUR}, SCIP_Bool, SCIP_Bool, SCIP_Bool, Ptr{SCIP_Bool}), 
+	pointer(scip), pointer(heur), printreason, checkintegrality, checklprows, pointer(stored)
+)
+SCIPcheckSol(scip::SCIP_t, sol::SCIP_SOL_t, printreason::SCIP_Bool, checkbounds::SCIP_Bool, checkintegrality::SCIP_Bool, checklprows::SCIP_Bool, feasible::SCIP_Bool_t) = @scip_ccall_check("SCIPcheckSol",
+	(Ptr{SCIP}, Ptr{SCIP_SOL}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, Ptr{SCIP_Bool}), 
+	pointer(scip), pointer(sol), printreason, checkbounds, checkintegrality, checklprows, pointer(feasible)
+)
+SCIPcheckSolOrig(scip::SCIP_t, sol::SCIP_SOL_t, feasible::SCIP_Bool_t, printreason::SCIP_Bool, completely::SCIP_Bool) = @scip_ccall_check("SCIPcheckSolOrig",
+	(Ptr{SCIP}, Ptr{SCIP_SOL}, Ptr{SCIP_Bool}, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), pointer(sol), pointer(feasible), printreason, completely
+)
+SCIPdropEvent(scip::SCIP_t, eventtype::SCIP_EVENTTYPE, eventhdlr::SCIP_EVENTHDLR_t, eventdata::SCIP_EVENTDATA_t, filterpos::Int) = @scip_ccall_check("SCIPdropEvent",
+	(Ptr{SCIP}, SCIP_EVENTTYPE, Ptr{SCIP_EVENTHDLR}, Ptr{SCIP_EVENTDATA}, Int), 
+	pointer(scip), eventtype, pointer(eventhdlr), pointer(eventdata), filterpos
+)
+SCIPdropVarEvent(scip::SCIP_t, var::SCIP_VAR_t, eventtype::SCIP_EVENTTYPE, eventhdlr::SCIP_EVENTHDLR_t, eventdata::SCIP_EVENTDATA_t, filterpos::Int) = @scip_ccall_check("SCIPdropVarEvent",
+	(Ptr{SCIP}, Ptr{SCIP_VAR}, SCIP_EVENTTYPE, Ptr{SCIP_EVENTHDLR}, Ptr{SCIP_EVENTDATA}, Int), 
+	pointer(scip), pointer(var), eventtype, pointer(eventhdlr), pointer(eventdata), filterpos
+)
+SCIPdropRowEvent(scip::SCIP_t, row::SCIP_ROW_t, eventtype::SCIP_EVENTTYPE, eventhdlr::SCIP_EVENTHDLR_t, eventdata::SCIP_EVENTDATA_t, filterpos::Int) = @scip_ccall_check("SCIPdropRowEvent",
+	(Ptr{SCIP}, Ptr{SCIP_ROW}, SCIP_EVENTTYPE, Ptr{SCIP_EVENTHDLR}, Ptr{SCIP_EVENTDATA}, Int), 
+	pointer(scip), pointer(row), eventtype, pointer(eventhdlr), pointer(eventdata), filterpos
+)
+SCIPcutoffNode(scip::SCIP_t, node::SCIP_NODE_t) = @scip_ccall_check("SCIPcutoffNode",
+	(Ptr{SCIP}, Ptr{SCIP_NODE}), 
+	pointer(scip), pointer(node)
+)
+SCIPrepropagateNode(scip::SCIP_t, node::SCIP_NODE_t) = @scip_ccall_check("SCIPrepropagateNode",
+	(Ptr{SCIP}, Ptr{SCIP_NODE}), 
+	pointer(scip), pointer(node)
+)
+SCIPupdateCutoffbound(scip::SCIP_t, cutoffbound::SCIP_Real) = @scip_ccall_check("SCIPupdateCutoffbound",
+	(Ptr{SCIP}, SCIP_Real), 
+	pointer(scip), cutoffbound
+)
+SCIPwriteImplicationConflictGraph(scip::SCIP_t, filename::String) = @scip_ccall_check("SCIPwriteImplicationConflictGraph",
+	(Ptr{SCIP}, String), 
+	pointer(scip), filename
+)
+SCIPcreateClock(scip::SCIP_t, clck::SCIP_CLOCK_t) = @scip_ccall_check("SCIPcreateClock",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CLOCK}}), 
+	pointer(scip), array(clck)
+)
+SCIPcreateCPUClock(scip::SCIP_t, clck::SCIP_CLOCK_t) = @scip_ccall_check("SCIPcreateCPUClock",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CLOCK}}), 
+	pointer(scip), array(clck)
+)
+SCIPcreateWallClock(scip::SCIP_t, clck::SCIP_CLOCK_t) = @scip_ccall_check("SCIPcreateWallClock",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CLOCK}}), 
+	pointer(scip), array(clck)
+)
+SCIPfreeClock(scip::SCIP_t, clck::SCIP_CLOCK_t) = @scip_ccall_check("SCIPfreeClock",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CLOCK}}), 
+	pointer(scip), array(clck)
+)
+SCIPresetClock(scip::SCIP_t, clck::SCIP_CLOCK_t) = @scip_ccall_check("SCIPresetClock",
+	(Ptr{SCIP}, Ptr{SCIP_CLOCK}), 
+	pointer(scip), pointer(clck)
+)
+SCIPstartClock(scip::SCIP_t, clck::SCIP_CLOCK_t) = @scip_ccall_check("SCIPstartClock",
+	(Ptr{SCIP}, Ptr{SCIP_CLOCK}), 
+	pointer(scip), pointer(clck)
+)
+SCIPstopClock(scip::SCIP_t, clck::SCIP_CLOCK_t) = @scip_ccall_check("SCIPstopClock",
+	(Ptr{SCIP}, Ptr{SCIP_CLOCK}), 
+	pointer(scip), pointer(clck)
+)
+SCIPstartSolvingTime(scip::SCIP_t) = @scip_ccall_check("SCIPstartSolvingTime",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPstopSolvingTime(scip::SCIP_t) = @scip_ccall_check("SCIPstopSolvingTime",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPsetClockTime(scip::SCIP_t, clck::SCIP_CLOCK_t, sec::SCIP_Real) = @scip_ccall_check("SCIPsetClockTime",
+	(Ptr{SCIP}, Ptr{SCIP_CLOCK}, SCIP_Real), 
+	pointer(scip), pointer(clck), sec
+)
+SCIPchgFeastol(scip::SCIP_t, feastol::SCIP_Real) = @scip_ccall_check("SCIPchgFeastol",
+	(Ptr{SCIP}, SCIP_Real), 
+	pointer(scip), feastol
+)
+SCIPchgLpfeastol(scip::SCIP_t, lpfeastol::SCIP_Real, printnewvalue::SCIP_Bool) = @scip_ccall_check("SCIPchgLpfeastol",
+	(Ptr{SCIP}, SCIP_Real, SCIP_Bool), 
+	pointer(scip), lpfeastol, printnewvalue
+)
+SCIPchgDualfeastol(scip::SCIP_t, dualfeastol::SCIP_Real) = @scip_ccall_check("SCIPchgDualfeastol",
+	(Ptr{SCIP}, SCIP_Real), 
+	pointer(scip), dualfeastol
+)
+SCIPchgBarrierconvtol(scip::SCIP_t, barrierconvtol::SCIP_Real) = @scip_ccall_check("SCIPchgBarrierconvtol",
+	(Ptr{SCIP}, SCIP_Real), 
+	pointer(scip), barrierconvtol
+)
+SCIPcreateRealarray(scip::SCIP_t, realarray::SCIP_REALARRAY_t) = @scip_ccall_check("SCIPcreateRealarray",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_REALARRAY}}), 
+	pointer(scip), array(realarray)
+)
+SCIPfreeRealarray(scip::SCIP_t, realarray::SCIP_REALARRAY_t) = @scip_ccall_check("SCIPfreeRealarray",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_REALARRAY}}), 
+	pointer(scip), array(realarray)
+)
+SCIPextendRealarray(scip::SCIP_t, realarray::SCIP_REALARRAY_t, minidx::Int, maxidx::Int) = @scip_ccall_check("SCIPextendRealarray",
+	(Ptr{SCIP}, Ptr{SCIP_REALARRAY}, Int, Int), 
+	pointer(scip), pointer(realarray), minidx, maxidx
+)
+SCIPclearRealarray(scip::SCIP_t, realarray::SCIP_REALARRAY_t) = @scip_ccall_check("SCIPclearRealarray",
+	(Ptr{SCIP}, Ptr{SCIP_REALARRAY}), 
+	pointer(scip), pointer(realarray)
+)
+SCIPsetRealarrayVal(scip::SCIP_t, realarray::SCIP_REALARRAY_t, idx::Int, val::SCIP_Real) = @scip_ccall_check("SCIPsetRealarrayVal",
+	(Ptr{SCIP}, Ptr{SCIP_REALARRAY}, Int, SCIP_Real), 
+	pointer(scip), pointer(realarray), idx, val
+)
+SCIPincRealarrayVal(scip::SCIP_t, realarray::SCIP_REALARRAY_t, idx::Int, incval::SCIP_Real) = @scip_ccall_check("SCIPincRealarrayVal",
+	(Ptr{SCIP}, Ptr{SCIP_REALARRAY}, Int, SCIP_Real), 
+	pointer(scip), pointer(realarray), idx, incval
+)
+SCIPcreateIntarray(scip::SCIP_t, intarray::SCIP_INTARRAY_t) = @scip_ccall_check("SCIPcreateIntarray",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_INTARRAY}}), 
+	pointer(scip), array(intarray)
+)
+SCIPfreeIntarray(scip::SCIP_t, intarray::SCIP_INTARRAY_t) = @scip_ccall_check("SCIPfreeIntarray",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_INTARRAY}}), 
+	pointer(scip), array(intarray)
+)
+SCIPextendIntarray(scip::SCIP_t, intarray::SCIP_INTARRAY_t, minidx::Int, maxidx::Int) = @scip_ccall_check("SCIPextendIntarray",
+	(Ptr{SCIP}, Ptr{SCIP_INTARRAY}, Int, Int), 
+	pointer(scip), pointer(intarray), minidx, maxidx
+)
+SCIPclearIntarray(scip::SCIP_t, intarray::SCIP_INTARRAY_t) = @scip_ccall_check("SCIPclearIntarray",
+	(Ptr{SCIP}, Ptr{SCIP_INTARRAY}), 
+	pointer(scip), pointer(intarray)
+)
+SCIPsetIntarrayVal(scip::SCIP_t, intarray::SCIP_INTARRAY_t, idx::Int, val::Int) = @scip_ccall_check("SCIPsetIntarrayVal",
+	(Ptr{SCIP}, Ptr{SCIP_INTARRAY}, Int, Int), 
+	pointer(scip), pointer(intarray), idx, val
+)
+SCIPincIntarrayVal(scip::SCIP_t, intarray::SCIP_INTARRAY_t, idx::Int, incval::Int) = @scip_ccall_check("SCIPincIntarrayVal",
+	(Ptr{SCIP}, Ptr{SCIP_INTARRAY}, Int, Int), 
+	pointer(scip), pointer(intarray), idx, incval
+)
+SCIPcreateBoolarray(scip::SCIP_t, boolarray::SCIP_BOOLARRAY_t) = @scip_ccall_check("SCIPcreateBoolarray",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_BOOLARRAY}}), 
+	pointer(scip), array(boolarray)
+)
+SCIPfreeBoolarray(scip::SCIP_t, boolarray::SCIP_BOOLARRAY_t) = @scip_ccall_check("SCIPfreeBoolarray",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_BOOLARRAY}}), 
+	pointer(scip), array(boolarray)
+)
+SCIPextendBoolarray(scip::SCIP_t, boolarray::SCIP_BOOLARRAY_t, minidx::Int, maxidx::Int) = @scip_ccall_check("SCIPextendBoolarray",
+	(Ptr{SCIP}, Ptr{SCIP_BOOLARRAY}, Int, Int), 
+	pointer(scip), pointer(boolarray), minidx, maxidx
+)
+SCIPclearBoolarray(scip::SCIP_t, boolarray::SCIP_BOOLARRAY_t) = @scip_ccall_check("SCIPclearBoolarray",
+	(Ptr{SCIP}, Ptr{SCIP_BOOLARRAY}), 
+	pointer(scip), pointer(boolarray)
+)
+SCIPsetBoolarrayVal(scip::SCIP_t, boolarray::SCIP_BOOLARRAY_t, idx::Int, val::SCIP_Bool) = @scip_ccall_check("SCIPsetBoolarrayVal",
+	(Ptr{SCIP}, Ptr{SCIP_BOOLARRAY}, Int, SCIP_Bool), 
+	pointer(scip), pointer(boolarray), idx, val
+)
+SCIPcreatePtrarray(scip::SCIP_t, ptrarray::SCIP_PTRARRAY_t) = @scip_ccall_check("SCIPcreatePtrarray",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_PTRARRAY}}), 
+	pointer(scip), array(ptrarray)
+)
+SCIPfreePtrarray(scip::SCIP_t, ptrarray::SCIP_PTRARRAY_t) = @scip_ccall_check("SCIPfreePtrarray",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_PTRARRAY}}), 
+	pointer(scip), array(ptrarray)
+)
+SCIPextendPtrarray(scip::SCIP_t, ptrarray::SCIP_PTRARRAY_t, minidx::Int, maxidx::Int) = @scip_ccall_check("SCIPextendPtrarray",
+	(Ptr{SCIP}, Ptr{SCIP_PTRARRAY}, Int, Int), 
+	pointer(scip), pointer(ptrarray), minidx, maxidx
+)
+SCIPclearPtrarray(scip::SCIP_t, ptrarray::SCIP_PTRARRAY_t) = @scip_ccall_check("SCIPclearPtrarray",
+	(Ptr{SCIP}, Ptr{SCIP_PTRARRAY}), 
+	pointer(scip), pointer(ptrarray)
+)
+SCIPincludeConshdlrCountsols(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrCountsols",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPcount(scip::SCIP_t) = @scip_ccall_check("SCIPcount",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPsetParamsCountsols(scip::SCIP_t) = @scip_ccall_check("SCIPsetParamsCountsols",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPincludeConshdlrLogicor(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrLogicor",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPcreateConsLogicor(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsLogicor",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), array(cons), name, nvars, array(vars), initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode
+)
+SCIPcreateConsBasicLogicor(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t) = @scip_ccall_check("SCIPcreateConsBasicLogicor",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}), 
+	pointer(scip), array(cons), name, nvars, array(vars)
+)
+SCIPaddCoefLogicor(scip::SCIP_t, cons::SCIP_CONS_t, var::SCIP_VAR_t) = @scip_ccall_check("SCIPaddCoefLogicor",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_VAR}), 
+	pointer(scip), pointer(cons), pointer(var)
+)
+SCIPincludeConshdlrNonlinear(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrNonlinear",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPcreateConsNonlinear(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nlinvars::Int, linvars::SCIP_VAR_t, lincoefs::SCIP_Real_t, nexprtrees::Int, exprtrees::SCIP_EXPRTREE_t, nonlincoefs::SCIP_Real_t, lhs::SCIP_Real, rhs::SCIP_Real, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsNonlinear",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, Int, Ptr{Ptr{SCIP_EXPRTREE}}, Ptr{SCIP_Real}, SCIP_Real, SCIP_Real, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), array(cons), name, nlinvars, array(linvars), pointer(lincoefs), nexprtrees, array(exprtrees), pointer(nonlincoefs), lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode
+)
+SCIPcreateConsBasicNonlinear(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nlinvars::Int, linvars::SCIP_VAR_t, lincoefs::SCIP_Real_t, nexprtrees::Int, exprtrees::SCIP_EXPRTREE_t, nonlincoefs::SCIP_Real_t, lhs::SCIP_Real, rhs::SCIP_Real) = @scip_ccall_check("SCIPcreateConsBasicNonlinear",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, Int, Ptr{Ptr{SCIP_EXPRTREE}}, Ptr{SCIP_Real}, SCIP_Real, SCIP_Real), 
+	pointer(scip), array(cons), name, nlinvars, array(linvars), pointer(lincoefs), nexprtrees, array(exprtrees), pointer(nonlincoefs), lhs, rhs
+)
+SCIPcreateConsNonlinear2(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nlinvars::Int, linvars::SCIP_VAR_t, lincoefs::SCIP_Real_t, exprgraphnode::SCIP_EXPRGRAPHNODE_t, lhs::SCIP_Real, rhs::SCIP_Real, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsNonlinear2",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, Ptr{SCIP_EXPRGRAPHNODE}, SCIP_Real, SCIP_Real, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), array(cons), name, nlinvars, array(linvars), pointer(lincoefs), pointer(exprgraphnode), lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode
+)
+SCIPcreateConsBasicNonlinear2(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nlinvars::Int, linvars::SCIP_VAR_t, lincoefs::SCIP_Real_t, exprgraphnode::SCIP_EXPRGRAPHNODE_t, lhs::SCIP_Real, rhs::SCIP_Real) = @scip_ccall_check("SCIPcreateConsBasicNonlinear2",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, Ptr{SCIP_EXPRGRAPHNODE}, SCIP_Real, SCIP_Real), 
+	pointer(scip), array(cons), name, nlinvars, array(linvars), pointer(lincoefs), pointer(exprgraphnode), lhs, rhs
+)
+SCIPaddLinearVarNonlinear(scip::SCIP_t, cons::SCIP_CONS_t, var::SCIP_VAR_t, coef::SCIP_Real) = @scip_ccall_check("SCIPaddLinearVarNonlinear",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_VAR}, SCIP_Real), 
+	pointer(scip), pointer(cons), pointer(var), coef
+)
+SCIPsetExprtreesNonlinear(scip::SCIP_t, cons::SCIP_CONS_t, nexprtrees::Int, exprtrees::SCIP_EXPRTREE_t, coefs::SCIP_Real_t) = @scip_ccall_check("SCIPsetExprtreesNonlinear",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Int, Ptr{Ptr{SCIP_EXPRTREE}}, Ptr{SCIP_Real}), 
+	pointer(scip), pointer(cons), nexprtrees, array(exprtrees), pointer(coefs)
+)
+SCIPaddExprtreesNonlinear(scip::SCIP_t, cons::SCIP_CONS_t, nexprtrees::Int, exprtrees::SCIP_EXPRTREE_t, coefs::SCIP_Real_t) = @scip_ccall_check("SCIPaddExprtreesNonlinear",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Int, Ptr{Ptr{SCIP_EXPRTREE}}, Ptr{SCIP_Real}), 
+	pointer(scip), pointer(cons), nexprtrees, array(exprtrees), pointer(coefs)
+)
+SCIPgetNlRowNonlinear(scip::SCIP_t, cons::SCIP_CONS_t, nlrow::SCIP_NLROW_t) = @scip_ccall_check("SCIPgetNlRowNonlinear",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{Ptr{SCIP_NLROW}}), 
+	pointer(scip), pointer(cons), array(nlrow)
+)
+SCIPcheckCurvatureNonlinear(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPcheckCurvatureNonlinear",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
+SCIPgetCurvatureNonlinear(scip::SCIP_t, cons::SCIP_CONS_t, checkcurv::SCIP_Bool, curvature::SCIP_EXPRCURV_t) = @scip_ccall_check("SCIPgetCurvatureNonlinear",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool, Ptr{SCIP_EXPRCURV}), 
+	pointer(scip), pointer(cons), checkcurv, pointer(curvature)
+)
+SCIPgetExprtreeCurvaturesNonlinear(scip::SCIP_t, cons::SCIP_CONS_t, checkcurv::SCIP_Bool, curvatures::SCIP_EXPRCURV_t) = @scip_ccall_check("SCIPgetExprtreeCurvaturesNonlinear",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, SCIP_Bool, Ptr{Ptr{SCIP_EXPRCURV}}), 
+	pointer(scip), pointer(cons), checkcurv, array(curvatures)
+)
+SCIPgetViolationNonlinear(scip::SCIP_t, cons::SCIP_CONS_t, sol::SCIP_SOL_t, violation::SCIP_Real_t) = @scip_ccall_check("SCIPgetViolationNonlinear",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_SOL}, Ptr{SCIP_Real}), 
+	pointer(scip), pointer(cons), pointer(sol), pointer(violation)
+)
+SCIPincludeConshdlrSetppc(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrSetppc",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPcreateConsSetpart(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsSetpart",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), array(cons), name, nvars, array(vars), initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode
+)
+SCIPcreateConsBasicSetpart(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t) = @scip_ccall_check("SCIPcreateConsBasicSetpart",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}), 
+	pointer(scip), array(cons), name, nvars, array(vars)
+)
+SCIPcreateConsSetpack(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsSetpack",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), array(cons), name, nvars, array(vars), initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode
+)
+SCIPcreateConsBasicSetpack(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t) = @scip_ccall_check("SCIPcreateConsBasicSetpack",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}), 
+	pointer(scip), array(cons), name, nvars, array(vars)
+)
+SCIPcreateConsSetcover(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsSetcover",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), array(cons), name, nvars, array(vars), initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode
+)
+SCIPcreateConsBasicSetcover(scip::SCIP_t, cons::SCIP_CONS_t, name::String, nvars::Int, vars::SCIP_VAR_t) = @scip_ccall_check("SCIPcreateConsBasicSetcover",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Int, Ptr{Ptr{SCIP_VAR}}), 
+	pointer(scip), array(cons), name, nvars, array(vars)
+)
+SCIPaddCoefSetppc(scip::SCIP_t, cons::SCIP_CONS_t, var::SCIP_VAR_t) = @scip_ccall_check("SCIPaddCoefSetppc",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{SCIP_VAR}), 
+	pointer(scip), pointer(cons), pointer(var)
+)
+SCIPdialoghdlrAddInputLine(dialoghdlr::SCIP_DIALOGHDLR_t, inputline::String) = @scip_ccall_check("SCIPdialoghdlrAddInputLine",
+	(Ptr{SCIP_DIALOGHDLR}, String), 
+	pointer(dialoghdlr), inputline
+)
+SCIPdialoghdlrAddHistory(dialoghdlr::SCIP_DIALOGHDLR_t, dialog::SCIP_DIALOG_t, command::String, escapecommand::SCIP_Bool) = @scip_ccall_check("SCIPdialoghdlrAddHistory",
+	(Ptr{SCIP_DIALOGHDLR}, Ptr{SCIP_DIALOG}, String, SCIP_Bool), 
+	pointer(dialoghdlr), pointer(dialog), command, escapecommand
+)
+SCIPdialogDisplayMenu(dialog::SCIP_DIALOG_t, scip::SCIP_t) = @scip_ccall_check("SCIPdialogDisplayMenu",
+	(Ptr{SCIP_DIALOG}, Ptr{SCIP}), 
+	pointer(dialog), pointer(scip)
+)
+SCIPdialogDisplayMenuEntry(dialog::SCIP_DIALOG_t, scip::SCIP_t) = @scip_ccall_check("SCIPdialogDisplayMenuEntry",
+	(Ptr{SCIP_DIALOG}, Ptr{SCIP}), 
+	pointer(dialog), pointer(scip)
+)
+SCIPdialogDisplayCompletions(dialog::SCIP_DIALOG_t, scip::SCIP_t, entryname::String) = @scip_ccall_check("SCIPdialogDisplayCompletions",
+	(Ptr{SCIP_DIALOG}, Ptr{SCIP}, String), 
+	pointer(dialog), pointer(scip), entryname
+)
+SCIPvarsGetProbvarBinary(vars::SCIP_VAR_t, negatedarr::SCIP_Bool_t, nvars::Int) = @scip_ccall_check("SCIPvarsGetProbvarBinary",
+	(Ptr{Ptr{Ptr{SCIP_VAR}}}, Ptr{Ptr{SCIP_Bool}}, Int), 
+	array(vars), array(negatedarr), nvars
+)
+SCIPvarGetProbvarBinary(var::SCIP_VAR_t, negated::SCIP_Bool_t) = @scip_ccall_check("SCIPvarGetProbvarBinary",
+	(Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Bool}), 
+	array(var), pointer(negated)
+)
+SCIPvarGetProbvarBound(var::SCIP_VAR_t, bound::SCIP_Real_t, boundtype::SCIP_BOUNDTYPE_t) = @scip_ccall_check("SCIPvarGetProbvarBound",
+	(Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, Ptr{SCIP_BOUNDTYPE}), 
+	array(var), pointer(bound), pointer(boundtype)
+)
+SCIPvarGetProbvarHole(var::SCIP_VAR_t, left::SCIP_Real_t, right::SCIP_Real_t) = @scip_ccall_check("SCIPvarGetProbvarHole",
+	(Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, Ptr{SCIP_Real}), 
+	array(var), pointer(left), pointer(right)
+)
+SCIPvarGetOrigvarSum(var::SCIP_VAR_t, scalar::SCIP_Real_t, constant::SCIP_Real_t) = @scip_ccall_check("SCIPvarGetOrigvarSum",
+	(Ptr{Ptr{SCIP_VAR}}, Ptr{SCIP_Real}, Ptr{SCIP_Real}), 
+	array(var), pointer(scalar), pointer(constant)
+)
+SCIPvarGetAggregatedObj(var::SCIP_VAR_t, aggrobj::SCIP_Real_t) = @scip_ccall_check("SCIPvarGetAggregatedObj",
+	(Ptr{SCIP_VAR}, Ptr{SCIP_Real}), 
+	pointer(var), pointer(aggrobj)
+)
+SCIPvarSetInitial(var::SCIP_VAR_t, initial::SCIP_Bool) = @scip_ccall_check("SCIPvarSetInitial",
+	(Ptr{SCIP_VAR}, SCIP_Bool), 
+	pointer(var), initial
+)
+SCIPvarSetRemovable(var::SCIP_VAR_t, removable::SCIP_Bool) = @scip_ccall_check("SCIPvarSetRemovable",
+	(Ptr{SCIP_VAR}, SCIP_Bool), 
+	pointer(var), removable
+)
+SCIPincludeConshdlrBivariate(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrBivariate",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPcreateConsBivariate(scip::SCIP_t, cons::SCIP_CONS_t, name::String, f::SCIP_EXPRTREE_t, convextype::SCIP_BIVAR_CONVEXITY, z::SCIP_VAR_t, zcoef::SCIP_Real, lhs::SCIP_Real, rhs::SCIP_Real, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsBivariate",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{SCIP_EXPRTREE}, SCIP_BIVAR_CONVEXITY, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Real, SCIP_Real, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), array(cons), name, pointer(f), convextype, pointer(z), zcoef, lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode
+)
+SCIPcreateConsBasicBivariate(scip::SCIP_t, cons::SCIP_CONS_t, name::String, f::SCIP_EXPRTREE_t, convextype::SCIP_BIVAR_CONVEXITY, z::SCIP_VAR_t, zcoef::SCIP_Real, lhs::SCIP_Real, rhs::SCIP_Real) = @scip_ccall_check("SCIPcreateConsBasicBivariate",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{SCIP_EXPRTREE}, SCIP_BIVAR_CONVEXITY, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Real, SCIP_Real), 
+	pointer(scip), array(cons), name, pointer(f), convextype, pointer(z), zcoef, lhs, rhs
+)
+SCIPincludeConshdlrAbspower(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrAbspower",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPcreateConsAbspower(scip::SCIP_t, cons::SCIP_CONS_t, name::String, x::SCIP_VAR_t, z::SCIP_VAR_t, exponent::SCIP_Real, xoffset::SCIP_Real, zcoef::SCIP_Real, lhs::SCIP_Real, rhs::SCIP_Real, initial::SCIP_Bool, separate::SCIP_Bool, enforce::SCIP_Bool, check::SCIP_Bool, propagate::SCIP_Bool, localVar::SCIP_Bool, modifiable::SCIP_Bool, dynamic::SCIP_Bool, removable::SCIP_Bool, stickingatnode::SCIP_Bool) = @scip_ccall_check("SCIPcreateConsAbspower",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{SCIP_VAR}, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Real, SCIP_Real, SCIP_Real, SCIP_Real, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool, SCIP_Bool), 
+	pointer(scip), array(cons), name, pointer(x), pointer(z), exponent, xoffset, zcoef, lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode
+)
+SCIPcreateConsBasicAbspower(scip::SCIP_t, cons::SCIP_CONS_t, name::String, x::SCIP_VAR_t, z::SCIP_VAR_t, exponent::SCIP_Real, xoffset::SCIP_Real, zcoef::SCIP_Real, lhs::SCIP_Real, rhs::SCIP_Real) = @scip_ccall_check("SCIPcreateConsBasicAbspower",
+	(Ptr{SCIP}, Ptr{Ptr{SCIP_CONS}}, String, Ptr{SCIP_VAR}, Ptr{SCIP_VAR}, SCIP_Real, SCIP_Real, SCIP_Real, SCIP_Real, SCIP_Real), 
+	pointer(scip), array(cons), name, pointer(x), pointer(z), exponent, xoffset, zcoef, lhs, rhs
+)
+SCIPgetNlRowAbspower(scip::SCIP_t, cons::SCIP_CONS_t, nlrow::SCIP_NLROW_t) = @scip_ccall_check("SCIPgetNlRowAbspower",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Ptr{Ptr{SCIP_NLROW}}), 
+	pointer(scip), pointer(cons), array(nlrow)
+)
+SCIPincludeDefaultPlugins(scip::SCIP_t) = @scip_ccall_check("SCIPincludeDefaultPlugins",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPincludeConshdlrCumulative(scip::SCIP_t) = @scip_ccall_check("SCIPincludeConshdlrCumulative",
+	(Ptr{SCIP},), 
+	pointer(scip)
+)
+SCIPsetHminCumulative(scip::SCIP_t, cons::SCIP_CONS_t, hmin::Int) = @scip_ccall_check("SCIPsetHminCumulative",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Int), 
+	pointer(scip), pointer(cons), hmin
+)
+SCIPsetHmaxCumulative(scip::SCIP_t, cons::SCIP_CONS_t, hmax::Int) = @scip_ccall_check("SCIPsetHmaxCumulative",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}, Int), 
+	pointer(scip), pointer(cons), hmax
+)
+SCIPvisualizeConsCumulative(scip::SCIP_t, cons::SCIP_CONS_t) = @scip_ccall_check("SCIPvisualizeConsCumulative",
+	(Ptr{SCIP}, Ptr{SCIP_CONS}), 
+	pointer(scip), pointer(cons)
+)
