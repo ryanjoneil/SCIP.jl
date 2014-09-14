@@ -308,7 +308,13 @@ def scipname(name):
             return name.replace('SCIP', '_SCIP')
     else:
         return [scipname(n) for n in name]
-    
+
+def sciptype(name):
+    '''Suffixes wrapped SCIP types with _t.'''
+    if isinstance(name, str):
+        return '%s_t' % name
+    else:
+        return [sciptype(n) for n in name]
 
 if __name__ == '__main__':
     try:
@@ -338,12 +344,16 @@ if __name__ == '__main__':
     # Jinja2 environment
     env = Environment(loader=FileSystemLoader(tmpldir))
     env.filters['scipname'] = scipname
+    env.filters['sciptype'] = sciptype
 
     # Template -> src conversion.
-    for filename in os.listdir(tmpldir):
-        with open(os.path.join(srcdir, filename), 'w') as outfile:
-            template = env.get_template(filename)
-            outfile.write(template.render(parser=parser))
+    for root, dirs, files in os.walk(tmpldir):
+        # Strip off template dir.
+        tdir = os.path.join(*root.split(os.path.sep)[1:])
 
-            #with open() as infile:
+        for filename in files:
+            # Convert each file.
+            with open(os.path.join(srcdir, tdir, filename), 'w') as outfile:
+                template = env.get_template(os.path.join(tdir, filename))
+                outfile.write(template.render(parser=parser))
                 
