@@ -1,3 +1,6 @@
+export {{ parser.unchecked_functions.keys()|scipname|join(', ') }}
+export {{ parser.checked_functions.keys()|scipname|join(', ') }}
+
 type SCIPError# <: Exception
     msg::ASCIIString
     SCIPError(code::_SCIP_RETCODE) = new(SCIP_Retcode_MAP[code])
