@@ -96,8 +96,8 @@ class SCIPXMLParser(object):
 
         elif type_name.startswith('SCIP') :
             if type_name.endswith('*'):
-                #return 'Ptr{%s}' % self._convert_type(type_name[:-1])
-                return ""
+                return 'Ptr{%s}' % self._convert_type(type_name[:-1])
+                # return ""
 
             elif type_name.replace('_', '').isalnum():
                 if type_name not in self.typealiases:
@@ -269,21 +269,22 @@ class SCIPXMLParser(object):
                     continue
 
                 ## Convert from scip to pointer(scip) or array(scip)
-                #if at.endswith('}}'):
+                # if at.endswith('}}'):
                 #    av = 'array(%s)' % av
-                #elif at.endswith('}'):
+                # elif at.endswith('}'):
                 #    av = 'pointer(%s)' % av
                 arg_vals[i] = av
 
                 ## Convert from scip to scip::SCIP_t if the type is a SCIP struct
-                #is_pointer = at.startswith('Ptr{')
+                is_pointer = at.startswith('Ptr{')
                 at = at.replace('Ptr{','').lstrip('{').rstrip('}')
-                #if at.startswith('SCIP'):
+                # if at.startswith('SCIP'):
                 #    if is_pointer:
                 #        self.structs.add(at)
                 #        at = '%s_t' % at
 
-                arg_names[i] = '%s::%s' % (an, at)
+                # arg_names[i] = '%s::%s' % (an, at)
+                arg_names[i] = '%s' % an
 
             if len(arg_types) == 1 and arg_types[0] == 'Void':
                 arg_types = []
