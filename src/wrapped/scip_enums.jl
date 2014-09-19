@@ -1,136 +1,16 @@
 # SCIP enums
-export _SCIP_LPSolStat, _SCIP_LPSOLSTAT_NOTSOLVED, _SCIP_LPSOLSTAT_OPTIMAL, _SCIP_LPSOLSTAT_INFEASIBLE, _SCIP_LPSOLSTAT_UNBOUNDEDRAY, _SCIP_LPSOLSTAT_OBJLIMIT, _SCIP_LPSOLSTAT_ITERLIMIT, _SCIP_LPSOLSTAT_TIMELIMIT, _SCIP_LPSOLSTAT_ERROR, SCIP_LPSolStat_MAP
-typealias _SCIP_LPSolStat Int8
-const _SCIP_LPSOLSTAT_NOTSOLVED = int8(0)
-const _SCIP_LPSOLSTAT_OPTIMAL = int8(1)
-const _SCIP_LPSOLSTAT_INFEASIBLE = int8(2)
-const _SCIP_LPSOLSTAT_UNBOUNDEDRAY = int8(3)
-const _SCIP_LPSOLSTAT_OBJLIMIT = int8(4)
-const _SCIP_LPSOLSTAT_ITERLIMIT = int8(5)
-const _SCIP_LPSOLSTAT_TIMELIMIT = int8(6)
-const _SCIP_LPSOLSTAT_ERROR = int8(7)
+export _SCIP_BIVAR_CONVEXITY, _SCIP_BIVAR_ALLCONVEX, _SCIP_BIVAR_1CONVEX_INDEFINITE, _SCIP_BIVAR_CONVEX_CONCAVE, _SCIP_BIVAR_UNKNOWN, SCIP_BIVAR_CONVEXITY_MAP
+typealias _SCIP_BIVAR_CONVEXITY Int8
+const _SCIP_BIVAR_ALLCONVEX = int8(0)
+const _SCIP_BIVAR_1CONVEX_INDEFINITE = int8(1)
+const _SCIP_BIVAR_CONVEX_CONCAVE = int8(2)
+const _SCIP_BIVAR_UNKNOWN = int8(3)
 
-const SCIP_LPSolStat_MAP = [
-    _SCIP_LPSOLSTAT_NOTSOLVED => "LP was not solved, no solution exists",
-    _SCIP_LPSOLSTAT_OPTIMAL => "LP was solved to optimality",
-    _SCIP_LPSOLSTAT_INFEASIBLE => "LP is primal infeasible",
-    _SCIP_LPSOLSTAT_UNBOUNDEDRAY => "LP has a primal unbounded ray",
-    _SCIP_LPSOLSTAT_OBJLIMIT => "objective limit was reached during optimization",
-    _SCIP_LPSOLSTAT_ITERLIMIT => "iteration limit was reached during optimization",
-    _SCIP_LPSOLSTAT_TIMELIMIT => "time limit was reached during optimization",
-    _SCIP_LPSOLSTAT_ERROR => "an error occured during optimization",
-]
-
-export _SCIP_BoundType, _SCIP_BOUNDTYPE_LOWER, _SCIP_BOUNDTYPE_UPPER, SCIP_BoundType_MAP
-typealias _SCIP_BoundType Int8
-const _SCIP_BOUNDTYPE_LOWER = int8(0)
-const _SCIP_BOUNDTYPE_UPPER = int8(1)
-
-const SCIP_BoundType_MAP = [
-    _SCIP_BOUNDTYPE_LOWER => "lower bound",
-    _SCIP_BOUNDTYPE_UPPER => "upper bound",
-]
-
-export _SCIP_SideType, _SCIP_SIDETYPE_LEFT, _SCIP_SIDETYPE_RIGHT, SCIP_SideType_MAP
-typealias _SCIP_SideType Int8
-const _SCIP_SIDETYPE_LEFT = int8(0)
-const _SCIP_SIDETYPE_RIGHT = int8(1)
-
-const SCIP_SideType_MAP = [
-    _SCIP_SIDETYPE_LEFT => "left hand side",
-    _SCIP_SIDETYPE_RIGHT => "right hand side",
-]
-
-export _SCIP_RowOriginType, _SCIP_ROWORIGINTYPE_UNSPEC, _SCIP_ROWORIGINTYPE_CONS, _SCIP_ROWORIGINTYPE_SEPA, SCIP_RowOriginType_MAP
-typealias _SCIP_RowOriginType Int8
-const _SCIP_ROWORIGINTYPE_UNSPEC = int8(0)
-const _SCIP_ROWORIGINTYPE_CONS = int8(1)
-const _SCIP_ROWORIGINTYPE_SEPA = int8(2)
-
-const SCIP_RowOriginType_MAP = [
-    _SCIP_ROWORIGINTYPE_UNSPEC => "unspecified origin of row",
-    _SCIP_ROWORIGINTYPE_CONS => "row created by constraint handler",
-    _SCIP_ROWORIGINTYPE_SEPA => "row created by separator",
-]
-
-export _SCIP_LPAlgo, _SCIP_LPALGO_PRIMALSIMPLEX, _SCIP_LPALGO_DUALSIMPLEX, _SCIP_LPALGO_BARRIER, _SCIP_LPALGO_BARRIERCROSSOVER, SCIP_LPAlgo_MAP
-typealias _SCIP_LPAlgo Int8
-const _SCIP_LPALGO_PRIMALSIMPLEX = int8(0)
-const _SCIP_LPALGO_DUALSIMPLEX = int8(1)
-const _SCIP_LPALGO_BARRIER = int8(2)
-const _SCIP_LPALGO_BARRIERCROSSOVER = int8(3)
-
-const SCIP_LPAlgo_MAP = [
-    _SCIP_LPALGO_PRIMALSIMPLEX => "primal simplex",
-    _SCIP_LPALGO_DUALSIMPLEX => "dual simplex",
-    _SCIP_LPALGO_BARRIER => "barrier algorithm",
-    _SCIP_LPALGO_BARRIERCROSSOVER => "barrier algorithm with crossover",
-]
-
-export _SCIP_DispStatus, _SCIP_DISPSTATUS_OFF, _SCIP_DISPSTATUS_AUTO, _SCIP_DISPSTATUS_ON, SCIP_DispStatus_MAP
-typealias _SCIP_DispStatus Int8
-const _SCIP_DISPSTATUS_OFF = int8(0)
-const _SCIP_DISPSTATUS_AUTO = int8(1)
-const _SCIP_DISPSTATUS_ON = int8(2)
-
-const SCIP_DispStatus_MAP = [
-    _SCIP_DISPSTATUS_OFF => "display column is not displayed",
-    _SCIP_DISPSTATUS_AUTO => "display column is switched on and off automatically",
-    _SCIP_DISPSTATUS_ON => "display column is displayed",
-]
-
-export _SCIP_Result, _SCIP_DIDNOTRUN, _SCIP_DELAYED, _SCIP_DIDNOTFIND, _SCIP_FEASIBLE, _SCIP_INFEASIBLE, _SCIP_UNBOUNDED, _SCIP_CUTOFF, _SCIP_SEPARATED, _SCIP_NEWROUND, _SCIP_REDUCEDDOM, _SCIP_CONSADDED, _SCIP_CONSCHANGED, _SCIP_BRANCHED, _SCIP_SOLVELP, _SCIP_FOUNDSOL, _SCIP_SUSPENDED, _SCIP_SUCCESS, SCIP_Result_MAP
-typealias _SCIP_Result Int8
-const _SCIP_DIDNOTRUN = int8(1)
-const _SCIP_DELAYED = int8(2)
-const _SCIP_DIDNOTFIND = int8(3)
-const _SCIP_FEASIBLE = int8(4)
-const _SCIP_INFEASIBLE = int8(5)
-const _SCIP_UNBOUNDED = int8(6)
-const _SCIP_CUTOFF = int8(7)
-const _SCIP_SEPARATED = int8(8)
-const _SCIP_NEWROUND = int8(9)
-const _SCIP_REDUCEDDOM = int8(10)
-const _SCIP_CONSADDED = int8(11)
-const _SCIP_CONSCHANGED = int8(12)
-const _SCIP_BRANCHED = int8(13)
-const _SCIP_SOLVELP = int8(14)
-const _SCIP_FOUNDSOL = int8(15)
-const _SCIP_SUSPENDED = int8(16)
-const _SCIP_SUCCESS = int8(17)
-
-const SCIP_Result_MAP = [
-    _SCIP_DIDNOTRUN => "the method was not executed",
-    _SCIP_DELAYED => "the method was not executed, but should be called again later",
-    _SCIP_DIDNOTFIND => "the method was executed, but failed finding anything",
-    _SCIP_FEASIBLE => "no infeasibility could be found",
-    _SCIP_INFEASIBLE => "an infeasibility was detected",
-    _SCIP_UNBOUNDED => "an unboundedness was detected",
-    _SCIP_CUTOFF => "the current node is infeasible and can be cut off",
-    _SCIP_SEPARATED => "the method added a cutting plane",
-    _SCIP_NEWROUND => "the method added a cutting plane and a new separation round should immediately start",
-    _SCIP_REDUCEDDOM => "the method reduced the domain of a variable",
-    _SCIP_CONSADDED => "the method added a constraint",
-    _SCIP_CONSCHANGED => "the method changed a constraint",
-    _SCIP_BRANCHED => "the method created a branching",
-    _SCIP_SOLVELP => "the current node's LP must be solved",
-    _SCIP_FOUNDSOL => "the method found a feasible primal solution",
-    _SCIP_SUSPENDED => "the method interrupted its execution, but can continue if needed",
-    _SCIP_SUCCESS => "the method was successfully executed",
-]
-
-export _SCIP_BranchDir, _SCIP_BRANCHDIR_DOWNWARDS, _SCIP_BRANCHDIR_UPWARDS, _SCIP_BRANCHDIR_FIXED, _SCIP_BRANCHDIR_AUTO, SCIP_BranchDir_MAP
-typealias _SCIP_BranchDir Int8
-const _SCIP_BRANCHDIR_DOWNWARDS = int8(0)
-const _SCIP_BRANCHDIR_UPWARDS = int8(1)
-const _SCIP_BRANCHDIR_FIXED = int8(2)
-const _SCIP_BRANCHDIR_AUTO = int8(3)
-
-const SCIP_BranchDir_MAP = [
-    _SCIP_BRANCHDIR_DOWNWARDS => "downwards branching: decreasing upper bound",
-    _SCIP_BRANCHDIR_UPWARDS => "upwards branching: increasing lower bound",
-    _SCIP_BRANCHDIR_FIXED => "fixed branching: both bounds changed",
-    _SCIP_BRANCHDIR_AUTO => "automatic setting for choosing bound changes",
+const SCIP_BIVAR_CONVEXITY_MAP = [
+    _SCIP_BIVAR_ALLCONVEX => "",
+    _SCIP_BIVAR_1CONVEX_INDEFINITE => "",
+    _SCIP_BIVAR_CONVEX_CONCAVE => "",
+    _SCIP_BIVAR_UNKNOWN => "",
 ]
 
 export _SCIP_LinearConsType, _SCIP_LINEARCONSTYPE_INVALIDCONS, _SCIP_LINEARCONSTYPE_LINEAR, _SCIP_LINEARCONSTYPE_LOGICOR, _SCIP_LINEARCONSTYPE_KNAPSACK, _SCIP_LINEARCONSTYPE_SETPPC, SCIP_LinearConsType_MAP
@@ -149,178 +29,40 @@ const SCIP_LinearConsType_MAP = [
     _SCIP_LINEARCONSTYPE_SETPPC => "this is a setppc constraint",
 ]
 
-export _SCIP_VBCColor, _SCIP_VBCCOLOR_UNSOLVED, _SCIP_VBCCOLOR_SOLVED, _SCIP_VBCCOLOR_CUTOFF, _SCIP_VBCCOLOR_CONFLICT, _SCIP_VBCCOLOR_MARKREPROP, _SCIP_VBCCOLOR_REPROP, _SCIP_VBCCOLOR_SOLUTION, _SCIP_VBCCOLOR_NONE, SCIP_VBCColor_MAP
-typealias _SCIP_VBCColor Int8
-const _SCIP_VBCCOLOR_UNSOLVED = int8(3)
-const _SCIP_VBCCOLOR_SOLVED = int8(2)
-const _SCIP_VBCCOLOR_CUTOFF = int8(4)
-const _SCIP_VBCCOLOR_CONFLICT = int8(15)
-const _SCIP_VBCCOLOR_MARKREPROP = int8(11)
-const _SCIP_VBCCOLOR_REPROP = int8(12)
-const _SCIP_VBCCOLOR_SOLUTION = int8(14)
-const _SCIP_VBCCOLOR_NONE = int8(-1)
+export _SCIP_SetppcType, _SCIP_SETPPCTYPE_PARTITIONING, _SCIP_SETPPCTYPE_PACKING, _SCIP_SETPPCTYPE_COVERING, SCIP_SetppcType_MAP
+typealias _SCIP_SetppcType Int8
+const _SCIP_SETPPCTYPE_PARTITIONING = int8(0)
+const _SCIP_SETPPCTYPE_PACKING = int8(1)
+const _SCIP_SETPPCTYPE_COVERING = int8(2)
 
-const SCIP_VBCColor_MAP = [
-    _SCIP_VBCCOLOR_UNSOLVED => "color for newly created, unsolved nodes",
-    _SCIP_VBCCOLOR_SOLVED => "color for solved nodes",
-    _SCIP_VBCCOLOR_CUTOFF => "color for nodes that were cut off",
-    _SCIP_VBCCOLOR_CONFLICT => "color for nodes where a conflict constraint was found",
-    _SCIP_VBCCOLOR_MARKREPROP => "color for nodes that were marked to be repropagated",
-    _SCIP_VBCCOLOR_REPROP => "color for repropagated nodes",
-    _SCIP_VBCCOLOR_SOLUTION => "color for solved nodes, where a solution has been found",
-    _SCIP_VBCCOLOR_NONE => "color should not be changed",
+const SCIP_SetppcType_MAP = [
+    _SCIP_SETPPCTYPE_PARTITIONING => "constraint is a set partitioning constraint: sum(x) == 1",
+    _SCIP_SETPPCTYPE_PACKING => "constraint is a set packing constraint: sum(x) <= 1",
+    _SCIP_SETPPCTYPE_COVERING => "constraint is a set covering constraint: sum(x) >= 1",
 ]
 
-export _SCIP_Varstatus, _SCIP_VARSTATUS_ORIGINAL, _SCIP_VARSTATUS_LOOSE, _SCIP_VARSTATUS_COLUMN, _SCIP_VARSTATUS_FIXED, _SCIP_VARSTATUS_AGGREGATED, _SCIP_VARSTATUS_MULTAGGR, _SCIP_VARSTATUS_NEGATED, SCIP_Varstatus_MAP
-typealias _SCIP_Varstatus Int8
-const _SCIP_VARSTATUS_ORIGINAL = int8(0)
-const _SCIP_VARSTATUS_LOOSE = int8(1)
-const _SCIP_VARSTATUS_COLUMN = int8(2)
-const _SCIP_VARSTATUS_FIXED = int8(3)
-const _SCIP_VARSTATUS_AGGREGATED = int8(4)
-const _SCIP_VARSTATUS_MULTAGGR = int8(5)
-const _SCIP_VARSTATUS_NEGATED = int8(6)
+export _SCIP_ClockType, _SCIP_CLOCKTYPE_DEFAULT, _SCIP_CLOCKTYPE_CPU, _SCIP_CLOCKTYPE_WALL, SCIP_ClockType_MAP
+typealias _SCIP_ClockType Int8
+const _SCIP_CLOCKTYPE_DEFAULT = int8(0)
+const _SCIP_CLOCKTYPE_CPU = int8(1)
+const _SCIP_CLOCKTYPE_WALL = int8(2)
 
-const SCIP_Varstatus_MAP = [
-    _SCIP_VARSTATUS_ORIGINAL => "variable belongs to original problem",
-    _SCIP_VARSTATUS_LOOSE => "variable is a loose variable of the transformed problem",
-    _SCIP_VARSTATUS_COLUMN => "variable is a column of the transformed problem",
-    _SCIP_VARSTATUS_FIXED => "variable is fixed to specific value in the transformed problem",
-    _SCIP_VARSTATUS_AGGREGATED => "variable is aggregated to x = a*y + c in the transformed problem",
-    _SCIP_VARSTATUS_MULTAGGR => "variable is aggregated to x = a_1*y_1 + ... + a_k*y_k + c",
-    _SCIP_VARSTATUS_NEGATED => "variable is the negation of an original or transformed variable",
+const SCIP_ClockType_MAP = [
+    _SCIP_CLOCKTYPE_DEFAULT => "use default clock type",
+    _SCIP_CLOCKTYPE_CPU => "use CPU clock",
+    _SCIP_CLOCKTYPE_WALL => "use wall clock",
 ]
 
-export _SCIP_Vartype, _SCIP_VARTYPE_BINARY, _SCIP_VARTYPE_INTEGER, _SCIP_VARTYPE_IMPLINT, _SCIP_VARTYPE_CONTINUOUS, SCIP_Vartype_MAP
-typealias _SCIP_Vartype Int8
-const _SCIP_VARTYPE_BINARY = int8(0)
-const _SCIP_VARTYPE_INTEGER = int8(1)
-const _SCIP_VARTYPE_IMPLINT = int8(2)
-const _SCIP_VARTYPE_CONTINUOUS = int8(3)
+export _SCIP_DispStatus, _SCIP_DISPSTATUS_OFF, _SCIP_DISPSTATUS_AUTO, _SCIP_DISPSTATUS_ON, SCIP_DispStatus_MAP
+typealias _SCIP_DispStatus Int8
+const _SCIP_DISPSTATUS_OFF = int8(0)
+const _SCIP_DISPSTATUS_AUTO = int8(1)
+const _SCIP_DISPSTATUS_ON = int8(2)
 
-const SCIP_Vartype_MAP = [
-    _SCIP_VARTYPE_BINARY => "binary variable: x in {0,1}",
-    _SCIP_VARTYPE_INTEGER => "integer variable: x in {lb, ..., ub}",
-    _SCIP_VARTYPE_IMPLINT => "implicit integer variable: continuous variable, that is always integral",
-    _SCIP_VARTYPE_CONTINUOUS => "continuous variable: x in [lb,ub]",
-]
-
-export _SCIP_DomchgType, _SCIP_DOMCHGTYPE_DYNAMIC, _SCIP_DOMCHGTYPE_BOTH, _SCIP_DOMCHGTYPE_BOUND, SCIP_DomchgType_MAP
-typealias _SCIP_DomchgType Int8
-const _SCIP_DOMCHGTYPE_DYNAMIC = int8(0)
-const _SCIP_DOMCHGTYPE_BOTH = int8(1)
-const _SCIP_DOMCHGTYPE_BOUND = int8(2)
-
-const SCIP_DomchgType_MAP = [
-    _SCIP_DOMCHGTYPE_DYNAMIC => "dynamic bound changes with size information of arrays",
-    _SCIP_DOMCHGTYPE_BOTH => "static domain changes: number of entries equals size of arrays",
-    _SCIP_DOMCHGTYPE_BOUND => "static domain changes without any hole changes",
-]
-
-export _SCIP_BoundchgType, _SCIP_BOUNDCHGTYPE_BRANCHING, _SCIP_BOUNDCHGTYPE_CONSINFER, _SCIP_BOUNDCHGTYPE_PROPINFER, SCIP_BoundchgType_MAP
-typealias _SCIP_BoundchgType Int8
-const _SCIP_BOUNDCHGTYPE_BRANCHING = int8(0)
-const _SCIP_BOUNDCHGTYPE_CONSINFER = int8(1)
-const _SCIP_BOUNDCHGTYPE_PROPINFER = int8(2)
-
-const SCIP_BoundchgType_MAP = [
-    _SCIP_BOUNDCHGTYPE_BRANCHING => "bound change was due to a branching decision",
-    _SCIP_BOUNDCHGTYPE_CONSINFER => "bound change was due to an inference of a constraint (domain propagation)",
-    _SCIP_BOUNDCHGTYPE_PROPINFER => "bound change was due to an inference of a domain propagator",
-]
-
-export _SCIP_Status, _SCIP_STATUS_UNKNOWN, _SCIP_STATUS_USERINTERRUPT, _SCIP_STATUS_NODELIMIT, _SCIP_STATUS_TOTALNODELIMIT, _SCIP_STATUS_STALLNODELIMIT, _SCIP_STATUS_TIMELIMIT, _SCIP_STATUS_MEMLIMIT, _SCIP_STATUS_GAPLIMIT, _SCIP_STATUS_SOLLIMIT, _SCIP_STATUS_BESTSOLLIMIT, _SCIP_STATUS_OPTIMAL, _SCIP_STATUS_INFEASIBLE, _SCIP_STATUS_UNBOUNDED, _SCIP_STATUS_INFORUNBD, SCIP_Status_MAP
-typealias _SCIP_Status Int8
-const _SCIP_STATUS_UNKNOWN = int8(0)
-const _SCIP_STATUS_USERINTERRUPT = int8(1)
-const _SCIP_STATUS_NODELIMIT = int8(2)
-const _SCIP_STATUS_TOTALNODELIMIT = int8(3)
-const _SCIP_STATUS_STALLNODELIMIT = int8(4)
-const _SCIP_STATUS_TIMELIMIT = int8(5)
-const _SCIP_STATUS_MEMLIMIT = int8(6)
-const _SCIP_STATUS_GAPLIMIT = int8(7)
-const _SCIP_STATUS_SOLLIMIT = int8(8)
-const _SCIP_STATUS_BESTSOLLIMIT = int8(9)
-const _SCIP_STATUS_OPTIMAL = int8(10)
-const _SCIP_STATUS_INFEASIBLE = int8(11)
-const _SCIP_STATUS_UNBOUNDED = int8(12)
-const _SCIP_STATUS_INFORUNBD = int8(13)
-
-const SCIP_Status_MAP = [
-    _SCIP_STATUS_UNKNOWN => "the solving status is not yet known",
-    _SCIP_STATUS_USERINTERRUPT => "the user interrupted the solving process (by pressing CTRL-C)",
-    _SCIP_STATUS_NODELIMIT => "the solving process was interrupted because the node limit was reached",
-    _SCIP_STATUS_TOTALNODELIMIT => "the solving process was interrupted because the total node limit was reached (incl. restarts)",
-    _SCIP_STATUS_STALLNODELIMIT => "the solving process was interrupted because the stalling node limit was reached (no inprovement w.r.t. primal bound)",
-    _SCIP_STATUS_TIMELIMIT => "the solving process was interrupted because the time limit was reached",
-    _SCIP_STATUS_MEMLIMIT => "the solving process was interrupted because the memory limit was reached",
-    _SCIP_STATUS_GAPLIMIT => "the solving process was interrupted because the gap limit was reached",
-    _SCIP_STATUS_SOLLIMIT => "the solving process was interrupted because the solution limit was reached",
-    _SCIP_STATUS_BESTSOLLIMIT => "the solving process was interrupted because the solution improvement limit was reached",
-    _SCIP_STATUS_OPTIMAL => "the problem was solved to optimality, an optimal solution is available",
-    _SCIP_STATUS_INFEASIBLE => "the problem was proven to be infeasible",
-    _SCIP_STATUS_UNBOUNDED => "the problem was proven to be unbounded",
-    _SCIP_STATUS_INFORUNBD => "the problem was proven to be either infeasible or unbounded",
-]
-
-export _SCIP_VerbLevel, _SCIP_VERBLEVEL_NONE, _SCIP_VERBLEVEL_DIALOG, _SCIP_VERBLEVEL_MINIMAL, _SCIP_VERBLEVEL_NORMAL, _SCIP_VERBLEVEL_HIGH, _SCIP_VERBLEVEL_FULL, SCIP_VerbLevel_MAP
-typealias _SCIP_VerbLevel Int8
-const _SCIP_VERBLEVEL_NONE = int8(0)
-const _SCIP_VERBLEVEL_DIALOG = int8(1)
-const _SCIP_VERBLEVEL_MINIMAL = int8(2)
-const _SCIP_VERBLEVEL_NORMAL = int8(3)
-const _SCIP_VERBLEVEL_HIGH = int8(4)
-const _SCIP_VERBLEVEL_FULL = int8(5)
-
-const SCIP_VerbLevel_MAP = [
-    _SCIP_VERBLEVEL_NONE => "only error and warning messages are displayed",
-    _SCIP_VERBLEVEL_DIALOG => "only interactive dialogs, errors, and warnings are displayed",
-    _SCIP_VERBLEVEL_MINIMAL => "only important messages are displayed",
-    _SCIP_VERBLEVEL_NORMAL => "standard messages are displayed",
-    _SCIP_VERBLEVEL_HIGH => "a lot of information is displayed",
-    _SCIP_VERBLEVEL_FULL => "all messages are displayed",
-]
-
-export _SCIP_SolOrigin, _SCIP_SOLORIGIN_ORIGINAL, _SCIP_SOLORIGIN_ZERO, _SCIP_SOLORIGIN_LPSOL, _SCIP_SOLORIGIN_NLPSOL, _SCIP_SOLORIGIN_RELAXSOL, _SCIP_SOLORIGIN_PSEUDOSOL, _SCIP_SOLORIGIN_UNKNOWN, SCIP_SolOrigin_MAP
-typealias _SCIP_SolOrigin Int8
-const _SCIP_SOLORIGIN_ORIGINAL = int8(0)
-const _SCIP_SOLORIGIN_ZERO = int8(1)
-const _SCIP_SOLORIGIN_LPSOL = int8(2)
-const _SCIP_SOLORIGIN_NLPSOL = int8(3)
-const _SCIP_SOLORIGIN_RELAXSOL = int8(4)
-const _SCIP_SOLORIGIN_PSEUDOSOL = int8(5)
-const _SCIP_SOLORIGIN_UNKNOWN = int8(6)
-
-const SCIP_SolOrigin_MAP = [
-    _SCIP_SOLORIGIN_ORIGINAL => "solution describes original variables; non-cached elements are zero",
-    _SCIP_SOLORIGIN_ZERO => "all non-cached elements in solution are equal to zero",
-    _SCIP_SOLORIGIN_LPSOL => "all non-cached elements in solution are equal to current LP solution",
-    _SCIP_SOLORIGIN_NLPSOL => "all non-cached elements in solution are equal to current NLP solution",
-    _SCIP_SOLORIGIN_RELAXSOL => "all non-cached elements in solution are equal to current relaxation solution",
-    _SCIP_SOLORIGIN_PSEUDOSOL => "all non-cached elements in solution are equal to current pseudo solution",
-    _SCIP_SOLORIGIN_UNKNOWN => "all non-cached elements in solution are unknown; they have to be treated as being an arbitrary value in the variable's bounds",
-]
-
-export _SCIP_Efficiacychoice, _SCIP_EFFICIACYCHOICE_LP, _SCIP_EFFICIACYCHOICE_RELAX, _SCIP_EFFICIACYCHOICE_NLP, SCIP_Efficiacychoice_MAP
-typealias _SCIP_Efficiacychoice Int8
-const _SCIP_EFFICIACYCHOICE_LP = int8(0)
-const _SCIP_EFFICIACYCHOICE_RELAX = int8(1)
-const _SCIP_EFFICIACYCHOICE_NLP = int8(2)
-
-const SCIP_Efficiacychoice_MAP = [
-    _SCIP_EFFICIACYCHOICE_LP => "use LP solution to base efficacy on",
-    _SCIP_EFFICIACYCHOICE_RELAX => "use relaxation solution to base efficacy on",
-    _SCIP_EFFICIACYCHOICE_NLP => "use NLP solution to base efficacy on",
-]
-
-export _SCIP_Objsense, _SCIP_OBJSENSE_MAXIMIZE, _SCIP_OBJSENSE_MINIMIZE, SCIP_Objsense_MAP
-typealias _SCIP_Objsense Int8
-const _SCIP_OBJSENSE_MAXIMIZE = int8(-1)
-const _SCIP_OBJSENSE_MINIMIZE = int8(+1)
-
-const SCIP_Objsense_MAP = [
-    _SCIP_OBJSENSE_MAXIMIZE => "maximization of objective function",
-    _SCIP_OBJSENSE_MINIMIZE => "minimization of objective function (the default)",
+const SCIP_DispStatus_MAP = [
+    _SCIP_DISPSTATUS_OFF => "display column is not displayed",
+    _SCIP_DISPSTATUS_AUTO => "display column is switched on and off automatically",
+    _SCIP_DISPSTATUS_ON => "display column is displayed",
 ]
 
 export _SCIP_ExprOp, _SCIP_EXPR_VARIDX, _SCIP_EXPR_CONST, _SCIP_EXPR_PARAM, _SCIP_EXPR_PLUS, _SCIP_EXPR_MINUS, _SCIP_EXPR_MUL, _SCIP_EXPR_DIV, _SCIP_EXPR_SQUARE, _SCIP_EXPR_SQRT, _SCIP_EXPR_REALPOWER, _SCIP_EXPR_INTPOWER, _SCIP_EXPR_SIGNPOWER, _SCIP_EXPR_EXP, _SCIP_EXPR_LOG, _SCIP_EXPR_SIN, _SCIP_EXPR_COS, _SCIP_EXPR_TAN, _SCIP_EXPR_MIN, _SCIP_EXPR_MAX, _SCIP_EXPR_ABS, _SCIP_EXPR_SIGN, _SCIP_EXPR_SUM, _SCIP_EXPR_PRODUCT, _SCIP_EXPR_LINEAR, _SCIP_EXPR_QUADRATIC, _SCIP_EXPR_POLYNOMIAL, _SCIP_EXPR_LAST, SCIP_ExprOp_MAP
@@ -397,132 +139,104 @@ const SCIP_ExprCurv_MAP = [
     _SCIP_EXPRCURV_LINEAR => "linear = convex and concave",
 ]
 
-export _SCIP_Stage, _SCIP_STAGE_INIT, _SCIP_STAGE_PROBLEM, _SCIP_STAGE_TRANSFORMING, _SCIP_STAGE_TRANSFORMED, _SCIP_STAGE_INITPRESOLVE, _SCIP_STAGE_PRESOLVING, _SCIP_STAGE_EXITPRESOLVE, _SCIP_STAGE_PRESOLVED, _SCIP_STAGE_INITSOLVE, _SCIP_STAGE_SOLVING, _SCIP_STAGE_SOLVED, _SCIP_STAGE_EXITSOLVE, _SCIP_STAGE_FREETRANS, _SCIP_STAGE_FREE, SCIP_Stage_MAP
-typealias _SCIP_Stage Int8
-const _SCIP_STAGE_INIT = int8(0)
-const _SCIP_STAGE_PROBLEM = int8(1)
-const _SCIP_STAGE_TRANSFORMING = int8(2)
-const _SCIP_STAGE_TRANSFORMED = int8(3)
-const _SCIP_STAGE_INITPRESOLVE = int8(4)
-const _SCIP_STAGE_PRESOLVING = int8(5)
-const _SCIP_STAGE_EXITPRESOLVE = int8(6)
-const _SCIP_STAGE_PRESOLVED = int8(7)
-const _SCIP_STAGE_INITSOLVE = int8(8)
-const _SCIP_STAGE_SOLVING = int8(9)
-const _SCIP_STAGE_SOLVED = int8(10)
-const _SCIP_STAGE_EXITSOLVE = int8(11)
-const _SCIP_STAGE_FREETRANS = int8(12)
-const _SCIP_STAGE_FREE = int8(13)
+export _SCIP_BranchDir, _SCIP_BRANCHDIR_DOWNWARDS, _SCIP_BRANCHDIR_UPWARDS, _SCIP_BRANCHDIR_FIXED, _SCIP_BRANCHDIR_AUTO, SCIP_BranchDir_MAP
+typealias _SCIP_BranchDir Int8
+const _SCIP_BRANCHDIR_DOWNWARDS = int8(0)
+const _SCIP_BRANCHDIR_UPWARDS = int8(1)
+const _SCIP_BRANCHDIR_FIXED = int8(2)
+const _SCIP_BRANCHDIR_AUTO = int8(3)
 
-const SCIP_Stage_MAP = [
-    _SCIP_STAGE_INIT => "SCIP data structures are initialized, no problem exists",
-    _SCIP_STAGE_PROBLEM => "the problem is being created and modified",
-    _SCIP_STAGE_TRANSFORMING => "the problem is being transformed into solving data space",
-    _SCIP_STAGE_TRANSFORMED => "the problem was transformed into solving data space",
-    _SCIP_STAGE_INITPRESOLVE => "presolving is initialized",
-    _SCIP_STAGE_PRESOLVING => "the problem is being presolved",
-    _SCIP_STAGE_EXITPRESOLVE => "presolving is exited",
-    _SCIP_STAGE_PRESOLVED => "the problem was presolved",
-    _SCIP_STAGE_INITSOLVE => "the solving process data is being initialized",
-    _SCIP_STAGE_SOLVING => "the problem is being solved",
-    _SCIP_STAGE_SOLVED => "the problem was solved",
-    _SCIP_STAGE_EXITSOLVE => "the solving process data is being freed",
-    _SCIP_STAGE_FREETRANS => "the transformed problem is being freed",
-    _SCIP_STAGE_FREE => "SCIP data structures are being freed",
+const SCIP_BranchDir_MAP = [
+    _SCIP_BRANCHDIR_DOWNWARDS => "downwards branching: decreasing upper bound",
+    _SCIP_BRANCHDIR_UPWARDS => "upwards branching: increasing lower bound",
+    _SCIP_BRANCHDIR_FIXED => "fixed branching: both bounds changed",
+    _SCIP_BRANCHDIR_AUTO => "automatic setting for choosing bound changes",
 ]
 
-export _SCIP_Setting, _SCIP_UNDEFINED, _SCIP_DISABLED, _SCIP_AUTO, _SCIP_ENABLED, SCIP_Setting_MAP
-typealias _SCIP_Setting Int8
-const _SCIP_UNDEFINED = int8(0)
-const _SCIP_DISABLED = int8(1)
-const _SCIP_AUTO = int8(2)
-const _SCIP_ENABLED = int8(3)
+export _SCIP_LPSolStat, _SCIP_LPSOLSTAT_NOTSOLVED, _SCIP_LPSOLSTAT_OPTIMAL, _SCIP_LPSOLSTAT_INFEASIBLE, _SCIP_LPSOLSTAT_UNBOUNDEDRAY, _SCIP_LPSOLSTAT_OBJLIMIT, _SCIP_LPSOLSTAT_ITERLIMIT, _SCIP_LPSOLSTAT_TIMELIMIT, _SCIP_LPSOLSTAT_ERROR, SCIP_LPSolStat_MAP
+typealias _SCIP_LPSolStat Int8
+const _SCIP_LPSOLSTAT_NOTSOLVED = int8(0)
+const _SCIP_LPSOLSTAT_OPTIMAL = int8(1)
+const _SCIP_LPSOLSTAT_INFEASIBLE = int8(2)
+const _SCIP_LPSOLSTAT_UNBOUNDEDRAY = int8(3)
+const _SCIP_LPSOLSTAT_OBJLIMIT = int8(4)
+const _SCIP_LPSOLSTAT_ITERLIMIT = int8(5)
+const _SCIP_LPSOLSTAT_TIMELIMIT = int8(6)
+const _SCIP_LPSOLSTAT_ERROR = int8(7)
 
-const SCIP_Setting_MAP = [
-    _SCIP_UNDEFINED => "undefined setting",
-    _SCIP_DISABLED => "feature is disabled",
-    _SCIP_AUTO => "feature is set to automatic mode",
-    _SCIP_ENABLED => "feature is enabled",
+const SCIP_LPSolStat_MAP = [
+    _SCIP_LPSOLSTAT_NOTSOLVED => "LP was not solved, no solution exists",
+    _SCIP_LPSOLSTAT_OPTIMAL => "LP was solved to optimality",
+    _SCIP_LPSOLSTAT_INFEASIBLE => "LP is primal infeasible",
+    _SCIP_LPSOLSTAT_UNBOUNDEDRAY => "LP has a primal unbounded ray",
+    _SCIP_LPSOLSTAT_OBJLIMIT => "objective limit was reached during optimization",
+    _SCIP_LPSOLSTAT_ITERLIMIT => "iteration limit was reached during optimization",
+    _SCIP_LPSOLSTAT_TIMELIMIT => "time limit was reached during optimization",
+    _SCIP_LPSOLSTAT_ERROR => "an error occured during optimization",
 ]
 
-export _SCIP_NodeType, _SCIP_NODETYPE_FOCUSNODE, _SCIP_NODETYPE_PROBINGNODE, _SCIP_NODETYPE_SIBLING, _SCIP_NODETYPE_CHILD, _SCIP_NODETYPE_LEAF, _SCIP_NODETYPE_DEADEND, _SCIP_NODETYPE_JUNCTION, _SCIP_NODETYPE_PSEUDOFORK, _SCIP_NODETYPE_FORK, _SCIP_NODETYPE_SUBROOT, _SCIP_NODETYPE_REFOCUSNODE, SCIP_NodeType_MAP
-typealias _SCIP_NodeType Int8
-const _SCIP_NODETYPE_FOCUSNODE = int8(0)
-const _SCIP_NODETYPE_PROBINGNODE = int8(1)
-const _SCIP_NODETYPE_SIBLING = int8(2)
-const _SCIP_NODETYPE_CHILD = int8(3)
-const _SCIP_NODETYPE_LEAF = int8(4)
-const _SCIP_NODETYPE_DEADEND = int8(5)
-const _SCIP_NODETYPE_JUNCTION = int8(6)
-const _SCIP_NODETYPE_PSEUDOFORK = int8(7)
-const _SCIP_NODETYPE_FORK = int8(8)
-const _SCIP_NODETYPE_SUBROOT = int8(9)
-const _SCIP_NODETYPE_REFOCUSNODE = int8(10)
+export _SCIP_BoundType, _SCIP_BOUNDTYPE_LOWER, _SCIP_BOUNDTYPE_UPPER, SCIP_BoundType_MAP
+typealias _SCIP_BoundType Int8
+const _SCIP_BOUNDTYPE_LOWER = int8(0)
+const _SCIP_BOUNDTYPE_UPPER = int8(1)
 
-const SCIP_NodeType_MAP = [
-    _SCIP_NODETYPE_FOCUSNODE => "the focus node, whose data is stored in the tree data structure",
-    _SCIP_NODETYPE_PROBINGNODE => "temporary child node of the focus or refocused node used for probing",
-    _SCIP_NODETYPE_SIBLING => "unsolved sibling of the focus node",
-    _SCIP_NODETYPE_CHILD => "unsolved child of the focus node",
-    _SCIP_NODETYPE_LEAF => "unsolved leaf of the tree, stored in the tree's queue",
-    _SCIP_NODETYPE_DEADEND => "temporary type of focus node, if it was solved completely",
-    _SCIP_NODETYPE_JUNCTION => "fork without LP solution",
-    _SCIP_NODETYPE_PSEUDOFORK => "fork without LP solution and added rows and columns",
-    _SCIP_NODETYPE_FORK => "fork with solved LP and added rows and columns",
-    _SCIP_NODETYPE_SUBROOT => "fork with solved LP and arbitrarily changed rows and columns",
-    _SCIP_NODETYPE_REFOCUSNODE => "junction, fork, or subroot that was refocused for domain propagation",
+const SCIP_BoundType_MAP = [
+    _SCIP_BOUNDTYPE_LOWER => "lower bound",
+    _SCIP_BOUNDTYPE_UPPER => "upper bound",
 ]
 
-export _SCIP_ParamType, _SCIP_PARAMTYPE_BOOL, _SCIP_PARAMTYPE_INT, _SCIP_PARAMTYPE_LONGINT, _SCIP_PARAMTYPE_REAL, _SCIP_PARAMTYPE_CHAR, _SCIP_PARAMTYPE_STRING, SCIP_ParamType_MAP
-typealias _SCIP_ParamType Int8
-const _SCIP_PARAMTYPE_BOOL = int8(0)
-const _SCIP_PARAMTYPE_INT = int8(1)
-const _SCIP_PARAMTYPE_LONGINT = int8(2)
-const _SCIP_PARAMTYPE_REAL = int8(3)
-const _SCIP_PARAMTYPE_CHAR = int8(4)
-const _SCIP_PARAMTYPE_STRING = int8(5)
+export _SCIP_SideType, _SCIP_SIDETYPE_LEFT, _SCIP_SIDETYPE_RIGHT, SCIP_SideType_MAP
+typealias _SCIP_SideType Int8
+const _SCIP_SIDETYPE_LEFT = int8(0)
+const _SCIP_SIDETYPE_RIGHT = int8(1)
 
-const SCIP_ParamType_MAP = [
-    _SCIP_PARAMTYPE_BOOL => "bool values: TRUE or FALSE",
-    _SCIP_PARAMTYPE_INT => "integer values",
-    _SCIP_PARAMTYPE_LONGINT => "long integer values",
-    _SCIP_PARAMTYPE_REAL => "real values",
-    _SCIP_PARAMTYPE_CHAR => "characters",
-    _SCIP_PARAMTYPE_STRING => "strings: arrays of characters",
+const SCIP_SideType_MAP = [
+    _SCIP_SIDETYPE_LEFT => "left hand side",
+    _SCIP_SIDETYPE_RIGHT => "right hand side",
 ]
 
-export _SCIP_ParamSetting, _SCIP_PARAMSETTING_DEFAULT, _SCIP_PARAMSETTING_AGGRESSIVE, _SCIP_PARAMSETTING_FAST, _SCIP_PARAMSETTING_OFF, SCIP_ParamSetting_MAP
-typealias _SCIP_ParamSetting Int8
-const _SCIP_PARAMSETTING_DEFAULT = int8(0)
-const _SCIP_PARAMSETTING_AGGRESSIVE = int8(1)
-const _SCIP_PARAMSETTING_FAST = int8(2)
-const _SCIP_PARAMSETTING_OFF = int8(3)
+export _SCIP_RowOriginType, _SCIP_ROWORIGINTYPE_UNSPEC, _SCIP_ROWORIGINTYPE_CONS, _SCIP_ROWORIGINTYPE_SEPA, SCIP_RowOriginType_MAP
+typealias _SCIP_RowOriginType Int8
+const _SCIP_ROWORIGINTYPE_UNSPEC = int8(0)
+const _SCIP_ROWORIGINTYPE_CONS = int8(1)
+const _SCIP_ROWORIGINTYPE_SEPA = int8(2)
 
-const SCIP_ParamSetting_MAP = [
-    _SCIP_PARAMSETTING_DEFAULT => "use default values",
-    _SCIP_PARAMSETTING_AGGRESSIVE => "set to aggressive settings",
-    _SCIP_PARAMSETTING_FAST => "set to fast settings",
-    _SCIP_PARAMSETTING_OFF => "turn off",
+const SCIP_RowOriginType_MAP = [
+    _SCIP_ROWORIGINTYPE_UNSPEC => "unspecified origin of row",
+    _SCIP_ROWORIGINTYPE_CONS => "row created by constraint handler",
+    _SCIP_ROWORIGINTYPE_SEPA => "row created by separator",
 ]
 
-export _SCIP_ParamEmphasis, _SCIP_PARAMEMPHASIS_DEFAULT, _SCIP_PARAMEMPHASIS_CPSOLVER, _SCIP_PARAMEMPHASIS_EASYCIP, _SCIP_PARAMEMPHASIS_FEASIBILITY, _SCIP_PARAMEMPHASIS_HARDLP, _SCIP_PARAMEMPHASIS_OPTIMALITY, _SCIP_PARAMEMPHASIS_COUNTER, SCIP_ParamEmphasis_MAP
-typealias _SCIP_ParamEmphasis Int8
-const _SCIP_PARAMEMPHASIS_DEFAULT = int8(0)
-const _SCIP_PARAMEMPHASIS_CPSOLVER = int8(1)
-const _SCIP_PARAMEMPHASIS_EASYCIP = int8(2)
-const _SCIP_PARAMEMPHASIS_FEASIBILITY = int8(3)
-const _SCIP_PARAMEMPHASIS_HARDLP = int8(4)
-const _SCIP_PARAMEMPHASIS_OPTIMALITY = int8(5)
-const _SCIP_PARAMEMPHASIS_COUNTER = int8(6)
+export _SCIP_LPAlgo, _SCIP_LPALGO_PRIMALSIMPLEX, _SCIP_LPALGO_DUALSIMPLEX, _SCIP_LPALGO_BARRIER, _SCIP_LPALGO_BARRIERCROSSOVER, SCIP_LPAlgo_MAP
+typealias _SCIP_LPAlgo Int8
+const _SCIP_LPALGO_PRIMALSIMPLEX = int8(0)
+const _SCIP_LPALGO_DUALSIMPLEX = int8(1)
+const _SCIP_LPALGO_BARRIER = int8(2)
+const _SCIP_LPALGO_BARRIERCROSSOVER = int8(3)
 
-const SCIP_ParamEmphasis_MAP = [
-    _SCIP_PARAMEMPHASIS_DEFAULT => "use default values",
-    _SCIP_PARAMEMPHASIS_CPSOLVER => "get CP like search (e.g. no LP relaxation)",
-    _SCIP_PARAMEMPHASIS_EASYCIP => "solve easy problems fast",
-    _SCIP_PARAMEMPHASIS_FEASIBILITY => "detect feasibility fast",
-    _SCIP_PARAMEMPHASIS_HARDLP => "be capable to handle hard LPs",
-    _SCIP_PARAMEMPHASIS_OPTIMALITY => "prove optimality fast",
-    _SCIP_PARAMEMPHASIS_COUNTER => "get a feasible and \"fast\" counting process",
+const SCIP_LPAlgo_MAP = [
+    _SCIP_LPALGO_PRIMALSIMPLEX => "primal simplex",
+    _SCIP_LPALGO_DUALSIMPLEX => "dual simplex",
+    _SCIP_LPALGO_BARRIER => "barrier algorithm",
+    _SCIP_LPALGO_BARRIERCROSSOVER => "barrier algorithm with crossover",
+]
+
+export _SCIP_VerbLevel, _SCIP_VERBLEVEL_NONE, _SCIP_VERBLEVEL_DIALOG, _SCIP_VERBLEVEL_MINIMAL, _SCIP_VERBLEVEL_NORMAL, _SCIP_VERBLEVEL_HIGH, _SCIP_VERBLEVEL_FULL, SCIP_VerbLevel_MAP
+typealias _SCIP_VerbLevel Int8
+const _SCIP_VERBLEVEL_NONE = int8(0)
+const _SCIP_VERBLEVEL_DIALOG = int8(1)
+const _SCIP_VERBLEVEL_MINIMAL = int8(2)
+const _SCIP_VERBLEVEL_NORMAL = int8(3)
+const _SCIP_VERBLEVEL_HIGH = int8(4)
+const _SCIP_VERBLEVEL_FULL = int8(5)
+
+const SCIP_VerbLevel_MAP = [
+    _SCIP_VERBLEVEL_NONE => "only error and warning messages are displayed",
+    _SCIP_VERBLEVEL_DIALOG => "only interactive dialogs, errors, and warnings are displayed",
+    _SCIP_VERBLEVEL_MINIMAL => "only important messages are displayed",
+    _SCIP_VERBLEVEL_NORMAL => "standard messages are displayed",
+    _SCIP_VERBLEVEL_HIGH => "a lot of information is displayed",
+    _SCIP_VERBLEVEL_FULL => "all messages are displayed",
 ]
 
 export _SCIP_NlpParam, _SCIP_NLPPAR_FROMSCRATCH, _SCIP_NLPPAR_VERBLEVEL, _SCIP_NLPPAR_FEASTOL, _SCIP_NLPPAR_RELOBJTOL, _SCIP_NLPPAR_LOBJLIM, _SCIP_NLPPAR_INFINITY, _SCIP_NLPPAR_ITLIM, _SCIP_NLPPAR_TILIM, _SCIP_NLPPAR_OPTFILE, _SCIP_NLPPAR_FASTFAIL, SCIP_NlpParam_MAP
@@ -597,42 +311,106 @@ const SCIP_NlpTermStat_MAP = [
     _SCIP_NLPTERMSTAT_OTHER => "other error (= this should never happen)",
 ]
 
-export _SCIP_SetppcType, _SCIP_SETPPCTYPE_PARTITIONING, _SCIP_SETPPCTYPE_PACKING, _SCIP_SETPPCTYPE_COVERING, SCIP_SetppcType_MAP
-typealias _SCIP_SetppcType Int8
-const _SCIP_SETPPCTYPE_PARTITIONING = int8(0)
-const _SCIP_SETPPCTYPE_PACKING = int8(1)
-const _SCIP_SETPPCTYPE_COVERING = int8(2)
+export _SCIP_ParamType, _SCIP_PARAMTYPE_BOOL, _SCIP_PARAMTYPE_INT, _SCIP_PARAMTYPE_LONGINT, _SCIP_PARAMTYPE_REAL, _SCIP_PARAMTYPE_CHAR, _SCIP_PARAMTYPE_STRING, SCIP_ParamType_MAP
+typealias _SCIP_ParamType Int8
+const _SCIP_PARAMTYPE_BOOL = int8(0)
+const _SCIP_PARAMTYPE_INT = int8(1)
+const _SCIP_PARAMTYPE_LONGINT = int8(2)
+const _SCIP_PARAMTYPE_REAL = int8(3)
+const _SCIP_PARAMTYPE_CHAR = int8(4)
+const _SCIP_PARAMTYPE_STRING = int8(5)
 
-const SCIP_SetppcType_MAP = [
-    _SCIP_SETPPCTYPE_PARTITIONING => "constraint is a set partitioning constraint: sum(x) == 1",
-    _SCIP_SETPPCTYPE_PACKING => "constraint is a set packing constraint: sum(x) <= 1",
-    _SCIP_SETPPCTYPE_COVERING => "constraint is a set covering constraint: sum(x) >= 1",
+const SCIP_ParamType_MAP = [
+    _SCIP_PARAMTYPE_BOOL => "bool values: TRUE or FALSE",
+    _SCIP_PARAMTYPE_INT => "integer values",
+    _SCIP_PARAMTYPE_LONGINT => "long integer values",
+    _SCIP_PARAMTYPE_REAL => "real values",
+    _SCIP_PARAMTYPE_CHAR => "characters",
+    _SCIP_PARAMTYPE_STRING => "strings: arrays of characters",
 ]
 
-export _SCIP_BIVAR_CONVEXITY, _SCIP_BIVAR_ALLCONVEX, _SCIP_BIVAR_1CONVEX_INDEFINITE, _SCIP_BIVAR_CONVEX_CONCAVE, _SCIP_BIVAR_UNKNOWN, SCIP_BIVAR_CONVEXITY_MAP
-typealias _SCIP_BIVAR_CONVEXITY Int8
-const _SCIP_BIVAR_ALLCONVEX = int8(0)
-const _SCIP_BIVAR_1CONVEX_INDEFINITE = int8(1)
-const _SCIP_BIVAR_CONVEX_CONCAVE = int8(2)
-const _SCIP_BIVAR_UNKNOWN = int8(3)
+export _SCIP_ParamSetting, _SCIP_PARAMSETTING_DEFAULT, _SCIP_PARAMSETTING_AGGRESSIVE, _SCIP_PARAMSETTING_FAST, _SCIP_PARAMSETTING_OFF, SCIP_ParamSetting_MAP
+typealias _SCIP_ParamSetting Int8
+const _SCIP_PARAMSETTING_DEFAULT = int8(0)
+const _SCIP_PARAMSETTING_AGGRESSIVE = int8(1)
+const _SCIP_PARAMSETTING_FAST = int8(2)
+const _SCIP_PARAMSETTING_OFF = int8(3)
 
-const SCIP_BIVAR_CONVEXITY_MAP = [
-    _SCIP_BIVAR_ALLCONVEX => "",
-    _SCIP_BIVAR_1CONVEX_INDEFINITE => "",
-    _SCIP_BIVAR_CONVEX_CONCAVE => "",
-    _SCIP_BIVAR_UNKNOWN => "",
+const SCIP_ParamSetting_MAP = [
+    _SCIP_PARAMSETTING_DEFAULT => "use default values",
+    _SCIP_PARAMSETTING_AGGRESSIVE => "set to aggressive settings",
+    _SCIP_PARAMSETTING_FAST => "set to fast settings",
+    _SCIP_PARAMSETTING_OFF => "turn off",
 ]
 
-export _SCIP_ClockType, _SCIP_CLOCKTYPE_DEFAULT, _SCIP_CLOCKTYPE_CPU, _SCIP_CLOCKTYPE_WALL, SCIP_ClockType_MAP
-typealias _SCIP_ClockType Int8
-const _SCIP_CLOCKTYPE_DEFAULT = int8(0)
-const _SCIP_CLOCKTYPE_CPU = int8(1)
-const _SCIP_CLOCKTYPE_WALL = int8(2)
+export _SCIP_ParamEmphasis, _SCIP_PARAMEMPHASIS_DEFAULT, _SCIP_PARAMEMPHASIS_CPSOLVER, _SCIP_PARAMEMPHASIS_EASYCIP, _SCIP_PARAMEMPHASIS_FEASIBILITY, _SCIP_PARAMEMPHASIS_HARDLP, _SCIP_PARAMEMPHASIS_OPTIMALITY, _SCIP_PARAMEMPHASIS_COUNTER, SCIP_ParamEmphasis_MAP
+typealias _SCIP_ParamEmphasis Int8
+const _SCIP_PARAMEMPHASIS_DEFAULT = int8(0)
+const _SCIP_PARAMEMPHASIS_CPSOLVER = int8(1)
+const _SCIP_PARAMEMPHASIS_EASYCIP = int8(2)
+const _SCIP_PARAMEMPHASIS_FEASIBILITY = int8(3)
+const _SCIP_PARAMEMPHASIS_HARDLP = int8(4)
+const _SCIP_PARAMEMPHASIS_OPTIMALITY = int8(5)
+const _SCIP_PARAMEMPHASIS_COUNTER = int8(6)
 
-const SCIP_ClockType_MAP = [
-    _SCIP_CLOCKTYPE_DEFAULT => "use default clock type",
-    _SCIP_CLOCKTYPE_CPU => "use CPU clock",
-    _SCIP_CLOCKTYPE_WALL => "use wall clock",
+const SCIP_ParamEmphasis_MAP = [
+    _SCIP_PARAMEMPHASIS_DEFAULT => "use default values",
+    _SCIP_PARAMEMPHASIS_CPSOLVER => "get CP like search (e.g. no LP relaxation)",
+    _SCIP_PARAMEMPHASIS_EASYCIP => "solve easy problems fast",
+    _SCIP_PARAMEMPHASIS_FEASIBILITY => "detect feasibility fast",
+    _SCIP_PARAMEMPHASIS_HARDLP => "be capable to handle hard LPs",
+    _SCIP_PARAMEMPHASIS_OPTIMALITY => "prove optimality fast",
+    _SCIP_PARAMEMPHASIS_COUNTER => "get a feasible and \"fast\" counting process",
+]
+
+export _SCIP_Objsense, _SCIP_OBJSENSE_MAXIMIZE, _SCIP_OBJSENSE_MINIMIZE, SCIP_Objsense_MAP
+typealias _SCIP_Objsense Int8
+const _SCIP_OBJSENSE_MAXIMIZE = int8(-1)
+const _SCIP_OBJSENSE_MINIMIZE = int8(+1)
+
+const SCIP_Objsense_MAP = [
+    _SCIP_OBJSENSE_MAXIMIZE => "maximization of objective function",
+    _SCIP_OBJSENSE_MINIMIZE => "minimization of objective function (the default)",
+]
+
+export _SCIP_Result, _SCIP_DIDNOTRUN, _SCIP_DELAYED, _SCIP_DIDNOTFIND, _SCIP_FEASIBLE, _SCIP_INFEASIBLE, _SCIP_UNBOUNDED, _SCIP_CUTOFF, _SCIP_SEPARATED, _SCIP_NEWROUND, _SCIP_REDUCEDDOM, _SCIP_CONSADDED, _SCIP_CONSCHANGED, _SCIP_BRANCHED, _SCIP_SOLVELP, _SCIP_FOUNDSOL, _SCIP_SUSPENDED, _SCIP_SUCCESS, SCIP_Result_MAP
+typealias _SCIP_Result Int8
+const _SCIP_DIDNOTRUN = int8(1)
+const _SCIP_DELAYED = int8(2)
+const _SCIP_DIDNOTFIND = int8(3)
+const _SCIP_FEASIBLE = int8(4)
+const _SCIP_INFEASIBLE = int8(5)
+const _SCIP_UNBOUNDED = int8(6)
+const _SCIP_CUTOFF = int8(7)
+const _SCIP_SEPARATED = int8(8)
+const _SCIP_NEWROUND = int8(9)
+const _SCIP_REDUCEDDOM = int8(10)
+const _SCIP_CONSADDED = int8(11)
+const _SCIP_CONSCHANGED = int8(12)
+const _SCIP_BRANCHED = int8(13)
+const _SCIP_SOLVELP = int8(14)
+const _SCIP_FOUNDSOL = int8(15)
+const _SCIP_SUSPENDED = int8(16)
+const _SCIP_SUCCESS = int8(17)
+
+const SCIP_Result_MAP = [
+    _SCIP_DIDNOTRUN => "the method was not executed",
+    _SCIP_DELAYED => "the method was not executed, but should be called again later",
+    _SCIP_DIDNOTFIND => "the method was executed, but failed finding anything",
+    _SCIP_FEASIBLE => "no infeasibility could be found",
+    _SCIP_INFEASIBLE => "an infeasibility was detected",
+    _SCIP_UNBOUNDED => "an unboundedness was detected",
+    _SCIP_CUTOFF => "the current node is infeasible and can be cut off",
+    _SCIP_SEPARATED => "the method added a cutting plane",
+    _SCIP_NEWROUND => "the method added a cutting plane and a new separation round should immediately start",
+    _SCIP_REDUCEDDOM => "the method reduced the domain of a variable",
+    _SCIP_CONSADDED => "the method added a constraint",
+    _SCIP_CONSCHANGED => "the method changed a constraint",
+    _SCIP_BRANCHED => "the method created a branching",
+    _SCIP_SOLVELP => "the current node's LP must be solved",
+    _SCIP_FOUNDSOL => "the method found a feasible primal solution",
+    _SCIP_SUSPENDED => "the method interrupted its execution, but can continue if needed",
+    _SCIP_SUCCESS => "the method was successfully executed",
 ]
 
 export _SCIP_Retcode, _SCIP_OKAY, _SCIP_ERROR, _SCIP_NOMEMORY, _SCIP_READERROR, _SCIP_WRITEERROR, _SCIP_NOFILE, _SCIP_FILECREATEERROR, _SCIP_LPERROR, _SCIP_NOPROBLEM, _SCIP_INVALIDCALL, _SCIP_INVALIDDATA, _SCIP_INVALIDRESULT, _SCIP_PLUGINNOTFOUND, _SCIP_PARAMETERUNKNOWN, _SCIP_PARAMETERWRONGTYPE, _SCIP_PARAMETERWRONGVAL, _SCIP_KEYALREADYEXISTING, _SCIP_MAXDEPTHLEVEL, _SCIP_BRANCHERROR, SCIP_Retcode_MAP
@@ -677,5 +455,227 @@ const SCIP_Retcode_MAP = [
     _SCIP_KEYALREADYEXISTING => "the given key is already existing in table",
     _SCIP_MAXDEPTHLEVEL => "maximal branching depth level exceeded",
     _SCIP_BRANCHERROR => "no branching could be created",
+]
+
+export _SCIP_Efficiacychoice, _SCIP_EFFICIACYCHOICE_LP, _SCIP_EFFICIACYCHOICE_RELAX, _SCIP_EFFICIACYCHOICE_NLP, SCIP_Efficiacychoice_MAP
+typealias _SCIP_Efficiacychoice Int8
+const _SCIP_EFFICIACYCHOICE_LP = int8(0)
+const _SCIP_EFFICIACYCHOICE_RELAX = int8(1)
+const _SCIP_EFFICIACYCHOICE_NLP = int8(2)
+
+const SCIP_Efficiacychoice_MAP = [
+    _SCIP_EFFICIACYCHOICE_LP => "use LP solution to base efficacy on",
+    _SCIP_EFFICIACYCHOICE_RELAX => "use relaxation solution to base efficacy on",
+    _SCIP_EFFICIACYCHOICE_NLP => "use NLP solution to base efficacy on",
+]
+
+export _SCIP_Stage, _SCIP_STAGE_INIT, _SCIP_STAGE_PROBLEM, _SCIP_STAGE_TRANSFORMING, _SCIP_STAGE_TRANSFORMED, _SCIP_STAGE_INITPRESOLVE, _SCIP_STAGE_PRESOLVING, _SCIP_STAGE_EXITPRESOLVE, _SCIP_STAGE_PRESOLVED, _SCIP_STAGE_INITSOLVE, _SCIP_STAGE_SOLVING, _SCIP_STAGE_SOLVED, _SCIP_STAGE_EXITSOLVE, _SCIP_STAGE_FREETRANS, _SCIP_STAGE_FREE, SCIP_Stage_MAP
+typealias _SCIP_Stage Int8
+const _SCIP_STAGE_INIT = int8(0)
+const _SCIP_STAGE_PROBLEM = int8(1)
+const _SCIP_STAGE_TRANSFORMING = int8(2)
+const _SCIP_STAGE_TRANSFORMED = int8(3)
+const _SCIP_STAGE_INITPRESOLVE = int8(4)
+const _SCIP_STAGE_PRESOLVING = int8(5)
+const _SCIP_STAGE_EXITPRESOLVE = int8(6)
+const _SCIP_STAGE_PRESOLVED = int8(7)
+const _SCIP_STAGE_INITSOLVE = int8(8)
+const _SCIP_STAGE_SOLVING = int8(9)
+const _SCIP_STAGE_SOLVED = int8(10)
+const _SCIP_STAGE_EXITSOLVE = int8(11)
+const _SCIP_STAGE_FREETRANS = int8(12)
+const _SCIP_STAGE_FREE = int8(13)
+
+const SCIP_Stage_MAP = [
+    _SCIP_STAGE_INIT => "SCIP data structures are initialized, no problem exists",
+    _SCIP_STAGE_PROBLEM => "the problem is being created and modified",
+    _SCIP_STAGE_TRANSFORMING => "the problem is being transformed into solving data space",
+    _SCIP_STAGE_TRANSFORMED => "the problem was transformed into solving data space",
+    _SCIP_STAGE_INITPRESOLVE => "presolving is initialized",
+    _SCIP_STAGE_PRESOLVING => "the problem is being presolved",
+    _SCIP_STAGE_EXITPRESOLVE => "presolving is exited",
+    _SCIP_STAGE_PRESOLVED => "the problem was presolved",
+    _SCIP_STAGE_INITSOLVE => "the solving process data is being initialized",
+    _SCIP_STAGE_SOLVING => "the problem is being solved",
+    _SCIP_STAGE_SOLVED => "the problem was solved",
+    _SCIP_STAGE_EXITSOLVE => "the solving process data is being freed",
+    _SCIP_STAGE_FREETRANS => "the transformed problem is being freed",
+    _SCIP_STAGE_FREE => "SCIP data structures are being freed",
+]
+
+export _SCIP_Setting, _SCIP_UNDEFINED, _SCIP_DISABLED, _SCIP_AUTO, _SCIP_ENABLED, SCIP_Setting_MAP
+typealias _SCIP_Setting Int8
+const _SCIP_UNDEFINED = int8(0)
+const _SCIP_DISABLED = int8(1)
+const _SCIP_AUTO = int8(2)
+const _SCIP_ENABLED = int8(3)
+
+const SCIP_Setting_MAP = [
+    _SCIP_UNDEFINED => "undefined setting",
+    _SCIP_DISABLED => "feature is disabled",
+    _SCIP_AUTO => "feature is set to automatic mode",
+    _SCIP_ENABLED => "feature is enabled",
+]
+
+export _SCIP_SolOrigin, _SCIP_SOLORIGIN_ORIGINAL, _SCIP_SOLORIGIN_ZERO, _SCIP_SOLORIGIN_LPSOL, _SCIP_SOLORIGIN_NLPSOL, _SCIP_SOLORIGIN_RELAXSOL, _SCIP_SOLORIGIN_PSEUDOSOL, _SCIP_SOLORIGIN_UNKNOWN, SCIP_SolOrigin_MAP
+typealias _SCIP_SolOrigin Int8
+const _SCIP_SOLORIGIN_ORIGINAL = int8(0)
+const _SCIP_SOLORIGIN_ZERO = int8(1)
+const _SCIP_SOLORIGIN_LPSOL = int8(2)
+const _SCIP_SOLORIGIN_NLPSOL = int8(3)
+const _SCIP_SOLORIGIN_RELAXSOL = int8(4)
+const _SCIP_SOLORIGIN_PSEUDOSOL = int8(5)
+const _SCIP_SOLORIGIN_UNKNOWN = int8(6)
+
+const SCIP_SolOrigin_MAP = [
+    _SCIP_SOLORIGIN_ORIGINAL => "solution describes original variables; non-cached elements are zero",
+    _SCIP_SOLORIGIN_ZERO => "all non-cached elements in solution are equal to zero",
+    _SCIP_SOLORIGIN_LPSOL => "all non-cached elements in solution are equal to current LP solution",
+    _SCIP_SOLORIGIN_NLPSOL => "all non-cached elements in solution are equal to current NLP solution",
+    _SCIP_SOLORIGIN_RELAXSOL => "all non-cached elements in solution are equal to current relaxation solution",
+    _SCIP_SOLORIGIN_PSEUDOSOL => "all non-cached elements in solution are equal to current pseudo solution",
+    _SCIP_SOLORIGIN_UNKNOWN => "all non-cached elements in solution are unknown; they have to be treated as being an arbitrary value in the variable's bounds",
+]
+
+export _SCIP_Status, _SCIP_STATUS_UNKNOWN, _SCIP_STATUS_USERINTERRUPT, _SCIP_STATUS_NODELIMIT, _SCIP_STATUS_TOTALNODELIMIT, _SCIP_STATUS_STALLNODELIMIT, _SCIP_STATUS_TIMELIMIT, _SCIP_STATUS_MEMLIMIT, _SCIP_STATUS_GAPLIMIT, _SCIP_STATUS_SOLLIMIT, _SCIP_STATUS_BESTSOLLIMIT, _SCIP_STATUS_OPTIMAL, _SCIP_STATUS_INFEASIBLE, _SCIP_STATUS_UNBOUNDED, _SCIP_STATUS_INFORUNBD, SCIP_Status_MAP
+typealias _SCIP_Status Int8
+const _SCIP_STATUS_UNKNOWN = int8(0)
+const _SCIP_STATUS_USERINTERRUPT = int8(1)
+const _SCIP_STATUS_NODELIMIT = int8(2)
+const _SCIP_STATUS_TOTALNODELIMIT = int8(3)
+const _SCIP_STATUS_STALLNODELIMIT = int8(4)
+const _SCIP_STATUS_TIMELIMIT = int8(5)
+const _SCIP_STATUS_MEMLIMIT = int8(6)
+const _SCIP_STATUS_GAPLIMIT = int8(7)
+const _SCIP_STATUS_SOLLIMIT = int8(8)
+const _SCIP_STATUS_BESTSOLLIMIT = int8(9)
+const _SCIP_STATUS_OPTIMAL = int8(10)
+const _SCIP_STATUS_INFEASIBLE = int8(11)
+const _SCIP_STATUS_UNBOUNDED = int8(12)
+const _SCIP_STATUS_INFORUNBD = int8(13)
+
+const SCIP_Status_MAP = [
+    _SCIP_STATUS_UNKNOWN => "the solving status is not yet known",
+    _SCIP_STATUS_USERINTERRUPT => "the user interrupted the solving process (by pressing CTRL-C)",
+    _SCIP_STATUS_NODELIMIT => "the solving process was interrupted because the node limit was reached",
+    _SCIP_STATUS_TOTALNODELIMIT => "the solving process was interrupted because the total node limit was reached (incl. restarts)",
+    _SCIP_STATUS_STALLNODELIMIT => "the solving process was interrupted because the stalling node limit was reached (no inprovement w.r.t. primal bound)",
+    _SCIP_STATUS_TIMELIMIT => "the solving process was interrupted because the time limit was reached",
+    _SCIP_STATUS_MEMLIMIT => "the solving process was interrupted because the memory limit was reached",
+    _SCIP_STATUS_GAPLIMIT => "the solving process was interrupted because the gap limit was reached",
+    _SCIP_STATUS_SOLLIMIT => "the solving process was interrupted because the solution limit was reached",
+    _SCIP_STATUS_BESTSOLLIMIT => "the solving process was interrupted because the solution improvement limit was reached",
+    _SCIP_STATUS_OPTIMAL => "the problem was solved to optimality, an optimal solution is available",
+    _SCIP_STATUS_INFEASIBLE => "the problem was proven to be infeasible",
+    _SCIP_STATUS_UNBOUNDED => "the problem was proven to be unbounded",
+    _SCIP_STATUS_INFORUNBD => "the problem was proven to be either infeasible or unbounded",
+]
+
+export _SCIP_NodeType, _SCIP_NODETYPE_FOCUSNODE, _SCIP_NODETYPE_PROBINGNODE, _SCIP_NODETYPE_SIBLING, _SCIP_NODETYPE_CHILD, _SCIP_NODETYPE_LEAF, _SCIP_NODETYPE_DEADEND, _SCIP_NODETYPE_JUNCTION, _SCIP_NODETYPE_PSEUDOFORK, _SCIP_NODETYPE_FORK, _SCIP_NODETYPE_SUBROOT, _SCIP_NODETYPE_REFOCUSNODE, SCIP_NodeType_MAP
+typealias _SCIP_NodeType Int8
+const _SCIP_NODETYPE_FOCUSNODE = int8(0)
+const _SCIP_NODETYPE_PROBINGNODE = int8(1)
+const _SCIP_NODETYPE_SIBLING = int8(2)
+const _SCIP_NODETYPE_CHILD = int8(3)
+const _SCIP_NODETYPE_LEAF = int8(4)
+const _SCIP_NODETYPE_DEADEND = int8(5)
+const _SCIP_NODETYPE_JUNCTION = int8(6)
+const _SCIP_NODETYPE_PSEUDOFORK = int8(7)
+const _SCIP_NODETYPE_FORK = int8(8)
+const _SCIP_NODETYPE_SUBROOT = int8(9)
+const _SCIP_NODETYPE_REFOCUSNODE = int8(10)
+
+const SCIP_NodeType_MAP = [
+    _SCIP_NODETYPE_FOCUSNODE => "the focus node, whose data is stored in the tree data structure",
+    _SCIP_NODETYPE_PROBINGNODE => "temporary child node of the focus or refocused node used for probing",
+    _SCIP_NODETYPE_SIBLING => "unsolved sibling of the focus node",
+    _SCIP_NODETYPE_CHILD => "unsolved child of the focus node",
+    _SCIP_NODETYPE_LEAF => "unsolved leaf of the tree, stored in the tree's queue",
+    _SCIP_NODETYPE_DEADEND => "temporary type of focus node, if it was solved completely",
+    _SCIP_NODETYPE_JUNCTION => "fork without LP solution",
+    _SCIP_NODETYPE_PSEUDOFORK => "fork without LP solution and added rows and columns",
+    _SCIP_NODETYPE_FORK => "fork with solved LP and added rows and columns",
+    _SCIP_NODETYPE_SUBROOT => "fork with solved LP and arbitrarily changed rows and columns",
+    _SCIP_NODETYPE_REFOCUSNODE => "junction, fork, or subroot that was refocused for domain propagation",
+]
+
+export _SCIP_Varstatus, _SCIP_VARSTATUS_ORIGINAL, _SCIP_VARSTATUS_LOOSE, _SCIP_VARSTATUS_COLUMN, _SCIP_VARSTATUS_FIXED, _SCIP_VARSTATUS_AGGREGATED, _SCIP_VARSTATUS_MULTAGGR, _SCIP_VARSTATUS_NEGATED, SCIP_Varstatus_MAP
+typealias _SCIP_Varstatus Int8
+const _SCIP_VARSTATUS_ORIGINAL = int8(0)
+const _SCIP_VARSTATUS_LOOSE = int8(1)
+const _SCIP_VARSTATUS_COLUMN = int8(2)
+const _SCIP_VARSTATUS_FIXED = int8(3)
+const _SCIP_VARSTATUS_AGGREGATED = int8(4)
+const _SCIP_VARSTATUS_MULTAGGR = int8(5)
+const _SCIP_VARSTATUS_NEGATED = int8(6)
+
+const SCIP_Varstatus_MAP = [
+    _SCIP_VARSTATUS_ORIGINAL => "variable belongs to original problem",
+    _SCIP_VARSTATUS_LOOSE => "variable is a loose variable of the transformed problem",
+    _SCIP_VARSTATUS_COLUMN => "variable is a column of the transformed problem",
+    _SCIP_VARSTATUS_FIXED => "variable is fixed to specific value in the transformed problem",
+    _SCIP_VARSTATUS_AGGREGATED => "variable is aggregated to x = a*y + c in the transformed problem",
+    _SCIP_VARSTATUS_MULTAGGR => "variable is aggregated to x = a_1*y_1 + ... + a_k*y_k + c",
+    _SCIP_VARSTATUS_NEGATED => "variable is the negation of an original or transformed variable",
+]
+
+export _SCIP_Vartype, _SCIP_VARTYPE_BINARY, _SCIP_VARTYPE_INTEGER, _SCIP_VARTYPE_IMPLINT, _SCIP_VARTYPE_CONTINUOUS, SCIP_Vartype_MAP
+typealias _SCIP_Vartype Int8
+const _SCIP_VARTYPE_BINARY = int8(0)
+const _SCIP_VARTYPE_INTEGER = int8(1)
+const _SCIP_VARTYPE_IMPLINT = int8(2)
+const _SCIP_VARTYPE_CONTINUOUS = int8(3)
+
+const SCIP_Vartype_MAP = [
+    _SCIP_VARTYPE_BINARY => "binary variable: x in {0,1}",
+    _SCIP_VARTYPE_INTEGER => "integer variable: x in {lb, ..., ub}",
+    _SCIP_VARTYPE_IMPLINT => "implicit integer variable: continuous variable, that is always integral",
+    _SCIP_VARTYPE_CONTINUOUS => "continuous variable: x in [lb,ub]",
+]
+
+export _SCIP_DomchgType, _SCIP_DOMCHGTYPE_DYNAMIC, _SCIP_DOMCHGTYPE_BOTH, _SCIP_DOMCHGTYPE_BOUND, SCIP_DomchgType_MAP
+typealias _SCIP_DomchgType Int8
+const _SCIP_DOMCHGTYPE_DYNAMIC = int8(0)
+const _SCIP_DOMCHGTYPE_BOTH = int8(1)
+const _SCIP_DOMCHGTYPE_BOUND = int8(2)
+
+const SCIP_DomchgType_MAP = [
+    _SCIP_DOMCHGTYPE_DYNAMIC => "dynamic bound changes with size information of arrays",
+    _SCIP_DOMCHGTYPE_BOTH => "static domain changes: number of entries equals size of arrays",
+    _SCIP_DOMCHGTYPE_BOUND => "static domain changes without any hole changes",
+]
+
+export _SCIP_BoundchgType, _SCIP_BOUNDCHGTYPE_BRANCHING, _SCIP_BOUNDCHGTYPE_CONSINFER, _SCIP_BOUNDCHGTYPE_PROPINFER, SCIP_BoundchgType_MAP
+typealias _SCIP_BoundchgType Int8
+const _SCIP_BOUNDCHGTYPE_BRANCHING = int8(0)
+const _SCIP_BOUNDCHGTYPE_CONSINFER = int8(1)
+const _SCIP_BOUNDCHGTYPE_PROPINFER = int8(2)
+
+const SCIP_BoundchgType_MAP = [
+    _SCIP_BOUNDCHGTYPE_BRANCHING => "bound change was due to a branching decision",
+    _SCIP_BOUNDCHGTYPE_CONSINFER => "bound change was due to an inference of a constraint (domain propagation)",
+    _SCIP_BOUNDCHGTYPE_PROPINFER => "bound change was due to an inference of a domain propagator",
+]
+
+export _SCIP_VBCColor, _SCIP_VBCCOLOR_UNSOLVED, _SCIP_VBCCOLOR_SOLVED, _SCIP_VBCCOLOR_CUTOFF, _SCIP_VBCCOLOR_CONFLICT, _SCIP_VBCCOLOR_MARKREPROP, _SCIP_VBCCOLOR_REPROP, _SCIP_VBCCOLOR_SOLUTION, _SCIP_VBCCOLOR_NONE, SCIP_VBCColor_MAP
+typealias _SCIP_VBCColor Int8
+const _SCIP_VBCCOLOR_UNSOLVED = int8(3)
+const _SCIP_VBCCOLOR_SOLVED = int8(2)
+const _SCIP_VBCCOLOR_CUTOFF = int8(4)
+const _SCIP_VBCCOLOR_CONFLICT = int8(15)
+const _SCIP_VBCCOLOR_MARKREPROP = int8(11)
+const _SCIP_VBCCOLOR_REPROP = int8(12)
+const _SCIP_VBCCOLOR_SOLUTION = int8(14)
+const _SCIP_VBCCOLOR_NONE = int8(-1)
+
+const SCIP_VBCColor_MAP = [
+    _SCIP_VBCCOLOR_UNSOLVED => "color for newly created, unsolved nodes",
+    _SCIP_VBCCOLOR_SOLVED => "color for solved nodes",
+    _SCIP_VBCCOLOR_CUTOFF => "color for nodes that were cut off",
+    _SCIP_VBCCOLOR_CONFLICT => "color for nodes where a conflict constraint was found",
+    _SCIP_VBCCOLOR_MARKREPROP => "color for nodes that were marked to be repropagated",
+    _SCIP_VBCCOLOR_REPROP => "color for repropagated nodes",
+    _SCIP_VBCCOLOR_SOLUTION => "color for solved nodes, where a solution has been found",
+    _SCIP_VBCCOLOR_NONE => "color should not be changed",
 ]
 

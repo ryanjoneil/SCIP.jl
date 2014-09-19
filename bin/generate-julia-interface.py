@@ -97,6 +97,7 @@ class SCIPXMLParser(object):
         elif type_name.startswith('SCIP') :
             if type_name.endswith('*'):
                 return 'Ptr{%s}' % self._convert_type(type_name[:-1])
+                # return ""
 
             elif type_name.replace('_', '').isalnum():
                 if type_name not in self.typealiases:
@@ -257,7 +258,6 @@ class SCIPXMLParser(object):
 
             # Convert function signature components to Julia types & names.
             try:
-                orig_arg_types = list(arg_types)
                 ret_type = self._convert_type(ret_type)
                 arg_types = [self._convert_type(tn) for tn in arg_types]
             except KeyError:
@@ -268,22 +268,23 @@ class SCIPXMLParser(object):
                 if at.rstrip('*').strip() in SCIPXMLParser.TYPE_MAP:
                     continue
 
-                # Convert from scip to pointer(scip) or array(scip)
-                if at.endswith('}}'):
-                    av = 'array(%s)' % av
-                elif at.endswith('}'):
-                    av = 'pointer(%s)' % av
+                ## Convert from scip to pointer(scip) or array(scip)
+                # if at.endswith('}}'):
+                #    av = 'array(%s)' % av
+                # elif at.endswith('}'):
+                #    av = 'pointer(%s)' % av
                 arg_vals[i] = av
 
-                # Convert from scip to scip::SCIP_t if the type is a SCIP struct
+                ## Convert from scip to scip::SCIP_t if the type is a SCIP struct
                 is_pointer = at.startswith('Ptr{')
                 at = at.replace('Ptr{','').lstrip('{').rstrip('}')
-                if at.startswith('SCIP'):
-                    if is_pointer: 
-                        self.structs.add(at)
-                        at = '%s_t' % at
+                # if at.startswith('SCIP'):
+                #    if is_pointer:
+                #        self.structs.add(at)
+                #        at = '%s_t' % at
 
-                arg_names[i] = '%s::%s' % (an, at)
+                # arg_names[i] = '%s::%s' % (an, at)
+                arg_names[i] = '%s' % an
 
             if len(arg_types) == 1 and arg_types[0] == 'Void':
                 arg_types = []
