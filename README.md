@@ -38,12 +38,13 @@ SCIP.jl needs to have the SCIP library availble to it. The simplest way to do th
 
 ```bash
 $ cp <location of scip library> SCIP.jl
+$ cd SCIP.jl
+$ ln -s <scip library> libscipopt.dylib
 ```
 
 You should now be able to run the test code.
 
 ```bash
-$ cd SCIP.jl
 $ julia test/test.jl
 ```
 
