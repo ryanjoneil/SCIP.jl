@@ -7,5 +7,42 @@ This doesn't do much yet. Check back later. The following test creates a SCIP
 model, along with a few other things.
 
 ```
-julia test.jl
+julia test/test.jl
+```
+
+Building SCIP.jl
+----------------
+
+This will change, but if you feel the need to hack on SCIP.jl, you should be able to do the following:
+
+### Build a SCIP library
+
+Download and decompress the [source distribution](http://scip.zib.de/#download) for SCIP 3.1.0. Compile a shared version of the library without extraneous dependencies.
+
+```bash
+$ cd scipoptsuite-3.1.0
+$ make scipoptlib GMP=false ZLIB=false READLINE=false SHARED=true
+```
+
+You should now have a file that looks something like `lib/libscipopt-3.1.0.darwin.x86_64.gnu.opt.so`. Remember the location of this file for later.
+
+### Clone SCIP.jl and copy the SCIP library into it
+
+First clone `SCIP.jl`.
+
+```bash
+$ git clone git@github.com:ryanjoneil/SCIP.jl.git
+```
+
+SCIP.jl needs to have the SCIP library availble to it. The simplest way to do that *for now* is to copy that `.so` file referenced above into the root `SCIP.jl` directory. If you're on Linux, use a `.so` extension here. Mac users should use `.dylib` extension, and Windows users should use `.dll`.
+
+```bash
+$ cp <location of scip library> SCIP.jl
+```
+
+You should now be able to run the test code.
+
+```bash
+$ cd SCIP.jl
+$ julia test/test.jl
 ```
