@@ -46,3 +46,19 @@ You should now be able to run the test code.
 $ cd SCIP.jl
 $ julia test/test.jl
 ```
+
+### Optional: Generate the Julia code for SCIP.jl
+
+The current structure of the project includes:
+
+* XML files describing the SCIP C interface are stored in the `xml/` directory.
+* Jinja2 templates for the `SCIP.jl` interface are in `templates/`.
+* A Python script under `bin/` loads necessary data from `xml/` and converts the templates into Julia source under the `src/` directory.
+
+If you need to change the Julia code under `src/` *always* change it under `templates/` and regeneate the Julia code as follows.
+
+```bash
+$ python bin/generate-julia-interface.py xml/ templates/ src/
+```
+
+You'll need Python 2.7 along with `lxml` and `Jinja2`.
