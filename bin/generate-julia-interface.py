@@ -31,7 +31,7 @@ class SCIPXMLParser(object):
         'SCIP_VAR':  (set(['SCIPcreateVarBasic']), 'SCIPreleaseVar'),
     }
 
-    # Set of variable names on the C side that will cause errors if they 
+    # Set of variable names on the C side that will cause errors if they
     # are used in Julia. These will get replaced with something else.
     JULIA_BUILTINS = set(['global', 'local', 'type'])
 
@@ -84,7 +84,7 @@ class SCIPXMLParser(object):
 
     def _convert_type(self, type_name):
         type_name = type_name.strip()
-    
+
         if type_name in SCIPXMLParser.TYPE_MAP:
             return SCIPXMLParser.TYPE_MAP[type_name]
 
@@ -114,14 +114,14 @@ class SCIPXMLParser(object):
         #         <initializer>=  +1</initializer>
         #         <detaileddescription>
         #             <para>normal termination</para>
-        #         </detaileddescription>        
+        #         </detaileddescription>
         #     </enumvalue>
         #     ...
         # </memberdef>
         for memberdef in node:
             if memberdef.tag != 'memberdef':
                 continue
-            
+
             enum_name = None          # e.g. SCIP_Retcode
             enum_vals = OrderedDict() # {'SCIP_OKAY': 1, ...}
 
@@ -153,7 +153,7 @@ class SCIPXMLParser(object):
         for memberdef in node:
             if memberdef.tag != 'memberdef':
                 continue
-            
+
             define_name = None # e.g. SCIP_Bool
 
             for child in memberdef:
@@ -162,7 +162,7 @@ class SCIPXMLParser(object):
                     define_name = child.text
 
                 elif child.tag == 'initializer':
-                    # Known C types are treated as typealiases, while defines 
+                    # Known C types are treated as typealiases, while defines
                     # with numbers or strings are treated as constants.
                     t = child.text
                     if t is None:
@@ -184,7 +184,7 @@ class SCIPXMLParser(object):
         for memberdef in node:
             if memberdef.tag != 'memberdef':
                 continue
-            
+
             type_ref = type_name = None
 
             for child in memberdef:
@@ -214,7 +214,7 @@ class SCIPXMLParser(object):
         for memberdef in node:
             if memberdef.tag != 'memberdef':
                 continue
-            
+
             ret_type = None
             func_name = None
             arg_types = [] # such as Int or Ptr{SCIP}
@@ -290,7 +290,7 @@ class SCIPXMLParser(object):
                 arg_types = []
 
             if ret_type == 'SCIP_RETCODE':
-                # Separate out functions based on whether they return SCIP 
+                # Separate out functions based on whether they return SCIP
                 # return codes or not. These are handled by diferrent macros.
                 if func_name not in self.checked_functions:
                     self.checked_functions[func_name] = (arg_types, arg_names, arg_vals)
@@ -357,4 +357,4 @@ if __name__ == '__main__':
             with open(os.path.join(srcdir, tdir, filename), 'w') as outfile:
                 template = env.get_template(os.path.join(tdir, filename))
                 outfile.write(template.render(parser=parser))
-                
+
