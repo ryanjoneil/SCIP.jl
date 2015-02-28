@@ -89,8 +89,6 @@ func (info *SCIPInfo) Convert(doxygen *Doxygen) {
 			// Or a string?
 			if (strings.HasPrefix(cinit, `"`) && strings.HasSuffix(cinit, `"`)) ||
 				(strings.HasPrefix(cinit, `'`) && strings.HasSuffix(cinit, `'`)) {
-				// Julia uses `"` only, so get rid of `'`.
-				jlinit = strings.Replace(jlinit, `'`, `"`, -1)
 				save = true
 			}
 

@@ -28,6 +28,8 @@ func main() {
 	}
 
 	xmlDir := os.Args[1]
+	tmplDir := os.Args[2]
+	srcDir := os.Args[3]
 
 	// Parse each XML file that we're interested in.
 	files, err := ioutil.ReadDir(xmlDir)
@@ -68,5 +70,31 @@ func main() {
 		info.Convert(doxygen)
 	}
 
-	log.Println(info.Defines)
+	// Render templates into source directory.
+	err = filepath.Walk(tmplDir, func(path string, fileInfo os.FileInfo, err error) error {
+		if err != nil {
+			return err
+		}
+
+		if fileInfo.IsDir() {
+			return nil
+		}
+
+		// Convert template path to source path.
+		relPath, err := filepath.Rel(tmplDir, path)
+		if err != nil {
+			return err
+		}
+		srcPath := filepath.Join(srcDir, relPath)
+
+		// Render template.
+		log.Printf("rendering %s -> %s", path, srcPath)
+		return info.Render(path, srcPath)
+	})
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
+
+	log.Println("done")
 }
