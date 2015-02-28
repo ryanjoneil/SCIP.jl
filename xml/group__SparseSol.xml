@@ -1,0 +1,192 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.8">
+  <compounddef id="group__SparseSol" kind="group">
+    <compoundname>SparseSol</compoundname>
+    <title>Sparse solution</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__SparseSol_1ga6ea4184cea0a17d2c95a60469ff49fcd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref></type>
+        <definition>SCIP_RETCODE SCIPsparseSolCreate</definition>
+        <argsstring>(SCIP_SPARSESOL **sparsesol, SCIP_VAR **vars, int nvars, SCIP_Bool cleared)</argsstring>
+        <name>SCIPsparseSolCreate</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a88af7fd2fc5827a3e390b432a2e1a5b7" kindref="member">SCIP_SPARSESOL</ref> **</type>
+          <declname>sparsesol</declname>
+          <briefdescription><para>pointer to store the created sparse solution </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__var_8h_1a032edd1f5032513d49e397ebdcc8915b" kindref="member">SCIP_VAR</ref> **</type>
+          <declname>vars</declname>
+          <briefdescription><para>variables in the sparse solution, must not contain continuous variables </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nvars</declname>
+          <briefdescription><para>number of variables to store, size of the lower and upper bound arrays </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref></type>
+          <declname>cleared</declname>
+          <briefdescription><para>should the lower and upper bound arrays be cleared (entries set to 0) </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>creates a sparse solution </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="143" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__SparseSol_1gaa1912d1552fc9e04caa3fb5803bd9bc9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPsparseSolFree</definition>
+        <argsstring>(SCIP_SPARSESOL **sparsesol)</argsstring>
+        <name>SCIPsparseSolFree</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a88af7fd2fc5827a3e390b432a2e1a5b7" kindref="member">SCIP_SPARSESOL</ref> **</type>
+          <declname>sparsesol</declname>
+          <briefdescription><para>pointer to a sparse solution </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>frees sparse solution </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="158" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__SparseSol_1ga7babfe1bb55c4298018f2a22ecca59cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__var_8h_1a032edd1f5032513d49e397ebdcc8915b" kindref="member">SCIP_VAR</ref> **</type>
+        <definition>SCIP_VAR** SCIPsparseSolGetVars</definition>
+        <argsstring>(SCIP_SPARSESOL *sparsesol)</argsstring>
+        <name>SCIPsparseSolGetVars</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a88af7fd2fc5827a3e390b432a2e1a5b7" kindref="member">SCIP_SPARSESOL</ref> *</type>
+          <declname>sparsesol</declname>
+          <briefdescription><para>a sparse solution </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns the variables in the given sparse solution </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="164" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__SparseSol_1ga0bcf8b0410606ec598b8b6050f4fca5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIPsparseSolGetNVars</definition>
+        <argsstring>(SCIP_SPARSESOL *sparsesol)</argsstring>
+        <name>SCIPsparseSolGetNVars</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a88af7fd2fc5827a3e390b432a2e1a5b7" kindref="member">SCIP_SPARSESOL</ref> *</type>
+          <declname>sparsesol</declname>
+          <briefdescription><para>a sparse solution </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns the number of variables in the given sparse solution </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="170" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__SparseSol_1ga6cc8487e1ba6b74d4b09bfb977eab897" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a1e6171040084cc1f39f88e386238ee10" kindref="member">SCIP_Longint</ref> *</type>
+        <definition>SCIP_Longint* SCIPsparseSolGetLbs</definition>
+        <argsstring>(SCIP_SPARSESOL *sparsesol)</argsstring>
+        <name>SCIPsparseSolGetLbs</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a88af7fd2fc5827a3e390b432a2e1a5b7" kindref="member">SCIP_SPARSESOL</ref> *</type>
+          <declname>sparsesol</declname>
+          <briefdescription><para>a sparse solution </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns the the lower bound array for all variables for a given sparse solution </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="176" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__SparseSol_1ga1a64ad4a509c455337393ae36465bdd2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a1e6171040084cc1f39f88e386238ee10" kindref="member">SCIP_Longint</ref> *</type>
+        <definition>SCIP_Longint* SCIPsparseSolGetUbs</definition>
+        <argsstring>(SCIP_SPARSESOL *sparsesol)</argsstring>
+        <name>SCIPsparseSolGetUbs</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a88af7fd2fc5827a3e390b432a2e1a5b7" kindref="member">SCIP_SPARSESOL</ref> *</type>
+          <declname>sparsesol</declname>
+          <briefdescription><para>a sparse solution </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns the the upper bound array for all variables for a given sparse solution </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="182" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__SparseSol_1ga56a6b00fdcf3eefa804e814f7ee2ea46" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPsparseSolGetFirstSol</definition>
+        <argsstring>(SCIP_SPARSESOL *sparsesol, SCIP_Longint *sol, int nvars)</argsstring>
+        <name>SCIPsparseSolGetFirstSol</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a88af7fd2fc5827a3e390b432a2e1a5b7" kindref="member">SCIP_SPARSESOL</ref> *</type>
+          <declname>sparsesol</declname>
+          <briefdescription><para>sparse solutions </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="def_8h_1a1e6171040084cc1f39f88e386238ee10" kindref="member">SCIP_Longint</ref> *</type>
+          <declname>sol</declname>
+          <briefdescription><para>array to store the first solution </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nvars</declname>
+          <briefdescription><para>number of variables </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>constructs the first solution of sparse solution (all variables are set to their lower bound value </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="188" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__SparseSol_1gaed7a10e2bd49c6b18a16e98d37174498" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref></type>
+        <definition>SCIP_Bool SCIPsparseSolGetNextSol</definition>
+        <argsstring>(SCIP_SPARSESOL *sparsesol, SCIP_Longint *sol, int nvars)</argsstring>
+        <name>SCIPsparseSolGetNextSol</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a88af7fd2fc5827a3e390b432a2e1a5b7" kindref="member">SCIP_SPARSESOL</ref> *</type>
+          <declname>sparsesol</declname>
+          <briefdescription><para>sparse solutions </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="def_8h_1a1e6171040084cc1f39f88e386238ee10" kindref="member">SCIP_Longint</ref> *</type>
+          <declname>sol</declname>
+          <briefdescription><para>current solution array which get changed to the next solution </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nvars</declname>
+          <briefdescription><para>number of variables </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>constructs the next solution of the sparse solution and return whether there was one more or not </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="196" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,285 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.8">
+  <compounddef id="classatomic__posintpower" kind="class" prot="public">
+    <compoundname>atomic_posintpower</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">CppAD::atomic_base&lt; Type &gt;</basecompoundref>
+    <templateparamlist>
+      <param>
+        <type>class</type>
+        <declname>Type</declname>
+        <defname>Type</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classatomic__posintpower_1a6bba7d7c553c18c75c1ec865b2c0aa2b" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int atomic_posintpower&lt; Type &gt;::exponent</definition>
+        <argsstring></argsstring>
+        <name>exponent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>exponent value for next call to forward or reverse </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" line="475" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" bodystart="475" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classatomic__posintpower_1a118f90eb677eb5c0fc5e9fca2e002ba2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>atomic_posintpower&lt; Type &gt;::atomic_posintpower</definition>
+        <argsstring>()</argsstring>
+        <name>atomic_posintpower</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" line="465" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" bodystart="465" bodyend="471"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classatomic__posintpower_1a4b0ab1a24f438da5e1ccf0eeaec869df" prot="private" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void atomic_posintpower&lt; Type &gt;::set_id</definition>
+        <argsstring>(size_t id)</argsstring>
+        <name>set_id</name>
+        <param>
+          <type>size_t</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>stores exponent value corresponding to next call to forward or reverse</para><para>how is this supposed to be threadsafe? (we use only one global instantiation of this class) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" line="481" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" bodystart="481" bodyend="484"/>
+      </memberdef>
+      <memberdef kind="function" id="classatomic__posintpower_1af33bace0f1562a3bafa072004db67ec5" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool atomic_posintpower&lt; Type &gt;::forward</definition>
+        <argsstring>(size_t q, size_t p, const CppAD::vector&lt; bool &gt; &amp;vx, CppAD::vector&lt; bool &gt; &amp;vy, const CppAD::vector&lt; Type &gt; &amp;tx, CppAD::vector&lt; Type &gt; &amp;ty)</argsstring>
+        <name>forward</name>
+        <param>
+          <type>size_t</type>
+          <declname>q</declname>
+          <briefdescription><para>lowest order Taylor coefficient that we are evaluating </para></briefdescription>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>p</declname>
+          <briefdescription><para>highest order Taylor coefficient that we are evaluating </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>vx</declname>
+          <briefdescription><para>indicates whether argument is a variable, or empty vector </para></briefdescription>
+        </param>
+        <param>
+          <type>CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>vy</declname>
+          <briefdescription><para>vector to store which function values depend on variables, or empty vector </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; Type &gt; &amp;</type>
+          <declname>tx</declname>
+          <briefdescription><para>values for taylor coefficients of x </para></briefdescription>
+        </param>
+        <param>
+          <type>CppAD::vector&lt; Type &gt; &amp;</type>
+          <declname>ty</declname>
+          <briefdescription><para>vector to store taylor coefficients of y </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>forward sweep of positive integer power</para><para>Given the taylor coefficients for x, we have to compute the taylor coefficients for f(x), that is, given tx = (x, x&apos;, x&apos;&apos;, ...), we compute the coefficients ty = (y, y&apos;, y&apos;&apos;, ...) in the taylor expansion of f(x) = x^p. Thus, y = x^p = tx[0]^p, y&apos; = p * x^(p-1) * x&apos; = p * tx[0]^(p-1) * tx[1], y&apos;&apos; = 1/2 * p * (p-1) * x^(p-2) * x&apos;^2 + p * x^(p-1) * x&apos;&apos; = 1/2 * p * (p-1) * tx[0]^(p-2) * tx[1]^2 + p * tx[0]^(p-1) * tx[2] </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" line="498" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" bodystart="498" bodyend="555"/>
+      </memberdef>
+      <memberdef kind="function" id="classatomic__posintpower_1a8841f921afeaf76bfa5840be40900e15" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool atomic_posintpower&lt; Type &gt;::reverse</definition>
+        <argsstring>(size_t p, const CppAD::vector&lt; Type &gt; &amp;tx, const CppAD::vector&lt; Type &gt; &amp;ty, CppAD::vector&lt; Type &gt; &amp;px, const CppAD::vector&lt; Type &gt; &amp;py)</argsstring>
+        <name>reverse</name>
+        <param>
+          <type>size_t</type>
+          <declname>p</declname>
+          <briefdescription><para>highest order Taylor coefficient that we are evaluating </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; Type &gt; &amp;</type>
+          <declname>tx</declname>
+          <briefdescription><para>values for taylor coefficients of x </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; Type &gt; &amp;</type>
+          <declname>ty</declname>
+          <briefdescription><para>values for taylor coefficients of y </para></briefdescription>
+        </param>
+        <param>
+          <type>CppAD::vector&lt; Type &gt; &amp;</type>
+          <declname>px</declname>
+          <briefdescription><para>vector to store partial derivatives of h(x) = g(y(x)) w.r.t. x </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; Type &gt; &amp;</type>
+          <declname>py</declname>
+          <briefdescription><para>values for partial derivatives of g(x) w.r.t. y </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>reverse sweep of positive integer power</para><para>Assume y(x) is a function of the taylor coefficients of f(x) = x^p for x, i.e., y(x) = [ x^p, p * x^(p-1) * x&apos;, p * (p-1) * x^(p-2) * x&apos;^2 + p * x^(p-1) * x&apos;&apos;, ... ]. Then in the reverse sweep we have to compute the elements of <formula id="130">$\partial h / \partial x^[l], l = 0, ..., k,$</formula> where x^[l] is the l&apos;th taylor coefficient (x, x&apos;, x&apos;&apos;, ...) and h(x) = g(y(x)) for some function g:R^k -&gt; R. That is, we have to compute <formula id="131">$ px[l] = \partial h / \partial x^[l] = (\partial g / \partial y) * (\partial y / \partial x^[l]) = \sum_{i=0}^k (\partial g / \partial y_i) * (\partial y_i / \partial x^[l]) = \sum_{i=0}^k py[i] * (\partial y_i / \partial x^[l]) $</formula></para><para>For k = 0, this means <formula id="132">$ px[0] = py[0] * (\partial y_0 / \partial x^[0]) = py[0] * (\partial x^p / \partial x) = py[0] * p * tx[0]^(p-1) *$</formula></para><para>For k = 1, this means <formula id="133">$ px[0] = py[0] * (\partial y_0 / \partial x^[0]) + py[1] * (\partial y_1 / \partial x^[0]) = py[0] * (\partial x^p / \partial x) + py[1] * (\partial (p * x^(p-1) * x&apos;) / \partial x) = py[0] * p * tx[0]^(p-1) + py[1] * p * (p-1) * tx[0]^(p-2) * tx[1] px[1] = py[0] * (\partial y_0 / \partial x^[1]) + py[1] * (\partial y_1 / \partial x^[1]) = py[0] * (\partial x^p / \partial x&apos;) + py[1] * (\partial (p * x^(p-1) x&apos;) / \partial x&apos;) = py[0] * 0 + py[1] * p * tx[0]^(p-1) $</formula> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" line="587" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" bodystart="587" bodyend="624"/>
+      </memberdef>
+      <memberdef kind="function" id="classatomic__posintpower_1a96e945701161f25c7258980ed1294ad4" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool atomic_posintpower&lt; Type &gt;::for_sparse_jac</definition>
+        <argsstring>(size_t q, const CppAD::vector&lt; bool &gt; &amp;r, CppAD::vector&lt; bool &gt; &amp;s)</argsstring>
+        <name>for_sparse_jac</name>
+        <param>
+          <type>size_t</type>
+          <declname>q</declname>
+          <briefdescription><para>number of columns in R </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>r</declname>
+          <briefdescription><para>sparsity of R, columnwise </para></briefdescription>
+        </param>
+        <param>
+          <type>CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>s</declname>
+          <briefdescription><para>vector to store sparsity of S, columnwise </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>computes sparsity of jacobian during a forward sweep</para><para>For a 1 x q matrix R, we have to return the sparsity pattern of the 1 x q matrix S(x) = f&apos;(x) * R. Since f&apos;(x) is dense, the sparsity of S will be the sparsity of R. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" line="633" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" bodystart="633" bodyend="640"/>
+      </memberdef>
+      <memberdef kind="function" id="classatomic__posintpower_1ae6825bd132a34bd98ef3a3c5371808ce" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool atomic_posintpower&lt; Type &gt;::rev_sparse_jac</definition>
+        <argsstring>(size_t q, const CppAD::vector&lt; bool &gt; &amp;r, CppAD::vector&lt; bool &gt; &amp;s)</argsstring>
+        <name>rev_sparse_jac</name>
+        <param>
+          <type>size_t</type>
+          <declname>q</declname>
+          <briefdescription><para>number of rows in R </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>r</declname>
+          <briefdescription><para>sparsity of R, rowwise </para></briefdescription>
+        </param>
+        <param>
+          <type>CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>s</declname>
+          <briefdescription><para>vector to store sparsity of S, rowwise </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>computes sparsity of jacobian during a reverse sweep</para><para>For a q x 1 matrix R, we have to return the sparsity pattern of the q x 1 matrix S(x) = R * f&apos;(x). Since f&apos;(x) is dense, the sparsity of S will be the sparsity of R. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" line="649" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" bodystart="649" bodyend="656"/>
+      </memberdef>
+      <memberdef kind="function" id="classatomic__posintpower_1a411efa78e5bf31c412e4244ad8346055" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool atomic_posintpower&lt; Type &gt;::rev_sparse_hes</definition>
+        <argsstring>(const CppAD::vector&lt; bool &gt; &amp;vx, const CppAD::vector&lt; bool &gt; &amp;s, CppAD::vector&lt; bool &gt; &amp;t, size_t q, const CppAD::vector&lt; bool &gt; &amp;r, const CppAD::vector&lt; bool &gt; &amp;u, CppAD::vector&lt; bool &gt; &amp;v)</argsstring>
+        <name>rev_sparse_hes</name>
+        <param>
+          <type>const CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>vx</declname>
+          <briefdescription><para>indicates whether argument is a variable, or empty vector </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>s</declname>
+          <briefdescription><para>sparsity pattern of S = g&apos;(y) </para></briefdescription>
+        </param>
+        <param>
+          <type>CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>t</declname>
+          <briefdescription><para>vector to store sparsity pattern of T(x) = (g(f(x)))&apos; </para></briefdescription>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>q</declname>
+          <briefdescription><para>number of columns in R, U, and V </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>r</declname>
+          <briefdescription><para>sparsity pattern of R </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>u</declname>
+          <briefdescription><para>sparsity pattern of U(x) = g&apos;&apos;(f(x)) f&apos;(x) R </para></briefdescription>
+        </param>
+        <param>
+          <type>CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>v</declname>
+          <briefdescription><para>vector to store sparsity pattern of V(x) = (g(f(x)))&apos;&apos; R </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>computes sparsity of hessian during a reverse sweep</para><para>Assume V(x) = (g(f(x)))&apos;&apos; R with f(x) = x^p for a function g:R-&gt;R and a matrix R. we have to specify the sparsity pattern of V(x) and T(x) = (g(f(x)))&apos;. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" line="665" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" bodystart="665" bodyend="676"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Automatic differentiation of x -&gt; x^p, p&gt;=2 integer, as CppAD user-atomic function.</para><para>This class implements forward and reverse operations for the function x -&gt; x^p for use within CppAD. While CppAD would implement integer powers as a recursion of multiplications, we still use pow functions as they allow us to avoid overestimation in interval arithmetics.</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>CppAD::atomic_base&lt; Type &gt;</label>
+      </node>
+      <node id="0">
+        <label>atomic_posintpower&lt; Type &gt;</label>
+        <link refid="classatomic__posintpower"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>CppAD::atomic_base&lt; Type &gt;</label>
+      </node>
+      <node id="2">
+        <label>atomic_posintpower&lt; Type &gt;</label>
+        <link refid="classatomic__posintpower"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" line="463" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" bodystart="462" bodyend="677"/>
+    <listofallmembers>
+      <member refid="classatomic__posintpower_1a118f90eb677eb5c0fc5e9fca2e002ba2" prot="public" virt="non-virtual"><scope>atomic_posintpower</scope><name>atomic_posintpower</name></member>
+      <member refid="classatomic__posintpower_1a6bba7d7c553c18c75c1ec865b2c0aa2b" prot="private" virt="non-virtual"><scope>atomic_posintpower</scope><name>exponent</name></member>
+      <member refid="classatomic__posintpower_1a96e945701161f25c7258980ed1294ad4" prot="private" virt="non-virtual"><scope>atomic_posintpower</scope><name>for_sparse_jac</name></member>
+      <member refid="classatomic__posintpower_1af33bace0f1562a3bafa072004db67ec5" prot="private" virt="non-virtual"><scope>atomic_posintpower</scope><name>forward</name></member>
+      <member refid="classatomic__posintpower_1a411efa78e5bf31c412e4244ad8346055" prot="private" virt="non-virtual"><scope>atomic_posintpower</scope><name>rev_sparse_hes</name></member>
+      <member refid="classatomic__posintpower_1ae6825bd132a34bd98ef3a3c5371808ce" prot="private" virt="non-virtual"><scope>atomic_posintpower</scope><name>rev_sparse_jac</name></member>
+      <member refid="classatomic__posintpower_1a8841f921afeaf76bfa5840be40900e15" prot="private" virt="non-virtual"><scope>atomic_posintpower</scope><name>reverse</name></member>
+      <member refid="classatomic__posintpower_1a4b0ab1a24f438da5e1ccf0eeaec869df" prot="private" virt="virtual"><scope>atomic_posintpower</scope><name>set_id</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

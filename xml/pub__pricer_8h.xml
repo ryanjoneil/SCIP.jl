@@ -1,0 +1,1538 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.8">
+  <compounddef id="pub__pricer_8h" kind="file">
+    <compoundname>pub_pricer.h</compoundname>
+    <includes refid="def_8h" local="yes">scip/def.h</includes>
+    <includes refid="type__misc_8h" local="yes">scip/type_misc.h</includes>
+    <includes refid="type__pricer_8h" local="yes">scip/type_pricer.h</includes>
+    <includedby refid="scip_8h" local="yes">scip.h</includedby>
+    <incdepgraph>
+      <node id="11058">
+        <label>stdarg.h</label>
+      </node>
+      <node id="11055">
+        <label>assert.h</label>
+      </node>
+      <node id="11054">
+        <label>float.h</label>
+      </node>
+      <node id="11061">
+        <label>scip/type_pricer.h</label>
+        <link refid="type__pricer_8h"/>
+        <childnode refid="11050" relation="include">
+        </childnode>
+        <childnode refid="11056" relation="include">
+        </childnode>
+        <childnode refid="11062" relation="include">
+        </childnode>
+      </node>
+      <node id="11049">
+        <label>pub_pricer.h</label>
+        <link refid="pub_pricer.h"/>
+        <childnode refid="11050" relation="include">
+        </childnode>
+        <childnode refid="11060" relation="include">
+        </childnode>
+        <childnode refid="11061" relation="include">
+        </childnode>
+      </node>
+      <node id="11053">
+        <label>limits.h</label>
+      </node>
+      <node id="11062">
+        <label>scip/type_scip.h</label>
+        <link refid="type__scip_8h"/>
+      </node>
+      <node id="11059">
+        <label>scip/type_message.h</label>
+        <link refid="type__message_8h"/>
+        <childnode refid="11051" relation="include">
+        </childnode>
+      </node>
+      <node id="11060">
+        <label>scip/type_misc.h</label>
+        <link refid="type__misc_8h"/>
+        <childnode refid="11050" relation="include">
+        </childnode>
+      </node>
+      <node id="11057">
+        <label>scip/pub_message.h</label>
+        <link refid="pub__message_8h"/>
+        <childnode refid="11058" relation="include">
+        </childnode>
+        <childnode refid="11050" relation="include">
+        </childnode>
+        <childnode refid="11059" relation="include">
+        </childnode>
+      </node>
+      <node id="11056">
+        <label>scip/type_retcode.h</label>
+        <link refid="type__retcode_8h"/>
+      </node>
+      <node id="11052">
+        <label>math.h</label>
+      </node>
+      <node id="11050">
+        <label>scip/def.h</label>
+        <link refid="def_8h"/>
+        <childnode refid="11051" relation="include">
+        </childnode>
+        <childnode refid="11052" relation="include">
+        </childnode>
+        <childnode refid="11053" relation="include">
+        </childnode>
+        <childnode refid="11054" relation="include">
+        </childnode>
+        <childnode refid="11055" relation="include">
+        </childnode>
+        <childnode refid="11056" relation="include">
+        </childnode>
+        <childnode refid="11057" relation="include">
+        </childnode>
+      </node>
+      <node id="11051">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="11104">
+        <label>heur_clique.h</label>
+        <link refid="heur__clique_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11100">
+        <label>cons_xor.h</label>
+        <link refid="cons__xor_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11176">
+        <label>reader_pbm.h</label>
+        <link refid="reader__pbm_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11105">
+        <label>heur_coefdiving.h</label>
+        <link refid="heur__coefdiving_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11150">
+        <label>presol_convertinttobin.h</label>
+        <link refid="presol__convertinttobin_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11195">
+        <label>sepa_zerohalf.h</label>
+        <link refid="sepa__zerohalf_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11136">
+        <label>heur_undercover.h</label>
+        <link refid="heur__undercover_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11131">
+        <label>heur_simplerounding.h</label>
+        <link refid="heur__simplerounding_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11116">
+        <label>heur_localbranching.h</label>
+        <link refid="heur__localbranching_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11178">
+        <label>reader_ppm.h</label>
+        <link refid="reader__ppm_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11064">
+        <label>scip.h</label>
+        <link refid="scip_8h"/>
+        <childnode refid="11065" relation="include">
+        </childnode>
+        <childnode refid="11067" relation="include">
+        </childnode>
+        <childnode refid="11068" relation="include">
+        </childnode>
+        <childnode refid="11069" relation="include">
+        </childnode>
+        <childnode refid="11070" relation="include">
+        </childnode>
+        <childnode refid="11071" relation="include">
+        </childnode>
+        <childnode refid="11072" relation="include">
+        </childnode>
+        <childnode refid="11073" relation="include">
+        </childnode>
+        <childnode refid="11074" relation="include">
+        </childnode>
+        <childnode refid="11075" relation="include">
+        </childnode>
+        <childnode refid="11076" relation="include">
+        </childnode>
+        <childnode refid="11077" relation="include">
+        </childnode>
+        <childnode refid="11078" relation="include">
+        </childnode>
+        <childnode refid="11079" relation="include">
+        </childnode>
+        <childnode refid="11080" relation="include">
+        </childnode>
+        <childnode refid="11081" relation="include">
+        </childnode>
+        <childnode refid="11082" relation="include">
+        </childnode>
+        <childnode refid="11083" relation="include">
+        </childnode>
+        <childnode refid="11084" relation="include">
+        </childnode>
+        <childnode refid="11085" relation="include">
+        </childnode>
+        <childnode refid="11086" relation="include">
+        </childnode>
+        <childnode refid="11087" relation="include">
+        </childnode>
+        <childnode refid="11088" relation="include">
+        </childnode>
+        <childnode refid="11089" relation="include">
+        </childnode>
+        <childnode refid="11090" relation="include">
+        </childnode>
+        <childnode refid="11091" relation="include">
+        </childnode>
+        <childnode refid="11092" relation="include">
+        </childnode>
+        <childnode refid="11093" relation="include">
+        </childnode>
+        <childnode refid="11094" relation="include">
+        </childnode>
+        <childnode refid="11095" relation="include">
+        </childnode>
+        <childnode refid="11096" relation="include">
+        </childnode>
+        <childnode refid="11097" relation="include">
+        </childnode>
+        <childnode refid="11098" relation="include">
+        </childnode>
+        <childnode refid="11099" relation="include">
+        </childnode>
+        <childnode refid="11100" relation="include">
+        </childnode>
+        <childnode refid="11101" relation="include">
+        </childnode>
+        <childnode refid="11102" relation="include">
+        </childnode>
+        <childnode refid="11103" relation="include">
+        </childnode>
+        <childnode refid="11104" relation="include">
+        </childnode>
+        <childnode refid="11105" relation="include">
+        </childnode>
+        <childnode refid="11106" relation="include">
+        </childnode>
+        <childnode refid="11107" relation="include">
+        </childnode>
+        <childnode refid="11108" relation="include">
+        </childnode>
+        <childnode refid="11109" relation="include">
+        </childnode>
+        <childnode refid="11110" relation="include">
+        </childnode>
+        <childnode refid="11111" relation="include">
+        </childnode>
+        <childnode refid="11112" relation="include">
+        </childnode>
+        <childnode refid="11113" relation="include">
+        </childnode>
+        <childnode refid="11114" relation="include">
+        </childnode>
+        <childnode refid="11115" relation="include">
+        </childnode>
+        <childnode refid="11116" relation="include">
+        </childnode>
+        <childnode refid="11117" relation="include">
+        </childnode>
+        <childnode refid="11118" relation="include">
+        </childnode>
+        <childnode refid="11119" relation="include">
+        </childnode>
+        <childnode refid="11120" relation="include">
+        </childnode>
+        <childnode refid="11121" relation="include">
+        </childnode>
+        <childnode refid="11122" relation="include">
+        </childnode>
+        <childnode refid="11123" relation="include">
+        </childnode>
+        <childnode refid="11124" relation="include">
+        </childnode>
+        <childnode refid="11125" relation="include">
+        </childnode>
+        <childnode refid="11126" relation="include">
+        </childnode>
+        <childnode refid="11127" relation="include">
+        </childnode>
+        <childnode refid="11128" relation="include">
+        </childnode>
+        <childnode refid="11129" relation="include">
+        </childnode>
+        <childnode refid="11130" relation="include">
+        </childnode>
+        <childnode refid="11131" relation="include">
+        </childnode>
+        <childnode refid="11132" relation="include">
+        </childnode>
+        <childnode refid="11133" relation="include">
+        </childnode>
+        <childnode refid="11134" relation="include">
+        </childnode>
+        <childnode refid="11135" relation="include">
+        </childnode>
+        <childnode refid="11136" relation="include">
+        </childnode>
+        <childnode refid="11137" relation="include">
+        </childnode>
+        <childnode refid="11138" relation="include">
+        </childnode>
+        <childnode refid="11139" relation="include">
+        </childnode>
+        <childnode refid="11140" relation="include">
+        </childnode>
+        <childnode refid="11141" relation="include">
+        </childnode>
+        <childnode refid="11142" relation="include">
+        </childnode>
+        <childnode refid="11143" relation="include">
+        </childnode>
+        <childnode refid="11144" relation="include">
+        </childnode>
+        <childnode refid="11145" relation="include">
+        </childnode>
+        <childnode refid="11146" relation="include">
+        </childnode>
+        <childnode refid="11147" relation="include">
+        </childnode>
+        <childnode refid="11148" relation="include">
+        </childnode>
+        <childnode refid="11149" relation="include">
+        </childnode>
+        <childnode refid="11150" relation="include">
+        </childnode>
+        <childnode refid="11151" relation="include">
+        </childnode>
+        <childnode refid="11152" relation="include">
+        </childnode>
+        <childnode refid="11153" relation="include">
+        </childnode>
+        <childnode refid="11154" relation="include">
+        </childnode>
+        <childnode refid="11155" relation="include">
+        </childnode>
+        <childnode refid="11156" relation="include">
+        </childnode>
+        <childnode refid="11157" relation="include">
+        </childnode>
+        <childnode refid="11158" relation="include">
+        </childnode>
+        <childnode refid="11159" relation="include">
+        </childnode>
+        <childnode refid="11160" relation="include">
+        </childnode>
+        <childnode refid="11161" relation="include">
+        </childnode>
+        <childnode refid="11162" relation="include">
+        </childnode>
+        <childnode refid="11163" relation="include">
+        </childnode>
+        <childnode refid="11164" relation="include">
+        </childnode>
+        <childnode refid="11165" relation="include">
+        </childnode>
+        <childnode refid="11166" relation="include">
+        </childnode>
+        <childnode refid="11167" relation="include">
+        </childnode>
+        <childnode refid="11168" relation="include">
+        </childnode>
+        <childnode refid="11169" relation="include">
+        </childnode>
+        <childnode refid="11170" relation="include">
+        </childnode>
+        <childnode refid="11171" relation="include">
+        </childnode>
+        <childnode refid="11172" relation="include">
+        </childnode>
+        <childnode refid="11173" relation="include">
+        </childnode>
+        <childnode refid="11174" relation="include">
+        </childnode>
+        <childnode refid="11175" relation="include">
+        </childnode>
+        <childnode refid="11176" relation="include">
+        </childnode>
+        <childnode refid="11177" relation="include">
+        </childnode>
+        <childnode refid="11178" relation="include">
+        </childnode>
+        <childnode refid="11179" relation="include">
+        </childnode>
+        <childnode refid="11180" relation="include">
+        </childnode>
+        <childnode refid="11181" relation="include">
+        </childnode>
+        <childnode refid="11182" relation="include">
+        </childnode>
+        <childnode refid="11066" relation="include">
+        </childnode>
+        <childnode refid="11183" relation="include">
+        </childnode>
+        <childnode refid="11184" relation="include">
+        </childnode>
+        <childnode refid="11185" relation="include">
+        </childnode>
+        <childnode refid="11186" relation="include">
+        </childnode>
+        <childnode refid="11187" relation="include">
+        </childnode>
+        <childnode refid="11188" relation="include">
+        </childnode>
+        <childnode refid="11189" relation="include">
+        </childnode>
+        <childnode refid="11190" relation="include">
+        </childnode>
+        <childnode refid="11191" relation="include">
+        </childnode>
+        <childnode refid="11192" relation="include">
+        </childnode>
+        <childnode refid="11193" relation="include">
+        </childnode>
+        <childnode refid="11194" relation="include">
+        </childnode>
+        <childnode refid="11195" relation="include">
+        </childnode>
+      </node>
+      <node id="11069">
+        <label>branch_inference.h</label>
+        <link refid="branch__inference_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11092">
+        <label>cons_pseudoboolean.h</label>
+        <link refid="cons__pseudoboolean_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11130">
+        <label>heur_shifting.h</label>
+        <link refid="heur__shifting_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11121">
+        <label>heur_oneopt.h</label>
+        <link refid="heur__oneopt_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11096">
+        <label>cons_sos1.h</label>
+        <link refid="cons__sos1_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11146">
+        <label>nodesel_restartdfs.h</label>
+        <link refid="nodesel__restartdfs_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11185">
+        <label>sepa_closecuts.h</label>
+        <link refid="sepa__closecuts_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11076">
+        <label>cons_and.h</label>
+        <link refid="cons__and_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11177">
+        <label>reader_pip.h</label>
+        <link refid="reader__pip_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11128">
+        <label>heur_rounding.h</label>
+        <link refid="heur__rounding_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11126">
+        <label>heur_rins.h</label>
+        <link refid="heur__rins_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11066">
+        <label>scipdefplugins.h</label>
+        <link refid="scipdefplugins_8h"/>
+      </node>
+      <node id="11102">
+        <label>disp_default.h</label>
+        <link refid="disp__default_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11107">
+        <label>heur_dins.h</label>
+        <link refid="heur__dins_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11139">
+        <label>heur_zeroobj.h</label>
+        <link refid="heur__zeroobj_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11101">
+        <label>dialog_default.h</label>
+        <link refid="dialog__default_8h"/>
+      </node>
+      <node id="11068">
+        <label>branch_fullstrong.h</label>
+        <link refid="branch__fullstrong_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11112">
+        <label>heur_guideddiving.h</label>
+        <link refid="heur__guideddiving_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11174">
+        <label>reader_opb.h</label>
+        <link refid="reader__opb_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11090">
+        <label>cons_or.h</label>
+        <link refid="cons__or_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11153">
+        <label>presol_gateextraction.h</label>
+        <link refid="presol__gateextraction_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11073">
+        <label>branch_random.h</label>
+        <link refid="branch__random_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11111">
+        <label>heur_fracdiving.h</label>
+        <link refid="heur__fracdiving_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11082">
+        <label>cons_disjunction.h</label>
+        <link refid="cons__disjunction_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11165">
+        <label>reader_bnd.h</label>
+        <link refid="reader__bnd_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11074">
+        <label>branch_relpscost.h</label>
+        <link refid="branch__relpscost_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11114">
+        <label>heur_intshifting.h</label>
+        <link refid="heur__intshifting_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11099">
+        <label>cons_varbound.h</label>
+        <link refid="cons__varbound_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11147">
+        <label>nodesel_uct.h</label>
+        <link refid="nodesel__uct_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11081">
+        <label>cons_cumulative.h</label>
+        <link refid="cons__cumulative_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11083">
+        <label>cons_indicator.h</label>
+        <link refid="cons__indicator_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11162">
+        <label>prop_redcost.h</label>
+        <link refid="prop__redcost_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11109">
+        <label>heur_feaspump.h</label>
+        <link refid="heur__feaspump_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11063">
+        <label>pub_pricer.h</label>
+        <link refid="pub_pricer.h"/>
+        <childnode refid="11064" relation="include">
+        </childnode>
+      </node>
+      <node id="11182">
+        <label>reader_zpl.h</label>
+        <link refid="reader__zpl_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11183">
+        <label>sepa_cgmip.h</label>
+        <link refid="sepa__cgmip_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11123">
+        <label>heur_pscostdiving.h</label>
+        <link refid="heur__pscostdiving_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11169">
+        <label>reader_fix.h</label>
+        <link refid="reader__fix_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11097">
+        <label>cons_sos2.h</label>
+        <link refid="cons__sos2_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11133">
+        <label>heur_trivial.h</label>
+        <link refid="heur__trivial_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11086">
+        <label>cons_linear.h</label>
+        <link refid="cons__linear_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11118">
+        <label>heur_nlpdiving.h</label>
+        <link refid="heur__nlpdiving_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11084">
+        <label>cons_integral.h</label>
+        <link refid="cons__integral_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11186">
+        <label>sepa_cmir.h</label>
+        <link refid="sepa__cmir_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11125">
+        <label>heur_rens.h</label>
+        <link refid="heur__rens_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11108">
+        <label>heur_dualval.h</label>
+        <link refid="heur__dualval_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11127">
+        <label>heur_rootsoldiving.h</label>
+        <link refid="heur__rootsoldiving_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11160">
+        <label>prop_probing.h</label>
+        <link refid="prop__probing_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11091">
+        <label>cons_orbitope.h</label>
+        <link refid="cons__orbitope_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11080">
+        <label>cons_countsols.h</label>
+        <link refid="cons__countsols_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11193">
+        <label>sepa_rapidlearning.h</label>
+        <link refid="sepa__rapidlearning_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11124">
+        <label>heur_randrounding.h</label>
+        <link refid="heur__randrounding_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11142">
+        <label>nodesel_breadthfirst.h</label>
+        <link refid="nodesel__breadthfirst_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11132">
+        <label>heur_subnlp.h</label>
+        <link refid="heur__subnlp_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11167">
+        <label>reader_cip.h</label>
+        <link refid="reader__cip_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11144">
+        <label>nodesel_estimate.h</label>
+        <link refid="nodesel__estimate_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11157">
+        <label>prop_dualfix.h</label>
+        <link refid="prop__dualfix_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11113">
+        <label>heur_intdiving.h</label>
+        <link refid="heur__intdiving_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11159">
+        <label>prop_obbt.h</label>
+        <link refid="prop__obbt_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11161">
+        <label>prop_pseudoobj.h</label>
+        <link refid="prop__pseudoobj_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11154">
+        <label>presol_implics.h</label>
+        <link refid="presol__implics_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11117">
+        <label>heur_mutation.h</label>
+        <link refid="heur__mutation_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11184">
+        <label>sepa_clique.h</label>
+        <link refid="sepa__clique_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11134">
+        <label>heur_trysol.h</label>
+        <link refid="heur__trysol_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11172">
+        <label>reader_lp.h</label>
+        <link refid="reader__lp_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11190">
+        <label>sepa_intobj.h</label>
+        <link refid="sepa__intobj_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11135">
+        <label>heur_twoopt.h</label>
+        <link refid="heur__twoopt_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11138">
+        <label>heur_veclendiving.h</label>
+        <link refid="heur__veclendiving_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11075">
+        <label>cons_abspower.h</label>
+        <link refid="cons__abspower_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11094">
+        <label>cons_setppc.h</label>
+        <link refid="cons__setppc_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11122">
+        <label>heur_proximity.h</label>
+        <link refid="heur__proximity_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11188">
+        <label>sepa_gomory.h</label>
+        <link refid="sepa__gomory_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11085">
+        <label>cons_knapsack.h</label>
+        <link refid="cons__knapsack_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11163">
+        <label>prop_rootredcost.h</label>
+        <link refid="prop__rootredcost_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11145">
+        <label>nodesel_hybridestim.h</label>
+        <link refid="nodesel__hybridestim_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11087">
+        <label>cons_linking.h</label>
+        <link refid="cons__linking_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11065">
+        <label>branch_allfullstrong.h</label>
+        <link refid="branch__allfullstrong_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11180">
+        <label>reader_sol.h</label>
+        <link refid="reader__sol_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11149">
+        <label>presol_components.h</label>
+        <link refid="presol__components_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11173">
+        <label>reader_mps.h</label>
+        <link refid="reader__mps_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11119">
+        <label>heur_objpscostdiving.h</label>
+        <link refid="heur__objpscostdiving_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11103">
+        <label>heur_actconsdiving.h</label>
+        <link refid="heur__actconsdiving_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11155">
+        <label>presol_inttobinary.h</label>
+        <link refid="presol__inttobinary_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11164">
+        <label>prop_vbounds.h</label>
+        <link refid="prop__vbounds_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11191">
+        <label>sepa_mcf.h</label>
+        <link refid="sepa__mcf_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11187">
+        <label>sepa_flowcover.h</label>
+        <link refid="sepa__flowcover_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11158">
+        <label>prop_genvbounds.h</label>
+        <link refid="prop__genvbounds_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11152">
+        <label>presol_dualinfer.h</label>
+        <link refid="presol__dualinfer_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11095">
+        <label>cons_soc.h</label>
+        <link refid="cons__soc_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11141">
+        <label>nodesel_bfs.h</label>
+        <link refid="nodesel__bfs_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11072">
+        <label>branch_pscost.h</label>
+        <link refid="branch__pscost_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11189">
+        <label>sepa_impliedbounds.h</label>
+        <link refid="sepa__impliedbounds_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11089">
+        <label>cons_nonlinear.h</label>
+        <link refid="cons__nonlinear_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11168">
+        <label>reader_cnf.h</label>
+        <link refid="reader__cnf_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11137">
+        <label>heur_vbounds.h</label>
+        <link refid="heur__vbounds_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11151">
+        <label>presol_domcol.h</label>
+        <link refid="presol__domcol_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11115">
+        <label>heur_linesearchdiving.h</label>
+        <link refid="heur__linesearchdiving_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11171">
+        <label>reader_gms.h</label>
+        <link refid="reader__gms_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11179">
+        <label>reader_rlp.h</label>
+        <link refid="reader__rlp_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11098">
+        <label>cons_superindicator.h</label>
+        <link refid="cons__superindicator_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11070">
+        <label>branch_leastinf.h</label>
+        <link refid="branch__leastinf_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11129">
+        <label>heur_shiftandpropagate.h</label>
+        <link refid="heur__shiftandpropagate_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11148">
+        <label>presol_boundshift.h</label>
+        <link refid="presol__boundshift_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11088">
+        <label>cons_logicor.h</label>
+        <link refid="cons__logicor_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11175">
+        <label>reader_osil.h</label>
+        <link refid="reader__osil_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11170">
+        <label>reader_fzn.h</label>
+        <link refid="reader__fzn_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11143">
+        <label>nodesel_dfs.h</label>
+        <link refid="nodesel__dfs_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11079">
+        <label>cons_conjunction.h</label>
+        <link refid="cons__conjunction_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11194">
+        <label>sepa_strongcg.h</label>
+        <link refid="sepa__strongcg_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11166">
+        <label>reader_ccg.h</label>
+        <link refid="reader__ccg_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11156">
+        <label>presol_trivial.h</label>
+        <link refid="presol__trivial_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11110">
+        <label>heur_fixandinfer.h</label>
+        <link refid="heur__fixandinfer_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11093">
+        <label>cons_quadratic.h</label>
+        <link refid="cons__quadratic_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11067">
+        <label>branch_cloud.h</label>
+        <link refid="branch__cloud_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11192">
+        <label>sepa_oddcycle.h</label>
+        <link refid="sepa__oddcycle_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11106">
+        <label>heur_crossover.h</label>
+        <link refid="heur__crossover_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11078">
+        <label>cons_bounddisjunction.h</label>
+        <link refid="cons__bounddisjunction_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11077">
+        <label>cons_bivariate.h</label>
+        <link refid="cons__bivariate_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11181">
+        <label>reader_wbo.h</label>
+        <link refid="reader__wbo_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11140">
+        <label>heur_zirounding.h</label>
+        <link refid="heur__zirounding_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11120">
+        <label>heur_octane.h</label>
+        <link refid="heur__octane_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+      <node id="11071">
+        <label>branch_mostinf.h</label>
+        <link refid="branch__mostinf_8h"/>
+        <childnode refid="11066" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="pub__pricer_8h_1acd2ed4dbe806ada8ec0b91c80889100f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SCIP_DECL_SORTPTRCOMP</definition>
+        <argsstring>(SCIPpricerComp)</argsstring>
+        <name>SCIP_DECL_SORTPTRCOMP</name>
+        <param>
+          <type>SCIPpricerComp</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>compares two pricers w. r. to their priority </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_pricer.h" line="38" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__pricer_8h_1ab7478cd27b0cd77b3582d3452abf57aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SCIP_DECL_SORTPTRCOMP</definition>
+        <argsstring>(SCIPpricerCompName)</argsstring>
+        <name>SCIP_DECL_SORTPTRCOMP</name>
+        <param>
+          <type>SCIPpricerCompName</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>comparison method for sorting pricers w.r.t. to their name </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_pricer.h" line="42" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__pricer_8h_1a851e1927f2a86bce542393876a7760f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__pricer_8h_1aa50951faa9e5f8803011dfc0b310948a" kindref="member">SCIP_PRICERDATA</ref> *</type>
+        <definition>SCIP_PRICERDATA* SCIPpricerGetData</definition>
+        <argsstring>(SCIP_PRICER *pricer)</argsstring>
+        <name>SCIPpricerGetData</name>
+        <param>
+          <type><ref refid="type__pricer_8h_1a9f23954b90ad3a8b631b639db8b8e92a" kindref="member">SCIP_PRICER</ref> *</type>
+          <declname>pricer</declname>
+          <briefdescription><para>variable pricer </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets user data of variable pricer </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_pricer.h" line="46" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__pricer_8h_1a5dc785e3e8101bb9e5cca1686e37eaca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPpricerSetData</definition>
+        <argsstring>(SCIP_PRICER *pricer, SCIP_PRICERDATA *pricerdata)</argsstring>
+        <name>SCIPpricerSetData</name>
+        <param>
+          <type><ref refid="type__pricer_8h_1a9f23954b90ad3a8b631b639db8b8e92a" kindref="member">SCIP_PRICER</ref> *</type>
+          <declname>pricer</declname>
+          <briefdescription><para>variable pricer </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__pricer_8h_1aa50951faa9e5f8803011dfc0b310948a" kindref="member">SCIP_PRICERDATA</ref> *</type>
+          <declname>pricerdata</declname>
+          <briefdescription><para>new variable pricer user data </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>sets user data of variable pricer; user has to free old data in advance! </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_pricer.h" line="52" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__pricer_8h_1a18627610344b514e1741e1c8b49b95c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char* SCIPpricerGetName</definition>
+        <argsstring>(SCIP_PRICER *pricer)</argsstring>
+        <name>SCIPpricerGetName</name>
+        <param>
+          <type><ref refid="type__pricer_8h_1a9f23954b90ad3a8b631b639db8b8e92a" kindref="member">SCIP_PRICER</ref> *</type>
+          <declname>pricer</declname>
+          <briefdescription><para>variable pricer </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets name of variable pricer </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_pricer.h" line="59" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__pricer_8h_1aabaa5b871421bded6b765c7327b33059" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char* SCIPpricerGetDesc</definition>
+        <argsstring>(SCIP_PRICER *pricer)</argsstring>
+        <name>SCIPpricerGetDesc</name>
+        <param>
+          <type><ref refid="type__pricer_8h_1a9f23954b90ad3a8b631b639db8b8e92a" kindref="member">SCIP_PRICER</ref> *</type>
+          <declname>pricer</declname>
+          <briefdescription><para>variable pricer </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets description of variable pricer </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_pricer.h" line="65" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__pricer_8h_1a82ebd53263ed1183798ae39c272df801" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIPpricerGetPriority</definition>
+        <argsstring>(SCIP_PRICER *pricer)</argsstring>
+        <name>SCIPpricerGetPriority</name>
+        <param>
+          <type><ref refid="type__pricer_8h_1a9f23954b90ad3a8b631b639db8b8e92a" kindref="member">SCIP_PRICER</ref> *</type>
+          <declname>pricer</declname>
+          <briefdescription><para>variable pricer </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets priority of variable pricer </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_pricer.h" line="71" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__pricer_8h_1ac9997a2959c42720ba6399eb25b11dd7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIPpricerGetNCalls</definition>
+        <argsstring>(SCIP_PRICER *pricer)</argsstring>
+        <name>SCIPpricerGetNCalls</name>
+        <param>
+          <type><ref refid="type__pricer_8h_1a9f23954b90ad3a8b631b639db8b8e92a" kindref="member">SCIP_PRICER</ref> *</type>
+          <declname>pricer</declname>
+          <briefdescription><para>variable pricer </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets the number of times, the pricer was called and tried to find a variable with negative reduced costs </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_pricer.h" line="77" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__pricer_8h_1a195b1b745d4e2c81bda5660d2dbe6a09" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIPpricerGetNVarsFound</definition>
+        <argsstring>(SCIP_PRICER *pricer)</argsstring>
+        <name>SCIPpricerGetNVarsFound</name>
+        <param>
+          <type><ref refid="type__pricer_8h_1a9f23954b90ad3a8b631b639db8b8e92a" kindref="member">SCIP_PRICER</ref> *</type>
+          <declname>pricer</declname>
+          <briefdescription><para>variable pricer </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets the number of variables with negative reduced costs found by this pricer </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_pricer.h" line="83" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__pricer_8h_1ac25a1b07683de95e6608b67d33fdaafa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+        <definition>SCIP_Real SCIPpricerGetSetupTime</definition>
+        <argsstring>(SCIP_PRICER *pricer)</argsstring>
+        <name>SCIPpricerGetSetupTime</name>
+        <param>
+          <type><ref refid="type__pricer_8h_1a9f23954b90ad3a8b631b639db8b8e92a" kindref="member">SCIP_PRICER</ref> *</type>
+          <declname>pricer</declname>
+          <briefdescription><para>variable pricer </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets time in seconds used in this pricer for setting up for next stages </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_pricer.h" line="89" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__pricer_8h_1ac52a598a357313a8c30572a647ce1b24" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+        <definition>SCIP_Real SCIPpricerGetTime</definition>
+        <argsstring>(SCIP_PRICER *pricer)</argsstring>
+        <name>SCIPpricerGetTime</name>
+        <param>
+          <type><ref refid="type__pricer_8h_1a9f23954b90ad3a8b631b639db8b8e92a" kindref="member">SCIP_PRICER</ref> *</type>
+          <declname>pricer</declname>
+          <briefdescription><para>variable pricer </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets time in seconds used in this pricer </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_pricer.h" line="95" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__pricer_8h_1a821009258009c428745fe1f141d4e223" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref></type>
+        <definition>SCIP_Bool SCIPpricerIsActive</definition>
+        <argsstring>(SCIP_PRICER *pricer)</argsstring>
+        <name>SCIPpricerIsActive</name>
+        <param>
+          <type><ref refid="type__pricer_8h_1a9f23954b90ad3a8b631b639db8b8e92a" kindref="member">SCIP_PRICER</ref> *</type>
+          <declname>pricer</declname>
+          <briefdescription><para>variable pricer </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns whether the given pricer is in use in the current problem </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_pricer.h" line="101" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__pricer_8h_1a325ed765c8acc5956bab87ec4158f1e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref></type>
+        <definition>SCIP_Bool SCIPpricerIsDelayed</definition>
+        <argsstring>(SCIP_PRICER *pricer)</argsstring>
+        <name>SCIPpricerIsDelayed</name>
+        <param>
+          <type><ref refid="type__pricer_8h_1a9f23954b90ad3a8b631b639db8b8e92a" kindref="member">SCIP_PRICER</ref> *</type>
+          <declname>pricer</declname>
+          <briefdescription><para>variable pricer </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns whether the pricer should be delayed until no other pricer finds a new variable </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_pricer.h" line="107" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__pricer_8h_1ab21ba9a84d5652fbecd638a3af8cd491" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref></type>
+        <definition>SCIP_Bool SCIPpricerIsInitialized</definition>
+        <argsstring>(SCIP_PRICER *pricer)</argsstring>
+        <name>SCIPpricerIsInitialized</name>
+        <param>
+          <type><ref refid="type__pricer_8h_1a9f23954b90ad3a8b631b639db8b8e92a" kindref="member">SCIP_PRICER</ref> *</type>
+          <declname>pricer</declname>
+          <briefdescription><para>variable pricer </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>is variable pricer initialized? </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_pricer.h" line="113" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>public methods for variable pricers </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Tobias Achterberg </para></simplesect>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>This<sp/>file<sp/>is<sp/>part<sp/>of<sp/>the<sp/>program<sp/>and<sp/>library<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SCIP<sp/>---<sp/>Solving<sp/>Constraint<sp/>Integer<sp/>Programs<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/>Copyright<sp/>(C)<sp/>2002-2014<sp/>Konrad-Zuse-Zentrum<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fuer<sp/>Informationstechnik<sp/>Berlin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>SCIP<sp/>is<sp/>distributed<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>ZIB<sp/>Academic<sp/>License.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>You<sp/>should<sp/>have<sp/>received<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>ZIB<sp/>Academic<sp/>License<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>along<sp/>with<sp/>SCIP;<sp/>see<sp/>the<sp/>file<sp/>COPYING.<sp/>If<sp/>not<sp/>email<sp/>to<sp/>scip@zib.de.<sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="16"><highlight class="comment">/**@file<sp/><sp/><sp/>pub_pricer.h</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>@ingroup<sp/>PUBLICMETHODS</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>@brief<sp/><sp/>public<sp/>methods<sp/>for<sp/>variable<sp/>pricers</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>@author<sp/>Tobias<sp/>Achterberg</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">/*---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8----+----9----+----0----+----1----+----2*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>__SCIP_PUB_PRICER_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__SCIP_PUB_PRICER_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="def_8h" kindref="compound">scip/def.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="type__misc_8h" kindref="compound">scip/type_misc.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="type__pricer_8h" kindref="compound">scip/type_pricer.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="36"><highlight class="comment">/**<sp/>compares<sp/>two<sp/>pricers<sp/>w.<sp/>r.<sp/>to<sp/>their<sp/>priority<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><ref refid="pub__pricer_8h_1acd2ed4dbe806ada8ec0b91c80889100f" kindref="member">SCIP_DECL_SORTPTRCOMP</ref>(SCIPpricerComp);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="40"><highlight class="comment">/**<sp/>comparison<sp/>method<sp/>for<sp/>sorting<sp/>pricers<sp/>w.r.t.<sp/>to<sp/>their<sp/>name<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><ref refid="pub__pricer_8h_1acd2ed4dbe806ada8ec0b91c80889100f" kindref="member">SCIP_DECL_SORTPTRCOMP</ref>(SCIPpricerCompName);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="44"><highlight class="comment">/**<sp/>gets<sp/>user<sp/>data<sp/>of<sp/>variable<sp/>pricer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><ref refid="type__pricer_8h_1aa50951faa9e5f8803011dfc0b310948a" kindref="member">SCIP_PRICERDATA</ref>*<sp/><ref refid="pub__pricer_8h_1a851e1927f2a86bce542393876a7760f9" kindref="member">SCIPpricerGetData</ref>(</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__pricer_8h_1a9f23954b90ad3a8b631b639db8b8e92a" kindref="member">SCIP_PRICER</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pricer<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>variable<sp/>pricer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="50"><highlight class="comment">/**<sp/>sets<sp/>user<sp/>data<sp/>of<sp/>variable<sp/>pricer;<sp/>user<sp/>has<sp/>to<sp/>free<sp/>old<sp/>data<sp/>in<sp/>advance!<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="pub__pricer_8h_1a5dc785e3e8101bb9e5cca1686e37eaca" kindref="member">SCIPpricerSetData</ref>(</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__pricer_8h_1a9f23954b90ad3a8b631b639db8b8e92a" kindref="member">SCIP_PRICER</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pricer,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>variable<sp/>pricer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__pricer_8h_1aa50951faa9e5f8803011dfc0b310948a" kindref="member">SCIP_PRICERDATA</ref>*<sp/><sp/><sp/><sp/><sp/><sp/>pricerdata<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>new<sp/>variable<sp/>pricer<sp/>user<sp/>data<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="57"><highlight class="comment">/**<sp/>gets<sp/>name<sp/>of<sp/>variable<sp/>pricer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="pub__pricer_8h_1a18627610344b514e1741e1c8b49b95c2" kindref="member">SCIPpricerGetName</ref>(</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__pricer_8h_1a9f23954b90ad3a8b631b639db8b8e92a" kindref="member">SCIP_PRICER</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pricer<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>variable<sp/>pricer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="63"><highlight class="comment">/**<sp/>gets<sp/>description<sp/>of<sp/>variable<sp/>pricer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="pub__pricer_8h_1aabaa5b871421bded6b765c7327b33059" kindref="member">SCIPpricerGetDesc</ref>(</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__pricer_8h_1a9f23954b90ad3a8b631b639db8b8e92a" kindref="member">SCIP_PRICER</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pricer<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>variable<sp/>pricer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="69"><highlight class="comment">/**<sp/>gets<sp/>priority<sp/>of<sp/>variable<sp/>pricer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="pub__pricer_8h_1a82ebd53263ed1183798ae39c272df801" kindref="member">SCIPpricerGetPriority</ref>(</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__pricer_8h_1a9f23954b90ad3a8b631b639db8b8e92a" kindref="member">SCIP_PRICER</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pricer<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>variable<sp/>pricer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="75"><highlight class="comment">/**<sp/>gets<sp/>the<sp/>number<sp/>of<sp/>times,<sp/>the<sp/>pricer<sp/>was<sp/>called<sp/>and<sp/>tried<sp/>to<sp/>find<sp/>a<sp/>variable<sp/>with<sp/>negative<sp/>reduced<sp/>costs<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="pub__pricer_8h_1ac9997a2959c42720ba6399eb25b11dd7" kindref="member">SCIPpricerGetNCalls</ref>(</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__pricer_8h_1a9f23954b90ad3a8b631b639db8b8e92a" kindref="member">SCIP_PRICER</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pricer<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>variable<sp/>pricer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="81"><highlight class="comment">/**<sp/>gets<sp/>the<sp/>number<sp/>of<sp/>variables<sp/>with<sp/>negative<sp/>reduced<sp/>costs<sp/>found<sp/>by<sp/>this<sp/>pricer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="pub__pricer_8h_1a195b1b745d4e2c81bda5660d2dbe6a09" kindref="member">SCIPpricerGetNVarsFound</ref>(</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__pricer_8h_1a9f23954b90ad3a8b631b639db8b8e92a" kindref="member">SCIP_PRICER</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pricer<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>variable<sp/>pricer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="87"><highlight class="comment">/**<sp/>gets<sp/>time<sp/>in<sp/>seconds<sp/>used<sp/>in<sp/>this<sp/>pricer<sp/>for<sp/>setting<sp/>up<sp/>for<sp/>next<sp/>stages<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref><sp/><ref refid="pub__pricer_8h_1ac25a1b07683de95e6608b67d33fdaafa" kindref="member">SCIPpricerGetSetupTime</ref>(</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__pricer_8h_1a9f23954b90ad3a8b631b639db8b8e92a" kindref="member">SCIP_PRICER</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pricer<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>variable<sp/>pricer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="93"><highlight class="comment">/**<sp/>gets<sp/>time<sp/>in<sp/>seconds<sp/>used<sp/>in<sp/>this<sp/>pricer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref><sp/><ref refid="pub__pricer_8h_1ac52a598a357313a8c30572a647ce1b24" kindref="member">SCIPpricerGetTime</ref>(</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__pricer_8h_1a9f23954b90ad3a8b631b639db8b8e92a" kindref="member">SCIP_PRICER</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pricer<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>variable<sp/>pricer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="99"><highlight class="comment">/**<sp/>returns<sp/>whether<sp/>the<sp/>given<sp/>pricer<sp/>is<sp/>in<sp/>use<sp/>in<sp/>the<sp/>current<sp/>problem<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref><sp/><ref refid="pub__pricer_8h_1a821009258009c428745fe1f141d4e223" kindref="member">SCIPpricerIsActive</ref>(</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__pricer_8h_1a9f23954b90ad3a8b631b639db8b8e92a" kindref="member">SCIP_PRICER</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pricer<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>variable<sp/>pricer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="105"><highlight class="comment">/**<sp/>returns<sp/>whether<sp/>the<sp/>pricer<sp/>should<sp/>be<sp/>delayed<sp/>until<sp/>no<sp/>other<sp/>pricer<sp/>finds<sp/>a<sp/>new<sp/>variable<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref><sp/><ref refid="pub__pricer_8h_1a325ed765c8acc5956bab87ec4158f1e3" kindref="member">SCIPpricerIsDelayed</ref>(</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__pricer_8h_1a9f23954b90ad3a8b631b639db8b8e92a" kindref="member">SCIP_PRICER</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pricer<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>variable<sp/>pricer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="111"><highlight class="comment">/**<sp/>is<sp/>variable<sp/>pricer<sp/>initialized?<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref><sp/><ref refid="pub__pricer_8h_1ab21ba9a84d5652fbecd638a3af8cd491" kindref="member">SCIPpricerIsInitialized</ref>(</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__pricer_8h_1a9f23954b90ad3a8b631b639db8b8e92a" kindref="member">SCIP_PRICER</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pricer<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>variable<sp/>pricer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_pricer.h"/>
+  </compounddef>
+</doxygen>

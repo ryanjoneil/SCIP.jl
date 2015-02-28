@@ -1,0 +1,190 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.8">
+  <compounddef id="type__vbc_8h" kind="file">
+    <compoundname>type_vbc.h</compoundname>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="type__vbc_8h_1ade28dec7694b51161d2acc407b689ce8" prot="public" static="no">
+        <name>SCIP_VBCColor</name>
+        <enumvalue id="type__vbc_8h_1ade28dec7694b51161d2acc407b689ce8a1303a24deefb6e60a8aa39e826dd8751" prot="public">
+          <name>SCIP_VBCCOLOR_UNSOLVED</name>
+          <initializer>=  3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>color for newly created, unsolved nodes </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="type__vbc_8h_1ade28dec7694b51161d2acc407b689ce8a811091321df90e374aa3bb009130c46d" prot="public">
+          <name>SCIP_VBCCOLOR_SOLVED</name>
+          <initializer>=  2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>color for solved nodes </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="type__vbc_8h_1ade28dec7694b51161d2acc407b689ce8addcfe69ab76ecfa42fcee0f1e0a9cdd9" prot="public">
+          <name>SCIP_VBCCOLOR_CUTOFF</name>
+          <initializer>=  4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>color for nodes that were cut off </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="type__vbc_8h_1ade28dec7694b51161d2acc407b689ce8aec6dd2aa7d2a10e11dea9e4c499f110f" prot="public">
+          <name>SCIP_VBCCOLOR_CONFLICT</name>
+          <initializer>= 15</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>color for nodes where a conflict constraint was found </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="type__vbc_8h_1ade28dec7694b51161d2acc407b689ce8a6b5da1d6590e8c5f95d81f347b493c20" prot="public">
+          <name>SCIP_VBCCOLOR_MARKREPROP</name>
+          <initializer>= 11</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>color for nodes that were marked to be repropagated </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="type__vbc_8h_1ade28dec7694b51161d2acc407b689ce8a75d0f04eb370ebffd20d089072e1c435" prot="public">
+          <name>SCIP_VBCCOLOR_REPROP</name>
+          <initializer>= 12</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>color for repropagated nodes </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="type__vbc_8h_1ade28dec7694b51161d2acc407b689ce8a772272db93d8620bb4b8e46319102684" prot="public">
+          <name>SCIP_VBCCOLOR_SOLUTION</name>
+          <initializer>= 14</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>color for solved nodes, where a solution has been found </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="type__vbc_8h_1ade28dec7694b51161d2acc407b689ce8ad88b2ad326bb7b82a80193e0cdc8d601" prot="public">
+          <name>SCIP_VBCCOLOR_NONE</name>
+          <initializer>= -1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>color should not be changed </para>          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>node colors in VBC output: 1: indian red 2: green 3: light gray 4: red 5: blue 6: black 7: light pink 8: cyan 9: dark green 10: brown 11: orange 12: yellow 13: pink 14: purple 15: light blue 16: muddy green 17: white 18: light grey 19: light grey 20: light grey </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/type_vbc.h" line="53" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/type_vbc.h" bodystart="52" bodyend="62"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="type__vbc_8h_1a7af19cdc5104942bb52d1353c1c4faf5" prot="public" static="no">
+        <type>enum <ref refid="type__vbc_8h_1ade28dec7694b51161d2acc407b689ce8" kindref="member">SCIP_VBCColor</ref></type>
+        <definition>typedef enum SCIP_VBCColor SCIP_VBCCOLOR</definition>
+        <argsstring></argsstring>
+        <name>SCIP_VBCCOLOR</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/type_vbc.h" line="79" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/type_vbc.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="type__vbc_8h_1a05f54c173e9fb960f687199c42a82a37" prot="public" static="no">
+        <type>struct SCIP_Vbc</type>
+        <definition>typedef struct SCIP_Vbc SCIP_VBC</definition>
+        <argsstring></argsstring>
+        <name>SCIP_VBC</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>VBC Tool data structure </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/type_vbc.h" line="79" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/type_vbc.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>type definitions for VBC Tool output </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Tobias Achterberg </para></simplesect>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>This<sp/>file<sp/>is<sp/>part<sp/>of<sp/>the<sp/>program<sp/>and<sp/>library<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SCIP<sp/>---<sp/>Solving<sp/>Constraint<sp/>Integer<sp/>Programs<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/>Copyright<sp/>(C)<sp/>2002-2014<sp/>Konrad-Zuse-Zentrum<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fuer<sp/>Informationstechnik<sp/>Berlin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>SCIP<sp/>is<sp/>distributed<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>ZIB<sp/>Academic<sp/>License.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>You<sp/>should<sp/>have<sp/>received<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>ZIB<sp/>Academic<sp/>License<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>along<sp/>with<sp/>SCIP;<sp/>see<sp/>the<sp/>file<sp/>COPYING.<sp/>If<sp/>not<sp/>email<sp/>to<sp/>scip@zib.de.<sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="16"><highlight class="comment">/**@file<sp/><sp/><sp/>type_vbc.h</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>@brief<sp/><sp/>type<sp/>definitions<sp/>for<sp/>VBC<sp/>Tool<sp/>output</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>@author<sp/>Tobias<sp/>Achterberg</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">/*---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8----+----9----+----0----+----1----+----2*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>__SCIP_TYPE_VBC_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__SCIP_TYPE_VBC_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="30"><highlight class="comment">/**<sp/>node<sp/>colors<sp/>in<sp/>VBC<sp/>output:</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/><sp/><sp/>1:<sp/>indian<sp/>red</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*<sp/><sp/><sp/>2:<sp/>green</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*<sp/><sp/><sp/>3:<sp/>light<sp/>gray</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/><sp/><sp/>4:<sp/>red</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*<sp/><sp/><sp/>5:<sp/>blue</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*<sp/><sp/><sp/>6:<sp/>black</highlight></codeline>
+<codeline lineno="37"><highlight class="comment"><sp/>*<sp/><sp/><sp/>7:<sp/>light<sp/>pink</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/>*<sp/><sp/><sp/>8:<sp/>cyan</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"><sp/>*<sp/><sp/><sp/>9:<sp/>dark<sp/>green</highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/>*<sp/><sp/>10:<sp/>brown</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/>*<sp/><sp/>11:<sp/>orange</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/>*<sp/><sp/>12:<sp/>yellow</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/>*<sp/><sp/>13:<sp/>pink</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/>*<sp/><sp/>14:<sp/>purple</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/><sp/>15:<sp/>light<sp/>blue</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/><sp/>16:<sp/>muddy<sp/>green</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/><sp/>17:<sp/>white</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*<sp/><sp/>18:<sp/>light<sp/>grey</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*<sp/><sp/>19:<sp/>light<sp/>grey</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/>*<sp/><sp/>20:<sp/>light<sp/>grey</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="type__vbc_8h_1ade28dec7694b51161d2acc407b689ce8" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="type__vbc_8h_1ade28dec7694b51161d2acc407b689ce8" kindref="member">SCIP_VBCColor</ref></highlight></codeline>
+<codeline lineno="53"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="54" refid="type__vbc_8h_1ade28dec7694b51161d2acc407b689ce8a1303a24deefb6e60a8aa39e826dd8751" refkind="member"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__vbc_8h_1ade28dec7694b51161d2acc407b689ce8a1303a24deefb6e60a8aa39e826dd8751" kindref="member">SCIP_VBCCOLOR_UNSOLVED</ref><sp/><sp/><sp/>=<sp/><sp/>3,<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>color<sp/>for<sp/>newly<sp/>created,<sp/>unsolved<sp/>nodes<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="type__vbc_8h_1ade28dec7694b51161d2acc407b689ce8a811091321df90e374aa3bb009130c46d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__vbc_8h_1ade28dec7694b51161d2acc407b689ce8a811091321df90e374aa3bb009130c46d" kindref="member">SCIP_VBCCOLOR_SOLVED</ref><sp/><sp/><sp/><sp/><sp/>=<sp/><sp/>2,<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>color<sp/>for<sp/>solved<sp/>nodes<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="type__vbc_8h_1ade28dec7694b51161d2acc407b689ce8addcfe69ab76ecfa42fcee0f1e0a9cdd9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__vbc_8h_1ade28dec7694b51161d2acc407b689ce8addcfe69ab76ecfa42fcee0f1e0a9cdd9" kindref="member">SCIP_VBCCOLOR_CUTOFF</ref><sp/><sp/><sp/><sp/><sp/>=<sp/><sp/>4,<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>color<sp/>for<sp/>nodes<sp/>that<sp/>were<sp/>cut<sp/>off<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="type__vbc_8h_1ade28dec7694b51161d2acc407b689ce8aec6dd2aa7d2a10e11dea9e4c499f110f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__vbc_8h_1ade28dec7694b51161d2acc407b689ce8aec6dd2aa7d2a10e11dea9e4c499f110f" kindref="member">SCIP_VBCCOLOR_CONFLICT</ref><sp/><sp/><sp/>=<sp/>15,<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>color<sp/>for<sp/>nodes<sp/>where<sp/>a<sp/>conflict<sp/>constraint<sp/>was<sp/>found<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58" refid="type__vbc_8h_1ade28dec7694b51161d2acc407b689ce8a6b5da1d6590e8c5f95d81f347b493c20" refkind="member"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__vbc_8h_1ade28dec7694b51161d2acc407b689ce8a6b5da1d6590e8c5f95d81f347b493c20" kindref="member">SCIP_VBCCOLOR_MARKREPROP</ref><sp/>=<sp/>11,<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>color<sp/>for<sp/>nodes<sp/>that<sp/>were<sp/>marked<sp/>to<sp/>be<sp/>repropagated<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="type__vbc_8h_1ade28dec7694b51161d2acc407b689ce8a75d0f04eb370ebffd20d089072e1c435" refkind="member"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__vbc_8h_1ade28dec7694b51161d2acc407b689ce8a75d0f04eb370ebffd20d089072e1c435" kindref="member">SCIP_VBCCOLOR_REPROP</ref><sp/><sp/><sp/><sp/><sp/>=<sp/>12,<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>color<sp/>for<sp/>repropagated<sp/>nodes<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="type__vbc_8h_1ade28dec7694b51161d2acc407b689ce8a772272db93d8620bb4b8e46319102684" refkind="member"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__vbc_8h_1ade28dec7694b51161d2acc407b689ce8a772272db93d8620bb4b8e46319102684" kindref="member">SCIP_VBCCOLOR_SOLUTION</ref><sp/><sp/><sp/>=<sp/>14,<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>color<sp/>for<sp/>solved<sp/>nodes,<sp/>where<sp/>a<sp/>solution<sp/>has<sp/>been<sp/>found<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61" refid="type__vbc_8h_1ade28dec7694b51161d2acc407b689ce8ad88b2ad326bb7b82a80193e0cdc8d601" refkind="member"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__vbc_8h_1ade28dec7694b51161d2acc407b689ce8ad88b2ad326bb7b82a80193e0cdc8d601" kindref="member">SCIP_VBCCOLOR_NONE</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>-1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>color<sp/>should<sp/>not<sp/>be<sp/>changed<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="63" refid="type__vbc_8h_1a7af19cdc5104942bb52d1353c1c4faf5" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="type__vbc_8h_1ade28dec7694b51161d2acc407b689ce8" kindref="member">SCIP_VBCColor</ref><sp/><ref refid="type__vbc_8h_1a7af19cdc5104942bb52d1353c1c4faf5" kindref="member">SCIP_VBCCOLOR</ref>;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66" refid="type__vbc_8h_1a05f54c173e9fb960f687199c42a82a37" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">SCIP_Vbc<sp/><ref refid="type__vbc_8h_1a05f54c173e9fb960f687199c42a82a37" kindref="member">SCIP_VBC</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>VBC<sp/>Tool<sp/>data<sp/>structure<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/type_vbc.h"/>
+  </compounddef>
+</doxygen>

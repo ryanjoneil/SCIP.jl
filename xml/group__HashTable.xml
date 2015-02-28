@@ -1,0 +1,414 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.8">
+  <compounddef id="group__HashTable" kind="group">
+    <compoundname>HashTable</compoundname>
+    <title>Hash Table</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__HashTable_1ga88998585e83f8b9634e3de30c0064b24" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIPcalcHashtableSize</definition>
+        <argsstring>(int minsize)</argsstring>
+        <name>SCIPcalcHashtableSize</name>
+        <param>
+          <type>int</type>
+          <declname>minsize</declname>
+          <briefdescription><para>minimal size of the hash table </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns a reasonable hash table size (a prime number) that is at least as large as the specified value </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="344" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__HashTable_1ga710093a3fde556c004b45e027fc95544" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref></type>
+        <definition>SCIP_RETCODE SCIPhashtableCreate</definition>
+        <argsstring>(SCIP_HASHTABLE **hashtable, BMS_BLKMEM *blkmem, int tablesize, SCIP_DECL_HASHGETKEY((*hashgetkey)), SCIP_DECL_HASHKEYEQ((*hashkeyeq)), SCIP_DECL_HASHKEYVAL((*hashkeyval)), void *userptr)</argsstring>
+        <name>SCIPhashtableCreate</name>
+        <param>
+          <type><ref refid="type__misc_8h_1ad34b75a37536cdd2c578a3ada6554117" kindref="member">SCIP_HASHTABLE</ref> **</type>
+          <declname>hashtable</declname>
+          <briefdescription><para>pointer to store the created hash table </para></briefdescription>
+        </param>
+        <param>
+          <type>BMS_BLKMEM *</type>
+          <declname>blkmem</declname>
+          <briefdescription><para>block memory used to store hash table entries </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>tablesize</declname>
+          <briefdescription><para>size of the hash table </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="pub__var_8h_1a3d8785085e66bdf69c0052d62bcdf6b0" kindref="member">SCIP_DECL_HASHGETKEY</ref>((*hashgetkey))</type>
+        </param>
+        <param>
+          <type><ref refid="pub__var_8h_1a9e97a5bfa3f3893dfaa77abea445e2c1" kindref="member">SCIP_DECL_HASHKEYEQ</ref>((*hashkeyeq))</type>
+        </param>
+        <param>
+          <type><ref refid="pub__var_8h_1ab89262d32e8c5cb1d5676bb77ca92993" kindref="member">SCIP_DECL_HASHKEYVAL</ref>((*hashkeyval))</type>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>userptr</declname>
+          <briefdescription><para>user pointer </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>creates a hash table </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="350" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__HashTable_1ga196b167ef57e488adbf52344f6230285" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPhashtableFree</definition>
+        <argsstring>(SCIP_HASHTABLE **hashtable)</argsstring>
+        <name>SCIPhashtableFree</name>
+        <param>
+          <type><ref refid="type__misc_8h_1ad34b75a37536cdd2c578a3ada6554117" kindref="member">SCIP_HASHTABLE</ref> **</type>
+          <declname>hashtable</declname>
+          <briefdescription><para>pointer to the hash table </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>frees the hash table </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="362" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__HashTable_1ga4469d030912856aa4da7a48063ab58d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPhashtableClear</definition>
+        <argsstring>(SCIP_HASHTABLE *hashtable)</argsstring>
+        <name>SCIPhashtableClear</name>
+        <param>
+          <type><ref refid="type__misc_8h_1ad34b75a37536cdd2c578a3ada6554117" kindref="member">SCIP_HASHTABLE</ref> *</type>
+          <declname>hashtable</declname>
+          <briefdescription><para>hash table </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>removes all elements of the hash table</para><para><simplesect kind="note"><para>From a performance point of view you should not fill and clear a hash table too often since the clearing can be expensive. Clearing is done by looping over all buckets and removing the hash table lists one-by-one.</para></simplesect>
+<xrefsect id="deprecated_1_deprecated000001"><xreftitle>Deprecated</xreftitle><xrefdescription><para>Please use <ref refid="group__HashTable_1ga8942889cec8c64206cf464f75f720e11" kindref="member">SCIPhashtableRemoveAll()</ref> </para></xrefdescription></xrefsect></para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="374" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__HashTable_1gad499ca1ae44ec958411757d0cb8c2f74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref></type>
+        <definition>SCIP_RETCODE SCIPhashtableInsert</definition>
+        <argsstring>(SCIP_HASHTABLE *hashtable, void *element)</argsstring>
+        <name>SCIPhashtableInsert</name>
+        <param>
+          <type><ref refid="type__misc_8h_1ad34b75a37536cdd2c578a3ada6554117" kindref="member">SCIP_HASHTABLE</ref> *</type>
+          <declname>hashtable</declname>
+          <briefdescription><para>hash table </para></briefdescription>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>element</declname>
+          <briefdescription><para>element to insert into the table </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>inserts element in hash table (multiple inserts of same element possible)</para><para><simplesect kind="note"><para>A pointer to a hashtablelist returned by <ref refid="group__HashTable_1gae9c4d7208c3f38957f8eafa1094410ca" kindref="member">SCIPhashtableRetrieveNext()</ref> might get invalid when adding an element to the hash table, due to dynamic resizing. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="384" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__HashTable_1ga52179ec979e131317ffb07c9c9579ccb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref></type>
+        <definition>SCIP_RETCODE SCIPhashtableSafeInsert</definition>
+        <argsstring>(SCIP_HASHTABLE *hashtable, void *element)</argsstring>
+        <name>SCIPhashtableSafeInsert</name>
+        <param>
+          <type><ref refid="type__misc_8h_1ad34b75a37536cdd2c578a3ada6554117" kindref="member">SCIP_HASHTABLE</ref> *</type>
+          <declname>hashtable</declname>
+          <briefdescription><para>hash table </para></briefdescription>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>element</declname>
+          <briefdescription><para>element to insert into the table </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>inserts element in hash table (multiple insertion of same element is checked and results in an error)</para><para><simplesect kind="note"><para>A pointer to a hashtablelist returned by <ref refid="group__HashTable_1gae9c4d7208c3f38957f8eafa1094410ca" kindref="member">SCIPhashtableRetrieveNext()</ref> might get invalid when adding a new element to the hash table, due to dynamic resizing. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="395" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__HashTable_1ga38af5e199e72c2d1e9e30a50b92f02de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* SCIPhashtableRetrieve</definition>
+        <argsstring>(SCIP_HASHTABLE *hashtable, void *key)</argsstring>
+        <name>SCIPhashtableRetrieve</name>
+        <param>
+          <type><ref refid="type__misc_8h_1ad34b75a37536cdd2c578a3ada6554117" kindref="member">SCIP_HASHTABLE</ref> *</type>
+          <declname>hashtable</declname>
+          <briefdescription><para>hash table </para></briefdescription>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>key</declname>
+          <briefdescription><para>key to retrieve </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>retrieve element with key from hash table, returns NULL if not existing </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="402" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__HashTable_1gae9c4d7208c3f38957f8eafa1094410ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* SCIPhashtableRetrieveNext</definition>
+        <argsstring>(SCIP_HASHTABLE *hashtable, SCIP_HASHTABLELIST **hashtablelist, void *key)</argsstring>
+        <name>SCIPhashtableRetrieveNext</name>
+        <param>
+          <type><ref refid="type__misc_8h_1ad34b75a37536cdd2c578a3ada6554117" kindref="member">SCIP_HASHTABLE</ref> *</type>
+          <declname>hashtable</declname>
+          <briefdescription><para>hash table </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__misc_8h_1a627f6a0ea9509715be86152028c3b1c8" kindref="member">SCIP_HASHTABLELIST</ref> **</type>
+          <declname>hashtablelist</declname>
+          <briefdescription><para>input: entry in hash table list from which to start searching, or NULL output: entry in hash table list corresponding to element after retrieved one, or NULL </para></briefdescription>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>key</declname>
+          <briefdescription><para>key to retrieve </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>retrieve element with key from hash table, returns NULL if not existing can be used to retrieve all entries with the same key (one-by-one)</para><para><simplesect kind="note"><para>The returned hashtablelist pointer might get invalid when adding a new element to the hash table. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="413" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__HashTable_1ga21e69c964ab3785e1aaa36b2af74c720" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref></type>
+        <definition>SCIP_Bool SCIPhashtableExists</definition>
+        <argsstring>(SCIP_HASHTABLE *hashtable, void *element)</argsstring>
+        <name>SCIPhashtableExists</name>
+        <param>
+          <type><ref refid="type__misc_8h_1ad34b75a37536cdd2c578a3ada6554117" kindref="member">SCIP_HASHTABLE</ref> *</type>
+          <declname>hashtable</declname>
+          <briefdescription><para>hash table </para></briefdescription>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>element</declname>
+          <briefdescription><para>element to search in the table </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns whether the given element exists in the table </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="423" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__HashTable_1gad1088f82af9c0d3c1768e40aff2eb588" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref></type>
+        <definition>SCIP_RETCODE SCIPhashtableRemove</definition>
+        <argsstring>(SCIP_HASHTABLE *hashtable, void *element)</argsstring>
+        <name>SCIPhashtableRemove</name>
+        <param>
+          <type><ref refid="type__misc_8h_1ad34b75a37536cdd2c578a3ada6554117" kindref="member">SCIP_HASHTABLE</ref> *</type>
+          <declname>hashtable</declname>
+          <briefdescription><para>hash table </para></briefdescription>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>element</declname>
+          <briefdescription><para>element to remove from the table </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>removes element from the hash table, if it exists </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="430" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__HashTable_1ga8942889cec8c64206cf464f75f720e11" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPhashtableRemoveAll</definition>
+        <argsstring>(SCIP_HASHTABLE *hashtable)</argsstring>
+        <name>SCIPhashtableRemoveAll</name>
+        <param>
+          <type><ref refid="type__misc_8h_1ad34b75a37536cdd2c578a3ada6554117" kindref="member">SCIP_HASHTABLE</ref> *</type>
+          <declname>hashtable</declname>
+          <briefdescription><para>hash table </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>removes all elements of the hash table</para><para><simplesect kind="note"><para>From a performance point of view you should not fill and clear a hash table too often since the clearing can be expensive. Clearing is done by looping over all buckets and removing the hash table lists one-by-one. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="441" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__HashTable_1gafd5202e03bcde6fa474a0653cb48687a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a1e6171040084cc1f39f88e386238ee10" kindref="member">SCIP_Longint</ref></type>
+        <definition>SCIP_Longint SCIPhashtableGetNElements</definition>
+        <argsstring>(SCIP_HASHTABLE *hashtable)</argsstring>
+        <name>SCIPhashtableGetNElements</name>
+        <param>
+          <type><ref refid="type__misc_8h_1ad34b75a37536cdd2c578a3ada6554117" kindref="member">SCIP_HASHTABLE</ref> *</type>
+          <declname>hashtable</declname>
+          <briefdescription><para>hash table </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns number of hash table elements </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="447" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__HashTable_1gaa0de9e7fb99eaaa3c862ed0030ddaa6a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+        <definition>SCIP_Real SCIPhashtableGetLoad</definition>
+        <argsstring>(SCIP_HASHTABLE *hashtable)</argsstring>
+        <name>SCIPhashtableGetLoad</name>
+        <param>
+          <type><ref refid="type__misc_8h_1ad34b75a37536cdd2c578a3ada6554117" kindref="member">SCIP_HASHTABLE</ref> *</type>
+          <declname>hashtable</declname>
+          <briefdescription><para>hash table </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns the load of the given hash table in percentage </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="453" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__HashTable_1gac2acac23d58b25c23bbc71f48d57b256" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPhashtablePrintStatistics</definition>
+        <argsstring>(SCIP_HASHTABLE *hashtable, SCIP_MESSAGEHDLR *messagehdlr)</argsstring>
+        <name>SCIPhashtablePrintStatistics</name>
+        <param>
+          <type><ref refid="type__misc_8h_1ad34b75a37536cdd2c578a3ada6554117" kindref="member">SCIP_HASHTABLE</ref> *</type>
+          <declname>hashtable</declname>
+          <briefdescription><para>hash table </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__message_8h_1a7d71113339d14873806c1399442fae8d" kindref="member">SCIP_MESSAGEHDLR</ref> *</type>
+          <declname>messagehdlr</declname>
+          <briefdescription><para>message handler </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>prints statistics about hash table usage </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="459" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__HashTable_1ga52b1c0d0843ed79188f9372f1a5a6965" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SCIP_DECL_HASHKEYEQ</definition>
+        <argsstring>(SCIPhashKeyEqString)</argsstring>
+        <name>SCIP_DECL_HASHKEYEQ</name>
+        <param>
+          <type>SCIPhashKeyEqString</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>standard hash key comparator for string keys </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="466" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__HashTable_1ga8c05b46e1e9846136e6db221a663ae91" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SCIP_DECL_HASHKEYVAL</definition>
+        <argsstring>(SCIPhashKeyValString)</argsstring>
+        <name>SCIP_DECL_HASHKEYVAL</name>
+        <param>
+          <type>SCIPhashKeyValString</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>standard hashing function for string keys </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="470" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__HashTable_1gac7536110cb0a283654d0a5bb3d1cc6d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SCIP_DECL_HASHGETKEY</definition>
+        <argsstring>(SCIPhashGetKeyStandard)</argsstring>
+        <name>SCIP_DECL_HASHGETKEY</name>
+        <param>
+          <type>SCIPhashGetKeyStandard</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets the element as the key </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="474" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__HashTable_1ga115b44ec1cfc1e7dbe8aefb95e293734" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SCIP_DECL_HASHKEYEQ</definition>
+        <argsstring>(SCIPhashKeyEqPtr)</argsstring>
+        <name>SCIP_DECL_HASHKEYEQ</name>
+        <param>
+          <type>SCIPhashKeyEqPtr</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns TRUE iff both keys(pointer) are equal </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="478" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__HashTable_1gabc4946f129b5b4672d259235fd22c021" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SCIP_DECL_HASHKEYVAL</definition>
+        <argsstring>(SCIPhashKeyValPtr)</argsstring>
+        <name>SCIP_DECL_HASHKEYVAL</name>
+        <param>
+          <type>SCIPhashKeyValPtr</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns the hash value of the key </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="482" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

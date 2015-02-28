@@ -1,0 +1,718 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.8">
+  <compounddef id="exprinterpret__none_8c" kind="file">
+    <compoundname>exprinterpret_none.c</compoundname>
+    <includes refid="pub__message_8h" local="yes">scip/pub_message.h</includes>
+    <includes refid="exprinterpret_8h" local="yes">nlpi/exprinterpret.h</includes>
+    <incdepgraph>
+      <node id="3199">
+        <label>stdarg.h</label>
+      </node>
+      <node id="3212">
+        <label>scip/intervalarith.h</label>
+      </node>
+      <node id="3205">
+        <label>assert.h</label>
+      </node>
+      <node id="3211">
+        <label>nlpi/type_exprinterpret.h</label>
+        <link refid="type__exprinterpret_8h"/>
+      </node>
+      <node id="3204">
+        <label>float.h</label>
+      </node>
+      <node id="3203">
+        <label>limits.h</label>
+      </node>
+      <node id="3207">
+        <label>scip/type_message.h</label>
+        <link refid="type__message_8h"/>
+        <childnode refid="3201" relation="include">
+        </childnode>
+      </node>
+      <node id="3198">
+        <label>scip/pub_message.h</label>
+        <link refid="pub__message_8h"/>
+        <childnode refid="3199" relation="include">
+        </childnode>
+        <childnode refid="3200" relation="include">
+        </childnode>
+        <childnode refid="3207" relation="include">
+        </childnode>
+      </node>
+      <node id="3206">
+        <label>scip/type_retcode.h</label>
+        <link refid="type__retcode_8h"/>
+      </node>
+      <node id="3208">
+        <label>nlpi/exprinterpret.h</label>
+        <link refid="exprinterpret_8h"/>
+        <childnode refid="3200" relation="include">
+        </childnode>
+        <childnode refid="3209" relation="include">
+        </childnode>
+        <childnode refid="3210" relation="include">
+        </childnode>
+        <childnode refid="3211" relation="include">
+        </childnode>
+        <childnode refid="3212" relation="include">
+        </childnode>
+      </node>
+      <node id="3210">
+        <label>nlpi/type_expr.h</label>
+        <link refid="type__expr_8h"/>
+      </node>
+      <node id="3202">
+        <label>math.h</label>
+      </node>
+      <node id="3209">
+        <label>blockmemshell/memory.h</label>
+      </node>
+      <node id="3200">
+        <label>scip/def.h</label>
+        <link refid="def_8h"/>
+        <childnode refid="3201" relation="include">
+        </childnode>
+        <childnode refid="3202" relation="include">
+        </childnode>
+        <childnode refid="3203" relation="include">
+        </childnode>
+        <childnode refid="3204" relation="include">
+        </childnode>
+        <childnode refid="3205" relation="include">
+        </childnode>
+        <childnode refid="3206" relation="include">
+        </childnode>
+        <childnode refid="3198" relation="include">
+        </childnode>
+      </node>
+      <node id="3197">
+        <label>exprinterpret_none.c</label>
+        <link refid="exprinterpret_none.c"/>
+        <childnode refid="3198" relation="include">
+        </childnode>
+        <childnode refid="3208" relation="include">
+        </childnode>
+      </node>
+      <node id="3201">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="exprinterpret__none_8c_1aab5927c86d34c9735d6141e735519a67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char* SCIPexprintGetName</definition>
+        <argsstring>(void)</argsstring>
+        <name>SCIPexprintGetName</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets name and version of expression interpreter </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_none.c" line="33" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_none.c" bodystart="33" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="exprinterpret__none_8c_1a4addf369b73a9b708e099bf7a4e83f93" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char* SCIPexprintGetDesc</definition>
+        <argsstring>(void)</argsstring>
+        <name>SCIPexprintGetDesc</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets descriptive text of expression interpreter </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_none.c" line="41" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_none.c" bodystart="41" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="exprinterpret__none_8c_1a2662183d2706a17532fcee8c04304f1c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__exprinterpret_8h_1afedb326a7a0e4b9679b737ae4247ddd3" kindref="member">SCIP_EXPRINTCAPABILITY</ref></type>
+        <definition>SCIP_EXPRINTCAPABILITY SCIPexprintGetCapability</definition>
+        <argsstring>(void)</argsstring>
+        <name>SCIPexprintGetCapability</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets capabilities of expression interpreter (using bitflags) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_none.c" line="49" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_none.c" bodystart="49" bodyend="54"/>
+        <references refid="type__exprinterpret_8h_1a86f686c56eb486edca443b08ffd1d4bc" compoundref="type__exprinterpret_8h" startline="35">SCIP_EXPRINTCAPABILITY_NONE</references>
+      </memberdef>
+      <memberdef kind="function" id="exprinterpret__none_8c_1afa3d4e74943ca79f00707065f67a50af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref></type>
+        <definition>SCIP_RETCODE SCIPexprintCreate</definition>
+        <argsstring>(BMS_BLKMEM *blkmem, SCIP_EXPRINT **exprint)</argsstring>
+        <name>SCIPexprintCreate</name>
+        <param>
+          <type>BMS_BLKMEM *</type>
+          <declname>blkmem</declname>
+          <briefdescription><para>block memory data structure </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__exprinterpret_8h_1ae536b751483a00eeb75a93d372073b43" kindref="member">SCIP_EXPRINT</ref> **</type>
+          <declname>exprint</declname>
+          <briefdescription><para>buffer to store pointer to expression interpreter </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>creates an expression interpreter object </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_none.c" line="57" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_none.c" bodystart="57" bodyend="68"/>
+        <references refid="def_8h_1a7695e892dc456d85a3654eb158976921" compoundref="def_8h" startline="269">SCIP_ALLOC</references>
+        <references refid="type__retcode_8h_1a43415f0ed8d60fa1d0a4217226e37b5dab0a6b6b71b69bed810638b5e859e3b2b" compoundref="type__retcode_8h" startline="33">SCIP_OKAY</references>
+        <references refid="pub__message_8h_1a827dc20f17fd394bf206451a2289292e" compoundref="pub__message_8h" startline="77">SCIPdebugMessage</references>
+      </memberdef>
+      <memberdef kind="function" id="exprinterpret__none_8c_1a83ad91aa654a0ecbbdc8093350a15dca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref></type>
+        <definition>SCIP_RETCODE SCIPexprintFree</definition>
+        <argsstring>(SCIP_EXPRINT **exprint)</argsstring>
+        <name>SCIPexprintFree</name>
+        <param>
+          <type><ref refid="type__exprinterpret_8h_1ae536b751483a00eeb75a93d372073b43" kindref="member">SCIP_EXPRINT</ref> **</type>
+          <declname>exprint</declname>
+          <briefdescription><para>expression interpreter that should be freed </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>frees an expression interpreter object </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_none.c" line="71" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_none.c" bodystart="71" bodyend="78"/>
+        <references refid="type__retcode_8h_1a43415f0ed8d60fa1d0a4217226e37b5dab0a6b6b71b69bed810638b5e859e3b2b" compoundref="type__retcode_8h" startline="33">SCIP_OKAY</references>
+      </memberdef>
+      <memberdef kind="function" id="exprinterpret__none_8c_1ad4142b870bae28b64791d55da3ff4706" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref></type>
+        <definition>SCIP_RETCODE SCIPexprintCompile</definition>
+        <argsstring>(SCIP_EXPRINT *exprint, SCIP_EXPRTREE *tree)</argsstring>
+        <name>SCIPexprintCompile</name>
+        <param>
+          <type><ref refid="type__exprinterpret_8h_1ae536b751483a00eeb75a93d372073b43" kindref="member">SCIP_EXPRINT</ref> *</type>
+          <declname>exprint</declname>
+          <briefdescription><para>interpreter data structure </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__expr_8h_1a4ae8525548d76cb766394131bb405cf2" kindref="member">SCIP_EXPRTREE</ref> *</type>
+          <declname>tree</declname>
+          <briefdescription><para>expression tree </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>compiles an expression tree and stores compiled data in expression tree </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_none.c" line="81" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_none.c" bodystart="81" bodyend="87"/>
+        <references refid="type__retcode_8h_1a43415f0ed8d60fa1d0a4217226e37b5dab0a6b6b71b69bed810638b5e859e3b2b" compoundref="type__retcode_8h" startline="33">SCIP_OKAY</references>
+      </memberdef>
+      <memberdef kind="function" id="exprinterpret__none_8c_1af754d568d223fea54f16d89cedec0071" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref></type>
+        <definition>SCIP_RETCODE SCIPexprintFreeData</definition>
+        <argsstring>(SCIP_EXPRINTDATA **interpreterdata)</argsstring>
+        <name>SCIPexprintFreeData</name>
+        <param>
+          <type><ref refid="type__exprinterpret_8h_1a1cdd1eca7c5f8e8ac40e0c95e6f61346" kindref="member">SCIP_EXPRINTDATA</ref> **</type>
+          <declname>interpreterdata</declname>
+          <briefdescription><para>interpreter data that should freed </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>frees interpreter data </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_none.c" line="90" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_none.c" bodystart="90" bodyend="98"/>
+        <references refid="def_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" compoundref="def_8h" startline="188">NULL</references>
+        <references refid="type__retcode_8h_1a43415f0ed8d60fa1d0a4217226e37b5dab0a6b6b71b69bed810638b5e859e3b2b" compoundref="type__retcode_8h" startline="33">SCIP_OKAY</references>
+      </memberdef>
+      <memberdef kind="function" id="exprinterpret__none_8c_1a3d4949b971ff0ba837e39c4dc140e6d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref></type>
+        <definition>SCIP_RETCODE SCIPexprintNewParametrization</definition>
+        <argsstring>(SCIP_EXPRINT *exprint, SCIP_EXPRTREE *tree)</argsstring>
+        <name>SCIPexprintNewParametrization</name>
+        <param>
+          <type><ref refid="type__exprinterpret_8h_1ae536b751483a00eeb75a93d372073b43" kindref="member">SCIP_EXPRINT</ref> *</type>
+          <declname>exprint</declname>
+          <briefdescription><para>interpreter data structure </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__expr_8h_1a4ae8525548d76cb766394131bb405cf2" kindref="member">SCIP_EXPRTREE</ref> *</type>
+          <declname>tree</declname>
+          <briefdescription><para>expression tree </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>notify expression interpreter that a new parameterization is used this probably causes retaping by AD algorithms </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_none.c" line="103" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_none.c" bodystart="103" bodyend="109"/>
+        <references refid="type__retcode_8h_1a43415f0ed8d60fa1d0a4217226e37b5dab0a6b6b71b69bed810638b5e859e3b2b" compoundref="type__retcode_8h" startline="33">SCIP_OKAY</references>
+      </memberdef>
+      <memberdef kind="function" id="exprinterpret__none_8c_1a5e8e6006a0fa17a353c06ab530ebcae2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref></type>
+        <definition>SCIP_RETCODE SCIPexprintEval</definition>
+        <argsstring>(SCIP_EXPRINT *exprint, SCIP_EXPRTREE *tree, SCIP_Real *varvals, SCIP_Real *val)</argsstring>
+        <name>SCIPexprintEval</name>
+        <param>
+          <type><ref refid="type__exprinterpret_8h_1ae536b751483a00eeb75a93d372073b43" kindref="member">SCIP_EXPRINT</ref> *</type>
+          <declname>exprint</declname>
+          <briefdescription><para>interpreter data structure </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__expr_8h_1a4ae8525548d76cb766394131bb405cf2" kindref="member">SCIP_EXPRTREE</ref> *</type>
+          <declname>tree</declname>
+          <briefdescription><para>expression tree </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref> *</type>
+          <declname>varvals</declname>
+          <briefdescription><para>values of variables </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref> *</type>
+          <declname>val</declname>
+          <briefdescription><para>buffer to store value </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>evaluates an expression tree </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_none.c" line="112" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_none.c" bodystart="112" bodyend="121"/>
+        <references refid="type__retcode_8h_1a43415f0ed8d60fa1d0a4217226e37b5da5a46da6c17a8705ac5f302826d4267ab" compoundref="type__retcode_8h" startline="45">SCIP_PLUGINNOTFOUND</references>
+        <references refid="pub__message_8h_1a354566c209c3a7fe5c870d4ee8c07bc5" compoundref="pub__message_8h" startline="45">SCIPerrorMessage</references>
+      </memberdef>
+      <memberdef kind="function" id="exprinterpret__none_8c_1a7dc4aaad187f200f28e8c9345f83007b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref></type>
+        <definition>SCIP_RETCODE SCIPexprintEvalInt</definition>
+        <argsstring>(SCIP_EXPRINT *exprint, SCIP_EXPRTREE *tree, SCIP_Real infinity, SCIP_INTERVAL *varvals, SCIP_INTERVAL *val)</argsstring>
+        <name>SCIPexprintEvalInt</name>
+        <param>
+          <type><ref refid="type__exprinterpret_8h_1ae536b751483a00eeb75a93d372073b43" kindref="member">SCIP_EXPRINT</ref> *</type>
+          <declname>exprint</declname>
+          <briefdescription><para>interpreter data structure </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__expr_8h_1a4ae8525548d76cb766394131bb405cf2" kindref="member">SCIP_EXPRTREE</ref> *</type>
+          <declname>tree</declname>
+          <briefdescription><para>expression tree </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+          <declname>infinity</declname>
+          <briefdescription><para>value for infinity </para></briefdescription>
+        </param>
+        <param>
+          <type>SCIP_INTERVAL *</type>
+          <declname>varvals</declname>
+          <briefdescription><para>interval values of variables </para></briefdescription>
+        </param>
+        <param>
+          <type>SCIP_INTERVAL *</type>
+          <declname>val</declname>
+          <briefdescription><para>buffer to store interval value of expression </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>evaluates an expression tree on intervals </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_none.c" line="124" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_none.c" bodystart="124" bodyend="134"/>
+        <references refid="type__retcode_8h_1a43415f0ed8d60fa1d0a4217226e37b5da5a46da6c17a8705ac5f302826d4267ab" compoundref="type__retcode_8h" startline="45">SCIP_PLUGINNOTFOUND</references>
+        <references refid="pub__message_8h_1a354566c209c3a7fe5c870d4ee8c07bc5" compoundref="pub__message_8h" startline="45">SCIPerrorMessage</references>
+      </memberdef>
+      <memberdef kind="function" id="exprinterpret__none_8c_1a951003903b4819772f2643d0efc5b10a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref></type>
+        <definition>SCIP_RETCODE SCIPexprintGrad</definition>
+        <argsstring>(SCIP_EXPRINT *exprint, SCIP_EXPRTREE *tree, SCIP_Real *varvals, SCIP_Bool new_varvals, SCIP_Real *val, SCIP_Real *gradient)</argsstring>
+        <name>SCIPexprintGrad</name>
+        <param>
+          <type><ref refid="type__exprinterpret_8h_1ae536b751483a00eeb75a93d372073b43" kindref="member">SCIP_EXPRINT</ref> *</type>
+          <declname>exprint</declname>
+          <briefdescription><para>interpreter data structure </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__expr_8h_1a4ae8525548d76cb766394131bb405cf2" kindref="member">SCIP_EXPRTREE</ref> *</type>
+          <declname>tree</declname>
+          <briefdescription><para>expression tree </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref> *</type>
+          <declname>varvals</declname>
+          <briefdescription><para>values of variables, can be NULL if new_varvals is FALSE </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref></type>
+          <declname>new_varvals</declname>
+          <briefdescription><para>have variable values changed since last call to a point evaluation routine? </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref> *</type>
+          <declname>val</declname>
+          <briefdescription><para>buffer to store expression value </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref> *</type>
+          <declname>gradient</declname>
+          <briefdescription><para>buffer to store expression gradient, need to have length at least SCIPexprtreeGetNVars(tree) </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>computes value and gradient of an expression tree </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_none.c" line="137" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_none.c" bodystart="137" bodyend="148"/>
+        <references refid="type__retcode_8h_1a43415f0ed8d60fa1d0a4217226e37b5da5a46da6c17a8705ac5f302826d4267ab" compoundref="type__retcode_8h" startline="45">SCIP_PLUGINNOTFOUND</references>
+        <references refid="pub__message_8h_1a354566c209c3a7fe5c870d4ee8c07bc5" compoundref="pub__message_8h" startline="45">SCIPerrorMessage</references>
+      </memberdef>
+      <memberdef kind="function" id="exprinterpret__none_8c_1adf40904b5c1ad96ac217d40a9ddd2aa9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref></type>
+        <definition>SCIP_RETCODE SCIPexprintGradInt</definition>
+        <argsstring>(SCIP_EXPRINT *exprint, SCIP_EXPRTREE *tree, SCIP_Real infinity, SCIP_INTERVAL *varvals, SCIP_Bool new_varvals, SCIP_INTERVAL *val, SCIP_INTERVAL *gradient)</argsstring>
+        <name>SCIPexprintGradInt</name>
+        <param>
+          <type><ref refid="type__exprinterpret_8h_1ae536b751483a00eeb75a93d372073b43" kindref="member">SCIP_EXPRINT</ref> *</type>
+          <declname>exprint</declname>
+          <briefdescription><para>interpreter data structure </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__expr_8h_1a4ae8525548d76cb766394131bb405cf2" kindref="member">SCIP_EXPRTREE</ref> *</type>
+          <declname>tree</declname>
+          <briefdescription><para>expression tree </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+          <declname>infinity</declname>
+          <briefdescription><para>value for infinity </para></briefdescription>
+        </param>
+        <param>
+          <type>SCIP_INTERVAL *</type>
+          <declname>varvals</declname>
+          <briefdescription><para>interval values of variables, can be NULL if new_varvals is FALSE </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref></type>
+          <declname>new_varvals</declname>
+          <briefdescription><para>have variable interval values changed since last call to an interval evaluation routine? </para></briefdescription>
+        </param>
+        <param>
+          <type>SCIP_INTERVAL *</type>
+          <declname>val</declname>
+          <briefdescription><para>buffer to store expression interval value </para></briefdescription>
+        </param>
+        <param>
+          <type>SCIP_INTERVAL *</type>
+          <declname>gradient</declname>
+          <briefdescription><para>buffer to store expression interval gradient, need to have length at least SCIPexprtreeGetNVars(tree) </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>computes interval value and interval gradient of an expression tree </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_none.c" line="151" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_none.c" bodystart="151" bodyend="163"/>
+        <references refid="type__retcode_8h_1a43415f0ed8d60fa1d0a4217226e37b5da5a46da6c17a8705ac5f302826d4267ab" compoundref="type__retcode_8h" startline="45">SCIP_PLUGINNOTFOUND</references>
+        <references refid="pub__message_8h_1a354566c209c3a7fe5c870d4ee8c07bc5" compoundref="pub__message_8h" startline="45">SCIPerrorMessage</references>
+      </memberdef>
+      <memberdef kind="function" id="exprinterpret__none_8c_1a4e3afb5fe90e10cb9e116b66a6a6bede" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref></type>
+        <definition>SCIP_RETCODE SCIPexprintHessianSparsityDense</definition>
+        <argsstring>(SCIP_EXPRINT *exprint, SCIP_EXPRTREE *tree, SCIP_Real *varvals, SCIP_Bool *sparsity)</argsstring>
+        <name>SCIPexprintHessianSparsityDense</name>
+        <param>
+          <type><ref refid="type__exprinterpret_8h_1ae536b751483a00eeb75a93d372073b43" kindref="member">SCIP_EXPRINT</ref> *</type>
+          <declname>exprint</declname>
+          <briefdescription><para>interpreter data structure </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__expr_8h_1a4ae8525548d76cb766394131bb405cf2" kindref="member">SCIP_EXPRTREE</ref> *</type>
+          <declname>tree</declname>
+          <briefdescription><para>expression tree </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref> *</type>
+          <declname>varvals</declname>
+          <briefdescription><para>values of variables </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref> *</type>
+          <declname>sparsity</declname>
+          <briefdescription><para>buffer to store sparsity pattern of Hessian, sparsity[i+n*j] indicates whether entry (i,j) is nonzero in the hessian </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gives sparsity pattern of hessian NOTE: this function might be replaced later by something nicer Since the AD code might need to do a forward sweep, you should pass variable values in here. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_none.c" line="169" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_none.c" bodystart="169" bodyend="178"/>
+        <references refid="type__retcode_8h_1a43415f0ed8d60fa1d0a4217226e37b5da5a46da6c17a8705ac5f302826d4267ab" compoundref="type__retcode_8h" startline="45">SCIP_PLUGINNOTFOUND</references>
+        <references refid="pub__message_8h_1a354566c209c3a7fe5c870d4ee8c07bc5" compoundref="pub__message_8h" startline="45">SCIPerrorMessage</references>
+      </memberdef>
+      <memberdef kind="function" id="exprinterpret__none_8c_1abd322fc0556700c1a41144bbbc0f9386" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref></type>
+        <definition>SCIP_RETCODE SCIPexprintHessianDense</definition>
+        <argsstring>(SCIP_EXPRINT *exprint, SCIP_EXPRTREE *tree, SCIP_Real *varvals, SCIP_Bool new_varvals, SCIP_Real *val, SCIP_Real *hessian)</argsstring>
+        <name>SCIPexprintHessianDense</name>
+        <param>
+          <type><ref refid="type__exprinterpret_8h_1ae536b751483a00eeb75a93d372073b43" kindref="member">SCIP_EXPRINT</ref> *</type>
+          <declname>exprint</declname>
+          <briefdescription><para>interpreter data structure </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__expr_8h_1a4ae8525548d76cb766394131bb405cf2" kindref="member">SCIP_EXPRTREE</ref> *</type>
+          <declname>tree</declname>
+          <briefdescription><para>expression tree </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref> *</type>
+          <declname>varvals</declname>
+          <briefdescription><para>values of variables, can be NULL if new_varvals is FALSE </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref></type>
+          <declname>new_varvals</declname>
+          <briefdescription><para>have variable values changed since last call to an evaluation routine? </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref> *</type>
+          <declname>val</declname>
+          <briefdescription><para>buffer to store function value </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref> *</type>
+          <declname>hessian</declname>
+          <briefdescription><para>buffer to store hessian values, need to have size at least n*n </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>computes value and dense hessian of an expression tree the full hessian is computed (lower left and upper right triangle) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_none.c" line="183" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_none.c" bodystart="183" bodyend="194"/>
+        <references refid="type__retcode_8h_1a43415f0ed8d60fa1d0a4217226e37b5da5a46da6c17a8705ac5f302826d4267ab" compoundref="type__retcode_8h" startline="45">SCIP_PLUGINNOTFOUND</references>
+        <references refid="pub__message_8h_1a354566c209c3a7fe5c870d4ee8c07bc5" compoundref="pub__message_8h" startline="45">SCIPerrorMessage</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>function definitions for nonexisting expression interpreter to resolve linking references </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Stefan Vigerske </para></simplesect>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>This<sp/>file<sp/>is<sp/>part<sp/>of<sp/>the<sp/>program<sp/>and<sp/>library<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SCIP<sp/>---<sp/>Solving<sp/>Constraint<sp/>Integer<sp/>Programs<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/>Copyright<sp/>(C)<sp/>2002-2014<sp/>Konrad-Zuse-Zentrum<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fuer<sp/>Informationstechnik<sp/>Berlin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>SCIP<sp/>is<sp/>distributed<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>ZIB<sp/>Academic<sp/>License.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>You<sp/>should<sp/>have<sp/>received<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>ZIB<sp/>Academic<sp/>License<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>along<sp/>with<sp/>SCIP;<sp/>see<sp/>the<sp/>file<sp/>COPYING.<sp/>If<sp/>not<sp/>email<sp/>to<sp/>scip@zib.de.<sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="16"><highlight class="comment">/**@file<sp/><sp/><sp/><sp/>exprinterpret_none.c</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>@brief<sp/><sp/><sp/>function<sp/>definitions<sp/>for<sp/>nonexisting<sp/>expression<sp/>interpreter<sp/>to<sp/>resolve<sp/>linking<sp/>references</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>@ingroup<sp/>EXPRINTS</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>@author<sp/><sp/>Stefan<sp/>Vigerske</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">/*---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8----+----9----+----0----+----1----+----2*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="pub__message_8h" kindref="compound">scip/pub_message.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="exprinterpret_8h" kindref="compound">nlpi/exprinterpret.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">SCIP_ExprInt</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>dummy;<sp/><sp/></highlight><highlight class="comment">/*lint<sp/>!e830*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="32"><highlight class="comment">/**<sp/>gets<sp/>name<sp/>and<sp/>version<sp/>of<sp/>expression<sp/>interpreter<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="exprinterpret__none_8c_1aab5927c86d34c9735d6141e735519a67" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="exprinterpret__none_8c_1aab5927c86d34c9735d6141e735519a67" kindref="member">SCIPexprintGetName</ref>(</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;NONE&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">/*lint<sp/>!e715*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="40"><highlight class="comment">/**<sp/>gets<sp/>descriptive<sp/>text<sp/>of<sp/>expression<sp/>interpreter<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="exprinterpret__none_8c_1a4addf369b73a9b708e099bf7a4e83f93" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="exprinterpret__none_8c_1a4addf369b73a9b708e099bf7a4e83f93" kindref="member">SCIPexprintGetDesc</ref>(</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;dummy<sp/>expression<sp/>interpreter<sp/>which<sp/>solely<sp/>purpose<sp/>it<sp/>is<sp/>to<sp/>resolve<sp/>linking<sp/>symbols&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">/*lint<sp/>!e715*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="48"><highlight class="comment">/**<sp/>gets<sp/>capabilities<sp/>of<sp/>expression<sp/>interpreter<sp/>(using<sp/>bitflags)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="exprinterpret__none_8c_1a2662183d2706a17532fcee8c04304f1c" refkind="member"><highlight class="normal"><ref refid="type__exprinterpret_8h_1afedb326a7a0e4b9679b737ae4247ddd3" kindref="member">SCIP_EXPRINTCAPABILITY</ref><sp/><ref refid="exprinterpret__none_8c_1a2662183d2706a17532fcee8c04304f1c" kindref="member">SCIPexprintGetCapability</ref>(</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="type__exprinterpret_8h_1a86f686c56eb486edca443b08ffd1d4bc" kindref="member">SCIP_EXPRINTCAPABILITY_NONE</ref>;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">/*lint<sp/>!e715*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="56"><highlight class="comment">/**<sp/>creates<sp/>an<sp/>expression<sp/>interpreter<sp/>object<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="exprinterpret__none_8c_1afa3d4e74943ca79f00707065f67a50af" refkind="member"><highlight class="normal"><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref><sp/><ref refid="exprinterpret__none_8c_1afa3d4e74943ca79f00707065f67a50af" kindref="member">SCIPexprintCreate</ref>(</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/>BMS_BLKMEM*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>blkmem,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>block<sp/>memory<sp/>data<sp/>structure<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__exprinterpret_8h_1ae536b751483a00eeb75a93d372073b43" kindref="member">SCIP_EXPRINT</ref>**<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>exprint<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>buffer<sp/>to<sp/>store<sp/>pointer<sp/>to<sp/>expression<sp/>interpreter<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="61"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><ref refid="pub__message_8h_1a827dc20f17fd394bf206451a2289292e" kindref="member">SCIPdebugMessage</ref>(</highlight><highlight class="stringliteral">&quot;SCIPexprintCreate()\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><ref refid="pub__message_8h_1a827dc20f17fd394bf206451a2289292e" kindref="member">SCIPdebugMessage</ref>(</highlight><highlight class="stringliteral">&quot;Note<sp/>that<sp/>there<sp/>is<sp/>no<sp/>expression<sp/>interpreter<sp/>linked<sp/>to<sp/>the<sp/>binary.\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><ref refid="def_8h_1a7695e892dc456d85a3654eb158976921" kindref="member">SCIP_ALLOC</ref>(<sp/>BMSallocMemory(exprint)<sp/>);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="type__retcode_8h_1a43415f0ed8d60fa1d0a4217226e37b5dab0a6b6b71b69bed810638b5e859e3b2b" kindref="member">SCIP_OKAY</ref>;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">/*lint<sp/>!e715*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="70"><highlight class="comment">/**<sp/>frees<sp/>an<sp/>expression<sp/>interpreter<sp/>object<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71" refid="exprinterpret__none_8c_1a83ad91aa654a0ecbbdc8093350a15dca" refkind="member"><highlight class="normal"><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref><sp/><ref refid="exprinterpret__none_8c_1a83ad91aa654a0ecbbdc8093350a15dca" kindref="member">SCIPexprintFree</ref>(</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__exprinterpret_8h_1ae536b751483a00eeb75a93d372073b43" kindref="member">SCIP_EXPRINT</ref>**<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>exprint<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>expression<sp/>interpreter<sp/>that<sp/>should<sp/>be<sp/>freed<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="74"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/>BMSfreeMemory(exprint);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="type__retcode_8h_1a43415f0ed8d60fa1d0a4217226e37b5dab0a6b6b71b69bed810638b5e859e3b2b" kindref="member">SCIP_OKAY</ref>;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">/*lint<sp/>!e715*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="80"><highlight class="comment">/**<sp/>compiles<sp/>an<sp/>expression<sp/>tree<sp/>and<sp/>stores<sp/>compiled<sp/>data<sp/>in<sp/>expression<sp/>tree<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81" refid="exprinterpret__none_8c_1ad4142b870bae28b64791d55da3ff4706" refkind="member"><highlight class="normal"><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref><sp/><ref refid="exprinterpret__none_8c_1ad4142b870bae28b64791d55da3ff4706" kindref="member">SCIPexprintCompile</ref>(</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__exprinterpret_8h_1ae536b751483a00eeb75a93d372073b43" kindref="member">SCIP_EXPRINT</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>exprint,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>interpreter<sp/>data<sp/>structure<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__expr_8h_1a4ae8525548d76cb766394131bb405cf2" kindref="member">SCIP_EXPRTREE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tree<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>expression<sp/>tree<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="85"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="type__retcode_8h_1a43415f0ed8d60fa1d0a4217226e37b5dab0a6b6b71b69bed810638b5e859e3b2b" kindref="member">SCIP_OKAY</ref>;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">/*lint<sp/>!e715*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="89"><highlight class="comment">/**<sp/>frees<sp/>interpreter<sp/>data<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90" refid="exprinterpret__none_8c_1af754d568d223fea54f16d89cedec0071" refkind="member"><highlight class="normal"><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref><sp/><ref refid="exprinterpret__none_8c_1af754d568d223fea54f16d89cedec0071" kindref="member">SCIPexprintFreeData</ref>(</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__exprinterpret_8h_1a1cdd1eca7c5f8e8ac40e0c95e6f61346" kindref="member">SCIP_EXPRINTDATA</ref>**<sp/><sp/><sp/><sp/>interpreterdata<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>interpreter<sp/>data<sp/>that<sp/>should<sp/>freed<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="93"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/>assert(interpreterdata<sp/><sp/>!=<sp/><ref refid="def_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/>assert(*interpreterdata<sp/>==<sp/><ref refid="def_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="type__retcode_8h_1a43415f0ed8d60fa1d0a4217226e37b5dab0a6b6b71b69bed810638b5e859e3b2b" kindref="member">SCIP_OKAY</ref>;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">/*lint<sp/>!e715*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="100"><highlight class="comment">/**<sp/>notify<sp/>expression<sp/>interpreter<sp/>that<sp/>a<sp/>new<sp/>parameterization<sp/>is<sp/>used</highlight></codeline>
+<codeline lineno="101"><highlight class="comment"><sp/>*<sp/>this<sp/>probably<sp/>causes<sp/>retaping<sp/>by<sp/>AD<sp/>algorithms</highlight></codeline>
+<codeline lineno="102"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103" refid="exprinterpret__none_8c_1a3d4949b971ff0ba837e39c4dc140e6d5" refkind="member"><highlight class="normal"><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref><sp/><ref refid="exprinterpret__none_8c_1a3d4949b971ff0ba837e39c4dc140e6d5" kindref="member">SCIPexprintNewParametrization</ref>(</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__exprinterpret_8h_1ae536b751483a00eeb75a93d372073b43" kindref="member">SCIP_EXPRINT</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>exprint,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>interpreter<sp/>data<sp/>structure<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__expr_8h_1a4ae8525548d76cb766394131bb405cf2" kindref="member">SCIP_EXPRTREE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tree<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>expression<sp/>tree<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="107"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="type__retcode_8h_1a43415f0ed8d60fa1d0a4217226e37b5dab0a6b6b71b69bed810638b5e859e3b2b" kindref="member">SCIP_OKAY</ref>;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">/*lint<sp/>!e715*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="111"><highlight class="comment">/**<sp/>evaluates<sp/>an<sp/>expression<sp/>tree<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112" refid="exprinterpret__none_8c_1a5e8e6006a0fa17a353c06ab530ebcae2" refkind="member"><highlight class="normal"><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref><sp/><ref refid="exprinterpret__none_8c_1a5e8e6006a0fa17a353c06ab530ebcae2" kindref="member">SCIPexprintEval</ref>(</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__exprinterpret_8h_1ae536b751483a00eeb75a93d372073b43" kindref="member">SCIP_EXPRINT</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>exprint,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>interpreter<sp/>data<sp/>structure<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__expr_8h_1a4ae8525548d76cb766394131bb405cf2" kindref="member">SCIP_EXPRTREE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tree,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>expression<sp/>tree<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>varvals,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>values<sp/>of<sp/>variables<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>val<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>buffer<sp/>to<sp/>store<sp/>value<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="118"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><ref refid="pub__message_8h_1a354566c209c3a7fe5c870d4ee8c07bc5" kindref="member">SCIPerrorMessage</ref>(</highlight><highlight class="stringliteral">&quot;No<sp/>expression<sp/>interpreter<sp/>linked<sp/>to<sp/>SCIP,<sp/>try<sp/>recompiling<sp/>with<sp/>EXPRINT=cppad.\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="type__retcode_8h_1a43415f0ed8d60fa1d0a4217226e37b5da5a46da6c17a8705ac5f302826d4267ab" kindref="member">SCIP_PLUGINNOTFOUND</ref>;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">/*lint<sp/>!e715*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="123"><highlight class="comment">/**<sp/>evaluates<sp/>an<sp/>expression<sp/>tree<sp/>on<sp/>intervals<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124" refid="exprinterpret__none_8c_1a7dc4aaad187f200f28e8c9345f83007b" refkind="member"><highlight class="normal"><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref><sp/><ref refid="exprinterpret__none_8c_1a7dc4aaad187f200f28e8c9345f83007b" kindref="member">SCIPexprintEvalInt</ref>(</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__exprinterpret_8h_1ae536b751483a00eeb75a93d372073b43" kindref="member">SCIP_EXPRINT</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>exprint,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>interpreter<sp/>data<sp/>structure<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__expr_8h_1a4ae8525548d76cb766394131bb405cf2" kindref="member">SCIP_EXPRTREE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tree,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>expression<sp/>tree<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>infinity,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>value<sp/>for<sp/>infinity<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/>SCIP_INTERVAL*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>varvals,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>interval<sp/>values<sp/>of<sp/>variables<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/>SCIP_INTERVAL*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>val<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>buffer<sp/>to<sp/>store<sp/>interval<sp/>value<sp/>of<sp/>expression<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="131"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><ref refid="pub__message_8h_1a354566c209c3a7fe5c870d4ee8c07bc5" kindref="member">SCIPerrorMessage</ref>(</highlight><highlight class="stringliteral">&quot;No<sp/>expression<sp/>interpreter<sp/>linked<sp/>to<sp/>SCIP,<sp/>try<sp/>recompiling<sp/>with<sp/>EXPRINT=cppad.\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="type__retcode_8h_1a43415f0ed8d60fa1d0a4217226e37b5da5a46da6c17a8705ac5f302826d4267ab" kindref="member">SCIP_PLUGINNOTFOUND</ref>;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">/*lint<sp/>!e715*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="136"><highlight class="comment">/**<sp/>computes<sp/>value<sp/>and<sp/>gradient<sp/>of<sp/>an<sp/>expression<sp/>tree<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137" refid="exprinterpret__none_8c_1a951003903b4819772f2643d0efc5b10a" refkind="member"><highlight class="normal"><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref><sp/><ref refid="exprinterpret__none_8c_1a951003903b4819772f2643d0efc5b10a" kindref="member">SCIPexprintGrad</ref>(</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__exprinterpret_8h_1ae536b751483a00eeb75a93d372073b43" kindref="member">SCIP_EXPRINT</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>exprint,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>interpreter<sp/>data<sp/>structure<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__expr_8h_1a4ae8525548d76cb766394131bb405cf2" kindref="member">SCIP_EXPRTREE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tree,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>expression<sp/>tree<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>varvals,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>values<sp/>of<sp/>variables,<sp/>can<sp/>be<sp/>NULL<sp/>if<sp/>new_varvals<sp/>is<sp/>FALSE<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>new_varvals,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>have<sp/>variable<sp/>values<sp/>changed<sp/>since<sp/>last<sp/>call<sp/>to<sp/>a<sp/>point<sp/>evaluation<sp/>routine?<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>val,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>buffer<sp/>to<sp/>store<sp/>expression<sp/>value<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gradient<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>buffer<sp/>to<sp/>store<sp/>expression<sp/>gradient,<sp/>need<sp/>to<sp/>have<sp/>length<sp/>at<sp/>least<sp/>SCIPexprtreeGetNVars(tree)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="145"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><ref refid="pub__message_8h_1a354566c209c3a7fe5c870d4ee8c07bc5" kindref="member">SCIPerrorMessage</ref>(</highlight><highlight class="stringliteral">&quot;No<sp/>expression<sp/>interpreter<sp/>linked<sp/>to<sp/>SCIP,<sp/>try<sp/>recompiling<sp/>with<sp/>EXPRINT=cppad.\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="type__retcode_8h_1a43415f0ed8d60fa1d0a4217226e37b5da5a46da6c17a8705ac5f302826d4267ab" kindref="member">SCIP_PLUGINNOTFOUND</ref>;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">/*lint<sp/>!e715*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="150"><highlight class="comment">/**<sp/>computes<sp/>interval<sp/>value<sp/>and<sp/>interval<sp/>gradient<sp/>of<sp/>an<sp/>expression<sp/>tree<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151" refid="exprinterpret__none_8c_1adf40904b5c1ad96ac217d40a9ddd2aa9" refkind="member"><highlight class="normal"><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref><sp/><ref refid="exprinterpret__none_8c_1adf40904b5c1ad96ac217d40a9ddd2aa9" kindref="member">SCIPexprintGradInt</ref>(</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__exprinterpret_8h_1ae536b751483a00eeb75a93d372073b43" kindref="member">SCIP_EXPRINT</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>exprint,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>interpreter<sp/>data<sp/>structure<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__expr_8h_1a4ae8525548d76cb766394131bb405cf2" kindref="member">SCIP_EXPRTREE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tree,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>expression<sp/>tree<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>infinity,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>value<sp/>for<sp/>infinity<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/>SCIP_INTERVAL*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>varvals,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>interval<sp/>values<sp/>of<sp/>variables,<sp/>can<sp/>be<sp/>NULL<sp/>if<sp/>new_varvals<sp/>is<sp/>FALSE<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>new_varvals,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>have<sp/>variable<sp/>interval<sp/>values<sp/>changed<sp/>since<sp/>last<sp/>call<sp/>to<sp/>an<sp/>interval<sp/>evaluation<sp/>routine?<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/>SCIP_INTERVAL*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>val,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>buffer<sp/>to<sp/>store<sp/>expression<sp/>interval<sp/>value<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/>SCIP_INTERVAL*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gradient<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>buffer<sp/>to<sp/>store<sp/>expression<sp/>interval<sp/>gradient,<sp/>need<sp/>to<sp/>have<sp/>length<sp/>at<sp/>least<sp/>SCIPexprtreeGetNVars(tree)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="160"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><ref refid="pub__message_8h_1a354566c209c3a7fe5c870d4ee8c07bc5" kindref="member">SCIPerrorMessage</ref>(</highlight><highlight class="stringliteral">&quot;No<sp/>expression<sp/>interpreter<sp/>linked<sp/>to<sp/>SCIP,<sp/>try<sp/>recompiling<sp/>with<sp/>EXPRINT=cppad.\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="type__retcode_8h_1a43415f0ed8d60fa1d0a4217226e37b5da5a46da6c17a8705ac5f302826d4267ab" kindref="member">SCIP_PLUGINNOTFOUND</ref>;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">/*lint<sp/>!e715*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="165"><highlight class="comment">/**<sp/>gives<sp/>sparsity<sp/>pattern<sp/>of<sp/>hessian</highlight></codeline>
+<codeline lineno="166"><highlight class="comment"><sp/>*<sp/>NOTE:<sp/>this<sp/>function<sp/>might<sp/>be<sp/>replaced<sp/>later<sp/>by<sp/>something<sp/>nicer<sp/></highlight></codeline>
+<codeline lineno="167"><highlight class="comment"><sp/>*<sp/>Since<sp/>the<sp/>AD<sp/>code<sp/>might<sp/>need<sp/>to<sp/>do<sp/>a<sp/>forward<sp/>sweep,<sp/>you<sp/>should<sp/>pass<sp/>variable<sp/>values<sp/>in<sp/>here.</highlight></codeline>
+<codeline lineno="168"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169" refid="exprinterpret__none_8c_1a4e3afb5fe90e10cb9e116b66a6a6bede" refkind="member"><highlight class="normal"><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref><sp/><ref refid="exprinterpret__none_8c_1a4e3afb5fe90e10cb9e116b66a6a6bede" kindref="member">SCIPexprintHessianSparsityDense</ref>(</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__exprinterpret_8h_1ae536b751483a00eeb75a93d372073b43" kindref="member">SCIP_EXPRINT</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>exprint,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>interpreter<sp/>data<sp/>structure<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__expr_8h_1a4ae8525548d76cb766394131bb405cf2" kindref="member">SCIP_EXPRTREE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tree,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>expression<sp/>tree<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>varvals,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>values<sp/>of<sp/>variables<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sparsity<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>buffer<sp/>to<sp/>store<sp/>sparsity<sp/>pattern<sp/>of<sp/>Hessian,<sp/>sparsity[i+n*j]<sp/>indicates<sp/>whether<sp/>entry<sp/>(i,j)<sp/>is<sp/>nonzero<sp/>in<sp/>the<sp/>hessian<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="175"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><ref refid="pub__message_8h_1a354566c209c3a7fe5c870d4ee8c07bc5" kindref="member">SCIPerrorMessage</ref>(</highlight><highlight class="stringliteral">&quot;No<sp/>expression<sp/>interpreter<sp/>linked<sp/>to<sp/>SCIP,<sp/>try<sp/>recompiling<sp/>with<sp/>EXPRINT=cppad.\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="type__retcode_8h_1a43415f0ed8d60fa1d0a4217226e37b5da5a46da6c17a8705ac5f302826d4267ab" kindref="member">SCIP_PLUGINNOTFOUND</ref>;</highlight></codeline>
+<codeline lineno="178"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">/*lint<sp/>!e715*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="180"><highlight class="comment">/**<sp/>computes<sp/>value<sp/>and<sp/>dense<sp/>hessian<sp/>of<sp/>an<sp/>expression<sp/>tree</highlight></codeline>
+<codeline lineno="181"><highlight class="comment"><sp/>*<sp/>the<sp/>full<sp/>hessian<sp/>is<sp/>computed<sp/>(lower<sp/>left<sp/>and<sp/>upper<sp/>right<sp/>triangle)</highlight></codeline>
+<codeline lineno="182"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="183" refid="exprinterpret__none_8c_1abd322fc0556700c1a41144bbbc0f9386" refkind="member"><highlight class="normal"><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref><sp/><ref refid="exprinterpret__none_8c_1abd322fc0556700c1a41144bbbc0f9386" kindref="member">SCIPexprintHessianDense</ref>(</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__exprinterpret_8h_1ae536b751483a00eeb75a93d372073b43" kindref="member">SCIP_EXPRINT</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>exprint,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>interpreter<sp/>data<sp/>structure<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__expr_8h_1a4ae8525548d76cb766394131bb405cf2" kindref="member">SCIP_EXPRTREE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tree,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>expression<sp/>tree<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>varvals,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>values<sp/>of<sp/>variables,<sp/>can<sp/>be<sp/>NULL<sp/>if<sp/>new_varvals<sp/>is<sp/>FALSE<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>new_varvals,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>have<sp/>variable<sp/>values<sp/>changed<sp/>since<sp/>last<sp/>call<sp/>to<sp/>an<sp/>evaluation<sp/>routine?<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>val,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>buffer<sp/>to<sp/>store<sp/>function<sp/>value<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hessian<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>buffer<sp/>to<sp/>store<sp/>hessian<sp/>values,<sp/>need<sp/>to<sp/>have<sp/>size<sp/>at<sp/>least<sp/>n*n<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="191"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><ref refid="pub__message_8h_1a354566c209c3a7fe5c870d4ee8c07bc5" kindref="member">SCIPerrorMessage</ref>(</highlight><highlight class="stringliteral">&quot;No<sp/>expression<sp/>interpreter<sp/>linked<sp/>to<sp/>SCIP,<sp/>try<sp/>recompiling<sp/>with<sp/>EXPRINT=cppad.\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="type__retcode_8h_1a43415f0ed8d60fa1d0a4217226e37b5da5a46da6c17a8705ac5f302826d4267ab" kindref="member">SCIP_PLUGINNOTFOUND</ref>;</highlight></codeline>
+<codeline lineno="194"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">/*lint<sp/>!e715*/</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_none.c"/>
+  </compounddef>
+</doxygen>

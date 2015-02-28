@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.8">
+  <compounddef id="group__AdditionalMathFunctions" kind="group">
+    <compoundname>AdditionalMathFunctions</compoundname>
+    <title>Additional math functions</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__AdditionalMathFunctions_1ga120213bce932ebd1100a1916b40d3f50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a1e6171040084cc1f39f88e386238ee10" kindref="member">SCIP_Longint</ref></type>
+        <definition>SCIP_Longint SCIPcalcBinomCoef</definition>
+        <argsstring>(int n, int m)</argsstring>
+        <name>SCIPcalcBinomCoef</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+          <briefdescription><para>number of different elements </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>m</declname>
+          <briefdescription><para>number to choose out of the above </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>calculates a binomial coefficient n over m, choose m elements out of n, maximal value will be 33 over 16 (because the n=33 is the last line in the Pascal&apos;s triangle where each entry fits in a 4 byte value), an error occurs due to big numbers or an negative value m (and m &lt; n) and -1 will be returned </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="5053" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

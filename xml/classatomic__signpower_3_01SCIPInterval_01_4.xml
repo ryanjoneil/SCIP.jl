@@ -1,0 +1,280 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.8">
+  <compounddef id="classatomic__signpower_3_01SCIPInterval_01_4" kind="class" prot="public">
+    <compoundname>atomic_signpower&lt; SCIPInterval &gt;</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">CppAD::atomic_base&lt; SCIPInterval &gt;</basecompoundref>
+    <templateparamlist>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classatomic__signpower_3_01SCIPInterval_01_4_1a669641d0e1fab0d734cf74f1f063c754" prot="private" static="no" mutable="no">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+        <definition>SCIP_Real atomic_signpower&lt; SCIPInterval &gt;::exponent</definition>
+        <argsstring></argsstring>
+        <name>exponent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>exponent for use in next call to forward or reverse </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" line="964" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" bodystart="964" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classatomic__signpower_3_01SCIPInterval_01_4_1a8782c6a9e72fe35a5ec60b8b2332e25d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>atomic_signpower&lt; SCIPInterval &gt;::atomic_signpower</definition>
+        <argsstring>()</argsstring>
+        <name>atomic_signpower</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" line="954" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" bodystart="954" bodyend="960"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classatomic__signpower_3_01SCIPInterval_01_4_1a07571feb967ae8c4c8f8f30e8ecb3f0d" prot="private" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void atomic_signpower&lt; SCIPInterval &gt;::set_id</definition>
+        <argsstring>(size_t id)</argsstring>
+        <name>set_id</name>
+        <param>
+          <type>size_t</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>stores exponent corresponding to next call to forward or reverse</para><para>How is this supposed to be threadsafe? (we use only one global instantiation of this class) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" line="970" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" bodystart="970" bodyend="973"/>
+      </memberdef>
+      <memberdef kind="function" id="classatomic__signpower_3_01SCIPInterval_01_4_1a7d4b01fa7d0adb52a9926ae73f22b9d0" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool atomic_signpower&lt; SCIPInterval &gt;::forward</definition>
+        <argsstring>(size_t q, size_t p, const CppAD::vector&lt; bool &gt; &amp;vx, CppAD::vector&lt; bool &gt; &amp;vy, const CppAD::vector&lt; SCIPInterval &gt; &amp;tx, CppAD::vector&lt; SCIPInterval &gt; &amp;ty)</argsstring>
+        <name>forward</name>
+        <param>
+          <type>size_t</type>
+          <declname>q</declname>
+          <briefdescription><para>lowest order Taylor coefficient that we are evaluating </para></briefdescription>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>p</declname>
+          <briefdescription><para>highest order Taylor coefficient that we are evaluating </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>vx</declname>
+          <briefdescription><para>indicates whether argument is a variable, or empty vector </para></briefdescription>
+        </param>
+        <param>
+          <type>CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>vy</declname>
+          <briefdescription><para>vector to store which function values depend on variables, or empty vector </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; SCIPInterval &gt; &amp;</type>
+          <declname>tx</declname>
+          <briefdescription><para>values for taylor coefficients of x </para></briefdescription>
+        </param>
+        <param>
+          <type>CppAD::vector&lt; SCIPInterval &gt; &amp;</type>
+          <declname>ty</declname>
+          <briefdescription><para>vector to store taylor coefficients of y </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>specialization of atomic_signpower::forward template for SCIPinterval</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" line="979" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" bodystart="979" bodyend="1035"/>
+      </memberdef>
+      <memberdef kind="function" id="classatomic__signpower_3_01SCIPInterval_01_4_1af91a549ac56e417f66dad7563b9917a7" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool atomic_signpower&lt; SCIPInterval &gt;::reverse</definition>
+        <argsstring>(size_t p, const CppAD::vector&lt; SCIPInterval &gt; &amp;tx, const CppAD::vector&lt; SCIPInterval &gt; &amp;ty, CppAD::vector&lt; SCIPInterval &gt; &amp;px, const CppAD::vector&lt; SCIPInterval &gt; &amp;py)</argsstring>
+        <name>reverse</name>
+        <param>
+          <type>size_t</type>
+          <declname>p</declname>
+          <briefdescription><para>highest order Taylor coefficient that we are evaluating </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; SCIPInterval &gt; &amp;</type>
+          <declname>tx</declname>
+          <briefdescription><para>values for taylor coefficients of x </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; SCIPInterval &gt; &amp;</type>
+          <declname>ty</declname>
+          <briefdescription><para>values for taylor coefficients of y </para></briefdescription>
+        </param>
+        <param>
+          <type>CppAD::vector&lt; SCIPInterval &gt; &amp;</type>
+          <declname>px</declname>
+          <briefdescription><para>vector to store partial derivatives of h(x) = g(y(x)) w.r.t. x </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; SCIPInterval &gt; &amp;</type>
+          <declname>py</declname>
+          <briefdescription><para>values for partial derivatives of g(x) w.r.t. y </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>specialization of atomic_signpower::reverse template for SCIPinterval</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" line="1041" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" bodystart="1041" bodyend="1091"/>
+      </memberdef>
+      <memberdef kind="function" id="classatomic__signpower_3_01SCIPInterval_01_4_1a51d7c53cbce6b1c98cb03b36809047ce" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool atomic_signpower&lt; SCIPInterval &gt;::for_sparse_jac</definition>
+        <argsstring>(size_t q, const CppAD::vector&lt; bool &gt; &amp;r, CppAD::vector&lt; bool &gt; &amp;s)</argsstring>
+        <name>for_sparse_jac</name>
+        <param>
+          <type>size_t</type>
+          <declname>q</declname>
+          <briefdescription><para>number of columns in R </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>r</declname>
+          <briefdescription><para>sparsity of R, columnwise </para></briefdescription>
+        </param>
+        <param>
+          <type>CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>s</declname>
+          <briefdescription><para>vector to store sparsity of S, columnwise </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>computes sparsity of jacobian during a forward sweep</para><para>For a 1 x q matrix R, we have to return the sparsity pattern of the 1 x q matrix S(x) = f&apos;(x) * R. Since f&apos;(x) is dense, the sparsity of S will be the sparsity of R. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" line="1100" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" bodystart="1100" bodyend="1107"/>
+      </memberdef>
+      <memberdef kind="function" id="classatomic__signpower_3_01SCIPInterval_01_4_1a2a4749e628cb19d8e6015b3c84284258" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool atomic_signpower&lt; SCIPInterval &gt;::rev_sparse_jac</definition>
+        <argsstring>(size_t q, const CppAD::vector&lt; bool &gt; &amp;r, CppAD::vector&lt; bool &gt; &amp;s)</argsstring>
+        <name>rev_sparse_jac</name>
+        <param>
+          <type>size_t</type>
+          <declname>q</declname>
+          <briefdescription><para>number of rows in R </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>r</declname>
+          <briefdescription><para>sparsity of R, rowwise </para></briefdescription>
+        </param>
+        <param>
+          <type>CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>s</declname>
+          <briefdescription><para>vector to store sparsity of S, rowwise </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>computes sparsity of jacobian during a reverse sweep</para><para>For a q x 1 matrix R, we have to return the sparsity pattern of the q x 1 matrix S(x) = R * f&apos;(x). Since f&apos;(x) is dense, the sparsity of S will be the sparsity of R. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" line="1116" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" bodystart="1116" bodyend="1123"/>
+      </memberdef>
+      <memberdef kind="function" id="classatomic__signpower_3_01SCIPInterval_01_4_1a750b850e17263a0b5d01b866df50916f" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool atomic_signpower&lt; SCIPInterval &gt;::rev_sparse_hes</definition>
+        <argsstring>(const CppAD::vector&lt; bool &gt; &amp;vx, const CppAD::vector&lt; bool &gt; &amp;s, CppAD::vector&lt; bool &gt; &amp;t, size_t q, const CppAD::vector&lt; bool &gt; &amp;r, const CppAD::vector&lt; bool &gt; &amp;u, CppAD::vector&lt; bool &gt; &amp;v)</argsstring>
+        <name>rev_sparse_hes</name>
+        <param>
+          <type>const CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>vx</declname>
+          <briefdescription><para>indicates whether argument is a variable, or empty vector </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>s</declname>
+          <briefdescription><para>sparsity pattern of S = g&apos;(y) </para></briefdescription>
+        </param>
+        <param>
+          <type>CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>t</declname>
+          <briefdescription><para>vector to store sparsity pattern of T(x) = (g(f(x)))&apos; </para></briefdescription>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>q</declname>
+          <briefdescription><para>number of columns in S and R </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>r</declname>
+          <briefdescription><para>sparsity pattern of R </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>u</declname>
+          <briefdescription><para>sparsity pattern of U(x) = g&apos;&apos;(f(x)) f&apos;(x) R </para></briefdescription>
+        </param>
+        <param>
+          <type>CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>v</declname>
+          <briefdescription><para>vector to store sparsity pattern of V(x) = (g(f(x)))&apos;&apos; R </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>computes sparsity of hessian during a reverse sweep</para><para>Assume V(x) = (g(f(x)))&apos;&apos; R with f(x) = sign(x)abs(x)^p for a function g:R-&gt;R and a matrix R. we have to specify the sparsity pattern of V(x) and T(x) = (g(f(x)))&apos;. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" line="1132" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" bodystart="1132" bodyend="1143"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Specialization of <ref refid="classatomic__signpower" kindref="compound">atomic_signpower</ref> template for intervals </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="8">
+        <label>atomic_signpower&lt; SCIPInterval &gt;</label>
+        <link refid="classatomic__signpower_3_01SCIPInterval_01_4"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>CppAD::atomic_base&lt; SCIPInterval &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="10">
+        <label>atomic_signpower&lt; SCIPInterval &gt;</label>
+        <link refid="classatomic__signpower_3_01SCIPInterval_01_4"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>CppAD::atomic_base&lt; SCIPInterval &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" line="952" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" bodystart="951" bodyend="1144"/>
+    <listofallmembers>
+      <member refid="classatomic__signpower_3_01SCIPInterval_01_4_1a8782c6a9e72fe35a5ec60b8b2332e25d" prot="public" virt="non-virtual"><scope>atomic_signpower&lt; SCIPInterval &gt;</scope><name>atomic_signpower</name></member>
+      <member refid="classatomic__signpower_3_01SCIPInterval_01_4_1a669641d0e1fab0d734cf74f1f063c754" prot="private" virt="non-virtual"><scope>atomic_signpower&lt; SCIPInterval &gt;</scope><name>exponent</name></member>
+      <member refid="classatomic__signpower_3_01SCIPInterval_01_4_1a51d7c53cbce6b1c98cb03b36809047ce" prot="private" virt="non-virtual"><scope>atomic_signpower&lt; SCIPInterval &gt;</scope><name>for_sparse_jac</name></member>
+      <member refid="classatomic__signpower_3_01SCIPInterval_01_4_1a7d4b01fa7d0adb52a9926ae73f22b9d0" prot="private" virt="non-virtual"><scope>atomic_signpower&lt; SCIPInterval &gt;</scope><name>forward</name></member>
+      <member refid="classatomic__signpower_3_01SCIPInterval_01_4_1a750b850e17263a0b5d01b866df50916f" prot="private" virt="non-virtual"><scope>atomic_signpower&lt; SCIPInterval &gt;</scope><name>rev_sparse_hes</name></member>
+      <member refid="classatomic__signpower_3_01SCIPInterval_01_4_1a2a4749e628cb19d8e6015b3c84284258" prot="private" virt="non-virtual"><scope>atomic_signpower&lt; SCIPInterval &gt;</scope><name>rev_sparse_jac</name></member>
+      <member refid="classatomic__signpower_3_01SCIPInterval_01_4_1af91a549ac56e417f66dad7563b9917a7" prot="private" virt="non-virtual"><scope>atomic_signpower&lt; SCIPInterval &gt;</scope><name>reverse</name></member>
+      <member refid="classatomic__signpower_3_01SCIPInterval_01_4_1a07571feb967ae8c4c8f8f30e8ecb3f0d" prot="private" virt="virtual"><scope>atomic_signpower&lt; SCIPInterval &gt;</scope><name>set_id</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

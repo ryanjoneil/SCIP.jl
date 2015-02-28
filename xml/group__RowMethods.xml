@@ -1,0 +1,672 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.8">
+  <compounddef id="group__RowMethods" kind="group">
+    <compoundname>RowMethods</compoundname>
+    <title>Row methods</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__RowMethods_1gab2d1441c7477d08b18fc922b91178256" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SCIP_DECL_SORTPTRCOMP</definition>
+        <argsstring>(SCIProwComp)</argsstring>
+        <name>SCIP_DECL_SORTPTRCOMP</name>
+        <param>
+          <type>SCIProwComp</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>comparison method for sorting rows by non-decreasing index </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_lp.h" line="245" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__RowMethods_1gaa35d3025a3738c05ccdb24032fe83506" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIProwLock</definition>
+        <argsstring>(SCIP_ROW *row)</argsstring>
+        <name>SCIProwLock</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a032f27315b19f63ad9fd77077d865adc" kindref="member">SCIP_ROW</ref> *</type>
+          <declname>row</declname>
+          <briefdescription><para>LP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>locks an unmodifiable row, which forbids further changes; has no effect on modifiable rows </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_lp.h" line="249" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__RowMethods_1gaab40ea4ee2b87d8669176b7c78832447" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIProwUnlock</definition>
+        <argsstring>(SCIP_ROW *row)</argsstring>
+        <name>SCIProwUnlock</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a032f27315b19f63ad9fd77077d865adc" kindref="member">SCIP_ROW</ref> *</type>
+          <declname>row</declname>
+          <briefdescription><para>LP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>unlocks a lock of an unmodifiable row; a row with no sealed lock may be modified; has no effect on modifiable rows </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_lp.h" line="255" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__RowMethods_1ga210e47e1ef0847b71ed99bef762aac94" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+        <definition>SCIP_Real SCIProwGetScalarProduct</definition>
+        <argsstring>(SCIP_ROW *row1, SCIP_ROW *row2)</argsstring>
+        <name>SCIProwGetScalarProduct</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a032f27315b19f63ad9fd77077d865adc" kindref="member">SCIP_ROW</ref> *</type>
+          <declname>row1</declname>
+          <briefdescription><para>first LP row </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__lp_8h_1a032f27315b19f63ad9fd77077d865adc" kindref="member">SCIP_ROW</ref> *</type>
+          <declname>row2</declname>
+          <briefdescription><para>second LP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns the scalar product of the coefficient vectors of the two given rows </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_lp.h" line="261" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__RowMethods_1ga3e6d355bb8bcca14c6cfd5a3c5c2194e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+        <definition>SCIP_Real SCIProwGetParallelism</definition>
+        <argsstring>(SCIP_ROW *row1, SCIP_ROW *row2, char orthofunc)</argsstring>
+        <name>SCIProwGetParallelism</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a032f27315b19f63ad9fd77077d865adc" kindref="member">SCIP_ROW</ref> *</type>
+          <declname>row1</declname>
+          <briefdescription><para>first LP row </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__lp_8h_1a032f27315b19f63ad9fd77077d865adc" kindref="member">SCIP_ROW</ref> *</type>
+          <declname>row2</declname>
+          <briefdescription><para>second LP row </para></briefdescription>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>orthofunc</declname>
+          <briefdescription><para>function used for calc. scalar prod. (&apos;e&apos;uclidean, &apos;d&apos;iscrete) </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns the degree of parallelism between the hyperplanes defined by the two row vectors v, w: p = |v*w|/(|v|*|w|); the hyperplanes are parallel, iff p = 1, they are orthogonal, iff p = 0 </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_lp.h" line="271" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__RowMethods_1ga1da290281a2143a814cec5a36b439417" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+        <definition>SCIP_Real SCIProwGetOrthogonality</definition>
+        <argsstring>(SCIP_ROW *row1, SCIP_ROW *row2, char orthofunc)</argsstring>
+        <name>SCIProwGetOrthogonality</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a032f27315b19f63ad9fd77077d865adc" kindref="member">SCIP_ROW</ref> *</type>
+          <declname>row1</declname>
+          <briefdescription><para>first LP row </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__lp_8h_1a032f27315b19f63ad9fd77077d865adc" kindref="member">SCIP_ROW</ref> *</type>
+          <declname>row2</declname>
+          <briefdescription><para>second LP row </para></briefdescription>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>orthofunc</declname>
+          <briefdescription><para>function used for calc. scalar prod. (&apos;e&apos;uclidean, &apos;d&apos;iscrete) </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns the degree of orthogonality between the hyperplanes defined by the two row vectors v, w: o = 1 - |v*w|/(|v|*|w|); the hyperplanes are orthogonal, iff p = 1, they are parallel, iff p = 0 </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_lp.h" line="282" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__RowMethods_1ga01e2f5babc7d250aab1d195b228af56b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIProwSort</definition>
+        <argsstring>(SCIP_ROW *row)</argsstring>
+        <name>SCIProwSort</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a032f27315b19f63ad9fd77077d865adc" kindref="member">SCIP_ROW</ref> *</type>
+          <declname>row</declname>
+          <briefdescription><para>row to be sorted </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>sorts row entries such that LP columns precede non-LP columns and inside both parts lower column indices precede higher ones </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_lp.h" line="292" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__RowMethods_1ga4bbbf624eade774dee24d0c489c7d435" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIProwGetNNonz</definition>
+        <argsstring>(SCIP_ROW *row)</argsstring>
+        <name>SCIProwGetNNonz</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a032f27315b19f63ad9fd77077d865adc" kindref="member">SCIP_ROW</ref> *</type>
+          <declname>row</declname>
+          <briefdescription><para>LP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get number of nonzero entries in row vector </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_lp.h" line="298" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__RowMethods_1ga7b035934338a39447a0612291d389a4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIProwGetNLPNonz</definition>
+        <argsstring>(SCIP_ROW *row)</argsstring>
+        <name>SCIProwGetNLPNonz</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a032f27315b19f63ad9fd77077d865adc" kindref="member">SCIP_ROW</ref> *</type>
+          <declname>row</declname>
+          <briefdescription><para>LP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get number of nonzero entries in row vector, that correspond to columns currently in the SCIP_LP;</para><para><simplesect kind="warning"><para>This method is only applicable on rows, that are completely linked to their columns (e.g. a row that is in the current LP and the LP was solved, or a row that was in a solved LP and didn&apos;t change afterwards </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_lp.h" line="308" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__RowMethods_1gae7bce0efc6e4a007f7d50f6f93b38c69" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__lp_8h_1a9fbe1dac436203f1fcab0ef7bbc7044a" kindref="member">SCIP_COL</ref> **</type>
+        <definition>SCIP_COL** SCIProwGetCols</definition>
+        <argsstring>(SCIP_ROW *row)</argsstring>
+        <name>SCIProwGetCols</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a032f27315b19f63ad9fd77077d865adc" kindref="member">SCIP_ROW</ref> *</type>
+          <declname>row</declname>
+          <briefdescription><para>LP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets array with columns of nonzero entries </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_lp.h" line="314" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__RowMethods_1ga6bdc0a46ccec39f94e8d09f205dc0191" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref> *</type>
+        <definition>SCIP_Real* SCIProwGetVals</definition>
+        <argsstring>(SCIP_ROW *row)</argsstring>
+        <name>SCIProwGetVals</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a032f27315b19f63ad9fd77077d865adc" kindref="member">SCIP_ROW</ref> *</type>
+          <declname>row</declname>
+          <briefdescription><para>LP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets array with coefficients of nonzero entries </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_lp.h" line="320" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__RowMethods_1gacf6752903a7ed39e049f259957433f0e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+        <definition>SCIP_Real SCIProwGetConstant</definition>
+        <argsstring>(SCIP_ROW *row)</argsstring>
+        <name>SCIProwGetConstant</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a032f27315b19f63ad9fd77077d865adc" kindref="member">SCIP_ROW</ref> *</type>
+          <declname>row</declname>
+          <briefdescription><para>LP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets constant shift of row </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_lp.h" line="326" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__RowMethods_1ga7d29e684cea78b9ef37bd56ec1b14ae8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+        <definition>SCIP_Real SCIProwGetNorm</definition>
+        <argsstring>(SCIP_ROW *row)</argsstring>
+        <name>SCIProwGetNorm</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a032f27315b19f63ad9fd77077d865adc" kindref="member">SCIP_ROW</ref> *</type>
+          <declname>row</declname>
+          <briefdescription><para>LP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets Euclidean norm of row vector </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_lp.h" line="332" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__RowMethods_1gaab46833330d62c0e6daa82eb1566c27f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+        <definition>SCIP_Real SCIProwGetSumNorm</definition>
+        <argsstring>(SCIP_ROW *row)</argsstring>
+        <name>SCIProwGetSumNorm</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a032f27315b19f63ad9fd77077d865adc" kindref="member">SCIP_ROW</ref> *</type>
+          <declname>row</declname>
+          <briefdescription><para>LP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets sum norm of row vector (sum of absolute values of coefficients) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_lp.h" line="338" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__RowMethods_1ga0a8911ae1d2af432cef8e29e794d3c3c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+        <definition>SCIP_Real SCIProwGetLhs</definition>
+        <argsstring>(SCIP_ROW *row)</argsstring>
+        <name>SCIProwGetLhs</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a032f27315b19f63ad9fd77077d865adc" kindref="member">SCIP_ROW</ref> *</type>
+          <declname>row</declname>
+          <briefdescription><para>LP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns the left hand side of the row </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_lp.h" line="344" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__RowMethods_1ga68fba35b3a070fe4b08d39dde3e44f20" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+        <definition>SCIP_Real SCIProwGetRhs</definition>
+        <argsstring>(SCIP_ROW *row)</argsstring>
+        <name>SCIProwGetRhs</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a032f27315b19f63ad9fd77077d865adc" kindref="member">SCIP_ROW</ref> *</type>
+          <declname>row</declname>
+          <briefdescription><para>LP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns the right hand side of the row </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_lp.h" line="350" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__RowMethods_1gae8bbb1d51edf13ff67d505b95f1bb0e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+        <definition>SCIP_Real SCIProwGetDualsol</definition>
+        <argsstring>(SCIP_ROW *row)</argsstring>
+        <name>SCIProwGetDualsol</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a032f27315b19f63ad9fd77077d865adc" kindref="member">SCIP_ROW</ref> *</type>
+          <declname>row</declname>
+          <briefdescription><para>LP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets the dual LP solution of a row </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_lp.h" line="356" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__RowMethods_1gac28481db594a2070bf9e9b0cb72dc23d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+        <definition>SCIP_Real SCIProwGetDualfarkas</definition>
+        <argsstring>(SCIP_ROW *row)</argsstring>
+        <name>SCIProwGetDualfarkas</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a032f27315b19f63ad9fd77077d865adc" kindref="member">SCIP_ROW</ref> *</type>
+          <declname>row</declname>
+          <briefdescription><para>LP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets the dual Farkas coefficient of a row in an infeasible LP </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_lp.h" line="362" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__RowMethods_1gaf3c45c4b08cb081f56efc7b125368517" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SCIP_BASESTAT</type>
+        <definition>SCIP_BASESTAT SCIProwGetBasisStatus</definition>
+        <argsstring>(SCIP_ROW *row)</argsstring>
+        <name>SCIProwGetBasisStatus</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a032f27315b19f63ad9fd77077d865adc" kindref="member">SCIP_ROW</ref> *</type>
+          <declname>row</declname>
+          <briefdescription><para>LP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets the basis status of a row in the LP solution; only valid for LPs with status SCIP_LPSOLSTAT_OPTIMAL and with SCIPisLPSolBasic(scip) == TRUE; returns SCIP_BASESTAT_BASIC for rows not in the current SCIP_LP </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_lp.h" line="370" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__RowMethods_1ga221966d7fe396296f24e35e85d2a43b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char* SCIProwGetName</definition>
+        <argsstring>(SCIP_ROW *row)</argsstring>
+        <name>SCIProwGetName</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a032f27315b19f63ad9fd77077d865adc" kindref="member">SCIP_ROW</ref> *</type>
+          <declname>row</declname>
+          <briefdescription><para>LP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns the name of the row </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_lp.h" line="376" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__RowMethods_1gac7cab1ce5f56af4a19f945b8471d151f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIProwGetIndex</definition>
+        <argsstring>(SCIP_ROW *row)</argsstring>
+        <name>SCIProwGetIndex</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a032f27315b19f63ad9fd77077d865adc" kindref="member">SCIP_ROW</ref> *</type>
+          <declname>row</declname>
+          <briefdescription><para>LP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets unique index of row </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_lp.h" line="382" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__RowMethods_1ga799938b3c4fd09ba65b020a20cf07d07" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIProwGetAge</definition>
+        <argsstring>(SCIP_ROW *row)</argsstring>
+        <name>SCIProwGetAge</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a032f27315b19f63ad9fd77077d865adc" kindref="member">SCIP_ROW</ref> *</type>
+          <declname>row</declname>
+          <briefdescription><para>LP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets age of row </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_lp.h" line="388" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__RowMethods_1gabd02a834d00e21620c5b3fb6897eea9f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIProwGetRank</definition>
+        <argsstring>(SCIP_ROW *row)</argsstring>
+        <name>SCIProwGetRank</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a032f27315b19f63ad9fd77077d865adc" kindref="member">SCIP_ROW</ref> *</type>
+          <declname>row</declname>
+          <briefdescription><para>LP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets rank of row </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_lp.h" line="394" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__RowMethods_1ga01bc0fcf1d610b60e8a241521bc74697" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref></type>
+        <definition>SCIP_Bool SCIProwIsIntegral</definition>
+        <argsstring>(SCIP_ROW *row)</argsstring>
+        <name>SCIProwIsIntegral</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a032f27315b19f63ad9fd77077d865adc" kindref="member">SCIP_ROW</ref> *</type>
+          <declname>row</declname>
+          <briefdescription><para>LP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns TRUE iff the activity of the row (without the row&apos;s constant) is always integral in a feasible solution </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_lp.h" line="400" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__RowMethods_1ga8d12128cf2298b27d57bcaaa07f261fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref></type>
+        <definition>SCIP_Bool SCIProwIsLocal</definition>
+        <argsstring>(SCIP_ROW *row)</argsstring>
+        <name>SCIProwIsLocal</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a032f27315b19f63ad9fd77077d865adc" kindref="member">SCIP_ROW</ref> *</type>
+          <declname>row</declname>
+          <briefdescription><para>LP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns TRUE iff row is only valid locally </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_lp.h" line="406" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__RowMethods_1ga0efbf798e1b4612a152c201575ec2b0f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref></type>
+        <definition>SCIP_Bool SCIProwIsModifiable</definition>
+        <argsstring>(SCIP_ROW *row)</argsstring>
+        <name>SCIProwIsModifiable</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a032f27315b19f63ad9fd77077d865adc" kindref="member">SCIP_ROW</ref> *</type>
+          <declname>row</declname>
+          <briefdescription><para>LP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns TRUE iff row is modifiable during node processing (subject to column generation) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_lp.h" line="412" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__RowMethods_1gaa6d02abf025be8ccd574bddae53fffa2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref></type>
+        <definition>SCIP_Bool SCIProwIsRemovable</definition>
+        <argsstring>(SCIP_ROW *row)</argsstring>
+        <name>SCIProwIsRemovable</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a032f27315b19f63ad9fd77077d865adc" kindref="member">SCIP_ROW</ref> *</type>
+          <declname>row</declname>
+          <briefdescription><para>LP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns TRUE iff row is removable from the LP (due to aging or cleanup) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_lp.h" line="418" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__RowMethods_1gaf39d207a6033479c7ee279c7835c9e2e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__lp_8h_1a24aaea07ea0e42ad4b8e6e25a97c5585" kindref="member">SCIP_ROWORIGINTYPE</ref></type>
+        <definition>SCIP_ROWORIGINTYPE SCIProwGetOrigintype</definition>
+        <argsstring>(SCIP_ROW *row)</argsstring>
+        <name>SCIProwGetOrigintype</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a032f27315b19f63ad9fd77077d865adc" kindref="member">SCIP_ROW</ref> *</type>
+          <declname>row</declname>
+          <briefdescription><para>LP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns type of origin that created the row </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_lp.h" line="424" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__RowMethods_1ga853be131817d4dc100ebfd15af04e48a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__cons_8h_1ab396d8cbfe68a15f3c59d130e4ed0f90" kindref="member">SCIP_CONSHDLR</ref> *</type>
+        <definition>SCIP_CONSHDLR* SCIProwGetOriginCons</definition>
+        <argsstring>(SCIP_ROW *row)</argsstring>
+        <name>SCIProwGetOriginCons</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a032f27315b19f63ad9fd77077d865adc" kindref="member">SCIP_ROW</ref> *</type>
+          <declname>row</declname>
+          <briefdescription><para>LP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns origin constraint handler that created the row (NULL if not available) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_lp.h" line="430" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__RowMethods_1ga227f024bdc463e768ef2f08d75e87c68" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__sepa_8h_1ae4de65cedc0a319c15935cce113c833a" kindref="member">SCIP_SEPA</ref> *</type>
+        <definition>SCIP_SEPA* SCIProwGetOriginSepa</definition>
+        <argsstring>(SCIP_ROW *row)</argsstring>
+        <name>SCIProwGetOriginSepa</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a032f27315b19f63ad9fd77077d865adc" kindref="member">SCIP_ROW</ref> *</type>
+          <declname>row</declname>
+          <briefdescription><para>LP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns origin separator that created the row (NULL if not available) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_lp.h" line="436" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__RowMethods_1ga54571516b18483fe94128e3e4e4fe77f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref></type>
+        <definition>SCIP_Bool SCIProwIsInGlobalCutpool</definition>
+        <argsstring>(SCIP_ROW *row)</argsstring>
+        <name>SCIProwIsInGlobalCutpool</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a032f27315b19f63ad9fd77077d865adc" kindref="member">SCIP_ROW</ref> *</type>
+          <declname>row</declname>
+          <briefdescription><para>LP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns TRUE iff row is member of the global cut pool </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_lp.h" line="442" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__RowMethods_1ga801782a69e9e78029d8cd98698557c3b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIProwGetLPPos</definition>
+        <argsstring>(SCIP_ROW *row)</argsstring>
+        <name>SCIProwGetLPPos</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a032f27315b19f63ad9fd77077d865adc" kindref="member">SCIP_ROW</ref> *</type>
+          <declname>row</declname>
+          <briefdescription><para>LP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets position of row in current LP, or -1 if it is not in LP </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_lp.h" line="448" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__RowMethods_1ga28d5a7bf188451877d64571b9cb43fd5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIProwGetLPDepth</definition>
+        <argsstring>(SCIP_ROW *row)</argsstring>
+        <name>SCIProwGetLPDepth</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a032f27315b19f63ad9fd77077d865adc" kindref="member">SCIP_ROW</ref> *</type>
+          <declname>row</declname>
+          <briefdescription><para>LP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets depth in the tree where the row entered the LP, or -1 if it is not in LP </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_lp.h" line="454" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__RowMethods_1gae0a474274028cc639f4e5d647f286613" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref></type>
+        <definition>SCIP_Bool SCIProwIsInLP</definition>
+        <argsstring>(SCIP_ROW *row)</argsstring>
+        <name>SCIProwIsInLP</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a032f27315b19f63ad9fd77077d865adc" kindref="member">SCIP_ROW</ref> *</type>
+          <declname>row</declname>
+          <briefdescription><para>LP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns TRUE iff row is member of current LP </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_lp.h" line="460" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__RowMethods_1gaca07b300e8cf56a22c9c9433921089fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIProwChgRank</definition>
+        <argsstring>(SCIP_ROW *row, int rank)</argsstring>
+        <name>SCIProwChgRank</name>
+        <param>
+          <type><ref refid="type__lp_8h_1a032f27315b19f63ad9fd77077d865adc" kindref="member">SCIP_ROW</ref> *</type>
+          <declname>row</declname>
+          <briefdescription><para>LP row </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>rank</declname>
+          <briefdescription><para>new value for rank </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>changes the rank of LP row </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_lp.h" line="466" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

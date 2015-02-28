@@ -1,0 +1,448 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.8">
+  <compounddef id="group__BinaryTree" kind="group">
+    <compoundname>BinaryTree</compoundname>
+    <title>Binary Tree</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__BinaryTree_1ga78b8df73d8d2debaa3b8fc7554ec07a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref></type>
+        <definition>SCIP_RETCODE SCIPbtnodeCreate</definition>
+        <argsstring>(SCIP_BT *tree, SCIP_BTNODE **node, void *dataptr)</argsstring>
+        <name>SCIPbtnodeCreate</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a758a7e0bd04009842c24fbabc8d3035d" kindref="member">SCIP_BT</ref> *</type>
+          <declname>tree</declname>
+          <briefdescription><para>binary search tree </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__misc_8h_1a980ac393ce697183a6116ca7d8e64fa8" kindref="member">SCIP_BTNODE</ref> **</type>
+          <declname>node</declname>
+          <briefdescription><para>pointer to store the created search node </para></briefdescription>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>dataptr</declname>
+          <briefdescription><para>user node data pointer, or NULL </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>creates a binary tree node with sorting value and user data </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="1015" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__BinaryTree_1ga39882d686b9bd60daff109176cf6ce5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPbtnodeFree</definition>
+        <argsstring>(SCIP_BT *tree, SCIP_BTNODE **node)</argsstring>
+        <name>SCIPbtnodeFree</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a758a7e0bd04009842c24fbabc8d3035d" kindref="member">SCIP_BT</ref> *</type>
+          <declname>tree</declname>
+          <briefdescription><para>binary tree </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__misc_8h_1a980ac393ce697183a6116ca7d8e64fa8" kindref="member">SCIP_BTNODE</ref> **</type>
+          <declname>node</declname>
+          <briefdescription><para>node to be freed </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>frees the binary node including the rooted subtree</para><para><simplesect kind="note"><para>The user pointer (object) is not freed. If needed, it has to be done by the user. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="1026" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__BinaryTree_1gade68a6c291b771f559d09f05b55ced08" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* SCIPbtnodeGetData</definition>
+        <argsstring>(SCIP_BTNODE *node)</argsstring>
+        <name>SCIPbtnodeGetData</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a980ac393ce697183a6116ca7d8e64fa8" kindref="member">SCIP_BTNODE</ref> *</type>
+          <declname>node</declname>
+          <briefdescription><para>node </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns the user data pointer stored in that node </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="1033" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__BinaryTree_1ga6a077eeaf2e1446fa4331a017ce56e9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__misc_8h_1a980ac393ce697183a6116ca7d8e64fa8" kindref="member">SCIP_BTNODE</ref> *</type>
+        <definition>SCIP_BTNODE* SCIPbtnodeGetParent</definition>
+        <argsstring>(SCIP_BTNODE *node)</argsstring>
+        <name>SCIPbtnodeGetParent</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a980ac393ce697183a6116ca7d8e64fa8" kindref="member">SCIP_BTNODE</ref> *</type>
+          <declname>node</declname>
+          <briefdescription><para>node </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns the parent which can be NULL if the given node is the root </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="1039" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__BinaryTree_1ga1091966d7b12b66985ae733b5914e8a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__misc_8h_1a980ac393ce697183a6116ca7d8e64fa8" kindref="member">SCIP_BTNODE</ref> *</type>
+        <definition>SCIP_BTNODE* SCIPbtnodeGetLeftchild</definition>
+        <argsstring>(SCIP_BTNODE *node)</argsstring>
+        <name>SCIPbtnodeGetLeftchild</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a980ac393ce697183a6116ca7d8e64fa8" kindref="member">SCIP_BTNODE</ref> *</type>
+          <declname>node</declname>
+          <briefdescription><para>node </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns left child which can be NULL if the given node is a leaf </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="1045" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__BinaryTree_1gaaf12d817c5974f80442791b0d1ffa1b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__misc_8h_1a980ac393ce697183a6116ca7d8e64fa8" kindref="member">SCIP_BTNODE</ref> *</type>
+        <definition>SCIP_BTNODE* SCIPbtnodeGetRightchild</definition>
+        <argsstring>(SCIP_BTNODE *node)</argsstring>
+        <name>SCIPbtnodeGetRightchild</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a980ac393ce697183a6116ca7d8e64fa8" kindref="member">SCIP_BTNODE</ref> *</type>
+          <declname>node</declname>
+          <briefdescription><para>node </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns right child which can be NULL if the given node is a leaf </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="1051" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__BinaryTree_1ga948a96e770be5cd71e775c4ae3f9bfef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__misc_8h_1a980ac393ce697183a6116ca7d8e64fa8" kindref="member">SCIP_BTNODE</ref> *</type>
+        <definition>SCIP_BTNODE* SCIPbtnodeGetSibling</definition>
+        <argsstring>(SCIP_BTNODE *node)</argsstring>
+        <name>SCIPbtnodeGetSibling</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a980ac393ce697183a6116ca7d8e64fa8" kindref="member">SCIP_BTNODE</ref> *</type>
+          <declname>node</declname>
+          <briefdescription><para>node </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns the sibling of the node or NULL if does not exist </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="1057" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__BinaryTree_1gaeb5f97aba4aa991030df3fc487eb9297" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref></type>
+        <definition>SCIP_Bool SCIPbtnodeIsRoot</definition>
+        <argsstring>(SCIP_BTNODE *node)</argsstring>
+        <name>SCIPbtnodeIsRoot</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a980ac393ce697183a6116ca7d8e64fa8" kindref="member">SCIP_BTNODE</ref> *</type>
+          <declname>node</declname>
+          <briefdescription><para>node </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns whether the node is a root node </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="1063" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__BinaryTree_1ga3d6b929fee8148871a8bc17de0c734b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref></type>
+        <definition>SCIP_Bool SCIPbtnodeIsLeaf</definition>
+        <argsstring>(SCIP_BTNODE *node)</argsstring>
+        <name>SCIPbtnodeIsLeaf</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a980ac393ce697183a6116ca7d8e64fa8" kindref="member">SCIP_BTNODE</ref> *</type>
+          <declname>node</declname>
+          <briefdescription><para>node </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns whether the node is a leaf </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="1069" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__BinaryTree_1gab09a39fc1856c3253c025c9715206376" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref></type>
+        <definition>SCIP_Bool SCIPbtnodeIsLeftchild</definition>
+        <argsstring>(SCIP_BTNODE *node)</argsstring>
+        <name>SCIPbtnodeIsLeftchild</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a980ac393ce697183a6116ca7d8e64fa8" kindref="member">SCIP_BTNODE</ref> *</type>
+          <declname>node</declname>
+          <briefdescription><para>node </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns TRUE if the given node is left child </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="1075" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__BinaryTree_1ga79678bbe8032b08224c059e8d180131e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref></type>
+        <definition>SCIP_Bool SCIPbtnodeIsRightchild</definition>
+        <argsstring>(SCIP_BTNODE *node)</argsstring>
+        <name>SCIPbtnodeIsRightchild</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a980ac393ce697183a6116ca7d8e64fa8" kindref="member">SCIP_BTNODE</ref> *</type>
+          <declname>node</declname>
+          <briefdescription><para>node </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns TRUE if the given node is right child </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="1081" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__BinaryTree_1ga5071b8644fef886a3f7c63e1aabfdc61" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPbtnodeSetData</definition>
+        <argsstring>(SCIP_BTNODE *node, void *dataptr)</argsstring>
+        <name>SCIPbtnodeSetData</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a980ac393ce697183a6116ca7d8e64fa8" kindref="member">SCIP_BTNODE</ref> *</type>
+          <declname>node</declname>
+          <briefdescription><para>node </para></briefdescription>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>dataptr</declname>
+          <briefdescription><para>node user data pointer </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>sets the give node data</para><para><simplesect kind="note"><para>The old user pointer is not freed. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="1109" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__BinaryTree_1ga816b2c27020a5c7af8ec6fb1334a38e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPbtnodeSetParent</definition>
+        <argsstring>(SCIP_BTNODE *node, SCIP_BTNODE *parent)</argsstring>
+        <name>SCIPbtnodeSetParent</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a980ac393ce697183a6116ca7d8e64fa8" kindref="member">SCIP_BTNODE</ref> *</type>
+          <declname>node</declname>
+          <briefdescription><para>node </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__misc_8h_1a980ac393ce697183a6116ca7d8e64fa8" kindref="member">SCIP_BTNODE</ref> *</type>
+          <declname>parent</declname>
+          <briefdescription><para>new parent node, or NULL </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>sets parent node</para><para><simplesect kind="note"><para>The old parent including the rooted subtree is not delete. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="1119" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__BinaryTree_1gab6a14881d02b367b50684023ad71a7ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPbtnodeSetLeftchild</definition>
+        <argsstring>(SCIP_BTNODE *node, SCIP_BTNODE *left)</argsstring>
+        <name>SCIPbtnodeSetLeftchild</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a980ac393ce697183a6116ca7d8e64fa8" kindref="member">SCIP_BTNODE</ref> *</type>
+          <declname>node</declname>
+          <briefdescription><para>node </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__misc_8h_1a980ac393ce697183a6116ca7d8e64fa8" kindref="member">SCIP_BTNODE</ref> *</type>
+          <declname>left</declname>
+          <briefdescription><para>new left child, or NULL </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>sets left child</para><para><simplesect kind="note"><para>The old left child including the rooted subtree is not delete. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="1129" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__BinaryTree_1ga0fac029daad26ca276ad688da26b55fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPbtnodeSetRightchild</definition>
+        <argsstring>(SCIP_BTNODE *node, SCIP_BTNODE *right)</argsstring>
+        <name>SCIPbtnodeSetRightchild</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a980ac393ce697183a6116ca7d8e64fa8" kindref="member">SCIP_BTNODE</ref> *</type>
+          <declname>node</declname>
+          <briefdescription><para>node </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__misc_8h_1a980ac393ce697183a6116ca7d8e64fa8" kindref="member">SCIP_BTNODE</ref> *</type>
+          <declname>right</declname>
+          <briefdescription><para>new right child, or NULL </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>sets right child</para><para><simplesect kind="note"><para>The old right child including the rooted subtree is not delete. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="1139" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__BinaryTree_1ga32e635b4ab57ff19c4d32b51fa96bcac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref></type>
+        <definition>SCIP_RETCODE SCIPbtCreate</definition>
+        <argsstring>(SCIP_BT **tree, BMS_BLKMEM *blkmem)</argsstring>
+        <name>SCIPbtCreate</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a758a7e0bd04009842c24fbabc8d3035d" kindref="member">SCIP_BT</ref> **</type>
+          <declname>tree</declname>
+          <briefdescription><para>pointer to store the created binary tree </para></briefdescription>
+        </param>
+        <param>
+          <type>BMS_BLKMEM *</type>
+          <declname>blkmem</declname>
+          <briefdescription><para>block memory used to create nodes </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>creates an binary tree </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="1146" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__BinaryTree_1gac1b4e34e5acc37a698808c40faa15d25" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPbtFree</definition>
+        <argsstring>(SCIP_BT **tree)</argsstring>
+        <name>SCIPbtFree</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a758a7e0bd04009842c24fbabc8d3035d" kindref="member">SCIP_BT</ref> **</type>
+          <declname>tree</declname>
+          <briefdescription><para>pointer to binary tree </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>frees binary tree</para><para><simplesect kind="note"><para>The user pointers (object) of the search nodes are not freed. If needed, it has to be done by the user. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="1156" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__BinaryTree_1gaefaa788143db4f31938c216c7e7868f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPbtPrintGml</definition>
+        <argsstring>(SCIP_BT *tree, FILE *file)</argsstring>
+        <name>SCIPbtPrintGml</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a758a7e0bd04009842c24fbabc8d3035d" kindref="member">SCIP_BT</ref> *</type>
+          <declname>tree</declname>
+          <briefdescription><para>binary tree </para></briefdescription>
+        </param>
+        <param>
+          <type>FILE *</type>
+          <declname>file</declname>
+          <briefdescription><para>file to write to </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>prints the binary tree in GML format into the given file </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="1162" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__BinaryTree_1ga1f7787ff2552e406d6b64069566d4e65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref></type>
+        <definition>SCIP_Bool SCIPbtIsEmpty</definition>
+        <argsstring>(SCIP_BT *tree)</argsstring>
+        <name>SCIPbtIsEmpty</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a758a7e0bd04009842c24fbabc8d3035d" kindref="member">SCIP_BT</ref> *</type>
+          <declname>tree</declname>
+          <briefdescription><para>binary tree </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns whether the binary tree is empty (has no nodes) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="1169" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__BinaryTree_1gaf0abe2ecae545aeefd155a36acdfccd2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__misc_8h_1a980ac393ce697183a6116ca7d8e64fa8" kindref="member">SCIP_BTNODE</ref> *</type>
+        <definition>SCIP_BTNODE* SCIPbtGetRoot</definition>
+        <argsstring>(SCIP_BT *tree)</argsstring>
+        <name>SCIPbtGetRoot</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a758a7e0bd04009842c24fbabc8d3035d" kindref="member">SCIP_BT</ref> *</type>
+          <declname>tree</declname>
+          <briefdescription><para>tree to be evaluated </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns the root node of the binary tree or NULL if the binary tree is empty </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="1175" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__BinaryTree_1gae277f19032b7baf8fd0078dc3e2e09c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPbtSetRoot</definition>
+        <argsstring>(SCIP_BT *tree, SCIP_BTNODE *root)</argsstring>
+        <name>SCIPbtSetRoot</name>
+        <param>
+          <type><ref refid="type__misc_8h_1a758a7e0bd04009842c24fbabc8d3035d" kindref="member">SCIP_BT</ref> *</type>
+          <declname>tree</declname>
+          <briefdescription><para>tree to be evaluated </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__misc_8h_1a980ac393ce697183a6116ca7d8e64fa8" kindref="member">SCIP_BTNODE</ref> *</type>
+          <declname>root</declname>
+          <briefdescription><para>new root, or NULL </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>sets root node</para><para><simplesect kind="note"><para>The old root including the rooted subtree is not delete. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_misc.h" line="1195" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

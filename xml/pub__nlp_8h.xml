@@ -1,0 +1,1875 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.8">
+  <compounddef id="pub__nlp_8h" kind="file">
+    <compoundname>pub_nlp.h</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes refid="def_8h" local="yes">scip/def.h</includes>
+    <includes refid="type__message_8h" local="yes">scip/type_message.h</includes>
+    <includes local="yes">blockmemshell/memory.h</includes>
+    <includes refid="type__set_8h" local="yes">scip/type_set.h</includes>
+    <includes refid="type__stat_8h" local="yes">scip/type_stat.h</includes>
+    <includes refid="type__nlp_8h" local="yes">scip/type_nlp.h</includes>
+    <includes refid="type__var_8h" local="yes">scip/type_var.h</includes>
+    <includes refid="type__sol_8h" local="yes">scip/type_sol.h</includes>
+    <includes refid="type__expr_8h" local="yes">nlpi/type_expr.h</includes>
+    <includes refid="type__nlpi_8h" local="yes">nlpi/type_nlpi.h</includes>
+    <includedby refid="scip_8h" local="yes">scip.h</includedby>
+    <incdepgraph>
+      <node id="10465">
+        <label>stdarg.h</label>
+      </node>
+      <node id="10470">
+        <label>scip/type_nlp.h</label>
+        <link refid="type__nlp_8h"/>
+      </node>
+      <node id="10472">
+        <label>scip/type_sol.h</label>
+        <link refid="type__sol_8h"/>
+      </node>
+      <node id="10462">
+        <label>assert.h</label>
+      </node>
+      <node id="10461">
+        <label>float.h</label>
+      </node>
+      <node id="10471">
+        <label>scip/type_var.h</label>
+        <link refid="type__var_8h"/>
+      </node>
+      <node id="10460">
+        <label>limits.h</label>
+      </node>
+      <node id="10469">
+        <label>scip/type_stat.h</label>
+        <link refid="type__stat_8h"/>
+      </node>
+      <node id="10466">
+        <label>scip/type_message.h</label>
+        <link refid="type__message_8h"/>
+        <childnode refid="10457" relation="include">
+        </childnode>
+      </node>
+      <node id="10474">
+        <label>nlpi/type_nlpi.h</label>
+        <link refid="type__nlpi_8h"/>
+        <childnode refid="10458" relation="include">
+        </childnode>
+        <childnode refid="10466" relation="include">
+        </childnode>
+        <childnode refid="10467" relation="include">
+        </childnode>
+        <childnode refid="10473" relation="include">
+        </childnode>
+      </node>
+      <node id="10468">
+        <label>scip/type_set.h</label>
+        <link refid="type__set_8h"/>
+      </node>
+      <node id="10464">
+        <label>scip/pub_message.h</label>
+        <link refid="pub__message_8h"/>
+        <childnode refid="10465" relation="include">
+        </childnode>
+        <childnode refid="10458" relation="include">
+        </childnode>
+        <childnode refid="10466" relation="include">
+        </childnode>
+      </node>
+      <node id="10463">
+        <label>scip/type_retcode.h</label>
+        <link refid="type__retcode_8h"/>
+      </node>
+      <node id="10473">
+        <label>nlpi/type_expr.h</label>
+        <link refid="type__expr_8h"/>
+      </node>
+      <node id="10459">
+        <label>math.h</label>
+      </node>
+      <node id="10456">
+        <label>pub_nlp.h</label>
+        <link refid="pub_nlp.h"/>
+        <childnode refid="10457" relation="include">
+        </childnode>
+        <childnode refid="10458" relation="include">
+        </childnode>
+        <childnode refid="10466" relation="include">
+        </childnode>
+        <childnode refid="10467" relation="include">
+        </childnode>
+        <childnode refid="10468" relation="include">
+        </childnode>
+        <childnode refid="10469" relation="include">
+        </childnode>
+        <childnode refid="10470" relation="include">
+        </childnode>
+        <childnode refid="10471" relation="include">
+        </childnode>
+        <childnode refid="10472" relation="include">
+        </childnode>
+        <childnode refid="10473" relation="include">
+        </childnode>
+        <childnode refid="10474" relation="include">
+        </childnode>
+      </node>
+      <node id="10467">
+        <label>blockmemshell/memory.h</label>
+      </node>
+      <node id="10458">
+        <label>scip/def.h</label>
+        <link refid="def_8h"/>
+        <childnode refid="10457" relation="include">
+        </childnode>
+        <childnode refid="10459" relation="include">
+        </childnode>
+        <childnode refid="10460" relation="include">
+        </childnode>
+        <childnode refid="10461" relation="include">
+        </childnode>
+        <childnode refid="10462" relation="include">
+        </childnode>
+        <childnode refid="10463" relation="include">
+        </childnode>
+        <childnode refid="10464" relation="include">
+        </childnode>
+      </node>
+      <node id="10457">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="10516">
+        <label>heur_clique.h</label>
+        <link refid="heur__clique_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10512">
+        <label>cons_xor.h</label>
+        <link refid="cons__xor_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10588">
+        <label>reader_pbm.h</label>
+        <link refid="reader__pbm_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10517">
+        <label>heur_coefdiving.h</label>
+        <link refid="heur__coefdiving_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10562">
+        <label>presol_convertinttobin.h</label>
+        <link refid="presol__convertinttobin_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10607">
+        <label>sepa_zerohalf.h</label>
+        <link refid="sepa__zerohalf_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10548">
+        <label>heur_undercover.h</label>
+        <link refid="heur__undercover_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10543">
+        <label>heur_simplerounding.h</label>
+        <link refid="heur__simplerounding_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10528">
+        <label>heur_localbranching.h</label>
+        <link refid="heur__localbranching_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10590">
+        <label>reader_ppm.h</label>
+        <link refid="reader__ppm_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10476">
+        <label>scip.h</label>
+        <link refid="scip_8h"/>
+        <childnode refid="10477" relation="include">
+        </childnode>
+        <childnode refid="10479" relation="include">
+        </childnode>
+        <childnode refid="10480" relation="include">
+        </childnode>
+        <childnode refid="10481" relation="include">
+        </childnode>
+        <childnode refid="10482" relation="include">
+        </childnode>
+        <childnode refid="10483" relation="include">
+        </childnode>
+        <childnode refid="10484" relation="include">
+        </childnode>
+        <childnode refid="10485" relation="include">
+        </childnode>
+        <childnode refid="10486" relation="include">
+        </childnode>
+        <childnode refid="10487" relation="include">
+        </childnode>
+        <childnode refid="10488" relation="include">
+        </childnode>
+        <childnode refid="10489" relation="include">
+        </childnode>
+        <childnode refid="10490" relation="include">
+        </childnode>
+        <childnode refid="10491" relation="include">
+        </childnode>
+        <childnode refid="10492" relation="include">
+        </childnode>
+        <childnode refid="10493" relation="include">
+        </childnode>
+        <childnode refid="10494" relation="include">
+        </childnode>
+        <childnode refid="10495" relation="include">
+        </childnode>
+        <childnode refid="10496" relation="include">
+        </childnode>
+        <childnode refid="10497" relation="include">
+        </childnode>
+        <childnode refid="10498" relation="include">
+        </childnode>
+        <childnode refid="10499" relation="include">
+        </childnode>
+        <childnode refid="10500" relation="include">
+        </childnode>
+        <childnode refid="10501" relation="include">
+        </childnode>
+        <childnode refid="10502" relation="include">
+        </childnode>
+        <childnode refid="10503" relation="include">
+        </childnode>
+        <childnode refid="10504" relation="include">
+        </childnode>
+        <childnode refid="10505" relation="include">
+        </childnode>
+        <childnode refid="10506" relation="include">
+        </childnode>
+        <childnode refid="10507" relation="include">
+        </childnode>
+        <childnode refid="10508" relation="include">
+        </childnode>
+        <childnode refid="10509" relation="include">
+        </childnode>
+        <childnode refid="10510" relation="include">
+        </childnode>
+        <childnode refid="10511" relation="include">
+        </childnode>
+        <childnode refid="10512" relation="include">
+        </childnode>
+        <childnode refid="10513" relation="include">
+        </childnode>
+        <childnode refid="10514" relation="include">
+        </childnode>
+        <childnode refid="10515" relation="include">
+        </childnode>
+        <childnode refid="10516" relation="include">
+        </childnode>
+        <childnode refid="10517" relation="include">
+        </childnode>
+        <childnode refid="10518" relation="include">
+        </childnode>
+        <childnode refid="10519" relation="include">
+        </childnode>
+        <childnode refid="10520" relation="include">
+        </childnode>
+        <childnode refid="10521" relation="include">
+        </childnode>
+        <childnode refid="10522" relation="include">
+        </childnode>
+        <childnode refid="10523" relation="include">
+        </childnode>
+        <childnode refid="10524" relation="include">
+        </childnode>
+        <childnode refid="10525" relation="include">
+        </childnode>
+        <childnode refid="10526" relation="include">
+        </childnode>
+        <childnode refid="10527" relation="include">
+        </childnode>
+        <childnode refid="10528" relation="include">
+        </childnode>
+        <childnode refid="10529" relation="include">
+        </childnode>
+        <childnode refid="10530" relation="include">
+        </childnode>
+        <childnode refid="10531" relation="include">
+        </childnode>
+        <childnode refid="10532" relation="include">
+        </childnode>
+        <childnode refid="10533" relation="include">
+        </childnode>
+        <childnode refid="10534" relation="include">
+        </childnode>
+        <childnode refid="10535" relation="include">
+        </childnode>
+        <childnode refid="10536" relation="include">
+        </childnode>
+        <childnode refid="10537" relation="include">
+        </childnode>
+        <childnode refid="10538" relation="include">
+        </childnode>
+        <childnode refid="10539" relation="include">
+        </childnode>
+        <childnode refid="10540" relation="include">
+        </childnode>
+        <childnode refid="10541" relation="include">
+        </childnode>
+        <childnode refid="10542" relation="include">
+        </childnode>
+        <childnode refid="10543" relation="include">
+        </childnode>
+        <childnode refid="10544" relation="include">
+        </childnode>
+        <childnode refid="10545" relation="include">
+        </childnode>
+        <childnode refid="10546" relation="include">
+        </childnode>
+        <childnode refid="10547" relation="include">
+        </childnode>
+        <childnode refid="10548" relation="include">
+        </childnode>
+        <childnode refid="10549" relation="include">
+        </childnode>
+        <childnode refid="10550" relation="include">
+        </childnode>
+        <childnode refid="10551" relation="include">
+        </childnode>
+        <childnode refid="10552" relation="include">
+        </childnode>
+        <childnode refid="10553" relation="include">
+        </childnode>
+        <childnode refid="10554" relation="include">
+        </childnode>
+        <childnode refid="10555" relation="include">
+        </childnode>
+        <childnode refid="10556" relation="include">
+        </childnode>
+        <childnode refid="10557" relation="include">
+        </childnode>
+        <childnode refid="10558" relation="include">
+        </childnode>
+        <childnode refid="10559" relation="include">
+        </childnode>
+        <childnode refid="10560" relation="include">
+        </childnode>
+        <childnode refid="10561" relation="include">
+        </childnode>
+        <childnode refid="10562" relation="include">
+        </childnode>
+        <childnode refid="10563" relation="include">
+        </childnode>
+        <childnode refid="10564" relation="include">
+        </childnode>
+        <childnode refid="10565" relation="include">
+        </childnode>
+        <childnode refid="10566" relation="include">
+        </childnode>
+        <childnode refid="10567" relation="include">
+        </childnode>
+        <childnode refid="10568" relation="include">
+        </childnode>
+        <childnode refid="10569" relation="include">
+        </childnode>
+        <childnode refid="10570" relation="include">
+        </childnode>
+        <childnode refid="10571" relation="include">
+        </childnode>
+        <childnode refid="10572" relation="include">
+        </childnode>
+        <childnode refid="10573" relation="include">
+        </childnode>
+        <childnode refid="10574" relation="include">
+        </childnode>
+        <childnode refid="10575" relation="include">
+        </childnode>
+        <childnode refid="10576" relation="include">
+        </childnode>
+        <childnode refid="10577" relation="include">
+        </childnode>
+        <childnode refid="10578" relation="include">
+        </childnode>
+        <childnode refid="10579" relation="include">
+        </childnode>
+        <childnode refid="10580" relation="include">
+        </childnode>
+        <childnode refid="10581" relation="include">
+        </childnode>
+        <childnode refid="10582" relation="include">
+        </childnode>
+        <childnode refid="10583" relation="include">
+        </childnode>
+        <childnode refid="10584" relation="include">
+        </childnode>
+        <childnode refid="10585" relation="include">
+        </childnode>
+        <childnode refid="10586" relation="include">
+        </childnode>
+        <childnode refid="10587" relation="include">
+        </childnode>
+        <childnode refid="10588" relation="include">
+        </childnode>
+        <childnode refid="10589" relation="include">
+        </childnode>
+        <childnode refid="10590" relation="include">
+        </childnode>
+        <childnode refid="10591" relation="include">
+        </childnode>
+        <childnode refid="10592" relation="include">
+        </childnode>
+        <childnode refid="10593" relation="include">
+        </childnode>
+        <childnode refid="10594" relation="include">
+        </childnode>
+        <childnode refid="10478" relation="include">
+        </childnode>
+        <childnode refid="10595" relation="include">
+        </childnode>
+        <childnode refid="10596" relation="include">
+        </childnode>
+        <childnode refid="10597" relation="include">
+        </childnode>
+        <childnode refid="10598" relation="include">
+        </childnode>
+        <childnode refid="10599" relation="include">
+        </childnode>
+        <childnode refid="10600" relation="include">
+        </childnode>
+        <childnode refid="10601" relation="include">
+        </childnode>
+        <childnode refid="10602" relation="include">
+        </childnode>
+        <childnode refid="10603" relation="include">
+        </childnode>
+        <childnode refid="10604" relation="include">
+        </childnode>
+        <childnode refid="10605" relation="include">
+        </childnode>
+        <childnode refid="10606" relation="include">
+        </childnode>
+        <childnode refid="10607" relation="include">
+        </childnode>
+      </node>
+      <node id="10481">
+        <label>branch_inference.h</label>
+        <link refid="branch__inference_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10504">
+        <label>cons_pseudoboolean.h</label>
+        <link refid="cons__pseudoboolean_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10542">
+        <label>heur_shifting.h</label>
+        <link refid="heur__shifting_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10533">
+        <label>heur_oneopt.h</label>
+        <link refid="heur__oneopt_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10508">
+        <label>cons_sos1.h</label>
+        <link refid="cons__sos1_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10558">
+        <label>nodesel_restartdfs.h</label>
+        <link refid="nodesel__restartdfs_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10597">
+        <label>sepa_closecuts.h</label>
+        <link refid="sepa__closecuts_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10488">
+        <label>cons_and.h</label>
+        <link refid="cons__and_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10589">
+        <label>reader_pip.h</label>
+        <link refid="reader__pip_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10540">
+        <label>heur_rounding.h</label>
+        <link refid="heur__rounding_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10538">
+        <label>heur_rins.h</label>
+        <link refid="heur__rins_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10478">
+        <label>scipdefplugins.h</label>
+        <link refid="scipdefplugins_8h"/>
+      </node>
+      <node id="10514">
+        <label>disp_default.h</label>
+        <link refid="disp__default_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10519">
+        <label>heur_dins.h</label>
+        <link refid="heur__dins_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10551">
+        <label>heur_zeroobj.h</label>
+        <link refid="heur__zeroobj_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10513">
+        <label>dialog_default.h</label>
+        <link refid="dialog__default_8h"/>
+      </node>
+      <node id="10480">
+        <label>branch_fullstrong.h</label>
+        <link refid="branch__fullstrong_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10524">
+        <label>heur_guideddiving.h</label>
+        <link refid="heur__guideddiving_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10586">
+        <label>reader_opb.h</label>
+        <link refid="reader__opb_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10502">
+        <label>cons_or.h</label>
+        <link refid="cons__or_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10565">
+        <label>presol_gateextraction.h</label>
+        <link refid="presol__gateextraction_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10485">
+        <label>branch_random.h</label>
+        <link refid="branch__random_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10523">
+        <label>heur_fracdiving.h</label>
+        <link refid="heur__fracdiving_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10494">
+        <label>cons_disjunction.h</label>
+        <link refid="cons__disjunction_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10577">
+        <label>reader_bnd.h</label>
+        <link refid="reader__bnd_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10486">
+        <label>branch_relpscost.h</label>
+        <link refid="branch__relpscost_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10526">
+        <label>heur_intshifting.h</label>
+        <link refid="heur__intshifting_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10511">
+        <label>cons_varbound.h</label>
+        <link refid="cons__varbound_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10559">
+        <label>nodesel_uct.h</label>
+        <link refid="nodesel__uct_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10493">
+        <label>cons_cumulative.h</label>
+        <link refid="cons__cumulative_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10495">
+        <label>cons_indicator.h</label>
+        <link refid="cons__indicator_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10574">
+        <label>prop_redcost.h</label>
+        <link refid="prop__redcost_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10521">
+        <label>heur_feaspump.h</label>
+        <link refid="heur__feaspump_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10594">
+        <label>reader_zpl.h</label>
+        <link refid="reader__zpl_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10595">
+        <label>sepa_cgmip.h</label>
+        <link refid="sepa__cgmip_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10535">
+        <label>heur_pscostdiving.h</label>
+        <link refid="heur__pscostdiving_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10581">
+        <label>reader_fix.h</label>
+        <link refid="reader__fix_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10509">
+        <label>cons_sos2.h</label>
+        <link refid="cons__sos2_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10545">
+        <label>heur_trivial.h</label>
+        <link refid="heur__trivial_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10498">
+        <label>cons_linear.h</label>
+        <link refid="cons__linear_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10530">
+        <label>heur_nlpdiving.h</label>
+        <link refid="heur__nlpdiving_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10496">
+        <label>cons_integral.h</label>
+        <link refid="cons__integral_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10598">
+        <label>sepa_cmir.h</label>
+        <link refid="sepa__cmir_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10537">
+        <label>heur_rens.h</label>
+        <link refid="heur__rens_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10520">
+        <label>heur_dualval.h</label>
+        <link refid="heur__dualval_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10539">
+        <label>heur_rootsoldiving.h</label>
+        <link refid="heur__rootsoldiving_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10572">
+        <label>prop_probing.h</label>
+        <link refid="prop__probing_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10503">
+        <label>cons_orbitope.h</label>
+        <link refid="cons__orbitope_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10492">
+        <label>cons_countsols.h</label>
+        <link refid="cons__countsols_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10605">
+        <label>sepa_rapidlearning.h</label>
+        <link refid="sepa__rapidlearning_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10536">
+        <label>heur_randrounding.h</label>
+        <link refid="heur__randrounding_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10554">
+        <label>nodesel_breadthfirst.h</label>
+        <link refid="nodesel__breadthfirst_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10544">
+        <label>heur_subnlp.h</label>
+        <link refid="heur__subnlp_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10579">
+        <label>reader_cip.h</label>
+        <link refid="reader__cip_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10556">
+        <label>nodesel_estimate.h</label>
+        <link refid="nodesel__estimate_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10569">
+        <label>prop_dualfix.h</label>
+        <link refid="prop__dualfix_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10525">
+        <label>heur_intdiving.h</label>
+        <link refid="heur__intdiving_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10571">
+        <label>prop_obbt.h</label>
+        <link refid="prop__obbt_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10573">
+        <label>prop_pseudoobj.h</label>
+        <link refid="prop__pseudoobj_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10566">
+        <label>presol_implics.h</label>
+        <link refid="presol__implics_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10529">
+        <label>heur_mutation.h</label>
+        <link refid="heur__mutation_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10596">
+        <label>sepa_clique.h</label>
+        <link refid="sepa__clique_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10546">
+        <label>heur_trysol.h</label>
+        <link refid="heur__trysol_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10584">
+        <label>reader_lp.h</label>
+        <link refid="reader__lp_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10602">
+        <label>sepa_intobj.h</label>
+        <link refid="sepa__intobj_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10547">
+        <label>heur_twoopt.h</label>
+        <link refid="heur__twoopt_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10550">
+        <label>heur_veclendiving.h</label>
+        <link refid="heur__veclendiving_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10487">
+        <label>cons_abspower.h</label>
+        <link refid="cons__abspower_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10506">
+        <label>cons_setppc.h</label>
+        <link refid="cons__setppc_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10534">
+        <label>heur_proximity.h</label>
+        <link refid="heur__proximity_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10600">
+        <label>sepa_gomory.h</label>
+        <link refid="sepa__gomory_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10497">
+        <label>cons_knapsack.h</label>
+        <link refid="cons__knapsack_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10575">
+        <label>prop_rootredcost.h</label>
+        <link refid="prop__rootredcost_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10557">
+        <label>nodesel_hybridestim.h</label>
+        <link refid="nodesel__hybridestim_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10499">
+        <label>cons_linking.h</label>
+        <link refid="cons__linking_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10477">
+        <label>branch_allfullstrong.h</label>
+        <link refid="branch__allfullstrong_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10592">
+        <label>reader_sol.h</label>
+        <link refid="reader__sol_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10561">
+        <label>presol_components.h</label>
+        <link refid="presol__components_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10585">
+        <label>reader_mps.h</label>
+        <link refid="reader__mps_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10531">
+        <label>heur_objpscostdiving.h</label>
+        <link refid="heur__objpscostdiving_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10515">
+        <label>heur_actconsdiving.h</label>
+        <link refid="heur__actconsdiving_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10567">
+        <label>presol_inttobinary.h</label>
+        <link refid="presol__inttobinary_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10576">
+        <label>prop_vbounds.h</label>
+        <link refid="prop__vbounds_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10475">
+        <label>pub_nlp.h</label>
+        <link refid="pub_nlp.h"/>
+        <childnode refid="10476" relation="include">
+        </childnode>
+      </node>
+      <node id="10603">
+        <label>sepa_mcf.h</label>
+        <link refid="sepa__mcf_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10599">
+        <label>sepa_flowcover.h</label>
+        <link refid="sepa__flowcover_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10570">
+        <label>prop_genvbounds.h</label>
+        <link refid="prop__genvbounds_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10564">
+        <label>presol_dualinfer.h</label>
+        <link refid="presol__dualinfer_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10507">
+        <label>cons_soc.h</label>
+        <link refid="cons__soc_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10553">
+        <label>nodesel_bfs.h</label>
+        <link refid="nodesel__bfs_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10484">
+        <label>branch_pscost.h</label>
+        <link refid="branch__pscost_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10601">
+        <label>sepa_impliedbounds.h</label>
+        <link refid="sepa__impliedbounds_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10501">
+        <label>cons_nonlinear.h</label>
+        <link refid="cons__nonlinear_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10580">
+        <label>reader_cnf.h</label>
+        <link refid="reader__cnf_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10549">
+        <label>heur_vbounds.h</label>
+        <link refid="heur__vbounds_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10563">
+        <label>presol_domcol.h</label>
+        <link refid="presol__domcol_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10527">
+        <label>heur_linesearchdiving.h</label>
+        <link refid="heur__linesearchdiving_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10583">
+        <label>reader_gms.h</label>
+        <link refid="reader__gms_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10591">
+        <label>reader_rlp.h</label>
+        <link refid="reader__rlp_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10510">
+        <label>cons_superindicator.h</label>
+        <link refid="cons__superindicator_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10482">
+        <label>branch_leastinf.h</label>
+        <link refid="branch__leastinf_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10541">
+        <label>heur_shiftandpropagate.h</label>
+        <link refid="heur__shiftandpropagate_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10560">
+        <label>presol_boundshift.h</label>
+        <link refid="presol__boundshift_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10500">
+        <label>cons_logicor.h</label>
+        <link refid="cons__logicor_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10587">
+        <label>reader_osil.h</label>
+        <link refid="reader__osil_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10582">
+        <label>reader_fzn.h</label>
+        <link refid="reader__fzn_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10555">
+        <label>nodesel_dfs.h</label>
+        <link refid="nodesel__dfs_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10491">
+        <label>cons_conjunction.h</label>
+        <link refid="cons__conjunction_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10606">
+        <label>sepa_strongcg.h</label>
+        <link refid="sepa__strongcg_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10578">
+        <label>reader_ccg.h</label>
+        <link refid="reader__ccg_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10568">
+        <label>presol_trivial.h</label>
+        <link refid="presol__trivial_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10522">
+        <label>heur_fixandinfer.h</label>
+        <link refid="heur__fixandinfer_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10505">
+        <label>cons_quadratic.h</label>
+        <link refid="cons__quadratic_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10479">
+        <label>branch_cloud.h</label>
+        <link refid="branch__cloud_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10604">
+        <label>sepa_oddcycle.h</label>
+        <link refid="sepa__oddcycle_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10518">
+        <label>heur_crossover.h</label>
+        <link refid="heur__crossover_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10490">
+        <label>cons_bounddisjunction.h</label>
+        <link refid="cons__bounddisjunction_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10489">
+        <label>cons_bivariate.h</label>
+        <link refid="cons__bivariate_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10593">
+        <label>reader_wbo.h</label>
+        <link refid="reader__wbo_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10552">
+        <label>heur_zirounding.h</label>
+        <link refid="heur__zirounding_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10532">
+        <label>heur_octane.h</label>
+        <link refid="heur__octane_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+      <node id="10483">
+        <label>branch_mostinf.h</label>
+        <link refid="branch__mostinf_8h"/>
+        <childnode refid="10478" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="user-defined">
+      <header>Expressions and Expression tree methods</header>
+      <memberdef kind="function" id="pub__nlp_8h_1a8f53f40f9614373d84c0e93d654799df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__var_8h_1a032edd1f5032513d49e397ebdcc8915b" kindref="member">SCIP_VAR</ref> **</type>
+        <definition>SCIP_VAR** SCIPexprtreeGetVars</definition>
+        <argsstring>(SCIP_EXPRTREE *tree)</argsstring>
+        <name>SCIPexprtreeGetVars</name>
+        <param>
+          <type><ref refid="type__expr_8h_1a4ae8525548d76cb766394131bb405cf2" kindref="member">SCIP_EXPRTREE</ref> *</type>
+          <declname>tree</declname>
+          <briefdescription><para>expression tree </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns variables of expression tree </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_nlp.h" line="50" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__nlp_8h_1a5628774d690600a9dcb0907f4f6aa2bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref></type>
+        <definition>SCIP_RETCODE SCIPexprtreeSetVars</definition>
+        <argsstring>(SCIP_EXPRTREE *tree, int nvars, SCIP_VAR **vars)</argsstring>
+        <name>SCIPexprtreeSetVars</name>
+        <param>
+          <type><ref refid="type__expr_8h_1a4ae8525548d76cb766394131bb405cf2" kindref="member">SCIP_EXPRTREE</ref> *</type>
+          <declname>tree</declname>
+          <briefdescription><para>expression tree </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nvars</declname>
+          <briefdescription><para>number of variables </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__var_8h_1a032edd1f5032513d49e397ebdcc8915b" kindref="member">SCIP_VAR</ref> **</type>
+          <declname>vars</declname>
+          <briefdescription><para>variables </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>stores array of variables in expression tree </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_nlp.h" line="56" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__nlp_8h_1ab08a7398c48311738ffc27d6f949d4f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref></type>
+        <definition>SCIP_RETCODE SCIPexprtreeAddVars</definition>
+        <argsstring>(SCIP_EXPRTREE *tree, int nvars, SCIP_VAR **vars)</argsstring>
+        <name>SCIPexprtreeAddVars</name>
+        <param>
+          <type><ref refid="type__expr_8h_1a4ae8525548d76cb766394131bb405cf2" kindref="member">SCIP_EXPRTREE</ref> *</type>
+          <declname>tree</declname>
+          <briefdescription><para>expression tree </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nvars</declname>
+          <briefdescription><para>number of variables </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__var_8h_1a032edd1f5032513d49e397ebdcc8915b" kindref="member">SCIP_VAR</ref> **</type>
+          <declname>vars</declname>
+          <briefdescription><para>variables </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>adds variables to the expression tree variables array </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_nlp.h" line="64" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__nlp_8h_1aa220b4210d0399c0e2114af22a026035" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref></type>
+        <definition>SCIP_RETCODE SCIPexprtreePrintWithNames</definition>
+        <argsstring>(SCIP_EXPRTREE *tree, SCIP_MESSAGEHDLR *messagehdlr, FILE *file)</argsstring>
+        <name>SCIPexprtreePrintWithNames</name>
+        <param>
+          <type><ref refid="type__expr_8h_1a4ae8525548d76cb766394131bb405cf2" kindref="member">SCIP_EXPRTREE</ref> *</type>
+          <declname>tree</declname>
+          <briefdescription><para>expression tree </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__message_8h_1a7d71113339d14873806c1399442fae8d" kindref="member">SCIP_MESSAGEHDLR</ref> *</type>
+          <declname>messagehdlr</declname>
+          <briefdescription><para>message handler </para></briefdescription>
+        </param>
+        <param>
+          <type>FILE *</type>
+          <declname>file</declname>
+          <briefdescription><para>file for printing, or NULL for stdout </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>prints an expression tree using variable names from variables array </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_nlp.h" line="72" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__nlp_8h_1abf30b7e88de6d8ccd7eee9273af32e4b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIPexprtreeFindVar</definition>
+        <argsstring>(SCIP_EXPRTREE *tree, SCIP_VAR *var)</argsstring>
+        <name>SCIPexprtreeFindVar</name>
+        <param>
+          <type><ref refid="type__expr_8h_1a4ae8525548d76cb766394131bb405cf2" kindref="member">SCIP_EXPRTREE</ref> *</type>
+          <declname>tree</declname>
+          <briefdescription><para>expression tree </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__var_8h_1a032edd1f5032513d49e397ebdcc8915b" kindref="member">SCIP_VAR</ref> *</type>
+          <declname>var</declname>
+          <briefdescription><para>variable to search for </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>searches the variables array of an expression tree for a variable and returns its position, or -1 if not found Note that this is an O(n) operation! </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_nlp.h" line="82" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Nonlinear row methods</header>
+      <memberdef kind="function" id="pub__nlp_8h_1ab9f628ac0c1bf96d58baea98c9342730" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+        <definition>SCIP_Real SCIPnlrowGetConstant</definition>
+        <argsstring>(SCIP_NLROW *nlrow)</argsstring>
+        <name>SCIPnlrowGetConstant</name>
+        <param>
+          <type><ref refid="type__nlp_8h_1ade0b64677fdf4b415b8a05b4f1cb435a" kindref="member">SCIP_NLROW</ref> *</type>
+          <declname>nlrow</declname>
+          <briefdescription><para>NLP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets constant </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_nlp.h" line="94" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__nlp_8h_1a90d579ae11ca7bcc8ce1aa66f7276f40" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIPnlrowGetNLinearVars</definition>
+        <argsstring>(SCIP_NLROW *nlrow)</argsstring>
+        <name>SCIPnlrowGetNLinearVars</name>
+        <param>
+          <type><ref refid="type__nlp_8h_1ade0b64677fdf4b415b8a05b4f1cb435a" kindref="member">SCIP_NLROW</ref> *</type>
+          <declname>nlrow</declname>
+          <briefdescription><para>NLP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets number of variables of linear part </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_nlp.h" line="100" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__nlp_8h_1aad3c7866f2277cdcd05824cd8ec7b3b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__var_8h_1a032edd1f5032513d49e397ebdcc8915b" kindref="member">SCIP_VAR</ref> **</type>
+        <definition>SCIP_VAR** SCIPnlrowGetLinearVars</definition>
+        <argsstring>(SCIP_NLROW *nlrow)</argsstring>
+        <name>SCIPnlrowGetLinearVars</name>
+        <param>
+          <type><ref refid="type__nlp_8h_1ade0b64677fdf4b415b8a05b4f1cb435a" kindref="member">SCIP_NLROW</ref> *</type>
+          <declname>nlrow</declname>
+          <briefdescription><para>NLP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets array with variables of linear part </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_nlp.h" line="106" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__nlp_8h_1a345cda0724da42340d0f48e20b0b579a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref> *</type>
+        <definition>SCIP_Real* SCIPnlrowGetLinearCoefs</definition>
+        <argsstring>(SCIP_NLROW *nlrow)</argsstring>
+        <name>SCIPnlrowGetLinearCoefs</name>
+        <param>
+          <type><ref refid="type__nlp_8h_1ade0b64677fdf4b415b8a05b4f1cb435a" kindref="member">SCIP_NLROW</ref> *</type>
+          <declname>nlrow</declname>
+          <briefdescription><para>NLP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets array with coefficients in linear part </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_nlp.h" line="112" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__nlp_8h_1ab51dfc0445e8fad9abe1781c09591ec5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIPnlrowGetNQuadVars</definition>
+        <argsstring>(SCIP_NLROW *nlrow)</argsstring>
+        <name>SCIPnlrowGetNQuadVars</name>
+        <param>
+          <type><ref refid="type__nlp_8h_1ade0b64677fdf4b415b8a05b4f1cb435a" kindref="member">SCIP_NLROW</ref> *</type>
+          <declname>nlrow</declname>
+          <briefdescription><para>NLP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets number of quadratic variables in quadratic part </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_nlp.h" line="118" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__nlp_8h_1a35b6ed602ef3150e0977eda650de0fec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__var_8h_1a032edd1f5032513d49e397ebdcc8915b" kindref="member">SCIP_VAR</ref> **</type>
+        <definition>SCIP_VAR** SCIPnlrowGetQuadVars</definition>
+        <argsstring>(SCIP_NLROW *nlrow)</argsstring>
+        <name>SCIPnlrowGetQuadVars</name>
+        <param>
+          <type><ref refid="type__nlp_8h_1ade0b64677fdf4b415b8a05b4f1cb435a" kindref="member">SCIP_NLROW</ref> *</type>
+          <declname>nlrow</declname>
+          <briefdescription><para>NLP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets quadratic variables in quadratic part </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_nlp.h" line="124" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__nlp_8h_1a4a178fbe0e2d73a729cac3f884a7dd44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIPnlrowSearchQuadVar</definition>
+        <argsstring>(SCIP_NLROW *nlrow, SCIP_VAR *var)</argsstring>
+        <name>SCIPnlrowSearchQuadVar</name>
+        <param>
+          <type><ref refid="type__nlp_8h_1ade0b64677fdf4b415b8a05b4f1cb435a" kindref="member">SCIP_NLROW</ref> *</type>
+          <declname>nlrow</declname>
+          <briefdescription><para>nonlinear row </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__var_8h_1a032edd1f5032513d49e397ebdcc8915b" kindref="member">SCIP_VAR</ref> *</type>
+          <declname>var</declname>
+          <briefdescription><para>variable to search for </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gives position of variable in quadvars array of row, or -1 if not found </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_nlp.h" line="130" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__nlp_8h_1a4fb89aca4f1e2db04d7c07ed89f1e6d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIPnlrowGetNQuadElems</definition>
+        <argsstring>(SCIP_NLROW *nlrow)</argsstring>
+        <name>SCIPnlrowGetNQuadElems</name>
+        <param>
+          <type><ref refid="type__nlp_8h_1ade0b64677fdf4b415b8a05b4f1cb435a" kindref="member">SCIP_NLROW</ref> *</type>
+          <declname>nlrow</declname>
+          <briefdescription><para>NLP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets number of quadratic elements in quadratic part </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_nlp.h" line="137" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__nlp_8h_1ac1f01e012def3af00b1854a1b0291fc8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__expr_8h_1abaf258f420336359952d83563ed641f8" kindref="member">SCIP_QUADELEM</ref> *</type>
+        <definition>SCIP_QUADELEM* SCIPnlrowGetQuadElems</definition>
+        <argsstring>(SCIP_NLROW *nlrow)</argsstring>
+        <name>SCIPnlrowGetQuadElems</name>
+        <param>
+          <type><ref refid="type__nlp_8h_1ade0b64677fdf4b415b8a05b4f1cb435a" kindref="member">SCIP_NLROW</ref> *</type>
+          <declname>nlrow</declname>
+          <briefdescription><para>NLP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets quadratic elements in quadratic part </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_nlp.h" line="143" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__nlp_8h_1a18b42b53039054759e8fb4936424e1d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPnlrowGetQuadData</definition>
+        <argsstring>(SCIP_NLROW *nlrow, int *nquadvars, SCIP_VAR ***quadvars, int *nquadelems, SCIP_QUADELEM **quadelems)</argsstring>
+        <name>SCIPnlrowGetQuadData</name>
+        <param>
+          <type><ref refid="type__nlp_8h_1ade0b64677fdf4b415b8a05b4f1cb435a" kindref="member">SCIP_NLROW</ref> *</type>
+          <declname>nlrow</declname>
+          <briefdescription><para>NLP row </para></briefdescription>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>nquadvars</declname>
+          <briefdescription><para>buffer to store number of variables in quadratic term, or NULL if not of interest </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__var_8h_1a032edd1f5032513d49e397ebdcc8915b" kindref="member">SCIP_VAR</ref> ***</type>
+          <declname>quadvars</declname>
+          <briefdescription><para>buffer to store pointer to array of variables in quadratic term, or NULL if not of interest </para></briefdescription>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>nquadelems</declname>
+          <briefdescription><para>buffer to store number of entries in quadratic term, or NULL if not of interest </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__expr_8h_1abaf258f420336359952d83563ed641f8" kindref="member">SCIP_QUADELEM</ref> **</type>
+          <declname>quadelems</declname>
+          <briefdescription><para>buffer to store pointer to array of entries in quadratic term, or NULL if not of interest </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets array with coefficients in linear part </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_nlp.h" line="149" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__nlp_8h_1a899c1a1f044a54e8ce0e7350b33b018b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__expr_8h_1a4ae8525548d76cb766394131bb405cf2" kindref="member">SCIP_EXPRTREE</ref> *</type>
+        <definition>SCIP_EXPRTREE* SCIPnlrowGetExprtree</definition>
+        <argsstring>(SCIP_NLROW *nlrow)</argsstring>
+        <name>SCIPnlrowGetExprtree</name>
+        <param>
+          <type><ref refid="type__nlp_8h_1ade0b64677fdf4b415b8a05b4f1cb435a" kindref="member">SCIP_NLROW</ref> *</type>
+          <declname>nlrow</declname>
+          <briefdescription><para>NLP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets expression tree </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_nlp.h" line="159" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__nlp_8h_1a5f79e46fd3a4c49302470f3fe461c6af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+        <definition>SCIP_Real SCIPnlrowGetLhs</definition>
+        <argsstring>(SCIP_NLROW *nlrow)</argsstring>
+        <name>SCIPnlrowGetLhs</name>
+        <param>
+          <type><ref refid="type__nlp_8h_1ade0b64677fdf4b415b8a05b4f1cb435a" kindref="member">SCIP_NLROW</ref> *</type>
+          <declname>nlrow</declname>
+          <briefdescription><para>NLP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns the left hand side of a nonlinear row </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_nlp.h" line="165" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__nlp_8h_1a189829d97a13c378af1eddeee0af7060" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+        <definition>SCIP_Real SCIPnlrowGetRhs</definition>
+        <argsstring>(SCIP_NLROW *nlrow)</argsstring>
+        <name>SCIPnlrowGetRhs</name>
+        <param>
+          <type><ref refid="type__nlp_8h_1ade0b64677fdf4b415b8a05b4f1cb435a" kindref="member">SCIP_NLROW</ref> *</type>
+          <declname>nlrow</declname>
+          <briefdescription><para>NLP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns the right hand side of a nonlinear row </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_nlp.h" line="171" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__nlp_8h_1aa584087de7cfd80d60852881d3a523a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char* SCIPnlrowGetName</definition>
+        <argsstring>(SCIP_NLROW *nlrow)</argsstring>
+        <name>SCIPnlrowGetName</name>
+        <param>
+          <type><ref refid="type__nlp_8h_1ade0b64677fdf4b415b8a05b4f1cb435a" kindref="member">SCIP_NLROW</ref> *</type>
+          <declname>nlrow</declname>
+          <briefdescription><para>NLP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns the name of a nonlinear row </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_nlp.h" line="177" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__nlp_8h_1a8142efc0a68b75006225329289e3eba0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIPnlrowGetNLPPos</definition>
+        <argsstring>(SCIP_NLROW *nlrow)</argsstring>
+        <name>SCIPnlrowGetNLPPos</name>
+        <param>
+          <type><ref refid="type__nlp_8h_1ade0b64677fdf4b415b8a05b4f1cb435a" kindref="member">SCIP_NLROW</ref> *</type>
+          <declname>nlrow</declname>
+          <briefdescription><para>NLP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets position of a nonlinear row in current NLP, or -1 if not in NLP </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_nlp.h" line="183" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__nlp_8h_1ac44bb34b85579ed5ac12576b7dfd473b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref></type>
+        <definition>SCIP_Bool SCIPnlrowIsInNLP</definition>
+        <argsstring>(SCIP_NLROW *nlrow)</argsstring>
+        <name>SCIPnlrowIsInNLP</name>
+        <param>
+          <type><ref refid="type__nlp_8h_1ade0b64677fdf4b415b8a05b4f1cb435a" kindref="member">SCIP_NLROW</ref> *</type>
+          <declname>nlrow</declname>
+          <briefdescription><para>NLP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns TRUE iff row is member of current NLP </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_nlp.h" line="189" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__nlp_8h_1ab9742290c407ebc7797b6ed4f9e89a6a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+        <definition>SCIP_Real SCIPnlrowGetDualsol</definition>
+        <argsstring>(SCIP_NLROW *nlrow)</argsstring>
+        <name>SCIPnlrowGetDualsol</name>
+        <param>
+          <type><ref refid="type__nlp_8h_1ade0b64677fdf4b415b8a05b4f1cb435a" kindref="member">SCIP_NLROW</ref> *</type>
+          <declname>nlrow</declname>
+          <briefdescription><para>NLP row </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets the dual NLP solution of a nlrow for a ranged constraint, the dual value is positive if the right hand side is active and negative if the left hand side is active </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_nlp.h" line="197" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>public methods for NLP management </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Thorsten Gellermann </para></simplesect>
+<simplesect kind="author"><para>Stefan Vigerske </para></simplesect>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>This<sp/>file<sp/>is<sp/>part<sp/>of<sp/>the<sp/>program<sp/>and<sp/>library<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SCIP<sp/>---<sp/>Solving<sp/>Constraint<sp/>Integer<sp/>Programs<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/>Copyright<sp/>(C)<sp/>2002-2014<sp/>Konrad-Zuse-Zentrum<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fuer<sp/>Informationstechnik<sp/>Berlin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>SCIP<sp/>is<sp/>distributed<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>ZIB<sp/>Academic<sp/>License.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>You<sp/>should<sp/>have<sp/>received<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>ZIB<sp/>Academic<sp/>License<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>along<sp/>with<sp/>SCIP;<sp/>see<sp/>the<sp/>file<sp/>COPYING.<sp/>If<sp/>not<sp/>email<sp/>to<sp/>scip@zib.de.<sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="16"><highlight class="comment">/**@file<sp/><sp/><sp/>pub_nlp.h</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>@ingroup<sp/>PUBLICMETHODS</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>@brief<sp/><sp/>public<sp/>methods<sp/>for<sp/>NLP<sp/>management</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>@author<sp/>Thorsten<sp/>Gellermann</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>@author<sp/>Stefan<sp/>Vigerske</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">/*---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8----+----9----+----0----+----1----+----2*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>__SCIP_PUB_NLP_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__SCIP_PUB_NLP_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="def_8h" kindref="compound">scip/def.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="type__message_8h" kindref="compound">scip/type_message.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;blockmemshell/memory.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="type__set_8h" kindref="compound">scip/type_set.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="type__stat_8h" kindref="compound">scip/type_stat.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="type__nlp_8h" kindref="compound">scip/type_nlp.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="type__var_8h" kindref="compound">scip/type_var.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="type__sol_8h" kindref="compound">scip/type_sol.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="type__expr_8h" kindref="compound">nlpi/type_expr.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="type__nlpi_8h" kindref="compound">nlpi/type_nlpi.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="45"><highlight class="comment">/**@name<sp/>Expressions<sp/>and<sp/>Expression<sp/>tree<sp/>methods<sp/>*/</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="46"><highlight class="comment">/**@{<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="48"><highlight class="comment">/**<sp/>returns<sp/>variables<sp/>of<sp/>expression<sp/>tree<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><ref refid="type__var_8h_1a032edd1f5032513d49e397ebdcc8915b" kindref="member">SCIP_VAR</ref>**<sp/><ref refid="pub__nlp_8h_1a8f53f40f9614373d84c0e93d654799df" kindref="member">SCIPexprtreeGetVars</ref>(</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__expr_8h_1a4ae8525548d76cb766394131bb405cf2" kindref="member">SCIP_EXPRTREE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tree<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>expression<sp/>tree<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal">);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="54"><highlight class="comment">/**<sp/>stores<sp/>array<sp/>of<sp/>variables<sp/>in<sp/>expression<sp/>tree<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref><sp/><ref refid="pub__nlp_8h_1a5628774d690600a9dcb0907f4f6aa2bc" kindref="member">SCIPexprtreeSetVars</ref>(</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__expr_8h_1a4ae8525548d76cb766394131bb405cf2" kindref="member">SCIP_EXPRTREE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tree,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>expression<sp/>tree<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nvars,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>number<sp/>of<sp/>variables<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__var_8h_1a032edd1f5032513d49e397ebdcc8915b" kindref="member">SCIP_VAR</ref>**<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vars<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>variables<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal">);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="62"><highlight class="comment">/**<sp/>adds<sp/>variables<sp/>to<sp/>the<sp/>expression<sp/>tree<sp/>variables<sp/>array<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref><sp/><ref refid="pub__nlp_8h_1ab08a7398c48311738ffc27d6f949d4f4" kindref="member">SCIPexprtreeAddVars</ref>(</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__expr_8h_1a4ae8525548d76cb766394131bb405cf2" kindref="member">SCIP_EXPRTREE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tree,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>expression<sp/>tree<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nvars,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>number<sp/>of<sp/>variables<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__var_8h_1a032edd1f5032513d49e397ebdcc8915b" kindref="member">SCIP_VAR</ref>**<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vars<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>variables<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal">);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="70"><highlight class="comment">/**<sp/>prints<sp/>an<sp/>expression<sp/>tree<sp/>using<sp/>variable<sp/>names<sp/>from<sp/>variables<sp/>array<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref><sp/><ref refid="pub__nlp_8h_1aa220b4210d0399c0e2114af22a026035" kindref="member">SCIPexprtreePrintWithNames</ref>(</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__expr_8h_1a4ae8525548d76cb766394131bb405cf2" kindref="member">SCIP_EXPRTREE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tree,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>expression<sp/>tree<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__message_8h_1a7d71113339d14873806c1399442fae8d" kindref="member">SCIP_MESSAGEHDLR</ref>*<sp/><sp/><sp/><sp/><sp/>messagehdlr,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>message<sp/>handler<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/>FILE*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>file<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>file<sp/>for<sp/>printing,<sp/>or<sp/>NULL<sp/>for<sp/>stdout<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal">);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="78"><highlight class="comment">/**<sp/>searches<sp/>the<sp/>variables<sp/>array<sp/>of<sp/>an<sp/>expression<sp/>tree<sp/>for<sp/>a<sp/>variable<sp/>and<sp/>returns<sp/>its<sp/>position,<sp/>or<sp/>-1<sp/>if<sp/>not<sp/>found</highlight></codeline>
+<codeline lineno="79"><highlight class="comment"><sp/>*<sp/>Note<sp/>that<sp/>this<sp/>is<sp/>an<sp/>O(n)<sp/>operation!</highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="pub__nlp_8h_1abf30b7e88de6d8ccd7eee9273af32e4b" kindref="member">SCIPexprtreeFindVar</ref>(</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__expr_8h_1a4ae8525548d76cb766394131bb405cf2" kindref="member">SCIP_EXPRTREE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tree,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>expression<sp/>tree<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__var_8h_1a032edd1f5032513d49e397ebdcc8915b" kindref="member">SCIP_VAR</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>variable<sp/>to<sp/>search<sp/>for<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal">);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="87"><highlight class="comment">/**@}<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="89"><highlight class="comment">/**@name<sp/>Nonlinear<sp/>row<sp/>methods<sp/>*/</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="90"><highlight class="comment">/**@{<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="92"><highlight class="comment">/**<sp/>gets<sp/>constant<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref><sp/><ref refid="pub__nlp_8h_1ab9f628ac0c1bf96d58baea98c9342730" kindref="member">SCIPnlrowGetConstant</ref>(</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__nlp_8h_1ade0b64677fdf4b415b8a05b4f1cb435a" kindref="member">SCIP_NLROW</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nlrow<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>NLP<sp/>row<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="98"><highlight class="comment">/**<sp/>gets<sp/>number<sp/>of<sp/>variables<sp/>of<sp/>linear<sp/>part<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="pub__nlp_8h_1a90d579ae11ca7bcc8ce1aa66f7276f40" kindref="member">SCIPnlrowGetNLinearVars</ref>(</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__nlp_8h_1ade0b64677fdf4b415b8a05b4f1cb435a" kindref="member">SCIP_NLROW</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nlrow<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>NLP<sp/>row<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="104"><highlight class="comment">/**<sp/>gets<sp/>array<sp/>with<sp/>variables<sp/>of<sp/>linear<sp/>part<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><ref refid="type__var_8h_1a032edd1f5032513d49e397ebdcc8915b" kindref="member">SCIP_VAR</ref>**<sp/><ref refid="pub__nlp_8h_1aad3c7866f2277cdcd05824cd8ec7b3b0" kindref="member">SCIPnlrowGetLinearVars</ref>(</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__nlp_8h_1ade0b64677fdf4b415b8a05b4f1cb435a" kindref="member">SCIP_NLROW</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nlrow<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>NLP<sp/>row<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="110"><highlight class="comment">/**<sp/>gets<sp/>array<sp/>with<sp/>coefficients<sp/>in<sp/>linear<sp/>part<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref>*<sp/><ref refid="pub__nlp_8h_1a345cda0724da42340d0f48e20b0b579a" kindref="member">SCIPnlrowGetLinearCoefs</ref>(</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__nlp_8h_1ade0b64677fdf4b415b8a05b4f1cb435a" kindref="member">SCIP_NLROW</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nlrow<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>NLP<sp/>row<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="116"><highlight class="comment">/**<sp/>gets<sp/>number<sp/>of<sp/>quadratic<sp/>variables<sp/>in<sp/>quadratic<sp/>part<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="pub__nlp_8h_1ab51dfc0445e8fad9abe1781c09591ec5" kindref="member">SCIPnlrowGetNQuadVars</ref>(</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__nlp_8h_1ade0b64677fdf4b415b8a05b4f1cb435a" kindref="member">SCIP_NLROW</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nlrow<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>NLP<sp/>row<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="122"><highlight class="comment">/**<sp/>gets<sp/>quadratic<sp/>variables<sp/>in<sp/>quadratic<sp/>part<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><ref refid="type__var_8h_1a032edd1f5032513d49e397ebdcc8915b" kindref="member">SCIP_VAR</ref>**<sp/><ref refid="pub__nlp_8h_1a35b6ed602ef3150e0977eda650de0fec" kindref="member">SCIPnlrowGetQuadVars</ref>(</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__nlp_8h_1ade0b64677fdf4b415b8a05b4f1cb435a" kindref="member">SCIP_NLROW</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nlrow<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>NLP<sp/>row<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="128"><highlight class="comment">/**<sp/>gives<sp/>position<sp/>of<sp/>variable<sp/>in<sp/>quadvars<sp/>array<sp/>of<sp/>row,<sp/>or<sp/>-1<sp/>if<sp/>not<sp/>found<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="pub__nlp_8h_1a4a178fbe0e2d73a729cac3f884a7dd44" kindref="member">SCIPnlrowSearchQuadVar</ref>(</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__nlp_8h_1ade0b64677fdf4b415b8a05b4f1cb435a" kindref="member">SCIP_NLROW</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nlrow,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>nonlinear<sp/>row<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__var_8h_1a032edd1f5032513d49e397ebdcc8915b" kindref="member">SCIP_VAR</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>variable<sp/>to<sp/>search<sp/>for<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="135"><highlight class="comment">/**<sp/>gets<sp/>number<sp/>of<sp/>quadratic<sp/>elements<sp/>in<sp/>quadratic<sp/>part<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="pub__nlp_8h_1a4fb89aca4f1e2db04d7c07ed89f1e6d4" kindref="member">SCIPnlrowGetNQuadElems</ref>(</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__nlp_8h_1ade0b64677fdf4b415b8a05b4f1cb435a" kindref="member">SCIP_NLROW</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nlrow<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>NLP<sp/>row<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="141"><highlight class="comment">/**<sp/>gets<sp/>quadratic<sp/>elements<sp/>in<sp/>quadratic<sp/>part<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><ref refid="type__expr_8h_1abaf258f420336359952d83563ed641f8" kindref="member">SCIP_QUADELEM</ref>*<sp/><ref refid="pub__nlp_8h_1ac1f01e012def3af00b1854a1b0291fc8" kindref="member">SCIPnlrowGetQuadElems</ref>(</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__nlp_8h_1ade0b64677fdf4b415b8a05b4f1cb435a" kindref="member">SCIP_NLROW</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nlrow<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>NLP<sp/>row<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="147"><highlight class="comment">/**<sp/>gets<sp/>array<sp/>with<sp/>coefficients<sp/>in<sp/>linear<sp/>part<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="pub__nlp_8h_1a18b42b53039054759e8fb4936424e1d6" kindref="member">SCIPnlrowGetQuadData</ref>(</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__nlp_8h_1ade0b64677fdf4b415b8a05b4f1cb435a" kindref="member">SCIP_NLROW</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nlrow,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>NLP<sp/>row<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nquadvars,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>buffer<sp/>to<sp/>store<sp/>number<sp/>of<sp/>variables<sp/>in<sp/>quadratic<sp/>term,<sp/>or<sp/>NULL<sp/>if<sp/>not<sp/>of<sp/>interest<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__var_8h_1a032edd1f5032513d49e397ebdcc8915b" kindref="member">SCIP_VAR</ref>***<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>quadvars,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>buffer<sp/>to<sp/>store<sp/>pointer<sp/>to<sp/>array<sp/>of<sp/>variables<sp/>in<sp/>quadratic<sp/>term,<sp/>or<sp/>NULL<sp/>if<sp/>not<sp/>of<sp/>interest<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nquadelems,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>buffer<sp/>to<sp/>store<sp/>number<sp/>of<sp/>entries<sp/>in<sp/>quadratic<sp/>term,<sp/>or<sp/>NULL<sp/>if<sp/>not<sp/>of<sp/>interest<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__expr_8h_1abaf258f420336359952d83563ed641f8" kindref="member">SCIP_QUADELEM</ref>**<sp/><sp/><sp/><sp/><sp/><sp/><sp/>quadelems<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>buffer<sp/>to<sp/>store<sp/>pointer<sp/>to<sp/>array<sp/>of<sp/>entries<sp/>in<sp/>quadratic<sp/>term,<sp/>or<sp/>NULL<sp/>if<sp/>not<sp/>of<sp/>interest<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="157"><highlight class="comment">/**<sp/>gets<sp/>expression<sp/>tree<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><ref refid="type__expr_8h_1a4ae8525548d76cb766394131bb405cf2" kindref="member">SCIP_EXPRTREE</ref>*<sp/><ref refid="pub__nlp_8h_1a899c1a1f044a54e8ce0e7350b33b018b" kindref="member">SCIPnlrowGetExprtree</ref>(</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__nlp_8h_1ade0b64677fdf4b415b8a05b4f1cb435a" kindref="member">SCIP_NLROW</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nlrow<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>NLP<sp/>row<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="163"><highlight class="comment">/**<sp/>returns<sp/>the<sp/>left<sp/>hand<sp/>side<sp/>of<sp/>a<sp/>nonlinear<sp/>row<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref><sp/><ref refid="pub__nlp_8h_1a5f79e46fd3a4c49302470f3fe461c6af" kindref="member">SCIPnlrowGetLhs</ref>(</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__nlp_8h_1ade0b64677fdf4b415b8a05b4f1cb435a" kindref="member">SCIP_NLROW</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nlrow<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>NLP<sp/>row<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="169"><highlight class="comment">/**<sp/>returns<sp/>the<sp/>right<sp/>hand<sp/>side<sp/>of<sp/>a<sp/>nonlinear<sp/>row<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref><sp/><ref refid="pub__nlp_8h_1a189829d97a13c378af1eddeee0af7060" kindref="member">SCIPnlrowGetRhs</ref>(</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__nlp_8h_1ade0b64677fdf4b415b8a05b4f1cb435a" kindref="member">SCIP_NLROW</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nlrow<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>NLP<sp/>row<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="175"><highlight class="comment">/**<sp/>returns<sp/>the<sp/>name<sp/>of<sp/>a<sp/>nonlinear<sp/>row<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="pub__nlp_8h_1aa584087de7cfd80d60852881d3a523a6" kindref="member">SCIPnlrowGetName</ref>(</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__nlp_8h_1ade0b64677fdf4b415b8a05b4f1cb435a" kindref="member">SCIP_NLROW</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nlrow<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>NLP<sp/>row<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="181"><highlight class="comment">/**<sp/>gets<sp/>position<sp/>of<sp/>a<sp/>nonlinear<sp/>row<sp/>in<sp/>current<sp/>NLP,<sp/>or<sp/>-1<sp/>if<sp/>not<sp/>in<sp/>NLP<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="pub__nlp_8h_1a8142efc0a68b75006225329289e3eba0" kindref="member">SCIPnlrowGetNLPPos</ref>(</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__nlp_8h_1ade0b64677fdf4b415b8a05b4f1cb435a" kindref="member">SCIP_NLROW</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nlrow<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>NLP<sp/>row<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="187"><highlight class="comment">/**<sp/>returns<sp/>TRUE<sp/>iff<sp/>row<sp/>is<sp/>member<sp/>of<sp/>current<sp/>NLP<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref><sp/><ref refid="pub__nlp_8h_1ac44bb34b85579ed5ac12576b7dfd473b" kindref="member">SCIPnlrowIsInNLP</ref>(</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__nlp_8h_1ade0b64677fdf4b415b8a05b4f1cb435a" kindref="member">SCIP_NLROW</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nlrow<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>NLP<sp/>row<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="193"><highlight class="comment">/**<sp/>gets<sp/>the<sp/>dual<sp/>NLP<sp/>solution<sp/>of<sp/>a<sp/>nlrow</highlight></codeline>
+<codeline lineno="194"><highlight class="comment"><sp/>*<sp/>for<sp/>a<sp/>ranged<sp/>constraint,<sp/>the<sp/>dual<sp/>value<sp/>is<sp/>positive<sp/>if<sp/>the<sp/>right<sp/>hand<sp/>side<sp/>is<sp/>active<sp/>and<sp/>negative<sp/>if<sp/>the<sp/>left<sp/>hand<sp/>side<sp/>is<sp/>active</highlight></codeline>
+<codeline lineno="195"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref><sp/><ref refid="pub__nlp_8h_1ab9742290c407ebc7797b6ed4f9e89a6a" kindref="member">SCIPnlrowGetDualsol</ref>(</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__nlp_8h_1ade0b64677fdf4b415b8a05b4f1cb435a" kindref="member">SCIP_NLROW</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nlrow<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>NLP<sp/>row<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="201"><highlight class="comment">/**@}<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__SCIP_PUB_NLP_H__<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_nlp.h"/>
+  </compounddef>
+</doxygen>
