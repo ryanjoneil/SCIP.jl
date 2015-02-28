@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"path/filepath"
 	"regexp"
 	"strings"
 )
@@ -39,7 +40,7 @@ func main() {
 		fileName := file.Name()
 
 		// Ignore non-XML files.
-		if !strings.HasSuffix(fileName, ".xml") {
+		if file.IsDir() || !strings.HasSuffix(fileName, ".xml") {
 			continue
 		}
 
@@ -57,5 +58,10 @@ func main() {
 		}
 
 		log.Printf("parsing %s\n", fileName)
+		scipCDef, err := Parse(filepath.Join(xmlDir, fileName))
+		if err != nil {
+			fmt.Println(err)
+			os.Exit(1)
+		}
 	}
 }
