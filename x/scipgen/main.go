@@ -7,7 +7,6 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
-	"strconv"
 	"strings"
 )
 
@@ -37,6 +36,7 @@ func main() {
 		os.Exit(1)
 	}
 
+	info := NewSCIPInfo()
 	for _, file := range files {
 		fileName := file.Name()
 
@@ -64,39 +64,9 @@ func main() {
 			fmt.Println(err)
 			os.Exit(1)
 		}
-		// log.Println(scipCDef)
 
-		for _, section := range doxygen.CompoundDef.SectionDefs {
-			if section.Kind != "define" {
-				continue
-			}
-
-			for _, member := range section.MemberDefs {
-				if member.Kind != section.Kind {
-					continue
-				}
-
-				// Is it a number?
-				init := member.Initializer
-				_, err = strconv.Atoi(init)
-				if err == nil {
-					log.Printf(" --> %s (int)= %s\n", member.Name, init)
-					continue
-				}
-
-				_, err = strconv.ParseFloat(init, 64)
-				if err == nil {
-					log.Printf(" --> %s (float)= %s\n", member.Name, init)
-					continue
-				}
-
-				// Or a string?
-				if (strings.HasPrefix(init, `"`) && strings.HasSuffix(init, `"`)) ||
-					(strings.HasPrefix(init, `'`) && strings.HasSuffix(init, `'`)) {
-					log.Printf(" --> %s (str)= %s\n", member.Name, init)
-					continue
-				}
-			}
-		}
+		info.Convert(doxygen)
 	}
+
+	log.Println(info.Defines)
 }
