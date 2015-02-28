@@ -45,6 +45,7 @@ $ ln -s <scip library> libscipopt.so
 You should now be able to run the test code.
 
 ```bash
+$ export LD_LIBRARY_PATH=.
 $ julia test/test.jl
 ```
 
