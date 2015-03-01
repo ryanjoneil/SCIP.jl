@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"os"
 	"path/filepath"
+	"strings"
 	"text/template"
 )
 
@@ -16,7 +17,7 @@ func (info *SCIPInfo) Render(tmplPath, srcPath string) error {
 	}
 
 	// Parse the template contents.
-	tmpl, err := template.New(tmplPath).Parse(string(contents))
+	tmpl, err := template.New(tmplPath).Funcs(funcMap).Parse(string(contents))
 	if err != nil {
 		return err
 	}
@@ -41,4 +42,15 @@ func (info *SCIPInfo) Render(tmplPath, srcPath string) error {
 	}
 
 	return nil
+}
+
+// Template functions for the above
+var funcMap = template.FuncMap{
+	"exportDefines": func(s *SCIPInfo) string {
+		defines := []string{}
+		for _, d := range s.Defines {
+			defines = append(defines, d.Name)
+		}
+		return strings.Join(defines, ", ")
+	},
 }
