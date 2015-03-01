@@ -1,3 +1,3 @@
 # SCIP defines for character, string, and numeric constants
-export {{ exportDefines . }}{{ range $index, $define := .Defines }}
+export {{ exportDefines . }}{{ range .Defines }}
 const {{ .Name }} = {{ .JlInit }}{{ end }}
