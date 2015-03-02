@@ -53,4 +53,12 @@ var funcMap = template.FuncMap{
 		}
 		return strings.Join(defines, ", ")
 	},
+
+	"exportTypeAliases": func(s *SCIPInfo) string {
+		aliases := []string{}
+		for _, d := range s.TypeAliases {
+			aliases = append(aliases, d.FinalName)
+		}
+		return strings.Join(aliases, ", ")
+	},
 }

@@ -22,15 +22,16 @@ import (
     </compounddef>
 </doxygen>
 */
+type MemberDef struct {
+	Kind        string `xml:"kind,attr"`
+	Name        string `xml:"name"`
+	Initializer string `xml:"initializer"`
+}
 type Doxygen struct {
 	CompoundDef struct {
 		SectionDefs []struct {
-			Kind       string `xml:"kind,attr"`
-			MemberDefs []struct {
-				Kind        string `xml:"kind,attr"`
-				Name        string `xml:"name"`
-				Initializer string `xml:"initializer"`
-			} `xml:"memberdef"`
+			Kind       string      `xml:"kind,attr"`
+			MemberDefs []MemberDef `xml:"memberdef"`
 		} `xml:"sectiondef"`
 	} `xml:"compounddef"`
 }
