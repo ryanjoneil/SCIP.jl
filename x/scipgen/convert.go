@@ -116,16 +116,15 @@ func (info *SCIPInfo) Convert(doxygen *Doxygen) {
 				continue
 			}
 
-			if member.Kind == "define" {
+			switch member.Kind {
+			case "define":
 				info.ConvertDefine(member)
-			}
-
-			if member.Kind == "enum" {
+			case "enum":
 				info.ConvertEnum(member)
-			}
-
-			if member.Kind == "function" {
+			case "function":
 				info.ConvertFunction(member)
+			case "typedef":
+				info.ConvertTypedef(member)
 			}
 		}
 	}

@@ -30,32 +30,6 @@ func (info *SCIPInfo) AddDefine(name, cinit, jlinit string) {
 	})
 }
 
-func (info *SCIPInfo) AddTypeAlias(name, cinit, jlinit string) {
-	// Have we seen this define before?
-	if _, ok := info.typealiases[name]; ok {
-		return
-	}
-
-	// Prepend SCIP types with _.
-	finalName := name
-	if strings.HasPrefix(name, "SCIP") {
-		finalName = "_" + name
-	}
-
-	info.typealiases[name] = true
-	info.TypeAliases = append(info.TypeAliases, struct {
-		OrigName  string
-		FinalName string
-		CInit     string
-		JlInit    string
-	}{
-		OrigName:  name,
-		FinalName: finalName,
-		CInit:     cinit,
-		JlInit:    jlinit,
-	})
-}
-
 func (info *SCIPInfo) ConvertDefine(member MemberDef) {
 	// First question: is it a known C type with a Julia mapping?
 	cinit := member.Initializer

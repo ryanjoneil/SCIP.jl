@@ -80,12 +80,13 @@ type MemberDef struct {
 	Initializer string      `xml:"initializer"`
 	EnumValues  []EnumValue `xml:"enumvalue"`
 
-	// Fields for functions
+	// Fields for functions & typdefs
 	Type struct {
 		Ref     string `xml:"ref"`
 		TypeStr string `xml:",chardata"`
 	} `xml:"type"`
 
+	// Fields for functions
 	Params []struct {
 		Type struct {
 			Ref     string `xml:"ref"`
