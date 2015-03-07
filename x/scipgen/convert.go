@@ -11,6 +11,13 @@ var TYPE_MAP = map[string]string{
 	"void":         "Void",
 }
 
+type InfoEnumValue struct {
+	OrigName    string // e.g. SCIP_STATUS_UNKNOWN
+	FinalName   string // e.g. _SCIP_STATUS_UNKNOWN
+	Init        int    // integer value
+	Description string
+}
+
 // SCIPInfo contains the relevant data for rendering SCIP.jl template code,
 // in a more convenient format than the parsed Doxygen XML.
 type SCIPInfo struct {
@@ -18,6 +25,12 @@ type SCIPInfo struct {
 		Name   string // name of #define
 		CInit  string // initializer in C
 		JlInit string // initializer in Julia
+	}
+
+	Enums []struct {
+		OrigName  string // e.g. SCIP_Status
+		FinalName string // e.g. _SCIP_Status
+		Values    []InfoEnumValue
 	}
 
 	TypeAliases []struct {
@@ -28,13 +41,15 @@ type SCIPInfo struct {
 	}
 
 	defines     map[string]bool // true if we've already seen a define
+	enums       map[string]bool // true if we've already seen an enum
 	typealiases map[string]bool // true if we've already seen a typealias
 }
 
-// NewSCIPInfo constructs a SCIPInfo instance and initializes its maps.s
+// NewSCIPInfo constructs a SCIPInfo instance and initializes its maps.
 func NewSCIPInfo() *SCIPInfo {
 	return &SCIPInfo{
 		defines:     make(map[string]bool),
+		enums:       make(map[string]bool),
 		typealiases: make(map[string]bool),
 	}
 }
@@ -49,6 +64,10 @@ func (info *SCIPInfo) Convert(doxygen *Doxygen) {
 
 			if member.Kind == "define" {
 				info.ConvertDefine(member)
+			}
+
+			if member.Kind == "enum" {
+				info.ConvertEnum(member)
 			}
 		}
 	}
