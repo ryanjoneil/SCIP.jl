@@ -11,11 +11,39 @@ var TYPE_MAP = map[string]string{
 	"void":         "Void",
 }
 
+// Things that variables should not be named.
+var JULIA_BUILTINS = map[string]bool{
+	"global": true,
+	"local":  true,
+	"type":   true,
+}
+
 type InfoEnumValue struct {
 	OrigName    string // e.g. SCIP_STATUS_UNKNOWN
 	FinalName   string // e.g. _SCIP_STATUS_UNKNOWN
 	Init        int    // integer value
 	Description string
+}
+
+type InfoParamType struct {
+	OrigType    string // e.g. SCIP_Var *
+	FinalType   string // e.g. Ptr{_SCIP_Var}
+	OrigName    string // e.g. global
+	FinalName   string // e.g. globalVar
+	Description string
+}
+
+type InfoFunction struct {
+	ReturnType  InfoParamType
+	Arguments   []InfoParamType
+	OrigName    string // e.g. SCIPpricerGetData
+	FinalName   string // e.g. _SCIPpricerGetData
+	Description string
+}
+
+func (f InfoFunction) IsChecked() bool {
+	return f.ReturnType.OrigType == "SCIP_RETCODE" ||
+		f.ReturnType.OrigType == "SCIP_Retcode"
 }
 
 // SCIPInfo contains the relevant data for rendering SCIP.jl template code,
@@ -33,6 +61,9 @@ type SCIPInfo struct {
 		Values    []InfoEnumValue
 	}
 
+	CheckedFunctions   []InfoFunction
+	UncheckedFunctions []InfoFunction
+
 	TypeAliases []struct {
 		OrigName  string // original name of #define
 		FinalName string // prepends _ if necessary
@@ -42,6 +73,7 @@ type SCIPInfo struct {
 
 	defines     map[string]bool // true if we've already seen a define
 	enums       map[string]bool // true if we've already seen an enum
+	functions   map[string]bool // true if we've already seen a function
 	typealiases map[string]bool // true if we've already seen a typealias
 }
 
@@ -50,6 +82,7 @@ func NewSCIPInfo() *SCIPInfo {
 	return &SCIPInfo{
 		defines:     make(map[string]bool),
 		enums:       make(map[string]bool),
+		functions:   make(map[string]bool),
 		typealiases: make(map[string]bool),
 	}
 }
@@ -68,6 +101,10 @@ func (info *SCIPInfo) Convert(doxygen *Doxygen) {
 
 			if member.Kind == "enum" {
 				info.ConvertEnum(member)
+			}
+
+			if member.Kind == "function" {
+				info.ConvertFunction(member)
 			}
 		}
 	}

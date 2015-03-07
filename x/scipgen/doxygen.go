@@ -60,26 +60,40 @@ type EnumValue struct {
 		Para string `xml:"para"`
 	} `xml:"detaileddescription"`
 }
+
 type MemberDef struct {
-	Kind        string      `xml:"kind,attr"`
-	Name        string      `xml:"name"`
+	// Universal fields
+	Kind string `xml:"kind,attr"`
+	Name string `xml:"name"`
+
+	DetailedDescription struct {
+		Para string `xml:"para"`
+	} `xml:"detaileddescription"`
+
+	// Fields for defines and enums
 	Initializer string      `xml:"initializer"`
 	EnumValues  []EnumValue `xml:"enumvalue"`
-}
-type Function struct {
-	Type   string `xml:"type"`
-	Ref    string `xml:"type,innerxml"`
+
+	// Fields for functions
+	Type struct {
+		Ref     string `xml:"ref"`
+		TypeStr string `xml:",chardata"`
+	} `xml:"type"`
+
 	Params []struct {
-		Type             string `xml:"type"`
-		Ref              string `xml:"type,innerxml"`
+		Type struct {
+			Ref     string `xml:"ref"`
+			TypeStr string `xml:",chardata"`
+		} `xml:"type"`
+
+		DeclName string `xml:"declname"`
+
 		BriefDescription struct {
 			Para string `xml:"para"`
 		} `xml:"briefdescription"`
 	} `xml:"param"`
-	DetailedDescription struct {
-		Para string `xml:"para"`
-	} `xml:"detaileddescription"`
 }
+
 type Doxygen struct {
 	CompoundDef struct {
 		SectionDefs []struct {
