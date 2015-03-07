@@ -679,4 +679,3 @@ const SCIP_VBCColors_MAP = [
     _SCIP_VBCCOLOR_NONE => "color should not be changed",
 ]
 
-

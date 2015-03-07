@@ -35,6 +35,21 @@ import (
 
         <sectiondef kind="typedef">
         </sectiondef>
+
+        <memberdef kind="function">
+        	<type><ref>SCIP_PRICERDATA</ref> *</type>
+        	<name>SCIPpricerGetData</name>
+        	<param>
+          		<type><ref>SCIP_PRICER</ref> *</type>
+          		<declname>pricer</declname>
+          		<briefdescription>
+          			<para>variable pricer</para>
+          		</briefdescription>
+        	</param>
+        	<detaileddescription>
+				<para>gets user data of variable pricer</para>
+			</detaileddescription>
+      </memberdef>
     </compounddef>
 </doxygen>
 */
@@ -50,6 +65,20 @@ type MemberDef struct {
 	Name        string      `xml:"name"`
 	Initializer string      `xml:"initializer"`
 	EnumValues  []EnumValue `xml:"enumvalue"`
+}
+type Function struct {
+	Type   string `xml:"type"`
+	Ref    string `xml:"type,innerxml"`
+	Params []struct {
+		Type             string `xml:"type"`
+		Ref              string `xml:"type,innerxml"`
+		BriefDescription struct {
+			Para string `xml:"para"`
+		} `xml:"briefdescription"`
+	} `xml:"param"`
+	DetailedDescription struct {
+		Para string `xml:"para"`
+	} `xml:"detaileddescription"`
 }
 type Doxygen struct {
 	CompoundDef struct {
