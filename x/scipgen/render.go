@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	"fmt"
 	"io/ioutil"
 	"os"
 	"path/filepath"
@@ -54,11 +55,47 @@ var funcMap = template.FuncMap{
 		return strings.Join(defines, ", ")
 	},
 
+	"exportFunctions": func(functions []InfoFunction) string {
+		funcNames := []string{}
+		for _, f := range functions {
+			funcNames = append(funcNames, f.FinalName)
+		}
+		return strings.Join(funcNames, ", ")
+	},
+
 	"exportTypeAliases": func(s *SCIPInfo) string {
 		aliases := []string{}
 		for _, d := range s.TypeAliases {
 			aliases = append(aliases, d.FinalName)
 		}
 		return strings.Join(aliases, ", ")
+	},
+
+	"functionArgNames": func(f InfoFunction) string {
+		argNames := []string{}
+		for _, f := range f.Arguments {
+			argNames = append(argNames, f.FinalName)
+		}
+		return strings.Join(argNames, ", ")
+	},
+
+	"functionArgs": func(f InfoFunction) string {
+		if len(f.Arguments) < 1 {
+			return "()"
+		}
+
+		argTypes := []string{}
+		argNames := []string{}
+		for _, f := range f.Arguments {
+			argTypes = append(argTypes, fmt.Sprintf("%s,", f.FinalType))
+			argNames = append(argNames, f.FinalName)
+		}
+		return strings.Join(
+			[]string{
+				fmt.Sprintf("(%s)", strings.Join(argTypes, " ")),
+				strings.Join(argNames, ", "),
+			},
+			", ",
+		)
 	},
 }

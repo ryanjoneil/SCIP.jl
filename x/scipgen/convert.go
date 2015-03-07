@@ -4,6 +4,8 @@ package main
 var TYPE_MAP = map[string]string{
 	"SCIP_Longint": "Int64",
 	"char":         "Char",
+	"char *":       "String",
+	"const char":   "Char",
 	"const char *": "String",
 	"double":       "Float64",
 	"int":          "Int",
@@ -13,6 +15,8 @@ var TYPE_MAP = map[string]string{
 
 // Things that variables should not be named.
 var JULIA_BUILTINS = map[string]bool{
+	"begin":  true,
+	"end":    true,
 	"global": true,
 	"local":  true,
 	"type":   true,
@@ -44,6 +48,18 @@ type InfoFunction struct {
 func (f InfoFunction) IsChecked() bool {
 	return f.ReturnType.OrigType == "SCIP_RETCODE" ||
 		f.ReturnType.OrigType == "SCIP_Retcode"
+}
+
+func (f InfoFunction) ParsedOK() bool {
+	// Makes sure the function data was parsed successfully and we
+	// render it into Julia. This excludes things like macro calls
+	// inside the argument list.
+	for _, a := range f.Arguments {
+		if a.FinalType == "" || a.FinalName == "" {
+			return false
+		}
+	}
+	return true
 }
 
 // SCIPInfo contains the relevant data for rendering SCIP.jl template code,
@@ -91,7 +107,11 @@ func NewSCIPInfo() *SCIPInfo {
 func (info *SCIPInfo) Convert(doxygen *Doxygen) {
 	for _, section := range doxygen.CompoundDef.SectionDefs {
 		for _, member := range section.MemberDefs {
-			if member.Kind != section.Kind {
+			if member.Kind != "function" && member.Kind != section.Kind {
+				continue
+			}
+			if member.Kind == "function" &&
+				!(section.Kind == "func" || section.Kind == "user-defined") {
 				continue
 			}
 

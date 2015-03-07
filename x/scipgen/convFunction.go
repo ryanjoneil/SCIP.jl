@@ -11,7 +11,12 @@ func getOrigType(typeStr, refStr string) string {
 
 func getFinalType(typeStr string) string {
 	numStar := strings.Count(typeStr, "*")
-	typeStr = strings.Replace(typeStr, "*", "", -1)
+	typeStr = strings.TrimSpace(strings.Replace(typeStr, "*", "", -1))
+
+	// Trim off const modifiers.
+	if strings.HasSuffix(typeStr, " const") {
+		typeStr = strings.Replace(typeStr, " const", "", -1)
+	}
 
 	if jlType, ok := TYPE_MAP[typeStr]; ok {
 		typeStr = jlType
@@ -26,6 +31,9 @@ func getFinalType(typeStr string) string {
 		typeStr = fmt.Sprintf("Ptr{%s}", typeStr)
 	}
 
+	if typeStr == "" {
+		typeStr = "Void"
+	}
 	return typeStr
 }
 
@@ -69,6 +77,10 @@ func (info *SCIPInfo) ConvertFunction(member MemberDef) {
 	newFunc.Description = strings.TrimSpace(
 		strings.Replace(member.DetailedDescription.Para, `"`, `\"`, -1),
 	)
+
+	if !newFunc.ParsedOK() {
+		return
+	}
 
 	if newFunc.IsChecked() {
 		info.CheckedFunctions = append(info.CheckedFunctions, newFunc)
