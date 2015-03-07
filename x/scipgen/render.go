@@ -50,7 +50,7 @@ var funcMap = template.FuncMap{
 	"exportDefines": func(s *SCIPInfo) string {
 		defines := []string{}
 		for _, d := range s.Defines {
-			defines = append(defines, d.Name)
+			defines = append(defines, d.FinalName)
 		}
 		return strings.Join(defines, ", ")
 	},

@@ -11,15 +11,22 @@ func (info *SCIPInfo) AddDefine(name, cinit, jlinit string) {
 		return
 	}
 
+	finalName := name
+	if strings.HasPrefix(finalName, "SCIP") {
+		finalName = "_" + finalName
+	}
+
 	info.defines[name] = true
 	info.Defines = append(info.Defines, struct {
-		Name   string
-		CInit  string
-		JlInit string
+		OrigName  string
+		FinalName string
+		CInit     string
+		JlInit    string
 	}{
-		Name:   name,
-		CInit:  cinit,
-		JlInit: jlinit,
+		OrigName:  name,
+		FinalName: finalName,
+		CInit:     cinit,
+		JlInit:    jlinit,
 	})
 }
 

@@ -66,9 +66,10 @@ func (f InfoFunction) ParsedOK() bool {
 // in a more convenient format than the parsed Doxygen XML.
 type SCIPInfo struct {
 	Defines []struct {
-		Name   string // name of #define
-		CInit  string // initializer in C
-		JlInit string // initializer in Julia
+		OrigName  string // name of #define in C
+		FinalName string // name of const in Julia
+		CInit     string // initializer in C
+		JlInit    string // initializer in Julia
 	}
 
 	Enums []struct {

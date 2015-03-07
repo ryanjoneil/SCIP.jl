@@ -33,23 +33,29 @@ import (
       		</memberdef>
         </sectiondef>
 
-        <sectiondef kind="typedef">
-        </sectiondef>
+		<sectiondef kind="func|user-defined">
+	        <memberdef kind="function">
+	        	<type><ref>SCIP_PRICERDATA</ref> *</type>
+	        	<name>SCIPpricerGetData</name>
+	        	<param>
+	          		<type><ref>SCIP_PRICER</ref> *</type>
+	          		<declname>pricer</declname>
+	          		<briefdescription>
+	          			<para>variable pricer</para>
+	          		</briefdescription>
+	        	</param>
+	        	<detaileddescription>
+					<para>gets user data of variable pricer</para>
+				</detaileddescription>
+	      </memberdef>
+		</sectiondef>
 
-        <memberdef kind="function">
-        	<type><ref>SCIP_PRICERDATA</ref> *</type>
-        	<name>SCIPpricerGetData</name>
-        	<param>
-          		<type><ref>SCIP_PRICER</ref> *</type>
-          		<declname>pricer</declname>
-          		<briefdescription>
-          			<para>variable pricer</para>
-          		</briefdescription>
-        	</param>
-        	<detaileddescription>
-				<para>gets user data of variable pricer</para>
-			</detaileddescription>
-      </memberdef>
+        <sectiondef kind="typedef">
+	        <memberdef kind="typedef"
+	        	<type>enum <ref>SCIP_Varstatus</ref></type>
+	        	<name>SCIP_VARSTATUS</name>
+	        </memberdef>
+        </sectiondef>
     </compounddef>
 </doxygen>
 */
