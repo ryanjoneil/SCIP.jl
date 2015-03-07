@@ -82,15 +82,15 @@ type MemberDef struct {
 
 	// Fields for functions & typdefs
 	Type struct {
-		Ref     string `xml:"ref"`
-		TypeStr string `xml:",chardata"`
+		Ref     []string `xml:"ref"`
+		TypeStr string   `xml:",chardata"`
 	} `xml:"type"`
 
 	// Fields for functions
 	Params []struct {
 		Type struct {
-			Ref     string `xml:"ref"`
-			TypeStr string `xml:",chardata"`
+			Ref     []string `xml:"ref"`
+			TypeStr string   `xml:",chardata"`
 		} `xml:"type"`
 
 		DeclName string `xml:"declname"`

@@ -35,7 +35,10 @@ func (info *SCIPInfo) AddTypeAlias(name, cinit, jlinit string) {
 }
 
 func (info *SCIPInfo) ConvertTypedef(member MemberDef) {
-	cinit := member.Type.Ref
+	var cinit string
+	if len(member.Type.Ref) > 0 {
+		cinit = member.Type.Ref[len(member.Type.Ref)-1]
+	}
 	if cinit != "" {
 		info.AddTypeAlias(member.Name, cinit, cinit)
 	}

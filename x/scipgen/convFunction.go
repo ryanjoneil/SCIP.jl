@@ -45,14 +45,24 @@ func (info *SCIPInfo) ConvertFunction(member MemberDef) {
 
 	// Convert return argument
 	var retType InfoParamType
-	retType.OrigType = getOrigType(member.Type.TypeStr, member.Type.Ref)
+	if len(member.Type.Ref) > 0 {
+		retType.OrigType = getOrigType(
+			member.Type.TypeStr,
+			member.Type.Ref[len(member.Type.Ref)-1],
+		)
+	}
 	retType.FinalType = getFinalType(retType.OrigType)
 
 	// Convert function parameters
 	var params []InfoParamType
 	for _, p := range member.Params {
 		var newParam InfoParamType
-		newParam.OrigType = getOrigType(p.Type.TypeStr, p.Type.Ref)
+		if len(p.Type.Ref) > 0 {
+			newParam.OrigType = getOrigType(
+				p.Type.TypeStr,
+				p.Type.Ref[len(p.Type.Ref)-1],
+			)
+		}
 		newParam.FinalType = getFinalType(newParam.OrigType)
 		newParam.OrigName = p.DeclName
 		newParam.Description = strings.TrimSpace(
