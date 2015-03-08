@@ -54,13 +54,14 @@ $ julia test/test.jl
 The current structure of the project includes:
 
 * XML files describing the SCIP C interface are stored in the `xml/` directory.
-* Jinja2 templates for the `SCIP.jl` interface are in `templates/`.
-* A Python script under `bin/` loads necessary data from `xml/` and converts the templates into Julia source under the `src/` directory.
+* Go templates for the `SCIP.jl` interface are in `templates/`.
+* A `bin/scipgen` binary loads necessary data from `xml/` and converts the templates into Julia source under the `src/` directory.
 
-If you need to change the Julia code under `src/` *always* change it under `templates/` and regeneate the Julia code as follows.
+If you need to change the Julia code under `src/wrapped` *always* change it under `templates/` and regenerate the Julia code as follows.
 
 ```bash
-$ python bin/generate-julia-interface.py xml/ templates/ src/
+$ make # this builds bin/scipgen
+$ ./bin/scipgen xml/ templates/ src/
 ```
 
 You'll need Python 2.7 along with `lxml` and `Jinja2`.
