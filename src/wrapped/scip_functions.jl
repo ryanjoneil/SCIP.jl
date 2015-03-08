@@ -179,19 +179,19 @@ _SCIPgetVarsOr(scip, cons) = @scip_ccall("SCIPgetVarsOr",
 _SCIPgetResultantOr(scip, cons) = @scip_ccall("SCIPgetResultantOr", 
     Ptr{_SCIP_VAR}, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetIndVarPseudoboolean(scip, cons) = @scip_ccall("SCIPgetIndVarPseudoboolean", 
-    Ptr{_SCIP_VAR}, (Ptr{_SCIP }, Ptr{_SCIP_CONS },), scip, cons)
+    Ptr{_SCIP_VAR}, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetLinearConsPseudoboolean(scip, cons) = @scip_ccall("SCIPgetLinearConsPseudoboolean", 
-    Ptr{_SCIP_CONS}, (Ptr{_SCIP }, Ptr{_SCIP_CONS },), scip, cons)
+    Ptr{_SCIP_CONS}, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetLinearConsTypePseudoboolean(scip, cons) = @scip_ccall("SCIPgetLinearConsTypePseudoboolean", 
-    _SCIP_LINEARCONSTYPE, (Ptr{_SCIP }, Ptr{_SCIP_CONS },), scip, cons)
+    _SCIP_LINEARCONSTYPE, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetNLinVarsWithoutAndPseudoboolean(scip, cons) = @scip_ccall("SCIPgetNLinVarsWithoutAndPseudoboolean", 
-    Void, (Ptr{_SCIP }, Ptr{_SCIP_CONS },), scip, cons)
+    Void, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetNAndsPseudoboolean(scip, cons) = @scip_ccall("SCIPgetNAndsPseudoboolean", 
-    Void, (Ptr{_SCIP }, Ptr{_SCIP_CONS },), scip, cons)
+    Void, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetLhsPseudoboolean(scip, cons) = @scip_ccall("SCIPgetLhsPseudoboolean", 
-    _SCIP_Real, (Ptr{_SCIP }, Ptr{_SCIP_CONS },), scip, cons)
+    _SCIP_Real, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetRhsPseudoboolean(scip, cons) = @scip_ccall("SCIPgetRhsPseudoboolean", 
-    _SCIP_Real, (Ptr{_SCIP }, Ptr{_SCIP_CONS },), scip, cons)
+    _SCIP_Real, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPaddConstantQuadratic(scip, cons, constant) = @scip_ccall("SCIPaddConstantQuadratic", 
     Void, (Ptr{_SCIP}, Ptr{_SCIP_CONS}, _SCIP_Real,), scip, cons, constant)
 _SCIPgetNLinearVarsQuadratic(scip, cons) = @scip_ccall("SCIPgetNLinearVarsQuadratic", 
@@ -899,29 +899,29 @@ _SCIPfopen(path, mode) = @scip_ccall("SCIPfopen",
 _SCIPfdopen(fildes, mode) = @scip_ccall("SCIPfdopen", 
     Ptr{_SCIP_FILE}, (Void, Void,), fildes, mode)
 _SCIPfread(ptr, size, nmemb, stream) = @scip_ccall("SCIPfread", 
-    EXTERN  size_t, (Void, Void, Void, Ptr{_SCIP_FILE},), ptr, size, nmemb, stream)
+    size_t, (Void, Void, Void, Ptr{_SCIP_FILE},), ptr, size, nmemb, stream)
 _SCIPfwrite(ptr, size, nmemb, stream) = @scip_ccall("SCIPfwrite", 
-    EXTERN  size_t, (Void, Void, Void, Ptr{_SCIP_FILE},), ptr, size, nmemb, stream)
+    size_t, (Void, Void, Void, Ptr{_SCIP_FILE},), ptr, size, nmemb, stream)
 _SCIPfputc(c, stream) = @scip_ccall("SCIPfputc", 
-    EXTERN  int, (Void, Ptr{_SCIP_FILE},), c, stream)
+    Int, (Void, Ptr{_SCIP_FILE},), c, stream)
 _SCIPfputs(s, stream) = @scip_ccall("SCIPfputs", 
-    EXTERN  int, (Void, Ptr{_SCIP_FILE},), s, stream)
+    Int, (Void, Ptr{_SCIP_FILE},), s, stream)
 _SCIPfgetc(stream) = @scip_ccall("SCIPfgetc", 
-    EXTERN  int, (Ptr{_SCIP_FILE},), stream)
+    Int, (Ptr{_SCIP_FILE},), stream)
 _SCIPfgets(s, size, stream) = @scip_ccall("SCIPfgets", 
-    Ptr{EXTERN  char}, (Void, Void, Ptr{_SCIP_FILE},), s, size, stream)
+    Ptr{Char}, (Void, Void, Ptr{_SCIP_FILE},), s, size, stream)
 _SCIPfflush(stream) = @scip_ccall("SCIPfflush", 
-    EXTERN  int, (Ptr{_SCIP_FILE},), stream)
+    Int, (Ptr{_SCIP_FILE},), stream)
 _SCIPfseek(stream, offset, whence) = @scip_ccall("SCIPfseek", 
-    EXTERN  int, (Ptr{_SCIP_FILE}, Void, Void,), stream, offset, whence)
+    Int, (Ptr{_SCIP_FILE}, Void, Void,), stream, offset, whence)
 _SCIPrewind(stream) = @scip_ccall("SCIPrewind", 
-    EXTERN  void, (Ptr{_SCIP_FILE},), stream)
+    Void, (Ptr{_SCIP_FILE},), stream)
 _SCIPftell(stream) = @scip_ccall("SCIPftell", 
-    EXTERN  long, (Ptr{_SCIP_FILE},), stream)
+    long, (Ptr{_SCIP_FILE},), stream)
 _SCIPfeof(stream) = @scip_ccall("SCIPfeof", 
-    EXTERN  int, (Ptr{_SCIP_FILE},), stream)
+    Int, (Ptr{_SCIP_FILE},), stream)
 _SCIPfclose(fp) = @scip_ccall("SCIPfclose", 
-    EXTERN  int, (Ptr{_SCIP_FILE},), fp)
+    Int, (Ptr{_SCIP_FILE},), fp)
 _SCIPheurGetData(heur) = @scip_ccall("SCIPheurGetData", 
     Ptr{_SCIP_HEURDATA}, (Ptr{_SCIP_HEUR},), heur)
 _SCIPheurSetData(heur, heurdata) = @scip_ccall("SCIPheurSetData", 
@@ -3622,17 +3622,17 @@ _SCIPcreateConsPseudoboolean(scip, cons, name, linvars, nlinvars, linvals, terms
 _SCIPcreateConsBasicPseudoboolean(scip, cons, name, linvars, nlinvars, linvals, terms, nterms, ntermvars, termvals, indvar, weight, issoftcons, intvar, lhs, rhs) = @scip_ccall_check("SCIPcreateConsBasicPseudoboolean", 
     (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Ptr{Ptr{_SCIP_VAR}}, Void, Ptr{_SCIP_Real}, Ptr{Ptr{Ptr{_SCIP_VAR}}}, Void, Void, Ptr{_SCIP_Real}, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Bool, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Real,), scip, cons, name, linvars, nlinvars, linvals, terms, nterms, ntermvars, termvals, indvar, weight, issoftcons, intvar, lhs, rhs)
 _SCIPaddCoefPseudoboolean(scip, cons, var, val) = @scip_ccall_check("SCIPaddCoefPseudoboolean", 
-    (Ptr{_SCIP }, Ptr{_SCIP_CONS }, Ptr{_SCIP_VAR }, _SCIP_Real ,), scip, cons, var, val)
+    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{_SCIP_VAR}, _SCIP_Real,), scip, cons, var, val)
 _SCIPaddTermPseudoboolean(scip, cons, vars, nvars, val) = @scip_ccall_check("SCIPaddTermPseudoboolean", 
-    (Ptr{_SCIP }, Ptr{_SCIP_CONS }, Ptr{Ptr{_SCIP_VAR }}, Void, _SCIP_Real ,), scip, cons, vars, nvars, val)
+    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{Ptr{_SCIP_VAR}}, Void, _SCIP_Real,), scip, cons, vars, nvars, val)
 _SCIPgetLinDatasWithoutAndPseudoboolean(scip, cons, linvars, lincoefs, nlinvars) = @scip_ccall_check("SCIPgetLinDatasWithoutAndPseudoboolean", 
-    (Ptr{_SCIP }, Ptr{_SCIP_CONS }, Ptr{Ptr{_SCIP_VAR }}, Ptr{_SCIP_Real }, Void,), scip, cons, linvars, lincoefs, nlinvars)
+    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Void,), scip, cons, linvars, lincoefs, nlinvars)
 _SCIPgetAndDatasPseudoboolean(scip, cons, andconss, andcoefs, nandconss) = @scip_ccall_check("SCIPgetAndDatasPseudoboolean", 
-    (Ptr{_SCIP }, Ptr{_SCIP_CONS }, Ptr{Ptr{_SCIP_CONS }}, Ptr{_SCIP_Real }, Void,), scip, cons, andconss, andcoefs, nandconss)
+    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{Ptr{_SCIP_CONS}}, Ptr{_SCIP_Real}, Void,), scip, cons, andconss, andcoefs, nandconss)
 _SCIPchgLhsPseudoboolean(scip, cons, lhs) = @scip_ccall_check("SCIPchgLhsPseudoboolean", 
-    (Ptr{_SCIP }, Ptr{_SCIP_CONS }, _SCIP_Real ,), scip, cons, lhs)
+    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, _SCIP_Real,), scip, cons, lhs)
 _SCIPchgRhsPseudoboolean(scip, cons, rhs) = @scip_ccall_check("SCIPchgRhsPseudoboolean", 
-    (Ptr{_SCIP }, Ptr{_SCIP_CONS }, _SCIP_Real ,), scip, cons, rhs)
+    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, _SCIP_Real,), scip, cons, rhs)
 _SCIPincludeConshdlrQuadratic(scip) = @scip_ccall_check("SCIPincludeConshdlrQuadratic", 
     (Ptr{_SCIP},), scip)
 _SCIPcreateConsQuadratic(scip, cons, name, nlinvars, linvars, lincoefs, nquadterms, quadvars1, quadvars2, quadcoeffs, lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable) = @scip_ccall_check("SCIPcreateConsQuadratic", 
@@ -4306,9 +4306,9 @@ _SCIPaddVarImplication(scip, var, varfixing, implvar, impltype, implbound, infea
 _SCIPaddClique(scip, vars, values, nvars, infeasible, nbdchgs) = @scip_ccall_check("SCIPaddClique", 
     (Ptr{_SCIP}, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Bool}, Void, Ptr{_SCIP_Bool}, Void,), scip, vars, values, nvars, infeasible, nbdchgs)
 _SCIPcalcCliquePartition(scip, vars, nvars, cliquepartition, ncliques) = @scip_ccall_check("SCIPcalcCliquePartition", 
-    (Ptr{_SCIP }, Ptr{Ptr{_SCIP_VAR }}, Void, Void, Void,), scip, vars, nvars, cliquepartition, ncliques)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_VAR}}, Void, Void, Void,), scip, vars, nvars, cliquepartition, ncliques)
 _SCIPcalcNegatedCliquePartition(scip, vars, nvars, cliquepartition, ncliques) = @scip_ccall_check("SCIPcalcNegatedCliquePartition", 
-    (Ptr{_SCIP }, Ptr{Ptr{_SCIP_VAR }}, Void, Void, Void,), scip, vars, nvars, cliquepartition, ncliques)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_VAR}}, Void, Void, Void,), scip, vars, nvars, cliquepartition, ncliques)
 _SCIPwriteCliqueGraph(scip, fname, writeimplications, writenodeweights) = @scip_ccall_check("SCIPwriteCliqueGraph", 
     (Ptr{_SCIP}, Void, _SCIP_Bool, _SCIP_Bool,), scip, fname, writeimplications, writenodeweights)
 _SCIPchgVarBranchFactor(scip, var, branchfactor) = @scip_ccall_check("SCIPchgVarBranchFactor", 

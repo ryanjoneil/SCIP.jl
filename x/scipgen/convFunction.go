@@ -6,7 +6,22 @@ import (
 )
 
 func getOrigType(typeStr, refStr string) string {
-	return strings.TrimSpace(fmt.Sprintf("%s %s", refStr, typeStr))
+	// If we have a refStr and a typeStr with something other than *,
+	// such as ["EXTERN", "size_t"], then our type should just be
+	// the typeStr.
+	typeStr = strings.Replace(typeStr, "*const", "*", 1)
+	typeStr = strings.Replace(typeStr, " const", "", 1)
+	typeStr = strings.TrimSpace(typeStr)
+	refStr = strings.TrimSpace(refStr)
+
+	var fullType string
+	if strings.Replace(typeStr, "*", "", -1) != "" && refStr != "" {
+		fullType = typeStr
+	} else {
+		fullType = strings.TrimSpace(fmt.Sprintf("%s %s", refStr, typeStr))
+	}
+
+	return fullType
 }
 
 func getFinalType(typeStr string) string {
@@ -87,6 +102,10 @@ func (info *SCIPInfo) ConvertFunction(member MemberDef) {
 	newFunc.Description = strings.TrimSpace(
 		strings.Replace(member.DetailedDescription.Para, `"`, `\"`, -1),
 	)
+
+	if newFunc.OrigName == "SCIPfread" {
+		fmt.Println(member.Type.Ref, member.Type.TypeStr)
+	}
 
 	if !newFunc.ParsedOK() {
 		return
