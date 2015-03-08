@@ -9,6 +9,7 @@ func (info *SCIPInfo) getOrigType(typeStr, refStr string) string {
 	// If we have a refStr and a typeStr with something other than *,
 	// such as ["EXTERN", "size_t"], then our type should just be
 	// the typeStr.
+	typeStr = strings.Replace(typeStr, "const ", "*", 1)
 	typeStr = strings.Replace(typeStr, "*const", "*", 1)
 	typeStr = strings.Replace(typeStr, " const", "", 1)
 	typeStr = strings.TrimSpace(typeStr)
@@ -60,6 +61,10 @@ func (info *SCIPInfo) ConvertFunction(member MemberDef) {
 		return
 	}
 
+	if member.Name == "SCIPcreateProbBasic" {
+		fmt.Println(member.Params)
+	}
+
 	// Convert return argument
 	var retType InfoParamType
 	if len(member.Type.Ref) > 0 {
@@ -67,6 +72,8 @@ func (info *SCIPInfo) ConvertFunction(member MemberDef) {
 			member.Type.TypeStr,
 			member.Type.Ref[len(member.Type.Ref)-1],
 		)
+	} else {
+		retType.OrigType = info.getOrigType(member.Type.TypeStr, "")
 	}
 	retType.FinalType = info.getFinalType(retType.OrigType)
 
@@ -83,6 +90,8 @@ func (info *SCIPInfo) ConvertFunction(member MemberDef) {
 					p.Type.TypeStr,
 					p.Type.Ref[len(p.Type.Ref)-1],
 				)
+			} else {
+				newParam.OrigType = info.getOrigType(p.Type.TypeStr, "")
 			}
 			newParam.FinalType = info.getFinalType(newParam.OrigType)
 			newParam.OrigName = p.DeclName

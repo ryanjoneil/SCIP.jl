@@ -39,7 +39,7 @@ _SCIPgetRhsAbspower(scip, cons) = @scip_ccall("SCIPgetRhsAbspower",
 _SCIPgetViolationAbspower(scip, cons, sol) = @scip_ccall("SCIPgetViolationAbspower", 
     _SCIP_Real, (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{_SCIP_SOL},), scip, cons, sol)
 _SCIPgetNVarsAnd(scip, cons) = @scip_ccall("SCIPgetNVarsAnd", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
+    Int, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetVarsAnd(scip, cons) = @scip_ccall("SCIPgetVarsAnd", 
     Ptr{Ptr{_SCIP_VAR}}, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetResultantAnd(scip, cons) = @scip_ccall("SCIPgetResultantAnd", 
@@ -57,7 +57,7 @@ _SCIPgetLhsBivariate(scip, cons) = @scip_ccall("SCIPgetLhsBivariate",
 _SCIPgetRhsBivariate(scip, cons) = @scip_ccall("SCIPgetRhsBivariate", 
     _SCIP_Real, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetNVarsBounddisjunction(scip, cons) = @scip_ccall("SCIPgetNVarsBounddisjunction", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
+    Int, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetVarsBounddisjunction(scip, cons) = @scip_ccall("SCIPgetVarsBounddisjunction", 
     Ptr{Ptr{_SCIP_VAR}}, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetBoundtypesBounddisjunction(scip, cons) = @scip_ccall("SCIPgetBoundtypesBounddisjunction", 
@@ -67,29 +67,29 @@ _SCIPgetBoundsBounddisjunction(scip, cons) = @scip_ccall("SCIPgetBoundsBounddisj
 _SCIPgetNCountedSols(scip, valid) = @scip_ccall("SCIPgetNCountedSols", 
     Int64, (Ptr{_SCIP}, Ptr{_SCIP_Bool},), scip, valid)
 _SCIPgetNCountedSolsstr(scip, buffer, buffersize, requiredsize) = @scip_ccall("SCIPgetNCountedSolsstr", 
-    Void, (Ptr{_SCIP}, Void, Void, Void,), scip, buffer, buffersize, requiredsize)
+    Void, (Ptr{_SCIP}, Ptr{Ptr{Char}}, Int, Ptr{Int},), scip, buffer, buffersize, requiredsize)
 _SCIPgetNCountedFeasSubtrees(scip) = @scip_ccall("SCIPgetNCountedFeasSubtrees", 
     Int64, (Ptr{_SCIP},), scip)
 _SCIPgetCountedSparseSols(scip, vars, nvars, sols, nsols) = @scip_ccall("SCIPgetCountedSparseSols", 
-    Void, (Ptr{_SCIP}, Ptr{Ptr{Ptr{_SCIP_VAR}}}, Void, Ptr{Ptr{Ptr{_SCIP_SPARSESOL}}}, Void,), scip, vars, nvars, sols, nsols)
+    Void, (Ptr{_SCIP}, Ptr{Ptr{Ptr{_SCIP_VAR}}}, Ptr{Int}, Ptr{Ptr{Ptr{_SCIP_SPARSESOL}}}, Ptr{Int},), scip, vars, nvars, sols, nsols)
 _SCIPgetHminCumulative(scip, cons) = @scip_ccall("SCIPgetHminCumulative", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
+    Int, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetHmaxCumulative(scip, cons) = @scip_ccall("SCIPgetHmaxCumulative", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
+    Int, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetVarsCumulative(scip, cons) = @scip_ccall("SCIPgetVarsCumulative", 
     Ptr{Ptr{_SCIP_VAR}}, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetNVarsCumulative(scip, cons) = @scip_ccall("SCIPgetNVarsCumulative", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
+    Int, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetCapacityCumulative(scip, cons) = @scip_ccall("SCIPgetCapacityCumulative", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
+    Int, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetDurationsCumulative(scip, cons) = @scip_ccall("SCIPgetDurationsCumulative", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
+    Ptr{Int}, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetDemandsCumulative(scip, cons) = @scip_ccall("SCIPgetDemandsCumulative", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
+    Ptr{Int}, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPcomputeHmin(scip, profile, capacity) = @scip_ccall("SCIPcomputeHmin", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_PROFILE}, Void,), scip, profile, capacity)
+    Int, (Ptr{_SCIP}, Ptr{_SCIP_PROFILE}, Int,), scip, profile, capacity)
 _SCIPcomputeHmax(scip, profile, capacity) = @scip_ccall("SCIPcomputeHmax", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_PROFILE}, Void,), scip, profile, capacity)
+    Int, (Ptr{_SCIP}, Ptr{_SCIP_PROFILE}, Int,), scip, profile, capacity)
 _SCIPgetLinearConsIndicator(cons) = @scip_ccall("SCIPgetLinearConsIndicator", 
     Ptr{_SCIP_CONS}, (Ptr{_SCIP_CONS},), cons)
 _SCIPgetBinaryVarIndicator(cons) = @scip_ccall("SCIPgetBinaryVarIndicator", 
@@ -101,7 +101,7 @@ _SCIPisViolatedIndicator(scip, cons, sol) = @scip_ccall("SCIPisViolatedIndicator
 _SCIPgetCapacityKnapsack(scip, cons) = @scip_ccall("SCIPgetCapacityKnapsack", 
     Int64, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetNVarsKnapsack(scip, cons) = @scip_ccall("SCIPgetNVarsKnapsack", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
+    Int, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetVarsKnapsack(scip, cons) = @scip_ccall("SCIPgetVarsKnapsack", 
     Ptr{Ptr{_SCIP_VAR}}, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetWeightsKnapsack(scip, cons) = @scip_ccall("SCIPgetWeightsKnapsack", 
@@ -117,7 +117,7 @@ _SCIPgetLhsLinear(scip, cons) = @scip_ccall("SCIPgetLhsLinear",
 _SCIPgetRhsLinear(scip, cons) = @scip_ccall("SCIPgetRhsLinear", 
     _SCIP_Real, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetNVarsLinear(scip, cons) = @scip_ccall("SCIPgetNVarsLinear", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
+    Int, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetVarsLinear(scip, cons) = @scip_ccall("SCIPgetVarsLinear", 
     Ptr{Ptr{_SCIP_VAR}}, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetValsLinear(scip, cons) = @scip_ccall("SCIPgetValsLinear", 
@@ -139,11 +139,11 @@ _SCIPgetConsLinking(scip, intvar) = @scip_ccall("SCIPgetConsLinking",
 _SCIPgetIntvarLinking(scip, cons) = @scip_ccall("SCIPgetIntvarLinking", 
     Ptr{_SCIP_VAR}, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetNBinvarsLinking(scip, cons) = @scip_ccall("SCIPgetNBinvarsLinking", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
+    Int, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetValsLinking(scip, cons) = @scip_ccall("SCIPgetValsLinking", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
+    Ptr{Int}, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetNVarsLogicor(scip, cons) = @scip_ccall("SCIPgetNVarsLogicor", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
+    Int, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetVarsLogicor(scip, cons) = @scip_ccall("SCIPgetVarsLogicor", 
     Ptr{Ptr{_SCIP_VAR}}, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetDualsolLogicor(scip, cons) = @scip_ccall("SCIPgetDualsolLogicor", 
@@ -153,13 +153,13 @@ _SCIPgetDualfarkasLogicor(scip, cons) = @scip_ccall("SCIPgetDualfarkasLogicor",
 _SCIPgetRowLogicor(scip, cons) = @scip_ccall("SCIPgetRowLogicor", 
     Ptr{_SCIP_ROW}, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetNLinearVarsNonlinear(scip, cons) = @scip_ccall("SCIPgetNLinearVarsNonlinear", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
+    Int, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetLinearVarsNonlinear(scip, cons) = @scip_ccall("SCIPgetLinearVarsNonlinear", 
     Ptr{Ptr{_SCIP_VAR}}, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetLinearCoefsNonlinear(scip, cons) = @scip_ccall("SCIPgetLinearCoefsNonlinear", 
     Ptr{_SCIP_Real}, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetNExprtreesNonlinear(scip, cons) = @scip_ccall("SCIPgetNExprtreesNonlinear", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
+    Int, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetExprtreesNonlinear(scip, cons) = @scip_ccall("SCIPgetExprtreesNonlinear", 
     Ptr{Ptr{_SCIP_EXPRTREE}}, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetExprtreeCoefsNonlinear(scip, cons) = @scip_ccall("SCIPgetExprtreeCoefsNonlinear", 
@@ -173,7 +173,7 @@ _SCIPgetRhsNonlinear(scip, cons) = @scip_ccall("SCIPgetRhsNonlinear",
 _SCIPgetExprgraphNonlinear(scip, conshdlr) = @scip_ccall("SCIPgetExprgraphNonlinear", 
     Ptr{_SCIP_EXPRGRAPH}, (Ptr{_SCIP}, Ptr{_SCIP_CONSHDLR},), scip, conshdlr)
 _SCIPgetNVarsOr(scip, cons) = @scip_ccall("SCIPgetNVarsOr", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
+    Int, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetVarsOr(scip, cons) = @scip_ccall("SCIPgetVarsOr", 
     Ptr{Ptr{_SCIP_VAR}}, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetResultantOr(scip, cons) = @scip_ccall("SCIPgetResultantOr", 
@@ -185,9 +185,9 @@ _SCIPgetLinearConsPseudoboolean(scip, cons) = @scip_ccall("SCIPgetLinearConsPseu
 _SCIPgetLinearConsTypePseudoboolean(scip, cons) = @scip_ccall("SCIPgetLinearConsTypePseudoboolean", 
     _SCIP_LINEARCONSTYPE, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetNLinVarsWithoutAndPseudoboolean(scip, cons) = @scip_ccall("SCIPgetNLinVarsWithoutAndPseudoboolean", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
+    Int, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetNAndsPseudoboolean(scip, cons) = @scip_ccall("SCIPgetNAndsPseudoboolean", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
+    Int, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetLhsPseudoboolean(scip, cons) = @scip_ccall("SCIPgetLhsPseudoboolean", 
     _SCIP_Real, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetRhsPseudoboolean(scip, cons) = @scip_ccall("SCIPgetRhsPseudoboolean", 
@@ -195,17 +195,17 @@ _SCIPgetRhsPseudoboolean(scip, cons) = @scip_ccall("SCIPgetRhsPseudoboolean",
 _SCIPaddConstantQuadratic(scip, cons, constant) = @scip_ccall("SCIPaddConstantQuadratic", 
     Void, (Ptr{_SCIP}, Ptr{_SCIP_CONS}, _SCIP_Real,), scip, cons, constant)
 _SCIPgetNLinearVarsQuadratic(scip, cons) = @scip_ccall("SCIPgetNLinearVarsQuadratic", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
+    Int, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetLinearVarsQuadratic(scip, cons) = @scip_ccall("SCIPgetLinearVarsQuadratic", 
     Ptr{Ptr{_SCIP_VAR}}, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetCoefsLinearVarsQuadratic(scip, cons) = @scip_ccall("SCIPgetCoefsLinearVarsQuadratic", 
     Ptr{_SCIP_Real}, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetNQuadVarTermsQuadratic(scip, cons) = @scip_ccall("SCIPgetNQuadVarTermsQuadratic", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
+    Int, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetQuadVarTermsQuadratic(scip, cons) = @scip_ccall("SCIPgetQuadVarTermsQuadratic", 
     Ptr{_SCIP_QUADVARTERM}, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetNBilinTermsQuadratic(scip, cons) = @scip_ccall("SCIPgetNBilinTermsQuadratic", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
+    Int, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetBilinTermsQuadratic(scip, cons) = @scip_ccall("SCIPgetBilinTermsQuadratic", 
     Ptr{_SCIP_BILINTERM}, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetLhsQuadratic(scip, cons) = @scip_ccall("SCIPgetLhsQuadratic", 
@@ -219,7 +219,7 @@ _SCIPisConcaveQuadratic(scip, cons) = @scip_ccall("SCIPisConcaveQuadratic",
 _SCIPisLinearLocalQuadratic(scip, cons) = @scip_ccall("SCIPisLinearLocalQuadratic", 
     _SCIP_Bool, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetNVarsSetppc(scip, cons) = @scip_ccall("SCIPgetNVarsSetppc", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
+    Int, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetVarsSetppc(scip, cons) = @scip_ccall("SCIPgetVarsSetppc", 
     Ptr{Ptr{_SCIP_VAR}}, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetTypeSetppc(scip, cons) = @scip_ccall("SCIPgetTypeSetppc", 
@@ -231,11 +231,11 @@ _SCIPgetDualfarkasSetppc(scip, cons) = @scip_ccall("SCIPgetDualfarkasSetppc",
 _SCIPgetRowSetppc(scip, cons) = @scip_ccall("SCIPgetRowSetppc", 
     Ptr{_SCIP_ROW}, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetNFixedonesSetppc(scip, cons) = @scip_ccall("SCIPgetNFixedonesSetppc", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
+    Int, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetNFixedzerosSetppc(scip, cons) = @scip_ccall("SCIPgetNFixedzerosSetppc", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
+    Int, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetNLhsVarsSOC(scip, cons) = @scip_ccall("SCIPgetNLhsVarsSOC", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
+    Int, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetLhsVarsSOC(scip, cons) = @scip_ccall("SCIPgetLhsVarsSOC", 
     Ptr{Ptr{_SCIP_VAR}}, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetLhsCoefsSOC(scip, cons) = @scip_ccall("SCIPgetLhsCoefsSOC", 
@@ -251,13 +251,13 @@ _SCIPgetRhsCoefSOC(scip, cons) = @scip_ccall("SCIPgetRhsCoefSOC",
 _SCIPgetRhsOffsetSOC(scip, cons) = @scip_ccall("SCIPgetRhsOffsetSOC", 
     _SCIP_Real, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetNVarsSOS1(scip, cons) = @scip_ccall("SCIPgetNVarsSOS1", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
+    Int, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetVarsSOS1(scip, cons) = @scip_ccall("SCIPgetVarsSOS1", 
     Ptr{Ptr{_SCIP_VAR}}, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetWeightsSOS1(scip, cons) = @scip_ccall("SCIPgetWeightsSOS1", 
     Ptr{_SCIP_Real}, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetNVarsSOS2(scip, cons) = @scip_ccall("SCIPgetNVarsSOS2", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
+    Int, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetVarsSOS2(scip, cons) = @scip_ccall("SCIPgetVarsSOS2", 
     Ptr{Ptr{_SCIP_VAR}}, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetWeightsSOS2(scip, cons) = @scip_ccall("SCIPgetWeightsSOS2", 
@@ -283,7 +283,7 @@ _SCIPgetDualfarkasVarbound(scip, cons) = @scip_ccall("SCIPgetDualfarkasVarbound"
 _SCIPgetRowVarbound(scip, cons) = @scip_ccall("SCIPgetRowVarbound", 
     Ptr{_SCIP_ROW}, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetNVarsXor(scip, cons) = @scip_ccall("SCIPgetNVarsXor", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
+    Int, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetVarsXor(scip, cons) = @scip_ccall("SCIPgetVarsXor", 
     Ptr{Ptr{_SCIP_VAR}}, (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetRhsXor(scip, cons) = @scip_ccall("SCIPgetRhsXor", 
@@ -293,13 +293,13 @@ _SCIPbranchruleGetData(branchrule) = @scip_ccall("SCIPbranchruleGetData",
 _SCIPbranchruleSetData(branchrule, branchruledata) = @scip_ccall("SCIPbranchruleSetData", 
     Void, (Ptr{_SCIP_BRANCHRULE}, Ptr{_SCIP_BRANCHRULEDATA},), branchrule, branchruledata)
 _SCIPbranchruleGetName(branchrule) = @scip_ccall("SCIPbranchruleGetName", 
-    Void, (Ptr{_SCIP_BRANCHRULE},), branchrule)
+    Ptr{Ptr{Char}}, (Ptr{_SCIP_BRANCHRULE},), branchrule)
 _SCIPbranchruleGetDesc(branchrule) = @scip_ccall("SCIPbranchruleGetDesc", 
-    Void, (Ptr{_SCIP_BRANCHRULE},), branchrule)
+    Ptr{Ptr{Char}}, (Ptr{_SCIP_BRANCHRULE},), branchrule)
 _SCIPbranchruleGetPriority(branchrule) = @scip_ccall("SCIPbranchruleGetPriority", 
-    Void, (Ptr{_SCIP_BRANCHRULE},), branchrule)
+    Int, (Ptr{_SCIP_BRANCHRULE},), branchrule)
 _SCIPbranchruleGetMaxdepth(branchrule) = @scip_ccall("SCIPbranchruleGetMaxdepth", 
-    Void, (Ptr{_SCIP_BRANCHRULE},), branchrule)
+    Int, (Ptr{_SCIP_BRANCHRULE},), branchrule)
 _SCIPbranchruleGetMaxbounddist(branchrule) = @scip_ccall("SCIPbranchruleGetMaxbounddist", 
     _SCIP_Real, (Ptr{_SCIP_BRANCHRULE},), branchrule)
 _SCIPbranchruleGetSetupTime(branchrule) = @scip_ccall("SCIPbranchruleGetSetupTime", 
@@ -329,11 +329,11 @@ _SCIPconflicthdlrGetData(conflicthdlr) = @scip_ccall("SCIPconflicthdlrGetData",
 _SCIPconflicthdlrSetData(conflicthdlr, conflicthdlrdata) = @scip_ccall("SCIPconflicthdlrSetData", 
     Void, (Ptr{_SCIP_CONFLICTHDLR}, Ptr{_SCIP_CONFLICTHDLRDATA},), conflicthdlr, conflicthdlrdata)
 _SCIPconflicthdlrGetName(conflicthdlr) = @scip_ccall("SCIPconflicthdlrGetName", 
-    Void, (Ptr{_SCIP_CONFLICTHDLR},), conflicthdlr)
+    Ptr{Ptr{Char}}, (Ptr{_SCIP_CONFLICTHDLR},), conflicthdlr)
 _SCIPconflicthdlrGetDesc(conflicthdlr) = @scip_ccall("SCIPconflicthdlrGetDesc", 
-    Void, (Ptr{_SCIP_CONFLICTHDLR},), conflicthdlr)
+    Ptr{Ptr{Char}}, (Ptr{_SCIP_CONFLICTHDLR},), conflicthdlr)
 _SCIPconflicthdlrGetPriority(conflicthdlr) = @scip_ccall("SCIPconflicthdlrGetPriority", 
-    Void, (Ptr{_SCIP_CONFLICTHDLR},), conflicthdlr)
+    Int, (Ptr{_SCIP_CONFLICTHDLR},), conflicthdlr)
 _SCIPconflicthdlrIsInitialized(conflicthdlr) = @scip_ccall("SCIPconflicthdlrIsInitialized", 
     _SCIP_Bool, (Ptr{_SCIP_CONFLICTHDLR},), conflicthdlr)
 _SCIPconflicthdlrGetSetupTime(conflicthdlr) = @scip_ccall("SCIPconflicthdlrGetSetupTime", 
@@ -341,9 +341,9 @@ _SCIPconflicthdlrGetSetupTime(conflicthdlr) = @scip_ccall("SCIPconflicthdlrGetSe
 _SCIPconflicthdlrGetTime(conflicthdlr) = @scip_ccall("SCIPconflicthdlrGetTime", 
     _SCIP_Real, (Ptr{_SCIP_CONFLICTHDLR},), conflicthdlr)
 _SCIPconshdlrGetName(conshdlr) = @scip_ccall("SCIPconshdlrGetName", 
-    Void, (Ptr{_SCIP_CONSHDLR},), conshdlr)
+    Ptr{Ptr{Char}}, (Ptr{_SCIP_CONSHDLR},), conshdlr)
 _SCIPconshdlrGetDesc(conshdlr) = @scip_ccall("SCIPconshdlrGetDesc", 
-    Void, (Ptr{_SCIP_CONSHDLR},), conshdlr)
+    Ptr{Ptr{Char}}, (Ptr{_SCIP_CONSHDLR},), conshdlr)
 _SCIPconshdlrGetData(conshdlr) = @scip_ccall("SCIPconshdlrGetData", 
     Ptr{_SCIP_CONSHDLRDATA}, (Ptr{_SCIP_CONSHDLR},), conshdlr)
 _SCIPconshdlrSetData(conshdlr, conshdlrdata) = @scip_ccall("SCIPconshdlrSetData", 
@@ -355,15 +355,15 @@ _SCIPconshdlrGetEnfoConss(conshdlr) = @scip_ccall("SCIPconshdlrGetEnfoConss",
 _SCIPconshdlrGetCheckConss(conshdlr) = @scip_ccall("SCIPconshdlrGetCheckConss", 
     Ptr{Ptr{_SCIP_CONS}}, (Ptr{_SCIP_CONSHDLR},), conshdlr)
 _SCIPconshdlrGetNConss(conshdlr) = @scip_ccall("SCIPconshdlrGetNConss", 
-    Void, (Ptr{_SCIP_CONSHDLR},), conshdlr)
+    Int, (Ptr{_SCIP_CONSHDLR},), conshdlr)
 _SCIPconshdlrGetNEnfoConss(conshdlr) = @scip_ccall("SCIPconshdlrGetNEnfoConss", 
-    Void, (Ptr{_SCIP_CONSHDLR},), conshdlr)
+    Int, (Ptr{_SCIP_CONSHDLR},), conshdlr)
 _SCIPconshdlrGetNCheckConss(conshdlr) = @scip_ccall("SCIPconshdlrGetNCheckConss", 
-    Void, (Ptr{_SCIP_CONSHDLR},), conshdlr)
+    Int, (Ptr{_SCIP_CONSHDLR},), conshdlr)
 _SCIPconshdlrGetNActiveConss(conshdlr) = @scip_ccall("SCIPconshdlrGetNActiveConss", 
-    Void, (Ptr{_SCIP_CONSHDLR},), conshdlr)
+    Int, (Ptr{_SCIP_CONSHDLR},), conshdlr)
 _SCIPconshdlrGetNEnabledConss(conshdlr) = @scip_ccall("SCIPconshdlrGetNEnabledConss", 
-    Void, (Ptr{_SCIP_CONSHDLR},), conshdlr)
+    Int, (Ptr{_SCIP_CONSHDLR},), conshdlr)
 _SCIPconshdlrGetSetupTime(conshdlr) = @scip_ccall("SCIPconshdlrGetSetupTime", 
     _SCIP_Real, (Ptr{_SCIP_CONSHDLR},), conshdlr)
 _SCIPconshdlrGetPresolTime(conshdlr) = @scip_ccall("SCIPconshdlrGetPresolTime", 
@@ -407,43 +407,43 @@ _SCIPconshdlrGetNDomredsFound(conshdlr) = @scip_ccall("SCIPconshdlrGetNDomredsFo
 _SCIPconshdlrGetNChildren(conshdlr) = @scip_ccall("SCIPconshdlrGetNChildren", 
     Int64, (Ptr{_SCIP_CONSHDLR},), conshdlr)
 _SCIPconshdlrGetMaxNActiveConss(conshdlr) = @scip_ccall("SCIPconshdlrGetMaxNActiveConss", 
-    Void, (Ptr{_SCIP_CONSHDLR},), conshdlr)
+    Int, (Ptr{_SCIP_CONSHDLR},), conshdlr)
 _SCIPconshdlrGetStartNActiveConss(conshdlr) = @scip_ccall("SCIPconshdlrGetStartNActiveConss", 
-    Void, (Ptr{_SCIP_CONSHDLR},), conshdlr)
+    Int, (Ptr{_SCIP_CONSHDLR},), conshdlr)
 _SCIPconshdlrGetNFixedVars(conshdlr) = @scip_ccall("SCIPconshdlrGetNFixedVars", 
-    Void, (Ptr{_SCIP_CONSHDLR},), conshdlr)
+    Int, (Ptr{_SCIP_CONSHDLR},), conshdlr)
 _SCIPconshdlrGetNAggrVars(conshdlr) = @scip_ccall("SCIPconshdlrGetNAggrVars", 
-    Void, (Ptr{_SCIP_CONSHDLR},), conshdlr)
+    Int, (Ptr{_SCIP_CONSHDLR},), conshdlr)
 _SCIPconshdlrGetNChgVarTypes(conshdlr) = @scip_ccall("SCIPconshdlrGetNChgVarTypes", 
-    Void, (Ptr{_SCIP_CONSHDLR},), conshdlr)
+    Int, (Ptr{_SCIP_CONSHDLR},), conshdlr)
 _SCIPconshdlrGetNChgBds(conshdlr) = @scip_ccall("SCIPconshdlrGetNChgBds", 
-    Void, (Ptr{_SCIP_CONSHDLR},), conshdlr)
+    Int, (Ptr{_SCIP_CONSHDLR},), conshdlr)
 _SCIPconshdlrGetNAddHoles(conshdlr) = @scip_ccall("SCIPconshdlrGetNAddHoles", 
-    Void, (Ptr{_SCIP_CONSHDLR},), conshdlr)
+    Int, (Ptr{_SCIP_CONSHDLR},), conshdlr)
 _SCIPconshdlrGetNDelConss(conshdlr) = @scip_ccall("SCIPconshdlrGetNDelConss", 
-    Void, (Ptr{_SCIP_CONSHDLR},), conshdlr)
+    Int, (Ptr{_SCIP_CONSHDLR},), conshdlr)
 _SCIPconshdlrGetNAddConss(conshdlr) = @scip_ccall("SCIPconshdlrGetNAddConss", 
-    Void, (Ptr{_SCIP_CONSHDLR},), conshdlr)
+    Int, (Ptr{_SCIP_CONSHDLR},), conshdlr)
 _SCIPconshdlrGetNUpgdConss(conshdlr) = @scip_ccall("SCIPconshdlrGetNUpgdConss", 
-    Void, (Ptr{_SCIP_CONSHDLR},), conshdlr)
+    Int, (Ptr{_SCIP_CONSHDLR},), conshdlr)
 _SCIPconshdlrGetNChgCoefs(conshdlr) = @scip_ccall("SCIPconshdlrGetNChgCoefs", 
-    Void, (Ptr{_SCIP_CONSHDLR},), conshdlr)
+    Int, (Ptr{_SCIP_CONSHDLR},), conshdlr)
 _SCIPconshdlrGetNChgSides(conshdlr) = @scip_ccall("SCIPconshdlrGetNChgSides", 
-    Void, (Ptr{_SCIP_CONSHDLR},), conshdlr)
+    Int, (Ptr{_SCIP_CONSHDLR},), conshdlr)
 _SCIPconshdlrGetNPresolCalls(conshdlr) = @scip_ccall("SCIPconshdlrGetNPresolCalls", 
-    Void, (Ptr{_SCIP_CONSHDLR},), conshdlr)
+    Int, (Ptr{_SCIP_CONSHDLR},), conshdlr)
 _SCIPconshdlrGetSepaPriority(conshdlr) = @scip_ccall("SCIPconshdlrGetSepaPriority", 
-    Void, (Ptr{_SCIP_CONSHDLR},), conshdlr)
+    Int, (Ptr{_SCIP_CONSHDLR},), conshdlr)
 _SCIPconshdlrGetEnfoPriority(conshdlr) = @scip_ccall("SCIPconshdlrGetEnfoPriority", 
-    Void, (Ptr{_SCIP_CONSHDLR},), conshdlr)
+    Int, (Ptr{_SCIP_CONSHDLR},), conshdlr)
 _SCIPconshdlrGetCheckPriority(conshdlr) = @scip_ccall("SCIPconshdlrGetCheckPriority", 
-    Void, (Ptr{_SCIP_CONSHDLR},), conshdlr)
+    Int, (Ptr{_SCIP_CONSHDLR},), conshdlr)
 _SCIPconshdlrGetSepaFreq(conshdlr) = @scip_ccall("SCIPconshdlrGetSepaFreq", 
-    Void, (Ptr{_SCIP_CONSHDLR},), conshdlr)
+    Int, (Ptr{_SCIP_CONSHDLR},), conshdlr)
 _SCIPconshdlrGetPropFreq(conshdlr) = @scip_ccall("SCIPconshdlrGetPropFreq", 
-    Void, (Ptr{_SCIP_CONSHDLR},), conshdlr)
+    Int, (Ptr{_SCIP_CONSHDLR},), conshdlr)
 _SCIPconshdlrGetEagerFreq(conshdlr) = @scip_ccall("SCIPconshdlrGetEagerFreq", 
-    Void, (Ptr{_SCIP_CONSHDLR},), conshdlr)
+    Int, (Ptr{_SCIP_CONSHDLR},), conshdlr)
 _SCIPconshdlrNeedsCons(conshdlr) = @scip_ccall("SCIPconshdlrNeedsCons", 
     _SCIP_Bool, (Ptr{_SCIP_CONSHDLR},), conshdlr)
 _SCIPconshdlrDoesPresolve(conshdlr) = @scip_ccall("SCIPconshdlrDoesPresolve", 
@@ -469,19 +469,19 @@ _SCIPconshdlrIsClonable(conshdlr) = @scip_ccall("SCIPconshdlrIsClonable",
 _SCIPconshdlrGetPropTimingmask(conshdlr) = @scip_ccall("SCIPconshdlrGetPropTimingmask", 
     _SCIP_PROPTIMING, (Ptr{_SCIP_CONSHDLR},), conshdlr)
 _SCIPconsGetName(cons) = @scip_ccall("SCIPconsGetName", 
-    Void, (Ptr{_SCIP_CONS},), cons)
+    Ptr{Ptr{Char}}, (Ptr{_SCIP_CONS},), cons)
 _SCIPconsGetPos(cons) = @scip_ccall("SCIPconsGetPos", 
-    Void, (Ptr{_SCIP_CONS},), cons)
+    Int, (Ptr{_SCIP_CONS},), cons)
 _SCIPconsGetHdlr(cons) = @scip_ccall("SCIPconsGetHdlr", 
     Ptr{_SCIP_CONSHDLR}, (Ptr{_SCIP_CONS},), cons)
 _SCIPconsGetData(cons) = @scip_ccall("SCIPconsGetData", 
     Ptr{_SCIP_CONSDATA}, (Ptr{_SCIP_CONS},), cons)
 _SCIPconsGetNUses(cons) = @scip_ccall("SCIPconsGetNUses", 
-    Void, (Ptr{_SCIP_CONS},), cons)
+    Int, (Ptr{_SCIP_CONS},), cons)
 _SCIPconsGetActiveDepth(cons) = @scip_ccall("SCIPconsGetActiveDepth", 
-    Void, (Ptr{_SCIP_CONS},), cons)
+    Int, (Ptr{_SCIP_CONS},), cons)
 _SCIPconsGetValidDepth(cons) = @scip_ccall("SCIPconsGetValidDepth", 
-    Void, (Ptr{_SCIP_CONS},), cons)
+    Int, (Ptr{_SCIP_CONS},), cons)
 _SCIPconsIsActive(cons) = @scip_ccall("SCIPconsIsActive", 
     _SCIP_Bool, (Ptr{_SCIP_CONS},), cons)
 _SCIPconsIsEnabled(cons) = @scip_ccall("SCIPconsIsEnabled", 
@@ -533,25 +533,25 @@ _SCIPconsIsLockedNeg(cons) = @scip_ccall("SCIPconsIsLockedNeg",
 _SCIPconsIsLocked(cons) = @scip_ccall("SCIPconsIsLocked", 
     _SCIP_Bool, (Ptr{_SCIP_CONS},), cons)
 _SCIPconsGetNLocksPos(cons) = @scip_ccall("SCIPconsGetNLocksPos", 
-    Void, (Ptr{_SCIP_CONS},), cons)
+    Int, (Ptr{_SCIP_CONS},), cons)
 _SCIPconsGetNLocksNeg(cons) = @scip_ccall("SCIPconsGetNLocksNeg", 
-    Void, (Ptr{_SCIP_CONS},), cons)
+    Int, (Ptr{_SCIP_CONS},), cons)
 _SCIPconsIsAdded(cons) = @scip_ccall("SCIPconsIsAdded", 
     _SCIP_Bool, (Ptr{_SCIP_CONS},), cons)
 _SCIPconsAddUpgradeLocks(cons, nlocks) = @scip_ccall("SCIPconsAddUpgradeLocks", 
-    Void, (Ptr{_SCIP_CONS}, Void,), cons, nlocks)
+    Void, (Ptr{_SCIP_CONS}, Int,), cons, nlocks)
 _SCIPconsGetNUpgradeLocks(cons) = @scip_ccall("SCIPconsGetNUpgradeLocks", 
-    Void, (Ptr{_SCIP_CONS},), cons)
+    Int, (Ptr{_SCIP_CONS},), cons)
 _SCIPcutGetRow(cut) = @scip_ccall("SCIPcutGetRow", 
     Ptr{_SCIP_ROW}, (Ptr{_SCIP_CUT},), cut)
 _SCIPcutGetAge(cut) = @scip_ccall("SCIPcutGetAge", 
-    Void, (Ptr{_SCIP_CUT},), cut)
+    Int, (Ptr{_SCIP_CUT},), cut)
 _SCIPcutpoolGetCuts(cutpool) = @scip_ccall("SCIPcutpoolGetCuts", 
     Ptr{Ptr{_SCIP_CUT}}, (Ptr{_SCIP_CUTPOOL},), cutpool)
 _SCIPcutpoolGetNCuts(cutpool) = @scip_ccall("SCIPcutpoolGetNCuts", 
-    Void, (Ptr{_SCIP_CUTPOOL},), cutpool)
+    Int, (Ptr{_SCIP_CUTPOOL},), cutpool)
 _SCIPcutpoolGetMaxNCuts(cutpool) = @scip_ccall("SCIPcutpoolGetMaxNCuts", 
-    Void, (Ptr{_SCIP_CUTPOOL},), cutpool)
+    Int, (Ptr{_SCIP_CUTPOOL},), cutpool)
 _SCIPcutpoolGetTime(cutpool) = @scip_ccall("SCIPcutpoolGetTime", 
     _SCIP_Real, (Ptr{_SCIP_CUTPOOL},), cutpool)
 _SCIPcutpoolGetNCalls(cutpool) = @scip_ccall("SCIPcutpoolGetNCalls", 
@@ -565,15 +565,15 @@ _SCIPdialoghdlrClearBuffer(dialoghdlr) = @scip_ccall("SCIPdialoghdlrClearBuffer"
 _SCIPdialoghdlrIsBufferEmpty(dialoghdlr) = @scip_ccall("SCIPdialoghdlrIsBufferEmpty", 
     _SCIP_Bool, (Ptr{_SCIP_DIALOGHDLR},), dialoghdlr)
 _SCIPdialogHasEntry(dialog, entryname) = @scip_ccall("SCIPdialogHasEntry", 
-    _SCIP_Bool, (Ptr{_SCIP_DIALOG}, Void,), dialog, entryname)
+    _SCIP_Bool, (Ptr{_SCIP_DIALOG}, Ptr{Ptr{Char}},), dialog, entryname)
 _SCIPdialogFindEntry(dialog, entryname, subdialog) = @scip_ccall("SCIPdialogFindEntry", 
-    Void, (Ptr{_SCIP_DIALOG}, Void, Ptr{Ptr{_SCIP_DIALOG}},), dialog, entryname, subdialog)
+    Int, (Ptr{_SCIP_DIALOG}, Ptr{Ptr{Char}}, Ptr{Ptr{_SCIP_DIALOG}},), dialog, entryname, subdialog)
 _SCIPdialogGetPath(dialog, sepchar, path) = @scip_ccall("SCIPdialogGetPath", 
-    Void, (Ptr{_SCIP_DIALOG}, Void, Void,), dialog, sepchar, path)
+    Void, (Ptr{_SCIP_DIALOG}, Ptr{Char}, Ptr{Char},), dialog, sepchar, path)
 _SCIPdialogGetName(dialog) = @scip_ccall("SCIPdialogGetName", 
-    Void, (Ptr{_SCIP_DIALOG},), dialog)
+    Ptr{Ptr{Char}}, (Ptr{_SCIP_DIALOG},), dialog)
 _SCIPdialogGetDesc(dialog) = @scip_ccall("SCIPdialogGetDesc", 
-    Void, (Ptr{_SCIP_DIALOG},), dialog)
+    Ptr{Ptr{Char}}, (Ptr{_SCIP_DIALOG},), dialog)
 _SCIPdialogIsSubmenu(dialog) = @scip_ccall("SCIPdialogIsSubmenu", 
     _SCIP_Bool, (Ptr{_SCIP_DIALOG},), dialog)
 _SCIPdialogGetParent(dialog) = @scip_ccall("SCIPdialogGetParent", 
@@ -581,7 +581,7 @@ _SCIPdialogGetParent(dialog) = @scip_ccall("SCIPdialogGetParent",
 _SCIPdialogGetSubdialogs(dialog) = @scip_ccall("SCIPdialogGetSubdialogs", 
     Ptr{Ptr{_SCIP_DIALOG}}, (Ptr{_SCIP_DIALOG},), dialog)
 _SCIPdialogGetNSubdialogs(dialog) = @scip_ccall("SCIPdialogGetNSubdialogs", 
-    Void, (Ptr{_SCIP_DIALOG},), dialog)
+    Int, (Ptr{_SCIP_DIALOG},), dialog)
 _SCIPdialogGetData(dialog) = @scip_ccall("SCIPdialogGetData", 
     Ptr{_SCIP_DIALOGDATA}, (Ptr{_SCIP_DIALOG},), dialog)
 _SCIPdialogSetData(dialog, dialogdata) = @scip_ccall("SCIPdialogSetData", 
@@ -591,29 +591,29 @@ _SCIPdispGetData(disp) = @scip_ccall("SCIPdispGetData",
 _SCIPdispSetData(disp, dispdata) = @scip_ccall("SCIPdispSetData", 
     Void, (Ptr{_SCIP_DISP}, Ptr{_SCIP_DISPDATA},), disp, dispdata)
 _SCIPdispGetName(disp) = @scip_ccall("SCIPdispGetName", 
-    Void, (Ptr{_SCIP_DISP},), disp)
+    Ptr{Ptr{Char}}, (Ptr{_SCIP_DISP},), disp)
 _SCIPdispGetDesc(disp) = @scip_ccall("SCIPdispGetDesc", 
-    Void, (Ptr{_SCIP_DISP},), disp)
+    Ptr{Ptr{Char}}, (Ptr{_SCIP_DISP},), disp)
 _SCIPdispGetHeader(disp) = @scip_ccall("SCIPdispGetHeader", 
-    Void, (Ptr{_SCIP_DISP},), disp)
+    Ptr{Ptr{Char}}, (Ptr{_SCIP_DISP},), disp)
 _SCIPdispGetWidth(disp) = @scip_ccall("SCIPdispGetWidth", 
-    Void, (Ptr{_SCIP_DISP},), disp)
+    Int, (Ptr{_SCIP_DISP},), disp)
 _SCIPdispGetPriority(disp) = @scip_ccall("SCIPdispGetPriority", 
-    Void, (Ptr{_SCIP_DISP},), disp)
+    Int, (Ptr{_SCIP_DISP},), disp)
 _SCIPdispGetPosition(disp) = @scip_ccall("SCIPdispGetPosition", 
-    Void, (Ptr{_SCIP_DISP},), disp)
+    Int, (Ptr{_SCIP_DISP},), disp)
 _SCIPdispGetStatus(disp) = @scip_ccall("SCIPdispGetStatus", 
     _SCIP_DISPSTATUS, (Ptr{_SCIP_DISP},), disp)
 _SCIPdispIsInitialized(disp) = @scip_ccall("SCIPdispIsInitialized", 
     _SCIP_Bool, (Ptr{_SCIP_DISP},), disp)
 _SCIPdispLongint(messagehdlr, file, val, width) = @scip_ccall("SCIPdispLongint", 
-    Void, (Ptr{_SCIP_MESSAGEHDLR}, Void, Int64, Void,), messagehdlr, file, val, width)
+    Void, (Ptr{_SCIP_MESSAGEHDLR}, Ptr{FILE}, Int64, Int,), messagehdlr, file, val, width)
 _SCIPdispInt(messagehdlr, file, val, width) = @scip_ccall("SCIPdispInt", 
-    Void, (Ptr{_SCIP_MESSAGEHDLR}, Void, Void, Void,), messagehdlr, file, val, width)
+    Void, (Ptr{_SCIP_MESSAGEHDLR}, Ptr{FILE}, Int, Int,), messagehdlr, file, val, width)
 _SCIPdispTime(messagehdlr, file, val, width) = @scip_ccall("SCIPdispTime", 
-    Void, (Ptr{_SCIP_MESSAGEHDLR}, Void, _SCIP_Real, Void,), messagehdlr, file, val, width)
+    Void, (Ptr{_SCIP_MESSAGEHDLR}, Ptr{FILE}, _SCIP_Real, Int,), messagehdlr, file, val, width)
 _SCIPeventhdlrGetName(eventhdlr) = @scip_ccall("SCIPeventhdlrGetName", 
-    Void, (Ptr{_SCIP_EVENTHDLR},), eventhdlr)
+    Ptr{Ptr{Char}}, (Ptr{_SCIP_EVENTHDLR},), eventhdlr)
 _SCIPeventhdlrGetData(eventhdlr) = @scip_ccall("SCIPeventhdlrGetData", 
     Ptr{_SCIP_EVENTHDLRDATA}, (Ptr{_SCIP_EVENTHDLR},), eventhdlr)
 _SCIPeventhdlrSetData(eventhdlr, eventhdlrdata) = @scip_ccall("SCIPeventhdlrSetData", 
@@ -669,31 +669,31 @@ _SCIPexprcurvNegate(curvature) = @scip_ccall("SCIPexprcurvNegate",
 _SCIPexprcurvMultiply(factor, curvature) = @scip_ccall("SCIPexprcurvMultiply", 
     _SCIP_EXPRCURV, (_SCIP_Real, _SCIP_EXPRCURV,), factor, curvature)
 _SCIPexprcurvPower(basebounds, basecurv, exponent) = @scip_ccall("SCIPexprcurvPower", 
-    _SCIP_EXPRCURV, (Void, _SCIP_EXPRCURV, _SCIP_Real,), basebounds, basecurv, exponent)
+    _SCIP_EXPRCURV, (_SCIP_INTERVAL, _SCIP_EXPRCURV, _SCIP_Real,), basebounds, basecurv, exponent)
 _SCIPexprcurvMonomial(nfactors, exponents, factoridxs, factorcurv, factorbounds) = @scip_ccall("SCIPexprcurvMonomial", 
-    _SCIP_EXPRCURV, (Void, Ptr{_SCIP_Real}, Void, Ptr{_SCIP_EXPRCURV}, Void,), nfactors, exponents, factoridxs, factorcurv, factorbounds)
+    _SCIP_EXPRCURV, (Int, Ptr{_SCIP_Real}, Ptr{Int}, Ptr{_SCIP_EXPRCURV}, Ptr{_SCIP_INTERVAL},), nfactors, exponents, factoridxs, factorcurv, factorbounds)
 _SCIPexprcurvGetName(curv) = @scip_ccall("SCIPexprcurvGetName", 
-    Void, (_SCIP_EXPRCURV,), curv)
+    Ptr{Ptr{Char}}, (_SCIP_EXPRCURV,), curv)
 _SCIPexpropGetName(op) = @scip_ccall("SCIPexpropGetName", 
-    Void, (_SCIP_EXPROP,), op)
+    Ptr{Ptr{Char}}, (_SCIP_EXPROP,), op)
 _SCIPexpropGetNChildren(op) = @scip_ccall("SCIPexpropGetNChildren", 
-    Void, (_SCIP_EXPROP,), op)
+    Int, (_SCIP_EXPROP,), op)
 _SCIPexprGetOperator(expr) = @scip_ccall("SCIPexprGetOperator", 
     _SCIP_EXPROP, (Ptr{_SCIP_EXPR},), expr)
 _SCIPexprGetNChildren(expr) = @scip_ccall("SCIPexprGetNChildren", 
-    Void, (Ptr{_SCIP_EXPR},), expr)
+    Int, (Ptr{_SCIP_EXPR},), expr)
 _SCIPexprGetChildren(expr) = @scip_ccall("SCIPexprGetChildren", 
     Ptr{Ptr{_SCIP_EXPR}}, (Ptr{_SCIP_EXPR},), expr)
 _SCIPexprGetOpIndex(expr) = @scip_ccall("SCIPexprGetOpIndex", 
-    Void, (Ptr{_SCIP_EXPR},), expr)
+    Int, (Ptr{_SCIP_EXPR},), expr)
 _SCIPexprGetOpReal(expr) = @scip_ccall("SCIPexprGetOpReal", 
     _SCIP_Real, (Ptr{_SCIP_EXPR},), expr)
 _SCIPexprGetOpData(expr) = @scip_ccall("SCIPexprGetOpData", 
-    Void, (Ptr{_SCIP_EXPR},), expr)
+    Ptr{Void}, (Ptr{_SCIP_EXPR},), expr)
 _SCIPexprGetRealPowerExponent(expr) = @scip_ccall("SCIPexprGetRealPowerExponent", 
     _SCIP_Real, (Ptr{_SCIP_EXPR},), expr)
 _SCIPexprGetIntPowerExponent(expr) = @scip_ccall("SCIPexprGetIntPowerExponent", 
-    Void, (Ptr{_SCIP_EXPR},), expr)
+    Int, (Ptr{_SCIP_EXPR},), expr)
 _SCIPexprGetSignPowerExponent(expr) = @scip_ccall("SCIPexprGetSignPowerExponent", 
     _SCIP_Real, (Ptr{_SCIP_EXPR},), expr)
 _SCIPexprGetLinearCoefs(expr) = @scip_ccall("SCIPexprGetLinearCoefs", 
@@ -707,45 +707,45 @@ _SCIPexprGetQuadConstant(expr) = @scip_ccall("SCIPexprGetQuadConstant",
 _SCIPexprGetQuadLinearCoefs(expr) = @scip_ccall("SCIPexprGetQuadLinearCoefs", 
     Ptr{_SCIP_Real}, (Ptr{_SCIP_EXPR},), expr)
 _SCIPexprGetNQuadElements(expr) = @scip_ccall("SCIPexprGetNQuadElements", 
-    Void, (Ptr{_SCIP_EXPR},), expr)
+    Int, (Ptr{_SCIP_EXPR},), expr)
 _SCIPexprGetMonomials(expr) = @scip_ccall("SCIPexprGetMonomials", 
     Ptr{Ptr{_SCIP_EXPRDATA_MONOMIAL}}, (Ptr{_SCIP_EXPR},), expr)
 _SCIPexprGetNMonomials(expr) = @scip_ccall("SCIPexprGetNMonomials", 
-    Void, (Ptr{_SCIP_EXPR},), expr)
+    Int, (Ptr{_SCIP_EXPR},), expr)
 _SCIPexprGetPolynomialConstant(expr) = @scip_ccall("SCIPexprGetPolynomialConstant", 
     _SCIP_Real, (Ptr{_SCIP_EXPR},), expr)
 _SCIPexprGetMonomialCoef(monomial) = @scip_ccall("SCIPexprGetMonomialCoef", 
     _SCIP_Real, (Ptr{_SCIP_EXPRDATA_MONOMIAL},), monomial)
 _SCIPexprGetMonomialNFactors(monomial) = @scip_ccall("SCIPexprGetMonomialNFactors", 
-    Void, (Ptr{_SCIP_EXPRDATA_MONOMIAL},), monomial)
+    Int, (Ptr{_SCIP_EXPRDATA_MONOMIAL},), monomial)
 _SCIPexprGetMonomialChildIndices(monomial) = @scip_ccall("SCIPexprGetMonomialChildIndices", 
-    Void, (Ptr{_SCIP_EXPRDATA_MONOMIAL},), monomial)
+    Ptr{Int}, (Ptr{_SCIP_EXPRDATA_MONOMIAL},), monomial)
 _SCIPexprGetMonomialExponents(monomial) = @scip_ccall("SCIPexprGetMonomialExponents", 
     Ptr{_SCIP_Real}, (Ptr{_SCIP_EXPRDATA_MONOMIAL},), monomial)
 _SCIPexprFreeDeep(blkmem, expr) = @scip_ccall("SCIPexprFreeDeep", 
-    Void, (Void, Ptr{Ptr{_SCIP_EXPR}},), blkmem, expr)
+    Void, (Ptr{BMS_BLKMEM}, Ptr{Ptr{_SCIP_EXPR}},), blkmem, expr)
 _SCIPexprFreeShallow(blkmem, expr) = @scip_ccall("SCIPexprFreeShallow", 
-    Void, (Void, Ptr{Ptr{_SCIP_EXPR}},), blkmem, expr)
+    Void, (Ptr{BMS_BLKMEM}, Ptr{Ptr{_SCIP_EXPR}},), blkmem, expr)
 _SCIPexprSortQuadElems(expr) = @scip_ccall("SCIPexprSortQuadElems", 
     Void, (Ptr{_SCIP_EXPR},), expr)
 _SCIPexprChgPolynomialConstant(expr, constant) = @scip_ccall("SCIPexprChgPolynomialConstant", 
     Void, (Ptr{_SCIP_EXPR}, _SCIP_Real,), expr, constant)
 _SCIPexprMultiplyPolynomialByConstant(blkmem, expr, factor) = @scip_ccall("SCIPexprMultiplyPolynomialByConstant", 
-    Void, (Void, Ptr{_SCIP_EXPR}, _SCIP_Real,), blkmem, expr, factor)
+    Void, (Ptr{BMS_BLKMEM}, Ptr{_SCIP_EXPR}, _SCIP_Real,), blkmem, expr, factor)
 _SCIPexprMergeMonomials(blkmem, expr, eps, mergefactors) = @scip_ccall("SCIPexprMergeMonomials", 
-    Void, (Void, Ptr{_SCIP_EXPR}, _SCIP_Real, _SCIP_Bool,), blkmem, expr, eps, mergefactors)
+    Void, (Ptr{BMS_BLKMEM}, Ptr{_SCIP_EXPR}, _SCIP_Real, _SCIP_Bool,), blkmem, expr, eps, mergefactors)
 _SCIPexprFreeMonomial(blkmem, monomial) = @scip_ccall("SCIPexprFreeMonomial", 
-    Void, (Void, Ptr{Ptr{_SCIP_EXPRDATA_MONOMIAL}},), blkmem, monomial)
+    Void, (Ptr{BMS_BLKMEM}, Ptr{Ptr{_SCIP_EXPRDATA_MONOMIAL}},), blkmem, monomial)
 _SCIPexprSortMonomialFactors(monomial) = @scip_ccall("SCIPexprSortMonomialFactors", 
     Void, (Ptr{_SCIP_EXPRDATA_MONOMIAL},), monomial)
 _SCIPexprFindMonomialFactor(monomial, childidx, pos) = @scip_ccall("SCIPexprFindMonomialFactor", 
-    _SCIP_Bool, (Ptr{_SCIP_EXPRDATA_MONOMIAL}, Void, Void,), monomial, childidx, pos)
+    _SCIP_Bool, (Ptr{_SCIP_EXPRDATA_MONOMIAL}, Int, Ptr{Int},), monomial, childidx, pos)
 _SCIPexprAreMonomialsEqual(monomial1, monomial2, eps) = @scip_ccall("SCIPexprAreMonomialsEqual", 
     _SCIP_Bool, (Ptr{_SCIP_EXPRDATA_MONOMIAL}, Ptr{_SCIP_EXPRDATA_MONOMIAL}, _SCIP_Real,), monomial1, monomial2, eps)
 _SCIPexprChgMonomialCoef(monomial, newcoef) = @scip_ccall("SCIPexprChgMonomialCoef", 
     Void, (Ptr{_SCIP_EXPRDATA_MONOMIAL}, _SCIP_Real,), monomial, newcoef)
 _SCIPexprMonomialPower(monomial, exponent) = @scip_ccall("SCIPexprMonomialPower", 
-    Void, (Ptr{_SCIP_EXPRDATA_MONOMIAL}, Void,), monomial, exponent)
+    Void, (Ptr{_SCIP_EXPRDATA_MONOMIAL}, Int,), monomial, exponent)
 _SCIPexprMergeMonomialFactors(monomial, eps) = @scip_ccall("SCIPexprMergeMonomialFactors", 
     Void, (Ptr{_SCIP_EXPRDATA_MONOMIAL}, _SCIP_Real,), monomial, eps)
 _SCIPexprSortMonomials(expr) = @scip_ccall("SCIPexprSortMonomials", 
@@ -753,25 +753,25 @@ _SCIPexprSortMonomials(expr) = @scip_ccall("SCIPexprSortMonomials",
 _SCIPexprHasParam(expr) = @scip_ccall("SCIPexprHasParam", 
     _SCIP_Bool, (Ptr{_SCIP_EXPR},), expr)
 _SCIPexprGetVarsUsage(expr, varsusage) = @scip_ccall("SCIPexprGetVarsUsage", 
-    Void, (Ptr{_SCIP_EXPR}, Void,), expr, varsusage)
+    Void, (Ptr{_SCIP_EXPR}, Ptr{Int},), expr, varsusage)
 _SCIPexprAreEqual(expr1, expr2, eps) = @scip_ccall("SCIPexprAreEqual", 
     _SCIP_Bool, (Ptr{_SCIP_EXPR}, Ptr{_SCIP_EXPR}, _SCIP_Real,), expr1, expr2, eps)
 _SCIPexprReindexVars(expr, newindices) = @scip_ccall("SCIPexprReindexVars", 
-    Void, (Ptr{_SCIP_EXPR}, Void,), expr, newindices)
+    Void, (Ptr{_SCIP_EXPR}, Ptr{Int},), expr, newindices)
 _SCIPexprReindexParams(expr, newindices) = @scip_ccall("SCIPexprReindexParams", 
-    Void, (Ptr{_SCIP_EXPR}, Void,), expr, newindices)
+    Void, (Ptr{_SCIP_EXPR}, Ptr{Int},), expr, newindices)
 _SCIPexprPrint(expr, messagehdlr, file, varnames, paramnames, paramvals) = @scip_ccall("SCIPexprPrint", 
-    Void, (Ptr{_SCIP_EXPR}, Ptr{_SCIP_MESSAGEHDLR}, Void, Void, Void, Ptr{_SCIP_Real},), expr, messagehdlr, file, varnames, paramnames, paramvals)
+    Void, (Ptr{_SCIP_EXPR}, Ptr{_SCIP_MESSAGEHDLR}, Ptr{FILE}, Ptr{Ptr{Ptr{Char}}}, Ptr{Ptr{Ptr{Char}}}, Ptr{_SCIP_Real},), expr, messagehdlr, file, varnames, paramnames, paramvals)
 _SCIPexprtreeGetRoot(tree) = @scip_ccall("SCIPexprtreeGetRoot", 
     Ptr{_SCIP_EXPR}, (Ptr{_SCIP_EXPRTREE},), tree)
 _SCIPexprtreeGetNVars(tree) = @scip_ccall("SCIPexprtreeGetNVars", 
-    Void, (Ptr{_SCIP_EXPRTREE},), tree)
+    Int, (Ptr{_SCIP_EXPRTREE},), tree)
 _SCIPexprtreeGetNParams(tree) = @scip_ccall("SCIPexprtreeGetNParams", 
-    Void, (Ptr{_SCIP_EXPRTREE},), tree)
+    Int, (Ptr{_SCIP_EXPRTREE},), tree)
 _SCIPexprtreeGetParamVals(tree) = @scip_ccall("SCIPexprtreeGetParamVals", 
     Ptr{_SCIP_Real}, (Ptr{_SCIP_EXPRTREE},), tree)
 _SCIPexprtreeSetParamVal(tree, paramidx, paramval) = @scip_ccall("SCIPexprtreeSetParamVal", 
-    Void, (Ptr{_SCIP_EXPRTREE}, Void, _SCIP_Real,), tree, paramidx, paramval)
+    Void, (Ptr{_SCIP_EXPRTREE}, Int, _SCIP_Real,), tree, paramidx, paramval)
 _SCIPexprtreeGetInterpreterData(tree) = @scip_ccall("SCIPexprtreeGetInterpreterData", 
     Ptr{_SCIP_EXPRINTDATA}, (Ptr{_SCIP_EXPRTREE},), tree)
 _SCIPexprtreeSetInterpreterData(tree, interpreterdata) = @scip_ccall("SCIPexprtreeSetInterpreterData", 
@@ -779,43 +779,43 @@ _SCIPexprtreeSetInterpreterData(tree, interpreterdata) = @scip_ccall("SCIPexprtr
 _SCIPexprtreeHasParam(tree) = @scip_ccall("SCIPexprtreeHasParam", 
     _SCIP_Bool, (Ptr{_SCIP_EXPRTREE},), tree)
 _SCIPexprtreePrint(tree, messagehdlr, file, varnames, paramnames) = @scip_ccall("SCIPexprtreePrint", 
-    Void, (Ptr{_SCIP_EXPRTREE}, Ptr{_SCIP_MESSAGEHDLR}, Void, Void, Void,), tree, messagehdlr, file, varnames, paramnames)
+    Void, (Ptr{_SCIP_EXPRTREE}, Ptr{_SCIP_MESSAGEHDLR}, Ptr{FILE}, Ptr{Ptr{Ptr{Char}}}, Ptr{Ptr{Ptr{Char}}},), tree, messagehdlr, file, varnames, paramnames)
 _SCIPexprtreeGetVarsUsage(tree, varsusage) = @scip_ccall("SCIPexprtreeGetVarsUsage", 
-    Void, (Ptr{_SCIP_EXPRTREE}, Void,), tree, varsusage)
+    Void, (Ptr{_SCIP_EXPRTREE}, Ptr{Int},), tree, varsusage)
 _SCIPquadelemSort(quadelems, nquadelems) = @scip_ccall("SCIPquadelemSort", 
-    Void, (Ptr{_SCIP_QUADELEM}, Void,), quadelems, nquadelems)
+    Void, (Ptr{_SCIP_QUADELEM}, Int,), quadelems, nquadelems)
 _SCIPquadelemSortedFind(quadelems, idx1, idx2, nquadelems, pos) = @scip_ccall("SCIPquadelemSortedFind", 
-    _SCIP_Bool, (Ptr{_SCIP_QUADELEM}, Void, Void, Void, Void,), quadelems, idx1, idx2, nquadelems, pos)
+    _SCIP_Bool, (Ptr{_SCIP_QUADELEM}, Int, Int, Int, Ptr{Int},), quadelems, idx1, idx2, nquadelems, pos)
 _SCIPquadelemSqueeze(quadelems, nquadelems, nquadelemsnew) = @scip_ccall("SCIPquadelemSqueeze", 
-    Void, (Ptr{_SCIP_QUADELEM}, Void, Void,), quadelems, nquadelems, nquadelemsnew)
+    Void, (Ptr{_SCIP_QUADELEM}, Int, Ptr{Int},), quadelems, nquadelems, nquadelemsnew)
 _SCIPexprgraphCaptureNode(node) = @scip_ccall("SCIPexprgraphCaptureNode", 
     Void, (Ptr{_SCIP_EXPRGRAPHNODE},), node)
 _SCIPexprgraphIsNodeEnabled(node) = @scip_ccall("SCIPexprgraphIsNodeEnabled", 
     _SCIP_Bool, (Ptr{_SCIP_EXPRGRAPHNODE},), node)
 _SCIPexprgraphGetNodeNChildren(node) = @scip_ccall("SCIPexprgraphGetNodeNChildren", 
-    Void, (Ptr{_SCIP_EXPRGRAPHNODE},), node)
+    Int, (Ptr{_SCIP_EXPRGRAPHNODE},), node)
 _SCIPexprgraphGetNodeChildren(node) = @scip_ccall("SCIPexprgraphGetNodeChildren", 
     Ptr{Ptr{_SCIP_EXPRGRAPHNODE}}, (Ptr{_SCIP_EXPRGRAPHNODE},), node)
 _SCIPexprgraphGetNodeNParents(node) = @scip_ccall("SCIPexprgraphGetNodeNParents", 
-    Void, (Ptr{_SCIP_EXPRGRAPHNODE},), node)
+    Int, (Ptr{_SCIP_EXPRGRAPHNODE},), node)
 _SCIPexprgraphGetNodeParents(node) = @scip_ccall("SCIPexprgraphGetNodeParents", 
     Ptr{Ptr{_SCIP_EXPRGRAPHNODE}}, (Ptr{_SCIP_EXPRGRAPHNODE},), node)
 _SCIPexprgraphGetNodeDepth(node) = @scip_ccall("SCIPexprgraphGetNodeDepth", 
-    Void, (Ptr{_SCIP_EXPRGRAPHNODE},), node)
+    Int, (Ptr{_SCIP_EXPRGRAPHNODE},), node)
 _SCIPexprgraphGetNodePosition(node) = @scip_ccall("SCIPexprgraphGetNodePosition", 
-    Void, (Ptr{_SCIP_EXPRGRAPHNODE},), node)
+    Int, (Ptr{_SCIP_EXPRGRAPHNODE},), node)
 _SCIPexprgraphGetNodeOperator(node) = @scip_ccall("SCIPexprgraphGetNodeOperator", 
     _SCIP_EXPROP, (Ptr{_SCIP_EXPRGRAPHNODE},), node)
 _SCIPexprgraphGetNodeOperatorIndex(node) = @scip_ccall("SCIPexprgraphGetNodeOperatorIndex", 
-    Void, (Ptr{_SCIP_EXPRGRAPHNODE},), node)
+    Int, (Ptr{_SCIP_EXPRGRAPHNODE},), node)
 _SCIPexprgraphGetNodeOperatorReal(node) = @scip_ccall("SCIPexprgraphGetNodeOperatorReal", 
     _SCIP_Real, (Ptr{_SCIP_EXPRGRAPHNODE},), node)
 _SCIPexprgraphGetNodeVar(exprgraph, node) = @scip_ccall("SCIPexprgraphGetNodeVar", 
-    Void, (Ptr{_SCIP_EXPRGRAPH}, Ptr{_SCIP_EXPRGRAPHNODE},), exprgraph, node)
+    Ptr{Void}, (Ptr{_SCIP_EXPRGRAPH}, Ptr{_SCIP_EXPRGRAPHNODE},), exprgraph, node)
 _SCIPexprgraphGetNodeRealPowerExponent(node) = @scip_ccall("SCIPexprgraphGetNodeRealPowerExponent", 
     _SCIP_Real, (Ptr{_SCIP_EXPRGRAPHNODE},), node)
 _SCIPexprgraphGetNodeIntPowerExponent(node) = @scip_ccall("SCIPexprgraphGetNodeIntPowerExponent", 
-    Void, (Ptr{_SCIP_EXPRGRAPHNODE},), node)
+    Int, (Ptr{_SCIP_EXPRGRAPHNODE},), node)
 _SCIPexprgraphGetNodeSignPowerExponent(node) = @scip_ccall("SCIPexprgraphGetNodeSignPowerExponent", 
     _SCIP_Real, (Ptr{_SCIP_EXPRGRAPHNODE},), node)
 _SCIPexprgraphGetNodeLinearCoefs(node) = @scip_ccall("SCIPexprgraphGetNodeLinearCoefs", 
@@ -829,21 +829,21 @@ _SCIPexprgraphGetNodeQuadraticLinearCoefs(node) = @scip_ccall("SCIPexprgraphGetN
 _SCIPexprgraphGetNodeQuadraticQuadElements(node) = @scip_ccall("SCIPexprgraphGetNodeQuadraticQuadElements", 
     Ptr{_SCIP_QUADELEM}, (Ptr{_SCIP_EXPRGRAPHNODE},), node)
 _SCIPexprgraphGetNodeQuadraticNQuadElements(node) = @scip_ccall("SCIPexprgraphGetNodeQuadraticNQuadElements", 
-    Void, (Ptr{_SCIP_EXPRGRAPHNODE},), node)
+    Int, (Ptr{_SCIP_EXPRGRAPHNODE},), node)
 _SCIPexprgraphGetNodePolynomialMonomials(node) = @scip_ccall("SCIPexprgraphGetNodePolynomialMonomials", 
     Ptr{Ptr{_SCIP_EXPRDATA_MONOMIAL}}, (Ptr{_SCIP_EXPRGRAPHNODE},), node)
 _SCIPexprgraphGetNodePolynomialNMonomials(node) = @scip_ccall("SCIPexprgraphGetNodePolynomialNMonomials", 
-    Void, (Ptr{_SCIP_EXPRGRAPHNODE},), node)
+    Int, (Ptr{_SCIP_EXPRGRAPHNODE},), node)
 _SCIPexprgraphGetNodePolynomialConstant(node) = @scip_ccall("SCIPexprgraphGetNodePolynomialConstant", 
     _SCIP_Real, (Ptr{_SCIP_EXPRGRAPHNODE},), node)
 _SCIPexprgraphGetNodeBounds(node) = @scip_ccall("SCIPexprgraphGetNodeBounds", 
-    Void, (Ptr{_SCIP_EXPRGRAPHNODE},), node)
+    _SCIP_INTERVAL, (Ptr{_SCIP_EXPRGRAPHNODE},), node)
 _SCIPexprgraphGetNodeVal(node) = @scip_ccall("SCIPexprgraphGetNodeVal", 
     _SCIP_Real, (Ptr{_SCIP_EXPRGRAPHNODE},), node)
 _SCIPexprgraphGetNodeCurvature(node) = @scip_ccall("SCIPexprgraphGetNodeCurvature", 
     _SCIP_EXPRCURV, (Ptr{_SCIP_EXPRGRAPHNODE},), node)
 _SCIPexprgraphFreeNode(blkmem, node) = @scip_ccall("SCIPexprgraphFreeNode", 
-    Void, (Void, Ptr{Ptr{_SCIP_EXPRGRAPHNODE}},), blkmem, node)
+    Void, (Ptr{BMS_BLKMEM}, Ptr{Ptr{_SCIP_EXPRGRAPHNODE}},), blkmem, node)
 _SCIPexprgraphEnableNode(exprgraph, node) = @scip_ccall("SCIPexprgraphEnableNode", 
     Void, (Ptr{_SCIP_EXPRGRAPH}, Ptr{_SCIP_EXPRGRAPHNODE},), exprgraph, node)
 _SCIPexprgraphDisableNode(exprgraph, node) = @scip_ccall("SCIPexprgraphDisableNode", 
@@ -855,65 +855,65 @@ _SCIPexprgraphAreAllNodeChildrenVars(node) = @scip_ccall("SCIPexprgraphAreAllNod
 _SCIPexprgraphHasNodeNonlinearAncestor(node) = @scip_ccall("SCIPexprgraphHasNodeNonlinearAncestor", 
     _SCIP_Bool, (Ptr{_SCIP_EXPRGRAPHNODE},), node)
 _SCIPexprgraphPrintNode(node, messagehdlr, file) = @scip_ccall("SCIPexprgraphPrintNode", 
-    Void, (Ptr{_SCIP_EXPRGRAPHNODE}, Ptr{_SCIP_MESSAGEHDLR}, Void,), node, messagehdlr, file)
+    Void, (Ptr{_SCIP_EXPRGRAPHNODE}, Ptr{_SCIP_MESSAGEHDLR}, Ptr{FILE},), node, messagehdlr, file)
 _SCIPexprgraphTightenNodeBounds(exprgraph, node, nodebounds, minstrength, cutoff) = @scip_ccall("SCIPexprgraphTightenNodeBounds", 
-    Void, (Ptr{_SCIP_EXPRGRAPH}, Ptr{_SCIP_EXPRGRAPHNODE}, Void, _SCIP_Real, Ptr{_SCIP_Bool},), exprgraph, node, nodebounds, minstrength, cutoff)
+    Void, (Ptr{_SCIP_EXPRGRAPH}, Ptr{_SCIP_EXPRGRAPHNODE}, _SCIP_INTERVAL, _SCIP_Real, Ptr{_SCIP_Bool},), exprgraph, node, nodebounds, minstrength, cutoff)
 _SCIPexprgraphGetDepth(exprgraph) = @scip_ccall("SCIPexprgraphGetDepth", 
-    Void, (Ptr{_SCIP_EXPRGRAPH},), exprgraph)
+    Int, (Ptr{_SCIP_EXPRGRAPH},), exprgraph)
 _SCIPexprgraphGetNNodes(exprgraph) = @scip_ccall("SCIPexprgraphGetNNodes", 
-    Void, (Ptr{_SCIP_EXPRGRAPH},), exprgraph)
+    Ptr{Int}, (Ptr{_SCIP_EXPRGRAPH},), exprgraph)
 _SCIPexprgraphGetNodes(exprgraph) = @scip_ccall("SCIPexprgraphGetNodes", 
     Ptr{Ptr{Ptr{_SCIP_EXPRGRAPHNODE}}}, (Ptr{_SCIP_EXPRGRAPH},), exprgraph)
 _SCIPexprgraphGetNVars(exprgraph) = @scip_ccall("SCIPexprgraphGetNVars", 
-    Void, (Ptr{_SCIP_EXPRGRAPH},), exprgraph)
+    Int, (Ptr{_SCIP_EXPRGRAPH},), exprgraph)
 _SCIPexprgraphGetVars(exprgraph) = @scip_ccall("SCIPexprgraphGetVars", 
-    Void, (Ptr{_SCIP_EXPRGRAPH},), exprgraph)
+    Ptr{Ptr{Void}}, (Ptr{_SCIP_EXPRGRAPH},), exprgraph)
 _SCIPexprgraphGetVarNodes(exprgraph) = @scip_ccall("SCIPexprgraphGetVarNodes", 
     Ptr{Ptr{_SCIP_EXPRGRAPHNODE}}, (Ptr{_SCIP_EXPRGRAPH},), exprgraph)
 _SCIPexprgraphSetVarNodeValue(varnode, value) = @scip_ccall("SCIPexprgraphSetVarNodeValue", 
     Void, (Ptr{_SCIP_EXPRGRAPHNODE}, _SCIP_Real,), varnode, value)
 _SCIPexprgraphSetVarsBounds(exprgraph, varbounds) = @scip_ccall("SCIPexprgraphSetVarsBounds", 
-    Void, (Ptr{_SCIP_EXPRGRAPH}, Void,), exprgraph, varbounds)
+    Void, (Ptr{_SCIP_EXPRGRAPH}, Ptr{_SCIP_INTERVAL},), exprgraph, varbounds)
 _SCIPexprgraphSetVarBounds(exprgraph, var, varbounds) = @scip_ccall("SCIPexprgraphSetVarBounds", 
-    Void, (Ptr{_SCIP_EXPRGRAPH}, Void, Void,), exprgraph, var, varbounds)
+    Void, (Ptr{_SCIP_EXPRGRAPH}, Ptr{Void}, _SCIP_INTERVAL,), exprgraph, var, varbounds)
 _SCIPexprgraphSetVarNodeBounds(exprgraph, varnode, varbounds) = @scip_ccall("SCIPexprgraphSetVarNodeBounds", 
-    Void, (Ptr{_SCIP_EXPRGRAPH}, Ptr{_SCIP_EXPRGRAPHNODE}, Void,), exprgraph, varnode, varbounds)
+    Void, (Ptr{_SCIP_EXPRGRAPH}, Ptr{_SCIP_EXPRGRAPHNODE}, _SCIP_INTERVAL,), exprgraph, varnode, varbounds)
 _SCIPexprgraphSetVarNodeLb(exprgraph, varnode, lb) = @scip_ccall("SCIPexprgraphSetVarNodeLb", 
     Void, (Ptr{_SCIP_EXPRGRAPH}, Ptr{_SCIP_EXPRGRAPHNODE}, _SCIP_Real,), exprgraph, varnode, lb)
 _SCIPexprgraphSetVarNodeUb(exprgraph, varnode, ub) = @scip_ccall("SCIPexprgraphSetVarNodeUb", 
     Void, (Ptr{_SCIP_EXPRGRAPH}, Ptr{_SCIP_EXPRGRAPHNODE}, _SCIP_Real,), exprgraph, varnode, ub)
 _SCIPexprgraphGetVarsBounds(exprgraph) = @scip_ccall("SCIPexprgraphGetVarsBounds", 
-    Void, (Ptr{_SCIP_EXPRGRAPH},), exprgraph)
+    Ptr{_SCIP_INTERVAL}, (Ptr{_SCIP_EXPRGRAPH},), exprgraph)
 _SCIPexprgraphFindVarNode(exprgraph, var, varnode) = @scip_ccall("SCIPexprgraphFindVarNode", 
-    _SCIP_Bool, (Ptr{_SCIP_EXPRGRAPH}, Void, Ptr{Ptr{_SCIP_EXPRGRAPHNODE}},), exprgraph, var, varnode)
+    _SCIP_Bool, (Ptr{_SCIP_EXPRGRAPH}, Ptr{Void}, Ptr{Ptr{_SCIP_EXPRGRAPHNODE}},), exprgraph, var, varnode)
 _SCIPexprgraphFindConstNode(exprgraph, constant, constnode) = @scip_ccall("SCIPexprgraphFindConstNode", 
     _SCIP_Bool, (Ptr{_SCIP_EXPRGRAPH}, _SCIP_Real, Ptr{Ptr{_SCIP_EXPRGRAPHNODE}},), exprgraph, constant, constnode)
 _SCIPexprgraphPropagateNodeBounds(exprgraph, infinity, minstrength, cutoff) = @scip_ccall("SCIPexprgraphPropagateNodeBounds", 
     Void, (Ptr{_SCIP_EXPRGRAPH}, _SCIP_Real, _SCIP_Real, Ptr{_SCIP_Bool},), exprgraph, infinity, minstrength, cutoff)
 _SCIPexprgraphGetSubtreeVarsUsage(exprgraph, node, varsusage) = @scip_ccall("SCIPexprgraphGetSubtreeVarsUsage", 
-    Void, (Ptr{_SCIP_EXPRGRAPH}, Ptr{_SCIP_EXPRGRAPHNODE}, Void,), exprgraph, node, varsusage)
+    Void, (Ptr{_SCIP_EXPRGRAPH}, Ptr{_SCIP_EXPRGRAPHNODE}, Ptr{Int},), exprgraph, node, varsusage)
 _SCIPexprgraphGetSumTreesNSummands(node) = @scip_ccall("SCIPexprgraphGetSumTreesNSummands", 
-    Void, (Ptr{_SCIP_EXPRGRAPHNODE},), node)
+    Int, (Ptr{_SCIP_EXPRGRAPHNODE},), node)
 _SCIPfopen(path, mode) = @scip_ccall("SCIPfopen", 
-    Ptr{_SCIP_FILE}, (Void, Void,), path, mode)
+    Ptr{_SCIP_FILE}, (Ptr{Ptr{Char}}, Ptr{Ptr{Char}},), path, mode)
 _SCIPfdopen(fildes, mode) = @scip_ccall("SCIPfdopen", 
-    Ptr{_SCIP_FILE}, (Void, Void,), fildes, mode)
+    Ptr{_SCIP_FILE}, (Int, Ptr{Ptr{Char}},), fildes, mode)
 _SCIPfread(ptr, size, nmemb, stream) = @scip_ccall("SCIPfread", 
-    size_t, (Void, Void, Void, Ptr{_SCIP_FILE},), ptr, size, nmemb, stream)
+    size_t, (Ptr{Void}, size_t, size_t, Ptr{_SCIP_FILE},), ptr, size, nmemb, stream)
 _SCIPfwrite(ptr, size, nmemb, stream) = @scip_ccall("SCIPfwrite", 
-    size_t, (Void, Void, Void, Ptr{_SCIP_FILE},), ptr, size, nmemb, stream)
+    size_t, (Ptr{Ptr{Void}}, size_t, size_t, Ptr{_SCIP_FILE},), ptr, size, nmemb, stream)
 _SCIPfputc(c, stream) = @scip_ccall("SCIPfputc", 
-    Int, (Void, Ptr{_SCIP_FILE},), c, stream)
+    Int, (Int, Ptr{_SCIP_FILE},), c, stream)
 _SCIPfputs(s, stream) = @scip_ccall("SCIPfputs", 
-    Int, (Void, Ptr{_SCIP_FILE},), s, stream)
+    Int, (Ptr{Ptr{Char}}, Ptr{_SCIP_FILE},), s, stream)
 _SCIPfgetc(stream) = @scip_ccall("SCIPfgetc", 
     Int, (Ptr{_SCIP_FILE},), stream)
 _SCIPfgets(s, size, stream) = @scip_ccall("SCIPfgets", 
-    Ptr{Char}, (Void, Void, Ptr{_SCIP_FILE},), s, size, stream)
+    Ptr{Char}, (Ptr{Char}, Int, Ptr{_SCIP_FILE},), s, size, stream)
 _SCIPfflush(stream) = @scip_ccall("SCIPfflush", 
     Int, (Ptr{_SCIP_FILE},), stream)
 _SCIPfseek(stream, offset, whence) = @scip_ccall("SCIPfseek", 
-    Int, (Ptr{_SCIP_FILE}, Void, Void,), stream, offset, whence)
+    Int, (Ptr{_SCIP_FILE}, long, Int,), stream, offset, whence)
 _SCIPrewind(stream) = @scip_ccall("SCIPrewind", 
     Void, (Ptr{_SCIP_FILE},), stream)
 _SCIPftell(stream) = @scip_ccall("SCIPftell", 
@@ -927,11 +927,11 @@ _SCIPheurGetData(heur) = @scip_ccall("SCIPheurGetData",
 _SCIPheurSetData(heur, heurdata) = @scip_ccall("SCIPheurSetData", 
     Void, (Ptr{_SCIP_HEUR}, Ptr{_SCIP_HEURDATA},), heur, heurdata)
 _SCIPheurGetName(heur) = @scip_ccall("SCIPheurGetName", 
-    Void, (Ptr{_SCIP_HEUR},), heur)
+    Ptr{Ptr{Char}}, (Ptr{_SCIP_HEUR},), heur)
 _SCIPheurGetDesc(heur) = @scip_ccall("SCIPheurGetDesc", 
-    Void, (Ptr{_SCIP_HEUR},), heur)
+    Ptr{Ptr{Char}}, (Ptr{_SCIP_HEUR},), heur)
 _SCIPheurGetDispchar(heur) = @scip_ccall("SCIPheurGetDispchar", 
-    Void, (Ptr{_SCIP_HEUR},), heur)
+    Char, (Ptr{_SCIP_HEUR},), heur)
 _SCIPheurGetTimingmask(heur) = @scip_ccall("SCIPheurGetTimingmask", 
     _SCIP_HEURTIMING, (Ptr{_SCIP_HEUR},), heur)
 _SCIPheurSetTimingmask(heur, timingmask) = @scip_ccall("SCIPheurSetTimingmask", 
@@ -939,15 +939,15 @@ _SCIPheurSetTimingmask(heur, timingmask) = @scip_ccall("SCIPheurSetTimingmask",
 _SCIPheurUsesSubscip(heur) = @scip_ccall("SCIPheurUsesSubscip", 
     _SCIP_Bool, (Ptr{_SCIP_HEUR},), heur)
 _SCIPheurGetPriority(heur) = @scip_ccall("SCIPheurGetPriority", 
-    Void, (Ptr{_SCIP_HEUR},), heur)
+    Int, (Ptr{_SCIP_HEUR},), heur)
 _SCIPheurGetFreq(heur) = @scip_ccall("SCIPheurGetFreq", 
-    Void, (Ptr{_SCIP_HEUR},), heur)
+    Int, (Ptr{_SCIP_HEUR},), heur)
 _SCIPheurSetFreq(heur, freq) = @scip_ccall("SCIPheurSetFreq", 
-    Void, (Ptr{_SCIP_HEUR}, Void,), heur, freq)
+    Void, (Ptr{_SCIP_HEUR}, Int,), heur, freq)
 _SCIPheurGetFreqofs(heur) = @scip_ccall("SCIPheurGetFreqofs", 
-    Void, (Ptr{_SCIP_HEUR},), heur)
+    Int, (Ptr{_SCIP_HEUR},), heur)
 _SCIPheurGetMaxdepth(heur) = @scip_ccall("SCIPheurGetMaxdepth", 
-    Void, (Ptr{_SCIP_HEUR},), heur)
+    Int, (Ptr{_SCIP_HEUR},), heur)
 _SCIPheurGetNCalls(heur) = @scip_ccall("SCIPheurGetNCalls", 
     Int64, (Ptr{_SCIP_HEUR},), heur)
 _SCIPheurGetNSolsFound(heur) = @scip_ccall("SCIPheurGetNSolsFound", 
@@ -965,23 +965,23 @@ _SCIPhistoryGetVSIDS(history, dir) = @scip_ccall("SCIPhistoryGetVSIDS",
 _SCIPhistoryGetCutoffSum(history, dir) = @scip_ccall("SCIPhistoryGetCutoffSum", 
     _SCIP_Real, (Ptr{_SCIP_HISTORY}, _SCIP_BRANCHDIR,), history, dir)
 _SCIPvaluehistoryGetNValues(valuehistory) = @scip_ccall("SCIPvaluehistoryGetNValues", 
-    Void, (Ptr{_SCIP_VALUEHISTORY},), valuehistory)
+    Int, (Ptr{_SCIP_VALUEHISTORY},), valuehistory)
 _SCIPvaluehistoryGetHistories(valuehistory) = @scip_ccall("SCIPvaluehistoryGetHistories", 
     Ptr{Ptr{_SCIP_HISTORY}}, (Ptr{_SCIP_VALUEHISTORY},), valuehistory)
 _SCIPvaluehistoryGetValues(valuehistory) = @scip_ccall("SCIPvaluehistoryGetValues", 
     Ptr{_SCIP_Real}, (Ptr{_SCIP_VALUEHISTORY},), valuehistory)
 _SCIPcliqueSearchVar(clique, var, value) = @scip_ccall("SCIPcliqueSearchVar", 
-    Void, (Ptr{_SCIP_CLIQUE}, Ptr{_SCIP_VAR}, _SCIP_Bool,), clique, var, value)
+    Int, (Ptr{_SCIP_CLIQUE}, Ptr{_SCIP_VAR}, _SCIP_Bool,), clique, var, value)
 _SCIPcliqueHasVar(clique, var, value) = @scip_ccall("SCIPcliqueHasVar", 
     _SCIP_Bool, (Ptr{_SCIP_CLIQUE}, Ptr{_SCIP_VAR}, _SCIP_Bool,), clique, var, value)
 _SCIPcliqueGetNVars(clique) = @scip_ccall("SCIPcliqueGetNVars", 
-    Void, (Ptr{_SCIP_CLIQUE},), clique)
+    Int, (Ptr{_SCIP_CLIQUE},), clique)
 _SCIPcliqueGetVars(clique) = @scip_ccall("SCIPcliqueGetVars", 
     Ptr{Ptr{_SCIP_VAR}}, (Ptr{_SCIP_CLIQUE},), clique)
 _SCIPcliqueGetValues(clique) = @scip_ccall("SCIPcliqueGetValues", 
     Ptr{_SCIP_Bool}, (Ptr{_SCIP_CLIQUE},), clique)
 _SCIPcliqueGetId(clique) = @scip_ccall("SCIPcliqueGetId", 
-    Void, (Ptr{_SCIP_CLIQUE},), clique)
+    Int, (Ptr{_SCIP_CLIQUE},), clique)
 _SCIPcolSort(col) = @scip_ccall("SCIPcolSort", 
     Void, (Ptr{_SCIP_COL},), col)
 _SCIPcolGetObj(col) = @scip_ccall("SCIPcolGetObj", 
@@ -999,25 +999,25 @@ _SCIPcolGetMinPrimsol(col) = @scip_ccall("SCIPcolGetMinPrimsol",
 _SCIPcolGetMaxPrimsol(col) = @scip_ccall("SCIPcolGetMaxPrimsol", 
     _SCIP_Real, (Ptr{_SCIP_COL},), col)
 _SCIPcolGetBasisStatus(col) = @scip_ccall("SCIPcolGetBasisStatus", 
-    Void, (Ptr{_SCIP_COL},), col)
+    _SCIP_BASESTAT, (Ptr{_SCIP_COL},), col)
 _SCIPcolGetVar(col) = @scip_ccall("SCIPcolGetVar", 
     Ptr{_SCIP_VAR}, (Ptr{_SCIP_COL},), col)
 _SCIPcolGetIndex(col) = @scip_ccall("SCIPcolGetIndex", 
-    Void, (Ptr{_SCIP_COL},), col)
+    Int, (Ptr{_SCIP_COL},), col)
 _SCIPcolIsIntegral(col) = @scip_ccall("SCIPcolIsIntegral", 
     _SCIP_Bool, (Ptr{_SCIP_COL},), col)
 _SCIPcolIsRemovable(col) = @scip_ccall("SCIPcolIsRemovable", 
     _SCIP_Bool, (Ptr{_SCIP_COL},), col)
 _SCIPcolGetLPPos(col) = @scip_ccall("SCIPcolGetLPPos", 
-    Void, (Ptr{_SCIP_COL},), col)
+    Int, (Ptr{_SCIP_COL},), col)
 _SCIPcolGetLPDepth(col) = @scip_ccall("SCIPcolGetLPDepth", 
-    Void, (Ptr{_SCIP_COL},), col)
+    Int, (Ptr{_SCIP_COL},), col)
 _SCIPcolIsInLP(col) = @scip_ccall("SCIPcolIsInLP", 
     _SCIP_Bool, (Ptr{_SCIP_COL},), col)
 _SCIPcolGetNNonz(col) = @scip_ccall("SCIPcolGetNNonz", 
-    Void, (Ptr{_SCIP_COL},), col)
+    Int, (Ptr{_SCIP_COL},), col)
 _SCIPcolGetNLPNonz(col) = @scip_ccall("SCIPcolGetNLPNonz", 
-    Void, (Ptr{_SCIP_COL},), col)
+    Int, (Ptr{_SCIP_COL},), col)
 _SCIPcolGetRows(col) = @scip_ccall("SCIPcolGetRows", 
     Ptr{Ptr{_SCIP_ROW}}, (Ptr{_SCIP_COL},), col)
 _SCIPcolGetVals(col) = @scip_ccall("SCIPcolGetVals", 
@@ -1025,7 +1025,7 @@ _SCIPcolGetVals(col) = @scip_ccall("SCIPcolGetVals",
 _SCIPcolGetStrongbranchNode(col) = @scip_ccall("SCIPcolGetStrongbranchNode", 
     Int64, (Ptr{_SCIP_COL},), col)
 _SCIPcolGetNStrongbranchs(col) = @scip_ccall("SCIPcolGetNStrongbranchs", 
-    Void, (Ptr{_SCIP_COL},), col)
+    Int, (Ptr{_SCIP_COL},), col)
 _SCIPboundtypeOpposite(boundtype) = @scip_ccall("SCIPboundtypeOpposite", 
     _SCIP_BOUNDTYPE, (_SCIP_BOUNDTYPE,), boundtype)
 _SCIProwLock(row) = @scip_ccall("SCIProwLock", 
@@ -1035,15 +1035,15 @@ _SCIProwUnlock(row) = @scip_ccall("SCIProwUnlock",
 _SCIProwGetScalarProduct(row1, row2) = @scip_ccall("SCIProwGetScalarProduct", 
     _SCIP_Real, (Ptr{_SCIP_ROW}, Ptr{_SCIP_ROW},), row1, row2)
 _SCIProwGetParallelism(row1, row2, orthofunc) = @scip_ccall("SCIProwGetParallelism", 
-    _SCIP_Real, (Ptr{_SCIP_ROW}, Ptr{_SCIP_ROW}, Void,), row1, row2, orthofunc)
+    _SCIP_Real, (Ptr{_SCIP_ROW}, Ptr{_SCIP_ROW}, Char,), row1, row2, orthofunc)
 _SCIProwGetOrthogonality(row1, row2, orthofunc) = @scip_ccall("SCIProwGetOrthogonality", 
-    _SCIP_Real, (Ptr{_SCIP_ROW}, Ptr{_SCIP_ROW}, Void,), row1, row2, orthofunc)
+    _SCIP_Real, (Ptr{_SCIP_ROW}, Ptr{_SCIP_ROW}, Char,), row1, row2, orthofunc)
 _SCIProwSort(row) = @scip_ccall("SCIProwSort", 
     Void, (Ptr{_SCIP_ROW},), row)
 _SCIProwGetNNonz(row) = @scip_ccall("SCIProwGetNNonz", 
-    Void, (Ptr{_SCIP_ROW},), row)
+    Int, (Ptr{_SCIP_ROW},), row)
 _SCIProwGetNLPNonz(row) = @scip_ccall("SCIProwGetNLPNonz", 
-    Void, (Ptr{_SCIP_ROW},), row)
+    Int, (Ptr{_SCIP_ROW},), row)
 _SCIProwGetCols(row) = @scip_ccall("SCIProwGetCols", 
     Ptr{Ptr{_SCIP_COL}}, (Ptr{_SCIP_ROW},), row)
 _SCIProwGetVals(row) = @scip_ccall("SCIProwGetVals", 
@@ -1063,15 +1063,15 @@ _SCIProwGetDualsol(row) = @scip_ccall("SCIProwGetDualsol",
 _SCIProwGetDualfarkas(row) = @scip_ccall("SCIProwGetDualfarkas", 
     _SCIP_Real, (Ptr{_SCIP_ROW},), row)
 _SCIProwGetBasisStatus(row) = @scip_ccall("SCIProwGetBasisStatus", 
-    Void, (Ptr{_SCIP_ROW},), row)
+    _SCIP_BASESTAT, (Ptr{_SCIP_ROW},), row)
 _SCIProwGetName(row) = @scip_ccall("SCIProwGetName", 
-    Void, (Ptr{_SCIP_ROW},), row)
+    Ptr{Ptr{Char}}, (Ptr{_SCIP_ROW},), row)
 _SCIProwGetIndex(row) = @scip_ccall("SCIProwGetIndex", 
-    Void, (Ptr{_SCIP_ROW},), row)
+    Int, (Ptr{_SCIP_ROW},), row)
 _SCIProwGetAge(row) = @scip_ccall("SCIProwGetAge", 
-    Void, (Ptr{_SCIP_ROW},), row)
+    Int, (Ptr{_SCIP_ROW},), row)
 _SCIProwGetRank(row) = @scip_ccall("SCIProwGetRank", 
-    Void, (Ptr{_SCIP_ROW},), row)
+    Int, (Ptr{_SCIP_ROW},), row)
 _SCIProwIsIntegral(row) = @scip_ccall("SCIProwIsIntegral", 
     _SCIP_Bool, (Ptr{_SCIP_ROW},), row)
 _SCIProwIsLocal(row) = @scip_ccall("SCIProwIsLocal", 
@@ -1089,109 +1089,109 @@ _SCIProwGetOriginSepa(row) = @scip_ccall("SCIProwGetOriginSepa",
 _SCIProwIsInGlobalCutpool(row) = @scip_ccall("SCIProwIsInGlobalCutpool", 
     _SCIP_Bool, (Ptr{_SCIP_ROW},), row)
 _SCIProwGetLPPos(row) = @scip_ccall("SCIProwGetLPPos", 
-    Void, (Ptr{_SCIP_ROW},), row)
+    Int, (Ptr{_SCIP_ROW},), row)
 _SCIProwGetLPDepth(row) = @scip_ccall("SCIProwGetLPDepth", 
-    Void, (Ptr{_SCIP_ROW},), row)
+    Int, (Ptr{_SCIP_ROW},), row)
 _SCIProwIsInLP(row) = @scip_ccall("SCIProwIsInLP", 
     _SCIP_Bool, (Ptr{_SCIP_ROW},), row)
 _SCIProwChgRank(row, rank) = @scip_ccall("SCIProwChgRank", 
-    Void, (Ptr{_SCIP_ROW}, Void,), row, rank)
+    Void, (Ptr{_SCIP_ROW}, Int,), row, rank)
 _SCIPmessagehdlrCapture(messagehdlr) = @scip_ccall("SCIPmessagehdlrCapture", 
     Void, (Ptr{_SCIP_MESSAGEHDLR},), messagehdlr)
 _SCIPmessagehdlrSetLogfile(messagehdlr, filename) = @scip_ccall("SCIPmessagehdlrSetLogfile", 
-    Void, (Ptr{_SCIP_MESSAGEHDLR}, Void,), messagehdlr, filename)
+    Void, (Ptr{_SCIP_MESSAGEHDLR}, Ptr{Ptr{Char}},), messagehdlr, filename)
 _SCIPmessagehdlrSetQuiet(messagehdlr, quiet) = @scip_ccall("SCIPmessagehdlrSetQuiet", 
     Void, (Ptr{_SCIP_MESSAGEHDLR}, _SCIP_Bool,), messagehdlr, quiet)
 _SCIPmessageVPrintInfo(messagehdlr, formatstr, ap) = @scip_ccall("SCIPmessageVPrintInfo", 
-    Void, (Ptr{_SCIP_MESSAGEHDLR}, Void, Void,), messagehdlr, formatstr, ap)
+    Void, (Ptr{_SCIP_MESSAGEHDLR}, Ptr{Ptr{Char}}, va_list,), messagehdlr, formatstr, ap)
 _SCIPmessageVFPrintInfo(messagehdlr, file, formatstr, ap) = @scip_ccall("SCIPmessageVFPrintInfo", 
-    Void, (Ptr{_SCIP_MESSAGEHDLR}, Void, Void, Void,), messagehdlr, file, formatstr, ap)
+    Void, (Ptr{_SCIP_MESSAGEHDLR}, Ptr{FILE}, Ptr{Ptr{Char}}, va_list,), messagehdlr, file, formatstr, ap)
 _SCIPmessageVPrintWarning(messagehdlr, formatstr, ap) = @scip_ccall("SCIPmessageVPrintWarning", 
-    Void, (Ptr{_SCIP_MESSAGEHDLR}, Void, Void,), messagehdlr, formatstr, ap)
+    Void, (Ptr{_SCIP_MESSAGEHDLR}, Ptr{Ptr{Char}}, va_list,), messagehdlr, formatstr, ap)
 _SCIPmessageVFPrintWarning(messagehdlr, formatstr, ap) = @scip_ccall("SCIPmessageVFPrintWarning", 
-    Void, (Ptr{_SCIP_MESSAGEHDLR}, Void, Void,), messagehdlr, formatstr, ap)
+    Void, (Ptr{_SCIP_MESSAGEHDLR}, Ptr{Ptr{Char}}, va_list,), messagehdlr, formatstr, ap)
 _SCIPmessageVPrintDialog(messagehdlr, formatstr, ap) = @scip_ccall("SCIPmessageVPrintDialog", 
-    Void, (Ptr{_SCIP_MESSAGEHDLR}, Void, Void,), messagehdlr, formatstr, ap)
+    Void, (Ptr{_SCIP_MESSAGEHDLR}, Ptr{Ptr{Char}}, va_list,), messagehdlr, formatstr, ap)
 _SCIPmessageVFPrintDialog(messagehdlr, file, formatstr, ap) = @scip_ccall("SCIPmessageVFPrintDialog", 
-    Void, (Ptr{_SCIP_MESSAGEHDLR}, Void, Void, Void,), messagehdlr, file, formatstr, ap)
+    Void, (Ptr{_SCIP_MESSAGEHDLR}, Ptr{FILE}, Ptr{Ptr{Char}}, va_list,), messagehdlr, file, formatstr, ap)
 _SCIPmessageVPrintVerbInfo(messagehdlr, verblevel, msgverblevel, formatstr, ap) = @scip_ccall("SCIPmessageVPrintVerbInfo", 
-    Void, (Ptr{_SCIP_MESSAGEHDLR}, _SCIP_VERBLEVEL, _SCIP_VERBLEVEL, Void, Void,), messagehdlr, verblevel, msgverblevel, formatstr, ap)
+    Void, (Ptr{_SCIP_MESSAGEHDLR}, _SCIP_VERBLEVEL, _SCIP_VERBLEVEL, Ptr{Ptr{Char}}, va_list,), messagehdlr, verblevel, msgverblevel, formatstr, ap)
 _SCIPmessageVFPrintVerbInfo(messagehdlr, verblevel, msgverblevel, file, formatstr, ap) = @scip_ccall("SCIPmessageVFPrintVerbInfo", 
-    Void, (Ptr{_SCIP_MESSAGEHDLR}, _SCIP_VERBLEVEL, _SCIP_VERBLEVEL, Void, Void, Void,), messagehdlr, verblevel, msgverblevel, file, formatstr, ap)
+    Void, (Ptr{_SCIP_MESSAGEHDLR}, _SCIP_VERBLEVEL, _SCIP_VERBLEVEL, Ptr{FILE}, Ptr{Ptr{Char}}, va_list,), messagehdlr, verblevel, msgverblevel, file, formatstr, ap)
 _SCIPmessagePrintErrorHeader(sourcefile, sourceline) = @scip_ccall("SCIPmessagePrintErrorHeader", 
-    Void, (Void, Void,), sourcefile, sourceline)
+    Void, (Ptr{Ptr{Char}}, Int,), sourcefile, sourceline)
 _SCIPmessageVPrintError(formatstr, ap) = @scip_ccall("SCIPmessageVPrintError", 
-    Void, (Void, Void,), formatstr, ap)
+    Void, (Ptr{Ptr{Char}}, va_list,), formatstr, ap)
 _SCIPmessageSetErrorPrintingDefault() = @scip_ccall("SCIPmessageSetErrorPrintingDefault", 
     Void, ())
 _SCIPmessagehdlrGetData(messagehdlr) = @scip_ccall("SCIPmessagehdlrGetData", 
     Ptr{_SCIP_MESSAGEHDLRDATA}, (Ptr{_SCIP_MESSAGEHDLR},), messagehdlr)
 _SCIPmessagehdlrGetLogfile(messagehdlr) = @scip_ccall("SCIPmessagehdlrGetLogfile", 
-    Void, (Ptr{_SCIP_MESSAGEHDLR},), messagehdlr)
+    Ptr{FILE}, (Ptr{_SCIP_MESSAGEHDLR},), messagehdlr)
 _SCIPmessagehdlrIsQuiet(messagehdlr) = @scip_ccall("SCIPmessagehdlrIsQuiet", 
     _SCIP_Bool, (Ptr{_SCIP_MESSAGEHDLR},), messagehdlr)
 _SCIPgmlWriteNode(file, id, label, nodetype, fillcolor, bordercolor) = @scip_ccall("SCIPgmlWriteNode", 
-    Void, (Void, Void, Void, Void, Void, Void,), file, id, label, nodetype, fillcolor, bordercolor)
+    Void, (Ptr{FILE}, Uint, Ptr{Ptr{Char}}, Ptr{Ptr{Char}}, Ptr{Ptr{Char}}, Ptr{Ptr{Char}},), file, id, label, nodetype, fillcolor, bordercolor)
 _SCIPgmlWriteNodeWeight(file, id, label, nodetype, fillcolor, bordercolor, weight) = @scip_ccall("SCIPgmlWriteNodeWeight", 
-    Void, (Void, Void, Void, Void, Void, Void, _SCIP_Real,), file, id, label, nodetype, fillcolor, bordercolor, weight)
+    Void, (Ptr{FILE}, Uint, Ptr{Ptr{Char}}, Ptr{Ptr{Char}}, Ptr{Ptr{Char}}, Ptr{Ptr{Char}}, _SCIP_Real,), file, id, label, nodetype, fillcolor, bordercolor, weight)
 _SCIPgmlWriteEdge(file, source, target, label, color) = @scip_ccall("SCIPgmlWriteEdge", 
-    Void, (Void, Void, Void, Void, Void,), file, source, target, label, color)
+    Void, (Ptr{FILE}, Uint, Uint, Ptr{Ptr{Char}}, Ptr{Ptr{Char}},), file, source, target, label, color)
 _SCIPgmlWriteArc(file, source, target, label, color) = @scip_ccall("SCIPgmlWriteArc", 
-    Void, (Void, Void, Void, Void, Void,), file, source, target, label, color)
+    Void, (Ptr{FILE}, Uint, Uint, Ptr{Ptr{Char}}, Ptr{Ptr{Char}},), file, source, target, label, color)
 _SCIPgmlWriteOpening(file, directed) = @scip_ccall("SCIPgmlWriteOpening", 
-    Void, (Void, _SCIP_Bool,), file, directed)
+    Void, (Ptr{FILE}, _SCIP_Bool,), file, directed)
 _SCIPgmlWriteClosing(file) = @scip_ccall("SCIPgmlWriteClosing", 
-    Void, (Void,), file)
+    Void, (Ptr{FILE},), file)
 _SCIPsparseSolFree(sparsesol) = @scip_ccall("SCIPsparseSolFree", 
     Void, (Ptr{Ptr{_SCIP_SPARSESOL}},), sparsesol)
 _SCIPsparseSolGetVars(sparsesol) = @scip_ccall("SCIPsparseSolGetVars", 
     Ptr{Ptr{_SCIP_VAR}}, (Ptr{_SCIP_SPARSESOL},), sparsesol)
 _SCIPsparseSolGetNVars(sparsesol) = @scip_ccall("SCIPsparseSolGetNVars", 
-    Void, (Ptr{_SCIP_SPARSESOL},), sparsesol)
+    Int, (Ptr{_SCIP_SPARSESOL},), sparsesol)
 _SCIPsparseSolGetLbs(sparsesol) = @scip_ccall("SCIPsparseSolGetLbs", 
     Ptr{Int64}, (Ptr{_SCIP_SPARSESOL},), sparsesol)
 _SCIPsparseSolGetUbs(sparsesol) = @scip_ccall("SCIPsparseSolGetUbs", 
     Ptr{Int64}, (Ptr{_SCIP_SPARSESOL},), sparsesol)
 _SCIPsparseSolGetFirstSol(sparsesol, sol, nvars) = @scip_ccall("SCIPsparseSolGetFirstSol", 
-    Void, (Ptr{_SCIP_SPARSESOL}, Ptr{Int64}, Void,), sparsesol, sol, nvars)
+    Void, (Ptr{_SCIP_SPARSESOL}, Ptr{Int64}, Int,), sparsesol, sol, nvars)
 _SCIPsparseSolGetNextSol(sparsesol, sol, nvars) = @scip_ccall("SCIPsparseSolGetNextSol", 
-    _SCIP_Bool, (Ptr{_SCIP_SPARSESOL}, Ptr{Int64}, Void,), sparsesol, sol, nvars)
+    _SCIP_Bool, (Ptr{_SCIP_SPARSESOL}, Ptr{Int64}, Int,), sparsesol, sol, nvars)
 _SCIPqueueFree(queue) = @scip_ccall("SCIPqueueFree", 
     Void, (Ptr{Ptr{_SCIP_QUEUE}},), queue)
 _SCIPqueueClear(queue) = @scip_ccall("SCIPqueueClear", 
     Void, (Ptr{_SCIP_QUEUE},), queue)
 _SCIPqueueRemove(queue) = @scip_ccall("SCIPqueueRemove", 
-    Void, (Ptr{_SCIP_QUEUE},), queue)
+    Ptr{Void}, (Ptr{_SCIP_QUEUE},), queue)
 _SCIPqueueFirst(queue) = @scip_ccall("SCIPqueueFirst", 
-    Void, (Ptr{_SCIP_QUEUE},), queue)
+    Ptr{Void}, (Ptr{_SCIP_QUEUE},), queue)
 _SCIPqueueIsEmpty(queue) = @scip_ccall("SCIPqueueIsEmpty", 
     _SCIP_Bool, (Ptr{_SCIP_QUEUE},), queue)
 _SCIPqueueNElems(queue) = @scip_ccall("SCIPqueueNElems", 
-    Void, (Ptr{_SCIP_QUEUE},), queue)
+    Int, (Ptr{_SCIP_QUEUE},), queue)
 _SCIPpqueueFree(pqueue) = @scip_ccall("SCIPpqueueFree", 
     Void, (Ptr{Ptr{_SCIP_PQUEUE}},), pqueue)
 _SCIPpqueueClear(pqueue) = @scip_ccall("SCIPpqueueClear", 
     Void, (Ptr{_SCIP_PQUEUE},), pqueue)
 _SCIPpqueueRemove(pqueue) = @scip_ccall("SCIPpqueueRemove", 
-    Void, (Ptr{_SCIP_PQUEUE},), pqueue)
+    Ptr{Void}, (Ptr{_SCIP_PQUEUE},), pqueue)
 _SCIPpqueueFirst(pqueue) = @scip_ccall("SCIPpqueueFirst", 
-    Void, (Ptr{_SCIP_PQUEUE},), pqueue)
+    Ptr{Void}, (Ptr{_SCIP_PQUEUE},), pqueue)
 _SCIPpqueueNElems(pqueue) = @scip_ccall("SCIPpqueueNElems", 
-    Void, (Ptr{_SCIP_PQUEUE},), pqueue)
+    Int, (Ptr{_SCIP_PQUEUE},), pqueue)
 _SCIPpqueueElems(pqueue) = @scip_ccall("SCIPpqueueElems", 
-    Void, (Ptr{_SCIP_PQUEUE},), pqueue)
+    Ptr{Ptr{Void}}, (Ptr{_SCIP_PQUEUE},), pqueue)
 _SCIPcalcHashtableSize(minsize) = @scip_ccall("SCIPcalcHashtableSize", 
-    Void, (Void,), minsize)
+    Int, (Int,), minsize)
 _SCIPhashtableFree(hashtable) = @scip_ccall("SCIPhashtableFree", 
     Void, (Ptr{Ptr{_SCIP_HASHTABLE}},), hashtable)
 _SCIPhashtableClear(hashtable) = @scip_ccall("SCIPhashtableClear", 
     Void, (Ptr{_SCIP_HASHTABLE},), hashtable)
 _SCIPhashtableRetrieve(hashtable, key) = @scip_ccall("SCIPhashtableRetrieve", 
-    Void, (Ptr{_SCIP_HASHTABLE}, Void,), hashtable, key)
+    Ptr{Void}, (Ptr{_SCIP_HASHTABLE}, Ptr{Void},), hashtable, key)
 _SCIPhashtableRetrieveNext(hashtable, hashtablelist, key) = @scip_ccall("SCIPhashtableRetrieveNext", 
-    Void, (Ptr{_SCIP_HASHTABLE}, Ptr{Ptr{_SCIP_HASHTABLELIST}}, Void,), hashtable, hashtablelist, key)
+    Ptr{Void}, (Ptr{_SCIP_HASHTABLE}, Ptr{Ptr{_SCIP_HASHTABLELIST}}, Ptr{Void},), hashtable, hashtablelist, key)
 _SCIPhashtableExists(hashtable, element) = @scip_ccall("SCIPhashtableExists", 
-    _SCIP_Bool, (Ptr{_SCIP_HASHTABLE}, Void,), hashtable, element)
+    _SCIP_Bool, (Ptr{_SCIP_HASHTABLE}, Ptr{Void},), hashtable, element)
 _SCIPhashtableRemoveAll(hashtable) = @scip_ccall("SCIPhashtableRemoveAll", 
     Void, (Ptr{_SCIP_HASHTABLE},), hashtable)
 _SCIPhashtableGetNElements(hashtable) = @scip_ccall("SCIPhashtableGetNElements", 
@@ -1203,25 +1203,25 @@ _SCIPhashtablePrintStatistics(hashtable, messagehdlr) = @scip_ccall("SCIPhashtab
 _SCIPhashmapFree(hashmap) = @scip_ccall("SCIPhashmapFree", 
     Void, (Ptr{Ptr{_SCIP_HASHMAP}},), hashmap)
 _SCIPhashmapGetImage(hashmap, origin) = @scip_ccall("SCIPhashmapGetImage", 
-    Void, (Ptr{_SCIP_HASHMAP}, Void,), hashmap, origin)
+    Ptr{Void}, (Ptr{_SCIP_HASHMAP}, Ptr{Void},), hashmap, origin)
 _SCIPhashmapExists(hashmap, origin) = @scip_ccall("SCIPhashmapExists", 
-    _SCIP_Bool, (Ptr{_SCIP_HASHMAP}, Void,), hashmap, origin)
+    _SCIP_Bool, (Ptr{_SCIP_HASHMAP}, Ptr{Void},), hashmap, origin)
 _SCIPhashmapPrintStatistics(hashmap, messagehdlr) = @scip_ccall("SCIPhashmapPrintStatistics", 
     Void, (Ptr{_SCIP_HASHMAP}, Ptr{_SCIP_MESSAGEHDLR},), hashmap, messagehdlr)
 _SCIPhashmapIsEmpty(hashmap) = @scip_ccall("SCIPhashmapIsEmpty", 
     _SCIP_Bool, (Ptr{_SCIP_HASHMAP},), hashmap)
 _SCIPhashmapGetNEntries(hashmap) = @scip_ccall("SCIPhashmapGetNEntries", 
-    Void, (Ptr{_SCIP_HASHMAP},), hashmap)
+    Int, (Ptr{_SCIP_HASHMAP},), hashmap)
 _SCIPhashmapGetNLists(hashmap) = @scip_ccall("SCIPhashmapGetNLists", 
-    Void, (Ptr{_SCIP_HASHMAP},), hashmap)
+    Int, (Ptr{_SCIP_HASHMAP},), hashmap)
 _SCIPhashmapGetList(hashmap, listindex) = @scip_ccall("SCIPhashmapGetList", 
-    Ptr{_SCIP_HASHMAPLIST}, (Ptr{_SCIP_HASHMAP}, Void,), hashmap, listindex)
+    Ptr{_SCIP_HASHMAPLIST}, (Ptr{_SCIP_HASHMAP}, Int,), hashmap, listindex)
 _SCIPhashmapListGetNEntries(hashmaplist) = @scip_ccall("SCIPhashmapListGetNEntries", 
-    Void, (Ptr{_SCIP_HASHMAPLIST},), hashmaplist)
+    Int, (Ptr{_SCIP_HASHMAPLIST},), hashmaplist)
 _SCIPhashmapListGetOrigin(hashmaplist) = @scip_ccall("SCIPhashmapListGetOrigin", 
-    Void, (Ptr{_SCIP_HASHMAPLIST},), hashmaplist)
+    Ptr{Void}, (Ptr{_SCIP_HASHMAPLIST},), hashmaplist)
 _SCIPhashmapListGetImage(hashmaplist) = @scip_ccall("SCIPhashmapListGetImage", 
-    Void, (Ptr{_SCIP_HASHMAPLIST},), hashmaplist)
+    Ptr{Void}, (Ptr{_SCIP_HASHMAPLIST},), hashmaplist)
 _SCIPhashmapListGetNext(hashmaplist) = @scip_ccall("SCIPhashmapListGetNext", 
     Ptr{_SCIP_HASHMAPLIST}, (Ptr{_SCIP_HASHMAPLIST},), hashmaplist)
 _SCIPactivityFree(activity) = @scip_ccall("SCIPactivityFree", 
@@ -1229,65 +1229,65 @@ _SCIPactivityFree(activity) = @scip_ccall("SCIPactivityFree",
 _SCIPactivityGetVar(activity) = @scip_ccall("SCIPactivityGetVar", 
     Ptr{_SCIP_VAR}, (Ptr{_SCIP_RESOURCEACTIVITY},), activity)
 _SCIPactivityGetDuration(activity) = @scip_ccall("SCIPactivityGetDuration", 
-    Void, (Ptr{_SCIP_RESOURCEACTIVITY},), activity)
+    Int, (Ptr{_SCIP_RESOURCEACTIVITY},), activity)
 _SCIPactivityGetDemand(activity) = @scip_ccall("SCIPactivityGetDemand", 
-    Void, (Ptr{_SCIP_RESOURCEACTIVITY},), activity)
+    Int, (Ptr{_SCIP_RESOURCEACTIVITY},), activity)
 _SCIPactivityGetEnergy(activity) = @scip_ccall("SCIPactivityGetEnergy", 
-    Void, (Ptr{_SCIP_RESOURCEACTIVITY},), activity)
+    Int, (Ptr{_SCIP_RESOURCEACTIVITY},), activity)
 _SCIPprofileFree(profile) = @scip_ccall("SCIPprofileFree", 
     Void, (Ptr{Ptr{_SCIP_PROFILE}},), profile)
 _SCIPprofilePrint(profile, messagehdlr, file) = @scip_ccall("SCIPprofilePrint", 
-    Void, (Ptr{_SCIP_PROFILE}, Ptr{_SCIP_MESSAGEHDLR}, Void,), profile, messagehdlr, file)
+    Void, (Ptr{_SCIP_PROFILE}, Ptr{_SCIP_MESSAGEHDLR}, Ptr{FILE},), profile, messagehdlr, file)
 _SCIPprofileGetCapacity(profile) = @scip_ccall("SCIPprofileGetCapacity", 
-    Void, (Ptr{_SCIP_PROFILE},), profile)
+    Int, (Ptr{_SCIP_PROFILE},), profile)
 _SCIPprofileGetNTimepoints(profile) = @scip_ccall("SCIPprofileGetNTimepoints", 
-    Void, (Ptr{_SCIP_PROFILE},), profile)
+    Int, (Ptr{_SCIP_PROFILE},), profile)
 _SCIPprofileGetTimepoints(profile) = @scip_ccall("SCIPprofileGetTimepoints", 
-    Void, (Ptr{_SCIP_PROFILE},), profile)
+    Ptr{Int}, (Ptr{_SCIP_PROFILE},), profile)
 _SCIPprofileGetLoads(profile) = @scip_ccall("SCIPprofileGetLoads", 
-    Void, (Ptr{_SCIP_PROFILE},), profile)
+    Ptr{Int}, (Ptr{_SCIP_PROFILE},), profile)
 _SCIPprofileGetTime(profile, pos) = @scip_ccall("SCIPprofileGetTime", 
-    Void, (Ptr{_SCIP_PROFILE}, Void,), profile, pos)
+    Int, (Ptr{_SCIP_PROFILE}, Int,), profile, pos)
 _SCIPprofileGetLoad(profile, pos) = @scip_ccall("SCIPprofileGetLoad", 
-    Void, (Ptr{_SCIP_PROFILE}, Void,), profile, pos)
+    Int, (Ptr{_SCIP_PROFILE}, Int,), profile, pos)
 _SCIPprofileFindLeft(profile, timepoint, pos) = @scip_ccall("SCIPprofileFindLeft", 
-    _SCIP_Bool, (Ptr{_SCIP_PROFILE}, Void, Void,), profile, timepoint, pos)
+    _SCIP_Bool, (Ptr{_SCIP_PROFILE}, Int, Ptr{Int},), profile, timepoint, pos)
 _SCIPprofileGetEarliestFeasibleStart(profile, est, lst, duration, height, infeasible) = @scip_ccall("SCIPprofileGetEarliestFeasibleStart", 
-    Void, (Ptr{_SCIP_PROFILE}, Void, Void, Void, Void, Ptr{_SCIP_Bool},), profile, est, lst, duration, height, infeasible)
+    Int, (Ptr{_SCIP_PROFILE}, Int, Int, Int, Int, Ptr{_SCIP_Bool},), profile, est, lst, duration, height, infeasible)
 _SCIPprofileGetLatestFeasibleStart(profile, lb, ub, duration, height, infeasible) = @scip_ccall("SCIPprofileGetLatestFeasibleStart", 
-    Void, (Ptr{_SCIP_PROFILE}, Void, Void, Void, Void, Ptr{_SCIP_Bool},), profile, lb, ub, duration, height, infeasible)
+    Int, (Ptr{_SCIP_PROFILE}, Int, Int, Int, Int, Ptr{_SCIP_Bool},), profile, lb, ub, duration, height, infeasible)
 _SCIPdigraphFree(digraph) = @scip_ccall("SCIPdigraphFree", 
     Void, (Ptr{Ptr{_SCIP_DIGRAPH}},), digraph)
 _SCIPdigraphGetNNodes(digraph) = @scip_ccall("SCIPdigraphGetNNodes", 
-    Void, (Ptr{_SCIP_DIGRAPH},), digraph)
+    Int, (Ptr{_SCIP_DIGRAPH},), digraph)
 _SCIPdigraphGetNodeData(digraph, node) = @scip_ccall("SCIPdigraphGetNodeData", 
-    Void, (Ptr{_SCIP_DIGRAPH}, Void,), digraph, node)
+    Ptr{Void}, (Ptr{_SCIP_DIGRAPH}, Int,), digraph, node)
 _SCIPdigraphSetNodeData(digraph, dataptr, node) = @scip_ccall("SCIPdigraphSetNodeData", 
-    Void, (Ptr{_SCIP_DIGRAPH}, Void, Void,), digraph, dataptr, node)
+    Void, (Ptr{_SCIP_DIGRAPH}, Ptr{Void}, Int,), digraph, dataptr, node)
 _SCIPdigraphGetNArcs(digraph) = @scip_ccall("SCIPdigraphGetNArcs", 
-    Void, (Ptr{_SCIP_DIGRAPH},), digraph)
+    Int, (Ptr{_SCIP_DIGRAPH},), digraph)
 _SCIPdigraphGetNSuccessors(digraph, node) = @scip_ccall("SCIPdigraphGetNSuccessors", 
-    Void, (Ptr{_SCIP_DIGRAPH}, Void,), digraph, node)
+    Int, (Ptr{_SCIP_DIGRAPH}, Int,), digraph, node)
 _SCIPdigraphGetSuccessors(digraph, node) = @scip_ccall("SCIPdigraphGetSuccessors", 
-    Void, (Ptr{_SCIP_DIGRAPH}, Void,), digraph, node)
+    Ptr{Int}, (Ptr{_SCIP_DIGRAPH}, Int,), digraph, node)
 _SCIPdigraphGetSuccessorsDatas(digraph, node) = @scip_ccall("SCIPdigraphGetSuccessorsDatas", 
-    Void, (Ptr{_SCIP_DIGRAPH}, Void,), digraph, node)
+    Ptr{Ptr{Void}}, (Ptr{_SCIP_DIGRAPH}, Int,), digraph, node)
 _SCIPdigraphGetNComponents(digraph) = @scip_ccall("SCIPdigraphGetNComponents", 
-    Void, (Ptr{_SCIP_DIGRAPH},), digraph)
+    Int, (Ptr{_SCIP_DIGRAPH},), digraph)
 _SCIPdigraphGetComponent(digraph, compidx, nodes, nnodes) = @scip_ccall("SCIPdigraphGetComponent", 
-    Void, (Ptr{_SCIP_DIGRAPH}, Void, Void, Void,), digraph, compidx, nodes, nnodes)
+    Void, (Ptr{_SCIP_DIGRAPH}, Int, Ptr{Ptr{Int}}, Ptr{Int},), digraph, compidx, nodes, nnodes)
 _SCIPdigraphFreeComponents(digraph) = @scip_ccall("SCIPdigraphFreeComponents", 
     Void, (Ptr{_SCIP_DIGRAPH},), digraph)
 _SCIPdigraphPrint(digraph, messagehdlr, file) = @scip_ccall("SCIPdigraphPrint", 
-    Void, (Ptr{_SCIP_DIGRAPH}, Ptr{_SCIP_MESSAGEHDLR}, Void,), digraph, messagehdlr, file)
+    Void, (Ptr{_SCIP_DIGRAPH}, Ptr{_SCIP_MESSAGEHDLR}, Ptr{FILE},), digraph, messagehdlr, file)
 _SCIPdigraphPrintGml(digraph, file) = @scip_ccall("SCIPdigraphPrintGml", 
-    Void, (Ptr{_SCIP_DIGRAPH}, Void,), digraph, file)
+    Void, (Ptr{_SCIP_DIGRAPH}, Ptr{FILE},), digraph, file)
 _SCIPdigraphPrintComponents(digraph, messagehdlr, file) = @scip_ccall("SCIPdigraphPrintComponents", 
-    Void, (Ptr{_SCIP_DIGRAPH}, Ptr{_SCIP_MESSAGEHDLR}, Void,), digraph, messagehdlr, file)
+    Void, (Ptr{_SCIP_DIGRAPH}, Ptr{_SCIP_MESSAGEHDLR}, Ptr{FILE},), digraph, messagehdlr, file)
 _SCIPbtnodeFree(tree, node) = @scip_ccall("SCIPbtnodeFree", 
     Void, (Ptr{_SCIP_BT}, Ptr{Ptr{_SCIP_BTNODE}},), tree, node)
 _SCIPbtnodeGetData(node) = @scip_ccall("SCIPbtnodeGetData", 
-    Void, (Ptr{_SCIP_BTNODE},), node)
+    Ptr{Void}, (Ptr{_SCIP_BTNODE},), node)
 _SCIPbtnodeGetParent(node) = @scip_ccall("SCIPbtnodeGetParent", 
     Ptr{_SCIP_BTNODE}, (Ptr{_SCIP_BTNODE},), node)
 _SCIPbtnodeGetLeftchild(node) = @scip_ccall("SCIPbtnodeGetLeftchild", 
@@ -1305,7 +1305,7 @@ _SCIPbtnodeIsLeftchild(node) = @scip_ccall("SCIPbtnodeIsLeftchild",
 _SCIPbtnodeIsRightchild(node) = @scip_ccall("SCIPbtnodeIsRightchild", 
     _SCIP_Bool, (Ptr{_SCIP_BTNODE},), node)
 _SCIPbtnodeSetData(node, dataptr) = @scip_ccall("SCIPbtnodeSetData", 
-    Void, (Ptr{_SCIP_BTNODE}, Void,), node, dataptr)
+    Void, (Ptr{_SCIP_BTNODE}, Ptr{Void},), node, dataptr)
 _SCIPbtnodeSetParent(node, parent) = @scip_ccall("SCIPbtnodeSetParent", 
     Void, (Ptr{_SCIP_BTNODE}, Ptr{_SCIP_BTNODE},), node, parent)
 _SCIPbtnodeSetLeftchild(node, left) = @scip_ccall("SCIPbtnodeSetLeftchild", 
@@ -1315,7 +1315,7 @@ _SCIPbtnodeSetRightchild(node, right) = @scip_ccall("SCIPbtnodeSetRightchild",
 _SCIPbtFree(tree) = @scip_ccall("SCIPbtFree", 
     Void, (Ptr{Ptr{_SCIP_BT}},), tree)
 _SCIPbtPrintGml(tree, file) = @scip_ccall("SCIPbtPrintGml", 
-    Void, (Ptr{_SCIP_BT}, Void,), tree, file)
+    Void, (Ptr{_SCIP_BT}, Ptr{FILE},), tree, file)
 _SCIPbtIsEmpty(tree) = @scip_ccall("SCIPbtIsEmpty", 
     _SCIP_Bool, (Ptr{_SCIP_BT},), tree)
 _SCIPbtGetRoot(tree) = @scip_ccall("SCIPbtGetRoot", 
@@ -1323,437 +1323,437 @@ _SCIPbtGetRoot(tree) = @scip_ccall("SCIPbtGetRoot",
 _SCIPbtSetRoot(tree, root) = @scip_ccall("SCIPbtSetRoot", 
     Void, (Ptr{_SCIP_BT}, Ptr{_SCIP_BTNODE},), tree, root)
 _SCIPsortReal(realarray, len) = @scip_ccall("SCIPsortReal", 
-    Void, (Ptr{_SCIP_Real}, Void,), realarray, len)
+    Void, (Ptr{_SCIP_Real}, Int,), realarray, len)
 _SCIPsortRealPtr(realarray, ptrarray, len) = @scip_ccall("SCIPsortRealPtr", 
-    Void, (Ptr{_SCIP_Real}, Void, Void,), realarray, ptrarray, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{Ptr{Void}}, Int,), realarray, ptrarray, len)
 _SCIPsortRealInt(realarray, intarray, len) = @scip_ccall("SCIPsortRealInt", 
-    Void, (Ptr{_SCIP_Real}, Void, Void,), realarray, intarray, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{Int}, Int,), realarray, intarray, len)
 _SCIPsortRealBoolPtr(realarray, boolarray, ptrarray, len) = @scip_ccall("SCIPsortRealBoolPtr", 
-    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Void, Void,), realarray, boolarray, ptrarray, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Ptr{Ptr{Void}}, Int,), realarray, boolarray, ptrarray, len)
 _SCIPsortRealIntLong(realarray, intarray, longarray, len) = @scip_ccall("SCIPsortRealIntLong", 
-    Void, (Ptr{_SCIP_Real}, Void, Ptr{Int64}, Void,), realarray, intarray, longarray, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{Int}, Ptr{Int64}, Int,), realarray, intarray, longarray, len)
 _SCIPsortRealIntPtr(realarray, intarray, ptrarray, len) = @scip_ccall("SCIPsortRealIntPtr", 
-    Void, (Ptr{_SCIP_Real}, Void, Void, Void,), realarray, intarray, ptrarray, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{Int}, Ptr{Ptr{Void}}, Int,), realarray, intarray, ptrarray, len)
 _SCIPsortRealRealPtr(realarray1, realarray2, ptrarray, len) = @scip_ccall("SCIPsortRealRealPtr", 
-    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Void, Void,), realarray1, realarray2, ptrarray, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{Ptr{Void}}, Int,), realarray1, realarray2, ptrarray, len)
 _SCIPsortRealPtrPtrInt(realarray, ptrarray1, ptrarray2, intarray, len) = @scip_ccall("SCIPsortRealPtrPtrInt", 
-    Void, (Ptr{_SCIP_Real}, Void, Void, Void, Void,), realarray, ptrarray1, ptrarray2, intarray, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{Ptr{Void}}, Ptr{Ptr{Void}}, Ptr{Int}, Int,), realarray, ptrarray1, ptrarray2, intarray, len)
 _SCIPsortRealPtrPtrIntInt(realarray, ptrarray1, ptrarray2, intarray1, intarray2, len) = @scip_ccall("SCIPsortRealPtrPtrIntInt", 
-    Void, (Ptr{_SCIP_Real}, Void, Void, Void, Void, Void,), realarray, ptrarray1, ptrarray2, intarray1, intarray2, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{Ptr{Void}}, Ptr{Ptr{Void}}, Ptr{Int}, Ptr{Int}, Int,), realarray, ptrarray1, ptrarray2, intarray1, intarray2, len)
 _SCIPsortRealLongRealInt(realarray1, longarray, realarray3, intarray, len) = @scip_ccall("SCIPsortRealLongRealInt", 
-    Void, (Ptr{_SCIP_Real}, Ptr{Int64}, Ptr{_SCIP_Real}, Void, Void,), realarray1, longarray, realarray3, intarray, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{Int64}, Ptr{_SCIP_Real}, Ptr{Int}, Int,), realarray1, longarray, realarray3, intarray, len)
 _SCIPsortRealRealIntInt(realarray1, realarray2, intarray1, intarray2, len) = @scip_ccall("SCIPsortRealRealIntInt", 
-    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Void, Void, Void,), realarray1, realarray2, intarray1, intarray2, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{Int}, Ptr{Int}, Int,), realarray1, realarray2, intarray1, intarray2, len)
 _SCIPsortRealRealRealInt(realarray1, realarray2, realarray3, intarray, len) = @scip_ccall("SCIPsortRealRealRealInt", 
-    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Void, Void,), realarray1, realarray2, realarray3, intarray, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{Int}, Int,), realarray1, realarray2, realarray3, intarray, len)
 _SCIPsortRealRealRealPtr(realarray1, realarray2, realarray3, ptrarray, len) = @scip_ccall("SCIPsortRealRealRealPtr", 
-    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Void, Void,), realarray1, realarray2, realarray3, ptrarray, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{Ptr{Void}}, Int,), realarray1, realarray2, realarray3, ptrarray, len)
 _SCIPsortRealRealRealBoolPtr(realarray1, realarray2, realarray3, boolarray, ptrarray, len) = @scip_ccall("SCIPsortRealRealRealBoolPtr", 
-    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Void, Void,), realarray1, realarray2, realarray3, boolarray, ptrarray, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Ptr{Ptr{Void}}, Int,), realarray1, realarray2, realarray3, boolarray, ptrarray, len)
 _SCIPsortInt(intarray, len) = @scip_ccall("SCIPsortInt", 
-    Void, (Void, Void,), intarray, len)
+    Void, (Ptr{Int}, Int,), intarray, len)
 _SCIPsortIntInt(intarray1, intarray2, len) = @scip_ccall("SCIPsortIntInt", 
-    Void, (Void, Void, Void,), intarray1, intarray2, len)
+    Void, (Ptr{Int}, Ptr{Int}, Int,), intarray1, intarray2, len)
 _SCIPsortIntPtr(intarray, ptrarray, len) = @scip_ccall("SCIPsortIntPtr", 
-    Void, (Void, Void, Void,), intarray, ptrarray, len)
+    Void, (Ptr{Int}, Ptr{Ptr{Void}}, Int,), intarray, ptrarray, len)
 _SCIPsortIntReal(intarray, realarray, len) = @scip_ccall("SCIPsortIntReal", 
-    Void, (Void, Ptr{_SCIP_Real}, Void,), intarray, realarray, len)
+    Void, (Ptr{Int}, Ptr{_SCIP_Real}, Int,), intarray, realarray, len)
 _SCIPsortIntIntInt(intarray1, intarray2, intarray3, len) = @scip_ccall("SCIPsortIntIntInt", 
-    Void, (Void, Void, Void, Void,), intarray1, intarray2, intarray3, len)
+    Void, (Ptr{Int}, Ptr{Int}, Ptr{Int}, Int,), intarray1, intarray2, intarray3, len)
 _SCIPsortIntIntLong(intarray1, intarray2, longarray, len) = @scip_ccall("SCIPsortIntIntLong", 
-    Void, (Void, Void, Ptr{Int64}, Void,), intarray1, intarray2, longarray, len)
+    Void, (Ptr{Int}, Ptr{Int}, Ptr{Int64}, Int,), intarray1, intarray2, longarray, len)
 _SCIPsortIntIntPtr(intarray1, intarray2, ptrarray, len) = @scip_ccall("SCIPsortIntIntPtr", 
-    Void, (Void, Void, Void, Void,), intarray1, intarray2, ptrarray, len)
+    Void, (Ptr{Int}, Ptr{Int}, Ptr{Ptr{Void}}, Int,), intarray1, intarray2, ptrarray, len)
 _SCIPsortIntIntReal(intarray1, intarray2, realarray, len) = @scip_ccall("SCIPsortIntIntReal", 
-    Void, (Void, Void, Ptr{_SCIP_Real}, Void,), intarray1, intarray2, realarray, len)
+    Void, (Ptr{Int}, Ptr{Int}, Ptr{_SCIP_Real}, Int,), intarray1, intarray2, realarray, len)
 _SCIPsortIntPtrReal(intarray, ptrarray, realarray, len) = @scip_ccall("SCIPsortIntPtrReal", 
-    Void, (Void, Void, Ptr{_SCIP_Real}, Void,), intarray, ptrarray, realarray, len)
+    Void, (Ptr{Int}, Ptr{Ptr{Void}}, Ptr{_SCIP_Real}, Int,), intarray, ptrarray, realarray, len)
 _SCIPsortIntIntIntPtr(intarray1, intarray2, intarray3, ptrarray, len) = @scip_ccall("SCIPsortIntIntIntPtr", 
-    Void, (Void, Void, Void, Void, Void,), intarray1, intarray2, intarray3, ptrarray, len)
+    Void, (Ptr{Int}, Ptr{Int}, Ptr{Int}, Ptr{Ptr{Void}}, Int,), intarray1, intarray2, intarray3, ptrarray, len)
 _SCIPsortIntPtrIntReal(intarray1, ptrarray, intarray2, realarray, len) = @scip_ccall("SCIPsortIntPtrIntReal", 
-    Void, (Void, Void, Void, Ptr{_SCIP_Real}, Void,), intarray1, ptrarray, intarray2, realarray, len)
+    Void, (Ptr{Int}, Ptr{Ptr{Void}}, Ptr{Int}, Ptr{_SCIP_Real}, Int,), intarray1, ptrarray, intarray2, realarray, len)
 _SCIPsortLong(longarray, len) = @scip_ccall("SCIPsortLong", 
-    Void, (Ptr{Int64}, Void,), longarray, len)
+    Void, (Ptr{Int64}, Int,), longarray, len)
 _SCIPsortLongPtr(longarray, ptrarray, len) = @scip_ccall("SCIPsortLongPtr", 
-    Void, (Ptr{Int64}, Void, Void,), longarray, ptrarray, len)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Int,), longarray, ptrarray, len)
 _SCIPsortLongPtrInt(longarray, ptrarray, intarray, len) = @scip_ccall("SCIPsortLongPtrInt", 
-    Void, (Ptr{Int64}, Void, Void, Void,), longarray, ptrarray, intarray, len)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{Int}, Int,), longarray, ptrarray, intarray, len)
 _SCIPsortLongPtrRealBool(longarray, ptrarray, realarray, boolarray, len) = @scip_ccall("SCIPsortLongPtrRealBool", 
-    Void, (Ptr{Int64}, Void, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Void,), longarray, ptrarray, realarray, boolarray, len)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Int,), longarray, ptrarray, realarray, boolarray, len)
 _SCIPsortLongPtrRealRealBool(longarray, ptrarray, realarray, realarray2, boolarray, len) = @scip_ccall("SCIPsortLongPtrRealRealBool", 
-    Void, (Ptr{Int64}, Void, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Void,), longarray, ptrarray, realarray, realarray2, boolarray, len)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Int,), longarray, ptrarray, realarray, realarray2, boolarray, len)
 _SCIPsortLongPtrRealRealIntBool(longarray, ptrarray, realarray, realarray2, intarray, boolarray, len) = @scip_ccall("SCIPsortLongPtrRealRealIntBool", 
-    Void, (Ptr{Int64}, Void, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Void, Ptr{_SCIP_Bool}, Void,), longarray, ptrarray, realarray, realarray2, intarray, boolarray, len)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{Int}, Ptr{_SCIP_Bool}, Int,), longarray, ptrarray, realarray, realarray2, intarray, boolarray, len)
 _SCIPsortLongPtrPtrInt(longarray, ptrarray1, ptrarray2, intarray, len) = @scip_ccall("SCIPsortLongPtrPtrInt", 
-    Void, (Ptr{Int64}, Void, Void, Void, Void,), longarray, ptrarray1, ptrarray2, intarray, len)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{Ptr{Void}}, Ptr{Int}, Int,), longarray, ptrarray1, ptrarray2, intarray, len)
 _SCIPsortLongPtrPtrIntInt(longarray, ptrarray1, ptrarray2, intarray1, intarray2, len) = @scip_ccall("SCIPsortLongPtrPtrIntInt", 
-    Void, (Ptr{Int64}, Void, Void, Void, Void, Void,), longarray, ptrarray1, ptrarray2, intarray1, intarray2, len)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{Ptr{Void}}, Ptr{Int}, Ptr{Int}, Int,), longarray, ptrarray1, ptrarray2, intarray1, intarray2, len)
 _SCIPsortLongPtrPtrBoolInt(longarray, ptrarray1, ptrarray2, boolarray, intarray, len) = @scip_ccall("SCIPsortLongPtrPtrBoolInt", 
-    Void, (Ptr{Int64}, Void, Void, Ptr{_SCIP_Bool}, Void, Void,), longarray, ptrarray1, ptrarray2, boolarray, intarray, len)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{Ptr{Void}}, Ptr{_SCIP_Bool}, Ptr{Int}, Int,), longarray, ptrarray1, ptrarray2, boolarray, intarray, len)
 _SCIPsortIntPtrIntIntBoolBool(intarray1, ptrarray, intarray2, intarray3, boolarray1, boolarray2, len) = @scip_ccall("SCIPsortIntPtrIntIntBoolBool", 
-    Void, (Void, Void, Void, Void, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Void,), intarray1, ptrarray, intarray2, intarray3, boolarray1, boolarray2, len)
+    Void, (Ptr{Int}, Ptr{Ptr{Void}}, Ptr{Int}, Ptr{Int}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Int,), intarray1, ptrarray, intarray2, intarray3, boolarray1, boolarray2, len)
 _SCIPsortDownReal(realarray, len) = @scip_ccall("SCIPsortDownReal", 
-    Void, (Ptr{_SCIP_Real}, Void,), realarray, len)
+    Void, (Ptr{_SCIP_Real}, Int,), realarray, len)
 _SCIPsortDownRealPtr(realarray, ptrarray, len) = @scip_ccall("SCIPsortDownRealPtr", 
-    Void, (Ptr{_SCIP_Real}, Void, Void,), realarray, ptrarray, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{Ptr{Void}}, Int,), realarray, ptrarray, len)
 _SCIPsortDownRealInt(realarray, intarray, len) = @scip_ccall("SCIPsortDownRealInt", 
-    Void, (Ptr{_SCIP_Real}, Void, Void,), realarray, intarray, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{Int}, Int,), realarray, intarray, len)
 _SCIPsortDownRealBoolPtr(realarray, boolarray, ptrarray, len) = @scip_ccall("SCIPsortDownRealBoolPtr", 
-    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Void, Void,), realarray, boolarray, ptrarray, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Ptr{Ptr{Void}}, Int,), realarray, boolarray, ptrarray, len)
 _SCIPsortDownRealIntLong(realarray, intarray, longarray, len) = @scip_ccall("SCIPsortDownRealIntLong", 
-    Void, (Ptr{_SCIP_Real}, Void, Ptr{Int64}, Void,), realarray, intarray, longarray, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{Int}, Ptr{Int64}, Int,), realarray, intarray, longarray, len)
 _SCIPsortDownRealIntPtr(realarray, intarray, ptrarray, len) = @scip_ccall("SCIPsortDownRealIntPtr", 
-    Void, (Ptr{_SCIP_Real}, Void, Void, Void,), realarray, intarray, ptrarray, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{Int}, Ptr{Ptr{Void}}, Int,), realarray, intarray, ptrarray, len)
 _SCIPsortDownRealRealPtr(realarray1, realarray2, ptrarray, len) = @scip_ccall("SCIPsortDownRealRealPtr", 
-    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Void, Void,), realarray1, realarray2, ptrarray, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{Ptr{Void}}, Int,), realarray1, realarray2, ptrarray, len)
 _SCIPsortDownRealPtrPtrInt(realarray, ptrarray1, ptrarray2, intarray, len) = @scip_ccall("SCIPsortDownRealPtrPtrInt", 
-    Void, (Ptr{_SCIP_Real}, Void, Void, Void, Void,), realarray, ptrarray1, ptrarray2, intarray, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{Ptr{Void}}, Ptr{Ptr{Void}}, Ptr{Int}, Int,), realarray, ptrarray1, ptrarray2, intarray, len)
 _SCIPsortDownRealPtrPtrIntInt(realarray, ptrarray1, ptrarray2, intarray1, intarray2, len) = @scip_ccall("SCIPsortDownRealPtrPtrIntInt", 
-    Void, (Ptr{_SCIP_Real}, Void, Void, Void, Void, Void,), realarray, ptrarray1, ptrarray2, intarray1, intarray2, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{Ptr{Void}}, Ptr{Ptr{Void}}, Ptr{Int}, Ptr{Int}, Int,), realarray, ptrarray1, ptrarray2, intarray1, intarray2, len)
 _SCIPsortDownRealLongRealInt(realarray1, longarray, realarray3, intarray, len) = @scip_ccall("SCIPsortDownRealLongRealInt", 
-    Void, (Ptr{_SCIP_Real}, Ptr{Int64}, Ptr{_SCIP_Real}, Void, Void,), realarray1, longarray, realarray3, intarray, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{Int64}, Ptr{_SCIP_Real}, Ptr{Int}, Int,), realarray1, longarray, realarray3, intarray, len)
 _SCIPsortDownRealRealIntInt(realarray1, realarray2, intarray1, intarray2, len) = @scip_ccall("SCIPsortDownRealRealIntInt", 
-    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Void, Void, Void,), realarray1, realarray2, intarray1, intarray2, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{Int}, Ptr{Int}, Int,), realarray1, realarray2, intarray1, intarray2, len)
 _SCIPsortDownRealRealRealInt(realarray1, realarray2, realarray3, intarray, len) = @scip_ccall("SCIPsortDownRealRealRealInt", 
-    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Void, Void,), realarray1, realarray2, realarray3, intarray, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{Int}, Int,), realarray1, realarray2, realarray3, intarray, len)
 _SCIPsortDownRealRealRealPtr(realarray1, realarray2, realarray3, ptrarray, len) = @scip_ccall("SCIPsortDownRealRealRealPtr", 
-    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Void, Void,), realarray1, realarray2, realarray3, ptrarray, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{Ptr{Void}}, Int,), realarray1, realarray2, realarray3, ptrarray, len)
 _SCIPsortDownRealPtrPtr(realarray, ptrarray1, ptrarray2, len) = @scip_ccall("SCIPsortDownRealPtrPtr", 
-    Void, (Ptr{_SCIP_Real}, Void, Void, Void,), realarray, ptrarray1, ptrarray2, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{Ptr{Void}}, Ptr{Ptr{Void}}, Int,), realarray, ptrarray1, ptrarray2, len)
 _SCIPsortDownRealRealRealBoolPtr(realarray1, realarray2, realarray3, boolarray, ptrarray, len) = @scip_ccall("SCIPsortDownRealRealRealBoolPtr", 
-    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Void, Void,), realarray1, realarray2, realarray3, boolarray, ptrarray, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Ptr{Ptr{Void}}, Int,), realarray1, realarray2, realarray3, boolarray, ptrarray, len)
 _SCIPsortDownInt(intarray, len) = @scip_ccall("SCIPsortDownInt", 
-    Void, (Void, Void,), intarray, len)
+    Void, (Ptr{Int}, Int,), intarray, len)
 _SCIPsortDownIntInt(intarray1, intarray2, len) = @scip_ccall("SCIPsortDownIntInt", 
-    Void, (Void, Void, Void,), intarray1, intarray2, len)
+    Void, (Ptr{Int}, Ptr{Int}, Int,), intarray1, intarray2, len)
 _SCIPsortDownIntPtr(intarray, ptrarray, len) = @scip_ccall("SCIPsortDownIntPtr", 
-    Void, (Void, Void, Void,), intarray, ptrarray, len)
+    Void, (Ptr{Int}, Ptr{Ptr{Void}}, Int,), intarray, ptrarray, len)
 _SCIPsortDownIntReal(intarray, realarray, len) = @scip_ccall("SCIPsortDownIntReal", 
-    Void, (Void, Ptr{_SCIP_Real}, Void,), intarray, realarray, len)
+    Void, (Ptr{Int}, Ptr{_SCIP_Real}, Int,), intarray, realarray, len)
 _SCIPsortDownIntIntInt(intarray1, intarray2, intarray3, len) = @scip_ccall("SCIPsortDownIntIntInt", 
-    Void, (Void, Void, Void, Void,), intarray1, intarray2, intarray3, len)
+    Void, (Ptr{Int}, Ptr{Int}, Ptr{Int}, Int,), intarray1, intarray2, intarray3, len)
 _SCIPsortDownIntIntLong(intarray1, intarray2, longarray, len) = @scip_ccall("SCIPsortDownIntIntLong", 
-    Void, (Void, Void, Ptr{Int64}, Void,), intarray1, intarray2, longarray, len)
+    Void, (Ptr{Int}, Ptr{Int}, Ptr{Int64}, Int,), intarray1, intarray2, longarray, len)
 _SCIPsortDownIntIntPtr(intarray1, intarray2, ptrarray, len) = @scip_ccall("SCIPsortDownIntIntPtr", 
-    Void, (Void, Void, Void, Void,), intarray1, intarray2, ptrarray, len)
+    Void, (Ptr{Int}, Ptr{Int}, Ptr{Ptr{Void}}, Int,), intarray1, intarray2, ptrarray, len)
 _SCIPsortDownIntIntReal(intarray1, intarray2, realarray, len) = @scip_ccall("SCIPsortDownIntIntReal", 
-    Void, (Void, Void, Ptr{_SCIP_Real}, Void,), intarray1, intarray2, realarray, len)
+    Void, (Ptr{Int}, Ptr{Int}, Ptr{_SCIP_Real}, Int,), intarray1, intarray2, realarray, len)
 _SCIPsortDownIntIntIntPtr(intarray1, intarray2, intarray3, ptrarray, len) = @scip_ccall("SCIPsortDownIntIntIntPtr", 
-    Void, (Void, Void, Void, Void, Void,), intarray1, intarray2, intarray3, ptrarray, len)
+    Void, (Ptr{Int}, Ptr{Int}, Ptr{Int}, Ptr{Ptr{Void}}, Int,), intarray1, intarray2, intarray3, ptrarray, len)
 _SCIPsortDownIntPtrIntReal(intarray1, ptrarray, intarray2, realarray, len) = @scip_ccall("SCIPsortDownIntPtrIntReal", 
-    Void, (Void, Void, Void, Ptr{_SCIP_Real}, Void,), intarray1, ptrarray, intarray2, realarray, len)
+    Void, (Ptr{Int}, Ptr{Ptr{Void}}, Ptr{Int}, Ptr{_SCIP_Real}, Int,), intarray1, ptrarray, intarray2, realarray, len)
 _SCIPsortDownLong(longarray, len) = @scip_ccall("SCIPsortDownLong", 
-    Void, (Ptr{Int64}, Void,), longarray, len)
+    Void, (Ptr{Int64}, Int,), longarray, len)
 _SCIPsortDownLongPtr(longarray, ptrarray, len) = @scip_ccall("SCIPsortDownLongPtr", 
-    Void, (Ptr{Int64}, Void, Void,), longarray, ptrarray, len)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Int,), longarray, ptrarray, len)
 _SCIPsortDownLongPtrInt(longarray, ptrarray, intarray, len) = @scip_ccall("SCIPsortDownLongPtrInt", 
-    Void, (Ptr{Int64}, Void, Void, Void,), longarray, ptrarray, intarray, len)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{Int}, Int,), longarray, ptrarray, intarray, len)
 _SCIPsortDownLongPtrRealBool(longarray, ptrarray, realarray, boolarray, len) = @scip_ccall("SCIPsortDownLongPtrRealBool", 
-    Void, (Ptr{Int64}, Void, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Void,), longarray, ptrarray, realarray, boolarray, len)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Int,), longarray, ptrarray, realarray, boolarray, len)
 _SCIPsortDownLongPtrRealRealBool(longarray, ptrarray, realarray, realarray2, boolarray, len) = @scip_ccall("SCIPsortDownLongPtrRealRealBool", 
-    Void, (Ptr{Int64}, Void, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Void,), longarray, ptrarray, realarray, realarray2, boolarray, len)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Int,), longarray, ptrarray, realarray, realarray2, boolarray, len)
 _SCIPsortDownLongPtrRealRealIntBool(longarray, ptrarray, realarray, realarray2, intarray, boolarray, len) = @scip_ccall("SCIPsortDownLongPtrRealRealIntBool", 
-    Void, (Ptr{Int64}, Void, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Void, Ptr{_SCIP_Bool}, Void,), longarray, ptrarray, realarray, realarray2, intarray, boolarray, len)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{Int}, Ptr{_SCIP_Bool}, Int,), longarray, ptrarray, realarray, realarray2, intarray, boolarray, len)
 _SCIPsortDownLongPtrPtrInt(longarray, ptrarray1, ptrarray2, intarray, len) = @scip_ccall("SCIPsortDownLongPtrPtrInt", 
-    Void, (Ptr{Int64}, Void, Void, Void, Void,), longarray, ptrarray1, ptrarray2, intarray, len)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{Ptr{Void}}, Ptr{Int}, Int,), longarray, ptrarray1, ptrarray2, intarray, len)
 _SCIPsortDownLongPtrPtrIntInt(longarray, ptrarray1, ptrarray2, intarray1, intarray2, len) = @scip_ccall("SCIPsortDownLongPtrPtrIntInt", 
-    Void, (Ptr{Int64}, Void, Void, Void, Void, Void,), longarray, ptrarray1, ptrarray2, intarray1, intarray2, len)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{Ptr{Void}}, Ptr{Int}, Ptr{Int}, Int,), longarray, ptrarray1, ptrarray2, intarray1, intarray2, len)
 _SCIPsortDownLongPtrPtrBoolInt(longarray, ptrarray1, ptrarray2, boolarray, intarray, len) = @scip_ccall("SCIPsortDownLongPtrPtrBoolInt", 
-    Void, (Ptr{Int64}, Void, Void, Ptr{_SCIP_Bool}, Void, Void,), longarray, ptrarray1, ptrarray2, boolarray, intarray, len)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{Ptr{Void}}, Ptr{_SCIP_Bool}, Ptr{Int}, Int,), longarray, ptrarray1, ptrarray2, boolarray, intarray, len)
 _SCIPsortDownIntPtrIntIntBoolBool(intarray1, ptrarray, intarray2, intarray3, boolarray1, boolarray2, len) = @scip_ccall("SCIPsortDownIntPtrIntIntBoolBool", 
-    Void, (Void, Void, Void, Void, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Void,), intarray1, ptrarray, intarray2, intarray3, boolarray1, boolarray2, len)
+    Void, (Ptr{Int}, Ptr{Ptr{Void}}, Ptr{Int}, Ptr{Int}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Int,), intarray1, ptrarray, intarray2, intarray3, boolarray1, boolarray2, len)
 _SCIPsortedvecInsertRealBoolPtr(realarray, boolarray, ptrarray, keyval, field1val, field2val, len, pos) = @scip_ccall("SCIPsortedvecInsertRealBoolPtr", 
-    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Void, _SCIP_Real, _SCIP_Bool, Void, Void, Void,), realarray, boolarray, ptrarray, keyval, field1val, field2val, len, pos)
+    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Ptr{Ptr{Void}}, _SCIP_Real, _SCIP_Bool, Ptr{Void}, Ptr{Int}, Ptr{Int},), realarray, boolarray, ptrarray, keyval, field1val, field2val, len, pos)
 _SCIPsortedvecInsertRealPtr(realarray, ptrarray, keyval, field1val, len, pos) = @scip_ccall("SCIPsortedvecInsertRealPtr", 
-    Void, (Ptr{_SCIP_Real}, Void, _SCIP_Real, Void, Void, Void,), realarray, ptrarray, keyval, field1val, len, pos)
+    Void, (Ptr{_SCIP_Real}, Ptr{Ptr{Void}}, _SCIP_Real, Ptr{Void}, Ptr{Int}, Ptr{Int},), realarray, ptrarray, keyval, field1val, len, pos)
 _SCIPsortedvecInsertReal(realarray, keyval, len, pos) = @scip_ccall("SCIPsortedvecInsertReal", 
-    Void, (Ptr{_SCIP_Real}, _SCIP_Real, Void, Void,), realarray, keyval, len, pos)
+    Void, (Ptr{_SCIP_Real}, _SCIP_Real, Ptr{Int}, Ptr{Int},), realarray, keyval, len, pos)
 _SCIPsortedvecInsertRealInt(realarray, intarray, keyval, field1val, len, pos) = @scip_ccall("SCIPsortedvecInsertRealInt", 
-    Void, (Ptr{_SCIP_Real}, Void, _SCIP_Real, Void, Void, Void,), realarray, intarray, keyval, field1val, len, pos)
+    Void, (Ptr{_SCIP_Real}, Ptr{Int}, _SCIP_Real, Int, Ptr{Int}, Ptr{Int},), realarray, intarray, keyval, field1val, len, pos)
 _SCIPsortedvecInsertRealIntLong(realarray, intarray, longarray, keyval, field1val, field2val, len, pos) = @scip_ccall("SCIPsortedvecInsertRealIntLong", 
-    Void, (Ptr{_SCIP_Real}, Void, Ptr{Int64}, _SCIP_Real, Void, Int64, Void, Void,), realarray, intarray, longarray, keyval, field1val, field2val, len, pos)
+    Void, (Ptr{_SCIP_Real}, Ptr{Int}, Ptr{Int64}, _SCIP_Real, Int, Int64, Ptr{Int}, Ptr{Int},), realarray, intarray, longarray, keyval, field1val, field2val, len, pos)
 _SCIPsortedvecInsertRealIntPtr(realarray, intarray, ptrarray, keyval, field1val, field2val, len, pos) = @scip_ccall("SCIPsortedvecInsertRealIntPtr", 
-    Void, (Ptr{_SCIP_Real}, Void, Void, _SCIP_Real, Void, Void, Void, Void,), realarray, intarray, ptrarray, keyval, field1val, field2val, len, pos)
+    Void, (Ptr{_SCIP_Real}, Ptr{Int}, Ptr{Ptr{Void}}, _SCIP_Real, Int, Ptr{Void}, Ptr{Int}, Ptr{Int},), realarray, intarray, ptrarray, keyval, field1val, field2val, len, pos)
 _SCIPsortedvecInsertRealRealPtr(realarray1, realarray2, ptrarray, keyval, field1val, field2val, len, pos) = @scip_ccall("SCIPsortedvecInsertRealRealPtr", 
-    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Void, _SCIP_Real, _SCIP_Real, Void, Void, Void,), realarray1, realarray2, ptrarray, keyval, field1val, field2val, len, pos)
+    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{Ptr{Void}}, _SCIP_Real, _SCIP_Real, Ptr{Void}, Ptr{Int}, Ptr{Int},), realarray1, realarray2, ptrarray, keyval, field1val, field2val, len, pos)
 _SCIPsortedvecInsertRealPtrPtrInt(realarray, ptrarray1, ptrarray2, intarray, keyval, field1val, field2val, intval, len, pos) = @scip_ccall("SCIPsortedvecInsertRealPtrPtrInt", 
-    Void, (Ptr{_SCIP_Real}, Void, Void, Void, _SCIP_Real, Void, Void, Void, Void, Void,), realarray, ptrarray1, ptrarray2, intarray, keyval, field1val, field2val, intval, len, pos)
+    Void, (Ptr{_SCIP_Real}, Ptr{Ptr{Void}}, Ptr{Ptr{Void}}, Ptr{Int}, _SCIP_Real, Ptr{Void}, Ptr{Void}, Int, Ptr{Int}, Ptr{Int},), realarray, ptrarray1, ptrarray2, intarray, keyval, field1val, field2val, intval, len, pos)
 _SCIPsortedvecInsertRealPtrPtrIntInt(realarray, ptrarray1, ptrarray2, intarray1, intarray2, keyval, field1val, field2val, intval1, intval2, len, pos) = @scip_ccall("SCIPsortedvecInsertRealPtrPtrIntInt", 
-    Void, (Ptr{_SCIP_Real}, Void, Void, Void, Void, _SCIP_Real, Void, Void, Void, Void, Void, Void,), realarray, ptrarray1, ptrarray2, intarray1, intarray2, keyval, field1val, field2val, intval1, intval2, len, pos)
+    Void, (Ptr{_SCIP_Real}, Ptr{Ptr{Void}}, Ptr{Ptr{Void}}, Ptr{Int}, Ptr{Int}, _SCIP_Real, Ptr{Void}, Ptr{Void}, Int, Int, Ptr{Int}, Ptr{Int},), realarray, ptrarray1, ptrarray2, intarray1, intarray2, keyval, field1val, field2val, intval1, intval2, len, pos)
 _SCIPsortedvecInsertRealLongRealInt(realarray1, longarray, realarray3, intarray, keyval, field1val, field2val, field3val, len, pos) = @scip_ccall("SCIPsortedvecInsertRealLongRealInt", 
-    Void, (Ptr{_SCIP_Real}, Ptr{Int64}, Ptr{_SCIP_Real}, Void, _SCIP_Real, Int64, _SCIP_Real, Void, Void, Void,), realarray1, longarray, realarray3, intarray, keyval, field1val, field2val, field3val, len, pos)
+    Void, (Ptr{_SCIP_Real}, Ptr{Int64}, Ptr{_SCIP_Real}, Ptr{Int}, _SCIP_Real, Int64, _SCIP_Real, Int, Ptr{Int}, Ptr{Int},), realarray1, longarray, realarray3, intarray, keyval, field1val, field2val, field3val, len, pos)
 _SCIPsortedvecInsertRealRealIntInt(realarray1, realarray2, intarray1, intarray2, keyval, field1val, field2val, field3val, len, pos) = @scip_ccall("SCIPsortedvecInsertRealRealIntInt", 
-    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Void, Void, _SCIP_Real, _SCIP_Real, Void, Void, Void, Void,), realarray1, realarray2, intarray1, intarray2, keyval, field1val, field2val, field3val, len, pos)
+    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{Int}, Ptr{Int}, _SCIP_Real, _SCIP_Real, Int, Int, Ptr{Int}, Ptr{Int},), realarray1, realarray2, intarray1, intarray2, keyval, field1val, field2val, field3val, len, pos)
 _SCIPsortedvecInsertRealRealRealInt(realarray1, realarray2, realarray3, intarray, keyval, field1val, field2val, field3val, len, pos) = @scip_ccall("SCIPsortedvecInsertRealRealRealInt", 
-    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Void, _SCIP_Real, _SCIP_Real, _SCIP_Real, Void, Void, Void,), realarray1, realarray2, realarray3, intarray, keyval, field1val, field2val, field3val, len, pos)
+    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{Int}, _SCIP_Real, _SCIP_Real, _SCIP_Real, Int, Ptr{Int}, Ptr{Int},), realarray1, realarray2, realarray3, intarray, keyval, field1val, field2val, field3val, len, pos)
 _SCIPsortedvecInsertRealRealRealPtr(realarray1, realarray2, realarray3, ptrarray, keyval, field1val, field2val, field3val, len, pos) = @scip_ccall("SCIPsortedvecInsertRealRealRealPtr", 
-    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Void, _SCIP_Real, _SCIP_Real, _SCIP_Real, Void, Void, Void,), realarray1, realarray2, realarray3, ptrarray, keyval, field1val, field2val, field3val, len, pos)
+    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{Ptr{Void}}, _SCIP_Real, _SCIP_Real, _SCIP_Real, Ptr{Void}, Ptr{Int}, Ptr{Int},), realarray1, realarray2, realarray3, ptrarray, keyval, field1val, field2val, field3val, len, pos)
 _SCIPsortedvecInsertRealRealRealBoolPtr(realarray1, realarray2, realarray3, boolarray, ptrarray, keyval, field1val, field2val, field3val, field4val, len, pos) = @scip_ccall("SCIPsortedvecInsertRealRealRealBoolPtr", 
-    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Void, _SCIP_Real, _SCIP_Real, _SCIP_Real, _SCIP_Bool, Void, Void, Void,), realarray1, realarray2, realarray3, boolarray, ptrarray, keyval, field1val, field2val, field3val, field4val, len, pos)
+    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Ptr{Ptr{Void}}, _SCIP_Real, _SCIP_Real, _SCIP_Real, _SCIP_Bool, Ptr{Void}, Ptr{Int}, Ptr{Int},), realarray1, realarray2, realarray3, boolarray, ptrarray, keyval, field1val, field2val, field3val, field4val, len, pos)
 _SCIPsortedvecInsertInt(intarray, keyval, len, pos) = @scip_ccall("SCIPsortedvecInsertInt", 
-    Void, (Void, Void, Void, Void,), intarray, keyval, len, pos)
+    Void, (Ptr{Int}, Int, Ptr{Int}, Ptr{Int},), intarray, keyval, len, pos)
 _SCIPsortedvecInsertIntInt(intarray1, intarray2, keyval, field1val, len, pos) = @scip_ccall("SCIPsortedvecInsertIntInt", 
-    Void, (Void, Void, Void, Void, Void, Void,), intarray1, intarray2, keyval, field1val, len, pos)
+    Void, (Ptr{Int}, Ptr{Int}, Int, Int, Ptr{Int}, Ptr{Int},), intarray1, intarray2, keyval, field1val, len, pos)
 _SCIPsortedvecInsertIntPtr(intarray, ptrarray, keyval, field1val, len, pos) = @scip_ccall("SCIPsortedvecInsertIntPtr", 
-    Void, (Void, Void, Void, Void, Void, Void,), intarray, ptrarray, keyval, field1val, len, pos)
+    Void, (Ptr{Int}, Ptr{Ptr{Void}}, Int, Ptr{Void}, Ptr{Int}, Ptr{Int},), intarray, ptrarray, keyval, field1val, len, pos)
 _SCIPsortedvecInsertIntReal(intarray, realarray, keyval, field1val, len, pos) = @scip_ccall("SCIPsortedvecInsertIntReal", 
-    Void, (Void, Ptr{_SCIP_Real}, Void, _SCIP_Real, Void, Void,), intarray, realarray, keyval, field1val, len, pos)
+    Void, (Ptr{Int}, Ptr{_SCIP_Real}, Int, _SCIP_Real, Ptr{Int}, Ptr{Int},), intarray, realarray, keyval, field1val, len, pos)
 _SCIPsortedvecInsertIntIntInt(intarray1, intarray2, intarray3, keyval, field1val, field2val, len, pos) = @scip_ccall("SCIPsortedvecInsertIntIntInt", 
-    Void, (Void, Void, Void, Void, Void, Void, Void, Void,), intarray1, intarray2, intarray3, keyval, field1val, field2val, len, pos)
+    Void, (Ptr{Int}, Ptr{Int}, Ptr{Int}, Int, Int, Int, Ptr{Int}, Ptr{Int},), intarray1, intarray2, intarray3, keyval, field1val, field2val, len, pos)
 _SCIPsortedvecInsertIntIntLong(intarray1, intarray2, longarray, keyval, field1val, field2val, len, pos) = @scip_ccall("SCIPsortedvecInsertIntIntLong", 
-    Void, (Void, Void, Ptr{Int64}, Void, Void, Int64, Void, Void,), intarray1, intarray2, longarray, keyval, field1val, field2val, len, pos)
+    Void, (Ptr{Int}, Ptr{Int}, Ptr{Int64}, Int, Int, Int64, Ptr{Int}, Ptr{Int},), intarray1, intarray2, longarray, keyval, field1val, field2val, len, pos)
 _SCIPsortedvecInsertIntIntPtr(intarray1, intarray2, ptrarray, keyval, field1val, field2val, len, pos) = @scip_ccall("SCIPsortedvecInsertIntIntPtr", 
-    Void, (Void, Void, Void, Void, Void, Void, Void, Void,), intarray1, intarray2, ptrarray, keyval, field1val, field2val, len, pos)
+    Void, (Ptr{Int}, Ptr{Int}, Ptr{Ptr{Void}}, Int, Int, Ptr{Void}, Ptr{Int}, Ptr{Int},), intarray1, intarray2, ptrarray, keyval, field1val, field2val, len, pos)
 _SCIPsortedvecInsertIntIntReal(intarray1, intarray2, realarray, keyval, field1val, field2val, len, pos) = @scip_ccall("SCIPsortedvecInsertIntIntReal", 
-    Void, (Void, Void, Ptr{_SCIP_Real}, Void, Void, _SCIP_Real, Void, Void,), intarray1, intarray2, realarray, keyval, field1val, field2val, len, pos)
+    Void, (Ptr{Int}, Ptr{Int}, Ptr{_SCIP_Real}, Int, Int, _SCIP_Real, Ptr{Int}, Ptr{Int},), intarray1, intarray2, realarray, keyval, field1val, field2val, len, pos)
 _SCIPsortedvecInsertIntPtrReal(intarray, ptrarray, realarray, keyval, field1val, field2val, len, pos) = @scip_ccall("SCIPsortedvecInsertIntPtrReal", 
-    Void, (Void, Void, Ptr{_SCIP_Real}, Void, Void, _SCIP_Real, Void, Void,), intarray, ptrarray, realarray, keyval, field1val, field2val, len, pos)
+    Void, (Ptr{Int}, Ptr{Ptr{Void}}, Ptr{_SCIP_Real}, Int, Ptr{Void}, _SCIP_Real, Ptr{Int}, Ptr{Int},), intarray, ptrarray, realarray, keyval, field1val, field2val, len, pos)
 _SCIPsortedvecInsertIntIntIntPtr(intarray1, intarray2, intarray3, ptrarray, keyval, field1val, field2val, field3val, len, pos) = @scip_ccall("SCIPsortedvecInsertIntIntIntPtr", 
-    Void, (Void, Void, Void, Void, Void, Void, Void, Void, Void, Void,), intarray1, intarray2, intarray3, ptrarray, keyval, field1val, field2val, field3val, len, pos)
+    Void, (Ptr{Int}, Ptr{Int}, Ptr{Int}, Ptr{Ptr{Void}}, Int, Int, Int, Ptr{Void}, Ptr{Int}, Ptr{Int},), intarray1, intarray2, intarray3, ptrarray, keyval, field1val, field2val, field3val, len, pos)
 _SCIPsortedvecInsertIntPtrIntReal(intarray1, ptrarray, intarray2, realarray, keyval, field1val, field2val, field3val, len, pos) = @scip_ccall("SCIPsortedvecInsertIntPtrIntReal", 
-    Void, (Void, Void, Void, Ptr{_SCIP_Real}, Void, Void, Void, _SCIP_Real, Void, Void,), intarray1, ptrarray, intarray2, realarray, keyval, field1val, field2val, field3val, len, pos)
+    Void, (Ptr{Int}, Ptr{Ptr{Void}}, Ptr{Int}, Ptr{_SCIP_Real}, Int, Ptr{Void}, Int, _SCIP_Real, Ptr{Int}, Ptr{Int},), intarray1, ptrarray, intarray2, realarray, keyval, field1val, field2val, field3val, len, pos)
 _SCIPsortedvecInsertLong(longarray, keyval, len, pos) = @scip_ccall("SCIPsortedvecInsertLong", 
-    Void, (Ptr{Int64}, Int64, Void, Void,), longarray, keyval, len, pos)
+    Void, (Ptr{Int64}, Int64, Ptr{Int}, Ptr{Int},), longarray, keyval, len, pos)
 _SCIPsortedvecInsertLongPtr(longarray, ptrarray, keyval, field1val, len, pos) = @scip_ccall("SCIPsortedvecInsertLongPtr", 
-    Void, (Ptr{Int64}, Void, Int64, Void, Void, Void,), longarray, ptrarray, keyval, field1val, len, pos)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Int64, Ptr{Void}, Ptr{Int}, Ptr{Int},), longarray, ptrarray, keyval, field1val, len, pos)
 _SCIPsortedvecInsertLongPtrInt(longarray, ptrarray, intarray, keyval, field1val, field2val, len, pos) = @scip_ccall("SCIPsortedvecInsertLongPtrInt", 
-    Void, (Ptr{Int64}, Void, Void, Int64, Void, Void, Void, Void,), longarray, ptrarray, intarray, keyval, field1val, field2val, len, pos)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{Int}, Int64, Ptr{Void}, Int, Ptr{Int}, Ptr{Int},), longarray, ptrarray, intarray, keyval, field1val, field2val, len, pos)
 _SCIPsortedvecInsertLongPtrRealBool(longarray, ptrarray, realarray, boolarray, keyval, field1val, field2val, field3val, len, pos) = @scip_ccall("SCIPsortedvecInsertLongPtrRealBool", 
-    Void, (Ptr{Int64}, Void, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Int64, Void, _SCIP_Real, _SCIP_Bool, Void, Void,), longarray, ptrarray, realarray, boolarray, keyval, field1val, field2val, field3val, len, pos)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Int64, Ptr{Void}, _SCIP_Real, _SCIP_Bool, Ptr{Int}, Ptr{Int},), longarray, ptrarray, realarray, boolarray, keyval, field1val, field2val, field3val, len, pos)
 _SCIPsortedvecInsertLongPtrRealRealBool(longarray, ptrarray, realarray, realarray2, boolarray, keyval, field1val, field2val, field3val, field4val, len, pos) = @scip_ccall("SCIPsortedvecInsertLongPtrRealRealBool", 
-    Void, (Ptr{Int64}, Void, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Int64, Void, _SCIP_Real, _SCIP_Real, _SCIP_Bool, Void, Void,), longarray, ptrarray, realarray, realarray2, boolarray, keyval, field1val, field2val, field3val, field4val, len, pos)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Int64, Ptr{Void}, _SCIP_Real, _SCIP_Real, _SCIP_Bool, Ptr{Int}, Ptr{Int},), longarray, ptrarray, realarray, realarray2, boolarray, keyval, field1val, field2val, field3val, field4val, len, pos)
 _SCIPsortedvecInsertLongPtrRealRealIntBool(longarray, ptrarray, realarray, realarray2, intarray, boolarray, keyval, field1val, field2val, field3val, field4val, field5val, len, pos) = @scip_ccall("SCIPsortedvecInsertLongPtrRealRealIntBool", 
-    Void, (Ptr{Int64}, Void, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Void, Ptr{_SCIP_Bool}, Int64, Void, _SCIP_Real, _SCIP_Real, Void, _SCIP_Bool, Void, Void,), longarray, ptrarray, realarray, realarray2, intarray, boolarray, keyval, field1val, field2val, field3val, field4val, field5val, len, pos)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{Int}, Ptr{_SCIP_Bool}, Int64, Ptr{Void}, _SCIP_Real, _SCIP_Real, Int, _SCIP_Bool, Ptr{Int}, Ptr{Int},), longarray, ptrarray, realarray, realarray2, intarray, boolarray, keyval, field1val, field2val, field3val, field4val, field5val, len, pos)
 _SCIPsortedvecInsertLongPtrPtrInt(longarray, ptrarray1, ptrarray2, intarray, keyval, field1val, field2val, field3val, len, pos) = @scip_ccall("SCIPsortedvecInsertLongPtrPtrInt", 
-    Void, (Ptr{Int64}, Void, Void, Void, Int64, Void, Void, Void, Void, Void,), longarray, ptrarray1, ptrarray2, intarray, keyval, field1val, field2val, field3val, len, pos)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{Ptr{Void}}, Ptr{Int}, Int64, Ptr{Void}, Ptr{Void}, Int, Ptr{Int}, Ptr{Int},), longarray, ptrarray1, ptrarray2, intarray, keyval, field1val, field2val, field3val, len, pos)
 _SCIPsortedvecInsertLongPtrPtrIntInt(longarray, ptrarray1, ptrarray2, intarray1, intarray2, keyval, field1val, field2val, field3val, field4val, len, pos) = @scip_ccall("SCIPsortedvecInsertLongPtrPtrIntInt", 
-    Void, (Ptr{Int64}, Void, Void, Void, Void, Int64, Void, Void, Void, Void, Void, Void,), longarray, ptrarray1, ptrarray2, intarray1, intarray2, keyval, field1val, field2val, field3val, field4val, len, pos)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{Ptr{Void}}, Ptr{Int}, Ptr{Int}, Int64, Ptr{Void}, Ptr{Void}, Int, Int, Ptr{Int}, Ptr{Int},), longarray, ptrarray1, ptrarray2, intarray1, intarray2, keyval, field1val, field2val, field3val, field4val, len, pos)
 _SCIPsortedvecInsertLongPtrPtrBoolInt(longarray, ptrarray1, ptrarray2, boolarray, intarray, keyval, field1val, field2val, field3val, field4val, len, pos) = @scip_ccall("SCIPsortedvecInsertLongPtrPtrBoolInt", 
-    Void, (Ptr{Int64}, Void, Void, Ptr{_SCIP_Bool}, Void, Int64, Void, Void, _SCIP_Bool, Void, Void, Void,), longarray, ptrarray1, ptrarray2, boolarray, intarray, keyval, field1val, field2val, field3val, field4val, len, pos)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{Ptr{Void}}, Ptr{_SCIP_Bool}, Ptr{Int}, Int64, Ptr{Void}, Ptr{Void}, _SCIP_Bool, Int, Ptr{Int}, Ptr{Int},), longarray, ptrarray1, ptrarray2, boolarray, intarray, keyval, field1val, field2val, field3val, field4val, len, pos)
 _SCIPsortedvecInsertIntPtrIntIntBoolBool(intarray1, ptrarray, intarray2, intarray3, boolarray1, boolarray2, keyval, field1val, field2val, field3val, field4val, field5val, len, pos) = @scip_ccall("SCIPsortedvecInsertIntPtrIntIntBoolBool", 
-    Void, (Void, Void, Void, Void, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Void, Void, Void, Void, _SCIP_Bool, _SCIP_Bool, Void, Void,), intarray1, ptrarray, intarray2, intarray3, boolarray1, boolarray2, keyval, field1val, field2val, field3val, field4val, field5val, len, pos)
+    Void, (Ptr{Int}, Ptr{Ptr{Void}}, Ptr{Int}, Ptr{Int}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Int, Ptr{Void}, Int, Int, _SCIP_Bool, _SCIP_Bool, Ptr{Int}, Ptr{Int},), intarray1, ptrarray, intarray2, intarray3, boolarray1, boolarray2, keyval, field1val, field2val, field3val, field4val, field5val, len, pos)
 _SCIPsortedvecInsertDownReal(realarray, keyval, len, pos) = @scip_ccall("SCIPsortedvecInsertDownReal", 
-    Void, (Ptr{_SCIP_Real}, _SCIP_Real, Void, Void,), realarray, keyval, len, pos)
+    Void, (Ptr{_SCIP_Real}, _SCIP_Real, Ptr{Int}, Ptr{Int},), realarray, keyval, len, pos)
 _SCIPsortedvecInsertDownRealBoolPtr(realarray, boolarray, ptrarray, keyval, field1val, field2val, len, pos) = @scip_ccall("SCIPsortedvecInsertDownRealBoolPtr", 
-    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Void, _SCIP_Real, _SCIP_Bool, Void, Void, Void,), realarray, boolarray, ptrarray, keyval, field1val, field2val, len, pos)
+    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Ptr{Ptr{Void}}, _SCIP_Real, _SCIP_Bool, Ptr{Void}, Ptr{Int}, Ptr{Int},), realarray, boolarray, ptrarray, keyval, field1val, field2val, len, pos)
 _SCIPsortedvecInsertDownRealPtr(realarray, ptrarray, keyval, field1val, len, pos) = @scip_ccall("SCIPsortedvecInsertDownRealPtr", 
-    Void, (Ptr{_SCIP_Real}, Void, _SCIP_Real, Void, Void, Void,), realarray, ptrarray, keyval, field1val, len, pos)
+    Void, (Ptr{_SCIP_Real}, Ptr{Ptr{Void}}, _SCIP_Real, Ptr{Void}, Ptr{Int}, Ptr{Int},), realarray, ptrarray, keyval, field1val, len, pos)
 _SCIPsortedvecInsertDownRealPtrPtr(realarray, ptrarray1, ptrarray2, keyval, field1val, field2val, len, pos) = @scip_ccall("SCIPsortedvecInsertDownRealPtrPtr", 
-    Void, (Ptr{_SCIP_Real}, Void, Void, _SCIP_Real, Void, Void, Void, Void,), realarray, ptrarray1, ptrarray2, keyval, field1val, field2val, len, pos)
+    Void, (Ptr{_SCIP_Real}, Ptr{Ptr{Void}}, Ptr{Ptr{Void}}, _SCIP_Real, Ptr{Void}, Ptr{Void}, Ptr{Int}, Ptr{Int},), realarray, ptrarray1, ptrarray2, keyval, field1val, field2val, len, pos)
 _SCIPsortedvecInsertDownRealInt(realarray, intarray, keyval, field1val, len, pos) = @scip_ccall("SCIPsortedvecInsertDownRealInt", 
-    Void, (Ptr{_SCIP_Real}, Void, _SCIP_Real, Void, Void, Void,), realarray, intarray, keyval, field1val, len, pos)
+    Void, (Ptr{_SCIP_Real}, Ptr{Int}, _SCIP_Real, Int, Ptr{Int}, Ptr{Int},), realarray, intarray, keyval, field1val, len, pos)
 _SCIPsortedvecInsertDownRealIntLong(realarray, intarray, longarray, keyval, field1val, field2val, len, pos) = @scip_ccall("SCIPsortedvecInsertDownRealIntLong", 
-    Void, (Ptr{_SCIP_Real}, Void, Ptr{Int64}, _SCIP_Real, Void, Int64, Void, Void,), realarray, intarray, longarray, keyval, field1val, field2val, len, pos)
+    Void, (Ptr{_SCIP_Real}, Ptr{Int}, Ptr{Int64}, _SCIP_Real, Int, Int64, Ptr{Int}, Ptr{Int},), realarray, intarray, longarray, keyval, field1val, field2val, len, pos)
 _SCIPsortedvecInsertDownRealIntPtr(realarray, intarray, ptrarray, keyval, field1val, field2val, len, pos) = @scip_ccall("SCIPsortedvecInsertDownRealIntPtr", 
-    Void, (Ptr{_SCIP_Real}, Void, Void, _SCIP_Real, Void, Void, Void, Void,), realarray, intarray, ptrarray, keyval, field1val, field2val, len, pos)
+    Void, (Ptr{_SCIP_Real}, Ptr{Int}, Ptr{Ptr{Void}}, _SCIP_Real, Int, Ptr{Void}, Ptr{Int}, Ptr{Int},), realarray, intarray, ptrarray, keyval, field1val, field2val, len, pos)
 _SCIPsortedvecInsertDownRealRealPtr(realarray1, realarray2, ptrarray, keyval, field1val, field2val, len, pos) = @scip_ccall("SCIPsortedvecInsertDownRealRealPtr", 
-    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Void, _SCIP_Real, _SCIP_Real, Void, Void, Void,), realarray1, realarray2, ptrarray, keyval, field1val, field2val, len, pos)
+    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{Ptr{Void}}, _SCIP_Real, _SCIP_Real, Ptr{Void}, Ptr{Int}, Ptr{Int},), realarray1, realarray2, ptrarray, keyval, field1val, field2val, len, pos)
 _SCIPsortedvecInsertDownRealPtrPtrInt(realarray, ptrarray1, ptrarray2, intarray, keyval, field1val, field2val, intval, len, pos) = @scip_ccall("SCIPsortedvecInsertDownRealPtrPtrInt", 
-    Void, (Ptr{_SCIP_Real}, Void, Void, Void, _SCIP_Real, Void, Void, Void, Void, Void,), realarray, ptrarray1, ptrarray2, intarray, keyval, field1val, field2val, intval, len, pos)
+    Void, (Ptr{_SCIP_Real}, Ptr{Ptr{Void}}, Ptr{Ptr{Void}}, Ptr{Int}, _SCIP_Real, Ptr{Void}, Ptr{Void}, Int, Ptr{Int}, Ptr{Int},), realarray, ptrarray1, ptrarray2, intarray, keyval, field1val, field2val, intval, len, pos)
 _SCIPsortedvecInsertDownRealPtrPtrIntInt(realarray, ptrarray1, ptrarray2, intarray1, intarray2, keyval, field1val, field2val, intval1, intval2, len, pos) = @scip_ccall("SCIPsortedvecInsertDownRealPtrPtrIntInt", 
-    Void, (Ptr{_SCIP_Real}, Void, Void, Void, Void, _SCIP_Real, Void, Void, Void, Void, Void, Void,), realarray, ptrarray1, ptrarray2, intarray1, intarray2, keyval, field1val, field2val, intval1, intval2, len, pos)
+    Void, (Ptr{_SCIP_Real}, Ptr{Ptr{Void}}, Ptr{Ptr{Void}}, Ptr{Int}, Ptr{Int}, _SCIP_Real, Ptr{Void}, Ptr{Void}, Int, Int, Ptr{Int}, Ptr{Int},), realarray, ptrarray1, ptrarray2, intarray1, intarray2, keyval, field1val, field2val, intval1, intval2, len, pos)
 _SCIPsortedvecInsertDownRealLongRealInt(realarray1, longarray, realarray3, intarray, keyval, field1val, field2val, field3val, len, pos) = @scip_ccall("SCIPsortedvecInsertDownRealLongRealInt", 
-    Void, (Ptr{_SCIP_Real}, Ptr{Int64}, Ptr{_SCIP_Real}, Void, _SCIP_Real, Int64, _SCIP_Real, Void, Void, Void,), realarray1, longarray, realarray3, intarray, keyval, field1val, field2val, field3val, len, pos)
+    Void, (Ptr{_SCIP_Real}, Ptr{Int64}, Ptr{_SCIP_Real}, Ptr{Int}, _SCIP_Real, Int64, _SCIP_Real, Int, Ptr{Int}, Ptr{Int},), realarray1, longarray, realarray3, intarray, keyval, field1val, field2val, field3val, len, pos)
 _SCIPsortedvecInsertDownRealRealIntInt(realarray1, realarray2, intarray1, intarray2, keyval, field1val, field2val, field3val, len, pos) = @scip_ccall("SCIPsortedvecInsertDownRealRealIntInt", 
-    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Void, Void, _SCIP_Real, _SCIP_Real, Void, Void, Void, Void,), realarray1, realarray2, intarray1, intarray2, keyval, field1val, field2val, field3val, len, pos)
+    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{Int}, Ptr{Int}, _SCIP_Real, _SCIP_Real, Int, Int, Ptr{Int}, Ptr{Int},), realarray1, realarray2, intarray1, intarray2, keyval, field1val, field2val, field3val, len, pos)
 _SCIPsortedvecInsertDownRealRealRealInt(realarray1, realarray2, realarray3, intarray, keyval, field1val, field2val, field3val, len, pos) = @scip_ccall("SCIPsortedvecInsertDownRealRealRealInt", 
-    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Void, _SCIP_Real, _SCIP_Real, _SCIP_Real, Void, Void, Void,), realarray1, realarray2, realarray3, intarray, keyval, field1val, field2val, field3val, len, pos)
+    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{Int}, _SCIP_Real, _SCIP_Real, _SCIP_Real, Int, Ptr{Int}, Ptr{Int},), realarray1, realarray2, realarray3, intarray, keyval, field1val, field2val, field3val, len, pos)
 _SCIPsortedvecInsertDownRealRealRealPtr(realarray1, realarray2, realarray3, ptrarray, keyval, field1val, field2val, field3val, len, pos) = @scip_ccall("SCIPsortedvecInsertDownRealRealRealPtr", 
-    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Void, _SCIP_Real, _SCIP_Real, _SCIP_Real, Void, Void, Void,), realarray1, realarray2, realarray3, ptrarray, keyval, field1val, field2val, field3val, len, pos)
+    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{Ptr{Void}}, _SCIP_Real, _SCIP_Real, _SCIP_Real, Ptr{Void}, Ptr{Int}, Ptr{Int},), realarray1, realarray2, realarray3, ptrarray, keyval, field1val, field2val, field3val, len, pos)
 _SCIPsortedvecInsertDownRealRealRealBoolPtr(realarray1, realarray2, realarray3, boolarray, ptrarray, keyval, field1val, field2val, field3val, field4val, len, pos) = @scip_ccall("SCIPsortedvecInsertDownRealRealRealBoolPtr", 
-    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Void, _SCIP_Real, _SCIP_Real, _SCIP_Real, _SCIP_Bool, Void, Void, Void,), realarray1, realarray2, realarray3, boolarray, ptrarray, keyval, field1val, field2val, field3val, field4val, len, pos)
+    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Ptr{Ptr{Void}}, _SCIP_Real, _SCIP_Real, _SCIP_Real, _SCIP_Bool, Ptr{Void}, Ptr{Int}, Ptr{Int},), realarray1, realarray2, realarray3, boolarray, ptrarray, keyval, field1val, field2val, field3val, field4val, len, pos)
 _SCIPsortedvecInsertDownInt(intarray, keyval, len, pos) = @scip_ccall("SCIPsortedvecInsertDownInt", 
-    Void, (Void, Void, Void, Void,), intarray, keyval, len, pos)
+    Void, (Ptr{Int}, Int, Ptr{Int}, Ptr{Int},), intarray, keyval, len, pos)
 _SCIPsortedvecInsertDownIntInt(intarray1, intarray2, keyval, field1val, len, pos) = @scip_ccall("SCIPsortedvecInsertDownIntInt", 
-    Void, (Void, Void, Void, Void, Void, Void,), intarray1, intarray2, keyval, field1val, len, pos)
+    Void, (Ptr{Int}, Ptr{Int}, Int, Int, Ptr{Int}, Ptr{Int},), intarray1, intarray2, keyval, field1val, len, pos)
 _SCIPsortedvecInsertDownIntReal(intarray, realarray, keyval, field1val, len, pos) = @scip_ccall("SCIPsortedvecInsertDownIntReal", 
-    Void, (Void, Ptr{_SCIP_Real}, Void, _SCIP_Real, Void, Void,), intarray, realarray, keyval, field1val, len, pos)
+    Void, (Ptr{Int}, Ptr{_SCIP_Real}, Int, _SCIP_Real, Ptr{Int}, Ptr{Int},), intarray, realarray, keyval, field1val, len, pos)
 _SCIPsortedvecInsertDownIntIntInt(intarray1, intarray2, intarray3, keyval, field1val, field2val, len, pos) = @scip_ccall("SCIPsortedvecInsertDownIntIntInt", 
-    Void, (Void, Void, Void, Void, Void, Void, Void, Void,), intarray1, intarray2, intarray3, keyval, field1val, field2val, len, pos)
+    Void, (Ptr{Int}, Ptr{Int}, Ptr{Int}, Int, Int, Int, Ptr{Int}, Ptr{Int},), intarray1, intarray2, intarray3, keyval, field1val, field2val, len, pos)
 _SCIPsortedvecInsertDownIntIntLong(intarray1, intarray2, longarray, keyval, field1val, field2val, len, pos) = @scip_ccall("SCIPsortedvecInsertDownIntIntLong", 
-    Void, (Void, Void, Ptr{Int64}, Void, Void, Int64, Void, Void,), intarray1, intarray2, longarray, keyval, field1val, field2val, len, pos)
+    Void, (Ptr{Int}, Ptr{Int}, Ptr{Int64}, Int, Int, Int64, Ptr{Int}, Ptr{Int},), intarray1, intarray2, longarray, keyval, field1val, field2val, len, pos)
 _SCIPsortedvecInsertDownIntIntPtr(intarray1, intarray2, ptrarray, keyval, field1val, field2val, len, pos) = @scip_ccall("SCIPsortedvecInsertDownIntIntPtr", 
-    Void, (Void, Void, Void, Void, Void, Void, Void, Void,), intarray1, intarray2, ptrarray, keyval, field1val, field2val, len, pos)
+    Void, (Ptr{Int}, Ptr{Int}, Ptr{Ptr{Void}}, Int, Int, Ptr{Void}, Ptr{Int}, Ptr{Int},), intarray1, intarray2, ptrarray, keyval, field1val, field2val, len, pos)
 _SCIPsortedvecInsertDownIntIntReal(intarray1, intarray2, realarray, keyval, field1val, field2val, len, pos) = @scip_ccall("SCIPsortedvecInsertDownIntIntReal", 
-    Void, (Void, Void, Ptr{_SCIP_Real}, Void, Void, _SCIP_Real, Void, Void,), intarray1, intarray2, realarray, keyval, field1val, field2val, len, pos)
+    Void, (Ptr{Int}, Ptr{Int}, Ptr{_SCIP_Real}, Int, Int, _SCIP_Real, Ptr{Int}, Ptr{Int},), intarray1, intarray2, realarray, keyval, field1val, field2val, len, pos)
 _SCIPsortedvecInsertDownIntPtr(intarray, ptrarray, keyval, field1val, len, pos) = @scip_ccall("SCIPsortedvecInsertDownIntPtr", 
-    Void, (Void, Void, Void, Void, Void, Void,), intarray, ptrarray, keyval, field1val, len, pos)
+    Void, (Ptr{Int}, Ptr{Ptr{Void}}, Int, Ptr{Void}, Ptr{Int}, Ptr{Int},), intarray, ptrarray, keyval, field1val, len, pos)
 _SCIPsortedvecInsertDownIntIntIntPtr(intarray1, intarray2, intarray3, ptrarray, keyval, field1val, field2val, field3val, len, pos) = @scip_ccall("SCIPsortedvecInsertDownIntIntIntPtr", 
-    Void, (Void, Void, Void, Void, Void, Void, Void, Void, Void, Void,), intarray1, intarray2, intarray3, ptrarray, keyval, field1val, field2val, field3val, len, pos)
+    Void, (Ptr{Int}, Ptr{Int}, Ptr{Int}, Ptr{Ptr{Void}}, Int, Int, Int, Ptr{Void}, Ptr{Int}, Ptr{Int},), intarray1, intarray2, intarray3, ptrarray, keyval, field1val, field2val, field3val, len, pos)
 _SCIPsortedvecInsertDownIntPtrIntReal(intarray1, ptrarray, intarray2, realarray, keyval, field1val, field2val, field3val, len, pos) = @scip_ccall("SCIPsortedvecInsertDownIntPtrIntReal", 
-    Void, (Void, Void, Void, Ptr{_SCIP_Real}, Void, Void, Void, _SCIP_Real, Void, Void,), intarray1, ptrarray, intarray2, realarray, keyval, field1val, field2val, field3val, len, pos)
+    Void, (Ptr{Int}, Ptr{Ptr{Void}}, Ptr{Int}, Ptr{_SCIP_Real}, Int, Ptr{Void}, Int, _SCIP_Real, Ptr{Int}, Ptr{Int},), intarray1, ptrarray, intarray2, realarray, keyval, field1val, field2val, field3val, len, pos)
 _SCIPsortedvecInsertDownLong(longarray, keyval, len, pos) = @scip_ccall("SCIPsortedvecInsertDownLong", 
-    Void, (Ptr{Int64}, Int64, Void, Void,), longarray, keyval, len, pos)
+    Void, (Ptr{Int64}, Int64, Ptr{Int}, Ptr{Int},), longarray, keyval, len, pos)
 _SCIPsortedvecInsertDownLongPtr(longarray, ptrarray, keyval, field1val, len, pos) = @scip_ccall("SCIPsortedvecInsertDownLongPtr", 
-    Void, (Ptr{Int64}, Void, Int64, Void, Void, Void,), longarray, ptrarray, keyval, field1val, len, pos)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Int64, Ptr{Void}, Ptr{Int}, Ptr{Int},), longarray, ptrarray, keyval, field1val, len, pos)
 _SCIPsortedvecInsertDownLongPtrInt(longarray, ptrarray, intarray, keyval, field1val, field2val, len, pos) = @scip_ccall("SCIPsortedvecInsertDownLongPtrInt", 
-    Void, (Ptr{Int64}, Void, Void, Int64, Void, Void, Void, Void,), longarray, ptrarray, intarray, keyval, field1val, field2val, len, pos)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{Int}, Int64, Ptr{Void}, Int, Ptr{Int}, Ptr{Int},), longarray, ptrarray, intarray, keyval, field1val, field2val, len, pos)
 _SCIPsortedvecInsertDownLongPtrRealBool(longarray, ptrarray, realarray, boolarray, keyval, field1val, field2val, field3val, len, pos) = @scip_ccall("SCIPsortedvecInsertDownLongPtrRealBool", 
-    Void, (Ptr{Int64}, Void, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Int64, Void, _SCIP_Real, _SCIP_Bool, Void, Void,), longarray, ptrarray, realarray, boolarray, keyval, field1val, field2val, field3val, len, pos)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Int64, Ptr{Void}, _SCIP_Real, _SCIP_Bool, Ptr{Int}, Ptr{Int},), longarray, ptrarray, realarray, boolarray, keyval, field1val, field2val, field3val, len, pos)
 _SCIPsortedvecInsertDownLongPtrRealRealBool(longarray, ptrarray, realarray, realarray2, boolarray, keyval, field1val, field2val, field3val, field4val, len, pos) = @scip_ccall("SCIPsortedvecInsertDownLongPtrRealRealBool", 
-    Void, (Ptr{Int64}, Void, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Int64, Void, _SCIP_Real, _SCIP_Real, _SCIP_Bool, Void, Void,), longarray, ptrarray, realarray, realarray2, boolarray, keyval, field1val, field2val, field3val, field4val, len, pos)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Int64, Ptr{Void}, _SCIP_Real, _SCIP_Real, _SCIP_Bool, Ptr{Int}, Ptr{Int},), longarray, ptrarray, realarray, realarray2, boolarray, keyval, field1val, field2val, field3val, field4val, len, pos)
 _SCIPsortedvecInsertDownLongPtrRealRealIntBool(longarray, ptrarray, realarray, realarray2, intarray, boolarray, keyval, field1val, field2val, field3val, field4val, field5val, len, pos) = @scip_ccall("SCIPsortedvecInsertDownLongPtrRealRealIntBool", 
-    Void, (Ptr{Int64}, Void, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Void, Ptr{_SCIP_Bool}, Int64, Void, _SCIP_Real, _SCIP_Real, Void, _SCIP_Bool, Void, Void,), longarray, ptrarray, realarray, realarray2, intarray, boolarray, keyval, field1val, field2val, field3val, field4val, field5val, len, pos)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{Int}, Ptr{_SCIP_Bool}, Int64, Ptr{Void}, _SCIP_Real, _SCIP_Real, Int, _SCIP_Bool, Ptr{Int}, Ptr{Int},), longarray, ptrarray, realarray, realarray2, intarray, boolarray, keyval, field1val, field2val, field3val, field4val, field5val, len, pos)
 _SCIPsortedvecInsertDownLongPtrPtrInt(longarray, ptrarray1, ptrarray2, intarray, keyval, field1val, field2val, field3val, len, pos) = @scip_ccall("SCIPsortedvecInsertDownLongPtrPtrInt", 
-    Void, (Ptr{Int64}, Void, Void, Void, Int64, Void, Void, Void, Void, Void,), longarray, ptrarray1, ptrarray2, intarray, keyval, field1val, field2val, field3val, len, pos)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{Ptr{Void}}, Ptr{Int}, Int64, Ptr{Void}, Ptr{Void}, Int, Ptr{Int}, Ptr{Int},), longarray, ptrarray1, ptrarray2, intarray, keyval, field1val, field2val, field3val, len, pos)
 _SCIPsortedvecInsertDownLongPtrPtrIntInt(longarray, ptrarray1, ptrarray2, intarray1, intarray2, keyval, field1val, field2val, field3val, field4val, len, pos) = @scip_ccall("SCIPsortedvecInsertDownLongPtrPtrIntInt", 
-    Void, (Ptr{Int64}, Void, Void, Void, Void, Int64, Void, Void, Void, Void, Void, Void,), longarray, ptrarray1, ptrarray2, intarray1, intarray2, keyval, field1val, field2val, field3val, field4val, len, pos)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{Ptr{Void}}, Ptr{Int}, Ptr{Int}, Int64, Ptr{Void}, Ptr{Void}, Int, Int, Ptr{Int}, Ptr{Int},), longarray, ptrarray1, ptrarray2, intarray1, intarray2, keyval, field1val, field2val, field3val, field4val, len, pos)
 _SCIPsortedvecInsertDownLongPtrPtrBoolInt(longarray, ptrarray1, ptrarray2, boolarray, intarray, keyval, field1val, field2val, field3val, field4val, len, pos) = @scip_ccall("SCIPsortedvecInsertDownLongPtrPtrBoolInt", 
-    Void, (Ptr{Int64}, Void, Void, Ptr{_SCIP_Bool}, Void, Int64, Void, Void, _SCIP_Bool, Void, Void, Void,), longarray, ptrarray1, ptrarray2, boolarray, intarray, keyval, field1val, field2val, field3val, field4val, len, pos)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{Ptr{Void}}, Ptr{_SCIP_Bool}, Ptr{Int}, Int64, Ptr{Void}, Ptr{Void}, _SCIP_Bool, Int, Ptr{Int}, Ptr{Int},), longarray, ptrarray1, ptrarray2, boolarray, intarray, keyval, field1val, field2val, field3val, field4val, len, pos)
 _SCIPsortedvecInsertDownIntPtrIntIntBoolBool(intarray1, ptrarray, intarray2, intarray3, boolarray1, boolarray2, keyval, field1val, field2val, field3val, field4val, field5val, len, pos) = @scip_ccall("SCIPsortedvecInsertDownIntPtrIntIntBoolBool", 
-    Void, (Void, Void, Void, Void, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Void, Void, Void, Void, _SCIP_Bool, _SCIP_Bool, Void, Void,), intarray1, ptrarray, intarray2, intarray3, boolarray1, boolarray2, keyval, field1val, field2val, field3val, field4val, field5val, len, pos)
+    Void, (Ptr{Int}, Ptr{Ptr{Void}}, Ptr{Int}, Ptr{Int}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Int, Ptr{Void}, Int, Int, _SCIP_Bool, _SCIP_Bool, Ptr{Int}, Ptr{Int},), intarray1, ptrarray, intarray2, intarray3, boolarray1, boolarray2, keyval, field1val, field2val, field3val, field4val, field5val, len, pos)
 _SCIPsortedvecDelPosRealBoolPtr(realarray, boolarray, ptrarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosRealBoolPtr", 
-    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Void, Void, Void,), realarray, boolarray, ptrarray, pos, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Ptr{Ptr{Void}}, Int, Ptr{Int},), realarray, boolarray, ptrarray, pos, len)
 _SCIPsortedvecDelPosRealPtr(realarray, ptrarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosRealPtr", 
-    Void, (Ptr{_SCIP_Real}, Void, Void, Void,), realarray, ptrarray, pos, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{Ptr{Void}}, Int, Ptr{Int},), realarray, ptrarray, pos, len)
 _SCIPsortedvecDelPosReal(realarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosReal", 
-    Void, (Ptr{_SCIP_Real}, Void, Void,), realarray, pos, len)
+    Void, (Ptr{_SCIP_Real}, Int, Ptr{Int},), realarray, pos, len)
 _SCIPsortedvecDelPosRealInt(realarray, intarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosRealInt", 
-    Void, (Ptr{_SCIP_Real}, Void, Void, Void,), realarray, intarray, pos, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{Int}, Int, Ptr{Int},), realarray, intarray, pos, len)
 _SCIPsortedvecDelPosRealIntLong(realarray, intarray, longarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosRealIntLong", 
-    Void, (Ptr{_SCIP_Real}, Void, Ptr{Int64}, Void, Void,), realarray, intarray, longarray, pos, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{Int}, Ptr{Int64}, Int, Ptr{Int},), realarray, intarray, longarray, pos, len)
 _SCIPsortedvecDelPosRealIntPtr(realarray, intarray, ptrarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosRealIntPtr", 
-    Void, (Ptr{_SCIP_Real}, Void, Void, Void, Void,), realarray, intarray, ptrarray, pos, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{Int}, Ptr{Ptr{Void}}, Int, Ptr{Int},), realarray, intarray, ptrarray, pos, len)
 _SCIPsortedvecDelPosRealRealPtr(realarray1, realarray2, ptrarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosRealRealPtr", 
-    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Void, Void, Void,), realarray1, realarray2, ptrarray, pos, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{Ptr{Void}}, Int, Ptr{Int},), realarray1, realarray2, ptrarray, pos, len)
 _SCIPsortedvecDelPosRealPtrPtrInt(realarray, ptrarray1, ptrarray2, intarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosRealPtrPtrInt", 
-    Void, (Ptr{_SCIP_Real}, Void, Void, Void, Void, Void,), realarray, ptrarray1, ptrarray2, intarray, pos, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{Ptr{Void}}, Ptr{Ptr{Void}}, Ptr{Int}, Int, Ptr{Int},), realarray, ptrarray1, ptrarray2, intarray, pos, len)
 _SCIPsortedvecDelPosRealPtrPtrIntInt(realarray, ptrarray1, ptrarray2, intarray1, intarray2, pos, len) = @scip_ccall("SCIPsortedvecDelPosRealPtrPtrIntInt", 
-    Void, (Ptr{_SCIP_Real}, Void, Void, Void, Void, Void, Void,), realarray, ptrarray1, ptrarray2, intarray1, intarray2, pos, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{Ptr{Void}}, Ptr{Ptr{Void}}, Ptr{Int}, Ptr{Int}, Int, Ptr{Int},), realarray, ptrarray1, ptrarray2, intarray1, intarray2, pos, len)
 _SCIPsortedvecDelPosRealLongRealInt(realarray1, longarray, realarray3, intarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosRealLongRealInt", 
-    Void, (Ptr{_SCIP_Real}, Ptr{Int64}, Ptr{_SCIP_Real}, Void, Void, Void,), realarray1, longarray, realarray3, intarray, pos, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{Int64}, Ptr{_SCIP_Real}, Ptr{Int}, Int, Ptr{Int},), realarray1, longarray, realarray3, intarray, pos, len)
 _SCIPsortedvecDelPosRealRealIntInt(realarray1, realarray2, intarray1, intarray2, pos, len) = @scip_ccall("SCIPsortedvecDelPosRealRealIntInt", 
-    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Void, Void, Void, Void,), realarray1, realarray2, intarray1, intarray2, pos, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{Int}, Ptr{Int}, Int, Ptr{Int},), realarray1, realarray2, intarray1, intarray2, pos, len)
 _SCIPsortedvecDelPosRealRealRealInt(realarray1, realarray2, realarray3, intarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosRealRealRealInt", 
-    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Void, Void, Void,), realarray1, realarray2, realarray3, intarray, pos, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{Int}, Int, Ptr{Int},), realarray1, realarray2, realarray3, intarray, pos, len)
 _SCIPsortedvecDelPosRealRealRealPtr(realarray1, realarray2, realarray3, ptrarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosRealRealRealPtr", 
-    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Void, Void, Void,), realarray1, realarray2, realarray3, ptrarray, pos, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{Ptr{Void}}, Int, Ptr{Int},), realarray1, realarray2, realarray3, ptrarray, pos, len)
 _SCIPsortedvecDelPosRealRealRealBoolPtr(realarray1, realarray2, realarray3, boolarray, ptrarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosRealRealRealBoolPtr", 
-    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Void, Void, Void,), realarray1, realarray2, realarray3, boolarray, ptrarray, pos, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Ptr{Ptr{Void}}, Int, Ptr{Int},), realarray1, realarray2, realarray3, boolarray, ptrarray, pos, len)
 _SCIPsortedvecDelPosInt(intarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosInt", 
-    Void, (Void, Void, Void,), intarray, pos, len)
+    Void, (Ptr{Int}, Int, Ptr{Int},), intarray, pos, len)
 _SCIPsortedvecDelPosIntInt(intarray1, intarray2, pos, len) = @scip_ccall("SCIPsortedvecDelPosIntInt", 
-    Void, (Void, Void, Void, Void,), intarray1, intarray2, pos, len)
+    Void, (Ptr{Int}, Ptr{Int}, Int, Ptr{Int},), intarray1, intarray2, pos, len)
 _SCIPsortedvecDelPosIntReal(intarray, realarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosIntReal", 
-    Void, (Void, Ptr{_SCIP_Real}, Void, Void,), intarray, realarray, pos, len)
+    Void, (Ptr{Int}, Ptr{_SCIP_Real}, Int, Ptr{Int},), intarray, realarray, pos, len)
 _SCIPsortedvecDelPosIntIntInt(intarray1, intarray2, intarray3, pos, len) = @scip_ccall("SCIPsortedvecDelPosIntIntInt", 
-    Void, (Void, Void, Void, Void, Void,), intarray1, intarray2, intarray3, pos, len)
+    Void, (Ptr{Int}, Ptr{Int}, Ptr{Int}, Int, Ptr{Int},), intarray1, intarray2, intarray3, pos, len)
 _SCIPsortedvecDelPosIntIntLong(intarray1, intarray2, longarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosIntIntLong", 
-    Void, (Void, Void, Ptr{Int64}, Void, Void,), intarray1, intarray2, longarray, pos, len)
+    Void, (Ptr{Int}, Ptr{Int}, Ptr{Int64}, Int, Ptr{Int},), intarray1, intarray2, longarray, pos, len)
 _SCIPsortedvecDelPosIntIntPtr(intarray1, intarray2, ptrarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosIntIntPtr", 
-    Void, (Void, Void, Void, Void, Void,), intarray1, intarray2, ptrarray, pos, len)
+    Void, (Ptr{Int}, Ptr{Int}, Ptr{Ptr{Void}}, Int, Ptr{Int},), intarray1, intarray2, ptrarray, pos, len)
 _SCIPsortedvecDelPosIntIntReal(intarray1, intarray2, realarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosIntIntReal", 
-    Void, (Void, Void, Ptr{_SCIP_Real}, Void, Void,), intarray1, intarray2, realarray, pos, len)
+    Void, (Ptr{Int}, Ptr{Int}, Ptr{_SCIP_Real}, Int, Ptr{Int},), intarray1, intarray2, realarray, pos, len)
 _SCIPsortedvecDelPosIntPtr(intarray, ptrarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosIntPtr", 
-    Void, (Void, Void, Void, Void,), intarray, ptrarray, pos, len)
+    Void, (Ptr{Int}, Ptr{Ptr{Void}}, Int, Ptr{Int},), intarray, ptrarray, pos, len)
 _SCIPsortedvecDelPosIntPtrReal(intarray, ptrarray, realarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosIntPtrReal", 
-    Void, (Void, Void, Ptr{_SCIP_Real}, Void, Void,), intarray, ptrarray, realarray, pos, len)
+    Void, (Ptr{Int}, Ptr{Ptr{Void}}, Ptr{_SCIP_Real}, Int, Ptr{Int},), intarray, ptrarray, realarray, pos, len)
 _SCIPsortedvecDelPosIntIntIntPtr(intarray1, intarray2, intarray3, ptrarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosIntIntIntPtr", 
-    Void, (Void, Void, Void, Void, Void, Void,), intarray1, intarray2, intarray3, ptrarray, pos, len)
+    Void, (Ptr{Int}, Ptr{Int}, Ptr{Int}, Ptr{Ptr{Void}}, Int, Ptr{Int},), intarray1, intarray2, intarray3, ptrarray, pos, len)
 _SCIPsortedvecDelPosIntPtrIntReal(intarray1, ptrarray, intarray2, realarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosIntPtrIntReal", 
-    Void, (Void, Void, Void, Ptr{_SCIP_Real}, Void, Void,), intarray1, ptrarray, intarray2, realarray, pos, len)
+    Void, (Ptr{Int}, Ptr{Ptr{Void}}, Ptr{Int}, Ptr{_SCIP_Real}, Int, Ptr{Int},), intarray1, ptrarray, intarray2, realarray, pos, len)
 _SCIPsortedvecDelPosLong(longarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosLong", 
-    Void, (Ptr{Int64}, Void, Void,), longarray, pos, len)
+    Void, (Ptr{Int64}, Int, Ptr{Int},), longarray, pos, len)
 _SCIPsortedvecDelPosLongPtr(longarray, ptrarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosLongPtr", 
-    Void, (Ptr{Int64}, Void, Void, Void,), longarray, ptrarray, pos, len)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Int, Ptr{Int},), longarray, ptrarray, pos, len)
 _SCIPsortedvecDelPosLongPtrInt(longarray, ptrarray, intarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosLongPtrInt", 
-    Void, (Ptr{Int64}, Void, Void, Void, Void,), longarray, ptrarray, intarray, pos, len)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{Int}, Int, Ptr{Int},), longarray, ptrarray, intarray, pos, len)
 _SCIPsortedvecDelPosLongPtrRealBool(longarray, ptrarray, realarray, boolarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosLongPtrRealBool", 
-    Void, (Ptr{Int64}, Void, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Void, Void,), longarray, ptrarray, realarray, boolarray, pos, len)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Int, Ptr{Int},), longarray, ptrarray, realarray, boolarray, pos, len)
 _SCIPsortedvecDelPosLongPtrRealRealBool(longarray, ptrarray, realarray, realarray2, boolarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosLongPtrRealRealBool", 
-    Void, (Ptr{Int64}, Void, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Void, Void,), longarray, ptrarray, realarray, realarray2, boolarray, pos, len)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Int, Ptr{Int},), longarray, ptrarray, realarray, realarray2, boolarray, pos, len)
 _SCIPsortedvecDelPosLongPtrRealRealIntBool(longarray, ptrarray, realarray, realarray2, intarray, boolarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosLongPtrRealRealIntBool", 
-    Void, (Ptr{Int64}, Void, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Void, Ptr{_SCIP_Bool}, Void, Void,), longarray, ptrarray, realarray, realarray2, intarray, boolarray, pos, len)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{Int}, Ptr{_SCIP_Bool}, Int, Ptr{Int},), longarray, ptrarray, realarray, realarray2, intarray, boolarray, pos, len)
 _SCIPsortedvecDelPosLongPtrPtrInt(longarray, ptrarray1, ptrarray2, intarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosLongPtrPtrInt", 
-    Void, (Ptr{Int64}, Void, Void, Void, Void, Void,), longarray, ptrarray1, ptrarray2, intarray, pos, len)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{Ptr{Void}}, Ptr{Int}, Int, Ptr{Int},), longarray, ptrarray1, ptrarray2, intarray, pos, len)
 _SCIPsortedvecDelPosLongPtrPtrIntInt(longarray, ptrarray1, ptrarray2, intarray1, intarray2, pos, len) = @scip_ccall("SCIPsortedvecDelPosLongPtrPtrIntInt", 
-    Void, (Ptr{Int64}, Void, Void, Void, Void, Void, Void,), longarray, ptrarray1, ptrarray2, intarray1, intarray2, pos, len)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{Ptr{Void}}, Ptr{Int}, Ptr{Int}, Int, Ptr{Int},), longarray, ptrarray1, ptrarray2, intarray1, intarray2, pos, len)
 _SCIPsortedvecDelPosLongPtrPtrBoolInt(longarray, ptrarray1, ptrarray2, boolarray, intarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosLongPtrPtrBoolInt", 
-    Void, (Ptr{Int64}, Void, Void, Ptr{_SCIP_Bool}, Void, Void, Void,), longarray, ptrarray1, ptrarray2, boolarray, intarray, pos, len)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{Ptr{Void}}, Ptr{_SCIP_Bool}, Ptr{Int}, Int, Ptr{Int},), longarray, ptrarray1, ptrarray2, boolarray, intarray, pos, len)
 _SCIPsortedvecDelPosIntPtrIntIntBoolBool(intarray1, ptrarray, intarray2, intarray3, boolarray1, boolarray2, pos, len) = @scip_ccall("SCIPsortedvecDelPosIntPtrIntIntBoolBool", 
-    Void, (Void, Void, Void, Void, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Void, Void,), intarray1, ptrarray, intarray2, intarray3, boolarray1, boolarray2, pos, len)
+    Void, (Ptr{Int}, Ptr{Ptr{Void}}, Ptr{Int}, Ptr{Int}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Int, Ptr{Int},), intarray1, ptrarray, intarray2, intarray3, boolarray1, boolarray2, pos, len)
 _SCIPsortedvecDelPosDownReal(realarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosDownReal", 
-    Void, (Ptr{_SCIP_Real}, Void, Void,), realarray, pos, len)
+    Void, (Ptr{_SCIP_Real}, Int, Ptr{Int},), realarray, pos, len)
 _SCIPsortedvecDelPosDownRealBoolPtr(realarray, boolarray, ptrarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosDownRealBoolPtr", 
-    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Void, Void, Void,), realarray, boolarray, ptrarray, pos, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Ptr{Ptr{Void}}, Int, Ptr{Int},), realarray, boolarray, ptrarray, pos, len)
 _SCIPsortedvecDelPosDownRealPtr(realarray, ptrarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosDownRealPtr", 
-    Void, (Ptr{_SCIP_Real}, Void, Void, Void,), realarray, ptrarray, pos, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{Ptr{Void}}, Int, Ptr{Int},), realarray, ptrarray, pos, len)
 _SCIPsortedvecDelPosDownRealInt(realarray, intarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosDownRealInt", 
-    Void, (Ptr{_SCIP_Real}, Void, Void, Void,), realarray, intarray, pos, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{Int}, Int, Ptr{Int},), realarray, intarray, pos, len)
 _SCIPsortedvecDelPosDownRealIntLong(realarray, intarray, longarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosDownRealIntLong", 
-    Void, (Ptr{_SCIP_Real}, Void, Ptr{Int64}, Void, Void,), realarray, intarray, longarray, pos, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{Int}, Ptr{Int64}, Int, Ptr{Int},), realarray, intarray, longarray, pos, len)
 _SCIPsortedvecDelPosDownRealIntPtr(realarray, intarray, ptrarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosDownRealIntPtr", 
-    Void, (Ptr{_SCIP_Real}, Void, Void, Void, Void,), realarray, intarray, ptrarray, pos, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{Int}, Ptr{Ptr{Void}}, Int, Ptr{Int},), realarray, intarray, ptrarray, pos, len)
 _SCIPsortedvecDelPosDownRealRealPtr(realarray1, realarray2, ptrarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosDownRealRealPtr", 
-    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Void, Void, Void,), realarray1, realarray2, ptrarray, pos, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{Ptr{Void}}, Int, Ptr{Int},), realarray1, realarray2, ptrarray, pos, len)
 _SCIPsortedvecDelPosDownRealPtrPtr(realarray, ptrarray1, ptrarray2, pos, len) = @scip_ccall("SCIPsortedvecDelPosDownRealPtrPtr", 
-    Void, (Ptr{_SCIP_Real}, Void, Void, Void, Void,), realarray, ptrarray1, ptrarray2, pos, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{Ptr{Void}}, Ptr{Ptr{Void}}, Int, Ptr{Int},), realarray, ptrarray1, ptrarray2, pos, len)
 _SCIPsortedvecDelPosDownRealPtrPtrInt(realarray, ptrarray1, ptrarray2, intarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosDownRealPtrPtrInt", 
-    Void, (Ptr{_SCIP_Real}, Void, Void, Void, Void, Void,), realarray, ptrarray1, ptrarray2, intarray, pos, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{Ptr{Void}}, Ptr{Ptr{Void}}, Ptr{Int}, Int, Ptr{Int},), realarray, ptrarray1, ptrarray2, intarray, pos, len)
 _SCIPsortedvecDelPosDownRealPtrPtrIntInt(realarray, ptrarray1, ptrarray2, intarray1, intarray2, pos, len) = @scip_ccall("SCIPsortedvecDelPosDownRealPtrPtrIntInt", 
-    Void, (Ptr{_SCIP_Real}, Void, Void, Void, Void, Void, Void,), realarray, ptrarray1, ptrarray2, intarray1, intarray2, pos, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{Ptr{Void}}, Ptr{Ptr{Void}}, Ptr{Int}, Ptr{Int}, Int, Ptr{Int},), realarray, ptrarray1, ptrarray2, intarray1, intarray2, pos, len)
 _SCIPsortedvecDelPosDownRealLongRealInt(realarray1, longarray, realarray3, intarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosDownRealLongRealInt", 
-    Void, (Ptr{_SCIP_Real}, Ptr{Int64}, Ptr{_SCIP_Real}, Void, Void, Void,), realarray1, longarray, realarray3, intarray, pos, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{Int64}, Ptr{_SCIP_Real}, Ptr{Int}, Int, Ptr{Int},), realarray1, longarray, realarray3, intarray, pos, len)
 _SCIPsortedvecDelPosDownRealRealIntInt(realarray1, realarray2, intarray1, intarray2, pos, len) = @scip_ccall("SCIPsortedvecDelPosDownRealRealIntInt", 
-    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Void, Void, Void, Void,), realarray1, realarray2, intarray1, intarray2, pos, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{Int}, Ptr{Int}, Int, Ptr{Int},), realarray1, realarray2, intarray1, intarray2, pos, len)
 _SCIPsortedvecDelPosDownRealRealRealInt(realarray1, realarray2, realarray3, intarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosDownRealRealRealInt", 
-    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Void, Void, Void,), realarray1, realarray2, realarray3, intarray, pos, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{Int}, Int, Ptr{Int},), realarray1, realarray2, realarray3, intarray, pos, len)
 _SCIPsortedvecDelPosDownRealRealRealPtr(realarray1, realarray2, realarray3, ptrarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosDownRealRealRealPtr", 
-    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Void, Void, Void,), realarray1, realarray2, realarray3, ptrarray, pos, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{Ptr{Void}}, Int, Ptr{Int},), realarray1, realarray2, realarray3, ptrarray, pos, len)
 _SCIPsortedvecDelPosDownRealRealRealBoolPtr(realarray1, realarray2, realarray3, boolarray, ptrarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosDownRealRealRealBoolPtr", 
-    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Void, Void, Void,), realarray1, realarray2, realarray3, boolarray, ptrarray, pos, len)
+    Void, (Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Ptr{Ptr{Void}}, Int, Ptr{Int},), realarray1, realarray2, realarray3, boolarray, ptrarray, pos, len)
 _SCIPsortedvecDelPosDownInt(intarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosDownInt", 
-    Void, (Void, Void, Void,), intarray, pos, len)
+    Void, (Ptr{Int}, Int, Ptr{Int},), intarray, pos, len)
 _SCIPsortedvecDelPosDownIntInt(intarray1, intarray2, pos, len) = @scip_ccall("SCIPsortedvecDelPosDownIntInt", 
-    Void, (Void, Void, Void, Void,), intarray1, intarray2, pos, len)
+    Void, (Ptr{Int}, Ptr{Int}, Int, Ptr{Int},), intarray1, intarray2, pos, len)
 _SCIPsortedvecDelPosDownIntReal(intarray, realarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosDownIntReal", 
-    Void, (Void, Ptr{_SCIP_Real}, Void, Void,), intarray, realarray, pos, len)
+    Void, (Ptr{Int}, Ptr{_SCIP_Real}, Int, Ptr{Int},), intarray, realarray, pos, len)
 _SCIPsortedvecDelPosDownIntIntInt(intarray1, intarray2, intarray3, pos, len) = @scip_ccall("SCIPsortedvecDelPosDownIntIntInt", 
-    Void, (Void, Void, Void, Void, Void,), intarray1, intarray2, intarray3, pos, len)
+    Void, (Ptr{Int}, Ptr{Int}, Ptr{Int}, Int, Ptr{Int},), intarray1, intarray2, intarray3, pos, len)
 _SCIPsortedvecDelPosDownIntIntLong(intarray1, intarray2, longarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosDownIntIntLong", 
-    Void, (Void, Void, Ptr{Int64}, Void, Void,), intarray1, intarray2, longarray, pos, len)
+    Void, (Ptr{Int}, Ptr{Int}, Ptr{Int64}, Int, Ptr{Int},), intarray1, intarray2, longarray, pos, len)
 _SCIPsortedvecDelPosDownIntIntPtr(intarray1, intarray2, ptrarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosDownIntIntPtr", 
-    Void, (Void, Void, Void, Void, Void,), intarray1, intarray2, ptrarray, pos, len)
+    Void, (Ptr{Int}, Ptr{Int}, Ptr{Ptr{Void}}, Int, Ptr{Int},), intarray1, intarray2, ptrarray, pos, len)
 _SCIPsortedvecDelPosDownIntIntReal(intarray1, intarray2, realarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosDownIntIntReal", 
-    Void, (Void, Void, Ptr{_SCIP_Real}, Void, Void,), intarray1, intarray2, realarray, pos, len)
+    Void, (Ptr{Int}, Ptr{Int}, Ptr{_SCIP_Real}, Int, Ptr{Int},), intarray1, intarray2, realarray, pos, len)
 _SCIPsortedvecDelPosDownIntPtr(intarray, ptrarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosDownIntPtr", 
-    Void, (Void, Void, Void, Void,), intarray, ptrarray, pos, len)
+    Void, (Ptr{Int}, Ptr{Ptr{Void}}, Int, Ptr{Int},), intarray, ptrarray, pos, len)
 _SCIPsortedvecDelPosDownIntIntIntPtr(intarray1, intarray2, intarray3, ptrarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosDownIntIntIntPtr", 
-    Void, (Void, Void, Void, Void, Void, Void,), intarray1, intarray2, intarray3, ptrarray, pos, len)
+    Void, (Ptr{Int}, Ptr{Int}, Ptr{Int}, Ptr{Ptr{Void}}, Int, Ptr{Int},), intarray1, intarray2, intarray3, ptrarray, pos, len)
 _SCIPsortedvecDelPosDownIntPtrIntReal(intarray1, ptrarray, intarray2, realarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosDownIntPtrIntReal", 
-    Void, (Void, Void, Void, Ptr{_SCIP_Real}, Void, Void,), intarray1, ptrarray, intarray2, realarray, pos, len)
+    Void, (Ptr{Int}, Ptr{Ptr{Void}}, Ptr{Int}, Ptr{_SCIP_Real}, Int, Ptr{Int},), intarray1, ptrarray, intarray2, realarray, pos, len)
 _SCIPsortedvecDelPosDownLong(longarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosDownLong", 
-    Void, (Ptr{Int64}, Void, Void,), longarray, pos, len)
+    Void, (Ptr{Int64}, Int, Ptr{Int},), longarray, pos, len)
 _SCIPsortedvecDelPosDownLongPtr(longarray, ptrarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosDownLongPtr", 
-    Void, (Ptr{Int64}, Void, Void, Void,), longarray, ptrarray, pos, len)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Int, Ptr{Int},), longarray, ptrarray, pos, len)
 _SCIPsortedvecDelPosDownLongPtrInt(longarray, ptrarray, intarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosDownLongPtrInt", 
-    Void, (Ptr{Int64}, Void, Void, Void, Void,), longarray, ptrarray, intarray, pos, len)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{Int}, Int, Ptr{Int},), longarray, ptrarray, intarray, pos, len)
 _SCIPsortedvecDelPosDownLongPtrRealBool(longarray, ptrarray, realarray, boolarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosDownLongPtrRealBool", 
-    Void, (Ptr{Int64}, Void, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Void, Void,), longarray, ptrarray, realarray, boolarray, pos, len)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Int, Ptr{Int},), longarray, ptrarray, realarray, boolarray, pos, len)
 _SCIPsortedvecDelPosDownLongPtrRealRealBool(longarray, ptrarray, realarray, realarray2, boolarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosDownLongPtrRealRealBool", 
-    Void, (Ptr{Int64}, Void, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Void, Void,), longarray, ptrarray, realarray, realarray2, boolarray, pos, len)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Int, Ptr{Int},), longarray, ptrarray, realarray, realarray2, boolarray, pos, len)
 _SCIPsortedvecDelPosDownLongPtrRealRealIntBool(longarray, ptrarray, realarray, realarray2, intarray, boolarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosDownLongPtrRealRealIntBool", 
-    Void, (Ptr{Int64}, Void, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Void, Ptr{_SCIP_Bool}, Void, Void,), longarray, ptrarray, realarray, realarray2, intarray, boolarray, pos, len)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{Int}, Ptr{_SCIP_Bool}, Int, Ptr{Int},), longarray, ptrarray, realarray, realarray2, intarray, boolarray, pos, len)
 _SCIPsortedvecDelPosDownLongPtrPtrInt(longarray, ptrarray1, ptrarray2, intarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosDownLongPtrPtrInt", 
-    Void, (Ptr{Int64}, Void, Void, Void, Void, Void,), longarray, ptrarray1, ptrarray2, intarray, pos, len)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{Ptr{Void}}, Ptr{Int}, Int, Ptr{Int},), longarray, ptrarray1, ptrarray2, intarray, pos, len)
 _SCIPsortedvecDelPosDownLongPtrPtrIntInt(longarray, ptrarray1, ptrarray2, intarray1, intarray2, pos, len) = @scip_ccall("SCIPsortedvecDelPosDownLongPtrPtrIntInt", 
-    Void, (Ptr{Int64}, Void, Void, Void, Void, Void, Void,), longarray, ptrarray1, ptrarray2, intarray1, intarray2, pos, len)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{Ptr{Void}}, Ptr{Int}, Ptr{Int}, Int, Ptr{Int},), longarray, ptrarray1, ptrarray2, intarray1, intarray2, pos, len)
 _SCIPsortedvecDelPosDownLongPtrPtrBoolInt(longarray, ptrarray1, ptrarray2, boolarray, intarray, pos, len) = @scip_ccall("SCIPsortedvecDelPosDownLongPtrPtrBoolInt", 
-    Void, (Ptr{Int64}, Void, Void, Ptr{_SCIP_Bool}, Void, Void, Void,), longarray, ptrarray1, ptrarray2, boolarray, intarray, pos, len)
+    Void, (Ptr{Int64}, Ptr{Ptr{Void}}, Ptr{Ptr{Void}}, Ptr{_SCIP_Bool}, Ptr{Int}, Int, Ptr{Int},), longarray, ptrarray1, ptrarray2, boolarray, intarray, pos, len)
 _SCIPsortedvecDelPosDownIntPtrIntIntBoolBool(intarray1, ptrarray, intarray2, intarray3, boolarray1, boolarray2, pos, len) = @scip_ccall("SCIPsortedvecDelPosDownIntPtrIntIntBoolBool", 
-    Void, (Void, Void, Void, Void, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Void, Void,), intarray1, ptrarray, intarray2, intarray3, boolarray1, boolarray2, pos, len)
+    Void, (Ptr{Int}, Ptr{Ptr{Void}}, Ptr{Int}, Ptr{Int}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Int, Ptr{Int},), intarray1, ptrarray, intarray2, intarray3, boolarray1, boolarray2, pos, len)
 _SCIPsortedvecFindReal(realarray, val, len, pos) = @scip_ccall("SCIPsortedvecFindReal", 
-    _SCIP_Bool, (Ptr{_SCIP_Real}, _SCIP_Real, Void, Void,), realarray, val, len, pos)
+    _SCIP_Bool, (Ptr{_SCIP_Real}, _SCIP_Real, Int, Ptr{Int},), realarray, val, len, pos)
 _SCIPsortedvecFindInt(intarray, val, len, pos) = @scip_ccall("SCIPsortedvecFindInt", 
-    _SCIP_Bool, (Void, Void, Void, Void,), intarray, val, len, pos)
+    _SCIP_Bool, (Ptr{Int}, Int, Int, Ptr{Int},), intarray, val, len, pos)
 _SCIPsortedvecFindLong(longarray, val, len, pos) = @scip_ccall("SCIPsortedvecFindLong", 
-    _SCIP_Bool, (Ptr{Int64}, Int64, Void, Void,), longarray, val, len, pos)
+    _SCIP_Bool, (Ptr{Int64}, Int64, Int, Ptr{Int},), longarray, val, len, pos)
 _SCIPsortedvecFindDownReal(realarray, val, len, pos) = @scip_ccall("SCIPsortedvecFindDownReal", 
-    _SCIP_Bool, (Ptr{_SCIP_Real}, _SCIP_Real, Void, Void,), realarray, val, len, pos)
+    _SCIP_Bool, (Ptr{_SCIP_Real}, _SCIP_Real, Int, Ptr{Int},), realarray, val, len, pos)
 _SCIPsortedvecFindDownInt(intarray, val, len, pos) = @scip_ccall("SCIPsortedvecFindDownInt", 
-    _SCIP_Bool, (Void, Void, Void, Void,), intarray, val, len, pos)
+    _SCIP_Bool, (Ptr{Int}, Int, Int, Ptr{Int},), intarray, val, len, pos)
 _SCIPsortedvecFindDownLong(longarray, val, len, pos) = @scip_ccall("SCIPsortedvecFindDownLong", 
-    _SCIP_Bool, (Ptr{Int64}, Int64, Void, Void,), longarray, val, len, pos)
+    _SCIP_Bool, (Ptr{Int64}, Int64, Int, Ptr{Int},), longarray, val, len, pos)
 _SCIPcalcMachineEpsilon() = @scip_ccall("SCIPcalcMachineEpsilon", 
     _SCIP_Real, ())
 _SCIPcalcGreComDiv(val1, val2) = @scip_ccall("SCIPcalcGreComDiv", 
@@ -1769,61 +1769,61 @@ _SCIPselectSimpleValue(lb, ub, maxdnom) = @scip_ccall("SCIPselectSimpleValue",
 _SCIPrelDiff(val1, val2) = @scip_ccall("SCIPrelDiff", 
     _SCIP_Real, (_SCIP_Real, _SCIP_Real,), val1, val2)
 _SCIPgetRandomInt(minrandval, maxrandval, seedp) = @scip_ccall("SCIPgetRandomInt", 
-    Void, (Void, Void, Void,), minrandval, maxrandval, seedp)
+    Int, (Int, Int, Ptr{Uint},), minrandval, maxrandval, seedp)
 _SCIPgetRandomReal(minrandval, maxrandval, seedp) = @scip_ccall("SCIPgetRandomReal", 
-    _SCIP_Real, (_SCIP_Real, _SCIP_Real, Void,), minrandval, maxrandval, seedp)
+    _SCIP_Real, (_SCIP_Real, _SCIP_Real, Ptr{Uint},), minrandval, maxrandval, seedp)
 _SCIPcalcBinomCoef(n, m) = @scip_ccall("SCIPcalcBinomCoef", 
-    Int64, (Void, Void,), n, m)
+    Int64, (Int, Int,), n, m)
 _SCIPswapInts(value1, value2) = @scip_ccall("SCIPswapInts", 
-    Void, (Void, Void,), value1, value2)
+    Void, (Ptr{Int}, Ptr{Int},), value1, value2)
 _SCIPswapPointers(pointer1, pointer2) = @scip_ccall("SCIPswapPointers", 
-    Void, (Void, Void,), pointer1, pointer2)
+    Void, (Ptr{Ptr{Void}}, Ptr{Ptr{Void}},), pointer1, pointer2)
 _SCIPpermuteIntArray(array, beginVar, endVar, randseed) = @scip_ccall("SCIPpermuteIntArray", 
-    Void, (Void, Void, Void, Void,), array, beginVar, endVar, randseed)
+    Void, (Ptr{Int}, Int, Int, Ptr{Uint},), array, beginVar, endVar, randseed)
 _SCIPpermuteArray(array, beginVar, endVar, randseed) = @scip_ccall("SCIPpermuteArray", 
-    Void, (Void, Void, Void, Void,), array, beginVar, endVar, randseed)
+    Void, (Ptr{Ptr{Void}}, Int, Int, Ptr{Uint},), array, beginVar, endVar, randseed)
 _SCIPmemccpy(dest, src, stop, cnt) = @scip_ccall("SCIPmemccpy", 
-    Void, (Void, Void, Void, Void,), dest, src, stop, cnt)
+    Int, (Ptr{Char}, Ptr{Ptr{Char}}, Char, Uint,), dest, src, stop, cnt)
 _SCIPprintSysError(message) = @scip_ccall("SCIPprintSysError", 
-    Void, (Void,), message)
+    Void, (Ptr{Ptr{Char}},), message)
 _SCIPstrtok(s, delim, ptrptr) = @scip_ccall("SCIPstrtok", 
-    Void, (Void, Void, Void,), s, delim, ptrptr)
+    Ptr{Char}, (Ptr{Char}, Ptr{Ptr{Char}}, Ptr{Ptr{Char}},), s, delim, ptrptr)
 _SCIPescapeString(t, bufsize, s) = @scip_ccall("SCIPescapeString", 
-    Void, (Void, Void, Void,), t, bufsize, s)
+    Void, (Ptr{Char}, Int, Ptr{Ptr{Char}},), t, bufsize, s)
 _SCIPstrToIntValue(str, value, endptr) = @scip_ccall("SCIPstrToIntValue", 
-    _SCIP_Bool, (Void, Void, Void,), str, value, endptr)
+    _SCIP_Bool, (Ptr{Ptr{Char}}, Ptr{Int}, Ptr{Ptr{Char}},), str, value, endptr)
 _SCIPstrToRealValue(str, value, endptr) = @scip_ccall("SCIPstrToRealValue", 
-    _SCIP_Bool, (Void, Ptr{_SCIP_Real}, Void,), str, value, endptr)
+    _SCIP_Bool, (Ptr{Ptr{Char}}, Ptr{_SCIP_Real}, Ptr{Ptr{Char}},), str, value, endptr)
 _SCIPstrCopySection(str, startchar, endchar, token, size, endptr) = @scip_ccall("SCIPstrCopySection", 
-    Void, (Void, Void, Void, Void, Void, Void,), str, startchar, endchar, token, size, endptr)
+    Void, (Ptr{Ptr{Char}}, Char, Char, Ptr{Char}, Int, Ptr{Ptr{Char}},), str, startchar, endchar, token, size, endptr)
 _SCIPfileExists(filename) = @scip_ccall("SCIPfileExists", 
-    _SCIP_Bool, (Void,), filename)
+    _SCIP_Bool, (Ptr{Ptr{Char}},), filename)
 _SCIPsplitFilename(filename, path, name, extension, compression) = @scip_ccall("SCIPsplitFilename", 
-    Void, (Void, Void, Void, Void, Void,), filename, path, name, extension, compression)
+    Void, (Ptr{Char}, Ptr{Ptr{Char}}, Ptr{Ptr{Char}}, Ptr{Ptr{Char}}, Ptr{Ptr{Char}},), filename, path, name, extension, compression)
 _SCIPexprtreeGetVars(tree) = @scip_ccall("SCIPexprtreeGetVars", 
     Ptr{Ptr{_SCIP_VAR}}, (Ptr{_SCIP_EXPRTREE},), tree)
 _SCIPexprtreeFindVar(tree, var) = @scip_ccall("SCIPexprtreeFindVar", 
-    Void, (Ptr{_SCIP_EXPRTREE}, Ptr{_SCIP_VAR},), tree, var)
+    Int, (Ptr{_SCIP_EXPRTREE}, Ptr{_SCIP_VAR},), tree, var)
 _SCIPnlrowGetConstant(nlrow) = @scip_ccall("SCIPnlrowGetConstant", 
     _SCIP_Real, (Ptr{_SCIP_NLROW},), nlrow)
 _SCIPnlrowGetNLinearVars(nlrow) = @scip_ccall("SCIPnlrowGetNLinearVars", 
-    Void, (Ptr{_SCIP_NLROW},), nlrow)
+    Int, (Ptr{_SCIP_NLROW},), nlrow)
 _SCIPnlrowGetLinearVars(nlrow) = @scip_ccall("SCIPnlrowGetLinearVars", 
     Ptr{Ptr{_SCIP_VAR}}, (Ptr{_SCIP_NLROW},), nlrow)
 _SCIPnlrowGetLinearCoefs(nlrow) = @scip_ccall("SCIPnlrowGetLinearCoefs", 
     Ptr{_SCIP_Real}, (Ptr{_SCIP_NLROW},), nlrow)
 _SCIPnlrowGetNQuadVars(nlrow) = @scip_ccall("SCIPnlrowGetNQuadVars", 
-    Void, (Ptr{_SCIP_NLROW},), nlrow)
+    Int, (Ptr{_SCIP_NLROW},), nlrow)
 _SCIPnlrowGetQuadVars(nlrow) = @scip_ccall("SCIPnlrowGetQuadVars", 
     Ptr{Ptr{_SCIP_VAR}}, (Ptr{_SCIP_NLROW},), nlrow)
 _SCIPnlrowSearchQuadVar(nlrow, var) = @scip_ccall("SCIPnlrowSearchQuadVar", 
-    Void, (Ptr{_SCIP_NLROW}, Ptr{_SCIP_VAR},), nlrow, var)
+    Int, (Ptr{_SCIP_NLROW}, Ptr{_SCIP_VAR},), nlrow, var)
 _SCIPnlrowGetNQuadElems(nlrow) = @scip_ccall("SCIPnlrowGetNQuadElems", 
-    Void, (Ptr{_SCIP_NLROW},), nlrow)
+    Int, (Ptr{_SCIP_NLROW},), nlrow)
 _SCIPnlrowGetQuadElems(nlrow) = @scip_ccall("SCIPnlrowGetQuadElems", 
     Ptr{_SCIP_QUADELEM}, (Ptr{_SCIP_NLROW},), nlrow)
 _SCIPnlrowGetQuadData(nlrow, nquadvars, quadvars, nquadelems, quadelems) = @scip_ccall("SCIPnlrowGetQuadData", 
-    Void, (Ptr{_SCIP_NLROW}, Void, Ptr{Ptr{Ptr{_SCIP_VAR}}}, Void, Ptr{Ptr{_SCIP_QUADELEM}},), nlrow, nquadvars, quadvars, nquadelems, quadelems)
+    Void, (Ptr{_SCIP_NLROW}, Ptr{Int}, Ptr{Ptr{Ptr{_SCIP_VAR}}}, Ptr{Int}, Ptr{Ptr{_SCIP_QUADELEM}},), nlrow, nquadvars, quadvars, nquadelems, quadelems)
 _SCIPnlrowGetExprtree(nlrow) = @scip_ccall("SCIPnlrowGetExprtree", 
     Ptr{_SCIP_EXPRTREE}, (Ptr{_SCIP_NLROW},), nlrow)
 _SCIPnlrowGetLhs(nlrow) = @scip_ccall("SCIPnlrowGetLhs", 
@@ -1831,21 +1831,21 @@ _SCIPnlrowGetLhs(nlrow) = @scip_ccall("SCIPnlrowGetLhs",
 _SCIPnlrowGetRhs(nlrow) = @scip_ccall("SCIPnlrowGetRhs", 
     _SCIP_Real, (Ptr{_SCIP_NLROW},), nlrow)
 _SCIPnlrowGetName(nlrow) = @scip_ccall("SCIPnlrowGetName", 
-    Void, (Ptr{_SCIP_NLROW},), nlrow)
+    Ptr{Ptr{Char}}, (Ptr{_SCIP_NLROW},), nlrow)
 _SCIPnlrowGetNLPPos(nlrow) = @scip_ccall("SCIPnlrowGetNLPPos", 
-    Void, (Ptr{_SCIP_NLROW},), nlrow)
+    Int, (Ptr{_SCIP_NLROW},), nlrow)
 _SCIPnlrowIsInNLP(nlrow) = @scip_ccall("SCIPnlrowIsInNLP", 
     _SCIP_Bool, (Ptr{_SCIP_NLROW},), nlrow)
 _SCIPnlrowGetDualsol(nlrow) = @scip_ccall("SCIPnlrowGetDualsol", 
     _SCIP_Real, (Ptr{_SCIP_NLROW},), nlrow)
 _SCIPnodeselGetName(nodesel) = @scip_ccall("SCIPnodeselGetName", 
-    Void, (Ptr{_SCIP_NODESEL},), nodesel)
+    Ptr{Ptr{Char}}, (Ptr{_SCIP_NODESEL},), nodesel)
 _SCIPnodeselGetDesc(nodesel) = @scip_ccall("SCIPnodeselGetDesc", 
-    Void, (Ptr{_SCIP_NODESEL},), nodesel)
+    Ptr{Ptr{Char}}, (Ptr{_SCIP_NODESEL},), nodesel)
 _SCIPnodeselGetStdPriority(nodesel) = @scip_ccall("SCIPnodeselGetStdPriority", 
-    Void, (Ptr{_SCIP_NODESEL},), nodesel)
+    Int, (Ptr{_SCIP_NODESEL},), nodesel)
 _SCIPnodeselGetMemsavePriority(nodesel) = @scip_ccall("SCIPnodeselGetMemsavePriority", 
-    Void, (Ptr{_SCIP_NODESEL},), nodesel)
+    Int, (Ptr{_SCIP_NODESEL},), nodesel)
 _SCIPnodeselGetData(nodesel) = @scip_ccall("SCIPnodeselGetData", 
     Ptr{_SCIP_NODESELDATA}, (Ptr{_SCIP_NODESEL},), nodesel)
 _SCIPnodeselSetData(nodesel, nodeseldata) = @scip_ccall("SCIPnodeselSetData", 
@@ -1859,9 +1859,9 @@ _SCIPnodeselGetTime(nodesel) = @scip_ccall("SCIPnodeselGetTime",
 _SCIPparamGetType(param) = @scip_ccall("SCIPparamGetType", 
     _SCIP_PARAMTYPE, (Ptr{_SCIP_PARAM},), param)
 _SCIPparamGetName(param) = @scip_ccall("SCIPparamGetName", 
-    Void, (Ptr{_SCIP_PARAM},), param)
+    Ptr{Ptr{Char}}, (Ptr{_SCIP_PARAM},), param)
 _SCIPparamGetDesc(param) = @scip_ccall("SCIPparamGetDesc", 
-    Void, (Ptr{_SCIP_PARAM},), param)
+    Ptr{Ptr{Char}}, (Ptr{_SCIP_PARAM},), param)
 _SCIPparamGetData(param) = @scip_ccall("SCIPparamGetData", 
     Ptr{_SCIP_PARAMDATA}, (Ptr{_SCIP_PARAM},), param)
 _SCIPparamIsAdvanced(param) = @scip_ccall("SCIPparamIsAdvanced", 
@@ -1875,13 +1875,13 @@ _SCIPparamGetBool(param) = @scip_ccall("SCIPparamGetBool",
 _SCIPparamGetBoolDefault(param) = @scip_ccall("SCIPparamGetBoolDefault", 
     _SCIP_Bool, (Ptr{_SCIP_PARAM},), param)
 _SCIPparamGetInt(param) = @scip_ccall("SCIPparamGetInt", 
-    Void, (Ptr{_SCIP_PARAM},), param)
+    Int, (Ptr{_SCIP_PARAM},), param)
 _SCIPparamGetIntMin(param) = @scip_ccall("SCIPparamGetIntMin", 
-    Void, (Ptr{_SCIP_PARAM},), param)
+    Int, (Ptr{_SCIP_PARAM},), param)
 _SCIPparamGetIntMax(param) = @scip_ccall("SCIPparamGetIntMax", 
-    Void, (Ptr{_SCIP_PARAM},), param)
+    Int, (Ptr{_SCIP_PARAM},), param)
 _SCIPparamGetIntDefault(param) = @scip_ccall("SCIPparamGetIntDefault", 
-    Void, (Ptr{_SCIP_PARAM},), param)
+    Int, (Ptr{_SCIP_PARAM},), param)
 _SCIPparamGetLongint(param) = @scip_ccall("SCIPparamGetLongint", 
     Int64, (Ptr{_SCIP_PARAM},), param)
 _SCIPparamGetLongintMin(param) = @scip_ccall("SCIPparamGetLongintMin", 
@@ -1899,15 +1899,15 @@ _SCIPparamGetRealMax(param) = @scip_ccall("SCIPparamGetRealMax",
 _SCIPparamGetRealDefault(param) = @scip_ccall("SCIPparamGetRealDefault", 
     _SCIP_Real, (Ptr{_SCIP_PARAM},), param)
 _SCIPparamGetChar(param) = @scip_ccall("SCIPparamGetChar", 
-    Void, (Ptr{_SCIP_PARAM},), param)
+    Char, (Ptr{_SCIP_PARAM},), param)
 _SCIPparamGetCharAllowedValues(param) = @scip_ccall("SCIPparamGetCharAllowedValues", 
-    Void, (Ptr{_SCIP_PARAM},), param)
+    Ptr{Char}, (Ptr{_SCIP_PARAM},), param)
 _SCIPparamGetCharDefault(param) = @scip_ccall("SCIPparamGetCharDefault", 
-    Void, (Ptr{_SCIP_PARAM},), param)
+    Char, (Ptr{_SCIP_PARAM},), param)
 _SCIPparamGetString(param) = @scip_ccall("SCIPparamGetString", 
-    Void, (Ptr{_SCIP_PARAM},), param)
+    Ptr{Char}, (Ptr{_SCIP_PARAM},), param)
 _SCIPparamGetStringDefault(param) = @scip_ccall("SCIPparamGetStringDefault", 
-    Void, (Ptr{_SCIP_PARAM},), param)
+    Ptr{Char}, (Ptr{_SCIP_PARAM},), param)
 _SCIPparamIsDefault(param) = @scip_ccall("SCIPparamIsDefault", 
     _SCIP_Bool, (Ptr{_SCIP_PARAM},), param)
 _SCIPpresolGetData(presol) = @scip_ccall("SCIPpresolGetData", 
@@ -1915,11 +1915,11 @@ _SCIPpresolGetData(presol) = @scip_ccall("SCIPpresolGetData",
 _SCIPpresolSetData(presol, presoldata) = @scip_ccall("SCIPpresolSetData", 
     Void, (Ptr{_SCIP_PRESOL}, Ptr{_SCIP_PRESOLDATA},), presol, presoldata)
 _SCIPpresolGetName(presol) = @scip_ccall("SCIPpresolGetName", 
-    Void, (Ptr{_SCIP_PRESOL},), presol)
+    Ptr{Ptr{Char}}, (Ptr{_SCIP_PRESOL},), presol)
 _SCIPpresolGetDesc(presol) = @scip_ccall("SCIPpresolGetDesc", 
-    Void, (Ptr{_SCIP_PRESOL},), presol)
+    Ptr{Ptr{Char}}, (Ptr{_SCIP_PRESOL},), presol)
 _SCIPpresolGetPriority(presol) = @scip_ccall("SCIPpresolGetPriority", 
-    Void, (Ptr{_SCIP_PRESOL},), presol)
+    Int, (Ptr{_SCIP_PRESOL},), presol)
 _SCIPpresolIsDelayed(presol) = @scip_ccall("SCIPpresolIsDelayed", 
     _SCIP_Bool, (Ptr{_SCIP_PRESOL},), presol)
 _SCIPpresolWasDelayed(presol) = @scip_ccall("SCIPpresolWasDelayed", 
@@ -1931,41 +1931,41 @@ _SCIPpresolGetSetupTime(presol) = @scip_ccall("SCIPpresolGetSetupTime",
 _SCIPpresolGetTime(presol) = @scip_ccall("SCIPpresolGetTime", 
     _SCIP_Real, (Ptr{_SCIP_PRESOL},), presol)
 _SCIPpresolGetNFixedVars(presol) = @scip_ccall("SCIPpresolGetNFixedVars", 
-    Void, (Ptr{_SCIP_PRESOL},), presol)
+    Int, (Ptr{_SCIP_PRESOL},), presol)
 _SCIPpresolGetNAggrVars(presol) = @scip_ccall("SCIPpresolGetNAggrVars", 
-    Void, (Ptr{_SCIP_PRESOL},), presol)
+    Int, (Ptr{_SCIP_PRESOL},), presol)
 _SCIPpresolGetNChgVarTypes(presol) = @scip_ccall("SCIPpresolGetNChgVarTypes", 
-    Void, (Ptr{_SCIP_PRESOL},), presol)
+    Int, (Ptr{_SCIP_PRESOL},), presol)
 _SCIPpresolGetNChgBds(presol) = @scip_ccall("SCIPpresolGetNChgBds", 
-    Void, (Ptr{_SCIP_PRESOL},), presol)
+    Int, (Ptr{_SCIP_PRESOL},), presol)
 _SCIPpresolGetNAddHoles(presol) = @scip_ccall("SCIPpresolGetNAddHoles", 
-    Void, (Ptr{_SCIP_PRESOL},), presol)
+    Int, (Ptr{_SCIP_PRESOL},), presol)
 _SCIPpresolGetNDelConss(presol) = @scip_ccall("SCIPpresolGetNDelConss", 
-    Void, (Ptr{_SCIP_PRESOL},), presol)
+    Int, (Ptr{_SCIP_PRESOL},), presol)
 _SCIPpresolGetNAddConss(presol) = @scip_ccall("SCIPpresolGetNAddConss", 
-    Void, (Ptr{_SCIP_PRESOL},), presol)
+    Int, (Ptr{_SCIP_PRESOL},), presol)
 _SCIPpresolGetNUpgdConss(presol) = @scip_ccall("SCIPpresolGetNUpgdConss", 
-    Void, (Ptr{_SCIP_PRESOL},), presol)
+    Int, (Ptr{_SCIP_PRESOL},), presol)
 _SCIPpresolGetNChgCoefs(presol) = @scip_ccall("SCIPpresolGetNChgCoefs", 
-    Void, (Ptr{_SCIP_PRESOL},), presol)
+    Int, (Ptr{_SCIP_PRESOL},), presol)
 _SCIPpresolGetNChgSides(presol) = @scip_ccall("SCIPpresolGetNChgSides", 
-    Void, (Ptr{_SCIP_PRESOL},), presol)
+    Int, (Ptr{_SCIP_PRESOL},), presol)
 _SCIPpresolGetNCalls(presol) = @scip_ccall("SCIPpresolGetNCalls", 
-    Void, (Ptr{_SCIP_PRESOL},), presol)
+    Int, (Ptr{_SCIP_PRESOL},), presol)
 _SCIPpricerGetData(pricer) = @scip_ccall("SCIPpricerGetData", 
     Ptr{_SCIP_PRICERDATA}, (Ptr{_SCIP_PRICER},), pricer)
 _SCIPpricerSetData(pricer, pricerdata) = @scip_ccall("SCIPpricerSetData", 
     Void, (Ptr{_SCIP_PRICER}, Ptr{_SCIP_PRICERDATA},), pricer, pricerdata)
 _SCIPpricerGetName(pricer) = @scip_ccall("SCIPpricerGetName", 
-    Void, (Ptr{_SCIP_PRICER},), pricer)
+    Ptr{Ptr{Char}}, (Ptr{_SCIP_PRICER},), pricer)
 _SCIPpricerGetDesc(pricer) = @scip_ccall("SCIPpricerGetDesc", 
-    Void, (Ptr{_SCIP_PRICER},), pricer)
+    Ptr{Ptr{Char}}, (Ptr{_SCIP_PRICER},), pricer)
 _SCIPpricerGetPriority(pricer) = @scip_ccall("SCIPpricerGetPriority", 
-    Void, (Ptr{_SCIP_PRICER},), pricer)
+    Int, (Ptr{_SCIP_PRICER},), pricer)
 _SCIPpricerGetNCalls(pricer) = @scip_ccall("SCIPpricerGetNCalls", 
-    Void, (Ptr{_SCIP_PRICER},), pricer)
+    Int, (Ptr{_SCIP_PRICER},), pricer)
 _SCIPpricerGetNVarsFound(pricer) = @scip_ccall("SCIPpricerGetNVarsFound", 
-    Void, (Ptr{_SCIP_PRICER},), pricer)
+    Int, (Ptr{_SCIP_PRICER},), pricer)
 _SCIPpricerGetSetupTime(pricer) = @scip_ccall("SCIPpricerGetSetupTime", 
     _SCIP_Real, (Ptr{_SCIP_PRICER},), pricer)
 _SCIPpricerGetTime(pricer) = @scip_ccall("SCIPpricerGetTime", 
@@ -1981,19 +1981,19 @@ _SCIPpropGetData(prop) = @scip_ccall("SCIPpropGetData",
 _SCIPpropSetData(prop, propdata) = @scip_ccall("SCIPpropSetData", 
     Void, (Ptr{_SCIP_PROP}, Ptr{_SCIP_PROPDATA},), prop, propdata)
 _SCIPpropGetName(prop) = @scip_ccall("SCIPpropGetName", 
-    Void, (Ptr{_SCIP_PROP},), prop)
+    Ptr{Ptr{Char}}, (Ptr{_SCIP_PROP},), prop)
 _SCIPpropGetDesc(prop) = @scip_ccall("SCIPpropGetDesc", 
-    Void, (Ptr{_SCIP_PROP},), prop)
+    Ptr{Ptr{Char}}, (Ptr{_SCIP_PROP},), prop)
 _SCIPpropGetPriority(prop) = @scip_ccall("SCIPpropGetPriority", 
-    Void, (Ptr{_SCIP_PROP},), prop)
+    Int, (Ptr{_SCIP_PROP},), prop)
 _SCIPpropGetPresolPriority(prop) = @scip_ccall("SCIPpropGetPresolPriority", 
-    Void, (Ptr{_SCIP_PROP},), prop)
+    Int, (Ptr{_SCIP_PROP},), prop)
 _SCIPpropGetFreq(prop) = @scip_ccall("SCIPpropGetFreq", 
-    Void, (Ptr{_SCIP_PROP},), prop)
+    Int, (Ptr{_SCIP_PROP},), prop)
 _SCIPpropGetSetupTime(prop) = @scip_ccall("SCIPpropGetSetupTime", 
     _SCIP_Real, (Ptr{_SCIP_PROP},), prop)
 _SCIPpropSetFreq(prop, freq) = @scip_ccall("SCIPpropSetFreq", 
-    Void, (Ptr{_SCIP_PROP}, Void,), prop, freq)
+    Void, (Ptr{_SCIP_PROP}, Int,), prop, freq)
 _SCIPpropGetTime(prop) = @scip_ccall("SCIPpropGetTime", 
     _SCIP_Real, (Ptr{_SCIP_PROP},), prop)
 _SCIPpropGetStrongBranchPropTime(prop) = @scip_ccall("SCIPpropGetStrongBranchPropTime", 
@@ -2021,27 +2021,27 @@ _SCIPpropWasPresolDelayed(prop) = @scip_ccall("SCIPpropWasPresolDelayed",
 _SCIPpropIsInitialized(prop) = @scip_ccall("SCIPpropIsInitialized", 
     _SCIP_Bool, (Ptr{_SCIP_PROP},), prop)
 _SCIPpropGetNFixedVars(prop) = @scip_ccall("SCIPpropGetNFixedVars", 
-    Void, (Ptr{_SCIP_PROP},), prop)
+    Int, (Ptr{_SCIP_PROP},), prop)
 _SCIPpropGetNAggrVars(prop) = @scip_ccall("SCIPpropGetNAggrVars", 
-    Void, (Ptr{_SCIP_PROP},), prop)
+    Int, (Ptr{_SCIP_PROP},), prop)
 _SCIPpropGetNChgVarTypes(prop) = @scip_ccall("SCIPpropGetNChgVarTypes", 
-    Void, (Ptr{_SCIP_PROP},), prop)
+    Int, (Ptr{_SCIP_PROP},), prop)
 _SCIPpropGetNChgBds(prop) = @scip_ccall("SCIPpropGetNChgBds", 
-    Void, (Ptr{_SCIP_PROP},), prop)
+    Int, (Ptr{_SCIP_PROP},), prop)
 _SCIPpropGetNAddHoles(prop) = @scip_ccall("SCIPpropGetNAddHoles", 
-    Void, (Ptr{_SCIP_PROP},), prop)
+    Int, (Ptr{_SCIP_PROP},), prop)
 _SCIPpropGetNDelConss(prop) = @scip_ccall("SCIPpropGetNDelConss", 
-    Void, (Ptr{_SCIP_PROP},), prop)
+    Int, (Ptr{_SCIP_PROP},), prop)
 _SCIPpropGetNAddConss(prop) = @scip_ccall("SCIPpropGetNAddConss", 
-    Void, (Ptr{_SCIP_PROP},), prop)
+    Int, (Ptr{_SCIP_PROP},), prop)
 _SCIPpropGetNUpgdConss(prop) = @scip_ccall("SCIPpropGetNUpgdConss", 
-    Void, (Ptr{_SCIP_PROP},), prop)
+    Int, (Ptr{_SCIP_PROP},), prop)
 _SCIPpropGetNChgCoefs(prop) = @scip_ccall("SCIPpropGetNChgCoefs", 
-    Void, (Ptr{_SCIP_PROP},), prop)
+    Int, (Ptr{_SCIP_PROP},), prop)
 _SCIPpropGetNChgSides(prop) = @scip_ccall("SCIPpropGetNChgSides", 
-    Void, (Ptr{_SCIP_PROP},), prop)
+    Int, (Ptr{_SCIP_PROP},), prop)
 _SCIPpropGetNPresolCalls(prop) = @scip_ccall("SCIPpropGetNPresolCalls", 
-    Void, (Ptr{_SCIP_PROP},), prop)
+    Int, (Ptr{_SCIP_PROP},), prop)
 _SCIPpropGetTimingmask(prop) = @scip_ccall("SCIPpropGetTimingmask", 
     _SCIP_PROPTIMING, (Ptr{_SCIP_PROP},), prop)
 _SCIPpropDoesPresolve(prop) = @scip_ccall("SCIPpropDoesPresolve", 
@@ -2051,11 +2051,11 @@ _SCIPreaderGetData(reader) = @scip_ccall("SCIPreaderGetData",
 _SCIPreaderSetData(reader, readerdata) = @scip_ccall("SCIPreaderSetData", 
     Void, (Ptr{_SCIP_READER}, Ptr{_SCIP_READERDATA},), reader, readerdata)
 _SCIPreaderGetName(reader) = @scip_ccall("SCIPreaderGetName", 
-    Void, (Ptr{_SCIP_READER},), reader)
+    Ptr{Ptr{Char}}, (Ptr{_SCIP_READER},), reader)
 _SCIPreaderGetDesc(reader) = @scip_ccall("SCIPreaderGetDesc", 
-    Void, (Ptr{_SCIP_READER},), reader)
+    Ptr{Ptr{Char}}, (Ptr{_SCIP_READER},), reader)
 _SCIPreaderGetExtension(reader) = @scip_ccall("SCIPreaderGetExtension", 
-    Void, (Ptr{_SCIP_READER},), reader)
+    Ptr{Ptr{Char}}, (Ptr{_SCIP_READER},), reader)
 _SCIPreaderCanRead(reader) = @scip_ccall("SCIPreaderCanRead", 
     _SCIP_Bool, (Ptr{_SCIP_READER},), reader)
 _SCIPreaderCanWrite(reader) = @scip_ccall("SCIPreaderCanWrite", 
@@ -2065,13 +2065,13 @@ _SCIPrelaxGetData(relax) = @scip_ccall("SCIPrelaxGetData",
 _SCIPrelaxSetData(relax, relaxdata) = @scip_ccall("SCIPrelaxSetData", 
     Void, (Ptr{_SCIP_RELAX}, Ptr{_SCIP_RELAXDATA},), relax, relaxdata)
 _SCIPrelaxGetName(relax) = @scip_ccall("SCIPrelaxGetName", 
-    Void, (Ptr{_SCIP_RELAX},), relax)
+    Ptr{Ptr{Char}}, (Ptr{_SCIP_RELAX},), relax)
 _SCIPrelaxGetDesc(relax) = @scip_ccall("SCIPrelaxGetDesc", 
-    Void, (Ptr{_SCIP_RELAX},), relax)
+    Ptr{Ptr{Char}}, (Ptr{_SCIP_RELAX},), relax)
 _SCIPrelaxGetPriority(relax) = @scip_ccall("SCIPrelaxGetPriority", 
-    Void, (Ptr{_SCIP_RELAX},), relax)
+    Int, (Ptr{_SCIP_RELAX},), relax)
 _SCIPrelaxGetFreq(relax) = @scip_ccall("SCIPrelaxGetFreq", 
-    Void, (Ptr{_SCIP_RELAX},), relax)
+    Int, (Ptr{_SCIP_RELAX},), relax)
 _SCIPrelaxGetSetupTime(relax) = @scip_ccall("SCIPrelaxGetSetupTime", 
     _SCIP_Real, (Ptr{_SCIP_RELAX},), relax)
 _SCIPrelaxGetTime(relax) = @scip_ccall("SCIPrelaxGetTime", 
@@ -2087,15 +2087,15 @@ _SCIPsepaGetData(sepa) = @scip_ccall("SCIPsepaGetData",
 _SCIPsepaSetData(sepa, sepadata) = @scip_ccall("SCIPsepaSetData", 
     Void, (Ptr{_SCIP_SEPA}, Ptr{_SCIP_SEPADATA},), sepa, sepadata)
 _SCIPsepaGetName(sepa) = @scip_ccall("SCIPsepaGetName", 
-    Void, (Ptr{_SCIP_SEPA},), sepa)
+    Ptr{Ptr{Char}}, (Ptr{_SCIP_SEPA},), sepa)
 _SCIPsepaGetDesc(sepa) = @scip_ccall("SCIPsepaGetDesc", 
-    Void, (Ptr{_SCIP_SEPA},), sepa)
+    Ptr{Ptr{Char}}, (Ptr{_SCIP_SEPA},), sepa)
 _SCIPsepaGetPriority(sepa) = @scip_ccall("SCIPsepaGetPriority", 
-    Void, (Ptr{_SCIP_SEPA},), sepa)
+    Int, (Ptr{_SCIP_SEPA},), sepa)
 _SCIPsepaGetFreq(sepa) = @scip_ccall("SCIPsepaGetFreq", 
-    Void, (Ptr{_SCIP_SEPA},), sepa)
+    Int, (Ptr{_SCIP_SEPA},), sepa)
 _SCIPsepaSetFreq(sepa, freq) = @scip_ccall("SCIPsepaSetFreq", 
-    Void, (Ptr{_SCIP_SEPA}, Void,), sepa, freq)
+    Void, (Ptr{_SCIP_SEPA}, Int,), sepa, freq)
 _SCIPsepaGetMaxbounddist(sepa) = @scip_ccall("SCIPsepaGetMaxbounddist", 
     _SCIP_Real, (Ptr{_SCIP_SEPA},), sepa)
 _SCIPsepaUsesSubscip(sepa) = @scip_ccall("SCIPsepaUsesSubscip", 
@@ -2107,7 +2107,7 @@ _SCIPsepaGetTime(sepa) = @scip_ccall("SCIPsepaGetTime",
 _SCIPsepaGetNCalls(sepa) = @scip_ccall("SCIPsepaGetNCalls", 
     Int64, (Ptr{_SCIP_SEPA},), sepa)
 _SCIPsepaGetNCallsAtNode(sepa) = @scip_ccall("SCIPsepaGetNCallsAtNode", 
-    Void, (Ptr{_SCIP_SEPA},), sepa)
+    Int, (Ptr{_SCIP_SEPA},), sepa)
 _SCIPsepaGetNCutoffs(sepa) = @scip_ccall("SCIPsepaGetNCutoffs", 
     Int64, (Ptr{_SCIP_SEPA},), sepa)
 _SCIPsepaGetNCutsFound(sepa) = @scip_ccall("SCIPsepaGetNCutsFound", 
@@ -2137,23 +2137,23 @@ _SCIPsolGetOrigObj(sol) = @scip_ccall("SCIPsolGetOrigObj",
 _SCIPsolGetTime(sol) = @scip_ccall("SCIPsolGetTime", 
     _SCIP_Real, (Ptr{_SCIP_SOL},), sol)
 _SCIPsolGetRunnum(sol) = @scip_ccall("SCIPsolGetRunnum", 
-    Void, (Ptr{_SCIP_SOL},), sol)
+    Int, (Ptr{_SCIP_SOL},), sol)
 _SCIPsolGetNodenum(sol) = @scip_ccall("SCIPsolGetNodenum", 
     Int64, (Ptr{_SCIP_SOL},), sol)
 _SCIPsolGetDepth(sol) = @scip_ccall("SCIPsolGetDepth", 
-    Void, (Ptr{_SCIP_SOL},), sol)
+    Int, (Ptr{_SCIP_SOL},), sol)
 _SCIPsolGetHeur(sol) = @scip_ccall("SCIPsolGetHeur", 
     Ptr{_SCIP_HEUR}, (Ptr{_SCIP_SOL},), sol)
 _SCIPsolSetHeur(sol, heur) = @scip_ccall("SCIPsolSetHeur", 
     Void, (Ptr{_SCIP_SOL}, Ptr{_SCIP_HEUR},), sol, heur)
 _SCIPsolGetIndex(sol) = @scip_ccall("SCIPsolGetIndex", 
-    Void, (Ptr{_SCIP_SOL},), sol)
+    Int, (Ptr{_SCIP_SOL},), sol)
 _SCIPnodeGetParentBranchings(node, branchvars, branchbounds, boundtypes, nbranchvars, branchvarssize) = @scip_ccall("SCIPnodeGetParentBranchings", 
-    Void, (Ptr{_SCIP_NODE}, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Ptr{_SCIP_BOUNDTYPE}, Void, Void,), node, branchvars, branchbounds, boundtypes, nbranchvars, branchvarssize)
+    Void, (Ptr{_SCIP_NODE}, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Ptr{_SCIP_BOUNDTYPE}, Ptr{Int}, Int,), node, branchvars, branchbounds, boundtypes, nbranchvars, branchvarssize)
 _SCIPnodeGetAncestorBranchings(node, branchvars, branchbounds, boundtypes, nbranchvars, branchvarssize) = @scip_ccall("SCIPnodeGetAncestorBranchings", 
-    Void, (Ptr{_SCIP_NODE}, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Ptr{_SCIP_BOUNDTYPE}, Void, Void,), node, branchvars, branchbounds, boundtypes, nbranchvars, branchvarssize)
+    Void, (Ptr{_SCIP_NODE}, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Ptr{_SCIP_BOUNDTYPE}, Ptr{Int}, Int,), node, branchvars, branchbounds, boundtypes, nbranchvars, branchvarssize)
 _SCIPnodeGetAncestorBranchingPath(node, branchvars, branchbounds, boundtypes, nbranchvars, branchvarssize, nodeswitches, nnodes, nodeswitchsize) = @scip_ccall("SCIPnodeGetAncestorBranchingPath", 
-    Void, (Ptr{_SCIP_NODE}, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Ptr{_SCIP_BOUNDTYPE}, Void, Void, Void, Void, Void,), node, branchvars, branchbounds, boundtypes, nbranchvars, branchvarssize, nodeswitches, nnodes, nodeswitchsize)
+    Void, (Ptr{_SCIP_NODE}, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Ptr{_SCIP_BOUNDTYPE}, Ptr{Int}, Int, Ptr{Int}, Ptr{Int}, Int,), node, branchvars, branchbounds, boundtypes, nbranchvars, branchvarssize, nodeswitches, nnodes, nodeswitchsize)
 _SCIPnodesSharePath(node1, node2) = @scip_ccall("SCIPnodesSharePath", 
     _SCIP_Bool, (Ptr{_SCIP_NODE}, Ptr{_SCIP_NODE},), node1, node2)
 _SCIPnodesGetCommonAncestor(node1, node2) = @scip_ccall("SCIPnodesGetCommonAncestor", 
@@ -2163,7 +2163,7 @@ _SCIPnodeGetType(node) = @scip_ccall("SCIPnodeGetType",
 _SCIPnodeGetNumber(node) = @scip_ccall("SCIPnodeGetNumber", 
     Int64, (Ptr{_SCIP_NODE},), node)
 _SCIPnodeGetDepth(node) = @scip_ccall("SCIPnodeGetDepth", 
-    Void, (Ptr{_SCIP_NODE},), node)
+    Int, (Ptr{_SCIP_NODE},), node)
 _SCIPnodeGetLowerbound(node) = @scip_ccall("SCIPnodeGetLowerbound", 
     _SCIP_Real, (Ptr{_SCIP_NODE},), node)
 _SCIPnodeGetEstimate(node) = @scip_ccall("SCIPnodeGetEstimate", 
@@ -2177,19 +2177,19 @@ _SCIPnodeIsActive(node) = @scip_ccall("SCIPnodeIsActive",
 _SCIPnodeIsPropagatedAgain(node) = @scip_ccall("SCIPnodeIsPropagatedAgain", 
     _SCIP_Bool, (Ptr{_SCIP_NODE},), node)
 _SCIPvarGetNLocksDown(var) = @scip_ccall("SCIPvarGetNLocksDown", 
-    Void, (Ptr{_SCIP_VAR},), var)
+    Int, (Ptr{_SCIP_VAR},), var)
 _SCIPvarGetNLocksUp(var) = @scip_ccall("SCIPvarGetNLocksUp", 
-    Void, (Ptr{_SCIP_VAR},), var)
+    Int, (Ptr{_SCIP_VAR},), var)
 _SCIPvarMayRoundDown(var) = @scip_ccall("SCIPvarMayRoundDown", 
     _SCIP_Bool, (Ptr{_SCIP_VAR},), var)
 _SCIPvarMayRoundUp(var) = @scip_ccall("SCIPvarMayRoundUp", 
     _SCIP_Bool, (Ptr{_SCIP_VAR},), var)
 _SCIPvarCompareActiveAndNegated(var1, var2) = @scip_ccall("SCIPvarCompareActiveAndNegated", 
-    Void, (Ptr{_SCIP_VAR}, Ptr{_SCIP_VAR},), var1, var2)
+    Int, (Ptr{_SCIP_VAR}, Ptr{_SCIP_VAR},), var1, var2)
 _SCIPvarCompare(var1, var2) = @scip_ccall("SCIPvarCompare", 
-    Void, (Ptr{_SCIP_VAR}, Ptr{_SCIP_VAR},), var1, var2)
+    Int, (Ptr{_SCIP_VAR}, Ptr{_SCIP_VAR},), var1, var2)
 _SCIPvarsGetProbvar(vars, nvars) = @scip_ccall("SCIPvarsGetProbvar", 
-    Void, (Ptr{Ptr{_SCIP_VAR}}, Void,), vars, nvars)
+    Void, (Ptr{Ptr{_SCIP_VAR}}, Int,), vars, nvars)
 _SCIPvarGetProbvar(var) = @scip_ccall("SCIPvarGetProbvar", 
     Ptr{_SCIP_VAR}, (Ptr{_SCIP_VAR},), var)
 _SCIPvarIsTransformedOrigvar(var) = @scip_ccall("SCIPvarIsTransformedOrigvar", 
@@ -2217,9 +2217,9 @@ _SCIPvarHasBinaryImplic(var, varfixing, implvar, implvarfixing) = @scip_ccall("S
 _SCIPvarsHaveCommonClique(var1, value1, var2, value2, regardimplics) = @scip_ccall("SCIPvarsHaveCommonClique", 
     _SCIP_Bool, (Ptr{_SCIP_VAR}, _SCIP_Bool, Ptr{_SCIP_VAR}, _SCIP_Bool, _SCIP_Bool,), var1, value1, var2, value2, regardimplics)
 _SCIPvarGetName(var) = @scip_ccall("SCIPvarGetName", 
-    Void, (Ptr{_SCIP_VAR},), var)
+    Ptr{Ptr{Char}}, (Ptr{_SCIP_VAR},), var)
 _SCIPvarGetNUses(var) = @scip_ccall("SCIPvarGetNUses", 
-    Void, (Ptr{_SCIP_VAR},), var)
+    Int, (Ptr{_SCIP_VAR},), var)
 _SCIPvarGetData(var) = @scip_ccall("SCIPvarGetData", 
     Ptr{_SCIP_VARDATA}, (Ptr{_SCIP_VAR},), var)
 _SCIPvarSetData(var, vardata) = @scip_ccall("SCIPvarSetData", 
@@ -2253,9 +2253,9 @@ _SCIPvarIsDeletable(var) = @scip_ccall("SCIPvarIsDeletable",
 _SCIPvarIsActive(var) = @scip_ccall("SCIPvarIsActive", 
     _SCIP_Bool, (Ptr{_SCIP_VAR},), var)
 _SCIPvarGetIndex(var) = @scip_ccall("SCIPvarGetIndex", 
-    Void, (Ptr{_SCIP_VAR},), var)
+    Int, (Ptr{_SCIP_VAR},), var)
 _SCIPvarGetProbindex(var) = @scip_ccall("SCIPvarGetProbindex", 
-    Void, (Ptr{_SCIP_VAR},), var)
+    Int, (Ptr{_SCIP_VAR},), var)
 _SCIPvarGetTransVar(var) = @scip_ccall("SCIPvarGetTransVar", 
     Ptr{_SCIP_VAR}, (Ptr{_SCIP_VAR},), var)
 _SCIPvarGetCol(var) = @scip_ccall("SCIPvarGetCol", 
@@ -2269,7 +2269,7 @@ _SCIPvarGetAggrScalar(var) = @scip_ccall("SCIPvarGetAggrScalar",
 _SCIPvarGetAggrConstant(var) = @scip_ccall("SCIPvarGetAggrConstant", 
     _SCIP_Real, (Ptr{_SCIP_VAR},), var)
 _SCIPvarGetMultaggrNVars(var) = @scip_ccall("SCIPvarGetMultaggrNVars", 
-    Void, (Ptr{_SCIP_VAR},), var)
+    Int, (Ptr{_SCIP_VAR},), var)
 _SCIPvarGetMultaggrVars(var) = @scip_ccall("SCIPvarGetMultaggrVars", 
     Ptr{Ptr{_SCIP_VAR}}, (Ptr{_SCIP_VAR},), var)
 _SCIPvarGetMultaggrScalars(var) = @scip_ccall("SCIPvarGetMultaggrScalars", 
@@ -2321,11 +2321,11 @@ _SCIPvarGetUbLazy(var) = @scip_ccall("SCIPvarGetUbLazy",
 _SCIPvarGetBranchFactor(var) = @scip_ccall("SCIPvarGetBranchFactor", 
     _SCIP_Real, (Ptr{_SCIP_VAR},), var)
 _SCIPvarGetBranchPriority(var) = @scip_ccall("SCIPvarGetBranchPriority", 
-    Void, (Ptr{_SCIP_VAR},), var)
+    Int, (Ptr{_SCIP_VAR},), var)
 _SCIPvarGetBranchDirection(var) = @scip_ccall("SCIPvarGetBranchDirection", 
     _SCIP_BRANCHDIR, (Ptr{_SCIP_VAR},), var)
 _SCIPvarGetNVlbs(var) = @scip_ccall("SCIPvarGetNVlbs", 
-    Void, (Ptr{_SCIP_VAR},), var)
+    Int, (Ptr{_SCIP_VAR},), var)
 _SCIPvarGetVlbVars(var) = @scip_ccall("SCIPvarGetVlbVars", 
     Ptr{Ptr{_SCIP_VAR}}, (Ptr{_SCIP_VAR},), var)
 _SCIPvarGetVlbCoefs(var) = @scip_ccall("SCIPvarGetVlbCoefs", 
@@ -2333,7 +2333,7 @@ _SCIPvarGetVlbCoefs(var) = @scip_ccall("SCIPvarGetVlbCoefs",
 _SCIPvarGetVlbConstants(var) = @scip_ccall("SCIPvarGetVlbConstants", 
     Ptr{_SCIP_Real}, (Ptr{_SCIP_VAR},), var)
 _SCIPvarGetNVubs(var) = @scip_ccall("SCIPvarGetNVubs", 
-    Void, (Ptr{_SCIP_VAR},), var)
+    Int, (Ptr{_SCIP_VAR},), var)
 _SCIPvarGetVubVars(var) = @scip_ccall("SCIPvarGetVubVars", 
     Ptr{Ptr{_SCIP_VAR}}, (Ptr{_SCIP_VAR},), var)
 _SCIPvarGetVubCoefs(var) = @scip_ccall("SCIPvarGetVubCoefs", 
@@ -2341,9 +2341,9 @@ _SCIPvarGetVubCoefs(var) = @scip_ccall("SCIPvarGetVubCoefs",
 _SCIPvarGetVubConstants(var) = @scip_ccall("SCIPvarGetVubConstants", 
     Ptr{_SCIP_Real}, (Ptr{_SCIP_VAR},), var)
 _SCIPvarGetNImpls(var, varfixing) = @scip_ccall("SCIPvarGetNImpls", 
-    Void, (Ptr{_SCIP_VAR}, _SCIP_Bool,), var, varfixing)
+    Int, (Ptr{_SCIP_VAR}, _SCIP_Bool,), var, varfixing)
 _SCIPvarGetNBinImpls(var, varfixing) = @scip_ccall("SCIPvarGetNBinImpls", 
-    Void, (Ptr{_SCIP_VAR}, _SCIP_Bool,), var, varfixing)
+    Int, (Ptr{_SCIP_VAR}, _SCIP_Bool,), var, varfixing)
 _SCIPvarGetImplVars(var, varfixing) = @scip_ccall("SCIPvarGetImplVars", 
     Ptr{Ptr{_SCIP_VAR}}, (Ptr{_SCIP_VAR}, _SCIP_Bool,), var, varfixing)
 _SCIPvarGetImplTypes(var, varfixing) = @scip_ccall("SCIPvarGetImplTypes", 
@@ -2351,9 +2351,9 @@ _SCIPvarGetImplTypes(var, varfixing) = @scip_ccall("SCIPvarGetImplTypes",
 _SCIPvarGetImplBounds(var, varfixing) = @scip_ccall("SCIPvarGetImplBounds", 
     Ptr{_SCIP_Real}, (Ptr{_SCIP_VAR}, _SCIP_Bool,), var, varfixing)
 _SCIPvarGetImplIds(var, varfixing) = @scip_ccall("SCIPvarGetImplIds", 
-    Void, (Ptr{_SCIP_VAR}, _SCIP_Bool,), var, varfixing)
+    Ptr{Int}, (Ptr{_SCIP_VAR}, _SCIP_Bool,), var, varfixing)
 _SCIPvarGetNCliques(var, varfixing) = @scip_ccall("SCIPvarGetNCliques", 
-    Void, (Ptr{_SCIP_VAR}, _SCIP_Bool,), var, varfixing)
+    Int, (Ptr{_SCIP_VAR}, _SCIP_Bool,), var, varfixing)
 _SCIPvarGetCliques(var, varfixing) = @scip_ccall("SCIPvarGetCliques", 
     Ptr{Ptr{_SCIP_CLIQUE}}, (Ptr{_SCIP_VAR}, _SCIP_Bool,), var, varfixing)
 _SCIPvarGetLPSol(var) = @scip_ccall("SCIPvarGetLPSol", 
@@ -2361,13 +2361,13 @@ _SCIPvarGetLPSol(var) = @scip_ccall("SCIPvarGetLPSol",
 _SCIPvarGetNLPSol(var) = @scip_ccall("SCIPvarGetNLPSol", 
     _SCIP_Real, (Ptr{_SCIP_VAR},), var)
 _SCIPvarGetBdchgInfoLb(var, pos) = @scip_ccall("SCIPvarGetBdchgInfoLb", 
-    Ptr{_SCIP_BDCHGINFO}, (Ptr{_SCIP_VAR}, Void,), var, pos)
+    Ptr{_SCIP_BDCHGINFO}, (Ptr{_SCIP_VAR}, Int,), var, pos)
 _SCIPvarGetNBdchgInfosLb(var) = @scip_ccall("SCIPvarGetNBdchgInfosLb", 
-    Void, (Ptr{_SCIP_VAR},), var)
+    Int, (Ptr{_SCIP_VAR},), var)
 _SCIPvarGetBdchgInfoUb(var, pos) = @scip_ccall("SCIPvarGetBdchgInfoUb", 
-    Ptr{_SCIP_BDCHGINFO}, (Ptr{_SCIP_VAR}, Void,), var, pos)
+    Ptr{_SCIP_BDCHGINFO}, (Ptr{_SCIP_VAR}, Int,), var, pos)
 _SCIPvarGetNBdchgInfosUb(var) = @scip_ccall("SCIPvarGetNBdchgInfosUb", 
-    Void, (Ptr{_SCIP_VAR},), var)
+    Int, (Ptr{_SCIP_VAR},), var)
 _SCIPvarGetValuehistory(var) = @scip_ccall("SCIPvarGetValuehistory", 
     Ptr{_SCIP_VALUEHISTORY}, (Ptr{_SCIP_VAR},), var)
 _SCIPvarGetLPSol_rec(var) = @scip_ccall("SCIPvarGetLPSol_rec", 
@@ -2407,7 +2407,7 @@ _SCIPvarWasFixedAtIndex(var, bdchgidx, after) = @scip_ccall("SCIPvarWasFixedAtIn
 _SCIPvarGetLastBdchgIndex(var) = @scip_ccall("SCIPvarGetLastBdchgIndex", 
     Ptr{_SCIP_BDCHGIDX}, (Ptr{_SCIP_VAR},), var)
 _SCIPvarGetLastBdchgDepth(var) = @scip_ccall("SCIPvarGetLastBdchgDepth", 
-    Void, (Ptr{_SCIP_VAR},), var)
+    Int, (Ptr{_SCIP_VAR},), var)
 _SCIPvarWasFixedEarlier(var1, var2) = @scip_ccall("SCIPvarWasFixedEarlier", 
     _SCIP_Bool, (Ptr{_SCIP_VAR}, Ptr{_SCIP_VAR},), var1, var2)
 _SCIPbdchgidxIsEarlier(bdchgidx1, bdchgidx2) = @scip_ccall("SCIPbdchgidxIsEarlier", 
@@ -2425,9 +2425,9 @@ _SCIPbdchginfoGetChgtype(bdchginfo) = @scip_ccall("SCIPbdchginfoGetChgtype",
 _SCIPbdchginfoGetBoundtype(bdchginfo) = @scip_ccall("SCIPbdchginfoGetBoundtype", 
     _SCIP_BOUNDTYPE, (Ptr{_SCIP_BDCHGINFO},), bdchginfo)
 _SCIPbdchginfoGetDepth(bdchginfo) = @scip_ccall("SCIPbdchginfoGetDepth", 
-    Void, (Ptr{_SCIP_BDCHGINFO},), bdchginfo)
+    Int, (Ptr{_SCIP_BDCHGINFO},), bdchginfo)
 _SCIPbdchginfoGetPos(bdchginfo) = @scip_ccall("SCIPbdchginfoGetPos", 
-    Void, (Ptr{_SCIP_BDCHGINFO},), bdchginfo)
+    Int, (Ptr{_SCIP_BDCHGINFO},), bdchginfo)
 _SCIPbdchginfoGetIdx(bdchginfo) = @scip_ccall("SCIPbdchginfoGetIdx", 
     Ptr{_SCIP_BDCHGIDX}, (Ptr{_SCIP_BDCHGINFO},), bdchginfo)
 _SCIPbdchginfoGetInferVar(bdchginfo) = @scip_ccall("SCIPbdchginfoGetInferVar", 
@@ -2437,7 +2437,7 @@ _SCIPbdchginfoGetInferCons(bdchginfo) = @scip_ccall("SCIPbdchginfoGetInferCons",
 _SCIPbdchginfoGetInferProp(bdchginfo) = @scip_ccall("SCIPbdchginfoGetInferProp", 
     Ptr{_SCIP_PROP}, (Ptr{_SCIP_BDCHGINFO},), bdchginfo)
 _SCIPbdchginfoGetInferInfo(bdchginfo) = @scip_ccall("SCIPbdchginfoGetInferInfo", 
-    Void, (Ptr{_SCIP_BDCHGINFO},), bdchginfo)
+    Int, (Ptr{_SCIP_BDCHGINFO},), bdchginfo)
 _SCIPbdchginfoGetInferBoundtype(bdchginfo) = @scip_ccall("SCIPbdchginfoGetInferBoundtype", 
     _SCIP_BOUNDTYPE, (Ptr{_SCIP_BDCHGINFO},), bdchginfo)
 _SCIPbdchginfoIsRedundant(bdchginfo) = @scip_ccall("SCIPbdchginfoIsRedundant", 
@@ -2457,9 +2457,9 @@ _SCIPboundchgGetBoundtype(boundchg) = @scip_ccall("SCIPboundchgGetBoundtype",
 _SCIPboundchgIsRedundant(boundchg) = @scip_ccall("SCIPboundchgIsRedundant", 
     _SCIP_Bool, (Ptr{_SCIP_BOUNDCHG},), boundchg)
 _SCIPdomchgGetNBoundchgs(domchg) = @scip_ccall("SCIPdomchgGetNBoundchgs", 
-    Void, (Ptr{_SCIP_DOMCHG},), domchg)
+    Int, (Ptr{_SCIP_DOMCHG},), domchg)
 _SCIPdomchgGetBoundchg(domchg, pos) = @scip_ccall("SCIPdomchgGetBoundchg", 
-    Ptr{_SCIP_BOUNDCHG}, (Ptr{_SCIP_DOMCHG}, Void,), domchg, pos)
+    Ptr{_SCIP_BOUNDCHG}, (Ptr{_SCIP_DOMCHG}, Int,), domchg, pos)
 _SCIPholelistGetLeft(holelist) = @scip_ccall("SCIPholelistGetLeft", 
     _SCIP_Real, (Ptr{_SCIP_HOLELIST},), holelist)
 _SCIPholelistGetRight(holelist) = @scip_ccall("SCIPholelistGetRight", 
@@ -2469,15 +2469,15 @@ _SCIPholelistGetNext(holelist) = @scip_ccall("SCIPholelistGetNext",
 _SCIPversion() = @scip_ccall("SCIPversion", 
     _SCIP_Real, ())
 _SCIPmajorVersion() = @scip_ccall("SCIPmajorVersion", 
-    Void, ())
+    Int, ())
 _SCIPminorVersion() = @scip_ccall("SCIPminorVersion", 
-    Void, ())
+    Int, ())
 _SCIPtechVersion() = @scip_ccall("SCIPtechVersion", 
-    Void, ())
+    Int, ())
 _SCIPsubversion() = @scip_ccall("SCIPsubversion", 
-    Void, ())
+    Int, ())
 _SCIPprintVersion(scip, file) = @scip_ccall("SCIPprintVersion", 
-    Void, (Ptr{_SCIP}, Void,), scip, file)
+    Void, (Ptr{_SCIP}, Ptr{FILE},), scip, file)
 _SCIPprintError(retcode) = @scip_ccall("SCIPprintError", 
     Void, (_SCIP_RETCODE,), retcode)
 _SCIPstoreSolutionGap(scip) = @scip_ccall("SCIPstoreSolutionGap", 
@@ -2501,117 +2501,117 @@ _SCIPisStopped(scip) = @scip_ccall("SCIPisStopped",
 _SCIPgetMessagehdlr(scip) = @scip_ccall("SCIPgetMessagehdlr", 
     Ptr{_SCIP_MESSAGEHDLR}, (Ptr{_SCIP},), scip)
 _SCIPsetMessagehdlrLogfile(scip, filename) = @scip_ccall("SCIPsetMessagehdlrLogfile", 
-    Void, (Ptr{_SCIP}, Void,), scip, filename)
+    Void, (Ptr{_SCIP}, Ptr{Ptr{Char}},), scip, filename)
 _SCIPsetMessagehdlrQuiet(scip, quiet) = @scip_ccall("SCIPsetMessagehdlrQuiet", 
     Void, (Ptr{_SCIP}, _SCIP_Bool,), scip, quiet)
 _SCIPgetVerbLevel(scip) = @scip_ccall("SCIPgetVerbLevel", 
     _SCIP_VERBLEVEL, (Ptr{_SCIP},), scip)
 _SCIPgetSubscipDepth(scip) = @scip_ccall("SCIPgetSubscipDepth", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPisParamFixed(scip, name) = @scip_ccall("SCIPisParamFixed", 
-    _SCIP_Bool, (Ptr{_SCIP}, Void,), scip, name)
+    _SCIP_Bool, (Ptr{_SCIP}, Ptr{Ptr{Char}},), scip, name)
 _SCIPgetParam(scip, name) = @scip_ccall("SCIPgetParam", 
-    Ptr{_SCIP_PARAM}, (Ptr{_SCIP}, Void,), scip, name)
+    Ptr{_SCIP_PARAM}, (Ptr{_SCIP}, Ptr{Ptr{Char}},), scip, name)
 _SCIPgetParams(scip) = @scip_ccall("SCIPgetParams", 
     Ptr{Ptr{_SCIP_PARAM}}, (Ptr{_SCIP},), scip)
 _SCIPgetNParams(scip) = @scip_ccall("SCIPgetNParams", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPfindReader(scip, name) = @scip_ccall("SCIPfindReader", 
-    Ptr{_SCIP_READER}, (Ptr{_SCIP}, Void,), scip, name)
+    Ptr{_SCIP_READER}, (Ptr{_SCIP}, Ptr{Ptr{Char}},), scip, name)
 _SCIPgetReaders(scip) = @scip_ccall("SCIPgetReaders", 
     Ptr{Ptr{_SCIP_READER}}, (Ptr{_SCIP},), scip)
 _SCIPgetNReaders(scip) = @scip_ccall("SCIPgetNReaders", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPfindPricer(scip, name) = @scip_ccall("SCIPfindPricer", 
-    Ptr{_SCIP_PRICER}, (Ptr{_SCIP}, Void,), scip, name)
+    Ptr{_SCIP_PRICER}, (Ptr{_SCIP}, Ptr{Ptr{Char}},), scip, name)
 _SCIPgetPricers(scip) = @scip_ccall("SCIPgetPricers", 
     Ptr{Ptr{_SCIP_PRICER}}, (Ptr{_SCIP},), scip)
 _SCIPgetNPricers(scip) = @scip_ccall("SCIPgetNPricers", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNActivePricers(scip) = @scip_ccall("SCIPgetNActivePricers", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPfindConshdlr(scip, name) = @scip_ccall("SCIPfindConshdlr", 
-    Ptr{_SCIP_CONSHDLR}, (Ptr{_SCIP}, Void,), scip, name)
+    Ptr{_SCIP_CONSHDLR}, (Ptr{_SCIP}, Ptr{Ptr{Char}},), scip, name)
 _SCIPgetConshdlrs(scip) = @scip_ccall("SCIPgetConshdlrs", 
     Ptr{Ptr{_SCIP_CONSHDLR}}, (Ptr{_SCIP},), scip)
 _SCIPgetNConshdlrs(scip) = @scip_ccall("SCIPgetNConshdlrs", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPfindConflicthdlr(scip, name) = @scip_ccall("SCIPfindConflicthdlr", 
-    Ptr{_SCIP_CONFLICTHDLR}, (Ptr{_SCIP}, Void,), scip, name)
+    Ptr{_SCIP_CONFLICTHDLR}, (Ptr{_SCIP}, Ptr{Ptr{Char}},), scip, name)
 _SCIPgetConflicthdlrs(scip) = @scip_ccall("SCIPgetConflicthdlrs", 
     Ptr{Ptr{_SCIP_CONFLICTHDLR}}, (Ptr{_SCIP},), scip)
 _SCIPgetNConflicthdlrs(scip) = @scip_ccall("SCIPgetNConflicthdlrs", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPfindPresol(scip, name) = @scip_ccall("SCIPfindPresol", 
-    Ptr{_SCIP_PRESOL}, (Ptr{_SCIP}, Void,), scip, name)
+    Ptr{_SCIP_PRESOL}, (Ptr{_SCIP}, Ptr{Ptr{Char}},), scip, name)
 _SCIPgetPresols(scip) = @scip_ccall("SCIPgetPresols", 
     Ptr{Ptr{_SCIP_PRESOL}}, (Ptr{_SCIP},), scip)
 _SCIPgetNPresols(scip) = @scip_ccall("SCIPgetNPresols", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPfindRelax(scip, name) = @scip_ccall("SCIPfindRelax", 
-    Ptr{_SCIP_RELAX}, (Ptr{_SCIP}, Void,), scip, name)
+    Ptr{_SCIP_RELAX}, (Ptr{_SCIP}, Ptr{Ptr{Char}},), scip, name)
 _SCIPgetRelaxs(scip) = @scip_ccall("SCIPgetRelaxs", 
     Ptr{Ptr{_SCIP_RELAX}}, (Ptr{_SCIP},), scip)
 _SCIPgetNRelaxs(scip) = @scip_ccall("SCIPgetNRelaxs", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPfindSepa(scip, name) = @scip_ccall("SCIPfindSepa", 
-    Ptr{_SCIP_SEPA}, (Ptr{_SCIP}, Void,), scip, name)
+    Ptr{_SCIP_SEPA}, (Ptr{_SCIP}, Ptr{Ptr{Char}},), scip, name)
 _SCIPgetSepas(scip) = @scip_ccall("SCIPgetSepas", 
     Ptr{Ptr{_SCIP_SEPA}}, (Ptr{_SCIP},), scip)
 _SCIPgetNSepas(scip) = @scip_ccall("SCIPgetNSepas", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPfindProp(scip, name) = @scip_ccall("SCIPfindProp", 
-    Ptr{_SCIP_PROP}, (Ptr{_SCIP}, Void,), scip, name)
+    Ptr{_SCIP_PROP}, (Ptr{_SCIP}, Ptr{Ptr{Char}},), scip, name)
 _SCIPgetProps(scip) = @scip_ccall("SCIPgetProps", 
     Ptr{Ptr{_SCIP_PROP}}, (Ptr{_SCIP},), scip)
 _SCIPgetNProps(scip) = @scip_ccall("SCIPgetNProps", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPfindHeur(scip, name) = @scip_ccall("SCIPfindHeur", 
-    Ptr{_SCIP_HEUR}, (Ptr{_SCIP}, Void,), scip, name)
+    Ptr{_SCIP_HEUR}, (Ptr{_SCIP}, Ptr{Ptr{Char}},), scip, name)
 _SCIPgetHeurs(scip) = @scip_ccall("SCIPgetHeurs", 
     Ptr{Ptr{_SCIP_HEUR}}, (Ptr{_SCIP},), scip)
 _SCIPgetNHeurs(scip) = @scip_ccall("SCIPgetNHeurs", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPfindEventhdlr(scip, name) = @scip_ccall("SCIPfindEventhdlr", 
-    Ptr{_SCIP_EVENTHDLR}, (Ptr{_SCIP}, Void,), scip, name)
+    Ptr{_SCIP_EVENTHDLR}, (Ptr{_SCIP}, Ptr{Ptr{Char}},), scip, name)
 _SCIPgetEventhdlrs(scip) = @scip_ccall("SCIPgetEventhdlrs", 
     Ptr{Ptr{_SCIP_EVENTHDLR}}, (Ptr{_SCIP},), scip)
 _SCIPgetNEventhdlrs(scip) = @scip_ccall("SCIPgetNEventhdlrs", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPfindNodesel(scip, name) = @scip_ccall("SCIPfindNodesel", 
-    Ptr{_SCIP_NODESEL}, (Ptr{_SCIP}, Void,), scip, name)
+    Ptr{_SCIP_NODESEL}, (Ptr{_SCIP}, Ptr{Ptr{Char}},), scip, name)
 _SCIPgetNodesels(scip) = @scip_ccall("SCIPgetNodesels", 
     Ptr{Ptr{_SCIP_NODESEL}}, (Ptr{_SCIP},), scip)
 _SCIPgetNNodesels(scip) = @scip_ccall("SCIPgetNNodesels", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNodesel(scip) = @scip_ccall("SCIPgetNodesel", 
     Ptr{_SCIP_NODESEL}, (Ptr{_SCIP},), scip)
 _SCIPfindBranchrule(scip, name) = @scip_ccall("SCIPfindBranchrule", 
-    Ptr{_SCIP_BRANCHRULE}, (Ptr{_SCIP}, Void,), scip, name)
+    Ptr{_SCIP_BRANCHRULE}, (Ptr{_SCIP}, Ptr{Ptr{Char}},), scip, name)
 _SCIPgetBranchrules(scip) = @scip_ccall("SCIPgetBranchrules", 
     Ptr{Ptr{_SCIP_BRANCHRULE}}, (Ptr{_SCIP},), scip)
 _SCIPgetNBranchrules(scip) = @scip_ccall("SCIPgetNBranchrules", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPfindDisp(scip, name) = @scip_ccall("SCIPfindDisp", 
-    Ptr{_SCIP_DISP}, (Ptr{_SCIP}, Void,), scip, name)
+    Ptr{_SCIP_DISP}, (Ptr{_SCIP}, Ptr{Ptr{Char}},), scip, name)
 _SCIPgetDisps(scip) = @scip_ccall("SCIPgetDisps", 
     Ptr{Ptr{_SCIP_DISP}}, (Ptr{_SCIP},), scip)
 _SCIPgetNDisps(scip) = @scip_ccall("SCIPgetNDisps", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPfindNlpi(scip, name) = @scip_ccall("SCIPfindNlpi", 
-    Ptr{_SCIP_NLPI}, (Ptr{_SCIP}, Void,), scip, name)
+    Ptr{_SCIP_NLPI}, (Ptr{_SCIP}, Ptr{Ptr{Char}},), scip, name)
 _SCIPgetNlpis(scip) = @scip_ccall("SCIPgetNlpis", 
     Ptr{Ptr{_SCIP_NLPI}}, (Ptr{_SCIP},), scip)
 _SCIPgetNNlpis(scip) = @scip_ccall("SCIPgetNNlpis", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetExternalCodeNames(scip) = @scip_ccall("SCIPgetExternalCodeNames", 
-    Void, (Ptr{_SCIP},), scip)
+    Ptr{Ptr{Char}}, (Ptr{_SCIP},), scip)
 _SCIPgetExternalCodeDescriptions(scip) = @scip_ccall("SCIPgetExternalCodeDescriptions", 
-    Void, (Ptr{_SCIP},), scip)
+    Ptr{Ptr{Char}}, (Ptr{_SCIP},), scip)
 _SCIPgetNExternalCodes(scip) = @scip_ccall("SCIPgetNExternalCodes", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPprintExternalCodes(scip, file) = @scip_ccall("SCIPprintExternalCodes", 
-    Void, (Ptr{_SCIP}, Void,), scip, file)
+    Void, (Ptr{_SCIP}, Ptr{FILE},), scip, file)
 _SCIPexistsDialog(scip, dialog) = @scip_ccall("SCIPexistsDialog", 
     _SCIP_Bool, (Ptr{_SCIP}, Ptr{_SCIP_DIALOG},), scip, dialog)
 _SCIPgetRootDialog(scip) = @scip_ccall("SCIPgetRootDialog", 
@@ -2619,7 +2619,7 @@ _SCIPgetRootDialog(scip) = @scip_ccall("SCIPgetRootDialog",
 _SCIPgetProbData(scip) = @scip_ccall("SCIPgetProbData", 
     Ptr{_SCIP_PROBDATA}, (Ptr{_SCIP},), scip)
 _SCIPgetProbName(scip) = @scip_ccall("SCIPgetProbName", 
-    Void, (Ptr{_SCIP},), scip)
+    Ptr{Ptr{Char}}, (Ptr{_SCIP},), scip)
 _SCIPgetObjsense(scip) = @scip_ccall("SCIPgetObjsense", 
     _SCIP_OBJSENSE, (Ptr{_SCIP},), scip)
 _SCIPgetOrigObjoffset(scip) = @scip_ccall("SCIPgetOrigObjoffset", 
@@ -2639,55 +2639,55 @@ _SCIPgetObjNorm(scip) = @scip_ccall("SCIPgetObjNorm",
 _SCIPgetVars(scip) = @scip_ccall("SCIPgetVars", 
     Ptr{Ptr{_SCIP_VAR}}, (Ptr{_SCIP},), scip)
 _SCIPgetNVars(scip) = @scip_ccall("SCIPgetNVars", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNBinVars(scip) = @scip_ccall("SCIPgetNBinVars", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNIntVars(scip) = @scip_ccall("SCIPgetNIntVars", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNImplVars(scip) = @scip_ccall("SCIPgetNImplVars", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNContVars(scip) = @scip_ccall("SCIPgetNContVars", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNObjVars(scip) = @scip_ccall("SCIPgetNObjVars", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetFixedVars(scip) = @scip_ccall("SCIPgetFixedVars", 
     Ptr{Ptr{_SCIP_VAR}}, (Ptr{_SCIP},), scip)
 _SCIPgetNFixedVars(scip) = @scip_ccall("SCIPgetNFixedVars", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetOrigVars(scip) = @scip_ccall("SCIPgetOrigVars", 
     Ptr{Ptr{_SCIP_VAR}}, (Ptr{_SCIP},), scip)
 _SCIPgetNOrigVars(scip) = @scip_ccall("SCIPgetNOrigVars", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNOrigBinVars(scip) = @scip_ccall("SCIPgetNOrigBinVars", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNOrigIntVars(scip) = @scip_ccall("SCIPgetNOrigIntVars", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNOrigImplVars(scip) = @scip_ccall("SCIPgetNOrigImplVars", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNOrigContVars(scip) = @scip_ccall("SCIPgetNOrigContVars", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNTotalVars(scip) = @scip_ccall("SCIPgetNTotalVars", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPfindVar(scip, name) = @scip_ccall("SCIPfindVar", 
-    Ptr{_SCIP_VAR}, (Ptr{_SCIP}, Void,), scip, name)
+    Ptr{_SCIP_VAR}, (Ptr{_SCIP}, Ptr{Ptr{Char}},), scip, name)
 _SCIPallVarsInProb(scip) = @scip_ccall("SCIPallVarsInProb", 
     _SCIP_Bool, (Ptr{_SCIP},), scip)
 _SCIPfindOrigCons(scip, name) = @scip_ccall("SCIPfindOrigCons", 
-    Ptr{_SCIP_CONS}, (Ptr{_SCIP}, Void,), scip, name)
+    Ptr{_SCIP_CONS}, (Ptr{_SCIP}, Ptr{Ptr{Char}},), scip, name)
 _SCIPfindCons(scip, name) = @scip_ccall("SCIPfindCons", 
-    Ptr{_SCIP_CONS}, (Ptr{_SCIP}, Void,), scip, name)
+    Ptr{_SCIP_CONS}, (Ptr{_SCIP}, Ptr{Ptr{Char}},), scip, name)
 _SCIPgetNUpgrConss(scip) = @scip_ccall("SCIPgetNUpgrConss", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNConss(scip) = @scip_ccall("SCIPgetNConss", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetConss(scip) = @scip_ccall("SCIPgetConss", 
     Ptr{Ptr{_SCIP_CONS}}, (Ptr{_SCIP},), scip)
 _SCIPgetNOrigConss(scip) = @scip_ccall("SCIPgetNOrigConss", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetOrigConss(scip) = @scip_ccall("SCIPgetOrigConss", 
     Ptr{Ptr{_SCIP_CONS}}, (Ptr{_SCIP},), scip)
 _SCIPgetNCheckConss(scip) = @scip_ccall("SCIPgetNCheckConss", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetLocalOrigEstimate(scip) = @scip_ccall("SCIPgetLocalOrigEstimate", 
     _SCIP_Real, (Ptr{_SCIP},), scip)
 _SCIPgetLocalTransEstimate(scip) = @scip_ccall("SCIPgetLocalTransEstimate", 
@@ -2703,7 +2703,7 @@ _SCIPgetNodeLowerbound(scip, node) = @scip_ccall("SCIPgetNodeLowerbound",
 _SCIPisInRestart(scip) = @scip_ccall("SCIPisInRestart", 
     _SCIP_Bool, (Ptr{_SCIP},), scip)
 _SCIPfreeParseVarsPolynomialData(scip, monomialvars, monomialexps, monomialcoefs, monomialnvars, nmonomials) = @scip_ccall("SCIPfreeParseVarsPolynomialData", 
-    Void, (Ptr{_SCIP}, Ptr{Ptr{Ptr{Ptr{_SCIP_VAR}}}}, Ptr{Ptr{Ptr{_SCIP_Real}}}, Ptr{Ptr{_SCIP_Real}}, Void, Void,), scip, monomialvars, monomialexps, monomialcoefs, monomialnvars, nmonomials)
+    Void, (Ptr{_SCIP}, Ptr{Ptr{Ptr{Ptr{_SCIP_VAR}}}}, Ptr{Ptr{Ptr{_SCIP_Real}}}, Ptr{Ptr{_SCIP_Real}}, Ptr{Ptr{Int}}, Int,), scip, monomialvars, monomialexps, monomialcoefs, monomialnvars, nmonomials)
 _SCIPgetVarRedcost(scip, var) = @scip_ccall("SCIPgetVarRedcost", 
     _SCIP_Real, (Ptr{_SCIP}, Ptr{_SCIP_VAR},), scip, var)
 _SCIPgetVarImplRedcost(scip, var, varfixing) = @scip_ccall("SCIPgetVarImplRedcost", 
@@ -2723,7 +2723,7 @@ _SCIPgetVarStrongbranchNode(scip, var) = @scip_ccall("SCIPgetVarStrongbranchNode
 _SCIPgetVarStrongbranchLPAge(scip, var) = @scip_ccall("SCIPgetVarStrongbranchLPAge", 
     Int64, (Ptr{_SCIP}, Ptr{_SCIP_VAR},), scip, var)
 _SCIPgetVarNStrongbranchs(scip, var) = @scip_ccall("SCIPgetVarNStrongbranchs", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_VAR},), scip, var)
+    Int, (Ptr{_SCIP}, Ptr{_SCIP_VAR},), scip, var)
 _SCIPadjustedVarLb(scip, var, lb) = @scip_ccall("SCIPadjustedVarLb", 
     _SCIP_Real, (Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Real,), scip, var, lb)
 _SCIPadjustedVarUb(scip, var, ub) = @scip_ccall("SCIPadjustedVarUb", 
@@ -2737,7 +2737,7 @@ _SCIPcomputeVarLbLocal(scip, var) = @scip_ccall("SCIPcomputeVarLbLocal",
 _SCIPcomputeVarUbLocal(scip, var) = @scip_ccall("SCIPcomputeVarUbLocal", 
     _SCIP_Real, (Ptr{_SCIP}, Ptr{_SCIP_VAR},), scip, var)
 _SCIPgetNCliques(scip) = @scip_ccall("SCIPgetNCliques", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetCliques(scip) = @scip_ccall("SCIPgetCliques", 
     Ptr{Ptr{_SCIP_CLIQUE}}, (Ptr{_SCIP},), scip)
 _SCIPhaveVarsCommonClique(scip, var1, value1, var2, value2, regardimplics) = @scip_ccall("SCIPhaveVarsCommonClique", 
@@ -2839,11 +2839,11 @@ _SCIPgetLPRootLooseObjval(scip) = @scip_ccall("SCIPgetLPRootLooseObjval",
 _SCIPgetLPCols(scip) = @scip_ccall("SCIPgetLPCols", 
     Ptr{Ptr{_SCIP_COL}}, (Ptr{_SCIP},), scip)
 _SCIPgetNLPCols(scip) = @scip_ccall("SCIPgetNLPCols", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetLPRows(scip) = @scip_ccall("SCIPgetLPRows", 
     Ptr{Ptr{_SCIP_ROW}}, (Ptr{_SCIP},), scip)
 _SCIPgetNLPRows(scip) = @scip_ccall("SCIPgetNLPRows", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPallColsInLP(scip) = @scip_ccall("SCIPallColsInLP", 
     _SCIP_Bool, (Ptr{_SCIP},), scip)
 _SCIPisLPSolBasic(scip) = @scip_ccall("SCIPisLPSolBasic", 
@@ -2891,7 +2891,7 @@ _SCIPhasNLPContinuousNonlinearity(scip) = @scip_ccall("SCIPhasNLPContinuousNonli
 _SCIPgetNLPVars(scip) = @scip_ccall("SCIPgetNLPVars", 
     Ptr{Ptr{_SCIP_VAR}}, (Ptr{_SCIP},), scip)
 _SCIPgetNNLPVars(scip) = @scip_ccall("SCIPgetNNLPVars", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNLPVarsLbDualsol(scip) = @scip_ccall("SCIPgetNLPVarsLbDualsol", 
     Ptr{_SCIP_Real}, (Ptr{_SCIP},), scip)
 _SCIPgetNLPVarsUbDualsol(scip) = @scip_ccall("SCIPgetNLPVarsUbDualsol", 
@@ -2899,7 +2899,7 @@ _SCIPgetNLPVarsUbDualsol(scip) = @scip_ccall("SCIPgetNLPVarsUbDualsol",
 _SCIPgetNLPNlRows(scip) = @scip_ccall("SCIPgetNLPNlRows", 
     Ptr{Ptr{_SCIP_NLROW}}, (Ptr{_SCIP},), scip)
 _SCIPgetNNLPNlRows(scip) = @scip_ccall("SCIPgetNNLPNlRows", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNLPSolstat(scip) = @scip_ccall("SCIPgetNLPSolstat", 
     _SCIP_NLPSOLSTAT, (Ptr{_SCIP},), scip)
 _SCIPgetNLPTermstat(scip) = @scip_ccall("SCIPgetNLPTermstat", 
@@ -2915,25 +2915,25 @@ _SCIPisCutEfficacious(scip, sol, cut) = @scip_ccall("SCIPisCutEfficacious",
 _SCIPisEfficacious(scip, efficacy) = @scip_ccall("SCIPisEfficacious", 
     _SCIP_Bool, (Ptr{_SCIP}, _SCIP_Real,), scip, efficacy)
 _SCIPgetVectorEfficacyNorm(scip, vals, nvals) = @scip_ccall("SCIPgetVectorEfficacyNorm", 
-    _SCIP_Real, (Ptr{_SCIP}, Ptr{_SCIP_Real}, Void,), scip, vals, nvals)
+    _SCIP_Real, (Ptr{_SCIP}, Ptr{_SCIP_Real}, Int,), scip, vals, nvals)
 _SCIPisCutApplicable(scip, cut) = @scip_ccall("SCIPisCutApplicable", 
     _SCIP_Bool, (Ptr{_SCIP}, Ptr{_SCIP_ROW},), scip, cut)
 _SCIPgetPoolCuts(scip) = @scip_ccall("SCIPgetPoolCuts", 
     Ptr{Ptr{_SCIP_CUT}}, (Ptr{_SCIP},), scip)
 _SCIPgetNPoolCuts(scip) = @scip_ccall("SCIPgetNPoolCuts", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetGlobalCutpool(scip) = @scip_ccall("SCIPgetGlobalCutpool", 
     Ptr{_SCIP_CUTPOOL}, (Ptr{_SCIP},), scip)
 _SCIPgetDelayedPoolCuts(scip) = @scip_ccall("SCIPgetDelayedPoolCuts", 
     Ptr{Ptr{_SCIP_CUT}}, (Ptr{_SCIP},), scip)
 _SCIPgetNDelayedPoolCuts(scip) = @scip_ccall("SCIPgetNDelayedPoolCuts", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetDelayedGlobalCutpool(scip) = @scip_ccall("SCIPgetDelayedGlobalCutpool", 
     Ptr{_SCIP_CUTPOOL}, (Ptr{_SCIP},), scip)
 _SCIPgetCuts(scip) = @scip_ccall("SCIPgetCuts", 
     Ptr{Ptr{_SCIP_ROW}}, (Ptr{_SCIP},), scip)
 _SCIPgetNCuts(scip) = @scip_ccall("SCIPgetNCuts", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetRelaxFeastolFactor(scip) = @scip_ccall("SCIPgetRelaxFeastolFactor", 
     _SCIP_Real, (Ptr{_SCIP},), scip)
 _SCIPgetVarObjDive(scip, var) = @scip_ccall("SCIPgetVarObjDive", 
@@ -2949,41 +2949,41 @@ _SCIPinDive(scip) = @scip_ccall("SCIPinDive",
 _SCIPinProbing(scip) = @scip_ccall("SCIPinProbing", 
     _SCIP_Bool, (Ptr{_SCIP},), scip)
 _SCIPgetProbingDepth(scip) = @scip_ccall("SCIPgetProbingDepth", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNLPBranchCands(scip) = @scip_ccall("SCIPgetNLPBranchCands", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNPrioLPBranchCands(scip) = @scip_ccall("SCIPgetNPrioLPBranchCands", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNExternBranchCands(scip) = @scip_ccall("SCIPgetNExternBranchCands", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNPrioExternBranchCands(scip) = @scip_ccall("SCIPgetNPrioExternBranchCands", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNPrioExternBranchBins(scip) = @scip_ccall("SCIPgetNPrioExternBranchBins", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNPrioExternBranchInts(scip) = @scip_ccall("SCIPgetNPrioExternBranchInts", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNPrioExternBranchImpls(scip) = @scip_ccall("SCIPgetNPrioExternBranchImpls", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNPrioExternBranchConts(scip) = @scip_ccall("SCIPgetNPrioExternBranchConts", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPclearExternBranchCands(scip) = @scip_ccall("SCIPclearExternBranchCands", 
     Void, (Ptr{_SCIP},), scip)
 _SCIPcontainsExternBranchCand(scip, var) = @scip_ccall("SCIPcontainsExternBranchCand", 
     _SCIP_Bool, (Ptr{_SCIP}, Ptr{_SCIP_VAR},), scip, var)
 _SCIPgetNPseudoBranchCands(scip) = @scip_ccall("SCIPgetNPseudoBranchCands", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNPrioPseudoBranchCands(scip) = @scip_ccall("SCIPgetNPrioPseudoBranchCands", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNPrioPseudoBranchBins(scip) = @scip_ccall("SCIPgetNPrioPseudoBranchBins", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNPrioPseudoBranchInts(scip) = @scip_ccall("SCIPgetNPrioPseudoBranchInts", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNPrioPseudoBranchImpls(scip) = @scip_ccall("SCIPgetNPrioPseudoBranchImpls", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetBranchScore(scip, var, downgain, upgain) = @scip_ccall("SCIPgetBranchScore", 
     _SCIP_Real, (Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Real,), scip, var, downgain, upgain)
 _SCIPgetBranchScoreMultiple(scip, var, nchildren, gains) = @scip_ccall("SCIPgetBranchScoreMultiple", 
-    _SCIP_Real, (Ptr{_SCIP}, Ptr{_SCIP_VAR}, Void, Ptr{_SCIP_Real},), scip, var, nchildren, gains)
+    _SCIP_Real, (Ptr{_SCIP}, Ptr{_SCIP_VAR}, Int, Ptr{_SCIP_Real},), scip, var, nchildren, gains)
 _SCIPgetBranchingPoint(scip, var, suggestion) = @scip_ccall("SCIPgetBranchingPoint", 
     _SCIP_Real, (Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Real,), scip, var, suggestion)
 _SCIPcalcNodeselPriority(scip, var, branchdir, targetvalue) = @scip_ccall("SCIPcalcNodeselPriority", 
@@ -3003,7 +3003,7 @@ _SCIPretransformObj(scip, obj) = @scip_ccall("SCIPretransformObj",
 _SCIPgetSolTime(scip, sol) = @scip_ccall("SCIPgetSolTime", 
     _SCIP_Real, (Ptr{_SCIP}, Ptr{_SCIP_SOL},), scip, sol)
 _SCIPgetSolRunnum(scip, sol) = @scip_ccall("SCIPgetSolRunnum", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_SOL},), scip, sol)
+    Int, (Ptr{_SCIP}, Ptr{_SCIP_SOL},), scip, sol)
 _SCIPgetSolNodenum(scip, sol) = @scip_ccall("SCIPgetSolNodenum", 
     Int64, (Ptr{_SCIP}, Ptr{_SCIP_SOL},), scip, sol)
 _SCIPgetSolHeur(scip, sol) = @scip_ccall("SCIPgetSolHeur", 
@@ -3011,7 +3011,7 @@ _SCIPgetSolHeur(scip, sol) = @scip_ccall("SCIPgetSolHeur",
 _SCIPareSolsEqual(scip, sol1, sol2) = @scip_ccall("SCIPareSolsEqual", 
     _SCIP_Bool, (Ptr{_SCIP}, Ptr{_SCIP_SOL}, Ptr{_SCIP_SOL},), scip, sol1, sol2)
 _SCIPgetNSols(scip) = @scip_ccall("SCIPgetNSols", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetSols(scip) = @scip_ccall("SCIPgetSols", 
     Ptr{Ptr{_SCIP_SOL}}, (Ptr{_SCIP},), scip)
 _SCIPgetBestSol(scip) = @scip_ccall("SCIPgetBestSol", 
@@ -3027,11 +3027,11 @@ _SCIPgetRootNode(scip) = @scip_ccall("SCIPgetRootNode",
 _SCIPinRepropagation(scip) = @scip_ccall("SCIPinRepropagation", 
     _SCIP_Bool, (Ptr{_SCIP},), scip)
 _SCIPgetNChildren(scip) = @scip_ccall("SCIPgetNChildren", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNSiblings(scip) = @scip_ccall("SCIPgetNSiblings", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNLeaves(scip) = @scip_ccall("SCIPgetNLeaves", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetPrioChild(scip) = @scip_ccall("SCIPgetPrioChild", 
     Ptr{_SCIP_NODE}, (Ptr{_SCIP},), scip)
 _SCIPgetPrioSibling(scip) = @scip_ccall("SCIPgetPrioSibling", 
@@ -3047,17 +3047,17 @@ _SCIPgetBestNode(scip) = @scip_ccall("SCIPgetBestNode",
 _SCIPgetBestboundNode(scip) = @scip_ccall("SCIPgetBestboundNode", 
     Ptr{_SCIP_NODE}, (Ptr{_SCIP},), scip)
 _SCIPgetCutoffdepth(scip) = @scip_ccall("SCIPgetCutoffdepth", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetRepropdepth(scip) = @scip_ccall("SCIPgetRepropdepth", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNRuns(scip) = @scip_ccall("SCIPgetNRuns", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNNodes(scip) = @scip_ccall("SCIPgetNNodes", 
     Int64, (Ptr{_SCIP},), scip)
 _SCIPgetNTotalNodes(scip) = @scip_ccall("SCIPgetNTotalNodes", 
     Int64, (Ptr{_SCIP},), scip)
 _SCIPgetNNodesLeft(scip) = @scip_ccall("SCIPgetNNodesLeft", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNLPs(scip) = @scip_ccall("SCIPgetNLPs", 
     Int64, (Ptr{_SCIP},), scip)
 _SCIPgetNLPIterations(scip) = @scip_ccall("SCIPgetNLPIterations", 
@@ -3111,43 +3111,43 @@ _SCIPgetNRootStrongbranchs(scip) = @scip_ccall("SCIPgetNRootStrongbranchs",
 _SCIPgetNRootStrongbranchLPIterations(scip) = @scip_ccall("SCIPgetNRootStrongbranchLPIterations", 
     Int64, (Ptr{_SCIP},), scip)
 _SCIPgetNPriceRounds(scip) = @scip_ccall("SCIPgetNPriceRounds", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNPricevars(scip) = @scip_ccall("SCIPgetNPricevars", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNPricevarsFound(scip) = @scip_ccall("SCIPgetNPricevarsFound", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNPricevarsApplied(scip) = @scip_ccall("SCIPgetNPricevarsApplied", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNSepaRounds(scip) = @scip_ccall("SCIPgetNSepaRounds", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNCutsFound(scip) = @scip_ccall("SCIPgetNCutsFound", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNCutsFoundRound(scip) = @scip_ccall("SCIPgetNCutsFoundRound", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNCutsApplied(scip) = @scip_ccall("SCIPgetNCutsApplied", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNConflictConssFound(scip) = @scip_ccall("SCIPgetNConflictConssFound", 
     Int64, (Ptr{_SCIP},), scip)
 _SCIPgetNConflictConssFoundNode(scip) = @scip_ccall("SCIPgetNConflictConssFoundNode", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNConflictConssApplied(scip) = @scip_ccall("SCIPgetNConflictConssApplied", 
     Int64, (Ptr{_SCIP},), scip)
 _SCIPgetDepth(scip) = @scip_ccall("SCIPgetDepth", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetFocusDepth(scip) = @scip_ccall("SCIPgetFocusDepth", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetMaxDepth(scip) = @scip_ccall("SCIPgetMaxDepth", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetMaxTotalDepth(scip) = @scip_ccall("SCIPgetMaxTotalDepth", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNBacktracks(scip) = @scip_ccall("SCIPgetNBacktracks", 
     Int64, (Ptr{_SCIP},), scip)
 _SCIPgetPlungeDepth(scip) = @scip_ccall("SCIPgetPlungeDepth", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNActiveConss(scip) = @scip_ccall("SCIPgetNActiveConss", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetNEnabledConss(scip) = @scip_ccall("SCIPgetNEnabledConss", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetAvgDualbound(scip) = @scip_ccall("SCIPgetAvgDualbound", 
     _SCIP_Real, (Ptr{_SCIP},), scip)
 _SCIPgetAvgLowerbound(scip) = @scip_ccall("SCIPgetAvgLowerbound", 
@@ -3219,7 +3219,7 @@ _SCIPgetAvgCutoffScore(scip) = @scip_ccall("SCIPgetAvgCutoffScore",
 _SCIPgetAvgCutoffScoreCurrentRun(scip) = @scip_ccall("SCIPgetAvgCutoffScoreCurrentRun", 
     _SCIP_Real, (Ptr{_SCIP},), scip)
 _SCIPgetNImplications(scip) = @scip_ccall("SCIPgetNImplications", 
-    Void, (Ptr{_SCIP},), scip)
+    Int, (Ptr{_SCIP},), scip)
 _SCIPgetTimeOfDay(scip) = @scip_ccall("SCIPgetTimeOfDay", 
     _SCIP_Real, (Ptr{_SCIP},), scip)
 _SCIPgetClockTime(scip, clck) = @scip_ccall("SCIPgetClockTime", 
@@ -3385,66 +3385,66 @@ _SCIPisSumRelGT(scip, val1, val2) = @scip_ccall("SCIPisSumRelGT",
 _SCIPisSumRelGE(scip, val1, val2) = @scip_ccall("SCIPisSumRelGE", 
     _SCIP_Bool, (Ptr{_SCIP}, _SCIP_Real, _SCIP_Real,), scip, val1, val2)
 _SCIPconvertRealToInt(scip, real) = @scip_ccall("SCIPconvertRealToInt", 
-    Void, (Ptr{_SCIP}, _SCIP_Real,), scip, real)
+    Int, (Ptr{_SCIP}, _SCIP_Real,), scip, real)
 _SCIPconvertRealToLongint(scip, real) = @scip_ccall("SCIPconvertRealToLongint", 
     Int64, (Ptr{_SCIP}, _SCIP_Real,), scip, real)
 _SCIPisUpdateUnreliable(scip, newvalue, oldvalue) = @scip_ccall("SCIPisUpdateUnreliable", 
     _SCIP_Bool, (Ptr{_SCIP}, _SCIP_Real, _SCIP_Real,), scip, newvalue, oldvalue)
 _SCIPprintReal(scip, file, val, width, precision) = @scip_ccall("SCIPprintReal", 
-    Void, (Ptr{_SCIP}, Void, _SCIP_Real, Void, Void,), scip, file, val, width, precision)
+    Void, (Ptr{_SCIP}, Ptr{FILE}, _SCIP_Real, Int, Int,), scip, file, val, width, precision)
 _SCIPblkmem(scip) = @scip_ccall("SCIPblkmem", 
-    Void, (Ptr{_SCIP},), scip)
+    Ptr{BMS_BLKMEM}, (Ptr{_SCIP},), scip)
 _SCIPgetMemUsed(scip) = @scip_ccall("SCIPgetMemUsed", 
     Int64, (Ptr{_SCIP},), scip)
 _SCIPgetMemExternEstim(scip) = @scip_ccall("SCIPgetMemExternEstim", 
     Int64, (Ptr{_SCIP},), scip)
 _SCIPcalcMemGrowSize(scip, num) = @scip_ccall("SCIPcalcMemGrowSize", 
-    Void, (Ptr{_SCIP}, Void,), scip, num)
+    Int, (Ptr{_SCIP}, Int,), scip, num)
 _SCIPfreeBufferSize(scip, ptr, dummysize) = @scip_ccall("SCIPfreeBufferSize", 
-    Void, (Ptr{_SCIP}, Void, Void,), scip, ptr, dummysize)
+    Void, (Ptr{_SCIP}, Ptr{Ptr{Void}}, Int,), scip, ptr, dummysize)
 _SCIPprintMemoryDiagnostic(scip) = @scip_ccall("SCIPprintMemoryDiagnostic", 
     Void, (Ptr{_SCIP},), scip)
 _SCIPgetRealarrayVal(scip, realarray, idx) = @scip_ccall("SCIPgetRealarrayVal", 
-    _SCIP_Real, (Ptr{_SCIP}, Ptr{_SCIP_REALARRAY}, Void,), scip, realarray, idx)
+    _SCIP_Real, (Ptr{_SCIP}, Ptr{_SCIP_REALARRAY}, Int,), scip, realarray, idx)
 _SCIPgetRealarrayMinIdx(scip, realarray) = @scip_ccall("SCIPgetRealarrayMinIdx", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_REALARRAY},), scip, realarray)
+    Int, (Ptr{_SCIP}, Ptr{_SCIP_REALARRAY},), scip, realarray)
 _SCIPgetRealarrayMaxIdx(scip, realarray) = @scip_ccall("SCIPgetRealarrayMaxIdx", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_REALARRAY},), scip, realarray)
+    Int, (Ptr{_SCIP}, Ptr{_SCIP_REALARRAY},), scip, realarray)
 _SCIPgetIntarrayVal(scip, intarray, idx) = @scip_ccall("SCIPgetIntarrayVal", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_INTARRAY}, Void,), scip, intarray, idx)
+    Int, (Ptr{_SCIP}, Ptr{_SCIP_INTARRAY}, Int,), scip, intarray, idx)
 _SCIPgetIntarrayMinIdx(scip, intarray) = @scip_ccall("SCIPgetIntarrayMinIdx", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_INTARRAY},), scip, intarray)
+    Int, (Ptr{_SCIP}, Ptr{_SCIP_INTARRAY},), scip, intarray)
 _SCIPgetIntarrayMaxIdx(scip, intarray) = @scip_ccall("SCIPgetIntarrayMaxIdx", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_INTARRAY},), scip, intarray)
+    Int, (Ptr{_SCIP}, Ptr{_SCIP_INTARRAY},), scip, intarray)
 _SCIPgetBoolarrayVal(scip, boolarray, idx) = @scip_ccall("SCIPgetBoolarrayVal", 
-    _SCIP_Bool, (Ptr{_SCIP}, Ptr{_SCIP_BOOLARRAY}, Void,), scip, boolarray, idx)
+    _SCIP_Bool, (Ptr{_SCIP}, Ptr{_SCIP_BOOLARRAY}, Int,), scip, boolarray, idx)
 _SCIPgetBoolarrayMinIdx(scip, boolarray) = @scip_ccall("SCIPgetBoolarrayMinIdx", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_BOOLARRAY},), scip, boolarray)
+    Int, (Ptr{_SCIP}, Ptr{_SCIP_BOOLARRAY},), scip, boolarray)
 _SCIPgetBoolarrayMaxIdx(scip, boolarray) = @scip_ccall("SCIPgetBoolarrayMaxIdx", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_BOOLARRAY},), scip, boolarray)
+    Int, (Ptr{_SCIP}, Ptr{_SCIP_BOOLARRAY},), scip, boolarray)
 _SCIPgetPtrarrayVal(scip, ptrarray, idx) = @scip_ccall("SCIPgetPtrarrayVal", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_PTRARRAY}, Void,), scip, ptrarray, idx)
+    Ptr{Void}, (Ptr{_SCIP}, Ptr{_SCIP_PTRARRAY}, Int,), scip, ptrarray, idx)
 _SCIPgetPtrarrayMinIdx(scip, ptrarray) = @scip_ccall("SCIPgetPtrarrayMinIdx", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_PTRARRAY},), scip, ptrarray)
+    Int, (Ptr{_SCIP}, Ptr{_SCIP_PTRARRAY},), scip, ptrarray)
 _SCIPgetPtrarrayMaxIdx(scip, ptrarray) = @scip_ccall("SCIPgetPtrarrayMaxIdx", 
-    Void, (Ptr{_SCIP}, Ptr{_SCIP_PTRARRAY},), scip, ptrarray)
+    Int, (Ptr{_SCIP}, Ptr{_SCIP_PTRARRAY},), scip, ptrarray)
 
 # SCIP function wrappers: checked functions
 export _SCIPincludeConshdlrAbspower, _SCIPcreateConsAbspower, _SCIPcreateConsBasicAbspower, _SCIPgetNlRowAbspower, _SCIPincludeConshdlrAnd, _SCIPcreateConsAnd, _SCIPcreateConsBasicAnd, _SCIPsortAndCons, _SCIPchgAndConsCheckFlagWhenUpgr, _SCIPchgAndConsRemovableFlagWhenUpgr, _SCIPincludeConshdlrBivariate, _SCIPcreateConsBivariate, _SCIPcreateConsBasicBivariate, _SCIPincludeConshdlrBounddisjunction, _SCIPcreateConsBounddisjunction, _SCIPcreateConsBasicBounddisjunction, _SCIPincludeConshdlrConjunction, _SCIPcreateConsConjunction, _SCIPcreateConsBasicConjunction, _SCIPaddConsElemConjunction, _SCIPincludeConshdlrCountsols, _SCIPcount, _SCIPsetParamsCountsols, _SCIPincludeConshdlrCumulative, _SCIPcreateConsCumulative, _SCIPcreateConsBasicCumulative, _SCIPsetHminCumulative, _SCIPsetHmaxCumulative, _SCIPcheckCumulativeCondition, _SCIPnormalizeCumulativeCondition, _SCIPsplitCumulativeCondition, _SCIPpresolveCumulativeCondition, _SCIPpropCumulativeCondition, _SCIPrespropCumulativeCondition, _SCIPvisualizeConsCumulative, _SCIPsolveCumulative, _SCIPcreateWorstCaseProfile, _SCIPincludeConshdlrDisjunction, _SCIPcreateConsDisjunction, _SCIPcreateConsBasicDisjunction, _SCIPaddConsElemDisjunction, _SCIPincludeConshdlrIndicator, _SCIPcreateConsIndicator, _SCIPcreateConsBasicIndicator, _SCIPcreateConsIndicatorLinCons, _SCIPcreateConsBasicIndicatorLinCons, _SCIPaddVarIndicator, _SCIPsetLinearConsIndicator, _SCIPsetBinaryVarIndicator, _SCIPmakeIndicatorFeasible, _SCIPmakeIndicatorsFeasible, _SCIPaddLinearConsIndicator, _SCIPaddRowIndicator, _SCIPincludeConshdlrIntegral, _SCIPincludeConshdlrKnapsack, _SCIPcreateConsKnapsack, _SCIPcreateConsBasicKnapsack, _SCIPaddCoefKnapsack, _SCIPchgCapacityKnapsack, _SCIPsolveKnapsackExactly, _SCIPsolveKnapsackApproximately, _SCIPseparateKnapsackCuts, _SCIPseparateRelaxedKnapsack, _SCIPincludeConshdlrLinear, _SCIPcreateConsLinear, _SCIPcreateConsBasicLinear, _SCIPcopyConsLinear, _SCIPaddCoefLinear, _SCIPchgLhsLinear, _SCIPchgRhsLinear, _SCIPupgradeConsLinear, _SCIPincludeConshdlrLinking, _SCIPcreateConsLinking, _SCIPcreateConsBasicLinking, _SCIPgetBinvarsLinking, _SCIPincludeConshdlrLogicor, _SCIPcreateConsLogicor, _SCIPcreateConsBasicLogicor, _SCIPaddCoefLogicor, _SCIPincludeConshdlrNonlinear, _SCIPcreateConsNonlinear, _SCIPcreateConsBasicNonlinear, _SCIPcreateConsNonlinear2, _SCIPcreateConsBasicNonlinear2, _SCIPaddLinearVarNonlinear, _SCIPsetExprtreesNonlinear, _SCIPaddExprtreesNonlinear, _SCIPgetNlRowNonlinear, _SCIPcheckCurvatureNonlinear, _SCIPgetCurvatureNonlinear, _SCIPgetExprtreeCurvaturesNonlinear, _SCIPgetViolationNonlinear, _SCIPincludeConshdlrOr, _SCIPcreateConsOr, _SCIPcreateConsBasicOr, _SCIPincludeConshdlrOrbitope, _SCIPcreateConsOrbitope, _SCIPcreateConsBasicOrbitope, _SCIPincludeConshdlrPseudoboolean, _SCIPcreateConsPseudobooleanWithConss, _SCIPcreateConsPseudoboolean, _SCIPcreateConsBasicPseudoboolean, _SCIPaddCoefPseudoboolean, _SCIPaddTermPseudoboolean, _SCIPgetLinDatasWithoutAndPseudoboolean, _SCIPgetAndDatasPseudoboolean, _SCIPchgLhsPseudoboolean, _SCIPchgRhsPseudoboolean, _SCIPincludeConshdlrQuadratic, _SCIPcreateConsQuadratic, _SCIPcreateConsBasicQuadratic, _SCIPcreateConsQuadratic2, _SCIPcreateConsBasicQuadratic2, _SCIPaddLinearVarQuadratic, _SCIPaddQuadVarQuadratic, _SCIPaddQuadVarLinearCoefQuadratic, _SCIPaddSquareCoefQuadratic, _SCIPaddBilinTermQuadratic, _SCIPgetNlRowQuadratic, _SCIPsortQuadVarTermsQuadratic, _SCIPfindQuadVarTermQuadratic, _SCIPcheckCurvatureQuadratic, _SCIPgetViolationQuadratic, _SCIPaddToNlpiProblemQuadratic, _SCIPincludeConshdlrSetppc, _SCIPcreateConsSetpart, _SCIPcreateConsBasicSetpart, _SCIPcreateConsSetpack, _SCIPcreateConsBasicSetpack, _SCIPcreateConsSetcover, _SCIPcreateConsBasicSetcover, _SCIPaddCoefSetppc, _SCIPincludeConshdlrSOC, _SCIPcreateConsSOC, _SCIPcreateConsBasicSOC, _SCIPgetNlRowSOC, _SCIPaddToNlpiProblemSOC, _SCIPincludeConshdlrSOS1, _SCIPcreateConsSOS1, _SCIPcreateConsBasicSOS1, _SCIPaddVarSOS1, _SCIPappendVarSOS1, _SCIPincludeConshdlrSOS2, _SCIPcreateConsSOS2, _SCIPcreateConsBasicSOS2, _SCIPaddVarSOS2, _SCIPappendVarSOS2, _SCIPincludeConshdlrSuperindicator, _SCIPcreateConsSuperindicator, _SCIPcreateConsBasicSuperindicator, _SCIPtransformMinUC, _SCIPincludeConshdlrVarbound, _SCIPcreateConsVarbound, _SCIPcreateConsBasicVarbound, _SCIPincludeConshdlrXor, _SCIPcreateConsXor, _SCIPcreateConsBasicXor, _SCIPdialoghdlrGetWord, _SCIPdialoghdlrAddInputLine, _SCIPdialoghdlrAddHistory, _SCIPdialogDisplayMenu, _SCIPdialogDisplayMenuEntry, _SCIPdialogDisplayCompletions, _SCIPexprCopyDeep, _SCIPexprAdd, _SCIPexprMulConstant, _SCIPexprCreateLinear, _SCIPexprAddToLinear, _SCIPexprCreateQuadratic, _SCIPexprCreatePolynomial, _SCIPexprAddMonomials, _SCIPexprMultiplyPolynomialByMonomial, _SCIPexprMultiplyPolynomialByPolynomial, _SCIPexprPolynomialPower, _SCIPexprCreateMonomial, _SCIPexprAddMonomialFactors, _SCIPexprMultiplyMonomialByMonomial, _SCIPexprGetMaxDegree, _SCIPexprSimplify, _SCIPexprEval, _SCIPexprEvalInt, _SCIPexprCheckCurvature, _SCIPexprSubstituteVars, _SCIPexprParse, _SCIPexprtreeFreeInterpreterData, _SCIPexprtreeGetMaxDegree, _SCIPexprtreeEval, _SCIPexprtreeEvalInt, _SCIPexprtreeCreate, _SCIPexprtreeCopy, _SCIPexprtreeFree, _SCIPexprtreeSetParams, _SCIPexprtreeSimplify, _SCIPexprtreeAddExpr, _SCIPexprtreeCheckCurvature, _SCIPexprtreeSubstituteVars, _SCIPexprgraphGetNodePolynomialMonomialCurvature, _SCIPexprgraphCreateNodeLinear, _SCIPexprgraphCreateNodeQuadratic, _SCIPexprgraphCreateNodePolynomial, _SCIPexprgraphNodePolynomialAddMonomials, _SCIPexprgraphNodeSplitOffLinear, _SCIPexprgraphMoveNodeParents, _SCIPexprgraphReleaseNode, _SCIPexprgraphUpdateNodeBoundsCurvature, _SCIPexprgraphFree, _SCIPexprgraphAddNode, _SCIPexprgraphAddVars, _SCIPexprgraphAddConst, _SCIPexprgraphAddExprtreeSum, _SCIPexprgraphReplaceVarByLinearSum, _SCIPexprgraphPrintDot, _SCIPexprgraphEval, _SCIPexprgraphPropagateVarBounds, _SCIPexprgraphCheckCurvature, _SCIPexprgraphSimplify, _SCIPexprgraphGetTree, _SCIPexprgraphGetSeparableTrees, _SCIPexprgraphGetSumTrees, _SCIPmessagehdlrRelease, _SCIPmessagehdlrSetData, _SCIPsparseSolCreate, _SCIPqueueCreate, _SCIPqueueInsert, _SCIPpqueueInsert, _SCIPhashtableInsert, _SCIPhashtableSafeInsert, _SCIPhashtableRemove, _SCIPhashmapCreate, _SCIPhashmapInsert, _SCIPhashmapSetImage, _SCIPhashmapRemove, _SCIPhashmapRemoveAll, _SCIPactivityCreate, _SCIPprofileCreate, _SCIPprofileInsertCore, _SCIPprofileDeleteCore, _SCIPdigraphCreate, _SCIPdigraphResize, _SCIPdigraphCopy, _SCIPdigraphSetSizes, _SCIPdigraphAddArc, _SCIPdigraphAddArcSafe, _SCIPdigraphComputeUndirectedComponents, _SCIPdigraphTopoSortComponents, _SCIPbtnodeCreate, _SCIPbtCreate, _SCIPcalcIntegralScalar, _SCIPgetRandomSubset, _SCIPexprtreeSetVars, _SCIPexprtreeAddVars, _SCIPexprtreePrintWithNames, _SCIPnodePrintAncestorBranchings, _SCIPvarsGetProbvarBinary, _SCIPvarGetProbvarBinary, _SCIPvarGetProbvarBound, _SCIPvarGetProbvarHole, _SCIPvarGetOrigvarSum, _SCIPvarGetAggregatedObj, _SCIPvarSetInitial, _SCIPvarSetRemovable, _SCIPcreate, _SCIPfree, _SCIPprintStage, _SCIPprintStatus, _SCIPsetMessagehdlr, _SCIPcopyPlugins, _SCIPcopyProb, _SCIPcopyOrigProb, _SCIPgetVarCopy, _SCIPcopyVars, _SCIPcopyOrigVars, _SCIPgetConsCopy, _SCIPcopyConss, _SCIPcopyOrigConss, _SCIPconvertCutsToConss, _SCIPcopyCuts, _SCIPcopyImplicationsCliques, _SCIPcopyParamSettings, _SCIPcopy, _SCIPcopyOrig, _SCIPgetBoolParam, _SCIPgetIntParam, _SCIPgetLongintParam, _SCIPgetRealParam, _SCIPgetCharParam, _SCIPgetStringParam, _SCIPfixParam, _SCIPunfixParam, _SCIPsetParam, _SCIPchgBoolParam, _SCIPsetBoolParam, _SCIPchgIntParam, _SCIPsetIntParam, _SCIPchgLongintParam, _SCIPsetLongintParam, _SCIPchgRealParam, _SCIPsetRealParam, _SCIPchgCharParam, _SCIPsetCharParam, _SCIPchgStringParam, _SCIPsetStringParam, _SCIPreadParams, _SCIPwriteParams, _SCIPresetParam, _SCIPresetParams, _SCIPsetEmphasis, _SCIPsetSubscipsOff, _SCIPsetHeuristics, _SCIPsetPresolving, _SCIPsetSeparating, _SCIPincludeReaderBasic, _SCIPsetPricerPriority, _SCIPactivatePricer, _SCIPdeactivatePricer, _SCIPsetConflicthdlrPriority, _SCIPsetPresolPriority, _SCIPsetRelaxPriority, _SCIPsetSepaPriority, _SCIPsetPropPriority, _SCIPsetPropPresolPriority, _SCIPsetHeurPriority, _SCIPsetNodeselStdPriority, _SCIPsetNodeselMemsavePriority, _SCIPincludeBranchruleBasic, _SCIPsetBranchrulePriority, _SCIPsetBranchruleMaxdepth, _SCIPsetBranchruleMaxbounddist, _SCIPautoselectDisps, _SCIPincludeNlpi, _SCIPsetNlpiPriority, _SCIPincludeExternalCodeInformation, _SCIPcaptureDialog, _SCIPreleaseDialog, _SCIPsetRootDialog, _SCIPaddDialogEntry, _SCIPaddDialogInputLine, _SCIPaddDialogHistoryLine, _SCIPstartInteraction, _SCIPcreateProbBasic, _SCIPreadProb, _SCIPwriteOrigProblem, _SCIPwriteTransProblem, _SCIPfreeProb, _SCIPpermuteProb, _SCIPsetProbData, _SCIPsetProbName, _SCIPsetObjsense, _SCIPaddObjoffset, _SCIPaddOrigObjoffset, _SCIPsetObjlimit, _SCIPsetObjIntegral, _SCIPaddVar, _SCIPaddPricedVar, _SCIPdelVar, _SCIPgetVarsData, _SCIPgetOrigVarsData, _SCIPgetSolVarsData, _SCIPaddCons, _SCIPdelCons, _SCIPaddConsNode, _SCIPaddConsLocal, _SCIPdelConsNode, _SCIPdelConsLocal, _SCIPupdateLocalDualbound, _SCIPupdateLocalLowerbound, _SCIPupdateNodeDualbound, _SCIPupdateNodeLowerbound, _SCIPchgChildPrio, _SCIPtransformProb, _SCIPpresolve, _SCIPsolve, _SCIPfreeSolve, _SCIPfreeTransform, _SCIPinterruptSolve, _SCIPrestartSolve, _SCIPcreateVarBasic, _SCIPwriteVarName, _SCIPwriteVarsList, _SCIPwriteVarsLinearsum, _SCIPwriteVarsPolynomial, _SCIPparseVarName, _SCIPparseVarsList, _SCIPparseVarsLinearsum, _SCIPparseVarsPolynomial, _SCIPcaptureVar, _SCIPreleaseVar, _SCIPchgVarName, _SCIPtransformVar, _SCIPtransformVars, _SCIPgetTransformedVar, _SCIPgetTransformedVars, _SCIPgetNegatedVar, _SCIPgetNegatedVars, _SCIPgetBinvarRepresentative, _SCIPgetBinvarRepresentatives, _SCIPflattenVarAggregationGraph, _SCIPgetProbvarLinearSum, _SCIPgetProbvarSum, _SCIPgetActiveVars, _SCIPgetVarSols, _SCIPclearRelaxSolVals, _SCIPsetRelaxSolVal, _SCIPsetRelaxSolVals, _SCIPsetRelaxSolValsSol, _SCIPmarkRelaxSolValid, _SCIPmarkRelaxSolInvalid, _SCIPstartStrongbranch, _SCIPendStrongbranch, _SCIPgetVarStrongbranchFrac, _SCIPgetVarStrongbranchWithPropagation, _SCIPgetVarStrongbranchInt, _SCIPgetVarsStrongbranchesFrac, _SCIPgetVarsStrongbranchesInt, _SCIPgetVarStrongbranchLast, _SCIPaddVarLocks, _SCIPlockVarCons, _SCIPunlockVarCons, _SCIPchgVarObj, _SCIPaddVarObj, _SCIPchgVarLb, _SCIPchgVarUb, _SCIPchgVarLbNode, _SCIPchgVarUbNode, _SCIPchgVarLbGlobal, _SCIPchgVarUbGlobal, _SCIPchgVarLbLazy, _SCIPchgVarUbLazy, _SCIPtightenVarLb, _SCIPtightenVarUb, _SCIPinferVarLbCons, _SCIPinferVarUbCons, _SCIPinferBinvarCons, _SCIPinferVarLbProp, _SCIPinferVarUbProp, _SCIPinferBinvarProp, _SCIPtightenVarLbGlobal, _SCIPtightenVarUbGlobal, _SCIPgetVarClosestVlb, _SCIPgetVarClosestVub, _SCIPaddVarVlb, _SCIPaddVarVub, _SCIPaddVarImplication, _SCIPaddClique, _SCIPcalcCliquePartition, _SCIPcalcNegatedCliquePartition, _SCIPwriteCliqueGraph, _SCIPchgVarBranchFactor, _SCIPscaleVarBranchFactor, _SCIPaddVarBranchFactor, _SCIPchgVarBranchPriority, _SCIPupdateVarBranchPriority, _SCIPaddVarBranchPriority, _SCIPchgVarBranchDirection, _SCIPchgVarType, _SCIPfixVar, _SCIPaggregateVars, _SCIPmultiaggregateVar, _SCIPmarkDoNotMultaggrVar, _SCIPupdateVarPseudocost, _SCIPinitVarBranchStats, _SCIPprintVar, _SCIPinitConflictAnalysis, _SCIPaddConflictLb, _SCIPaddConflictRelaxedLb, _SCIPaddConflictUb, _SCIPaddConflictRelaxedUb, _SCIPaddConflictBd, _SCIPaddConflictRelaxedBd, _SCIPaddConflictBinvar, _SCIPisConflictVarUsed, _SCIPanalyzeConflict, _SCIPanalyzeConflictCons, _SCIPcreateCons, _SCIPparseCons, _SCIPcaptureCons, _SCIPreleaseCons, _SCIPchgConsName, _SCIPsetConsInitial, _SCIPsetConsSeparated, _SCIPsetConsEnforced, _SCIPsetConsChecked, _SCIPsetConsPropagated, _SCIPsetConsLocal, _SCIPsetConsModifiable, _SCIPsetConsDynamic, _SCIPsetConsRemovable, _SCIPsetConsStickingAtNode, _SCIPupdateConsFlags, _SCIPtransformCons, _SCIPtransformConss, _SCIPgetTransformedCons, _SCIPgetTransformedConss, _SCIPaddConsAge, _SCIPincConsAge, _SCIPresetConsAge, _SCIPenableCons, _SCIPdisableCons, _SCIPenableConsSeparation, _SCIPdisableConsSeparation, _SCIPenableConsPropagation, _SCIPdisableConsPropagation, _SCIPmarkConsPropagate, _SCIPunmarkConsPropagate, _SCIPaddConsLocks, _SCIPcheckCons, _SCIPenfopsCons, _SCIPenfolpCons, _SCIPinitlpCons, _SCIPsepalpCons, _SCIPsepasolCons, _SCIPpropCons, _SCIPrespropCons, _SCIPpresolCons, _SCIPactiveCons, _SCIPdeactiveCons, _SCIPprintCons, _SCIPgetConsVars, _SCIPgetConsNVars, _SCIPconstructLP, _SCIPflushLP, _SCIPgetLPColsData, _SCIPgetLPRowsData, _SCIPgetLPBasisInd, _SCIPgetLPBInvRow, _SCIPgetLPBInvCol, _SCIPgetLPBInvARow, _SCIPgetLPBInvACol, _SCIPsumLPRows, _SCIPcalcMIR, _SCIPcalcStrongCG, _SCIPwriteLP, _SCIPwriteMIP, _SCIPgetLPI, _SCIPprintLPSolutionQuality, _SCIPcomputeLPRelIntPoint, _SCIPcreateRowCons, _SCIPcreateRowSepa, _SCIPcreateRowUnspec, _SCIPcreateRow, _SCIPcreateEmptyRowCons, _SCIPcreateEmptyRowSepa, _SCIPcreateEmptyRowUnspec, _SCIPcreateEmptyRow, _SCIPcaptureRow, _SCIPreleaseRow, _SCIPchgRowLhs, _SCIPchgRowRhs, _SCIPcacheRowExtensions, _SCIPflushRowExtensions, _SCIPaddVarToRow, _SCIPaddVarsToRow, _SCIPaddVarsToRowSameCoef, _SCIPcalcRowIntegralScalar, _SCIPmakeRowIntegral, _SCIPrecalcRowLPActivity, _SCIPrecalcRowPseudoActivity, _SCIPrecalcRowActivity, _SCIPprintRow, _SCIPgetNLPVarsData, _SCIPgetNLPVarsNonlinearity, _SCIPgetNLPNlRowsData, _SCIPaddNlRow, _SCIPflushNLP, _SCIPsetNLPInitialGuess, _SCIPsetNLPInitialGuessSol, _SCIPsolveNLP, _SCIPgetNLPStatistics, _SCIPgetNLPFracVars, _SCIPgetNLPIntPar, _SCIPsetNLPIntPar, _SCIPgetNLPRealPar, _SCIPsetNLPRealPar, _SCIPgetNLPStringPar, _SCIPsetNLPStringPar, _SCIPwriteNLP, _SCIPgetNLPI, _SCIPstartDiveNLP, _SCIPendDiveNLP, _SCIPchgVarObjDiveNLP, _SCIPchgVarBoundsDiveNLP, _SCIPchgVarsBoundsDiveNLP, _SCIPsolveDiveNLP, _SCIPcreateNlRow, _SCIPcreateEmptyNlRow, _SCIPcreateNlRowFromRow, _SCIPcaptureNlRow, _SCIPreleaseNlRow, _SCIPchgNlRowLhs, _SCIPchgNlRowRhs, _SCIPchgNlRowConstant, _SCIPaddLinearCoefToNlRow, _SCIPaddLinearCoefsToNlRow, _SCIPchgNlRowLinearCoef, _SCIPaddQuadVarToNlRow, _SCIPaddQuadVarsToNlRow, _SCIPaddQuadElementToNlRow, _SCIPaddQuadElementsToNlRow, _SCIPchgNlRowQuadElement, _SCIPsetNlRowExprtree, _SCIPsetNlRowExprtreeParam, _SCIPsetNlRowExprtreeParams, _SCIPrecalcNlRowNLPActivity, _SCIPgetNlRowNLPActivity, _SCIPgetNlRowNLPFeasibility, _SCIPrecalcNlRowPseudoActivity, _SCIPgetNlRowPseudoActivity, _SCIPgetNlRowPseudoFeasibility, _SCIPrecalcNlRowActivity, _SCIPgetNlRowActivity, _SCIPgetNlRowFeasibility, _SCIPgetNlRowSolActivity, _SCIPgetNlRowSolFeasibility, _SCIPgetNlRowActivityBounds, _SCIPprintNlRow, _SCIPgetExprtreeTransformedVars, _SCIPevalExprtreeSol, _SCIPevalExprtreeGlobalBounds, _SCIPevalExprtreeLocalBounds, _SCIPaddCut, _SCIPaddPoolCut, _SCIPdelPoolCut, _SCIPcreateCutpool, _SCIPfreeCutpool, _SCIPaddRowCutpool, _SCIPaddNewRowCutpool, _SCIPdelRowCutpool, _SCIPseparateCutpool, _SCIPseparateSolCutpool, _SCIPaddDelayedPoolCut, _SCIPdelDelayedPoolCut, _SCIPseparateSol, _SCIPclearCuts, _SCIPremoveInefficaciousCuts, _SCIPstartDive, _SCIPendDive, _SCIPchgCutoffboundDive, _SCIPchgVarObjDive, _SCIPchgVarLbDive, _SCIPchgVarUbDive, _SCIPaddRowDive, _SCIPchgRowLhsDive, _SCIPchgRowRhsDive, _SCIPsolveDiveLP, _SCIPstartProbing, _SCIPnewProbingNode, _SCIPbacktrackProbing, _SCIPendProbing, _SCIPchgVarLbProbing, _SCIPchgVarUbProbing, _SCIPfixVarProbing, _SCIPpropagateProbing, _SCIPpropagateProbingImplications, _SCIPsolveProbingLP, _SCIPsolveProbingLPWithPricing, _SCIPgetLPBranchCands, _SCIPgetExternBranchCands, _SCIPaddExternBranchCand, _SCIPgetPseudoBranchCands, _SCIPcreateChild, _SCIPbranchVar, _SCIPbranchVarHole, _SCIPbranchVarVal, _SCIPbranchVarValNary, _SCIPbranchLP, _SCIPbranchExtern, _SCIPbranchPseudo, _SCIPcreateSol, _SCIPcreateLPSol, _SCIPcreateNLPSol, _SCIPcreateRelaxSol, _SCIPcreatePseudoSol, _SCIPcreateCurrentSol, _SCIPcreateUnknownSol, _SCIPcreateOrigSol, _SCIPcreateSolCopy, _SCIPcreateFiniteSolCopy, _SCIPfreeSol, _SCIPlinkLPSol, _SCIPlinkNLPSol, _SCIPlinkRelaxSol, _SCIPlinkPseudoSol, _SCIPlinkCurrentSol, _SCIPclearSol, _SCIPunlinkSol, _SCIPsetSolVal, _SCIPsetSolVals, _SCIPincSolVal, _SCIPgetSolVals, _SCIPadjustImplicitSolVals, _SCIPprintSol, _SCIPprintTransSol, _SCIPprintDualSol, _SCIPprintRay, _SCIPprintBestSol, _SCIPprintBestTransSol, _SCIProundSol, _SCIPretransformSol, _SCIPreadSol, _SCIPaddSol, _SCIPaddSolFree, _SCIPaddCurrentSol, _SCIPtrySol, _SCIPtrySolFree, _SCIPtryCurrentSol, _SCIPcheckSol, _SCIPcheckSolOrig, _SCIPcatchEvent, _SCIPdropEvent, _SCIPcatchVarEvent, _SCIPdropVarEvent, _SCIPcatchRowEvent, _SCIPdropRowEvent, _SCIPgetChildren, _SCIPgetSiblings, _SCIPgetLeaves, _SCIPgetOpenNodesData, _SCIPcutoffNode, _SCIPrepropagateNode, _SCIPprintNodeRootPath, _SCIPupdateCutoffbound, _SCIPprintOrigProblem, _SCIPprintTransProblem, _SCIPprintStatistics, _SCIPprintBranchingStatistics, _SCIPprintDisplayLine, _SCIPwriteImplicationConflictGraph, _SCIPcreateClock, _SCIPcreateCPUClock, _SCIPcreateWallClock, _SCIPfreeClock, _SCIPresetClock, _SCIPstartClock, _SCIPstopClock, _SCIPenableOrDisableStatisticTiming, _SCIPstartSolvingTime, _SCIPstopSolvingTime, _SCIPsetClockTime, _SCIPchgFeastol, _SCIPchgLpfeastol, _SCIPchgDualfeastol, _SCIPchgBarrierconvtol, _SCIPensureBlockMemoryArray_call, _SCIPallocBufferSize, _SCIPduplicateBufferSize, _SCIPreallocBufferSize, _SCIPcreateRealarray, _SCIPfreeRealarray, _SCIPextendRealarray, _SCIPclearRealarray, _SCIPsetRealarrayVal, _SCIPincRealarrayVal, _SCIPcreateIntarray, _SCIPfreeIntarray, _SCIPextendIntarray, _SCIPclearIntarray, _SCIPsetIntarrayVal, _SCIPincIntarrayVal, _SCIPcreateBoolarray, _SCIPfreeBoolarray, _SCIPextendBoolarray, _SCIPclearBoolarray, _SCIPsetBoolarrayVal, _SCIPcreatePtrarray, _SCIPfreePtrarray, _SCIPextendPtrarray, _SCIPclearPtrarray, _SCIPsetPtrarrayVal, _SCIPincludeDefaultPlugins
 _SCIPincludeConshdlrAbspower(scip) = @scip_ccall_check("SCIPincludeConshdlrAbspower", 
     (Ptr{_SCIP},), scip)
 _SCIPcreateConsAbspower(scip, cons, name, x, z, exponent, xoffset, zcoef, lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode) = @scip_ccall_check("SCIPcreateConsAbspower", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Ptr{_SCIP_VAR}, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Real, _SCIP_Real, _SCIP_Real, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, x, z, exponent, xoffset, zcoef, lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Ptr{_SCIP_VAR}, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Real, _SCIP_Real, _SCIP_Real, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, x, z, exponent, xoffset, zcoef, lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
 _SCIPcreateConsBasicAbspower(scip, cons, name, x, z, exponent, xoffset, zcoef, lhs, rhs) = @scip_ccall_check("SCIPcreateConsBasicAbspower", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Ptr{_SCIP_VAR}, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Real, _SCIP_Real, _SCIP_Real, _SCIP_Real,), scip, cons, name, x, z, exponent, xoffset, zcoef, lhs, rhs)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Ptr{_SCIP_VAR}, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Real, _SCIP_Real, _SCIP_Real, _SCIP_Real,), scip, cons, name, x, z, exponent, xoffset, zcoef, lhs, rhs)
 _SCIPgetNlRowAbspower(scip, cons, nlrow) = @scip_ccall_check("SCIPgetNlRowAbspower", 
     (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{Ptr{_SCIP_NLROW}},), scip, cons, nlrow)
 _SCIPincludeConshdlrAnd(scip) = @scip_ccall_check("SCIPincludeConshdlrAnd", 
     (Ptr{_SCIP},), scip)
 _SCIPcreateConsAnd(scip, cons, name, resvar, nvars, vars, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode) = @scip_ccall_check("SCIPcreateConsAnd", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Ptr{_SCIP_VAR}, Void, Ptr{Ptr{_SCIP_VAR}}, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, resvar, nvars, vars, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Ptr{_SCIP_VAR}, Int, Ptr{Ptr{_SCIP_VAR}}, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, resvar, nvars, vars, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
 _SCIPcreateConsBasicAnd(scip, cons, name, resvar, nvars, vars) = @scip_ccall_check("SCIPcreateConsBasicAnd", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Ptr{_SCIP_VAR}, Void, Ptr{Ptr{_SCIP_VAR}},), scip, cons, name, resvar, nvars, vars)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Ptr{_SCIP_VAR}, Int, Ptr{Ptr{_SCIP_VAR}},), scip, cons, name, resvar, nvars, vars)
 _SCIPsortAndCons(scip, cons) = @scip_ccall_check("SCIPsortAndCons", 
     (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPchgAndConsCheckFlagWhenUpgr(scip, cons, flag) = @scip_ccall_check("SCIPchgAndConsCheckFlagWhenUpgr", 
@@ -3454,21 +3454,21 @@ _SCIPchgAndConsRemovableFlagWhenUpgr(scip, cons, flag) = @scip_ccall_check("SCIP
 _SCIPincludeConshdlrBivariate(scip) = @scip_ccall_check("SCIPincludeConshdlrBivariate", 
     (Ptr{_SCIP},), scip)
 _SCIPcreateConsBivariate(scip, cons, name, f, convextype, z, zcoef, lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode) = @scip_ccall_check("SCIPcreateConsBivariate", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Ptr{_SCIP_EXPRTREE}, _SCIP_BIVAR_CONVEXITY, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Real, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, f, convextype, z, zcoef, lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Ptr{_SCIP_EXPRTREE}, _SCIP_BIVAR_CONVEXITY, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Real, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, f, convextype, z, zcoef, lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
 _SCIPcreateConsBasicBivariate(scip, cons, name, f, convextype, z, zcoef, lhs, rhs) = @scip_ccall_check("SCIPcreateConsBasicBivariate", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Ptr{_SCIP_EXPRTREE}, _SCIP_BIVAR_CONVEXITY, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Real, _SCIP_Real,), scip, cons, name, f, convextype, z, zcoef, lhs, rhs)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Ptr{_SCIP_EXPRTREE}, _SCIP_BIVAR_CONVEXITY, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Real, _SCIP_Real,), scip, cons, name, f, convextype, z, zcoef, lhs, rhs)
 _SCIPincludeConshdlrBounddisjunction(scip) = @scip_ccall_check("SCIPincludeConshdlrBounddisjunction", 
     (Ptr{_SCIP},), scip)
 _SCIPcreateConsBounddisjunction(scip, cons, name, nvars, vars, boundtypes, bounds, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode) = @scip_ccall_check("SCIPcreateConsBounddisjunction", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_BOUNDTYPE}, Ptr{_SCIP_Real}, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, nvars, vars, boundtypes, bounds, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_BOUNDTYPE}, Ptr{_SCIP_Real}, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, nvars, vars, boundtypes, bounds, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
 _SCIPcreateConsBasicBounddisjunction(scip, cons, name, nvars, vars, boundtypes, bounds) = @scip_ccall_check("SCIPcreateConsBasicBounddisjunction", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_BOUNDTYPE}, Ptr{_SCIP_Real},), scip, cons, name, nvars, vars, boundtypes, bounds)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_BOUNDTYPE}, Ptr{_SCIP_Real},), scip, cons, name, nvars, vars, boundtypes, bounds)
 _SCIPincludeConshdlrConjunction(scip) = @scip_ccall_check("SCIPincludeConshdlrConjunction", 
     (Ptr{_SCIP},), scip)
 _SCIPcreateConsConjunction(scip, cons, name, nconss, conss, enforce, check, localVar, modifiable, dynamic) = @scip_ccall_check("SCIPcreateConsConjunction", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Void, Ptr{Ptr{_SCIP_CONS}}, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, nconss, conss, enforce, check, localVar, modifiable, dynamic)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Int, Ptr{Ptr{_SCIP_CONS}}, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, nconss, conss, enforce, check, localVar, modifiable, dynamic)
 _SCIPcreateConsBasicConjunction(scip, cons, name, nconss, conss) = @scip_ccall_check("SCIPcreateConsBasicConjunction", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Void, Ptr{Ptr{_SCIP_CONS}},), scip, cons, name, nconss, conss)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Int, Ptr{Ptr{_SCIP_CONS}},), scip, cons, name, nconss, conss)
 _SCIPaddConsElemConjunction(scip, cons, addcons) = @scip_ccall_check("SCIPaddConsElemConjunction", 
     (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{_SCIP_CONS},), scip, cons, addcons)
 _SCIPincludeConshdlrCountsols(scip) = @scip_ccall_check("SCIPincludeConshdlrCountsols", 
@@ -3480,49 +3480,49 @@ _SCIPsetParamsCountsols(scip) = @scip_ccall_check("SCIPsetParamsCountsols",
 _SCIPincludeConshdlrCumulative(scip) = @scip_ccall_check("SCIPincludeConshdlrCumulative", 
     (Ptr{_SCIP},), scip)
 _SCIPcreateConsCumulative(scip, cons, name, nvars, vars, durations, demands, capacity, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode) = @scip_ccall_check("SCIPcreateConsCumulative", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Void, Ptr{Ptr{_SCIP_VAR}}, Void, Void, Void, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, nvars, vars, durations, demands, capacity, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{Int}, Ptr{Int}, Int, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, nvars, vars, durations, demands, capacity, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
 _SCIPcreateConsBasicCumulative(scip, cons, name, nvars, vars, durations, demands, capacity) = @scip_ccall_check("SCIPcreateConsBasicCumulative", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Void, Ptr{Ptr{_SCIP_VAR}}, Void, Void, Void,), scip, cons, name, nvars, vars, durations, demands, capacity)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{Int}, Ptr{Int}, Int,), scip, cons, name, nvars, vars, durations, demands, capacity)
 _SCIPsetHminCumulative(scip, cons, hmin) = @scip_ccall_check("SCIPsetHminCumulative", 
-    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Void,), scip, cons, hmin)
+    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Int,), scip, cons, hmin)
 _SCIPsetHmaxCumulative(scip, cons, hmax) = @scip_ccall_check("SCIPsetHmaxCumulative", 
-    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Void,), scip, cons, hmax)
+    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Int,), scip, cons, hmax)
 _SCIPcheckCumulativeCondition(scip, sol, nvars, vars, durations, demands, capacity, hmin, hmax, violated, cons, printreason) = @scip_ccall_check("SCIPcheckCumulativeCondition", 
-    (Ptr{_SCIP}, Ptr{_SCIP_SOL}, Void, Ptr{Ptr{_SCIP_VAR}}, Void, Void, Void, Void, Void, Ptr{_SCIP_Bool}, Ptr{_SCIP_CONS}, _SCIP_Bool,), scip, sol, nvars, vars, durations, demands, capacity, hmin, hmax, violated, cons, printreason)
+    (Ptr{_SCIP}, Ptr{_SCIP_SOL}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{Int}, Ptr{Int}, Int, Int, Int, Ptr{_SCIP_Bool}, Ptr{_SCIP_CONS}, _SCIP_Bool,), scip, sol, nvars, vars, durations, demands, capacity, hmin, hmax, violated, cons, printreason)
 _SCIPnormalizeCumulativeCondition(scip, nvars, vars, durations, demands, capacity, nchgcoefs, nchgsides) = @scip_ccall_check("SCIPnormalizeCumulativeCondition", 
-    (Ptr{_SCIP}, Void, Ptr{Ptr{_SCIP_VAR}}, Void, Void, Void, Void, Void,), scip, nvars, vars, durations, demands, capacity, nchgcoefs, nchgsides)
+    (Ptr{_SCIP}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{Int}, Ptr{Int}, Ptr{Int}, Ptr{Int}, Ptr{Int},), scip, nvars, vars, durations, demands, capacity, nchgcoefs, nchgsides)
 _SCIPsplitCumulativeCondition(scip, nvars, vars, durations, demands, capacity, hmin, hmax, split) = @scip_ccall_check("SCIPsplitCumulativeCondition", 
-    (Ptr{_SCIP}, Void, Ptr{Ptr{_SCIP_VAR}}, Void, Void, Void, Void, Void, Void,), scip, nvars, vars, durations, demands, capacity, hmin, hmax, split)
+    (Ptr{_SCIP}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{Int}, Ptr{Int}, Int, Ptr{Int}, Ptr{Int}, Ptr{Int},), scip, nvars, vars, durations, demands, capacity, hmin, hmax, split)
 _SCIPpresolveCumulativeCondition(scip, nvars, vars, durations, hmin, hmax, downlocks, uplocks, cons, delvars, nfixedvars, nchgsides, cutoff) = @scip_ccall_check("SCIPpresolveCumulativeCondition", 
-    (Ptr{_SCIP}, Void, Ptr{Ptr{_SCIP_VAR}}, Void, Void, Void, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_CONS}, Ptr{_SCIP_Bool}, Void, Void, Ptr{_SCIP_Bool},), scip, nvars, vars, durations, hmin, hmax, downlocks, uplocks, cons, delvars, nfixedvars, nchgsides, cutoff)
+    (Ptr{_SCIP}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{Int}, Int, Int, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_CONS}, Ptr{_SCIP_Bool}, Ptr{Int}, Ptr{Int}, Ptr{_SCIP_Bool},), scip, nvars, vars, durations, hmin, hmax, downlocks, uplocks, cons, delvars, nfixedvars, nchgsides, cutoff)
 _SCIPpropCumulativeCondition(scip, nvars, vars, durations, demands, capacity, hmin, hmax, cons, nchgbds, initialized, explanation, cutoff) = @scip_ccall_check("SCIPpropCumulativeCondition", 
-    (Ptr{_SCIP}, Void, Ptr{Ptr{_SCIP_VAR}}, Void, Void, Void, Void, Void, Ptr{_SCIP_CONS}, Void, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool},), scip, nvars, vars, durations, demands, capacity, hmin, hmax, cons, nchgbds, initialized, explanation, cutoff)
+    (Ptr{_SCIP}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{Int}, Ptr{Int}, Int, Int, Int, Ptr{_SCIP_CONS}, Ptr{Int}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool},), scip, nvars, vars, durations, demands, capacity, hmin, hmax, cons, nchgbds, initialized, explanation, cutoff)
 _SCIPrespropCumulativeCondition(scip, nvars, vars, durations, demands, capacity, hmin, hmax, infervar, inferinfo, boundtype, bdchgidx, relaxedbd, explanation, result) = @scip_ccall_check("SCIPrespropCumulativeCondition", 
-    (Ptr{_SCIP}, Void, Ptr{Ptr{_SCIP_VAR}}, Void, Void, Void, Void, Void, Ptr{_SCIP_VAR}, Void, _SCIP_BOUNDTYPE, Ptr{_SCIP_BDCHGIDX}, _SCIP_Real, Ptr{_SCIP_Bool}, Ptr{_SCIP_RESULT},), scip, nvars, vars, durations, demands, capacity, hmin, hmax, infervar, inferinfo, boundtype, bdchgidx, relaxedbd, explanation, result)
+    (Ptr{_SCIP}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{Int}, Ptr{Int}, Int, Int, Int, Ptr{_SCIP_VAR}, Int, _SCIP_BOUNDTYPE, Ptr{_SCIP_BDCHGIDX}, _SCIP_Real, Ptr{_SCIP_Bool}, Ptr{_SCIP_RESULT},), scip, nvars, vars, durations, demands, capacity, hmin, hmax, infervar, inferinfo, boundtype, bdchgidx, relaxedbd, explanation, result)
 _SCIPvisualizeConsCumulative(scip, cons) = @scip_ccall_check("SCIPvisualizeConsCumulative", 
     (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPsolveCumulative(scip, njobs, ests, lsts, objvals, durations, demands, capacity, hmin, hmax, timelimit, memorylimit, maxnodes, solved, infeasible, unbounded, error) = @scip_ccall_check("SCIPsolveCumulative", 
-    (Ptr{_SCIP}, Void, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Void, Void, Void, Void, Void, _SCIP_Real, _SCIP_Real, Int64, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool},), scip, njobs, ests, lsts, objvals, durations, demands, capacity, hmin, hmax, timelimit, memorylimit, maxnodes, solved, infeasible, unbounded, error)
+    (Ptr{_SCIP}, Int, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{Int}, Ptr{Int}, Int, Int, Int, _SCIP_Real, _SCIP_Real, Int64, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool},), scip, njobs, ests, lsts, objvals, durations, demands, capacity, hmin, hmax, timelimit, memorylimit, maxnodes, solved, infeasible, unbounded, error)
 _SCIPcreateWorstCaseProfile(scip, profile, nvars, vars, durations, demands) = @scip_ccall_check("SCIPcreateWorstCaseProfile", 
-    (Ptr{_SCIP}, Ptr{_SCIP_PROFILE}, Void, Ptr{Ptr{_SCIP_VAR}}, Void, Void,), scip, profile, nvars, vars, durations, demands)
+    (Ptr{_SCIP}, Ptr{_SCIP_PROFILE}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{Int}, Ptr{Int},), scip, profile, nvars, vars, durations, demands)
 _SCIPincludeConshdlrDisjunction(scip) = @scip_ccall_check("SCIPincludeConshdlrDisjunction", 
     (Ptr{_SCIP},), scip)
 _SCIPcreateConsDisjunction(scip, cons, name, nconss, conss, relaxcons, initial, enforce, check, localVar, modifiable, dynamic) = @scip_ccall_check("SCIPcreateConsDisjunction", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Void, Ptr{Ptr{_SCIP_CONS}}, Ptr{_SCIP_CONS}, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, nconss, conss, relaxcons, initial, enforce, check, localVar, modifiable, dynamic)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Int, Ptr{Ptr{_SCIP_CONS}}, Ptr{_SCIP_CONS}, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, nconss, conss, relaxcons, initial, enforce, check, localVar, modifiable, dynamic)
 _SCIPcreateConsBasicDisjunction(scip, cons, name, nconss, conss, relaxcons) = @scip_ccall_check("SCIPcreateConsBasicDisjunction", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Void, Ptr{Ptr{_SCIP_CONS}}, Ptr{_SCIP_CONS},), scip, cons, name, nconss, conss, relaxcons)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Int, Ptr{Ptr{_SCIP_CONS}}, Ptr{_SCIP_CONS},), scip, cons, name, nconss, conss, relaxcons)
 _SCIPaddConsElemDisjunction(scip, cons, addcons) = @scip_ccall_check("SCIPaddConsElemDisjunction", 
     (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{_SCIP_CONS},), scip, cons, addcons)
 _SCIPincludeConshdlrIndicator(scip) = @scip_ccall_check("SCIPincludeConshdlrIndicator", 
     (Ptr{_SCIP},), scip)
 _SCIPcreateConsIndicator(scip, cons, name, binvar, nvars, vars, vals, rhs, initial, separate, enforce, check, propagate, localVar, dynamic, removable, stickingatnode) = @scip_ccall_check("SCIPcreateConsIndicator", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Ptr{_SCIP_VAR}, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, binvar, nvars, vars, vals, rhs, initial, separate, enforce, check, propagate, localVar, dynamic, removable, stickingatnode)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Ptr{_SCIP_VAR}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, binvar, nvars, vars, vals, rhs, initial, separate, enforce, check, propagate, localVar, dynamic, removable, stickingatnode)
 _SCIPcreateConsBasicIndicator(scip, cons, name, binvar, nvars, vars, vals, rhs) = @scip_ccall_check("SCIPcreateConsBasicIndicator", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Ptr{_SCIP_VAR}, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, _SCIP_Real,), scip, cons, name, binvar, nvars, vars, vals, rhs)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Ptr{_SCIP_VAR}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, _SCIP_Real,), scip, cons, name, binvar, nvars, vars, vals, rhs)
 _SCIPcreateConsIndicatorLinCons(scip, cons, name, binvar, lincons, slackvar, initial, separate, enforce, check, propagate, localVar, dynamic, removable, stickingatnode) = @scip_ccall_check("SCIPcreateConsIndicatorLinCons", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Ptr{_SCIP_VAR}, Ptr{_SCIP_CONS}, Ptr{_SCIP_VAR}, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, binvar, lincons, slackvar, initial, separate, enforce, check, propagate, localVar, dynamic, removable, stickingatnode)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Ptr{_SCIP_VAR}, Ptr{_SCIP_CONS}, Ptr{_SCIP_VAR}, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, binvar, lincons, slackvar, initial, separate, enforce, check, propagate, localVar, dynamic, removable, stickingatnode)
 _SCIPcreateConsBasicIndicatorLinCons(scip, cons, name, binvar, lincons, slackvar) = @scip_ccall_check("SCIPcreateConsBasicIndicatorLinCons", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Ptr{_SCIP_VAR}, Ptr{_SCIP_CONS}, Ptr{_SCIP_VAR},), scip, cons, name, binvar, lincons, slackvar)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Ptr{_SCIP_VAR}, Ptr{_SCIP_CONS}, Ptr{_SCIP_VAR},), scip, cons, name, binvar, lincons, slackvar)
 _SCIPaddVarIndicator(scip, cons, var, val) = @scip_ccall_check("SCIPaddVarIndicator", 
     (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{_SCIP_VAR}, _SCIP_Real,), scip, cons, var, val)
 _SCIPsetLinearConsIndicator(scip, cons, lincons) = @scip_ccall_check("SCIPsetLinearConsIndicator", 
@@ -3542,29 +3542,29 @@ _SCIPincludeConshdlrIntegral(scip) = @scip_ccall_check("SCIPincludeConshdlrInteg
 _SCIPincludeConshdlrKnapsack(scip) = @scip_ccall_check("SCIPincludeConshdlrKnapsack", 
     (Ptr{_SCIP},), scip)
 _SCIPcreateConsKnapsack(scip, cons, name, nvars, vars, weights, capacity, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode) = @scip_ccall_check("SCIPcreateConsKnapsack", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{Int64}, Int64, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, nvars, vars, weights, capacity, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{Int64}, Int64, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, nvars, vars, weights, capacity, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
 _SCIPcreateConsBasicKnapsack(scip, cons, name, nvars, vars, weights, capacity) = @scip_ccall_check("SCIPcreateConsBasicKnapsack", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{Int64}, Int64,), scip, cons, name, nvars, vars, weights, capacity)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{Int64}, Int64,), scip, cons, name, nvars, vars, weights, capacity)
 _SCIPaddCoefKnapsack(scip, cons, var, weight) = @scip_ccall_check("SCIPaddCoefKnapsack", 
     (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{_SCIP_VAR}, Int64,), scip, cons, var, weight)
 _SCIPchgCapacityKnapsack(scip, cons, capacity) = @scip_ccall_check("SCIPchgCapacityKnapsack", 
     (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Int64,), scip, cons, capacity)
 _SCIPsolveKnapsackExactly(scip, nitems, weights, profits, capacity, items, solitems, nonsolitems, nsolitems, nnonsolitems, solval, success) = @scip_ccall_check("SCIPsolveKnapsackExactly", 
-    (Ptr{_SCIP}, Void, Ptr{Int64}, Ptr{_SCIP_Real}, Int64, Void, Void, Void, Void, Void, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool},), scip, nitems, weights, profits, capacity, items, solitems, nonsolitems, nsolitems, nnonsolitems, solval, success)
+    (Ptr{_SCIP}, Int, Ptr{Int64}, Ptr{_SCIP_Real}, Int64, Ptr{Int}, Ptr{Int}, Ptr{Int}, Ptr{Int}, Ptr{Int}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool},), scip, nitems, weights, profits, capacity, items, solitems, nonsolitems, nsolitems, nnonsolitems, solval, success)
 _SCIPsolveKnapsackApproximately(scip, nitems, weights, profits, capacity, items, solitems, nonsolitems, nsolitems, nnonsolitems, solval) = @scip_ccall_check("SCIPsolveKnapsackApproximately", 
-    (Ptr{_SCIP}, Void, Ptr{Int64}, Ptr{_SCIP_Real}, Int64, Void, Void, Void, Void, Void, Ptr{_SCIP_Real},), scip, nitems, weights, profits, capacity, items, solitems, nonsolitems, nsolitems, nnonsolitems, solval)
+    (Ptr{_SCIP}, Int, Ptr{Int64}, Ptr{_SCIP_Real}, Int64, Ptr{Int}, Ptr{Int}, Ptr{Int}, Ptr{Int}, Ptr{Int}, Ptr{_SCIP_Real},), scip, nitems, weights, profits, capacity, items, solitems, nonsolitems, nsolitems, nnonsolitems, solval)
 _SCIPseparateKnapsackCuts(scip, cons, sepa, vars, nvars, weights, capacity, sol, usegubs, cutoff, ncuts) = @scip_ccall_check("SCIPseparateKnapsackCuts", 
-    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{_SCIP_SEPA}, Ptr{Ptr{_SCIP_VAR}}, Void, Ptr{Int64}, Int64, Ptr{_SCIP_SOL}, _SCIP_Bool, Ptr{_SCIP_Bool}, Void,), scip, cons, sepa, vars, nvars, weights, capacity, sol, usegubs, cutoff, ncuts)
+    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{_SCIP_SEPA}, Ptr{Ptr{_SCIP_VAR}}, Int, Ptr{Int64}, Int64, Ptr{_SCIP_SOL}, _SCIP_Bool, Ptr{_SCIP_Bool}, Ptr{Int},), scip, cons, sepa, vars, nvars, weights, capacity, sol, usegubs, cutoff, ncuts)
 _SCIPseparateRelaxedKnapsack(scip, cons, sepa, nknapvars, knapvars, knapvals, valscale, rhs, sol, cutoff, ncuts) = @scip_ccall_check("SCIPseparateRelaxedKnapsack", 
-    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{_SCIP_SEPA}, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, _SCIP_Real, _SCIP_Real, Ptr{_SCIP_SOL}, Ptr{_SCIP_Bool}, Void,), scip, cons, sepa, nknapvars, knapvars, knapvals, valscale, rhs, sol, cutoff, ncuts)
+    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{_SCIP_SEPA}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, _SCIP_Real, _SCIP_Real, Ptr{_SCIP_SOL}, Ptr{_SCIP_Bool}, Ptr{Int},), scip, cons, sepa, nknapvars, knapvars, knapvals, valscale, rhs, sol, cutoff, ncuts)
 _SCIPincludeConshdlrLinear(scip) = @scip_ccall_check("SCIPincludeConshdlrLinear", 
     (Ptr{_SCIP},), scip)
 _SCIPcreateConsLinear(scip, cons, name, nvars, vars, vals, lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode) = @scip_ccall_check("SCIPcreateConsLinear", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, _SCIP_Real, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, nvars, vars, vals, lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, _SCIP_Real, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, nvars, vars, vals, lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
 _SCIPcreateConsBasicLinear(scip, cons, name, nvars, vars, vals, lhs, rhs) = @scip_ccall_check("SCIPcreateConsBasicLinear", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, _SCIP_Real, _SCIP_Real,), scip, cons, name, nvars, vars, vals, lhs, rhs)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, _SCIP_Real, _SCIP_Real,), scip, cons, name, nvars, vars, vals, lhs, rhs)
 _SCIPcopyConsLinear(scip, cons, sourcescip, name, nvars, sourcevars, sourcecoefs, lhs, rhs, varmap, consmap, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode, globalVar, valid) = @scip_ccall_check("SCIPcopyConsLinear", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{_SCIP}, Void, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, _SCIP_Real, _SCIP_Real, Ptr{_SCIP_HASHMAP}, Ptr{_SCIP_HASHMAP}, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, Ptr{_SCIP_Bool},), scip, cons, sourcescip, name, nvars, sourcevars, sourcecoefs, lhs, rhs, varmap, consmap, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode, globalVar, valid)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{_SCIP}, Ptr{Ptr{Char}}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, _SCIP_Real, _SCIP_Real, Ptr{_SCIP_HASHMAP}, Ptr{_SCIP_HASHMAP}, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, Ptr{_SCIP_Bool},), scip, cons, sourcescip, name, nvars, sourcevars, sourcecoefs, lhs, rhs, varmap, consmap, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode, globalVar, valid)
 _SCIPaddCoefLinear(scip, cons, var, val) = @scip_ccall_check("SCIPaddCoefLinear", 
     (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{_SCIP_VAR}, _SCIP_Real,), scip, cons, var, val)
 _SCIPchgLhsLinear(scip, cons, lhs) = @scip_ccall_check("SCIPchgLhsLinear", 
@@ -3576,35 +3576,35 @@ _SCIPupgradeConsLinear(scip, cons, upgdcons) = @scip_ccall_check("SCIPupgradeCon
 _SCIPincludeConshdlrLinking(scip) = @scip_ccall_check("SCIPincludeConshdlrLinking", 
     (Ptr{_SCIP},), scip)
 _SCIPcreateConsLinking(scip, cons, name, intvar, binvars, vals, nbinvars, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode) = @scip_ccall_check("SCIPcreateConsLinking", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Ptr{_SCIP_VAR}, Ptr{Ptr{_SCIP_VAR}}, Void, Void, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, intvar, binvars, vals, nbinvars, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Ptr{_SCIP_VAR}, Ptr{Ptr{_SCIP_VAR}}, Ptr{Int}, Int, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, intvar, binvars, vals, nbinvars, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
 _SCIPcreateConsBasicLinking(scip, cons, name, intvar, binvars, vals, nbinvars) = @scip_ccall_check("SCIPcreateConsBasicLinking", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Ptr{_SCIP_VAR}, Ptr{Ptr{_SCIP_VAR}}, Void, Void,), scip, cons, name, intvar, binvars, vals, nbinvars)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Ptr{_SCIP_VAR}, Ptr{Ptr{_SCIP_VAR}}, Ptr{Int}, Int,), scip, cons, name, intvar, binvars, vals, nbinvars)
 _SCIPgetBinvarsLinking(scip, cons, binvars, nbinvars) = @scip_ccall_check("SCIPgetBinvarsLinking", 
-    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{Ptr{Ptr{_SCIP_VAR}}}, Void,), scip, cons, binvars, nbinvars)
+    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{Ptr{Ptr{_SCIP_VAR}}}, Ptr{Int},), scip, cons, binvars, nbinvars)
 _SCIPincludeConshdlrLogicor(scip) = @scip_ccall_check("SCIPincludeConshdlrLogicor", 
     (Ptr{_SCIP},), scip)
 _SCIPcreateConsLogicor(scip, cons, name, nvars, vars, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode) = @scip_ccall_check("SCIPcreateConsLogicor", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Void, Ptr{Ptr{_SCIP_VAR}}, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, nvars, vars, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Int, Ptr{Ptr{_SCIP_VAR}}, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, nvars, vars, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
 _SCIPcreateConsBasicLogicor(scip, cons, name, nvars, vars) = @scip_ccall_check("SCIPcreateConsBasicLogicor", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Void, Ptr{Ptr{_SCIP_VAR}},), scip, cons, name, nvars, vars)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Int, Ptr{Ptr{_SCIP_VAR}},), scip, cons, name, nvars, vars)
 _SCIPaddCoefLogicor(scip, cons, var) = @scip_ccall_check("SCIPaddCoefLogicor", 
     (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{_SCIP_VAR},), scip, cons, var)
 _SCIPincludeConshdlrNonlinear(scip) = @scip_ccall_check("SCIPincludeConshdlrNonlinear", 
     (Ptr{_SCIP},), scip)
 _SCIPcreateConsNonlinear(scip, cons, name, nlinvars, linvars, lincoefs, nexprtrees, exprtrees, nonlincoefs, lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode) = @scip_ccall_check("SCIPcreateConsNonlinear", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Void, Ptr{Ptr{_SCIP_EXPRTREE}}, Ptr{_SCIP_Real}, _SCIP_Real, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, nlinvars, linvars, lincoefs, nexprtrees, exprtrees, nonlincoefs, lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Int, Ptr{Ptr{_SCIP_EXPRTREE}}, Ptr{_SCIP_Real}, _SCIP_Real, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, nlinvars, linvars, lincoefs, nexprtrees, exprtrees, nonlincoefs, lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
 _SCIPcreateConsBasicNonlinear(scip, cons, name, nlinvars, linvars, lincoefs, nexprtrees, exprtrees, nonlincoefs, lhs, rhs) = @scip_ccall_check("SCIPcreateConsBasicNonlinear", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Void, Ptr{Ptr{_SCIP_EXPRTREE}}, Ptr{_SCIP_Real}, _SCIP_Real, _SCIP_Real,), scip, cons, name, nlinvars, linvars, lincoefs, nexprtrees, exprtrees, nonlincoefs, lhs, rhs)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Int, Ptr{Ptr{_SCIP_EXPRTREE}}, Ptr{_SCIP_Real}, _SCIP_Real, _SCIP_Real,), scip, cons, name, nlinvars, linvars, lincoefs, nexprtrees, exprtrees, nonlincoefs, lhs, rhs)
 _SCIPcreateConsNonlinear2(scip, cons, name, nlinvars, linvars, lincoefs, exprgraphnode, lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode) = @scip_ccall_check("SCIPcreateConsNonlinear2", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Ptr{_SCIP_EXPRGRAPHNODE}, _SCIP_Real, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, nlinvars, linvars, lincoefs, exprgraphnode, lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Ptr{_SCIP_EXPRGRAPHNODE}, _SCIP_Real, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, nlinvars, linvars, lincoefs, exprgraphnode, lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
 _SCIPcreateConsBasicNonlinear2(scip, cons, name, nlinvars, linvars, lincoefs, exprgraphnode, lhs, rhs) = @scip_ccall_check("SCIPcreateConsBasicNonlinear2", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Ptr{_SCIP_EXPRGRAPHNODE}, _SCIP_Real, _SCIP_Real,), scip, cons, name, nlinvars, linvars, lincoefs, exprgraphnode, lhs, rhs)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Ptr{_SCIP_EXPRGRAPHNODE}, _SCIP_Real, _SCIP_Real,), scip, cons, name, nlinvars, linvars, lincoefs, exprgraphnode, lhs, rhs)
 _SCIPaddLinearVarNonlinear(scip, cons, var, coef) = @scip_ccall_check("SCIPaddLinearVarNonlinear", 
     (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{_SCIP_VAR}, _SCIP_Real,), scip, cons, var, coef)
 _SCIPsetExprtreesNonlinear(scip, cons, nexprtrees, exprtrees, coefs) = @scip_ccall_check("SCIPsetExprtreesNonlinear", 
-    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Void, Ptr{Ptr{_SCIP_EXPRTREE}}, Ptr{_SCIP_Real},), scip, cons, nexprtrees, exprtrees, coefs)
+    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Int, Ptr{Ptr{_SCIP_EXPRTREE}}, Ptr{_SCIP_Real},), scip, cons, nexprtrees, exprtrees, coefs)
 _SCIPaddExprtreesNonlinear(scip, cons, nexprtrees, exprtrees, coefs) = @scip_ccall_check("SCIPaddExprtreesNonlinear", 
-    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Void, Ptr{Ptr{_SCIP_EXPRTREE}}, Ptr{_SCIP_Real},), scip, cons, nexprtrees, exprtrees, coefs)
+    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Int, Ptr{Ptr{_SCIP_EXPRTREE}}, Ptr{_SCIP_Real},), scip, cons, nexprtrees, exprtrees, coefs)
 _SCIPgetNlRowNonlinear(scip, cons, nlrow) = @scip_ccall_check("SCIPgetNlRowNonlinear", 
     (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{Ptr{_SCIP_NLROW}},), scip, cons, nlrow)
 _SCIPcheckCurvatureNonlinear(scip, cons) = @scip_ccall_check("SCIPcheckCurvatureNonlinear", 
@@ -3618,31 +3618,31 @@ _SCIPgetViolationNonlinear(scip, cons, sol, violation) = @scip_ccall_check("SCIP
 _SCIPincludeConshdlrOr(scip) = @scip_ccall_check("SCIPincludeConshdlrOr", 
     (Ptr{_SCIP},), scip)
 _SCIPcreateConsOr(scip, cons, name, resvar, nvars, vars, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode) = @scip_ccall_check("SCIPcreateConsOr", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Ptr{_SCIP_VAR}, Void, Ptr{Ptr{_SCIP_VAR}}, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, resvar, nvars, vars, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Ptr{_SCIP_VAR}, Int, Ptr{Ptr{_SCIP_VAR}}, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, resvar, nvars, vars, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
 _SCIPcreateConsBasicOr(scip, cons, name, resvar, nvars, vars) = @scip_ccall_check("SCIPcreateConsBasicOr", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Ptr{_SCIP_VAR}, Void, Ptr{Ptr{_SCIP_VAR}},), scip, cons, name, resvar, nvars, vars)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Ptr{_SCIP_VAR}, Int, Ptr{Ptr{_SCIP_VAR}},), scip, cons, name, resvar, nvars, vars)
 _SCIPincludeConshdlrOrbitope(scip) = @scip_ccall_check("SCIPincludeConshdlrOrbitope", 
     (Ptr{_SCIP},), scip)
 _SCIPcreateConsOrbitope(scip, cons, name, vars, ispart, nspcons, nblocks, resolveprop, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode) = @scip_ccall_check("SCIPcreateConsOrbitope", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Ptr{Ptr{Ptr{_SCIP_VAR}}}, _SCIP_Bool, Void, Void, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, vars, ispart, nspcons, nblocks, resolveprop, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Ptr{Ptr{Ptr{_SCIP_VAR}}}, _SCIP_Bool, Int, Int, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, vars, ispart, nspcons, nblocks, resolveprop, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
 _SCIPcreateConsBasicOrbitope(scip, cons, name, vars, ispart, nspcons, nblocks, resolveprop) = @scip_ccall_check("SCIPcreateConsBasicOrbitope", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Ptr{Ptr{Ptr{_SCIP_VAR}}}, _SCIP_Bool, Void, Void, _SCIP_Bool,), scip, cons, name, vars, ispart, nspcons, nblocks, resolveprop)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Ptr{Ptr{Ptr{_SCIP_VAR}}}, _SCIP_Bool, Int, Int, _SCIP_Bool,), scip, cons, name, vars, ispart, nspcons, nblocks, resolveprop)
 _SCIPincludeConshdlrPseudoboolean(scip) = @scip_ccall_check("SCIPincludeConshdlrPseudoboolean", 
     (Ptr{_SCIP},), scip)
 _SCIPcreateConsPseudobooleanWithConss(scip, cons, name, lincons, linconstype, andconss, andcoefs, nandconss, indvar, weight, issoftcons, intvar, lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode) = @scip_ccall_check("SCIPcreateConsPseudobooleanWithConss", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Ptr{_SCIP_CONS}, _SCIP_LINEARCONSTYPE, Ptr{Ptr{_SCIP_CONS}}, Ptr{_SCIP_Real}, Void, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Bool, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, lincons, linconstype, andconss, andcoefs, nandconss, indvar, weight, issoftcons, intvar, lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Ptr{_SCIP_CONS}, _SCIP_LINEARCONSTYPE, Ptr{Ptr{_SCIP_CONS}}, Ptr{_SCIP_Real}, Int, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Bool, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, lincons, linconstype, andconss, andcoefs, nandconss, indvar, weight, issoftcons, intvar, lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
 _SCIPcreateConsPseudoboolean(scip, cons, name, linvars, nlinvars, linvals, terms, nterms, ntermvars, termvals, indvar, weight, issoftcons, intvar, lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode) = @scip_ccall_check("SCIPcreateConsPseudoboolean", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Ptr{Ptr{_SCIP_VAR}}, Void, Ptr{_SCIP_Real}, Ptr{Ptr{Ptr{_SCIP_VAR}}}, Void, Void, Ptr{_SCIP_Real}, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Bool, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, linvars, nlinvars, linvals, terms, nterms, ntermvars, termvals, indvar, weight, issoftcons, intvar, lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Ptr{Ptr{_SCIP_VAR}}, Int, Ptr{_SCIP_Real}, Ptr{Ptr{Ptr{_SCIP_VAR}}}, Int, Ptr{Int}, Ptr{_SCIP_Real}, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Bool, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, linvars, nlinvars, linvals, terms, nterms, ntermvars, termvals, indvar, weight, issoftcons, intvar, lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
 _SCIPcreateConsBasicPseudoboolean(scip, cons, name, linvars, nlinvars, linvals, terms, nterms, ntermvars, termvals, indvar, weight, issoftcons, intvar, lhs, rhs) = @scip_ccall_check("SCIPcreateConsBasicPseudoboolean", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Ptr{Ptr{_SCIP_VAR}}, Void, Ptr{_SCIP_Real}, Ptr{Ptr{Ptr{_SCIP_VAR}}}, Void, Void, Ptr{_SCIP_Real}, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Bool, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Real,), scip, cons, name, linvars, nlinvars, linvals, terms, nterms, ntermvars, termvals, indvar, weight, issoftcons, intvar, lhs, rhs)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Ptr{Ptr{_SCIP_VAR}}, Int, Ptr{_SCIP_Real}, Ptr{Ptr{Ptr{_SCIP_VAR}}}, Int, Ptr{Int}, Ptr{_SCIP_Real}, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Bool, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Real,), scip, cons, name, linvars, nlinvars, linvals, terms, nterms, ntermvars, termvals, indvar, weight, issoftcons, intvar, lhs, rhs)
 _SCIPaddCoefPseudoboolean(scip, cons, var, val) = @scip_ccall_check("SCIPaddCoefPseudoboolean", 
     (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{_SCIP_VAR}, _SCIP_Real,), scip, cons, var, val)
 _SCIPaddTermPseudoboolean(scip, cons, vars, nvars, val) = @scip_ccall_check("SCIPaddTermPseudoboolean", 
-    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{Ptr{_SCIP_VAR}}, Void, _SCIP_Real,), scip, cons, vars, nvars, val)
+    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{Ptr{_SCIP_VAR}}, Int, _SCIP_Real,), scip, cons, vars, nvars, val)
 _SCIPgetLinDatasWithoutAndPseudoboolean(scip, cons, linvars, lincoefs, nlinvars) = @scip_ccall_check("SCIPgetLinDatasWithoutAndPseudoboolean", 
-    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Void,), scip, cons, linvars, lincoefs, nlinvars)
+    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Ptr{Int},), scip, cons, linvars, lincoefs, nlinvars)
 _SCIPgetAndDatasPseudoboolean(scip, cons, andconss, andcoefs, nandconss) = @scip_ccall_check("SCIPgetAndDatasPseudoboolean", 
-    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{Ptr{_SCIP_CONS}}, Ptr{_SCIP_Real}, Void,), scip, cons, andconss, andcoefs, nandconss)
+    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{Ptr{_SCIP_CONS}}, Ptr{_SCIP_Real}, Ptr{Int},), scip, cons, andconss, andcoefs, nandconss)
 _SCIPchgLhsPseudoboolean(scip, cons, lhs) = @scip_ccall_check("SCIPchgLhsPseudoboolean", 
     (Ptr{_SCIP}, Ptr{_SCIP_CONS}, _SCIP_Real,), scip, cons, lhs)
 _SCIPchgRhsPseudoboolean(scip, cons, rhs) = @scip_ccall_check("SCIPchgRhsPseudoboolean", 
@@ -3650,13 +3650,13 @@ _SCIPchgRhsPseudoboolean(scip, cons, rhs) = @scip_ccall_check("SCIPchgRhsPseudob
 _SCIPincludeConshdlrQuadratic(scip) = @scip_ccall_check("SCIPincludeConshdlrQuadratic", 
     (Ptr{_SCIP},), scip)
 _SCIPcreateConsQuadratic(scip, cons, name, nlinvars, linvars, lincoefs, nquadterms, quadvars1, quadvars2, quadcoeffs, lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable) = @scip_ccall_check("SCIPcreateConsQuadratic", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, _SCIP_Real, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, nlinvars, linvars, lincoefs, nquadterms, quadvars1, quadvars2, quadcoeffs, lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, _SCIP_Real, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, nlinvars, linvars, lincoefs, nquadterms, quadvars1, quadvars2, quadcoeffs, lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable)
 _SCIPcreateConsBasicQuadratic(scip, cons, name, nlinvars, linvars, lincoefs, nquadterms, quadvars1, quadvars2, quadcoefs, lhs, rhs) = @scip_ccall_check("SCIPcreateConsBasicQuadratic", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, _SCIP_Real, _SCIP_Real,), scip, cons, name, nlinvars, linvars, lincoefs, nquadterms, quadvars1, quadvars2, quadcoefs, lhs, rhs)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, _SCIP_Real, _SCIP_Real,), scip, cons, name, nlinvars, linvars, lincoefs, nquadterms, quadvars1, quadvars2, quadcoefs, lhs, rhs)
 _SCIPcreateConsQuadratic2(scip, cons, name, nlinvars, linvars, lincoefs, nquadvarterms, quadvarterms, nbilinterms, bilinterms, lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable) = @scip_ccall_check("SCIPcreateConsQuadratic2", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Void, Ptr{_SCIP_QUADVARTERM}, Void, Ptr{_SCIP_BILINTERM}, _SCIP_Real, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, nlinvars, linvars, lincoefs, nquadvarterms, quadvarterms, nbilinterms, bilinterms, lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Int, Ptr{_SCIP_QUADVARTERM}, Int, Ptr{_SCIP_BILINTERM}, _SCIP_Real, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, nlinvars, linvars, lincoefs, nquadvarterms, quadvarterms, nbilinterms, bilinterms, lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable)
 _SCIPcreateConsBasicQuadratic2(scip, cons, name, nlinvars, linvars, lincoefs, nquadvarterms, quadvarterms, nbilinterms, bilinterms, lhs, rhs) = @scip_ccall_check("SCIPcreateConsBasicQuadratic2", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Void, Ptr{_SCIP_QUADVARTERM}, Void, Ptr{_SCIP_BILINTERM}, _SCIP_Real, _SCIP_Real,), scip, cons, name, nlinvars, linvars, lincoefs, nquadvarterms, quadvarterms, nbilinterms, bilinterms, lhs, rhs)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Int, Ptr{_SCIP_QUADVARTERM}, Int, Ptr{_SCIP_BILINTERM}, _SCIP_Real, _SCIP_Real,), scip, cons, name, nlinvars, linvars, lincoefs, nquadvarterms, quadvarterms, nbilinterms, bilinterms, lhs, rhs)
 _SCIPaddLinearVarQuadratic(scip, cons, var, coef) = @scip_ccall_check("SCIPaddLinearVarQuadratic", 
     (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{_SCIP_VAR}, _SCIP_Real,), scip, cons, var, coef)
 _SCIPaddQuadVarQuadratic(scip, cons, var, lincoef, sqrcoef) = @scip_ccall_check("SCIPaddQuadVarQuadratic", 
@@ -3672,7 +3672,7 @@ _SCIPgetNlRowQuadratic(scip, cons, nlrow) = @scip_ccall_check("SCIPgetNlRowQuadr
 _SCIPsortQuadVarTermsQuadratic(scip, cons) = @scip_ccall_check("SCIPsortQuadVarTermsQuadratic", 
     (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPfindQuadVarTermQuadratic(scip, cons, var, pos) = @scip_ccall_check("SCIPfindQuadVarTermQuadratic", 
-    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{_SCIP_VAR}, Void,), scip, cons, var, pos)
+    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{_SCIP_VAR}, Ptr{Int},), scip, cons, var, pos)
 _SCIPcheckCurvatureQuadratic(scip, cons) = @scip_ccall_check("SCIPcheckCurvatureQuadratic", 
     (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPgetViolationQuadratic(scip, cons, sol, violation) = @scip_ccall_check("SCIPgetViolationQuadratic", 
@@ -3682,25 +3682,25 @@ _SCIPaddToNlpiProblemQuadratic(scip, cons, nlpi, nlpiprob, scipvar2nlpivar, name
 _SCIPincludeConshdlrSetppc(scip) = @scip_ccall_check("SCIPincludeConshdlrSetppc", 
     (Ptr{_SCIP},), scip)
 _SCIPcreateConsSetpart(scip, cons, name, nvars, vars, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode) = @scip_ccall_check("SCIPcreateConsSetpart", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Void, Ptr{Ptr{_SCIP_VAR}}, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, nvars, vars, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Int, Ptr{Ptr{_SCIP_VAR}}, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, nvars, vars, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
 _SCIPcreateConsBasicSetpart(scip, cons, name, nvars, vars) = @scip_ccall_check("SCIPcreateConsBasicSetpart", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Void, Ptr{Ptr{_SCIP_VAR}},), scip, cons, name, nvars, vars)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Int, Ptr{Ptr{_SCIP_VAR}},), scip, cons, name, nvars, vars)
 _SCIPcreateConsSetpack(scip, cons, name, nvars, vars, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode) = @scip_ccall_check("SCIPcreateConsSetpack", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Void, Ptr{Ptr{_SCIP_VAR}}, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, nvars, vars, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Int, Ptr{Ptr{_SCIP_VAR}}, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, nvars, vars, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
 _SCIPcreateConsBasicSetpack(scip, cons, name, nvars, vars) = @scip_ccall_check("SCIPcreateConsBasicSetpack", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Void, Ptr{Ptr{_SCIP_VAR}},), scip, cons, name, nvars, vars)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Int, Ptr{Ptr{_SCIP_VAR}},), scip, cons, name, nvars, vars)
 _SCIPcreateConsSetcover(scip, cons, name, nvars, vars, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode) = @scip_ccall_check("SCIPcreateConsSetcover", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Void, Ptr{Ptr{_SCIP_VAR}}, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, nvars, vars, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Int, Ptr{Ptr{_SCIP_VAR}}, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, nvars, vars, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
 _SCIPcreateConsBasicSetcover(scip, cons, name, nvars, vars) = @scip_ccall_check("SCIPcreateConsBasicSetcover", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Void, Ptr{Ptr{_SCIP_VAR}},), scip, cons, name, nvars, vars)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Int, Ptr{Ptr{_SCIP_VAR}},), scip, cons, name, nvars, vars)
 _SCIPaddCoefSetppc(scip, cons, var) = @scip_ccall_check("SCIPaddCoefSetppc", 
     (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{_SCIP_VAR},), scip, cons, var)
 _SCIPincludeConshdlrSOC(scip) = @scip_ccall_check("SCIPincludeConshdlrSOC", 
     (Ptr{_SCIP},), scip)
 _SCIPcreateConsSOC(scip, cons, name, nvars, vars, coefs, offsets, constant, rhsvar, rhscoeff, rhsoffset, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable) = @scip_ccall_check("SCIPcreateConsSOC", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, _SCIP_Real, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, nvars, vars, coefs, offsets, constant, rhsvar, rhscoeff, rhsoffset, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, _SCIP_Real, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, nvars, vars, coefs, offsets, constant, rhsvar, rhscoeff, rhsoffset, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable)
 _SCIPcreateConsBasicSOC(scip, cons, name, nvars, vars, coefs, offsets, constant, rhsvar, rhscoeff, rhsoffset) = @scip_ccall_check("SCIPcreateConsBasicSOC", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, _SCIP_Real, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Real,), scip, cons, name, nvars, vars, coefs, offsets, constant, rhsvar, rhscoeff, rhsoffset)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, _SCIP_Real, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Real,), scip, cons, name, nvars, vars, coefs, offsets, constant, rhsvar, rhscoeff, rhsoffset)
 _SCIPgetNlRowSOC(scip, cons, nlrow) = @scip_ccall_check("SCIPgetNlRowSOC", 
     (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{Ptr{_SCIP_NLROW}},), scip, cons, nlrow)
 _SCIPaddToNlpiProblemSOC(scip, cons, nlpi, nlpiprob, scipvar2nlpivar, names) = @scip_ccall_check("SCIPaddToNlpiProblemSOC", 
@@ -3708,9 +3708,9 @@ _SCIPaddToNlpiProblemSOC(scip, cons, nlpi, nlpiprob, scipvar2nlpivar, names) = @
 _SCIPincludeConshdlrSOS1(scip) = @scip_ccall_check("SCIPincludeConshdlrSOS1", 
     (Ptr{_SCIP},), scip)
 _SCIPcreateConsSOS1(scip, cons, name, nvars, vars, weights, initial, separate, enforce, check, propagate, localVar, dynamic, removable, stickingatnode) = @scip_ccall_check("SCIPcreateConsSOS1", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, nvars, vars, weights, initial, separate, enforce, check, propagate, localVar, dynamic, removable, stickingatnode)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, nvars, vars, weights, initial, separate, enforce, check, propagate, localVar, dynamic, removable, stickingatnode)
 _SCIPcreateConsBasicSOS1(scip, cons, name, nvars, vars, weights) = @scip_ccall_check("SCIPcreateConsBasicSOS1", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real},), scip, cons, name, nvars, vars, weights)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real},), scip, cons, name, nvars, vars, weights)
 _SCIPaddVarSOS1(scip, cons, var, weight) = @scip_ccall_check("SCIPaddVarSOS1", 
     (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{_SCIP_VAR}, _SCIP_Real,), scip, cons, var, weight)
 _SCIPappendVarSOS1(scip, cons, var) = @scip_ccall_check("SCIPappendVarSOS1", 
@@ -3718,9 +3718,9 @@ _SCIPappendVarSOS1(scip, cons, var) = @scip_ccall_check("SCIPappendVarSOS1",
 _SCIPincludeConshdlrSOS2(scip) = @scip_ccall_check("SCIPincludeConshdlrSOS2", 
     (Ptr{_SCIP},), scip)
 _SCIPcreateConsSOS2(scip, cons, name, nvars, vars, weights, initial, separate, enforce, check, propagate, localVar, dynamic, removable, stickingatnode) = @scip_ccall_check("SCIPcreateConsSOS2", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, nvars, vars, weights, initial, separate, enforce, check, propagate, localVar, dynamic, removable, stickingatnode)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, nvars, vars, weights, initial, separate, enforce, check, propagate, localVar, dynamic, removable, stickingatnode)
 _SCIPcreateConsBasicSOS2(scip, cons, name, nvars, vars, weights) = @scip_ccall_check("SCIPcreateConsBasicSOS2", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real},), scip, cons, name, nvars, vars, weights)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real},), scip, cons, name, nvars, vars, weights)
 _SCIPaddVarSOS2(scip, cons, var, weight) = @scip_ccall_check("SCIPaddVarSOS2", 
     (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{_SCIP_VAR}, _SCIP_Real,), scip, cons, var, weight)
 _SCIPappendVarSOS2(scip, cons, var) = @scip_ccall_check("SCIPappendVarSOS2", 
@@ -3728,113 +3728,113 @@ _SCIPappendVarSOS2(scip, cons, var) = @scip_ccall_check("SCIPappendVarSOS2",
 _SCIPincludeConshdlrSuperindicator(scip) = @scip_ccall_check("SCIPincludeConshdlrSuperindicator", 
     (Ptr{_SCIP},), scip)
 _SCIPcreateConsSuperindicator(scip, cons, name, binvar, slackcons, initial, separate, enforce, check, propagate, localVar, dynamic, removable, stickingatnode) = @scip_ccall_check("SCIPcreateConsSuperindicator", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Ptr{_SCIP_VAR}, Ptr{_SCIP_CONS}, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, binvar, slackcons, initial, separate, enforce, check, propagate, localVar, dynamic, removable, stickingatnode)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Ptr{_SCIP_VAR}, Ptr{_SCIP_CONS}, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, binvar, slackcons, initial, separate, enforce, check, propagate, localVar, dynamic, removable, stickingatnode)
 _SCIPcreateConsBasicSuperindicator(scip, cons, name, binvar, slackcons) = @scip_ccall_check("SCIPcreateConsBasicSuperindicator", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Ptr{_SCIP_VAR}, Ptr{_SCIP_CONS},), scip, cons, name, binvar, slackcons)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Ptr{_SCIP_VAR}, Ptr{_SCIP_CONS},), scip, cons, name, binvar, slackcons)
 _SCIPtransformMinUC(scip, success) = @scip_ccall_check("SCIPtransformMinUC", 
     (Ptr{_SCIP}, Ptr{_SCIP_Bool},), scip, success)
 _SCIPincludeConshdlrVarbound(scip) = @scip_ccall_check("SCIPincludeConshdlrVarbound", 
     (Ptr{_SCIP},), scip)
 _SCIPcreateConsVarbound(scip, cons, name, var, vbdvar, vbdcoef, lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode) = @scip_ccall_check("SCIPcreateConsVarbound", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Ptr{_SCIP_VAR}, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Real, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, var, vbdvar, vbdcoef, lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Ptr{_SCIP_VAR}, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Real, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, var, vbdvar, vbdcoef, lhs, rhs, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
 _SCIPcreateConsBasicVarbound(scip, cons, name, var, vbdvar, vbdcoef, lhs, rhs) = @scip_ccall_check("SCIPcreateConsBasicVarbound", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Ptr{_SCIP_VAR}, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Real, _SCIP_Real,), scip, cons, name, var, vbdvar, vbdcoef, lhs, rhs)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Ptr{_SCIP_VAR}, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Real, _SCIP_Real,), scip, cons, name, var, vbdvar, vbdcoef, lhs, rhs)
 _SCIPincludeConshdlrXor(scip) = @scip_ccall_check("SCIPincludeConshdlrXor", 
     (Ptr{_SCIP},), scip)
 _SCIPcreateConsXor(scip, cons, name, rhs, nvars, vars, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode) = @scip_ccall_check("SCIPcreateConsXor", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, _SCIP_Bool, Void, Ptr{Ptr{_SCIP_VAR}}, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, rhs, nvars, vars, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, _SCIP_Bool, Int, Ptr{Ptr{_SCIP_VAR}}, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, rhs, nvars, vars, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
 _SCIPcreateConsBasicXor(scip, cons, name, rhs, nvars, vars) = @scip_ccall_check("SCIPcreateConsBasicXor", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, _SCIP_Bool, Void, Ptr{Ptr{_SCIP_VAR}},), scip, cons, name, rhs, nvars, vars)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, _SCIP_Bool, Int, Ptr{Ptr{_SCIP_VAR}},), scip, cons, name, rhs, nvars, vars)
 _SCIPdialoghdlrGetWord(dialoghdlr, dialog, prompt, inputword, endoffile) = @scip_ccall_check("SCIPdialoghdlrGetWord", 
-    (Ptr{_SCIP_DIALOGHDLR}, Ptr{_SCIP_DIALOG}, Void, Void, Ptr{_SCIP_Bool},), dialoghdlr, dialog, prompt, inputword, endoffile)
+    (Ptr{_SCIP_DIALOGHDLR}, Ptr{_SCIP_DIALOG}, Ptr{Ptr{Char}}, Ptr{Ptr{Char}}, Ptr{_SCIP_Bool},), dialoghdlr, dialog, prompt, inputword, endoffile)
 _SCIPdialoghdlrAddInputLine(dialoghdlr, inputline) = @scip_ccall_check("SCIPdialoghdlrAddInputLine", 
-    (Ptr{_SCIP_DIALOGHDLR}, Void,), dialoghdlr, inputline)
+    (Ptr{_SCIP_DIALOGHDLR}, Ptr{Ptr{Char}},), dialoghdlr, inputline)
 _SCIPdialoghdlrAddHistory(dialoghdlr, dialog, command, escapecommand) = @scip_ccall_check("SCIPdialoghdlrAddHistory", 
-    (Ptr{_SCIP_DIALOGHDLR}, Ptr{_SCIP_DIALOG}, Void, _SCIP_Bool,), dialoghdlr, dialog, command, escapecommand)
+    (Ptr{_SCIP_DIALOGHDLR}, Ptr{_SCIP_DIALOG}, Ptr{Ptr{Char}}, _SCIP_Bool,), dialoghdlr, dialog, command, escapecommand)
 _SCIPdialogDisplayMenu(dialog, scip) = @scip_ccall_check("SCIPdialogDisplayMenu", 
     (Ptr{_SCIP_DIALOG}, Ptr{_SCIP},), dialog, scip)
 _SCIPdialogDisplayMenuEntry(dialog, scip) = @scip_ccall_check("SCIPdialogDisplayMenuEntry", 
     (Ptr{_SCIP_DIALOG}, Ptr{_SCIP},), dialog, scip)
 _SCIPdialogDisplayCompletions(dialog, scip, entryname) = @scip_ccall_check("SCIPdialogDisplayCompletions", 
-    (Ptr{_SCIP_DIALOG}, Ptr{_SCIP}, Void,), dialog, scip, entryname)
+    (Ptr{_SCIP_DIALOG}, Ptr{_SCIP}, Ptr{Ptr{Char}},), dialog, scip, entryname)
 _SCIPexprCopyDeep(blkmem, targetexpr, sourceexpr) = @scip_ccall_check("SCIPexprCopyDeep", 
-    (Void, Ptr{Ptr{_SCIP_EXPR}}, Ptr{_SCIP_EXPR},), blkmem, targetexpr, sourceexpr)
+    (Ptr{BMS_BLKMEM}, Ptr{Ptr{_SCIP_EXPR}}, Ptr{_SCIP_EXPR},), blkmem, targetexpr, sourceexpr)
 _SCIPexprAdd(blkmem, expr, coef1, term1, coef2, term2, constant) = @scip_ccall_check("SCIPexprAdd", 
-    (Void, Ptr{Ptr{_SCIP_EXPR}}, _SCIP_Real, Ptr{_SCIP_EXPR}, _SCIP_Real, Ptr{_SCIP_EXPR}, _SCIP_Real,), blkmem, expr, coef1, term1, coef2, term2, constant)
+    (Ptr{BMS_BLKMEM}, Ptr{Ptr{_SCIP_EXPR}}, _SCIP_Real, Ptr{_SCIP_EXPR}, _SCIP_Real, Ptr{_SCIP_EXPR}, _SCIP_Real,), blkmem, expr, coef1, term1, coef2, term2, constant)
 _SCIPexprMulConstant(blkmem, expr, term, factor) = @scip_ccall_check("SCIPexprMulConstant", 
-    (Void, Ptr{Ptr{_SCIP_EXPR}}, Ptr{_SCIP_EXPR}, _SCIP_Real,), blkmem, expr, term, factor)
+    (Ptr{BMS_BLKMEM}, Ptr{Ptr{_SCIP_EXPR}}, Ptr{_SCIP_EXPR}, _SCIP_Real,), blkmem, expr, term, factor)
 _SCIPexprCreateLinear(blkmem, expr, nchildren, children, coefs, constant) = @scip_ccall_check("SCIPexprCreateLinear", 
-    (Void, Ptr{Ptr{_SCIP_EXPR}}, Void, Ptr{Ptr{_SCIP_EXPR}}, Ptr{_SCIP_Real}, _SCIP_Real,), blkmem, expr, nchildren, children, coefs, constant)
+    (Ptr{BMS_BLKMEM}, Ptr{Ptr{_SCIP_EXPR}}, Int, Ptr{Ptr{_SCIP_EXPR}}, Ptr{_SCIP_Real}, _SCIP_Real,), blkmem, expr, nchildren, children, coefs, constant)
 _SCIPexprAddToLinear(blkmem, expr, nchildren, coefs, children, constant) = @scip_ccall_check("SCIPexprAddToLinear", 
-    (Void, Ptr{_SCIP_EXPR}, Void, Ptr{_SCIP_Real}, Ptr{Ptr{_SCIP_EXPR}}, _SCIP_Real,), blkmem, expr, nchildren, coefs, children, constant)
+    (Ptr{BMS_BLKMEM}, Ptr{_SCIP_EXPR}, Int, Ptr{_SCIP_Real}, Ptr{Ptr{_SCIP_EXPR}}, _SCIP_Real,), blkmem, expr, nchildren, coefs, children, constant)
 _SCIPexprCreateQuadratic(blkmem, expr, nchildren, children, constant, lincoefs, nquadelems, quadelems) = @scip_ccall_check("SCIPexprCreateQuadratic", 
-    (Void, Ptr{Ptr{_SCIP_EXPR}}, Void, Ptr{Ptr{_SCIP_EXPR}}, _SCIP_Real, Ptr{_SCIP_Real}, Void, Ptr{_SCIP_QUADELEM},), blkmem, expr, nchildren, children, constant, lincoefs, nquadelems, quadelems)
+    (Ptr{BMS_BLKMEM}, Ptr{Ptr{_SCIP_EXPR}}, Int, Ptr{Ptr{_SCIP_EXPR}}, _SCIP_Real, Ptr{_SCIP_Real}, Int, Ptr{_SCIP_QUADELEM},), blkmem, expr, nchildren, children, constant, lincoefs, nquadelems, quadelems)
 _SCIPexprCreatePolynomial(blkmem, expr, nchildren, children, nmonomials, monomials, constant, copymonomials) = @scip_ccall_check("SCIPexprCreatePolynomial", 
-    (Void, Ptr{Ptr{_SCIP_EXPR}}, Void, Ptr{Ptr{_SCIP_EXPR}}, Void, Ptr{Ptr{_SCIP_EXPRDATA_MONOMIAL}}, _SCIP_Real, _SCIP_Bool,), blkmem, expr, nchildren, children, nmonomials, monomials, constant, copymonomials)
+    (Ptr{BMS_BLKMEM}, Ptr{Ptr{_SCIP_EXPR}}, Int, Ptr{Ptr{_SCIP_EXPR}}, Int, Ptr{Ptr{_SCIP_EXPRDATA_MONOMIAL}}, _SCIP_Real, _SCIP_Bool,), blkmem, expr, nchildren, children, nmonomials, monomials, constant, copymonomials)
 _SCIPexprAddMonomials(blkmem, expr, nmonomials, monomials, copymonomials) = @scip_ccall_check("SCIPexprAddMonomials", 
-    (Void, Ptr{_SCIP_EXPR}, Void, Ptr{Ptr{_SCIP_EXPRDATA_MONOMIAL}}, _SCIP_Bool,), blkmem, expr, nmonomials, monomials, copymonomials)
+    (Ptr{BMS_BLKMEM}, Ptr{_SCIP_EXPR}, Int, Ptr{Ptr{_SCIP_EXPRDATA_MONOMIAL}}, _SCIP_Bool,), blkmem, expr, nmonomials, monomials, copymonomials)
 _SCIPexprMultiplyPolynomialByMonomial(blkmem, expr, factor, childmap) = @scip_ccall_check("SCIPexprMultiplyPolynomialByMonomial", 
-    (Void, Ptr{_SCIP_EXPR}, Ptr{_SCIP_EXPRDATA_MONOMIAL}, Void,), blkmem, expr, factor, childmap)
+    (Ptr{BMS_BLKMEM}, Ptr{_SCIP_EXPR}, Ptr{_SCIP_EXPRDATA_MONOMIAL}, Ptr{Int},), blkmem, expr, factor, childmap)
 _SCIPexprMultiplyPolynomialByPolynomial(blkmem, expr, factor, childmap) = @scip_ccall_check("SCIPexprMultiplyPolynomialByPolynomial", 
-    (Void, Ptr{_SCIP_EXPR}, Ptr{_SCIP_EXPR}, Void,), blkmem, expr, factor, childmap)
+    (Ptr{BMS_BLKMEM}, Ptr{_SCIP_EXPR}, Ptr{_SCIP_EXPR}, Ptr{Int},), blkmem, expr, factor, childmap)
 _SCIPexprPolynomialPower(blkmem, expr, exponent) = @scip_ccall_check("SCIPexprPolynomialPower", 
-    (Void, Ptr{_SCIP_EXPR}, Void,), blkmem, expr, exponent)
+    (Ptr{BMS_BLKMEM}, Ptr{_SCIP_EXPR}, Int,), blkmem, expr, exponent)
 _SCIPexprCreateMonomial(blkmem, monomial, coef, nfactors, childidxs, exponents) = @scip_ccall_check("SCIPexprCreateMonomial", 
-    (Void, Ptr{Ptr{_SCIP_EXPRDATA_MONOMIAL}}, _SCIP_Real, Void, Void, Ptr{_SCIP_Real},), blkmem, monomial, coef, nfactors, childidxs, exponents)
+    (Ptr{BMS_BLKMEM}, Ptr{Ptr{_SCIP_EXPRDATA_MONOMIAL}}, _SCIP_Real, Int, Ptr{Int}, Ptr{_SCIP_Real},), blkmem, monomial, coef, nfactors, childidxs, exponents)
 _SCIPexprAddMonomialFactors(blkmem, monomial, nfactors, childidxs, exponents) = @scip_ccall_check("SCIPexprAddMonomialFactors", 
-    (Void, Ptr{_SCIP_EXPRDATA_MONOMIAL}, Void, Void, Ptr{_SCIP_Real},), blkmem, monomial, nfactors, childidxs, exponents)
+    (Ptr{BMS_BLKMEM}, Ptr{_SCIP_EXPRDATA_MONOMIAL}, Int, Ptr{Int}, Ptr{_SCIP_Real},), blkmem, monomial, nfactors, childidxs, exponents)
 _SCIPexprMultiplyMonomialByMonomial(blkmem, monomial, factor, childmap) = @scip_ccall_check("SCIPexprMultiplyMonomialByMonomial", 
-    (Void, Ptr{_SCIP_EXPRDATA_MONOMIAL}, Ptr{_SCIP_EXPRDATA_MONOMIAL}, Void,), blkmem, monomial, factor, childmap)
+    (Ptr{BMS_BLKMEM}, Ptr{_SCIP_EXPRDATA_MONOMIAL}, Ptr{_SCIP_EXPRDATA_MONOMIAL}, Ptr{Int},), blkmem, monomial, factor, childmap)
 _SCIPexprGetMaxDegree(expr, maxdegree) = @scip_ccall_check("SCIPexprGetMaxDegree", 
-    (Ptr{_SCIP_EXPR}, Void,), expr, maxdegree)
+    (Ptr{_SCIP_EXPR}, Ptr{Int},), expr, maxdegree)
 _SCIPexprSimplify(blkmem, messagehdlr, expr, eps, maxexpansionexponent, nvars, nlinvars, linidxs, lincoefs) = @scip_ccall_check("SCIPexprSimplify", 
-    (Void, Ptr{_SCIP_MESSAGEHDLR}, Ptr{_SCIP_EXPR}, _SCIP_Real, Void, Void, Void, Void, Ptr{_SCIP_Real},), blkmem, messagehdlr, expr, eps, maxexpansionexponent, nvars, nlinvars, linidxs, lincoefs)
+    (Ptr{BMS_BLKMEM}, Ptr{_SCIP_MESSAGEHDLR}, Ptr{_SCIP_EXPR}, _SCIP_Real, Int, Int, Ptr{Int}, Ptr{Int}, Ptr{_SCIP_Real},), blkmem, messagehdlr, expr, eps, maxexpansionexponent, nvars, nlinvars, linidxs, lincoefs)
 _SCIPexprEval(expr, varvals, param, val) = @scip_ccall_check("SCIPexprEval", 
     (Ptr{_SCIP_EXPR}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real},), expr, varvals, param, val)
 _SCIPexprEvalInt(expr, infinity, varvals, param, val) = @scip_ccall_check("SCIPexprEvalInt", 
-    (Ptr{_SCIP_EXPR}, _SCIP_Real, Void, Ptr{_SCIP_Real}, Void,), expr, infinity, varvals, param, val)
+    (Ptr{_SCIP_EXPR}, _SCIP_Real, Ptr{_SCIP_INTERVAL}, Ptr{_SCIP_Real}, Ptr{_SCIP_INTERVAL},), expr, infinity, varvals, param, val)
 _SCIPexprCheckCurvature(expr, infinity, varbounds, param, curv, bounds) = @scip_ccall_check("SCIPexprCheckCurvature", 
-    (Ptr{_SCIP_EXPR}, _SCIP_Real, Void, Ptr{_SCIP_Real}, Ptr{_SCIP_EXPRCURV}, Void,), expr, infinity, varbounds, param, curv, bounds)
+    (Ptr{_SCIP_EXPR}, _SCIP_Real, Ptr{_SCIP_INTERVAL}, Ptr{_SCIP_Real}, Ptr{_SCIP_EXPRCURV}, Ptr{_SCIP_INTERVAL},), expr, infinity, varbounds, param, curv, bounds)
 _SCIPexprSubstituteVars(blkmem, expr, substexprs) = @scip_ccall_check("SCIPexprSubstituteVars", 
-    (Void, Ptr{_SCIP_EXPR}, Ptr{Ptr{_SCIP_EXPR}},), blkmem, expr, substexprs)
+    (Ptr{BMS_BLKMEM}, Ptr{_SCIP_EXPR}, Ptr{Ptr{_SCIP_EXPR}},), blkmem, expr, substexprs)
 _SCIPexprParse(blkmem, messagehdlr, expr, str, lastchar, nvars, varnames) = @scip_ccall_check("SCIPexprParse", 
-    (Void, Ptr{_SCIP_MESSAGEHDLR}, Ptr{Ptr{_SCIP_EXPR}}, Void, Void, Void, Void,), blkmem, messagehdlr, expr, str, lastchar, nvars, varnames)
+    (Ptr{BMS_BLKMEM}, Ptr{_SCIP_MESSAGEHDLR}, Ptr{Ptr{_SCIP_EXPR}}, Ptr{Ptr{Char}}, Ptr{Ptr{Char}}, Ptr{Int}, Ptr{Int},), blkmem, messagehdlr, expr, str, lastchar, nvars, varnames)
 _SCIPexprtreeFreeInterpreterData(tree) = @scip_ccall_check("SCIPexprtreeFreeInterpreterData", 
     (Ptr{_SCIP_EXPRTREE},), tree)
 _SCIPexprtreeGetMaxDegree(tree, maxdegree) = @scip_ccall_check("SCIPexprtreeGetMaxDegree", 
-    (Ptr{_SCIP_EXPRTREE}, Void,), tree, maxdegree)
+    (Ptr{_SCIP_EXPRTREE}, Ptr{Int},), tree, maxdegree)
 _SCIPexprtreeEval(tree, varvals, val) = @scip_ccall_check("SCIPexprtreeEval", 
     (Ptr{_SCIP_EXPRTREE}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real},), tree, varvals, val)
 _SCIPexprtreeEvalInt(tree, infinity, varvals, val) = @scip_ccall_check("SCIPexprtreeEvalInt", 
-    (Ptr{_SCIP_EXPRTREE}, _SCIP_Real, Void, Void,), tree, infinity, varvals, val)
+    (Ptr{_SCIP_EXPRTREE}, _SCIP_Real, Ptr{_SCIP_INTERVAL}, Ptr{_SCIP_INTERVAL},), tree, infinity, varvals, val)
 _SCIPexprtreeCreate(blkmem, tree, root, nvars, nparams, params) = @scip_ccall_check("SCIPexprtreeCreate", 
-    (Void, Ptr{Ptr{_SCIP_EXPRTREE}}, Ptr{_SCIP_EXPR}, Void, Void, Ptr{_SCIP_Real},), blkmem, tree, root, nvars, nparams, params)
+    (Ptr{BMS_BLKMEM}, Ptr{Ptr{_SCIP_EXPRTREE}}, Ptr{_SCIP_EXPR}, Int, Int, Ptr{_SCIP_Real},), blkmem, tree, root, nvars, nparams, params)
 _SCIPexprtreeCopy(blkmem, targettree, sourcetree) = @scip_ccall_check("SCIPexprtreeCopy", 
-    (Void, Ptr{Ptr{_SCIP_EXPRTREE}}, Ptr{_SCIP_EXPRTREE},), blkmem, targettree, sourcetree)
+    (Ptr{BMS_BLKMEM}, Ptr{Ptr{_SCIP_EXPRTREE}}, Ptr{_SCIP_EXPRTREE},), blkmem, targettree, sourcetree)
 _SCIPexprtreeFree(tree) = @scip_ccall_check("SCIPexprtreeFree", 
     (Ptr{Ptr{_SCIP_EXPRTREE}},), tree)
 _SCIPexprtreeSetParams(tree, nparams, paramvals) = @scip_ccall_check("SCIPexprtreeSetParams", 
-    (Ptr{_SCIP_EXPRTREE}, Void, Ptr{_SCIP_Real},), tree, nparams, paramvals)
+    (Ptr{_SCIP_EXPRTREE}, Int, Ptr{_SCIP_Real},), tree, nparams, paramvals)
 _SCIPexprtreeSimplify(tree, messagehdlr, eps, maxexpansionexponent, nlinvars, linidxs, lincoefs) = @scip_ccall_check("SCIPexprtreeSimplify", 
-    (Ptr{_SCIP_EXPRTREE}, Ptr{_SCIP_MESSAGEHDLR}, _SCIP_Real, Void, Void, Void, Ptr{_SCIP_Real},), tree, messagehdlr, eps, maxexpansionexponent, nlinvars, linidxs, lincoefs)
+    (Ptr{_SCIP_EXPRTREE}, Ptr{_SCIP_MESSAGEHDLR}, _SCIP_Real, Int, Ptr{Int}, Ptr{Int}, Ptr{_SCIP_Real},), tree, messagehdlr, eps, maxexpansionexponent, nlinvars, linidxs, lincoefs)
 _SCIPexprtreeAddExpr(tree, expr, copyexpr) = @scip_ccall_check("SCIPexprtreeAddExpr", 
     (Ptr{_SCIP_EXPRTREE}, Ptr{_SCIP_EXPR}, _SCIP_Bool,), tree, expr, copyexpr)
 _SCIPexprtreeCheckCurvature(tree, infinity, varbounds, curv, bounds) = @scip_ccall_check("SCIPexprtreeCheckCurvature", 
-    (Ptr{_SCIP_EXPRTREE}, _SCIP_Real, Void, Ptr{_SCIP_EXPRCURV}, Void,), tree, infinity, varbounds, curv, bounds)
+    (Ptr{_SCIP_EXPRTREE}, _SCIP_Real, Ptr{_SCIP_INTERVAL}, Ptr{_SCIP_EXPRCURV}, Ptr{_SCIP_INTERVAL},), tree, infinity, varbounds, curv, bounds)
 _SCIPexprtreeSubstituteVars(tree, substexprs) = @scip_ccall_check("SCIPexprtreeSubstituteVars", 
     (Ptr{_SCIP_EXPRTREE}, Ptr{Ptr{_SCIP_EXPR}},), tree, substexprs)
 _SCIPexprgraphGetNodePolynomialMonomialCurvature(node, monomialidx, curv) = @scip_ccall_check("SCIPexprgraphGetNodePolynomialMonomialCurvature", 
-    (Ptr{_SCIP_EXPRGRAPHNODE}, Void, Ptr{_SCIP_EXPRCURV},), node, monomialidx, curv)
+    (Ptr{_SCIP_EXPRGRAPHNODE}, Int, Ptr{_SCIP_EXPRCURV},), node, monomialidx, curv)
 _SCIPexprgraphCreateNodeLinear(blkmem, node, ncoefs, coefs, constant) = @scip_ccall_check("SCIPexprgraphCreateNodeLinear", 
-    (Void, Ptr{Ptr{_SCIP_EXPRGRAPHNODE}}, Void, Ptr{_SCIP_Real}, _SCIP_Real,), blkmem, node, ncoefs, coefs, constant)
+    (Ptr{BMS_BLKMEM}, Ptr{Ptr{_SCIP_EXPRGRAPHNODE}}, Int, Ptr{_SCIP_Real}, _SCIP_Real,), blkmem, node, ncoefs, coefs, constant)
 _SCIPexprgraphCreateNodeQuadratic(blkmem, node, nchildren, lincoefs, nquadelems, quadelems, constant) = @scip_ccall_check("SCIPexprgraphCreateNodeQuadratic", 
-    (Void, Ptr{Ptr{_SCIP_EXPRGRAPHNODE}}, Void, Ptr{_SCIP_Real}, Void, Ptr{_SCIP_QUADELEM}, _SCIP_Real,), blkmem, node, nchildren, lincoefs, nquadelems, quadelems, constant)
+    (Ptr{BMS_BLKMEM}, Ptr{Ptr{_SCIP_EXPRGRAPHNODE}}, Int, Ptr{_SCIP_Real}, Int, Ptr{_SCIP_QUADELEM}, _SCIP_Real,), blkmem, node, nchildren, lincoefs, nquadelems, quadelems, constant)
 _SCIPexprgraphCreateNodePolynomial(blkmem, node, nmonomials, monomials, constant, copymonomials) = @scip_ccall_check("SCIPexprgraphCreateNodePolynomial", 
-    (Void, Ptr{Ptr{_SCIP_EXPRGRAPHNODE}}, Void, Ptr{Ptr{_SCIP_EXPRDATA_MONOMIAL}}, _SCIP_Real, _SCIP_Bool,), blkmem, node, nmonomials, monomials, constant, copymonomials)
+    (Ptr{BMS_BLKMEM}, Ptr{Ptr{_SCIP_EXPRGRAPHNODE}}, Int, Ptr{Ptr{_SCIP_EXPRDATA_MONOMIAL}}, _SCIP_Real, _SCIP_Bool,), blkmem, node, nmonomials, monomials, constant, copymonomials)
 _SCIPexprgraphNodePolynomialAddMonomials(blkmem, node, nmonomials, monomials, copymonomials) = @scip_ccall_check("SCIPexprgraphNodePolynomialAddMonomials", 
-    (Void, Ptr{_SCIP_EXPRGRAPHNODE}, Void, Ptr{Ptr{_SCIP_EXPRDATA_MONOMIAL}}, _SCIP_Bool,), blkmem, node, nmonomials, monomials, copymonomials)
+    (Ptr{BMS_BLKMEM}, Ptr{_SCIP_EXPRGRAPHNODE}, Int, Ptr{Ptr{_SCIP_EXPRDATA_MONOMIAL}}, _SCIP_Bool,), blkmem, node, nmonomials, monomials, copymonomials)
 _SCIPexprgraphNodeSplitOffLinear(exprgraph, node, linvarssize, nlinvars, linvars, lincoefs, constant) = @scip_ccall_check("SCIPexprgraphNodeSplitOffLinear", 
-    (Ptr{_SCIP_EXPRGRAPH}, Ptr{Ptr{_SCIP_EXPRGRAPHNODE}}, Void, Void, Void, Ptr{_SCIP_Real}, Ptr{_SCIP_Real},), exprgraph, node, linvarssize, nlinvars, linvars, lincoefs, constant)
+    (Ptr{_SCIP_EXPRGRAPH}, Ptr{Ptr{_SCIP_EXPRGRAPHNODE}}, Int, Ptr{Int}, Ptr{Ptr{Void}}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real},), exprgraph, node, linvarssize, nlinvars, linvars, lincoefs, constant)
 _SCIPexprgraphMoveNodeParents(exprgraph, srcnode, targetnode) = @scip_ccall_check("SCIPexprgraphMoveNodeParents", 
     (Ptr{_SCIP_EXPRGRAPH}, Ptr{Ptr{_SCIP_EXPRGRAPHNODE}}, Ptr{_SCIP_EXPRGRAPHNODE},), exprgraph, srcnode, targetnode)
 _SCIPexprgraphReleaseNode(exprgraph, node) = @scip_ccall_check("SCIPexprgraphReleaseNode", 
@@ -3844,17 +3844,17 @@ _SCIPexprgraphUpdateNodeBoundsCurvature(node, infinity, minstrength, clearrevers
 _SCIPexprgraphFree(exprgraph) = @scip_ccall_check("SCIPexprgraphFree", 
     (Ptr{Ptr{_SCIP_EXPRGRAPH}},), exprgraph)
 _SCIPexprgraphAddNode(exprgraph, node, mindepth, nchildren, children) = @scip_ccall_check("SCIPexprgraphAddNode", 
-    (Ptr{_SCIP_EXPRGRAPH}, Ptr{_SCIP_EXPRGRAPHNODE}, Void, Void, Ptr{Ptr{_SCIP_EXPRGRAPHNODE}},), exprgraph, node, mindepth, nchildren, children)
+    (Ptr{_SCIP_EXPRGRAPH}, Ptr{_SCIP_EXPRGRAPHNODE}, Int, Int, Ptr{Ptr{_SCIP_EXPRGRAPHNODE}},), exprgraph, node, mindepth, nchildren, children)
 _SCIPexprgraphAddVars(exprgraph, nvars, vars, varnodes) = @scip_ccall_check("SCIPexprgraphAddVars", 
-    (Ptr{_SCIP_EXPRGRAPH}, Void, Void, Ptr{Ptr{_SCIP_EXPRGRAPHNODE}},), exprgraph, nvars, vars, varnodes)
+    (Ptr{_SCIP_EXPRGRAPH}, Int, Ptr{Ptr{Void}}, Ptr{Ptr{_SCIP_EXPRGRAPHNODE}},), exprgraph, nvars, vars, varnodes)
 _SCIPexprgraphAddConst(exprgraph, constant, constnode) = @scip_ccall_check("SCIPexprgraphAddConst", 
     (Ptr{_SCIP_EXPRGRAPH}, _SCIP_Real, Ptr{Ptr{_SCIP_EXPRGRAPHNODE}},), exprgraph, constant, constnode)
 _SCIPexprgraphAddExprtreeSum(exprgraph, nexprtrees, exprtrees, coefs, rootnode, rootnodeisnew) = @scip_ccall_check("SCIPexprgraphAddExprtreeSum", 
-    (Ptr{_SCIP_EXPRGRAPH}, Void, Ptr{Ptr{_SCIP_EXPRTREE}}, Ptr{_SCIP_Real}, Ptr{Ptr{_SCIP_EXPRGRAPHNODE}}, Ptr{_SCIP_Bool},), exprgraph, nexprtrees, exprtrees, coefs, rootnode, rootnodeisnew)
+    (Ptr{_SCIP_EXPRGRAPH}, Int, Ptr{Ptr{_SCIP_EXPRTREE}}, Ptr{_SCIP_Real}, Ptr{Ptr{_SCIP_EXPRGRAPHNODE}}, Ptr{_SCIP_Bool},), exprgraph, nexprtrees, exprtrees, coefs, rootnode, rootnodeisnew)
 _SCIPexprgraphReplaceVarByLinearSum(exprgraph, var, ncoefs, coefs, vars, constant) = @scip_ccall_check("SCIPexprgraphReplaceVarByLinearSum", 
-    (Ptr{_SCIP_EXPRGRAPH}, Void, Void, Ptr{_SCIP_Real}, Void, _SCIP_Real,), exprgraph, var, ncoefs, coefs, vars, constant)
+    (Ptr{_SCIP_EXPRGRAPH}, Ptr{Void}, Int, Ptr{_SCIP_Real}, Ptr{Ptr{Void}}, _SCIP_Real,), exprgraph, var, ncoefs, coefs, vars, constant)
 _SCIPexprgraphPrintDot(exprgraph, messagehdlr, file, varnames) = @scip_ccall_check("SCIPexprgraphPrintDot", 
-    (Ptr{_SCIP_EXPRGRAPH}, Ptr{_SCIP_MESSAGEHDLR}, Void, Void,), exprgraph, messagehdlr, file, varnames)
+    (Ptr{_SCIP_EXPRGRAPH}, Ptr{_SCIP_MESSAGEHDLR}, Ptr{FILE}, Ptr{Ptr{Ptr{Char}}},), exprgraph, messagehdlr, file, varnames)
 _SCIPexprgraphEval(exprgraph, varvals) = @scip_ccall_check("SCIPexprgraphEval", 
     (Ptr{_SCIP_EXPRGRAPH}, Ptr{_SCIP_Real},), exprgraph, varvals)
 _SCIPexprgraphPropagateVarBounds(exprgraph, infinity, clearreverseprop, domainerror) = @scip_ccall_check("SCIPexprgraphPropagateVarBounds", 
@@ -3862,83 +3862,83 @@ _SCIPexprgraphPropagateVarBounds(exprgraph, infinity, clearreverseprop, domainer
 _SCIPexprgraphCheckCurvature(exprgraph, infinity, clearreverseprop) = @scip_ccall_check("SCIPexprgraphCheckCurvature", 
     (Ptr{_SCIP_EXPRGRAPH}, _SCIP_Real, _SCIP_Bool,), exprgraph, infinity, clearreverseprop)
 _SCIPexprgraphSimplify(exprgraph, messagehdlr, eps, maxexpansionexponent, havechange, domainerror) = @scip_ccall_check("SCIPexprgraphSimplify", 
-    (Ptr{_SCIP_EXPRGRAPH}, Ptr{_SCIP_MESSAGEHDLR}, _SCIP_Real, Void, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool},), exprgraph, messagehdlr, eps, maxexpansionexponent, havechange, domainerror)
+    (Ptr{_SCIP_EXPRGRAPH}, Ptr{_SCIP_MESSAGEHDLR}, _SCIP_Real, Int, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool},), exprgraph, messagehdlr, eps, maxexpansionexponent, havechange, domainerror)
 _SCIPexprgraphGetTree(exprgraph, rootnode, exprtree) = @scip_ccall_check("SCIPexprgraphGetTree", 
     (Ptr{_SCIP_EXPRGRAPH}, Ptr{_SCIP_EXPRGRAPHNODE}, Ptr{Ptr{_SCIP_EXPRTREE}},), exprgraph, rootnode, exprtree)
 _SCIPexprgraphGetSeparableTrees(exprgraph, node, exprtreessize, nexprtrees, exprtrees, exprtreecoefs) = @scip_ccall_check("SCIPexprgraphGetSeparableTrees", 
-    (Ptr{_SCIP_EXPRGRAPH}, Ptr{_SCIP_EXPRGRAPHNODE}, Void, Void, Ptr{Ptr{_SCIP_EXPRTREE}}, Ptr{_SCIP_Real},), exprgraph, node, exprtreessize, nexprtrees, exprtrees, exprtreecoefs)
+    (Ptr{_SCIP_EXPRGRAPH}, Ptr{_SCIP_EXPRGRAPHNODE}, Int, Ptr{Int}, Ptr{Ptr{_SCIP_EXPRTREE}}, Ptr{_SCIP_Real},), exprgraph, node, exprtreessize, nexprtrees, exprtrees, exprtreecoefs)
 _SCIPexprgraphGetSumTrees(exprgraph, node, exprtreessize, nexprtrees, exprtrees, exprtreecoefs) = @scip_ccall_check("SCIPexprgraphGetSumTrees", 
-    (Ptr{_SCIP_EXPRGRAPH}, Ptr{_SCIP_EXPRGRAPHNODE}, Void, Void, Ptr{Ptr{_SCIP_EXPRTREE}}, Ptr{_SCIP_Real},), exprgraph, node, exprtreessize, nexprtrees, exprtrees, exprtreecoefs)
+    (Ptr{_SCIP_EXPRGRAPH}, Ptr{_SCIP_EXPRGRAPHNODE}, Int, Ptr{Int}, Ptr{Ptr{_SCIP_EXPRTREE}}, Ptr{_SCIP_Real},), exprgraph, node, exprtreessize, nexprtrees, exprtrees, exprtreecoefs)
 _SCIPmessagehdlrRelease(messagehdlr) = @scip_ccall_check("SCIPmessagehdlrRelease", 
     (Ptr{Ptr{_SCIP_MESSAGEHDLR}},), messagehdlr)
 _SCIPmessagehdlrSetData(messagehdlr, messagehdlrdata) = @scip_ccall_check("SCIPmessagehdlrSetData", 
     (Ptr{_SCIP_MESSAGEHDLR}, Ptr{_SCIP_MESSAGEHDLRDATA},), messagehdlr, messagehdlrdata)
 _SCIPsparseSolCreate(sparsesol, vars, nvars, cleared) = @scip_ccall_check("SCIPsparseSolCreate", 
-    (Ptr{Ptr{_SCIP_SPARSESOL}}, Ptr{Ptr{_SCIP_VAR}}, Void, _SCIP_Bool,), sparsesol, vars, nvars, cleared)
+    (Ptr{Ptr{_SCIP_SPARSESOL}}, Ptr{Ptr{_SCIP_VAR}}, Int, _SCIP_Bool,), sparsesol, vars, nvars, cleared)
 _SCIPqueueCreate(queue, initsize, sizefac) = @scip_ccall_check("SCIPqueueCreate", 
-    (Ptr{Ptr{_SCIP_QUEUE}}, Void, _SCIP_Real,), queue, initsize, sizefac)
+    (Ptr{Ptr{_SCIP_QUEUE}}, Int, _SCIP_Real,), queue, initsize, sizefac)
 _SCIPqueueInsert(queue, elem) = @scip_ccall_check("SCIPqueueInsert", 
-    (Ptr{_SCIP_QUEUE}, Void,), queue, elem)
+    (Ptr{_SCIP_QUEUE}, Ptr{Void},), queue, elem)
 _SCIPpqueueInsert(pqueue, elem) = @scip_ccall_check("SCIPpqueueInsert", 
-    (Ptr{_SCIP_PQUEUE}, Void,), pqueue, elem)
+    (Ptr{_SCIP_PQUEUE}, Ptr{Void},), pqueue, elem)
 _SCIPhashtableInsert(hashtable, element) = @scip_ccall_check("SCIPhashtableInsert", 
-    (Ptr{_SCIP_HASHTABLE}, Void,), hashtable, element)
+    (Ptr{_SCIP_HASHTABLE}, Ptr{Void},), hashtable, element)
 _SCIPhashtableSafeInsert(hashtable, element) = @scip_ccall_check("SCIPhashtableSafeInsert", 
-    (Ptr{_SCIP_HASHTABLE}, Void,), hashtable, element)
+    (Ptr{_SCIP_HASHTABLE}, Ptr{Void},), hashtable, element)
 _SCIPhashtableRemove(hashtable, element) = @scip_ccall_check("SCIPhashtableRemove", 
-    (Ptr{_SCIP_HASHTABLE}, Void,), hashtable, element)
+    (Ptr{_SCIP_HASHTABLE}, Ptr{Void},), hashtable, element)
 _SCIPhashmapCreate(hashmap, blkmem, mapsize) = @scip_ccall_check("SCIPhashmapCreate", 
-    (Ptr{Ptr{_SCIP_HASHMAP}}, Void, Void,), hashmap, blkmem, mapsize)
+    (Ptr{Ptr{_SCIP_HASHMAP}}, Ptr{BMS_BLKMEM}, Int,), hashmap, blkmem, mapsize)
 _SCIPhashmapInsert(hashmap, origin, image) = @scip_ccall_check("SCIPhashmapInsert", 
-    (Ptr{_SCIP_HASHMAP}, Void, Void,), hashmap, origin, image)
+    (Ptr{_SCIP_HASHMAP}, Ptr{Void}, Ptr{Void},), hashmap, origin, image)
 _SCIPhashmapSetImage(hashmap, origin, image) = @scip_ccall_check("SCIPhashmapSetImage", 
-    (Ptr{_SCIP_HASHMAP}, Void, Void,), hashmap, origin, image)
+    (Ptr{_SCIP_HASHMAP}, Ptr{Void}, Ptr{Void},), hashmap, origin, image)
 _SCIPhashmapRemove(hashmap, origin) = @scip_ccall_check("SCIPhashmapRemove", 
-    (Ptr{_SCIP_HASHMAP}, Void,), hashmap, origin)
+    (Ptr{_SCIP_HASHMAP}, Ptr{Void},), hashmap, origin)
 _SCIPhashmapRemoveAll(hashmap) = @scip_ccall_check("SCIPhashmapRemoveAll", 
     (Ptr{_SCIP_HASHMAP},), hashmap)
 _SCIPactivityCreate(activity, var, duration, demand) = @scip_ccall_check("SCIPactivityCreate", 
-    (Ptr{Ptr{_SCIP_RESOURCEACTIVITY}}, Ptr{_SCIP_VAR}, Void, Void,), activity, var, duration, demand)
+    (Ptr{Ptr{_SCIP_RESOURCEACTIVITY}}, Ptr{_SCIP_VAR}, Int, Int,), activity, var, duration, demand)
 _SCIPprofileCreate(profile, capacity) = @scip_ccall_check("SCIPprofileCreate", 
-    (Ptr{Ptr{_SCIP_PROFILE}}, Void,), profile, capacity)
+    (Ptr{Ptr{_SCIP_PROFILE}}, Int,), profile, capacity)
 _SCIPprofileInsertCore(profile, left, right, height, pos, infeasible) = @scip_ccall_check("SCIPprofileInsertCore", 
-    (Ptr{_SCIP_PROFILE}, Void, Void, Void, Void, Ptr{_SCIP_Bool},), profile, left, right, height, pos, infeasible)
+    (Ptr{_SCIP_PROFILE}, Int, Int, Int, Ptr{Int}, Ptr{_SCIP_Bool},), profile, left, right, height, pos, infeasible)
 _SCIPprofileDeleteCore(profile, left, right, height) = @scip_ccall_check("SCIPprofileDeleteCore", 
-    (Ptr{_SCIP_PROFILE}, Void, Void, Void,), profile, left, right, height)
+    (Ptr{_SCIP_PROFILE}, Int, Int, Int,), profile, left, right, height)
 _SCIPdigraphCreate(digraph, nnodes) = @scip_ccall_check("SCIPdigraphCreate", 
-    (Ptr{Ptr{_SCIP_DIGRAPH}}, Void,), digraph, nnodes)
+    (Ptr{Ptr{_SCIP_DIGRAPH}}, Int,), digraph, nnodes)
 _SCIPdigraphResize(digraph, nnodes) = @scip_ccall_check("SCIPdigraphResize", 
-    (Ptr{_SCIP_DIGRAPH}, Void,), digraph, nnodes)
+    (Ptr{_SCIP_DIGRAPH}, Int,), digraph, nnodes)
 _SCIPdigraphCopy(targetdigraph, sourcedigraph) = @scip_ccall_check("SCIPdigraphCopy", 
     (Ptr{Ptr{_SCIP_DIGRAPH}}, Ptr{_SCIP_DIGRAPH},), targetdigraph, sourcedigraph)
 _SCIPdigraphSetSizes(digraph, sizes) = @scip_ccall_check("SCIPdigraphSetSizes", 
-    (Ptr{_SCIP_DIGRAPH}, Void,), digraph, sizes)
+    (Ptr{_SCIP_DIGRAPH}, Ptr{Int},), digraph, sizes)
 _SCIPdigraphAddArc(digraph, startnode, endnode, data) = @scip_ccall_check("SCIPdigraphAddArc", 
-    (Ptr{_SCIP_DIGRAPH}, Void, Void, Void,), digraph, startnode, endnode, data)
+    (Ptr{_SCIP_DIGRAPH}, Int, Int, Ptr{Void},), digraph, startnode, endnode, data)
 _SCIPdigraphAddArcSafe(digraph, startnode, endnode, data) = @scip_ccall_check("SCIPdigraphAddArcSafe", 
-    (Ptr{_SCIP_DIGRAPH}, Void, Void, Void,), digraph, startnode, endnode, data)
+    (Ptr{_SCIP_DIGRAPH}, Int, Int, Ptr{Void},), digraph, startnode, endnode, data)
 _SCIPdigraphComputeUndirectedComponents(digraph, minsize, components, ncomponents) = @scip_ccall_check("SCIPdigraphComputeUndirectedComponents", 
-    (Ptr{_SCIP_DIGRAPH}, Void, Void, Void,), digraph, minsize, components, ncomponents)
+    (Ptr{_SCIP_DIGRAPH}, Int, Ptr{Int}, Ptr{Int},), digraph, minsize, components, ncomponents)
 _SCIPdigraphTopoSortComponents(digraph) = @scip_ccall_check("SCIPdigraphTopoSortComponents", 
     (Ptr{_SCIP_DIGRAPH},), digraph)
 _SCIPbtnodeCreate(tree, node, dataptr) = @scip_ccall_check("SCIPbtnodeCreate", 
-    (Ptr{_SCIP_BT}, Ptr{Ptr{_SCIP_BTNODE}}, Void,), tree, node, dataptr)
+    (Ptr{_SCIP_BT}, Ptr{Ptr{_SCIP_BTNODE}}, Ptr{Void},), tree, node, dataptr)
 _SCIPbtCreate(tree, blkmem) = @scip_ccall_check("SCIPbtCreate", 
-    (Ptr{Ptr{_SCIP_BT}}, Void,), tree, blkmem)
+    (Ptr{Ptr{_SCIP_BT}}, Ptr{BMS_BLKMEM},), tree, blkmem)
 _SCIPcalcIntegralScalar(vals, nvals, mindelta, maxdelta, maxdnom, maxscale, intscalar, success) = @scip_ccall_check("SCIPcalcIntegralScalar", 
-    (Ptr{_SCIP_Real}, Void, _SCIP_Real, _SCIP_Real, Int64, _SCIP_Real, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool},), vals, nvals, mindelta, maxdelta, maxdnom, maxscale, intscalar, success)
+    (Ptr{_SCIP_Real}, Int, _SCIP_Real, _SCIP_Real, Int64, _SCIP_Real, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool},), vals, nvals, mindelta, maxdelta, maxdnom, maxscale, intscalar, success)
 _SCIPgetRandomSubset(set, nelems, subset, nsubelems, randseed) = @scip_ccall_check("SCIPgetRandomSubset", 
-    (Void, Void, Void, Void, Void,), set, nelems, subset, nsubelems, randseed)
+    (Ptr{Ptr{Void}}, Int, Ptr{Ptr{Void}}, Int, Uint,), set, nelems, subset, nsubelems, randseed)
 _SCIPexprtreeSetVars(tree, nvars, vars) = @scip_ccall_check("SCIPexprtreeSetVars", 
-    (Ptr{_SCIP_EXPRTREE}, Void, Ptr{Ptr{_SCIP_VAR}},), tree, nvars, vars)
+    (Ptr{_SCIP_EXPRTREE}, Int, Ptr{Ptr{_SCIP_VAR}},), tree, nvars, vars)
 _SCIPexprtreeAddVars(tree, nvars, vars) = @scip_ccall_check("SCIPexprtreeAddVars", 
-    (Ptr{_SCIP_EXPRTREE}, Void, Ptr{Ptr{_SCIP_VAR}},), tree, nvars, vars)
+    (Ptr{_SCIP_EXPRTREE}, Int, Ptr{Ptr{_SCIP_VAR}},), tree, nvars, vars)
 _SCIPexprtreePrintWithNames(tree, messagehdlr, file) = @scip_ccall_check("SCIPexprtreePrintWithNames", 
-    (Ptr{_SCIP_EXPRTREE}, Ptr{_SCIP_MESSAGEHDLR}, Void,), tree, messagehdlr, file)
+    (Ptr{_SCIP_EXPRTREE}, Ptr{_SCIP_MESSAGEHDLR}, Ptr{FILE},), tree, messagehdlr, file)
 _SCIPnodePrintAncestorBranchings(node, file) = @scip_ccall_check("SCIPnodePrintAncestorBranchings", 
-    (Ptr{_SCIP_NODE}, Void,), node, file)
+    (Ptr{_SCIP_NODE}, Ptr{FILE},), node, file)
 _SCIPvarsGetProbvarBinary(vars, negatedarr, nvars) = @scip_ccall_check("SCIPvarsGetProbvarBinary", 
-    (Ptr{Ptr{Ptr{_SCIP_VAR}}}, Ptr{Ptr{_SCIP_Bool}}, Void,), vars, negatedarr, nvars)
+    (Ptr{Ptr{Ptr{_SCIP_VAR}}}, Ptr{Ptr{_SCIP_Bool}}, Int,), vars, negatedarr, nvars)
 _SCIPvarGetProbvarBinary(var, negated) = @scip_ccall_check("SCIPvarGetProbvarBinary", 
     (Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Bool},), var, negated)
 _SCIPvarGetProbvarBound(var, bound, boundtype) = @scip_ccall_check("SCIPvarGetProbvarBound", 
@@ -3958,17 +3958,17 @@ _SCIPcreate(scip) = @scip_ccall_check("SCIPcreate",
 _SCIPfree(scip) = @scip_ccall_check("SCIPfree", 
     (Ptr{Ptr{_SCIP}},), scip)
 _SCIPprintStage(scip, file) = @scip_ccall_check("SCIPprintStage", 
-    (Ptr{_SCIP}, Void,), scip, file)
+    (Ptr{_SCIP}, Ptr{FILE},), scip, file)
 _SCIPprintStatus(scip, file) = @scip_ccall_check("SCIPprintStatus", 
-    (Ptr{_SCIP}, Void,), scip, file)
+    (Ptr{_SCIP}, Ptr{FILE},), scip, file)
 _SCIPsetMessagehdlr(scip, messagehdlr) = @scip_ccall_check("SCIPsetMessagehdlr", 
     (Ptr{_SCIP}, Ptr{_SCIP_MESSAGEHDLR},), scip, messagehdlr)
 _SCIPcopyPlugins(sourcescip, targetscip, copyreaders, copypricers, copyconshdlrs, copyconflicthdlrs, copypresolvers, copyrelaxators, copyseparators, copypropagators, copyheuristics, copyeventhdlrs, copynodeselectors, copybranchrules, copydisplays, copydialogs, copynlpis, passmessagehdlr, valid) = @scip_ccall_check("SCIPcopyPlugins", 
     (Ptr{_SCIP}, Ptr{_SCIP}, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, Ptr{_SCIP_Bool},), sourcescip, targetscip, copyreaders, copypricers, copyconshdlrs, copyconflicthdlrs, copypresolvers, copyrelaxators, copyseparators, copypropagators, copyheuristics, copyeventhdlrs, copynodeselectors, copybranchrules, copydisplays, copydialogs, copynlpis, passmessagehdlr, valid)
 _SCIPcopyProb(sourcescip, targetscip, varmap, consmap, globalVar, name) = @scip_ccall_check("SCIPcopyProb", 
-    (Ptr{_SCIP}, Ptr{_SCIP}, Ptr{_SCIP_HASHMAP}, Ptr{_SCIP_HASHMAP}, _SCIP_Bool, Void,), sourcescip, targetscip, varmap, consmap, globalVar, name)
+    (Ptr{_SCIP}, Ptr{_SCIP}, Ptr{_SCIP_HASHMAP}, Ptr{_SCIP_HASHMAP}, _SCIP_Bool, Ptr{Ptr{Char}},), sourcescip, targetscip, varmap, consmap, globalVar, name)
 _SCIPcopyOrigProb(sourcescip, targetscip, varmap, consmap, name) = @scip_ccall_check("SCIPcopyOrigProb", 
-    (Ptr{_SCIP}, Ptr{_SCIP}, Ptr{_SCIP_HASHMAP}, Ptr{_SCIP_HASHMAP}, Void,), sourcescip, targetscip, varmap, consmap, name)
+    (Ptr{_SCIP}, Ptr{_SCIP}, Ptr{_SCIP_HASHMAP}, Ptr{_SCIP_HASHMAP}, Ptr{Ptr{Char}},), sourcescip, targetscip, varmap, consmap, name)
 _SCIPgetVarCopy(sourcescip, targetscip, sourcevar, targetvar, varmap, consmap, globalVar, success) = @scip_ccall_check("SCIPgetVarCopy", 
     (Ptr{_SCIP}, Ptr{_SCIP}, Ptr{_SCIP_VAR}, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_HASHMAP}, Ptr{_SCIP_HASHMAP}, _SCIP_Bool, Ptr{_SCIP_Bool},), sourcescip, targetscip, sourcevar, targetvar, varmap, consmap, globalVar, success)
 _SCIPcopyVars(sourcescip, targetscip, varmap, consmap, globalVar) = @scip_ccall_check("SCIPcopyVars", 
@@ -3976,71 +3976,71 @@ _SCIPcopyVars(sourcescip, targetscip, varmap, consmap, globalVar) = @scip_ccall_
 _SCIPcopyOrigVars(sourcescip, targetscip, varmap, consmap) = @scip_ccall_check("SCIPcopyOrigVars", 
     (Ptr{_SCIP}, Ptr{_SCIP}, Ptr{_SCIP_HASHMAP}, Ptr{_SCIP_HASHMAP},), sourcescip, targetscip, varmap, consmap)
 _SCIPgetConsCopy(sourcescip, targetscip, sourcecons, targetcons, sourceconshdlr, varmap, consmap, name, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode, globalVar, success) = @scip_ccall_check("SCIPgetConsCopy", 
-    (Ptr{_SCIP}, Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{Ptr{_SCIP_CONS}}, Ptr{_SCIP_CONSHDLR}, Ptr{_SCIP_HASHMAP}, Ptr{_SCIP_HASHMAP}, Void, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, Ptr{_SCIP_Bool},), sourcescip, targetscip, sourcecons, targetcons, sourceconshdlr, varmap, consmap, name, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode, globalVar, success)
+    (Ptr{_SCIP}, Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{Ptr{_SCIP_CONS}}, Ptr{_SCIP_CONSHDLR}, Ptr{_SCIP_HASHMAP}, Ptr{_SCIP_HASHMAP}, Ptr{Ptr{Char}}, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, Ptr{_SCIP_Bool},), sourcescip, targetscip, sourcecons, targetcons, sourceconshdlr, varmap, consmap, name, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode, globalVar, success)
 _SCIPcopyConss(sourcescip, targetscip, varmap, consmap, globalVar, enablepricing, valid) = @scip_ccall_check("SCIPcopyConss", 
     (Ptr{_SCIP}, Ptr{_SCIP}, Ptr{_SCIP_HASHMAP}, Ptr{_SCIP_HASHMAP}, _SCIP_Bool, _SCIP_Bool, Ptr{_SCIP_Bool},), sourcescip, targetscip, varmap, consmap, globalVar, enablepricing, valid)
 _SCIPcopyOrigConss(sourcescip, targetscip, varmap, consmap, enablepricing, valid) = @scip_ccall_check("SCIPcopyOrigConss", 
     (Ptr{_SCIP}, Ptr{_SCIP}, Ptr{_SCIP_HASHMAP}, Ptr{_SCIP_HASHMAP}, _SCIP_Bool, Ptr{_SCIP_Bool},), sourcescip, targetscip, varmap, consmap, enablepricing, valid)
 _SCIPconvertCutsToConss(scip, varmap, consmap, globalVar, ncutsadded) = @scip_ccall_check("SCIPconvertCutsToConss", 
-    (Ptr{_SCIP}, Ptr{_SCIP_HASHMAP}, Ptr{_SCIP_HASHMAP}, _SCIP_Bool, Void,), scip, varmap, consmap, globalVar, ncutsadded)
+    (Ptr{_SCIP}, Ptr{_SCIP_HASHMAP}, Ptr{_SCIP_HASHMAP}, _SCIP_Bool, Ptr{Int},), scip, varmap, consmap, globalVar, ncutsadded)
 _SCIPcopyCuts(sourcescip, targetscip, varmap, consmap, globalVar, ncutsadded) = @scip_ccall_check("SCIPcopyCuts", 
-    (Ptr{_SCIP}, Ptr{_SCIP}, Ptr{_SCIP_HASHMAP}, Ptr{_SCIP_HASHMAP}, _SCIP_Bool, Void,), sourcescip, targetscip, varmap, consmap, globalVar, ncutsadded)
+    (Ptr{_SCIP}, Ptr{_SCIP}, Ptr{_SCIP_HASHMAP}, Ptr{_SCIP_HASHMAP}, _SCIP_Bool, Ptr{Int},), sourcescip, targetscip, varmap, consmap, globalVar, ncutsadded)
 _SCIPcopyImplicationsCliques(sourcescip, targetscip, varmap, consmap, globalVar, infeasible, nbdchgs, ncopied) = @scip_ccall_check("SCIPcopyImplicationsCliques", 
-    (Ptr{_SCIP}, Ptr{_SCIP}, Ptr{_SCIP_HASHMAP}, Ptr{_SCIP_HASHMAP}, _SCIP_Bool, Ptr{_SCIP_Bool}, Void, Void,), sourcescip, targetscip, varmap, consmap, globalVar, infeasible, nbdchgs, ncopied)
+    (Ptr{_SCIP}, Ptr{_SCIP}, Ptr{_SCIP_HASHMAP}, Ptr{_SCIP_HASHMAP}, _SCIP_Bool, Ptr{_SCIP_Bool}, Ptr{Int}, Ptr{Int},), sourcescip, targetscip, varmap, consmap, globalVar, infeasible, nbdchgs, ncopied)
 _SCIPcopyParamSettings(sourcescip, targetscip) = @scip_ccall_check("SCIPcopyParamSettings", 
     (Ptr{_SCIP}, Ptr{_SCIP},), sourcescip, targetscip)
 _SCIPcopy(sourcescip, targetscip, varmap, consmap, suffix, globalVar, enablepricing, passmessagehdlr, valid) = @scip_ccall_check("SCIPcopy", 
-    (Ptr{_SCIP}, Ptr{_SCIP}, Ptr{_SCIP_HASHMAP}, Ptr{_SCIP_HASHMAP}, Void, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, Ptr{_SCIP_Bool},), sourcescip, targetscip, varmap, consmap, suffix, globalVar, enablepricing, passmessagehdlr, valid)
+    (Ptr{_SCIP}, Ptr{_SCIP}, Ptr{_SCIP_HASHMAP}, Ptr{_SCIP_HASHMAP}, Ptr{Ptr{Char}}, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, Ptr{_SCIP_Bool},), sourcescip, targetscip, varmap, consmap, suffix, globalVar, enablepricing, passmessagehdlr, valid)
 _SCIPcopyOrig(sourcescip, targetscip, varmap, consmap, suffix, enablepricing, passmessagehdlr, valid) = @scip_ccall_check("SCIPcopyOrig", 
-    (Ptr{_SCIP}, Ptr{_SCIP}, Ptr{_SCIP_HASHMAP}, Ptr{_SCIP_HASHMAP}, Void, _SCIP_Bool, _SCIP_Bool, Ptr{_SCIP_Bool},), sourcescip, targetscip, varmap, consmap, suffix, enablepricing, passmessagehdlr, valid)
+    (Ptr{_SCIP}, Ptr{_SCIP}, Ptr{_SCIP_HASHMAP}, Ptr{_SCIP_HASHMAP}, Ptr{Ptr{Char}}, _SCIP_Bool, _SCIP_Bool, Ptr{_SCIP_Bool},), sourcescip, targetscip, varmap, consmap, suffix, enablepricing, passmessagehdlr, valid)
 _SCIPgetBoolParam(scip, name, value) = @scip_ccall_check("SCIPgetBoolParam", 
-    (Ptr{_SCIP}, Void, Ptr{_SCIP_Bool},), scip, name, value)
+    (Ptr{_SCIP}, Ptr{Ptr{Char}}, Ptr{_SCIP_Bool},), scip, name, value)
 _SCIPgetIntParam(scip, name, value) = @scip_ccall_check("SCIPgetIntParam", 
-    (Ptr{_SCIP}, Void, Void,), scip, name, value)
+    (Ptr{_SCIP}, Ptr{Ptr{Char}}, Ptr{Int},), scip, name, value)
 _SCIPgetLongintParam(scip, name, value) = @scip_ccall_check("SCIPgetLongintParam", 
-    (Ptr{_SCIP}, Void, Ptr{Int64},), scip, name, value)
+    (Ptr{_SCIP}, Ptr{Ptr{Char}}, Ptr{Int64},), scip, name, value)
 _SCIPgetRealParam(scip, name, value) = @scip_ccall_check("SCIPgetRealParam", 
-    (Ptr{_SCIP}, Void, Ptr{_SCIP_Real},), scip, name, value)
+    (Ptr{_SCIP}, Ptr{Ptr{Char}}, Ptr{_SCIP_Real},), scip, name, value)
 _SCIPgetCharParam(scip, name, value) = @scip_ccall_check("SCIPgetCharParam", 
-    (Ptr{_SCIP}, Void, Void,), scip, name, value)
+    (Ptr{_SCIP}, Ptr{Ptr{Char}}, Ptr{Char},), scip, name, value)
 _SCIPgetStringParam(scip, name, value) = @scip_ccall_check("SCIPgetStringParam", 
-    (Ptr{_SCIP}, Void, Void,), scip, name, value)
+    (Ptr{_SCIP}, Ptr{Ptr{Char}}, Ptr{Ptr{Char}},), scip, name, value)
 _SCIPfixParam(scip, name) = @scip_ccall_check("SCIPfixParam", 
-    (Ptr{_SCIP}, Void,), scip, name)
+    (Ptr{_SCIP}, Ptr{Ptr{Char}},), scip, name)
 _SCIPunfixParam(scip, name) = @scip_ccall_check("SCIPunfixParam", 
-    (Ptr{_SCIP}, Void,), scip, name)
+    (Ptr{_SCIP}, Ptr{Ptr{Char}},), scip, name)
 _SCIPsetParam(scip, name, value) = @scip_ccall_check("SCIPsetParam", 
-    (Ptr{_SCIP}, Void, Void,), scip, name, value)
+    (Ptr{_SCIP}, Ptr{Ptr{Char}}, Ptr{Void},), scip, name, value)
 _SCIPchgBoolParam(scip, param, value) = @scip_ccall_check("SCIPchgBoolParam", 
     (Ptr{_SCIP}, Ptr{_SCIP_PARAM}, _SCIP_Bool,), scip, param, value)
 _SCIPsetBoolParam(scip, name, value) = @scip_ccall_check("SCIPsetBoolParam", 
-    (Ptr{_SCIP}, Void, _SCIP_Bool,), scip, name, value)
+    (Ptr{_SCIP}, Ptr{Ptr{Char}}, _SCIP_Bool,), scip, name, value)
 _SCIPchgIntParam(scip, param, value) = @scip_ccall_check("SCIPchgIntParam", 
-    (Ptr{_SCIP}, Ptr{_SCIP_PARAM}, Void,), scip, param, value)
+    (Ptr{_SCIP}, Ptr{_SCIP_PARAM}, Int,), scip, param, value)
 _SCIPsetIntParam(scip, name, value) = @scip_ccall_check("SCIPsetIntParam", 
-    (Ptr{_SCIP}, Void, Void,), scip, name, value)
+    (Ptr{_SCIP}, Ptr{Ptr{Char}}, Int,), scip, name, value)
 _SCIPchgLongintParam(scip, param, value) = @scip_ccall_check("SCIPchgLongintParam", 
     (Ptr{_SCIP}, Ptr{_SCIP_PARAM}, Int64,), scip, param, value)
 _SCIPsetLongintParam(scip, name, value) = @scip_ccall_check("SCIPsetLongintParam", 
-    (Ptr{_SCIP}, Void, Int64,), scip, name, value)
+    (Ptr{_SCIP}, Ptr{Ptr{Char}}, Int64,), scip, name, value)
 _SCIPchgRealParam(scip, param, value) = @scip_ccall_check("SCIPchgRealParam", 
     (Ptr{_SCIP}, Ptr{_SCIP_PARAM}, _SCIP_Real,), scip, param, value)
 _SCIPsetRealParam(scip, name, value) = @scip_ccall_check("SCIPsetRealParam", 
-    (Ptr{_SCIP}, Void, _SCIP_Real,), scip, name, value)
+    (Ptr{_SCIP}, Ptr{Ptr{Char}}, _SCIP_Real,), scip, name, value)
 _SCIPchgCharParam(scip, param, value) = @scip_ccall_check("SCIPchgCharParam", 
-    (Ptr{_SCIP}, Ptr{_SCIP_PARAM}, Void,), scip, param, value)
+    (Ptr{_SCIP}, Ptr{_SCIP_PARAM}, Char,), scip, param, value)
 _SCIPsetCharParam(scip, name, value) = @scip_ccall_check("SCIPsetCharParam", 
-    (Ptr{_SCIP}, Void, Void,), scip, name, value)
+    (Ptr{_SCIP}, Ptr{Ptr{Char}}, Char,), scip, name, value)
 _SCIPchgStringParam(scip, param, value) = @scip_ccall_check("SCIPchgStringParam", 
-    (Ptr{_SCIP}, Ptr{_SCIP_PARAM}, Void,), scip, param, value)
+    (Ptr{_SCIP}, Ptr{_SCIP_PARAM}, Ptr{Ptr{Char}},), scip, param, value)
 _SCIPsetStringParam(scip, name, value) = @scip_ccall_check("SCIPsetStringParam", 
-    (Ptr{_SCIP}, Void, Void,), scip, name, value)
+    (Ptr{_SCIP}, Ptr{Ptr{Char}}, Ptr{Ptr{Char}},), scip, name, value)
 _SCIPreadParams(scip, filename) = @scip_ccall_check("SCIPreadParams", 
-    (Ptr{_SCIP}, Void,), scip, filename)
+    (Ptr{_SCIP}, Ptr{Ptr{Char}},), scip, filename)
 _SCIPwriteParams(scip, filename, comments, onlychanged) = @scip_ccall_check("SCIPwriteParams", 
-    (Ptr{_SCIP}, Void, _SCIP_Bool, _SCIP_Bool,), scip, filename, comments, onlychanged)
+    (Ptr{_SCIP}, Ptr{Ptr{Char}}, _SCIP_Bool, _SCIP_Bool,), scip, filename, comments, onlychanged)
 _SCIPresetParam(scip, name) = @scip_ccall_check("SCIPresetParam", 
-    (Ptr{_SCIP}, Void,), scip, name)
+    (Ptr{_SCIP}, Ptr{Ptr{Char}},), scip, name)
 _SCIPresetParams(scip) = @scip_ccall_check("SCIPresetParams", 
     (Ptr{_SCIP},), scip)
 _SCIPsetEmphasis(scip, paramemphasis, quiet) = @scip_ccall_check("SCIPsetEmphasis", 
@@ -4054,37 +4054,37 @@ _SCIPsetPresolving(scip, paramsetting, quiet) = @scip_ccall_check("SCIPsetPresol
 _SCIPsetSeparating(scip, paramsetting, quiet) = @scip_ccall_check("SCIPsetSeparating", 
     (Ptr{_SCIP}, _SCIP_PARAMSETTING, _SCIP_Bool,), scip, paramsetting, quiet)
 _SCIPincludeReaderBasic(scip, readerptr, name, desc, extension, readerdata) = @scip_ccall_check("SCIPincludeReaderBasic", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_READER}}, Void, Void, Void, Ptr{_SCIP_READERDATA},), scip, readerptr, name, desc, extension, readerdata)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_READER}}, Ptr{Ptr{Char}}, Ptr{Ptr{Char}}, Ptr{Ptr{Char}}, Ptr{_SCIP_READERDATA},), scip, readerptr, name, desc, extension, readerdata)
 _SCIPsetPricerPriority(scip, pricer, priority) = @scip_ccall_check("SCIPsetPricerPriority", 
-    (Ptr{_SCIP}, Ptr{_SCIP_PRICER}, Void,), scip, pricer, priority)
+    (Ptr{_SCIP}, Ptr{_SCIP_PRICER}, Int,), scip, pricer, priority)
 _SCIPactivatePricer(scip, pricer) = @scip_ccall_check("SCIPactivatePricer", 
     (Ptr{_SCIP}, Ptr{_SCIP_PRICER},), scip, pricer)
 _SCIPdeactivatePricer(scip, pricer) = @scip_ccall_check("SCIPdeactivatePricer", 
     (Ptr{_SCIP}, Ptr{_SCIP_PRICER},), scip, pricer)
 _SCIPsetConflicthdlrPriority(scip, conflicthdlr, priority) = @scip_ccall_check("SCIPsetConflicthdlrPriority", 
-    (Ptr{_SCIP}, Ptr{_SCIP_CONFLICTHDLR}, Void,), scip, conflicthdlr, priority)
+    (Ptr{_SCIP}, Ptr{_SCIP_CONFLICTHDLR}, Int,), scip, conflicthdlr, priority)
 _SCIPsetPresolPriority(scip, presol, priority) = @scip_ccall_check("SCIPsetPresolPriority", 
-    (Ptr{_SCIP}, Ptr{_SCIP_PRESOL}, Void,), scip, presol, priority)
+    (Ptr{_SCIP}, Ptr{_SCIP_PRESOL}, Int,), scip, presol, priority)
 _SCIPsetRelaxPriority(scip, relax, priority) = @scip_ccall_check("SCIPsetRelaxPriority", 
-    (Ptr{_SCIP}, Ptr{_SCIP_RELAX}, Void,), scip, relax, priority)
+    (Ptr{_SCIP}, Ptr{_SCIP_RELAX}, Int,), scip, relax, priority)
 _SCIPsetSepaPriority(scip, sepa, priority) = @scip_ccall_check("SCIPsetSepaPriority", 
-    (Ptr{_SCIP}, Ptr{_SCIP_SEPA}, Void,), scip, sepa, priority)
+    (Ptr{_SCIP}, Ptr{_SCIP_SEPA}, Int,), scip, sepa, priority)
 _SCIPsetPropPriority(scip, prop, priority) = @scip_ccall_check("SCIPsetPropPriority", 
-    (Ptr{_SCIP}, Ptr{_SCIP_PROP}, Void,), scip, prop, priority)
+    (Ptr{_SCIP}, Ptr{_SCIP_PROP}, Int,), scip, prop, priority)
 _SCIPsetPropPresolPriority(scip, prop, presolpriority) = @scip_ccall_check("SCIPsetPropPresolPriority", 
-    (Ptr{_SCIP}, Ptr{_SCIP_PROP}, Void,), scip, prop, presolpriority)
+    (Ptr{_SCIP}, Ptr{_SCIP_PROP}, Int,), scip, prop, presolpriority)
 _SCIPsetHeurPriority(scip, heur, priority) = @scip_ccall_check("SCIPsetHeurPriority", 
-    (Ptr{_SCIP}, Ptr{_SCIP_HEUR}, Void,), scip, heur, priority)
+    (Ptr{_SCIP}, Ptr{_SCIP_HEUR}, Int,), scip, heur, priority)
 _SCIPsetNodeselStdPriority(scip, nodesel, priority) = @scip_ccall_check("SCIPsetNodeselStdPriority", 
-    (Ptr{_SCIP}, Ptr{_SCIP_NODESEL}, Void,), scip, nodesel, priority)
+    (Ptr{_SCIP}, Ptr{_SCIP_NODESEL}, Int,), scip, nodesel, priority)
 _SCIPsetNodeselMemsavePriority(scip, nodesel, priority) = @scip_ccall_check("SCIPsetNodeselMemsavePriority", 
-    (Ptr{_SCIP}, Ptr{_SCIP_NODESEL}, Void,), scip, nodesel, priority)
+    (Ptr{_SCIP}, Ptr{_SCIP_NODESEL}, Int,), scip, nodesel, priority)
 _SCIPincludeBranchruleBasic(scip, branchruleptr, name, desc, priority, maxdepth, maxbounddist, branchruledata) = @scip_ccall_check("SCIPincludeBranchruleBasic", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_BRANCHRULE}}, Void, Void, Void, Void, _SCIP_Real, Ptr{_SCIP_BRANCHRULEDATA},), scip, branchruleptr, name, desc, priority, maxdepth, maxbounddist, branchruledata)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_BRANCHRULE}}, Ptr{Ptr{Char}}, Ptr{Ptr{Char}}, Int, Int, _SCIP_Real, Ptr{_SCIP_BRANCHRULEDATA},), scip, branchruleptr, name, desc, priority, maxdepth, maxbounddist, branchruledata)
 _SCIPsetBranchrulePriority(scip, branchrule, priority) = @scip_ccall_check("SCIPsetBranchrulePriority", 
-    (Ptr{_SCIP}, Ptr{_SCIP_BRANCHRULE}, Void,), scip, branchrule, priority)
+    (Ptr{_SCIP}, Ptr{_SCIP_BRANCHRULE}, Int,), scip, branchrule, priority)
 _SCIPsetBranchruleMaxdepth(scip, branchrule, maxdepth) = @scip_ccall_check("SCIPsetBranchruleMaxdepth", 
-    (Ptr{_SCIP}, Ptr{_SCIP_BRANCHRULE}, Void,), scip, branchrule, maxdepth)
+    (Ptr{_SCIP}, Ptr{_SCIP_BRANCHRULE}, Int,), scip, branchrule, maxdepth)
 _SCIPsetBranchruleMaxbounddist(scip, branchrule, maxbounddist) = @scip_ccall_check("SCIPsetBranchruleMaxbounddist", 
     (Ptr{_SCIP}, Ptr{_SCIP_BRANCHRULE}, _SCIP_Real,), scip, branchrule, maxbounddist)
 _SCIPautoselectDisps(scip) = @scip_ccall_check("SCIPautoselectDisps", 
@@ -4092,9 +4092,9 @@ _SCIPautoselectDisps(scip) = @scip_ccall_check("SCIPautoselectDisps",
 _SCIPincludeNlpi(scip, nlpi) = @scip_ccall_check("SCIPincludeNlpi", 
     (Ptr{_SCIP}, Ptr{_SCIP_NLPI},), scip, nlpi)
 _SCIPsetNlpiPriority(scip, nlpi, priority) = @scip_ccall_check("SCIPsetNlpiPriority", 
-    (Ptr{_SCIP}, Ptr{_SCIP_NLPI}, Void,), scip, nlpi, priority)
+    (Ptr{_SCIP}, Ptr{_SCIP_NLPI}, Int,), scip, nlpi, priority)
 _SCIPincludeExternalCodeInformation(scip, name, description) = @scip_ccall_check("SCIPincludeExternalCodeInformation", 
-    (Ptr{_SCIP}, Void, Void,), scip, name, description)
+    (Ptr{_SCIP}, Ptr{Ptr{Char}}, Ptr{Ptr{Char}},), scip, name, description)
 _SCIPcaptureDialog(scip, dialog) = @scip_ccall_check("SCIPcaptureDialog", 
     (Ptr{_SCIP}, Ptr{_SCIP_DIALOG},), scip, dialog)
 _SCIPreleaseDialog(scip, dialog) = @scip_ccall_check("SCIPreleaseDialog", 
@@ -4104,27 +4104,27 @@ _SCIPsetRootDialog(scip, dialog) = @scip_ccall_check("SCIPsetRootDialog",
 _SCIPaddDialogEntry(scip, dialog, subdialog) = @scip_ccall_check("SCIPaddDialogEntry", 
     (Ptr{_SCIP}, Ptr{_SCIP_DIALOG}, Ptr{_SCIP_DIALOG},), scip, dialog, subdialog)
 _SCIPaddDialogInputLine(scip, inputline) = @scip_ccall_check("SCIPaddDialogInputLine", 
-    (Ptr{_SCIP}, Void,), scip, inputline)
+    (Ptr{_SCIP}, Ptr{Ptr{Char}},), scip, inputline)
 _SCIPaddDialogHistoryLine(scip, inputline) = @scip_ccall_check("SCIPaddDialogHistoryLine", 
-    (Ptr{_SCIP}, Void,), scip, inputline)
+    (Ptr{_SCIP}, Ptr{Ptr{Char}},), scip, inputline)
 _SCIPstartInteraction(scip) = @scip_ccall_check("SCIPstartInteraction", 
     (Ptr{_SCIP},), scip)
 _SCIPcreateProbBasic(scip, name) = @scip_ccall_check("SCIPcreateProbBasic", 
-    (Ptr{_SCIP}, Void,), scip, name)
+    (Ptr{_SCIP}, Ptr{Ptr{Char}},), scip, name)
 _SCIPreadProb(scip, filename, extension) = @scip_ccall_check("SCIPreadProb", 
-    (Ptr{_SCIP}, Void, Void,), scip, filename, extension)
+    (Ptr{_SCIP}, Ptr{Ptr{Char}}, Ptr{Ptr{Char}},), scip, filename, extension)
 _SCIPwriteOrigProblem(scip, filename, extension, genericnames) = @scip_ccall_check("SCIPwriteOrigProblem", 
-    (Ptr{_SCIP}, Void, Void, _SCIP_Bool,), scip, filename, extension, genericnames)
+    (Ptr{_SCIP}, Ptr{Ptr{Char}}, Ptr{Ptr{Char}}, _SCIP_Bool,), scip, filename, extension, genericnames)
 _SCIPwriteTransProblem(scip, filename, extension, genericnames) = @scip_ccall_check("SCIPwriteTransProblem", 
-    (Ptr{_SCIP}, Void, Void, _SCIP_Bool,), scip, filename, extension, genericnames)
+    (Ptr{_SCIP}, Ptr{Ptr{Char}}, Ptr{Ptr{Char}}, _SCIP_Bool,), scip, filename, extension, genericnames)
 _SCIPfreeProb(scip) = @scip_ccall_check("SCIPfreeProb", 
     (Ptr{_SCIP},), scip)
 _SCIPpermuteProb(scip, randseed, permuteconss, permutebinvars, permuteintvars, permuteimplvars, permutecontvars) = @scip_ccall_check("SCIPpermuteProb", 
-    (Ptr{_SCIP}, Void, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, randseed, permuteconss, permutebinvars, permuteintvars, permuteimplvars, permutecontvars)
+    (Ptr{_SCIP}, Uint, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, randseed, permuteconss, permutebinvars, permuteintvars, permuteimplvars, permutecontvars)
 _SCIPsetProbData(scip, probdata) = @scip_ccall_check("SCIPsetProbData", 
     (Ptr{_SCIP}, Ptr{_SCIP_PROBDATA},), scip, probdata)
 _SCIPsetProbName(scip, name) = @scip_ccall_check("SCIPsetProbName", 
-    (Ptr{_SCIP}, Void,), scip, name)
+    (Ptr{_SCIP}, Ptr{Ptr{Char}},), scip, name)
 _SCIPsetObjsense(scip, objsense) = @scip_ccall_check("SCIPsetObjsense", 
     (Ptr{_SCIP}, _SCIP_OBJSENSE,), scip, objsense)
 _SCIPaddObjoffset(scip, addval) = @scip_ccall_check("SCIPaddObjoffset", 
@@ -4142,11 +4142,11 @@ _SCIPaddPricedVar(scip, var, score) = @scip_ccall_check("SCIPaddPricedVar",
 _SCIPdelVar(scip, var, deleted) = @scip_ccall_check("SCIPdelVar", 
     (Ptr{_SCIP}, Ptr{_SCIP_VAR}, Ptr{_SCIP_Bool},), scip, var, deleted)
 _SCIPgetVarsData(scip, vars, nvars, nbinvars, nintvars, nimplvars, ncontvars) = @scip_ccall_check("SCIPgetVarsData", 
-    (Ptr{_SCIP}, Ptr{Ptr{Ptr{_SCIP_VAR}}}, Void, Void, Void, Void, Void,), scip, vars, nvars, nbinvars, nintvars, nimplvars, ncontvars)
+    (Ptr{_SCIP}, Ptr{Ptr{Ptr{_SCIP_VAR}}}, Ptr{Int}, Ptr{Int}, Ptr{Int}, Ptr{Int}, Ptr{Int},), scip, vars, nvars, nbinvars, nintvars, nimplvars, ncontvars)
 _SCIPgetOrigVarsData(scip, vars, nvars, nbinvars, nintvars, nimplvars, ncontvars) = @scip_ccall_check("SCIPgetOrigVarsData", 
-    (Ptr{_SCIP}, Ptr{Ptr{Ptr{_SCIP_VAR}}}, Void, Void, Void, Void, Void,), scip, vars, nvars, nbinvars, nintvars, nimplvars, ncontvars)
+    (Ptr{_SCIP}, Ptr{Ptr{Ptr{_SCIP_VAR}}}, Ptr{Int}, Ptr{Int}, Ptr{Int}, Ptr{Int}, Ptr{Int},), scip, vars, nvars, nbinvars, nintvars, nimplvars, ncontvars)
 _SCIPgetSolVarsData(scip, sol, vars, nvars, nbinvars, nintvars, nimplvars, ncontvars) = @scip_ccall_check("SCIPgetSolVarsData", 
-    (Ptr{_SCIP}, Ptr{_SCIP_SOL}, Ptr{Ptr{Ptr{_SCIP_VAR}}}, Void, Void, Void, Void, Void,), scip, sol, vars, nvars, nbinvars, nintvars, nimplvars, ncontvars)
+    (Ptr{_SCIP}, Ptr{_SCIP_SOL}, Ptr{Ptr{Ptr{_SCIP_VAR}}}, Ptr{Int}, Ptr{Int}, Ptr{Int}, Ptr{Int}, Ptr{Int},), scip, sol, vars, nvars, nbinvars, nintvars, nimplvars, ncontvars)
 _SCIPaddCons(scip, cons) = @scip_ccall_check("SCIPaddCons", 
     (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPdelCons(scip, cons) = @scip_ccall_check("SCIPdelCons", 
@@ -4184,61 +4184,61 @@ _SCIPinterruptSolve(scip) = @scip_ccall_check("SCIPinterruptSolve",
 _SCIPrestartSolve(scip) = @scip_ccall_check("SCIPrestartSolve", 
     (Ptr{_SCIP},), scip)
 _SCIPcreateVarBasic(scip, var, name, lb, ub, obj, vartype) = @scip_ccall_check("SCIPcreateVarBasic", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_VAR}}, Void, _SCIP_Real, _SCIP_Real, _SCIP_Real, _SCIP_VARTYPE,), scip, var, name, lb, ub, obj, vartype)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_VAR}}, Ptr{Ptr{Char}}, _SCIP_Real, _SCIP_Real, _SCIP_Real, _SCIP_VARTYPE,), scip, var, name, lb, ub, obj, vartype)
 _SCIPwriteVarName(scip, file, var, typeVar) = @scip_ccall_check("SCIPwriteVarName", 
-    (Ptr{_SCIP}, Void, Ptr{_SCIP_VAR}, _SCIP_Bool,), scip, file, var, typeVar)
+    (Ptr{_SCIP}, Ptr{FILE}, Ptr{_SCIP_VAR}, _SCIP_Bool,), scip, file, var, typeVar)
 _SCIPwriteVarsList(scip, file, vars, nvars, typeVar, delimiter) = @scip_ccall_check("SCIPwriteVarsList", 
-    (Ptr{_SCIP}, Void, Ptr{Ptr{_SCIP_VAR}}, Void, _SCIP_Bool, Void,), scip, file, vars, nvars, typeVar, delimiter)
+    (Ptr{_SCIP}, Ptr{FILE}, Ptr{Ptr{_SCIP_VAR}}, Int, _SCIP_Bool, Char,), scip, file, vars, nvars, typeVar, delimiter)
 _SCIPwriteVarsLinearsum(scip, file, vars, vals, nvars, typeVar) = @scip_ccall_check("SCIPwriteVarsLinearsum", 
-    (Ptr{_SCIP}, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Void, _SCIP_Bool,), scip, file, vars, vals, nvars, typeVar)
+    (Ptr{_SCIP}, Ptr{FILE}, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Int, _SCIP_Bool,), scip, file, vars, vals, nvars, typeVar)
 _SCIPwriteVarsPolynomial(scip, file, monomialvars, monomialexps, monomialcoefs, monomialnvars, nmonomials, typeVar) = @scip_ccall_check("SCIPwriteVarsPolynomial", 
-    (Ptr{_SCIP}, Void, Ptr{Ptr{Ptr{_SCIP_VAR}}}, Ptr{Ptr{_SCIP_Real}}, Ptr{_SCIP_Real}, Void, Void, _SCIP_Bool,), scip, file, monomialvars, monomialexps, monomialcoefs, monomialnvars, nmonomials, typeVar)
+    (Ptr{_SCIP}, Ptr{FILE}, Ptr{Ptr{Ptr{_SCIP_VAR}}}, Ptr{Ptr{_SCIP_Real}}, Ptr{_SCIP_Real}, Ptr{Int}, Int, _SCIP_Bool,), scip, file, monomialvars, monomialexps, monomialcoefs, monomialnvars, nmonomials, typeVar)
 _SCIPparseVarName(scip, str, var, endptr) = @scip_ccall_check("SCIPparseVarName", 
-    (Ptr{_SCIP}, Void, Ptr{Ptr{_SCIP_VAR}}, Void,), scip, str, var, endptr)
+    (Ptr{_SCIP}, Ptr{Ptr{Char}}, Ptr{Ptr{_SCIP_VAR}}, Ptr{Ptr{Char}},), scip, str, var, endptr)
 _SCIPparseVarsList(scip, str, vars, nvars, varssize, requiredsize, endptr, delimiter, success) = @scip_ccall_check("SCIPparseVarsList", 
-    (Ptr{_SCIP}, Void, Ptr{Ptr{_SCIP_VAR}}, Void, Void, Void, Void, Void, Ptr{_SCIP_Bool},), scip, str, vars, nvars, varssize, requiredsize, endptr, delimiter, success)
+    (Ptr{_SCIP}, Ptr{Ptr{Char}}, Ptr{Ptr{_SCIP_VAR}}, Ptr{Int}, Int, Ptr{Int}, Ptr{Ptr{Char}}, Char, Ptr{_SCIP_Bool},), scip, str, vars, nvars, varssize, requiredsize, endptr, delimiter, success)
 _SCIPparseVarsLinearsum(scip, str, vars, vals, nvars, varssize, requiredsize, endptr, success) = @scip_ccall_check("SCIPparseVarsLinearsum", 
-    (Ptr{_SCIP}, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Void, Void, Void, Void, Ptr{_SCIP_Bool},), scip, str, vars, vals, nvars, varssize, requiredsize, endptr, success)
+    (Ptr{_SCIP}, Ptr{Ptr{Char}}, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Ptr{Int}, Int, Ptr{Int}, Ptr{Ptr{Char}}, Ptr{_SCIP_Bool},), scip, str, vars, vals, nvars, varssize, requiredsize, endptr, success)
 _SCIPparseVarsPolynomial(scip, str, monomialvars, monomialexps, monomialcoefs, monomialnvars, nmonomials, endptr, success) = @scip_ccall_check("SCIPparseVarsPolynomial", 
-    (Ptr{_SCIP}, Void, Ptr{Ptr{Ptr{Ptr{_SCIP_VAR}}}}, Ptr{Ptr{Ptr{_SCIP_Real}}}, Ptr{Ptr{_SCIP_Real}}, Void, Void, Void, Ptr{_SCIP_Bool},), scip, str, monomialvars, monomialexps, monomialcoefs, monomialnvars, nmonomials, endptr, success)
+    (Ptr{_SCIP}, Ptr{Ptr{Char}}, Ptr{Ptr{Ptr{Ptr{_SCIP_VAR}}}}, Ptr{Ptr{Ptr{_SCIP_Real}}}, Ptr{Ptr{_SCIP_Real}}, Ptr{Ptr{Int}}, Ptr{Int}, Ptr{Ptr{Char}}, Ptr{_SCIP_Bool},), scip, str, monomialvars, monomialexps, monomialcoefs, monomialnvars, nmonomials, endptr, success)
 _SCIPcaptureVar(scip, var) = @scip_ccall_check("SCIPcaptureVar", 
     (Ptr{_SCIP}, Ptr{_SCIP_VAR},), scip, var)
 _SCIPreleaseVar(scip, var) = @scip_ccall_check("SCIPreleaseVar", 
     (Ptr{_SCIP}, Ptr{Ptr{_SCIP_VAR}},), scip, var)
 _SCIPchgVarName(scip, var, name) = @scip_ccall_check("SCIPchgVarName", 
-    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, Void,), scip, var, name)
+    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, Ptr{Ptr{Char}},), scip, var, name)
 _SCIPtransformVar(scip, var, transvar) = @scip_ccall_check("SCIPtransformVar", 
     (Ptr{_SCIP}, Ptr{_SCIP_VAR}, Ptr{Ptr{_SCIP_VAR}},), scip, var, transvar)
 _SCIPtransformVars(scip, nvars, vars, transvars) = @scip_ccall_check("SCIPtransformVars", 
-    (Ptr{_SCIP}, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{Ptr{_SCIP_VAR}},), scip, nvars, vars, transvars)
+    (Ptr{_SCIP}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{Ptr{_SCIP_VAR}},), scip, nvars, vars, transvars)
 _SCIPgetTransformedVar(scip, var, transvar) = @scip_ccall_check("SCIPgetTransformedVar", 
     (Ptr{_SCIP}, Ptr{_SCIP_VAR}, Ptr{Ptr{_SCIP_VAR}},), scip, var, transvar)
 _SCIPgetTransformedVars(scip, nvars, vars, transvars) = @scip_ccall_check("SCIPgetTransformedVars", 
-    (Ptr{_SCIP}, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{Ptr{_SCIP_VAR}},), scip, nvars, vars, transvars)
+    (Ptr{_SCIP}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{Ptr{_SCIP_VAR}},), scip, nvars, vars, transvars)
 _SCIPgetNegatedVar(scip, var, negvar) = @scip_ccall_check("SCIPgetNegatedVar", 
     (Ptr{_SCIP}, Ptr{_SCIP_VAR}, Ptr{Ptr{_SCIP_VAR}},), scip, var, negvar)
 _SCIPgetNegatedVars(scip, nvars, vars, negvars) = @scip_ccall_check("SCIPgetNegatedVars", 
-    (Ptr{_SCIP}, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{Ptr{_SCIP_VAR}},), scip, nvars, vars, negvars)
+    (Ptr{_SCIP}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{Ptr{_SCIP_VAR}},), scip, nvars, vars, negvars)
 _SCIPgetBinvarRepresentative(scip, var, repvar, negated) = @scip_ccall_check("SCIPgetBinvarRepresentative", 
     (Ptr{_SCIP}, Ptr{_SCIP_VAR}, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Bool},), scip, var, repvar, negated)
 _SCIPgetBinvarRepresentatives(scip, nvars, vars, repvars, negated) = @scip_ccall_check("SCIPgetBinvarRepresentatives", 
-    (Ptr{_SCIP}, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Bool},), scip, nvars, vars, repvars, negated)
+    (Ptr{_SCIP}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Bool},), scip, nvars, vars, repvars, negated)
 _SCIPflattenVarAggregationGraph(scip, var) = @scip_ccall_check("SCIPflattenVarAggregationGraph", 
     (Ptr{_SCIP}, Ptr{_SCIP_VAR},), scip, var)
 _SCIPgetProbvarLinearSum(scip, vars, scalars, nvars, varssize, constant, requiredsize, mergemultiples) = @scip_ccall_check("SCIPgetProbvarLinearSum", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Void, Void, Ptr{_SCIP_Real}, Void, _SCIP_Bool,), scip, vars, scalars, nvars, varssize, constant, requiredsize, mergemultiples)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Ptr{Int}, Int, Ptr{_SCIP_Real}, Ptr{Int}, _SCIP_Bool,), scip, vars, scalars, nvars, varssize, constant, requiredsize, mergemultiples)
 _SCIPgetProbvarSum(scip, var, scalar, constant) = @scip_ccall_check("SCIPgetProbvarSum", 
     (Ptr{_SCIP}, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real},), scip, var, scalar, constant)
 _SCIPgetActiveVars(scip, vars, nvars, varssize, requiredsize) = @scip_ccall_check("SCIPgetActiveVars", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_VAR}}, Void, Void, Void,), scip, vars, nvars, varssize, requiredsize)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_VAR}}, Ptr{Int}, Int, Ptr{Int},), scip, vars, nvars, varssize, requiredsize)
 _SCIPgetVarSols(scip, nvars, vars, vals) = @scip_ccall_check("SCIPgetVarSols", 
-    (Ptr{_SCIP}, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real},), scip, nvars, vars, vals)
+    (Ptr{_SCIP}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real},), scip, nvars, vars, vals)
 _SCIPclearRelaxSolVals(scip) = @scip_ccall_check("SCIPclearRelaxSolVals", 
     (Ptr{_SCIP},), scip)
 _SCIPsetRelaxSolVal(scip, var, val) = @scip_ccall_check("SCIPsetRelaxSolVal", 
     (Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Real,), scip, var, val)
 _SCIPsetRelaxSolVals(scip, nvars, vars, vals) = @scip_ccall_check("SCIPsetRelaxSolVals", 
-    (Ptr{_SCIP}, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real},), scip, nvars, vars, vals)
+    (Ptr{_SCIP}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real},), scip, nvars, vars, vals)
 _SCIPsetRelaxSolValsSol(scip, sol) = @scip_ccall_check("SCIPsetRelaxSolValsSol", 
     (Ptr{_SCIP}, Ptr{_SCIP_SOL},), scip, sol)
 _SCIPmarkRelaxSolValid(scip) = @scip_ccall_check("SCIPmarkRelaxSolValid", 
@@ -4250,19 +4250,19 @@ _SCIPstartStrongbranch(scip, enablepropagation) = @scip_ccall_check("SCIPstartSt
 _SCIPendStrongbranch(scip) = @scip_ccall_check("SCIPendStrongbranch", 
     (Ptr{_SCIP},), scip)
 _SCIPgetVarStrongbranchFrac(scip, var, itlim, down, up, downvalid, upvalid, downinf, upinf, downconflict, upconflict, lperror) = @scip_ccall_check("SCIPgetVarStrongbranchFrac", 
-    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, Void, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool},), scip, var, itlim, down, up, downvalid, upvalid, downinf, upinf, downconflict, upconflict, lperror)
+    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, Int, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool},), scip, var, itlim, down, up, downvalid, upvalid, downinf, upinf, downconflict, upconflict, lperror)
 _SCIPgetVarStrongbranchWithPropagation(scip, var, solval, lpobjval, itlim, maxproprounds, down, up, downvalid, upvalid, downinf, upinf, downconflict, upconflict, lperror, newlbs, newubs) = @scip_ccall_check("SCIPgetVarStrongbranchWithPropagation", 
-    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Real, Void, Void, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real},), scip, var, solval, lpobjval, itlim, maxproprounds, down, up, downvalid, upvalid, downinf, upinf, downconflict, upconflict, lperror, newlbs, newubs)
+    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Real, Int, Int, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real},), scip, var, solval, lpobjval, itlim, maxproprounds, down, up, downvalid, upvalid, downinf, upinf, downconflict, upconflict, lperror, newlbs, newubs)
 _SCIPgetVarStrongbranchInt(scip, var, itlim, down, up, downvalid, upvalid, downinf, upinf, downconflict, upconflict, lperror) = @scip_ccall_check("SCIPgetVarStrongbranchInt", 
-    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, Void, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool},), scip, var, itlim, down, up, downvalid, upvalid, downinf, upinf, downconflict, upconflict, lperror)
+    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, Int, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool},), scip, var, itlim, down, up, downvalid, upvalid, downinf, upinf, downconflict, upconflict, lperror)
 _SCIPgetVarsStrongbranchesFrac(scip, vars, nvars, itlim, down, up, downvalid, upvalid, downinf, upinf, downconflict, upconflict, lperror) = @scip_ccall_check("SCIPgetVarsStrongbranchesFrac", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_VAR}}, Void, Void, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool},), scip, vars, nvars, itlim, down, up, downvalid, upvalid, downinf, upinf, downconflict, upconflict, lperror)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_VAR}}, Int, Int, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool},), scip, vars, nvars, itlim, down, up, downvalid, upvalid, downinf, upinf, downconflict, upconflict, lperror)
 _SCIPgetVarsStrongbranchesInt(scip, vars, nvars, itlim, down, up, downvalid, upvalid, downinf, upinf, downconflict, upconflict, lperror) = @scip_ccall_check("SCIPgetVarsStrongbranchesInt", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_VAR}}, Void, Void, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool},), scip, vars, nvars, itlim, down, up, downvalid, upvalid, downinf, upinf, downconflict, upconflict, lperror)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_VAR}}, Int, Int, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool},), scip, vars, nvars, itlim, down, up, downvalid, upvalid, downinf, upinf, downconflict, upconflict, lperror)
 _SCIPgetVarStrongbranchLast(scip, var, down, up, downvalid, upvalid, solval, lpobjval) = @scip_ccall_check("SCIPgetVarStrongbranchLast", 
     (Ptr{_SCIP}, Ptr{_SCIP_VAR}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real},), scip, var, down, up, downvalid, upvalid, solval, lpobjval)
 _SCIPaddVarLocks(scip, var, nlocksdown, nlocksup) = @scip_ccall_check("SCIPaddVarLocks", 
-    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, Void, Void,), scip, var, nlocksdown, nlocksup)
+    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, Int, Int,), scip, var, nlocksdown, nlocksup)
 _SCIPlockVarCons(scip, var, cons, lockdown, lockup) = @scip_ccall_check("SCIPlockVarCons", 
     (Ptr{_SCIP}, Ptr{_SCIP_VAR}, Ptr{_SCIP_CONS}, _SCIP_Bool, _SCIP_Bool,), scip, var, cons, lockdown, lockup)
 _SCIPunlockVarCons(scip, var, cons, lockdown, lockup) = @scip_ccall_check("SCIPunlockVarCons", 
@@ -4292,39 +4292,39 @@ _SCIPtightenVarLb(scip, var, newbound, force, infeasible, tightened) = @scip_cca
 _SCIPtightenVarUb(scip, var, newbound, force, infeasible, tightened) = @scip_ccall_check("SCIPtightenVarUb", 
     (Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Bool, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool},), scip, var, newbound, force, infeasible, tightened)
 _SCIPinferVarLbCons(scip, var, newbound, infercons, inferinfo, force, infeasible, tightened) = @scip_ccall_check("SCIPinferVarLbCons", 
-    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Real, Ptr{_SCIP_CONS}, Void, _SCIP_Bool, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool},), scip, var, newbound, infercons, inferinfo, force, infeasible, tightened)
+    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Real, Ptr{_SCIP_CONS}, Int, _SCIP_Bool, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool},), scip, var, newbound, infercons, inferinfo, force, infeasible, tightened)
 _SCIPinferVarUbCons(scip, var, newbound, infercons, inferinfo, force, infeasible, tightened) = @scip_ccall_check("SCIPinferVarUbCons", 
-    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Real, Ptr{_SCIP_CONS}, Void, _SCIP_Bool, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool},), scip, var, newbound, infercons, inferinfo, force, infeasible, tightened)
+    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Real, Ptr{_SCIP_CONS}, Int, _SCIP_Bool, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool},), scip, var, newbound, infercons, inferinfo, force, infeasible, tightened)
 _SCIPinferBinvarCons(scip, var, fixedval, infercons, inferinfo, infeasible, tightened) = @scip_ccall_check("SCIPinferBinvarCons", 
-    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Bool, Ptr{_SCIP_CONS}, Void, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool},), scip, var, fixedval, infercons, inferinfo, infeasible, tightened)
+    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Bool, Ptr{_SCIP_CONS}, Int, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool},), scip, var, fixedval, infercons, inferinfo, infeasible, tightened)
 _SCIPinferVarLbProp(scip, var, newbound, inferprop, inferinfo, force, infeasible, tightened) = @scip_ccall_check("SCIPinferVarLbProp", 
-    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Real, Ptr{_SCIP_PROP}, Void, _SCIP_Bool, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool},), scip, var, newbound, inferprop, inferinfo, force, infeasible, tightened)
+    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Real, Ptr{_SCIP_PROP}, Int, _SCIP_Bool, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool},), scip, var, newbound, inferprop, inferinfo, force, infeasible, tightened)
 _SCIPinferVarUbProp(scip, var, newbound, inferprop, inferinfo, force, infeasible, tightened) = @scip_ccall_check("SCIPinferVarUbProp", 
-    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Real, Ptr{_SCIP_PROP}, Void, _SCIP_Bool, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool},), scip, var, newbound, inferprop, inferinfo, force, infeasible, tightened)
+    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Real, Ptr{_SCIP_PROP}, Int, _SCIP_Bool, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool},), scip, var, newbound, inferprop, inferinfo, force, infeasible, tightened)
 _SCIPinferBinvarProp(scip, var, fixedval, inferprop, inferinfo, infeasible, tightened) = @scip_ccall_check("SCIPinferBinvarProp", 
-    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Bool, Ptr{_SCIP_PROP}, Void, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool},), scip, var, fixedval, inferprop, inferinfo, infeasible, tightened)
+    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Bool, Ptr{_SCIP_PROP}, Int, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool},), scip, var, fixedval, inferprop, inferinfo, infeasible, tightened)
 _SCIPtightenVarLbGlobal(scip, var, newbound, force, infeasible, tightened) = @scip_ccall_check("SCIPtightenVarLbGlobal", 
     (Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Bool, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool},), scip, var, newbound, force, infeasible, tightened)
 _SCIPtightenVarUbGlobal(scip, var, newbound, force, infeasible, tightened) = @scip_ccall_check("SCIPtightenVarUbGlobal", 
     (Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Bool, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool},), scip, var, newbound, force, infeasible, tightened)
 _SCIPgetVarClosestVlb(scip, var, sol, closestvlb, closestvlbidx) = @scip_ccall_check("SCIPgetVarClosestVlb", 
-    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, Ptr{_SCIP_SOL}, Ptr{_SCIP_Real}, Void,), scip, var, sol, closestvlb, closestvlbidx)
+    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, Ptr{_SCIP_SOL}, Ptr{_SCIP_Real}, Ptr{Int},), scip, var, sol, closestvlb, closestvlbidx)
 _SCIPgetVarClosestVub(scip, var, sol, closestvub, closestvubidx) = @scip_ccall_check("SCIPgetVarClosestVub", 
-    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, Ptr{_SCIP_SOL}, Ptr{_SCIP_Real}, Void,), scip, var, sol, closestvub, closestvubidx)
+    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, Ptr{_SCIP_SOL}, Ptr{_SCIP_Real}, Ptr{Int},), scip, var, sol, closestvub, closestvubidx)
 _SCIPaddVarVlb(scip, var, vlbvar, vlbcoef, vlbconstant, infeasible, nbdchgs) = @scip_ccall_check("SCIPaddVarVlb", 
-    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Real, Ptr{_SCIP_Bool}, Void,), scip, var, vlbvar, vlbcoef, vlbconstant, infeasible, nbdchgs)
+    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Real, Ptr{_SCIP_Bool}, Ptr{Int},), scip, var, vlbvar, vlbcoef, vlbconstant, infeasible, nbdchgs)
 _SCIPaddVarVub(scip, var, vubvar, vubcoef, vubconstant, infeasible, nbdchgs) = @scip_ccall_check("SCIPaddVarVub", 
-    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Real, Ptr{_SCIP_Bool}, Void,), scip, var, vubvar, vubcoef, vubconstant, infeasible, nbdchgs)
+    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Real, Ptr{_SCIP_Bool}, Ptr{Int},), scip, var, vubvar, vubcoef, vubconstant, infeasible, nbdchgs)
 _SCIPaddVarImplication(scip, var, varfixing, implvar, impltype, implbound, infeasible, nbdchgs) = @scip_ccall_check("SCIPaddVarImplication", 
-    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Bool, Ptr{_SCIP_VAR}, _SCIP_BOUNDTYPE, _SCIP_Real, Ptr{_SCIP_Bool}, Void,), scip, var, varfixing, implvar, impltype, implbound, infeasible, nbdchgs)
+    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Bool, Ptr{_SCIP_VAR}, _SCIP_BOUNDTYPE, _SCIP_Real, Ptr{_SCIP_Bool}, Ptr{Int},), scip, var, varfixing, implvar, impltype, implbound, infeasible, nbdchgs)
 _SCIPaddClique(scip, vars, values, nvars, infeasible, nbdchgs) = @scip_ccall_check("SCIPaddClique", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Bool}, Void, Ptr{_SCIP_Bool}, Void,), scip, vars, values, nvars, infeasible, nbdchgs)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Bool}, Int, Ptr{_SCIP_Bool}, Ptr{Int},), scip, vars, values, nvars, infeasible, nbdchgs)
 _SCIPcalcCliquePartition(scip, vars, nvars, cliquepartition, ncliques) = @scip_ccall_check("SCIPcalcCliquePartition", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_VAR}}, Void, Void, Void,), scip, vars, nvars, cliquepartition, ncliques)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_VAR}}, Int, Ptr{Int}, Ptr{Int},), scip, vars, nvars, cliquepartition, ncliques)
 _SCIPcalcNegatedCliquePartition(scip, vars, nvars, cliquepartition, ncliques) = @scip_ccall_check("SCIPcalcNegatedCliquePartition", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_VAR}}, Void, Void, Void,), scip, vars, nvars, cliquepartition, ncliques)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_VAR}}, Int, Ptr{Int}, Ptr{Int},), scip, vars, nvars, cliquepartition, ncliques)
 _SCIPwriteCliqueGraph(scip, fname, writeimplications, writenodeweights) = @scip_ccall_check("SCIPwriteCliqueGraph", 
-    (Ptr{_SCIP}, Void, _SCIP_Bool, _SCIP_Bool,), scip, fname, writeimplications, writenodeweights)
+    (Ptr{_SCIP}, Ptr{Ptr{Char}}, _SCIP_Bool, _SCIP_Bool,), scip, fname, writeimplications, writenodeweights)
 _SCIPchgVarBranchFactor(scip, var, branchfactor) = @scip_ccall_check("SCIPchgVarBranchFactor", 
     (Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Real,), scip, var, branchfactor)
 _SCIPscaleVarBranchFactor(scip, var, scale) = @scip_ccall_check("SCIPscaleVarBranchFactor", 
@@ -4332,11 +4332,11 @@ _SCIPscaleVarBranchFactor(scip, var, scale) = @scip_ccall_check("SCIPscaleVarBra
 _SCIPaddVarBranchFactor(scip, var, addfactor) = @scip_ccall_check("SCIPaddVarBranchFactor", 
     (Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Real,), scip, var, addfactor)
 _SCIPchgVarBranchPriority(scip, var, branchpriority) = @scip_ccall_check("SCIPchgVarBranchPriority", 
-    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, Void,), scip, var, branchpriority)
+    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, Int,), scip, var, branchpriority)
 _SCIPupdateVarBranchPriority(scip, var, branchpriority) = @scip_ccall_check("SCIPupdateVarBranchPriority", 
-    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, Void,), scip, var, branchpriority)
+    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, Int,), scip, var, branchpriority)
 _SCIPaddVarBranchPriority(scip, var, addpriority) = @scip_ccall_check("SCIPaddVarBranchPriority", 
-    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, Void,), scip, var, addpriority)
+    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, Int,), scip, var, addpriority)
 _SCIPchgVarBranchDirection(scip, var, branchdirection) = @scip_ccall_check("SCIPchgVarBranchDirection", 
     (Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_BRANCHDIR,), scip, var, branchdirection)
 _SCIPchgVarType(scip, var, vartype, infeasible) = @scip_ccall_check("SCIPchgVarType", 
@@ -4346,7 +4346,7 @@ _SCIPfixVar(scip, var, fixedval, infeasible, fixed) = @scip_ccall_check("SCIPfix
 _SCIPaggregateVars(scip, varx, vary, scalarx, scalary, rhs, infeasible, redundant, aggregated) = @scip_ccall_check("SCIPaggregateVars", 
     (Ptr{_SCIP}, Ptr{_SCIP_VAR}, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Real, _SCIP_Real, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool},), scip, varx, vary, scalarx, scalary, rhs, infeasible, redundant, aggregated)
 _SCIPmultiaggregateVar(scip, var, naggvars, aggvars, scalars, constant, infeasible, aggregated) = @scip_ccall_check("SCIPmultiaggregateVar", 
-    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, _SCIP_Real, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool},), scip, var, naggvars, aggvars, scalars, constant, infeasible, aggregated)
+    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, _SCIP_Real, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool},), scip, var, naggvars, aggvars, scalars, constant, infeasible, aggregated)
 _SCIPmarkDoNotMultaggrVar(scip, var) = @scip_ccall_check("SCIPmarkDoNotMultaggrVar", 
     (Ptr{_SCIP}, Ptr{_SCIP_VAR},), scip, var)
 _SCIPupdateVarPseudocost(scip, var, solvaldelta, objdelta, weight) = @scip_ccall_check("SCIPupdateVarPseudocost", 
@@ -4354,7 +4354,7 @@ _SCIPupdateVarPseudocost(scip, var, solvaldelta, objdelta, weight) = @scip_ccall
 _SCIPinitVarBranchStats(scip, var, downpscost, uppscost, downvsids, upvsids, downconflen, upconflen, downinfer, upinfer, downcutoff, upcutoff) = @scip_ccall_check("SCIPinitVarBranchStats", 
     (Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Real, _SCIP_Real, _SCIP_Real, _SCIP_Real, _SCIP_Real, _SCIP_Real, _SCIP_Real, _SCIP_Real, _SCIP_Real,), scip, var, downpscost, uppscost, downvsids, upvsids, downconflen, upconflen, downinfer, upinfer, downcutoff, upcutoff)
 _SCIPprintVar(scip, var, file) = @scip_ccall_check("SCIPprintVar", 
-    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, Void,), scip, var, file)
+    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, Ptr{FILE},), scip, var, file)
 _SCIPinitConflictAnalysis(scip) = @scip_ccall_check("SCIPinitConflictAnalysis", 
     (Ptr{_SCIP},), scip)
 _SCIPaddConflictLb(scip, var, bdchgidx) = @scip_ccall_check("SCIPaddConflictLb", 
@@ -4374,19 +4374,19 @@ _SCIPaddConflictBinvar(scip, var) = @scip_ccall_check("SCIPaddConflictBinvar",
 _SCIPisConflictVarUsed(scip, var, boundtype, bdchgidx, used) = @scip_ccall_check("SCIPisConflictVarUsed", 
     (Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_BOUNDTYPE, Ptr{_SCIP_BDCHGIDX}, Ptr{_SCIP_Bool},), scip, var, boundtype, bdchgidx, used)
 _SCIPanalyzeConflict(scip, validdepth, success) = @scip_ccall_check("SCIPanalyzeConflict", 
-    (Ptr{_SCIP}, Void, Ptr{_SCIP_Bool},), scip, validdepth, success)
+    (Ptr{_SCIP}, Int, Ptr{_SCIP_Bool},), scip, validdepth, success)
 _SCIPanalyzeConflictCons(scip, cons, success) = @scip_ccall_check("SCIPanalyzeConflictCons", 
     (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{_SCIP_Bool},), scip, cons, success)
 _SCIPcreateCons(scip, cons, name, conshdlr, consdata, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode) = @scip_ccall_check("SCIPcreateCons", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, Ptr{_SCIP_CONSHDLR}, Ptr{_SCIP_CONSDATA}, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, conshdlr, consdata, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, Ptr{_SCIP_CONSHDLR}, Ptr{_SCIP_CONSDATA}, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, cons, name, conshdlr, consdata, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode)
 _SCIPparseCons(scip, cons, str, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode, success) = @scip_ccall_check("SCIPparseCons", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Void, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, Ptr{_SCIP_Bool},), scip, cons, str, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode, success)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{Char}}, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, Ptr{_SCIP_Bool},), scip, cons, str, initial, separate, enforce, check, propagate, localVar, modifiable, dynamic, removable, stickingatnode, success)
 _SCIPcaptureCons(scip, cons) = @scip_ccall_check("SCIPcaptureCons", 
     (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPreleaseCons(scip, cons) = @scip_ccall_check("SCIPreleaseCons", 
     (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CONS}},), scip, cons)
 _SCIPchgConsName(scip, cons, name) = @scip_ccall_check("SCIPchgConsName", 
-    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Void,), scip, cons, name)
+    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{Ptr{Char}},), scip, cons, name)
 _SCIPsetConsInitial(scip, cons, initial) = @scip_ccall_check("SCIPsetConsInitial", 
     (Ptr{_SCIP}, Ptr{_SCIP_CONS}, _SCIP_Bool,), scip, cons, initial)
 _SCIPsetConsSeparated(scip, cons, separate) = @scip_ccall_check("SCIPsetConsSeparated", 
@@ -4412,11 +4412,11 @@ _SCIPupdateConsFlags(scip, cons0, cons1) = @scip_ccall_check("SCIPupdateConsFlag
 _SCIPtransformCons(scip, cons, transcons) = @scip_ccall_check("SCIPtransformCons", 
     (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{Ptr{_SCIP_CONS}},), scip, cons, transcons)
 _SCIPtransformConss(scip, nconss, conss, transconss) = @scip_ccall_check("SCIPtransformConss", 
-    (Ptr{_SCIP}, Void, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{_SCIP_CONS}},), scip, nconss, conss, transconss)
+    (Ptr{_SCIP}, Int, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{_SCIP_CONS}},), scip, nconss, conss, transconss)
 _SCIPgetTransformedCons(scip, cons, transcons) = @scip_ccall_check("SCIPgetTransformedCons", 
     (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{Ptr{_SCIP_CONS}},), scip, cons, transcons)
 _SCIPgetTransformedConss(scip, nconss, conss, transconss) = @scip_ccall_check("SCIPgetTransformedConss", 
-    (Ptr{_SCIP}, Void, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{_SCIP_CONS}},), scip, nconss, conss, transconss)
+    (Ptr{_SCIP}, Int, Ptr{Ptr{_SCIP_CONS}}, Ptr{Ptr{_SCIP_CONS}},), scip, nconss, conss, transconss)
 _SCIPaddConsAge(scip, cons, deltaage) = @scip_ccall_check("SCIPaddConsAge", 
     (Ptr{_SCIP}, Ptr{_SCIP_CONS}, _SCIP_Real,), scip, cons, deltaage)
 _SCIPincConsAge(scip, cons) = @scip_ccall_check("SCIPincConsAge", 
@@ -4440,7 +4440,7 @@ _SCIPmarkConsPropagate(scip, cons) = @scip_ccall_check("SCIPmarkConsPropagate",
 _SCIPunmarkConsPropagate(scip, cons) = @scip_ccall_check("SCIPunmarkConsPropagate", 
     (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPaddConsLocks(scip, cons, nlockspos, nlocksneg) = @scip_ccall_check("SCIPaddConsLocks", 
-    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Void, Void,), scip, cons, nlockspos, nlocksneg)
+    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Int, Int,), scip, cons, nlockspos, nlocksneg)
 _SCIPcheckCons(scip, cons, sol, checkintegrality, checklprows, printreason, result) = @scip_ccall_check("SCIPcheckCons", 
     (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{_SCIP_SOL}, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, Ptr{_SCIP_RESULT},), scip, cons, sol, checkintegrality, checklprows, printreason, result)
 _SCIPenfopsCons(scip, cons, solinfeasible, objinfeasible, result) = @scip_ccall_check("SCIPenfopsCons", 
@@ -4456,69 +4456,69 @@ _SCIPsepasolCons(scip, cons, sol, result) = @scip_ccall_check("SCIPsepasolCons",
 _SCIPpropCons(scip, cons, proptiming, result) = @scip_ccall_check("SCIPpropCons", 
     (Ptr{_SCIP}, Ptr{_SCIP_CONS}, _SCIP_PROPTIMING, Ptr{_SCIP_RESULT},), scip, cons, proptiming, result)
 _SCIPrespropCons(scip, cons, infervar, inferinfo, boundtype, bdchgidx, relaxedbd, result) = @scip_ccall_check("SCIPrespropCons", 
-    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{_SCIP_VAR}, Void, _SCIP_BOUNDTYPE, Ptr{_SCIP_BDCHGIDX}, _SCIP_Real, Ptr{_SCIP_RESULT},), scip, cons, infervar, inferinfo, boundtype, bdchgidx, relaxedbd, result)
+    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{_SCIP_VAR}, Int, _SCIP_BOUNDTYPE, Ptr{_SCIP_BDCHGIDX}, _SCIP_Real, Ptr{_SCIP_RESULT},), scip, cons, infervar, inferinfo, boundtype, bdchgidx, relaxedbd, result)
 _SCIPpresolCons(scip, cons, nrounds, nnewfixedvars, nnewaggrvars, nnewchgvartypes, nnewchgbds, nnewholes, nnewdelconss, nnewaddconss, nnewupgdconss, nnewchgcoefs, nnewchgsides, nfixedvars, naggrvars, nchgvartypes, nchgbds, naddholes, ndelconss, naddconss, nupgdconss, nchgcoefs, nchgsides, result) = @scip_ccall_check("SCIPpresolCons", 
-    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Void, Void, Void, Void, Void, Void, Void, Void, Void, Void, Void, Void, Void, Void, Void, Void, Void, Void, Void, Void, Void, Ptr{_SCIP_RESULT},), scip, cons, nrounds, nnewfixedvars, nnewaggrvars, nnewchgvartypes, nnewchgbds, nnewholes, nnewdelconss, nnewaddconss, nnewupgdconss, nnewchgcoefs, nnewchgsides, nfixedvars, naggrvars, nchgvartypes, nchgbds, naddholes, ndelconss, naddconss, nupgdconss, nchgcoefs, nchgsides, result)
+    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Ptr{Int}, Ptr{Int}, Ptr{Int}, Ptr{Int}, Ptr{Int}, Ptr{Int}, Ptr{Int}, Ptr{Int}, Ptr{Int}, Ptr{Int}, Ptr{_SCIP_RESULT},), scip, cons, nrounds, nnewfixedvars, nnewaggrvars, nnewchgvartypes, nnewchgbds, nnewholes, nnewdelconss, nnewaddconss, nnewupgdconss, nnewchgcoefs, nnewchgsides, nfixedvars, naggrvars, nchgvartypes, nchgbds, naddholes, ndelconss, naddconss, nupgdconss, nchgcoefs, nchgsides, result)
 _SCIPactiveCons(scip, cons) = @scip_ccall_check("SCIPactiveCons", 
     (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPdeactiveCons(scip, cons) = @scip_ccall_check("SCIPdeactiveCons", 
     (Ptr{_SCIP}, Ptr{_SCIP_CONS},), scip, cons)
 _SCIPprintCons(scip, cons, file) = @scip_ccall_check("SCIPprintCons", 
-    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Void,), scip, cons, file)
+    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{FILE},), scip, cons, file)
 _SCIPgetConsVars(scip, cons, vars, varssize, success) = @scip_ccall_check("SCIPgetConsVars", 
-    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{Ptr{_SCIP_VAR}}, Void, Ptr{_SCIP_Bool},), scip, cons, vars, varssize, success)
+    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{Ptr{_SCIP_VAR}}, Int, Ptr{_SCIP_Bool},), scip, cons, vars, varssize, success)
 _SCIPgetConsNVars(scip, cons, nvars, success) = @scip_ccall_check("SCIPgetConsNVars", 
-    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Void, Ptr{_SCIP_Bool},), scip, cons, nvars, success)
+    (Ptr{_SCIP}, Ptr{_SCIP_CONS}, Ptr{Int}, Ptr{_SCIP_Bool},), scip, cons, nvars, success)
 _SCIPconstructLP(scip, cutoff) = @scip_ccall_check("SCIPconstructLP", 
     (Ptr{_SCIP}, Ptr{_SCIP_Bool},), scip, cutoff)
 _SCIPflushLP(scip) = @scip_ccall_check("SCIPflushLP", 
     (Ptr{_SCIP},), scip)
 _SCIPgetLPColsData(scip, cols, ncols) = @scip_ccall_check("SCIPgetLPColsData", 
-    (Ptr{_SCIP}, Ptr{Ptr{Ptr{_SCIP_COL}}}, Void,), scip, cols, ncols)
+    (Ptr{_SCIP}, Ptr{Ptr{Ptr{_SCIP_COL}}}, Ptr{Int},), scip, cols, ncols)
 _SCIPgetLPRowsData(scip, rows, nrows) = @scip_ccall_check("SCIPgetLPRowsData", 
-    (Ptr{_SCIP}, Ptr{Ptr{Ptr{_SCIP_ROW}}}, Void,), scip, rows, nrows)
+    (Ptr{_SCIP}, Ptr{Ptr{Ptr{_SCIP_ROW}}}, Ptr{Int},), scip, rows, nrows)
 _SCIPgetLPBasisInd(scip, basisind) = @scip_ccall_check("SCIPgetLPBasisInd", 
-    (Ptr{_SCIP}, Void,), scip, basisind)
+    (Ptr{_SCIP}, Ptr{Int},), scip, basisind)
 _SCIPgetLPBInvRow(scip, r, coef) = @scip_ccall_check("SCIPgetLPBInvRow", 
-    (Ptr{_SCIP}, Void, Ptr{_SCIP_Real},), scip, r, coef)
+    (Ptr{_SCIP}, Int, Ptr{_SCIP_Real},), scip, r, coef)
 _SCIPgetLPBInvCol(scip, c, coef) = @scip_ccall_check("SCIPgetLPBInvCol", 
-    (Ptr{_SCIP}, Void, Ptr{_SCIP_Real},), scip, c, coef)
+    (Ptr{_SCIP}, Int, Ptr{_SCIP_Real},), scip, c, coef)
 _SCIPgetLPBInvARow(scip, r, binvrow, coef) = @scip_ccall_check("SCIPgetLPBInvARow", 
-    (Ptr{_SCIP}, Void, Ptr{_SCIP_Real}, Ptr{_SCIP_Real},), scip, r, binvrow, coef)
+    (Ptr{_SCIP}, Int, Ptr{_SCIP_Real}, Ptr{_SCIP_Real},), scip, r, binvrow, coef)
 _SCIPgetLPBInvACol(scip, c, coef) = @scip_ccall_check("SCIPgetLPBInvACol", 
-    (Ptr{_SCIP}, Void, Ptr{_SCIP_Real},), scip, c, coef)
+    (Ptr{_SCIP}, Int, Ptr{_SCIP_Real},), scip, c, coef)
 _SCIPsumLPRows(scip, weights, sumcoef, sumlhs, sumrhs) = @scip_ccall_check("SCIPsumLPRows", 
     (Ptr{_SCIP}, Ptr{_SCIP_Real}, Ptr{_SCIP_REALARRAY}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real},), scip, weights, sumcoef, sumlhs, sumrhs)
 _SCIPcalcMIR(scip, sol, boundswitch, usevbds, allowlocal, fixintegralrhs, boundsfortrans, boundtypesfortrans, maxmksetcoefs, maxweightrange, minfrac, maxfrac, weights, sidetypes, scale, mksetcoefs, mksetcoefsvalid, mircoef, mirrhs, cutactivity, success, cutislocal, cutrank) = @scip_ccall_check("SCIPcalcMIR", 
-    (Ptr{_SCIP}, Ptr{_SCIP_SOL}, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, Void, Ptr{_SCIP_BOUNDTYPE}, Void, _SCIP_Real, _SCIP_Real, _SCIP_Real, Ptr{_SCIP_Real}, Void, _SCIP_Real, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Void,), scip, sol, boundswitch, usevbds, allowlocal, fixintegralrhs, boundsfortrans, boundtypesfortrans, maxmksetcoefs, maxweightrange, minfrac, maxfrac, weights, sidetypes, scale, mksetcoefs, mksetcoefsvalid, mircoef, mirrhs, cutactivity, success, cutislocal, cutrank)
+    (Ptr{_SCIP}, Ptr{_SCIP_SOL}, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool, Ptr{Int}, Ptr{_SCIP_BOUNDTYPE}, Int, _SCIP_Real, _SCIP_Real, _SCIP_Real, Ptr{_SCIP_Real}, Ptr{Int}, _SCIP_Real, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{Int},), scip, sol, boundswitch, usevbds, allowlocal, fixintegralrhs, boundsfortrans, boundtypesfortrans, maxmksetcoefs, maxweightrange, minfrac, maxfrac, weights, sidetypes, scale, mksetcoefs, mksetcoefsvalid, mircoef, mirrhs, cutactivity, success, cutislocal, cutrank)
 _SCIPcalcStrongCG(scip, boundswitch, usevbds, allowlocal, maxmksetcoefs, maxweightrange, minfrac, maxfrac, weights, scale, mircoef, mirrhs, cutactivity, success, cutislocal, cutrank) = @scip_ccall_check("SCIPcalcStrongCG", 
-    (Ptr{_SCIP}, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, Void, _SCIP_Real, _SCIP_Real, _SCIP_Real, Ptr{_SCIP_Real}, _SCIP_Real, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Void,), scip, boundswitch, usevbds, allowlocal, maxmksetcoefs, maxweightrange, minfrac, maxfrac, weights, scale, mircoef, mirrhs, cutactivity, success, cutislocal, cutrank)
+    (Ptr{_SCIP}, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, Int, _SCIP_Real, _SCIP_Real, _SCIP_Real, Ptr{_SCIP_Real}, _SCIP_Real, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool}, Ptr{Int},), scip, boundswitch, usevbds, allowlocal, maxmksetcoefs, maxweightrange, minfrac, maxfrac, weights, scale, mircoef, mirrhs, cutactivity, success, cutislocal, cutrank)
 _SCIPwriteLP(scip, filename) = @scip_ccall_check("SCIPwriteLP", 
-    (Ptr{_SCIP}, Void,), scip, filename)
+    (Ptr{_SCIP}, Ptr{Ptr{Char}},), scip, filename)
 _SCIPwriteMIP(scip, filename, genericnames, origobj, lazyconss) = @scip_ccall_check("SCIPwriteMIP", 
-    (Ptr{_SCIP}, Void, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, filename, genericnames, origobj, lazyconss)
+    (Ptr{_SCIP}, Ptr{Ptr{Char}}, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, filename, genericnames, origobj, lazyconss)
 _SCIPgetLPI(scip, lpi) = @scip_ccall_check("SCIPgetLPI", 
-    (Ptr{_SCIP}, Void,), scip, lpi)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_LPI}},), scip, lpi)
 _SCIPprintLPSolutionQuality(scip, file) = @scip_ccall_check("SCIPprintLPSolutionQuality", 
-    (Ptr{_SCIP}, Void,), scip, file)
+    (Ptr{_SCIP}, Ptr{FILE},), scip, file)
 _SCIPcomputeLPRelIntPoint(scip, relaxrows, inclobjcutoff, timelimit, iterlimit, point) = @scip_ccall_check("SCIPcomputeLPRelIntPoint", 
-    (Ptr{_SCIP}, _SCIP_Bool, _SCIP_Bool, _SCIP_Real, Void, Ptr{Ptr{_SCIP_SOL}},), scip, relaxrows, inclobjcutoff, timelimit, iterlimit, point)
+    (Ptr{_SCIP}, _SCIP_Bool, _SCIP_Bool, _SCIP_Real, Int, Ptr{Ptr{_SCIP_SOL}},), scip, relaxrows, inclobjcutoff, timelimit, iterlimit, point)
 _SCIPcreateRowCons(scip, row, conshdlr, name, len, cols, vals, lhs, rhs, localVar, modifiable, removable) = @scip_ccall_check("SCIPcreateRowCons", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_ROW}}, Ptr{_SCIP_CONSHDLR}, Void, Void, Ptr{Ptr{_SCIP_COL}}, Ptr{_SCIP_Real}, _SCIP_Real, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, row, conshdlr, name, len, cols, vals, lhs, rhs, localVar, modifiable, removable)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_ROW}}, Ptr{_SCIP_CONSHDLR}, Ptr{Ptr{Char}}, Int, Ptr{Ptr{_SCIP_COL}}, Ptr{_SCIP_Real}, _SCIP_Real, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, row, conshdlr, name, len, cols, vals, lhs, rhs, localVar, modifiable, removable)
 _SCIPcreateRowSepa(scip, row, sepa, name, len, cols, vals, lhs, rhs, localVar, modifiable, removable) = @scip_ccall_check("SCIPcreateRowSepa", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_ROW}}, Ptr{_SCIP_SEPA}, Void, Void, Ptr{Ptr{_SCIP_COL}}, Ptr{_SCIP_Real}, _SCIP_Real, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, row, sepa, name, len, cols, vals, lhs, rhs, localVar, modifiable, removable)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_ROW}}, Ptr{_SCIP_SEPA}, Ptr{Ptr{Char}}, Int, Ptr{Ptr{_SCIP_COL}}, Ptr{_SCIP_Real}, _SCIP_Real, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, row, sepa, name, len, cols, vals, lhs, rhs, localVar, modifiable, removable)
 _SCIPcreateRowUnspec(scip, row, name, len, cols, vals, lhs, rhs, localVar, modifiable, removable) = @scip_ccall_check("SCIPcreateRowUnspec", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_ROW}}, Void, Void, Ptr{Ptr{_SCIP_COL}}, Ptr{_SCIP_Real}, _SCIP_Real, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, row, name, len, cols, vals, lhs, rhs, localVar, modifiable, removable)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_ROW}}, Ptr{Ptr{Char}}, Int, Ptr{Ptr{_SCIP_COL}}, Ptr{_SCIP_Real}, _SCIP_Real, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, row, name, len, cols, vals, lhs, rhs, localVar, modifiable, removable)
 _SCIPcreateRow(scip, row, name, len, cols, vals, lhs, rhs, localVar, modifiable, removable) = @scip_ccall_check("SCIPcreateRow", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_ROW}}, Void, Void, Ptr{Ptr{_SCIP_COL}}, Ptr{_SCIP_Real}, _SCIP_Real, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, row, name, len, cols, vals, lhs, rhs, localVar, modifiable, removable)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_ROW}}, Ptr{Ptr{Char}}, Int, Ptr{Ptr{_SCIP_COL}}, Ptr{_SCIP_Real}, _SCIP_Real, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, row, name, len, cols, vals, lhs, rhs, localVar, modifiable, removable)
 _SCIPcreateEmptyRowCons(scip, row, conshdlr, name, lhs, rhs, localVar, modifiable, removable) = @scip_ccall_check("SCIPcreateEmptyRowCons", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_ROW}}, Ptr{_SCIP_CONSHDLR}, Void, _SCIP_Real, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, row, conshdlr, name, lhs, rhs, localVar, modifiable, removable)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_ROW}}, Ptr{_SCIP_CONSHDLR}, Ptr{Ptr{Char}}, _SCIP_Real, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, row, conshdlr, name, lhs, rhs, localVar, modifiable, removable)
 _SCIPcreateEmptyRowSepa(scip, row, sepa, name, lhs, rhs, localVar, modifiable, removable) = @scip_ccall_check("SCIPcreateEmptyRowSepa", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_ROW}}, Ptr{_SCIP_SEPA}, Void, _SCIP_Real, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, row, sepa, name, lhs, rhs, localVar, modifiable, removable)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_ROW}}, Ptr{_SCIP_SEPA}, Ptr{Ptr{Char}}, _SCIP_Real, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, row, sepa, name, lhs, rhs, localVar, modifiable, removable)
 _SCIPcreateEmptyRowUnspec(scip, row, name, lhs, rhs, localVar, modifiable, removable) = @scip_ccall_check("SCIPcreateEmptyRowUnspec", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_ROW}}, Void, _SCIP_Real, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, row, name, lhs, rhs, localVar, modifiable, removable)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_ROW}}, Ptr{Ptr{Char}}, _SCIP_Real, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, row, name, lhs, rhs, localVar, modifiable, removable)
 _SCIPcreateEmptyRow(scip, row, name, lhs, rhs, localVar, modifiable, removable) = @scip_ccall_check("SCIPcreateEmptyRow", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_ROW}}, Void, _SCIP_Real, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, row, name, lhs, rhs, localVar, modifiable, removable)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_ROW}}, Ptr{Ptr{Char}}, _SCIP_Real, _SCIP_Real, _SCIP_Bool, _SCIP_Bool, _SCIP_Bool,), scip, row, name, lhs, rhs, localVar, modifiable, removable)
 _SCIPcaptureRow(scip, row) = @scip_ccall_check("SCIPcaptureRow", 
     (Ptr{_SCIP}, Ptr{_SCIP_ROW},), scip, row)
 _SCIPreleaseRow(scip, row) = @scip_ccall_check("SCIPreleaseRow", 
@@ -4534,9 +4534,9 @@ _SCIPflushRowExtensions(scip, row) = @scip_ccall_check("SCIPflushRowExtensions",
 _SCIPaddVarToRow(scip, row, var, val) = @scip_ccall_check("SCIPaddVarToRow", 
     (Ptr{_SCIP}, Ptr{_SCIP_ROW}, Ptr{_SCIP_VAR}, _SCIP_Real,), scip, row, var, val)
 _SCIPaddVarsToRow(scip, row, nvars, vars, vals) = @scip_ccall_check("SCIPaddVarsToRow", 
-    (Ptr{_SCIP}, Ptr{_SCIP_ROW}, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real},), scip, row, nvars, vars, vals)
+    (Ptr{_SCIP}, Ptr{_SCIP_ROW}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real},), scip, row, nvars, vars, vals)
 _SCIPaddVarsToRowSameCoef(scip, row, nvars, vars, val) = @scip_ccall_check("SCIPaddVarsToRowSameCoef", 
-    (Ptr{_SCIP}, Ptr{_SCIP_ROW}, Void, Ptr{Ptr{_SCIP_VAR}}, _SCIP_Real,), scip, row, nvars, vars, val)
+    (Ptr{_SCIP}, Ptr{_SCIP_ROW}, Int, Ptr{Ptr{_SCIP_VAR}}, _SCIP_Real,), scip, row, nvars, vars, val)
 _SCIPcalcRowIntegralScalar(scip, row, mindelta, maxdelta, maxdnom, maxscale, usecontvars, intscalar, success) = @scip_ccall_check("SCIPcalcRowIntegralScalar", 
     (Ptr{_SCIP}, Ptr{_SCIP_ROW}, _SCIP_Real, _SCIP_Real, Int64, _SCIP_Real, _SCIP_Bool, Ptr{_SCIP_Real}, Ptr{_SCIP_Bool},), scip, row, mindelta, maxdelta, maxdnom, maxscale, usecontvars, intscalar, success)
 _SCIPmakeRowIntegral(scip, row, mindelta, maxdelta, maxdnom, maxscale, usecontvars, success) = @scip_ccall_check("SCIPmakeRowIntegral", 
@@ -4548,13 +4548,13 @@ _SCIPrecalcRowPseudoActivity(scip, row) = @scip_ccall_check("SCIPrecalcRowPseudo
 _SCIPrecalcRowActivity(scip, row) = @scip_ccall_check("SCIPrecalcRowActivity", 
     (Ptr{_SCIP}, Ptr{_SCIP_ROW},), scip, row)
 _SCIPprintRow(scip, row, file) = @scip_ccall_check("SCIPprintRow", 
-    (Ptr{_SCIP}, Ptr{_SCIP_ROW}, Void,), scip, row, file)
+    (Ptr{_SCIP}, Ptr{_SCIP_ROW}, Ptr{FILE},), scip, row, file)
 _SCIPgetNLPVarsData(scip, vars, nvars) = @scip_ccall_check("SCIPgetNLPVarsData", 
-    (Ptr{_SCIP}, Ptr{Ptr{Ptr{_SCIP_VAR}}}, Void,), scip, vars, nvars)
+    (Ptr{_SCIP}, Ptr{Ptr{Ptr{_SCIP_VAR}}}, Ptr{Int},), scip, vars, nvars)
 _SCIPgetNLPVarsNonlinearity(scip, nlcount) = @scip_ccall_check("SCIPgetNLPVarsNonlinearity", 
-    (Ptr{_SCIP}, Void,), scip, nlcount)
+    (Ptr{_SCIP}, Ptr{Int},), scip, nlcount)
 _SCIPgetNLPNlRowsData(scip, nlrows, nnlrows) = @scip_ccall_check("SCIPgetNLPNlRowsData", 
-    (Ptr{_SCIP}, Ptr{Ptr{Ptr{_SCIP_NLROW}}}, Void,), scip, nlrows, nnlrows)
+    (Ptr{_SCIP}, Ptr{Ptr{Ptr{_SCIP_NLROW}}}, Ptr{Int},), scip, nlrows, nnlrows)
 _SCIPaddNlRow(scip, nlrow) = @scip_ccall_check("SCIPaddNlRow", 
     (Ptr{_SCIP}, Ptr{_SCIP_NLROW},), scip, nlrow)
 _SCIPflushNLP(scip) = @scip_ccall_check("SCIPflushNLP", 
@@ -4568,21 +4568,21 @@ _SCIPsolveNLP(scip) = @scip_ccall_check("SCIPsolveNLP",
 _SCIPgetNLPStatistics(scip, statistics) = @scip_ccall_check("SCIPgetNLPStatistics", 
     (Ptr{_SCIP}, Ptr{_SCIP_NLPSTATISTICS},), scip, statistics)
 _SCIPgetNLPFracVars(scip, fracvars, fracvarssol, fracvarsfrac, nfracvars, npriofracvars) = @scip_ccall_check("SCIPgetNLPFracVars", 
-    (Ptr{_SCIP}, Ptr{Ptr{Ptr{_SCIP_VAR}}}, Ptr{Ptr{_SCIP_Real}}, Ptr{Ptr{_SCIP_Real}}, Void, Void,), scip, fracvars, fracvarssol, fracvarsfrac, nfracvars, npriofracvars)
+    (Ptr{_SCIP}, Ptr{Ptr{Ptr{_SCIP_VAR}}}, Ptr{Ptr{_SCIP_Real}}, Ptr{Ptr{_SCIP_Real}}, Ptr{Int}, Ptr{Int},), scip, fracvars, fracvarssol, fracvarsfrac, nfracvars, npriofracvars)
 _SCIPgetNLPIntPar(scip, typeVar, ival) = @scip_ccall_check("SCIPgetNLPIntPar", 
-    (Ptr{_SCIP}, _SCIP_NLPPARAM, Void,), scip, typeVar, ival)
+    (Ptr{_SCIP}, _SCIP_NLPPARAM, Ptr{Int},), scip, typeVar, ival)
 _SCIPsetNLPIntPar(scip, typeVar, ival) = @scip_ccall_check("SCIPsetNLPIntPar", 
-    (Ptr{_SCIP}, _SCIP_NLPPARAM, Void,), scip, typeVar, ival)
+    (Ptr{_SCIP}, _SCIP_NLPPARAM, Int,), scip, typeVar, ival)
 _SCIPgetNLPRealPar(scip, typeVar, dval) = @scip_ccall_check("SCIPgetNLPRealPar", 
     (Ptr{_SCIP}, _SCIP_NLPPARAM, Ptr{_SCIP_Real},), scip, typeVar, dval)
 _SCIPsetNLPRealPar(scip, typeVar, dval) = @scip_ccall_check("SCIPsetNLPRealPar", 
     (Ptr{_SCIP}, _SCIP_NLPPARAM, _SCIP_Real,), scip, typeVar, dval)
 _SCIPgetNLPStringPar(scip, typeVar, sval) = @scip_ccall_check("SCIPgetNLPStringPar", 
-    (Ptr{_SCIP}, _SCIP_NLPPARAM, Void,), scip, typeVar, sval)
+    (Ptr{_SCIP}, _SCIP_NLPPARAM, Ptr{Ptr{Ptr{Char}}},), scip, typeVar, sval)
 _SCIPsetNLPStringPar(scip, typeVar, sval) = @scip_ccall_check("SCIPsetNLPStringPar", 
-    (Ptr{_SCIP}, _SCIP_NLPPARAM, Void,), scip, typeVar, sval)
+    (Ptr{_SCIP}, _SCIP_NLPPARAM, Ptr{Ptr{Char}},), scip, typeVar, sval)
 _SCIPwriteNLP(scip, filename) = @scip_ccall_check("SCIPwriteNLP", 
-    (Ptr{_SCIP}, Void,), scip, filename)
+    (Ptr{_SCIP}, Ptr{Ptr{Char}},), scip, filename)
 _SCIPgetNLPI(scip, nlpi, nlpiproblem) = @scip_ccall_check("SCIPgetNLPI", 
     (Ptr{_SCIP}, Ptr{Ptr{_SCIP_NLPI}}, Ptr{Ptr{_SCIP_NLPIPROBLEM}},), scip, nlpi, nlpiproblem)
 _SCIPstartDiveNLP(scip) = @scip_ccall_check("SCIPstartDiveNLP", 
@@ -4594,13 +4594,13 @@ _SCIPchgVarObjDiveNLP(scip, var, coef) = @scip_ccall_check("SCIPchgVarObjDiveNLP
 _SCIPchgVarBoundsDiveNLP(scip, var, lb, ub) = @scip_ccall_check("SCIPchgVarBoundsDiveNLP", 
     (Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Real,), scip, var, lb, ub)
 _SCIPchgVarsBoundsDiveNLP(scip, nvars, vars, lbs, ubs) = @scip_ccall_check("SCIPchgVarsBoundsDiveNLP", 
-    (Ptr{_SCIP}, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real},), scip, nvars, vars, lbs, ubs)
+    (Ptr{_SCIP}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real},), scip, nvars, vars, lbs, ubs)
 _SCIPsolveDiveNLP(scip) = @scip_ccall_check("SCIPsolveDiveNLP", 
     (Ptr{_SCIP},), scip)
 _SCIPcreateNlRow(scip, nlrow, name, constant, nlinvars, linvars, lincoefs, nquadvars, quadvars, nquadelems, quadelems, expression, lhs, rhs) = @scip_ccall_check("SCIPcreateNlRow", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_NLROW}}, Void, _SCIP_Real, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Void, Ptr{Ptr{_SCIP_VAR}}, Void, Ptr{_SCIP_QUADELEM}, Ptr{_SCIP_EXPRTREE}, _SCIP_Real, _SCIP_Real,), scip, nlrow, name, constant, nlinvars, linvars, lincoefs, nquadvars, quadvars, nquadelems, quadelems, expression, lhs, rhs)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_NLROW}}, Ptr{Ptr{Char}}, _SCIP_Real, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real}, Int, Ptr{Ptr{_SCIP_VAR}}, Int, Ptr{_SCIP_QUADELEM}, Ptr{_SCIP_EXPRTREE}, _SCIP_Real, _SCIP_Real,), scip, nlrow, name, constant, nlinvars, linvars, lincoefs, nquadvars, quadvars, nquadelems, quadelems, expression, lhs, rhs)
 _SCIPcreateEmptyNlRow(scip, nlrow, name, lhs, rhs) = @scip_ccall_check("SCIPcreateEmptyNlRow", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_NLROW}}, Void, _SCIP_Real, _SCIP_Real,), scip, nlrow, name, lhs, rhs)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_NLROW}}, Ptr{Ptr{Char}}, _SCIP_Real, _SCIP_Real,), scip, nlrow, name, lhs, rhs)
 _SCIPcreateNlRowFromRow(scip, nlrow, row) = @scip_ccall_check("SCIPcreateNlRowFromRow", 
     (Ptr{_SCIP}, Ptr{Ptr{_SCIP_NLROW}}, Ptr{_SCIP_ROW},), scip, nlrow, row)
 _SCIPcaptureNlRow(scip, nlrow) = @scip_ccall_check("SCIPcaptureNlRow", 
@@ -4616,23 +4616,23 @@ _SCIPchgNlRowConstant(scip, nlrow, constant) = @scip_ccall_check("SCIPchgNlRowCo
 _SCIPaddLinearCoefToNlRow(scip, nlrow, var, val) = @scip_ccall_check("SCIPaddLinearCoefToNlRow", 
     (Ptr{_SCIP}, Ptr{_SCIP_NLROW}, Ptr{_SCIP_VAR}, _SCIP_Real,), scip, nlrow, var, val)
 _SCIPaddLinearCoefsToNlRow(scip, nlrow, nvars, vars, vals) = @scip_ccall_check("SCIPaddLinearCoefsToNlRow", 
-    (Ptr{_SCIP}, Ptr{_SCIP_NLROW}, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real},), scip, nlrow, nvars, vars, vals)
+    (Ptr{_SCIP}, Ptr{_SCIP_NLROW}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real},), scip, nlrow, nvars, vars, vals)
 _SCIPchgNlRowLinearCoef(scip, nlrow, var, coef) = @scip_ccall_check("SCIPchgNlRowLinearCoef", 
     (Ptr{_SCIP}, Ptr{_SCIP_NLROW}, Ptr{_SCIP_VAR}, _SCIP_Real,), scip, nlrow, var, coef)
 _SCIPaddQuadVarToNlRow(scip, nlrow, var) = @scip_ccall_check("SCIPaddQuadVarToNlRow", 
     (Ptr{_SCIP}, Ptr{_SCIP_NLROW}, Ptr{_SCIP_VAR},), scip, nlrow, var)
 _SCIPaddQuadVarsToNlRow(scip, nlrow, nvars, vars) = @scip_ccall_check("SCIPaddQuadVarsToNlRow", 
-    (Ptr{_SCIP}, Ptr{_SCIP_NLROW}, Void, Ptr{Ptr{_SCIP_VAR}},), scip, nlrow, nvars, vars)
+    (Ptr{_SCIP}, Ptr{_SCIP_NLROW}, Int, Ptr{Ptr{_SCIP_VAR}},), scip, nlrow, nvars, vars)
 _SCIPaddQuadElementToNlRow(scip, nlrow, quadelem) = @scip_ccall_check("SCIPaddQuadElementToNlRow", 
     (Ptr{_SCIP}, Ptr{_SCIP_NLROW}, _SCIP_QUADELEM,), scip, nlrow, quadelem)
 _SCIPaddQuadElementsToNlRow(scip, nlrow, nquadelems, quadelems) = @scip_ccall_check("SCIPaddQuadElementsToNlRow", 
-    (Ptr{_SCIP}, Ptr{_SCIP_NLROW}, Void, Ptr{_SCIP_QUADELEM},), scip, nlrow, nquadelems, quadelems)
+    (Ptr{_SCIP}, Ptr{_SCIP_NLROW}, Int, Ptr{_SCIP_QUADELEM},), scip, nlrow, nquadelems, quadelems)
 _SCIPchgNlRowQuadElement(scip, nlrow, quadelement) = @scip_ccall_check("SCIPchgNlRowQuadElement", 
     (Ptr{_SCIP}, Ptr{_SCIP_NLROW}, _SCIP_QUADELEM,), scip, nlrow, quadelement)
 _SCIPsetNlRowExprtree(scip, nlrow, exprtree) = @scip_ccall_check("SCIPsetNlRowExprtree", 
     (Ptr{_SCIP}, Ptr{_SCIP_NLROW}, Ptr{_SCIP_EXPRTREE},), scip, nlrow, exprtree)
 _SCIPsetNlRowExprtreeParam(scip, nlrow, paramidx, paramval) = @scip_ccall_check("SCIPsetNlRowExprtreeParam", 
-    (Ptr{_SCIP}, Ptr{_SCIP_NLROW}, Void, _SCIP_Real,), scip, nlrow, paramidx, paramval)
+    (Ptr{_SCIP}, Ptr{_SCIP_NLROW}, Int, _SCIP_Real,), scip, nlrow, paramidx, paramval)
 _SCIPsetNlRowExprtreeParams(scip, nlrow, paramvals) = @scip_ccall_check("SCIPsetNlRowExprtreeParams", 
     (Ptr{_SCIP}, Ptr{_SCIP_NLROW}, Ptr{_SCIP_Real},), scip, nlrow, paramvals)
 _SCIPrecalcNlRowNLPActivity(scip, nlrow) = @scip_ccall_check("SCIPrecalcNlRowNLPActivity", 
@@ -4660,15 +4660,15 @@ _SCIPgetNlRowSolFeasibility(scip, nlrow, sol, feasibility) = @scip_ccall_check("
 _SCIPgetNlRowActivityBounds(scip, nlrow, minactivity, maxactivity) = @scip_ccall_check("SCIPgetNlRowActivityBounds", 
     (Ptr{_SCIP}, Ptr{_SCIP_NLROW}, Ptr{_SCIP_Real}, Ptr{_SCIP_Real},), scip, nlrow, minactivity, maxactivity)
 _SCIPprintNlRow(scip, nlrow, file) = @scip_ccall_check("SCIPprintNlRow", 
-    (Ptr{_SCIP}, Ptr{_SCIP_NLROW}, Void,), scip, nlrow, file)
+    (Ptr{_SCIP}, Ptr{_SCIP_NLROW}, Ptr{FILE},), scip, nlrow, file)
 _SCIPgetExprtreeTransformedVars(scip, tree) = @scip_ccall_check("SCIPgetExprtreeTransformedVars", 
     (Ptr{_SCIP}, Ptr{_SCIP_EXPRTREE},), scip, tree)
 _SCIPevalExprtreeSol(scip, tree, sol, val) = @scip_ccall_check("SCIPevalExprtreeSol", 
     (Ptr{_SCIP}, Ptr{_SCIP_EXPRTREE}, Ptr{_SCIP_SOL}, Ptr{_SCIP_Real},), scip, tree, sol, val)
 _SCIPevalExprtreeGlobalBounds(scip, tree, infinity, val) = @scip_ccall_check("SCIPevalExprtreeGlobalBounds", 
-    (Ptr{_SCIP}, Ptr{_SCIP_EXPRTREE}, _SCIP_Real, Void,), scip, tree, infinity, val)
+    (Ptr{_SCIP}, Ptr{_SCIP_EXPRTREE}, _SCIP_Real, Ptr{_SCIP_INTERVAL},), scip, tree, infinity, val)
 _SCIPevalExprtreeLocalBounds(scip, tree, infinity, val) = @scip_ccall_check("SCIPevalExprtreeLocalBounds", 
-    (Ptr{_SCIP}, Ptr{_SCIP_EXPRTREE}, _SCIP_Real, Void,), scip, tree, infinity, val)
+    (Ptr{_SCIP}, Ptr{_SCIP_EXPRTREE}, _SCIP_Real, Ptr{_SCIP_INTERVAL},), scip, tree, infinity, val)
 _SCIPaddCut(scip, sol, cut, forcecut, infeasible) = @scip_ccall_check("SCIPaddCut", 
     (Ptr{_SCIP}, Ptr{_SCIP_SOL}, Ptr{_SCIP_ROW}, _SCIP_Bool, Ptr{_SCIP_Bool},), scip, sol, cut, forcecut, infeasible)
 _SCIPaddPoolCut(scip, row) = @scip_ccall_check("SCIPaddPoolCut", 
@@ -4676,7 +4676,7 @@ _SCIPaddPoolCut(scip, row) = @scip_ccall_check("SCIPaddPoolCut",
 _SCIPdelPoolCut(scip, row) = @scip_ccall_check("SCIPdelPoolCut", 
     (Ptr{_SCIP}, Ptr{_SCIP_ROW},), scip, row)
 _SCIPcreateCutpool(scip, cutpool, agelimit) = @scip_ccall_check("SCIPcreateCutpool", 
-    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CUTPOOL}}, Void,), scip, cutpool, agelimit)
+    (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CUTPOOL}}, Int,), scip, cutpool, agelimit)
 _SCIPfreeCutpool(scip, cutpool) = @scip_ccall_check("SCIPfreeCutpool", 
     (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CUTPOOL}},), scip, cutpool)
 _SCIPaddRowCutpool(scip, cutpool, row) = @scip_ccall_check("SCIPaddRowCutpool", 
@@ -4718,13 +4718,13 @@ _SCIPchgRowLhsDive(scip, row, newlhs) = @scip_ccall_check("SCIPchgRowLhsDive",
 _SCIPchgRowRhsDive(scip, row, newrhs) = @scip_ccall_check("SCIPchgRowRhsDive", 
     (Ptr{_SCIP}, Ptr{_SCIP_ROW}, _SCIP_Real,), scip, row, newrhs)
 _SCIPsolveDiveLP(scip, itlim, lperror, cutoff) = @scip_ccall_check("SCIPsolveDiveLP", 
-    (Ptr{_SCIP}, Void, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool},), scip, itlim, lperror, cutoff)
+    (Ptr{_SCIP}, Int, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool},), scip, itlim, lperror, cutoff)
 _SCIPstartProbing(scip) = @scip_ccall_check("SCIPstartProbing", 
     (Ptr{_SCIP},), scip)
 _SCIPnewProbingNode(scip) = @scip_ccall_check("SCIPnewProbingNode", 
     (Ptr{_SCIP},), scip)
 _SCIPbacktrackProbing(scip, probingdepth) = @scip_ccall_check("SCIPbacktrackProbing", 
-    (Ptr{_SCIP}, Void,), scip, probingdepth)
+    (Ptr{_SCIP}, Int,), scip, probingdepth)
 _SCIPendProbing(scip) = @scip_ccall_check("SCIPendProbing", 
     (Ptr{_SCIP},), scip)
 _SCIPchgVarLbProbing(scip, var, newbound) = @scip_ccall_check("SCIPchgVarLbProbing", 
@@ -4734,21 +4734,21 @@ _SCIPchgVarUbProbing(scip, var, newbound) = @scip_ccall_check("SCIPchgVarUbProbi
 _SCIPfixVarProbing(scip, var, fixedval) = @scip_ccall_check("SCIPfixVarProbing", 
     (Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Real,), scip, var, fixedval)
 _SCIPpropagateProbing(scip, maxproprounds, cutoff, ndomredsfound) = @scip_ccall_check("SCIPpropagateProbing", 
-    (Ptr{_SCIP}, Void, Ptr{_SCIP_Bool}, Ptr{Int64},), scip, maxproprounds, cutoff, ndomredsfound)
+    (Ptr{_SCIP}, Int, Ptr{_SCIP_Bool}, Ptr{Int64},), scip, maxproprounds, cutoff, ndomredsfound)
 _SCIPpropagateProbingImplications(scip, cutoff) = @scip_ccall_check("SCIPpropagateProbingImplications", 
     (Ptr{_SCIP}, Ptr{_SCIP_Bool},), scip, cutoff)
 _SCIPsolveProbingLP(scip, itlim, lperror, cutoff) = @scip_ccall_check("SCIPsolveProbingLP", 
-    (Ptr{_SCIP}, Void, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool},), scip, itlim, lperror, cutoff)
+    (Ptr{_SCIP}, Int, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool},), scip, itlim, lperror, cutoff)
 _SCIPsolveProbingLPWithPricing(scip, pretendroot, displayinfo, maxpricerounds, lperror, cutoff) = @scip_ccall_check("SCIPsolveProbingLPWithPricing", 
-    (Ptr{_SCIP}, _SCIP_Bool, _SCIP_Bool, Void, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool},), scip, pretendroot, displayinfo, maxpricerounds, lperror, cutoff)
+    (Ptr{_SCIP}, _SCIP_Bool, _SCIP_Bool, Int, Ptr{_SCIP_Bool}, Ptr{_SCIP_Bool},), scip, pretendroot, displayinfo, maxpricerounds, lperror, cutoff)
 _SCIPgetLPBranchCands(scip, lpcands, lpcandssol, lpcandsfrac, nlpcands, npriolpcands, nfracimplvars) = @scip_ccall_check("SCIPgetLPBranchCands", 
-    (Ptr{_SCIP}, Ptr{Ptr{Ptr{_SCIP_VAR}}}, Ptr{Ptr{_SCIP_Real}}, Ptr{Ptr{_SCIP_Real}}, Void, Void, Void,), scip, lpcands, lpcandssol, lpcandsfrac, nlpcands, npriolpcands, nfracimplvars)
+    (Ptr{_SCIP}, Ptr{Ptr{Ptr{_SCIP_VAR}}}, Ptr{Ptr{_SCIP_Real}}, Ptr{Ptr{_SCIP_Real}}, Ptr{Int}, Ptr{Int}, Ptr{Int},), scip, lpcands, lpcandssol, lpcandsfrac, nlpcands, npriolpcands, nfracimplvars)
 _SCIPgetExternBranchCands(scip, externcands, externcandssol, externcandsscore, nexterncands, nprioexterncands, nprioexternbins, nprioexternints, nprioexternimpls) = @scip_ccall_check("SCIPgetExternBranchCands", 
-    (Ptr{_SCIP}, Ptr{Ptr{Ptr{_SCIP_VAR}}}, Ptr{Ptr{_SCIP_Real}}, Ptr{Ptr{_SCIP_Real}}, Void, Void, Void, Void, Void,), scip, externcands, externcandssol, externcandsscore, nexterncands, nprioexterncands, nprioexternbins, nprioexternints, nprioexternimpls)
+    (Ptr{_SCIP}, Ptr{Ptr{Ptr{_SCIP_VAR}}}, Ptr{Ptr{_SCIP_Real}}, Ptr{Ptr{_SCIP_Real}}, Ptr{Int}, Ptr{Int}, Ptr{Int}, Ptr{Int}, Ptr{Int},), scip, externcands, externcandssol, externcandsscore, nexterncands, nprioexterncands, nprioexternbins, nprioexternints, nprioexternimpls)
 _SCIPaddExternBranchCand(scip, var, score, solval) = @scip_ccall_check("SCIPaddExternBranchCand", 
     (Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Real, _SCIP_Real,), scip, var, score, solval)
 _SCIPgetPseudoBranchCands(scip, pseudocands, npseudocands, npriopseudocands) = @scip_ccall_check("SCIPgetPseudoBranchCands", 
-    (Ptr{_SCIP}, Ptr{Ptr{Ptr{_SCIP_VAR}}}, Void, Void,), scip, pseudocands, npseudocands, npriopseudocands)
+    (Ptr{_SCIP}, Ptr{Ptr{Ptr{_SCIP_VAR}}}, Ptr{Int}, Ptr{Int},), scip, pseudocands, npseudocands, npriopseudocands)
 _SCIPcreateChild(scip, node, nodeselprio, estimate) = @scip_ccall_check("SCIPcreateChild", 
     (Ptr{_SCIP}, Ptr{Ptr{_SCIP_NODE}}, _SCIP_Real, _SCIP_Real,), scip, node, nodeselprio, estimate)
 _SCIPbranchVar(scip, var, downchild, eqchild, upchild) = @scip_ccall_check("SCIPbranchVar", 
@@ -4758,7 +4758,7 @@ _SCIPbranchVarHole(scip, var, left, right, downchild, upchild) = @scip_ccall_che
 _SCIPbranchVarVal(scip, var, val, downchild, eqchild, upchild) = @scip_ccall_check("SCIPbranchVarVal", 
     (Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Real, Ptr{Ptr{_SCIP_NODE}}, Ptr{Ptr{_SCIP_NODE}}, Ptr{Ptr{_SCIP_NODE}},), scip, var, val, downchild, eqchild, upchild)
 _SCIPbranchVarValNary(scip, var, val, n, minwidth, widthfactor, nchildren) = @scip_ccall_check("SCIPbranchVarValNary", 
-    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Real, Void, _SCIP_Real, _SCIP_Real, Void,), scip, var, val, n, minwidth, widthfactor, nchildren)
+    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_Real, Int, _SCIP_Real, _SCIP_Real, Ptr{Int},), scip, var, val, n, minwidth, widthfactor, nchildren)
 _SCIPbranchLP(scip, result) = @scip_ccall_check("SCIPbranchLP", 
     (Ptr{_SCIP}, Ptr{_SCIP_RESULT},), scip, result)
 _SCIPbranchExtern(scip, result) = @scip_ccall_check("SCIPbranchExtern", 
@@ -4804,31 +4804,31 @@ _SCIPunlinkSol(scip, sol) = @scip_ccall_check("SCIPunlinkSol",
 _SCIPsetSolVal(scip, sol, var, val) = @scip_ccall_check("SCIPsetSolVal", 
     (Ptr{_SCIP}, Ptr{_SCIP_SOL}, Ptr{_SCIP_VAR}, _SCIP_Real,), scip, sol, var, val)
 _SCIPsetSolVals(scip, sol, nvars, vars, vals) = @scip_ccall_check("SCIPsetSolVals", 
-    (Ptr{_SCIP}, Ptr{_SCIP_SOL}, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real},), scip, sol, nvars, vars, vals)
+    (Ptr{_SCIP}, Ptr{_SCIP_SOL}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real},), scip, sol, nvars, vars, vals)
 _SCIPincSolVal(scip, sol, var, incval) = @scip_ccall_check("SCIPincSolVal", 
     (Ptr{_SCIP}, Ptr{_SCIP_SOL}, Ptr{_SCIP_VAR}, _SCIP_Real,), scip, sol, var, incval)
 _SCIPgetSolVals(scip, sol, nvars, vars, vals) = @scip_ccall_check("SCIPgetSolVals", 
-    (Ptr{_SCIP}, Ptr{_SCIP_SOL}, Void, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real},), scip, sol, nvars, vars, vals)
+    (Ptr{_SCIP}, Ptr{_SCIP_SOL}, Int, Ptr{Ptr{_SCIP_VAR}}, Ptr{_SCIP_Real},), scip, sol, nvars, vars, vals)
 _SCIPadjustImplicitSolVals(scip, sol, uselprows) = @scip_ccall_check("SCIPadjustImplicitSolVals", 
     (Ptr{_SCIP}, Ptr{_SCIP_SOL}, _SCIP_Bool,), scip, sol, uselprows)
 _SCIPprintSol(scip, sol, file, printzeros) = @scip_ccall_check("SCIPprintSol", 
-    (Ptr{_SCIP}, Ptr{_SCIP_SOL}, Void, _SCIP_Bool,), scip, sol, file, printzeros)
+    (Ptr{_SCIP}, Ptr{_SCIP_SOL}, Ptr{FILE}, _SCIP_Bool,), scip, sol, file, printzeros)
 _SCIPprintTransSol(scip, sol, file, printzeros) = @scip_ccall_check("SCIPprintTransSol", 
-    (Ptr{_SCIP}, Ptr{_SCIP_SOL}, Void, _SCIP_Bool,), scip, sol, file, printzeros)
+    (Ptr{_SCIP}, Ptr{_SCIP_SOL}, Ptr{FILE}, _SCIP_Bool,), scip, sol, file, printzeros)
 _SCIPprintDualSol(scip, file, printzeros) = @scip_ccall_check("SCIPprintDualSol", 
-    (Ptr{_SCIP}, Void, _SCIP_Bool,), scip, file, printzeros)
+    (Ptr{_SCIP}, Ptr{FILE}, _SCIP_Bool,), scip, file, printzeros)
 _SCIPprintRay(scip, sol, file, printzeros) = @scip_ccall_check("SCIPprintRay", 
-    (Ptr{_SCIP}, Ptr{_SCIP_SOL}, Void, _SCIP_Bool,), scip, sol, file, printzeros)
+    (Ptr{_SCIP}, Ptr{_SCIP_SOL}, Ptr{FILE}, _SCIP_Bool,), scip, sol, file, printzeros)
 _SCIPprintBestSol(scip, file, printzeros) = @scip_ccall_check("SCIPprintBestSol", 
-    (Ptr{_SCIP}, Void, _SCIP_Bool,), scip, file, printzeros)
+    (Ptr{_SCIP}, Ptr{FILE}, _SCIP_Bool,), scip, file, printzeros)
 _SCIPprintBestTransSol(scip, file, printzeros) = @scip_ccall_check("SCIPprintBestTransSol", 
-    (Ptr{_SCIP}, Void, _SCIP_Bool,), scip, file, printzeros)
+    (Ptr{_SCIP}, Ptr{FILE}, _SCIP_Bool,), scip, file, printzeros)
 _SCIProundSol(scip, sol, success) = @scip_ccall_check("SCIProundSol", 
     (Ptr{_SCIP}, Ptr{_SCIP_SOL}, Ptr{_SCIP_Bool},), scip, sol, success)
 _SCIPretransformSol(scip, sol) = @scip_ccall_check("SCIPretransformSol", 
     (Ptr{_SCIP}, Ptr{_SCIP_SOL},), scip, sol)
 _SCIPreadSol(scip, filename) = @scip_ccall_check("SCIPreadSol", 
-    (Ptr{_SCIP}, Void,), scip, filename)
+    (Ptr{_SCIP}, Ptr{Ptr{Char}},), scip, filename)
 _SCIPaddSol(scip, sol, stored) = @scip_ccall_check("SCIPaddSol", 
     (Ptr{_SCIP}, Ptr{_SCIP_SOL}, Ptr{_SCIP_Bool},), scip, sol, stored)
 _SCIPaddSolFree(scip, sol, stored) = @scip_ccall_check("SCIPaddSolFree", 
@@ -4846,45 +4846,45 @@ _SCIPcheckSol(scip, sol, printreason, checkbounds, checkintegrality, checklprows
 _SCIPcheckSolOrig(scip, sol, feasible, printreason, completely) = @scip_ccall_check("SCIPcheckSolOrig", 
     (Ptr{_SCIP}, Ptr{_SCIP_SOL}, Ptr{_SCIP_Bool}, _SCIP_Bool, _SCIP_Bool,), scip, sol, feasible, printreason, completely)
 _SCIPcatchEvent(scip, eventtype, eventhdlr, eventdata, filterpos) = @scip_ccall_check("SCIPcatchEvent", 
-    (Ptr{_SCIP}, _SCIP_EVENTTYPE, Ptr{_SCIP_EVENTHDLR}, Ptr{_SCIP_EVENTDATA}, Void,), scip, eventtype, eventhdlr, eventdata, filterpos)
+    (Ptr{_SCIP}, _SCIP_EVENTTYPE, Ptr{_SCIP_EVENTHDLR}, Ptr{_SCIP_EVENTDATA}, Ptr{Int},), scip, eventtype, eventhdlr, eventdata, filterpos)
 _SCIPdropEvent(scip, eventtype, eventhdlr, eventdata, filterpos) = @scip_ccall_check("SCIPdropEvent", 
-    (Ptr{_SCIP}, _SCIP_EVENTTYPE, Ptr{_SCIP_EVENTHDLR}, Ptr{_SCIP_EVENTDATA}, Void,), scip, eventtype, eventhdlr, eventdata, filterpos)
+    (Ptr{_SCIP}, _SCIP_EVENTTYPE, Ptr{_SCIP_EVENTHDLR}, Ptr{_SCIP_EVENTDATA}, Int,), scip, eventtype, eventhdlr, eventdata, filterpos)
 _SCIPcatchVarEvent(scip, var, eventtype, eventhdlr, eventdata, filterpos) = @scip_ccall_check("SCIPcatchVarEvent", 
-    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_EVENTTYPE, Ptr{_SCIP_EVENTHDLR}, Ptr{_SCIP_EVENTDATA}, Void,), scip, var, eventtype, eventhdlr, eventdata, filterpos)
+    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_EVENTTYPE, Ptr{_SCIP_EVENTHDLR}, Ptr{_SCIP_EVENTDATA}, Ptr{Int},), scip, var, eventtype, eventhdlr, eventdata, filterpos)
 _SCIPdropVarEvent(scip, var, eventtype, eventhdlr, eventdata, filterpos) = @scip_ccall_check("SCIPdropVarEvent", 
-    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_EVENTTYPE, Ptr{_SCIP_EVENTHDLR}, Ptr{_SCIP_EVENTDATA}, Void,), scip, var, eventtype, eventhdlr, eventdata, filterpos)
+    (Ptr{_SCIP}, Ptr{_SCIP_VAR}, _SCIP_EVENTTYPE, Ptr{_SCIP_EVENTHDLR}, Ptr{_SCIP_EVENTDATA}, Int,), scip, var, eventtype, eventhdlr, eventdata, filterpos)
 _SCIPcatchRowEvent(scip, row, eventtype, eventhdlr, eventdata, filterpos) = @scip_ccall_check("SCIPcatchRowEvent", 
-    (Ptr{_SCIP}, Ptr{_SCIP_ROW}, _SCIP_EVENTTYPE, Ptr{_SCIP_EVENTHDLR}, Ptr{_SCIP_EVENTDATA}, Void,), scip, row, eventtype, eventhdlr, eventdata, filterpos)
+    (Ptr{_SCIP}, Ptr{_SCIP_ROW}, _SCIP_EVENTTYPE, Ptr{_SCIP_EVENTHDLR}, Ptr{_SCIP_EVENTDATA}, Ptr{Int},), scip, row, eventtype, eventhdlr, eventdata, filterpos)
 _SCIPdropRowEvent(scip, row, eventtype, eventhdlr, eventdata, filterpos) = @scip_ccall_check("SCIPdropRowEvent", 
-    (Ptr{_SCIP}, Ptr{_SCIP_ROW}, _SCIP_EVENTTYPE, Ptr{_SCIP_EVENTHDLR}, Ptr{_SCIP_EVENTDATA}, Void,), scip, row, eventtype, eventhdlr, eventdata, filterpos)
+    (Ptr{_SCIP}, Ptr{_SCIP_ROW}, _SCIP_EVENTTYPE, Ptr{_SCIP_EVENTHDLR}, Ptr{_SCIP_EVENTDATA}, Int,), scip, row, eventtype, eventhdlr, eventdata, filterpos)
 _SCIPgetChildren(scip, children, nchildren) = @scip_ccall_check("SCIPgetChildren", 
-    (Ptr{_SCIP}, Ptr{Ptr{Ptr{_SCIP_NODE}}}, Void,), scip, children, nchildren)
+    (Ptr{_SCIP}, Ptr{Ptr{Ptr{_SCIP_NODE}}}, Ptr{Int},), scip, children, nchildren)
 _SCIPgetSiblings(scip, siblings, nsiblings) = @scip_ccall_check("SCIPgetSiblings", 
-    (Ptr{_SCIP}, Ptr{Ptr{Ptr{_SCIP_NODE}}}, Void,), scip, siblings, nsiblings)
+    (Ptr{_SCIP}, Ptr{Ptr{Ptr{_SCIP_NODE}}}, Ptr{Int},), scip, siblings, nsiblings)
 _SCIPgetLeaves(scip, leaves, nleaves) = @scip_ccall_check("SCIPgetLeaves", 
-    (Ptr{_SCIP}, Ptr{Ptr{Ptr{_SCIP_NODE}}}, Void,), scip, leaves, nleaves)
+    (Ptr{_SCIP}, Ptr{Ptr{Ptr{_SCIP_NODE}}}, Ptr{Int},), scip, leaves, nleaves)
 _SCIPgetOpenNodesData(scip, leaves, children, siblings, nleaves, nchildren, nsiblings) = @scip_ccall_check("SCIPgetOpenNodesData", 
-    (Ptr{_SCIP}, Ptr{Ptr{Ptr{_SCIP_NODE}}}, Ptr{Ptr{Ptr{_SCIP_NODE}}}, Ptr{Ptr{Ptr{_SCIP_NODE}}}, Void, Void, Void,), scip, leaves, children, siblings, nleaves, nchildren, nsiblings)
+    (Ptr{_SCIP}, Ptr{Ptr{Ptr{_SCIP_NODE}}}, Ptr{Ptr{Ptr{_SCIP_NODE}}}, Ptr{Ptr{Ptr{_SCIP_NODE}}}, Ptr{Int}, Ptr{Int}, Ptr{Int},), scip, leaves, children, siblings, nleaves, nchildren, nsiblings)
 _SCIPcutoffNode(scip, node) = @scip_ccall_check("SCIPcutoffNode", 
     (Ptr{_SCIP}, Ptr{_SCIP_NODE},), scip, node)
 _SCIPrepropagateNode(scip, node) = @scip_ccall_check("SCIPrepropagateNode", 
     (Ptr{_SCIP}, Ptr{_SCIP_NODE},), scip, node)
 _SCIPprintNodeRootPath(scip, node, file) = @scip_ccall_check("SCIPprintNodeRootPath", 
-    (Ptr{_SCIP}, Ptr{_SCIP_NODE}, Void,), scip, node, file)
+    (Ptr{_SCIP}, Ptr{_SCIP_NODE}, Ptr{FILE},), scip, node, file)
 _SCIPupdateCutoffbound(scip, cutoffbound) = @scip_ccall_check("SCIPupdateCutoffbound", 
     (Ptr{_SCIP}, _SCIP_Real,), scip, cutoffbound)
 _SCIPprintOrigProblem(scip, file, extension, genericnames) = @scip_ccall_check("SCIPprintOrigProblem", 
-    (Ptr{_SCIP}, Void, Void, _SCIP_Bool,), scip, file, extension, genericnames)
+    (Ptr{_SCIP}, Ptr{FILE}, Ptr{Ptr{Char}}, _SCIP_Bool,), scip, file, extension, genericnames)
 _SCIPprintTransProblem(scip, file, extension, genericnames) = @scip_ccall_check("SCIPprintTransProblem", 
-    (Ptr{_SCIP}, Void, Void, _SCIP_Bool,), scip, file, extension, genericnames)
+    (Ptr{_SCIP}, Ptr{FILE}, Ptr{Ptr{Char}}, _SCIP_Bool,), scip, file, extension, genericnames)
 _SCIPprintStatistics(scip, file) = @scip_ccall_check("SCIPprintStatistics", 
-    (Ptr{_SCIP}, Void,), scip, file)
+    (Ptr{_SCIP}, Ptr{FILE},), scip, file)
 _SCIPprintBranchingStatistics(scip, file) = @scip_ccall_check("SCIPprintBranchingStatistics", 
-    (Ptr{_SCIP}, Void,), scip, file)
+    (Ptr{_SCIP}, Ptr{FILE},), scip, file)
 _SCIPprintDisplayLine(scip, file, verblevel, endline) = @scip_ccall_check("SCIPprintDisplayLine", 
-    (Ptr{_SCIP}, Void, _SCIP_VERBLEVEL, _SCIP_Bool,), scip, file, verblevel, endline)
+    (Ptr{_SCIP}, Ptr{FILE}, _SCIP_VERBLEVEL, _SCIP_Bool,), scip, file, verblevel, endline)
 _SCIPwriteImplicationConflictGraph(scip, filename) = @scip_ccall_check("SCIPwriteImplicationConflictGraph", 
-    (Ptr{_SCIP}, Void,), scip, filename)
+    (Ptr{_SCIP}, Ptr{Ptr{Char}},), scip, filename)
 _SCIPcreateClock(scip, clck) = @scip_ccall_check("SCIPcreateClock", 
     (Ptr{_SCIP}, Ptr{Ptr{_SCIP_CLOCK}},), scip, clck)
 _SCIPcreateCPUClock(scip, clck) = @scip_ccall_check("SCIPcreateCPUClock", 
@@ -4916,56 +4916,56 @@ _SCIPchgDualfeastol(scip, dualfeastol) = @scip_ccall_check("SCIPchgDualfeastol",
 _SCIPchgBarrierconvtol(scip, barrierconvtol) = @scip_ccall_check("SCIPchgBarrierconvtol", 
     (Ptr{_SCIP}, _SCIP_Real,), scip, barrierconvtol)
 _SCIPensureBlockMemoryArray_call(scip, arrayptr, elemsize, arraysize, minsize) = @scip_ccall_check("SCIPensureBlockMemoryArray_call", 
-    (Ptr{_SCIP}, Void, Void, Void, Void,), scip, arrayptr, elemsize, arraysize, minsize)
+    (Ptr{_SCIP}, Ptr{Ptr{Void}}, size_t, Ptr{Int}, Int,), scip, arrayptr, elemsize, arraysize, minsize)
 _SCIPallocBufferSize(scip, ptr, size) = @scip_ccall_check("SCIPallocBufferSize", 
-    (Ptr{_SCIP}, Void, Void,), scip, ptr, size)
+    (Ptr{_SCIP}, Ptr{Ptr{Void}}, Int,), scip, ptr, size)
 _SCIPduplicateBufferSize(scip, ptr, source, size) = @scip_ccall_check("SCIPduplicateBufferSize", 
-    (Ptr{_SCIP}, Void, Void, Void,), scip, ptr, source, size)
+    (Ptr{_SCIP}, Ptr{Ptr{Void}}, Ptr{Ptr{Void}}, Int,), scip, ptr, source, size)
 _SCIPreallocBufferSize(scip, ptr, size) = @scip_ccall_check("SCIPreallocBufferSize", 
-    (Ptr{_SCIP}, Void, Void,), scip, ptr, size)
+    (Ptr{_SCIP}, Ptr{Ptr{Void}}, Int,), scip, ptr, size)
 _SCIPcreateRealarray(scip, realarray) = @scip_ccall_check("SCIPcreateRealarray", 
     (Ptr{_SCIP}, Ptr{Ptr{_SCIP_REALARRAY}},), scip, realarray)
 _SCIPfreeRealarray(scip, realarray) = @scip_ccall_check("SCIPfreeRealarray", 
     (Ptr{_SCIP}, Ptr{Ptr{_SCIP_REALARRAY}},), scip, realarray)
 _SCIPextendRealarray(scip, realarray, minidx, maxidx) = @scip_ccall_check("SCIPextendRealarray", 
-    (Ptr{_SCIP}, Ptr{_SCIP_REALARRAY}, Void, Void,), scip, realarray, minidx, maxidx)
+    (Ptr{_SCIP}, Ptr{_SCIP_REALARRAY}, Int, Int,), scip, realarray, minidx, maxidx)
 _SCIPclearRealarray(scip, realarray) = @scip_ccall_check("SCIPclearRealarray", 
     (Ptr{_SCIP}, Ptr{_SCIP_REALARRAY},), scip, realarray)
 _SCIPsetRealarrayVal(scip, realarray, idx, val) = @scip_ccall_check("SCIPsetRealarrayVal", 
-    (Ptr{_SCIP}, Ptr{_SCIP_REALARRAY}, Void, _SCIP_Real,), scip, realarray, idx, val)
+    (Ptr{_SCIP}, Ptr{_SCIP_REALARRAY}, Int, _SCIP_Real,), scip, realarray, idx, val)
 _SCIPincRealarrayVal(scip, realarray, idx, incval) = @scip_ccall_check("SCIPincRealarrayVal", 
-    (Ptr{_SCIP}, Ptr{_SCIP_REALARRAY}, Void, _SCIP_Real,), scip, realarray, idx, incval)
+    (Ptr{_SCIP}, Ptr{_SCIP_REALARRAY}, Int, _SCIP_Real,), scip, realarray, idx, incval)
 _SCIPcreateIntarray(scip, intarray) = @scip_ccall_check("SCIPcreateIntarray", 
     (Ptr{_SCIP}, Ptr{Ptr{_SCIP_INTARRAY}},), scip, intarray)
 _SCIPfreeIntarray(scip, intarray) = @scip_ccall_check("SCIPfreeIntarray", 
     (Ptr{_SCIP}, Ptr{Ptr{_SCIP_INTARRAY}},), scip, intarray)
 _SCIPextendIntarray(scip, intarray, minidx, maxidx) = @scip_ccall_check("SCIPextendIntarray", 
-    (Ptr{_SCIP}, Ptr{_SCIP_INTARRAY}, Void, Void,), scip, intarray, minidx, maxidx)
+    (Ptr{_SCIP}, Ptr{_SCIP_INTARRAY}, Int, Int,), scip, intarray, minidx, maxidx)
 _SCIPclearIntarray(scip, intarray) = @scip_ccall_check("SCIPclearIntarray", 
     (Ptr{_SCIP}, Ptr{_SCIP_INTARRAY},), scip, intarray)
 _SCIPsetIntarrayVal(scip, intarray, idx, val) = @scip_ccall_check("SCIPsetIntarrayVal", 
-    (Ptr{_SCIP}, Ptr{_SCIP_INTARRAY}, Void, Void,), scip, intarray, idx, val)
+    (Ptr{_SCIP}, Ptr{_SCIP_INTARRAY}, Int, Int,), scip, intarray, idx, val)
 _SCIPincIntarrayVal(scip, intarray, idx, incval) = @scip_ccall_check("SCIPincIntarrayVal", 
-    (Ptr{_SCIP}, Ptr{_SCIP_INTARRAY}, Void, Void,), scip, intarray, idx, incval)
+    (Ptr{_SCIP}, Ptr{_SCIP_INTARRAY}, Int, Int,), scip, intarray, idx, incval)
 _SCIPcreateBoolarray(scip, boolarray) = @scip_ccall_check("SCIPcreateBoolarray", 
     (Ptr{_SCIP}, Ptr{Ptr{_SCIP_BOOLARRAY}},), scip, boolarray)
 _SCIPfreeBoolarray(scip, boolarray) = @scip_ccall_check("SCIPfreeBoolarray", 
     (Ptr{_SCIP}, Ptr{Ptr{_SCIP_BOOLARRAY}},), scip, boolarray)
 _SCIPextendBoolarray(scip, boolarray, minidx, maxidx) = @scip_ccall_check("SCIPextendBoolarray", 
-    (Ptr{_SCIP}, Ptr{_SCIP_BOOLARRAY}, Void, Void,), scip, boolarray, minidx, maxidx)
+    (Ptr{_SCIP}, Ptr{_SCIP_BOOLARRAY}, Int, Int,), scip, boolarray, minidx, maxidx)
 _SCIPclearBoolarray(scip, boolarray) = @scip_ccall_check("SCIPclearBoolarray", 
     (Ptr{_SCIP}, Ptr{_SCIP_BOOLARRAY},), scip, boolarray)
 _SCIPsetBoolarrayVal(scip, boolarray, idx, val) = @scip_ccall_check("SCIPsetBoolarrayVal", 
-    (Ptr{_SCIP}, Ptr{_SCIP_BOOLARRAY}, Void, _SCIP_Bool,), scip, boolarray, idx, val)
+    (Ptr{_SCIP}, Ptr{_SCIP_BOOLARRAY}, Int, _SCIP_Bool,), scip, boolarray, idx, val)
 _SCIPcreatePtrarray(scip, ptrarray) = @scip_ccall_check("SCIPcreatePtrarray", 
     (Ptr{_SCIP}, Ptr{Ptr{_SCIP_PTRARRAY}},), scip, ptrarray)
 _SCIPfreePtrarray(scip, ptrarray) = @scip_ccall_check("SCIPfreePtrarray", 
     (Ptr{_SCIP}, Ptr{Ptr{_SCIP_PTRARRAY}},), scip, ptrarray)
 _SCIPextendPtrarray(scip, ptrarray, minidx, maxidx) = @scip_ccall_check("SCIPextendPtrarray", 
-    (Ptr{_SCIP}, Ptr{_SCIP_PTRARRAY}, Void, Void,), scip, ptrarray, minidx, maxidx)
+    (Ptr{_SCIP}, Ptr{_SCIP_PTRARRAY}, Int, Int,), scip, ptrarray, minidx, maxidx)
 _SCIPclearPtrarray(scip, ptrarray) = @scip_ccall_check("SCIPclearPtrarray", 
     (Ptr{_SCIP}, Ptr{_SCIP_PTRARRAY},), scip, ptrarray)
 _SCIPsetPtrarrayVal(scip, ptrarray, idx, val) = @scip_ccall_check("SCIPsetPtrarrayVal", 
-    (Ptr{_SCIP}, Ptr{_SCIP_PTRARRAY}, Void, Void,), scip, ptrarray, idx, val)
+    (Ptr{_SCIP}, Ptr{_SCIP_PTRARRAY}, Int, Ptr{Void},), scip, ptrarray, idx, val)
 _SCIPincludeDefaultPlugins(scip) = @scip_ccall_check("SCIPincludeDefaultPlugins", 
     (Ptr{_SCIP},), scip)
