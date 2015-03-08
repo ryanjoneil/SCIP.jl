@@ -7,8 +7,6 @@ var TYPE_MAP = map[string]string{
 	"SCIP_Longint": "Int64",
 	"char":         "Char",
 	"char *":       "String",
-	"const char":   "Char",
-	"const char *": "String",
 	"double":       "Float64",
 	"int":          "Int",
 	"unsigned int": "Uint",

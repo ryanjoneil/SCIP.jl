@@ -5,35 +5,58 @@ import (
 	"strings"
 )
 
-func (info *SCIPInfo) getOrigType(typeStr, refStr string) string {
+func (info *SCIPInfo) getOrigType(typeStr string, ref []string) string {
 	// If we have a refStr and a typeStr with something other than *,
 	// such as ["EXTERN", "size_t"], then our type should just be
 	// the typeStr.
-	typeStr = strings.Replace(typeStr, "const ", "*", 1)
-	typeStr = strings.Replace(typeStr, "*const", "*", 1)
-	typeStr = strings.Replace(typeStr, " const", "", 1)
+	s := []string{}
+	for _, r := range ref {
+		r = strings.TrimSpace(r)
+		if r != "" {
+			s = append(s, r)
+		}
+	}
 	typeStr = strings.TrimSpace(typeStr)
-	refStr = strings.TrimSpace(refStr)
-
-	var fullType string
-	if strings.Replace(typeStr, "*", "", -1) != "" && refStr != "" {
-		fullType = typeStr
-	} else {
-		fullType = strings.TrimSpace(fmt.Sprintf("%s %s", refStr, typeStr))
+	if typeStr != "" {
+		s = append(s, typeStr)
 	}
 
-	return fullType
+	fmt.Println("TYPE: ", strings.Join(s, " "))
+	return strings.Join(s, " ")
 }
 
 func (info *SCIPInfo) getFinalType(typeStr string) string {
-	numStar := strings.Count(typeStr, "*")
-	typeStr = strings.TrimSpace(strings.Replace(typeStr, "*", "", -1))
+	// Strip off erronous "..." at end.
+	typeStr = strings.TrimSpace(strings.TrimSuffix(typeStr, "..."))
 
-	// Trim off const modifiers.
-	if strings.HasSuffix(typeStr, " const") {
-		typeStr = strings.Replace(typeStr, " const", "", -1)
+	// Types of the form "SCIP_DECL_BRANCHCOPY ((*branchcopy))" have embedded
+	// macros and can't be parsed yet.
+	if strings.Contains(typeStr, "((") {
+		return ""
 	}
 
+	// Strip "EXTERN" off the start.
+	typeStr = strings.TrimPrefix(typeStr, "EXTERN ")
+
+	// Strip "const" off the right of types like "int *const" and the left
+	// of types like "const char *".
+	typeStr = strings.TrimPrefix(typeStr, "const ")
+	typeStr = strings.TrimSuffix(typeStr, "const")
+	typeStr = strings.TrimSpace(typeStr)
+
+	// See if this is a known type.
+	if jlType, ok := TYPE_MAP[typeStr]; ok {
+		return jlType
+	}
+
+	numStar := 0
+	for strings.HasSuffix(typeStr, "*") {
+		numStar += 1
+		typeStr = strings.TrimSuffix(typeStr, "*")
+	}
+	typeStr = strings.TrimSpace(typeStr)
+
+	// See if this is a known type without its *'s at the end.
 	if jlType, ok := TYPE_MAP[typeStr]; ok {
 		typeStr = jlType
 	}
@@ -49,9 +72,6 @@ func (info *SCIPInfo) getFinalType(typeStr string) string {
 		typeStr = fmt.Sprintf("Ptr{%s}", typeStr)
 	}
 
-	if typeStr == "" {
-		typeStr = "Void"
-	}
 	return typeStr
 }
 
@@ -67,14 +87,7 @@ func (info *SCIPInfo) ConvertFunction(member MemberDef) {
 
 	// Convert return argument
 	var retType InfoParamType
-	if len(member.Type.Ref) > 0 {
-		retType.OrigType = info.getOrigType(
-			member.Type.TypeStr,
-			member.Type.Ref[len(member.Type.Ref)-1],
-		)
-	} else {
-		retType.OrigType = info.getOrigType(member.Type.TypeStr, "")
-	}
+	retType.OrigType = info.getOrigType(member.Type.TypeStr, member.Type.Ref)
 	retType.FinalType = info.getFinalType(retType.OrigType)
 
 	// Convert function parameters
@@ -85,14 +98,7 @@ func (info *SCIPInfo) ConvertFunction(member MemberDef) {
 		for _, p := range member.Params {
 			// Catch void parameter lists.
 			var newParam InfoParamType
-			if len(p.Type.Ref) > 0 {
-				newParam.OrigType = info.getOrigType(
-					p.Type.TypeStr,
-					p.Type.Ref[len(p.Type.Ref)-1],
-				)
-			} else {
-				newParam.OrigType = info.getOrigType(p.Type.TypeStr, "")
-			}
+			newParam.OrigType = info.getOrigType(p.Type.TypeStr, p.Type.Ref)
 			newParam.FinalType = info.getFinalType(newParam.OrigType)
 			newParam.OrigName = p.DeclName
 			newParam.Description = strings.TrimSpace(
