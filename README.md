@@ -63,5 +63,3 @@ If you need to change the Julia code under `src/wrapped` *always* change it unde
 $ make # this builds bin/scipgen
 $ ./bin/scipgen xml/ templates/ src/
 ```
-
-You'll need Python 2.7 along with `lxml` and `Jinja2`.
