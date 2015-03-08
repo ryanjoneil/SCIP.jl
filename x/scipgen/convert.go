@@ -97,6 +97,8 @@ type SCIPInfo struct {
 		JlInit    string // initializer in Julia
 	}
 
+	SCIPTypes map[string]bool // SCIP types that we see in function calls
+
 	defines     map[string]bool // true if we've already seen a define
 	enums       map[string]bool // true if we've already seen an enum
 	functions   map[string]bool // true if we've already seen a function
@@ -106,6 +108,7 @@ type SCIPInfo struct {
 // NewSCIPInfo constructs a SCIPInfo instance and initializes its maps.
 func NewSCIPInfo() *SCIPInfo {
 	return &SCIPInfo{
+		SCIPTypes:   make(map[string]bool),
 		defines:     make(map[string]bool),
 		enums:       make(map[string]bool),
 		functions:   make(map[string]bool),
@@ -136,5 +139,16 @@ func (info *SCIPInfo) Convert(doxygen *Doxygen) {
 				info.ConvertTypedef(member)
 			}
 		}
+	}
+
+	// Remove anything from SCIPTypes that is an enum or typedef.
+	for _, e := range info.Enums {
+		delete(info.SCIPTypes, e.FinalName)
+	}
+	for _, d := range info.Defines {
+		delete(info.SCIPTypes, d.FinalName)
+	}
+	for _, t := range info.TypeAliases {
+		delete(info.SCIPTypes, t.FinalName)
 	}
 }

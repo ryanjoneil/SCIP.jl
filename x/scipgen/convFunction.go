@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-func getOrigType(typeStr, refStr string) string {
+func (info *SCIPInfo) getOrigType(typeStr, refStr string) string {
 	// If we have a refStr and a typeStr with something other than *,
 	// such as ["EXTERN", "size_t"], then our type should just be
 	// the typeStr.
@@ -24,7 +24,7 @@ func getOrigType(typeStr, refStr string) string {
 	return fullType
 }
 
-func getFinalType(typeStr string) string {
+func (info *SCIPInfo) getFinalType(typeStr string) string {
 	numStar := strings.Count(typeStr, "*")
 	typeStr = strings.TrimSpace(strings.Replace(typeStr, "*", "", -1))
 
@@ -37,8 +37,12 @@ func getFinalType(typeStr string) string {
 		typeStr = jlType
 	}
 
-	// TODO: record type alias
 	typeStr = SCIPName(typeStr)
+
+	// Record types that start with SCIP so we can declare them later
+	if strings.HasPrefix(typeStr, "_SCIP") {
+		info.SCIPTypes[typeStr] = true
+	}
 
 	for ; numStar > 0; numStar-- {
 		typeStr = fmt.Sprintf("Ptr{%s}", typeStr)
@@ -59,24 +63,24 @@ func (info *SCIPInfo) ConvertFunction(member MemberDef) {
 	// Convert return argument
 	var retType InfoParamType
 	if len(member.Type.Ref) > 0 {
-		retType.OrigType = getOrigType(
+		retType.OrigType = info.getOrigType(
 			member.Type.TypeStr,
 			member.Type.Ref[len(member.Type.Ref)-1],
 		)
 	}
-	retType.FinalType = getFinalType(retType.OrigType)
+	retType.FinalType = info.getFinalType(retType.OrigType)
 
 	// Convert function parameters
 	var params []InfoParamType
 	for _, p := range member.Params {
 		var newParam InfoParamType
 		if len(p.Type.Ref) > 0 {
-			newParam.OrigType = getOrigType(
+			newParam.OrigType = info.getOrigType(
 				p.Type.TypeStr,
 				p.Type.Ref[len(p.Type.Ref)-1],
 			)
 		}
-		newParam.FinalType = getFinalType(newParam.OrigType)
+		newParam.FinalType = info.getFinalType(newParam.OrigType)
 		newParam.OrigName = p.DeclName
 		newParam.Description = strings.TrimSpace(
 			strings.Replace(p.BriefDescription.Para, `"`, `\"`, -1),
