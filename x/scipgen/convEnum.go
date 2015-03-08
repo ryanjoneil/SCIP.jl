@@ -24,7 +24,7 @@ func (info *SCIPInfo) ConvertEnum(member MemberDef) {
 
 		values = append(values, InfoEnumValue{
 			OrigName:    enumVal.Name,
-			FinalName:   "_" + enumVal.Name,
+			FinalName:   SCIPName(enumVal.Name),
 			Init:        i,
 			Description: desc,
 		})
@@ -37,7 +37,7 @@ func (info *SCIPInfo) ConvertEnum(member MemberDef) {
 		Values    []InfoEnumValue
 	}{
 		OrigName:  member.Name,
-		FinalName: "_" + member.Name,
+		FinalName: SCIPName(member.Name),
 		Values:    values,
 	})
 }

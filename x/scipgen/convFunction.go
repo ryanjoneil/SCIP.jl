@@ -37,10 +37,8 @@ func getFinalType(typeStr string) string {
 		typeStr = jlType
 	}
 
-	if strings.HasPrefix(typeStr, "SCIP") {
-		// TODO: record type alias
-		typeStr = "_" + typeStr
-	}
+	// TODO: record type alias
+	typeStr = SCIPName(typeStr)
 
 	for ; numStar > 0; numStar-- {
 		typeStr = fmt.Sprintf("Ptr{%s}", typeStr)
@@ -98,14 +96,10 @@ func (info *SCIPInfo) ConvertFunction(member MemberDef) {
 	newFunc.ReturnType = retType
 	newFunc.Arguments = params
 	newFunc.OrigName = member.Name
-	newFunc.FinalName = "_" + member.Name
+	newFunc.FinalName = SCIPName(member.Name)
 	newFunc.Description = strings.TrimSpace(
 		strings.Replace(member.DetailedDescription.Para, `"`, `\"`, -1),
 	)
-
-	if newFunc.OrigName == "SCIPfread" {
-		fmt.Println(member.Type.Ref, member.Type.TypeStr)
-	}
 
 	if !newFunc.ParsedOK() {
 		return

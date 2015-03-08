@@ -1,9 +1,5 @@
 package main
 
-import (
-	"strings"
-)
-
 func (info *SCIPInfo) AddTypeAlias(name, cinit, jlinit string) {
 	// Have we seen this define before?
 	if _, ok := info.typealiases[name]; ok {
@@ -11,14 +7,8 @@ func (info *SCIPInfo) AddTypeAlias(name, cinit, jlinit string) {
 	}
 
 	// Prepend SCIP types with _.
-	finalName := name
-	if strings.HasPrefix(name, "SCIP") {
-		finalName = "_" + name
-	}
-
-	if strings.HasPrefix(jlinit, "SCIP") {
-		jlinit = "_" + jlinit
-	}
+	finalName := SCIPName(name)
+	jlinit = SCIPName(jlinit)
 
 	info.typealiases[name] = true
 	info.TypeAliases = append(info.TypeAliases, struct {

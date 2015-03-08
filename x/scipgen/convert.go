@@ -1,5 +1,7 @@
 package main
 
+import "strings"
+
 // Mapping of standard C types to Julia types.
 var TYPE_MAP = map[string]string{
 	"SCIP_Longint": "Int64",
@@ -60,6 +62,13 @@ func (f InfoFunction) ParsedOK() bool {
 		}
 	}
 	return true
+}
+
+func SCIPName(name string) string {
+	if strings.HasPrefix(name, "SCIP") {
+		return "_" + name
+	}
+	return name
 }
 
 // SCIPInfo contains the relevant data for rendering SCIP.jl template code,
