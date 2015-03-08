@@ -72,27 +72,32 @@ func (info *SCIPInfo) ConvertFunction(member MemberDef) {
 
 	// Convert function parameters
 	var params []InfoParamType
-	for _, p := range member.Params {
-		var newParam InfoParamType
-		if len(p.Type.Ref) > 0 {
-			newParam.OrigType = info.getOrigType(
-				p.Type.TypeStr,
-				p.Type.Ref[len(p.Type.Ref)-1],
+	if len(member.Params) == 1 && member.Params[0].Type.TypeStr == "void" {
+		// No parameters
+	} else {
+		for _, p := range member.Params {
+			// Catch void parameter lists.
+			var newParam InfoParamType
+			if len(p.Type.Ref) > 0 {
+				newParam.OrigType = info.getOrigType(
+					p.Type.TypeStr,
+					p.Type.Ref[len(p.Type.Ref)-1],
+				)
+			}
+			newParam.FinalType = info.getFinalType(newParam.OrigType)
+			newParam.OrigName = p.DeclName
+			newParam.Description = strings.TrimSpace(
+				strings.Replace(p.BriefDescription.Para, `"`, `\"`, -1),
 			)
-		}
-		newParam.FinalType = info.getFinalType(newParam.OrigType)
-		newParam.OrigName = p.DeclName
-		newParam.Description = strings.TrimSpace(
-			strings.Replace(p.BriefDescription.Para, `"`, `\"`, -1),
-		)
 
-		if _, ok := JULIA_BUILTINS[p.DeclName]; ok {
-			newParam.FinalName = p.DeclName + "Var"
-		} else {
-			newParam.FinalName = p.DeclName
-		}
+			if _, ok := JULIA_BUILTINS[p.DeclName]; ok {
+				newParam.FinalName = p.DeclName + "Var"
+			} else {
+				newParam.FinalName = p.DeclName
+			}
 
-		params = append(params, newParam)
+			params = append(params, newParam)
+		}
 	}
 
 	// Construct into a function type
