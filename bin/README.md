@@ -1,5 +1,5 @@
-To run the wrapping code in python, ensure you ``lxml`` and ``jinja2`` installed. From the package root directory, run
+To run the wrapping code generation, first build the `scipgen` Go binary by typing `make` in the parent directory of this file. Then generate the Julia code using the command:
 
 ```
-python bin/generate-julia-interface.py xml/ templates/ src/
+./bin/scipgen xml/ templates/ src/
 ```

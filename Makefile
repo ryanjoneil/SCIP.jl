@@ -1,2 +1,2 @@
 all:
-	go build -o scipgen x/scipgen/*
+	go build -o bin/scipgen x/scipgen/*

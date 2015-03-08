@@ -21,7 +21,6 @@ func (info *SCIPInfo) getOrigType(typeStr string, ref []string) string {
 		s = append(s, typeStr)
 	}
 
-	fmt.Println("TYPE: ", strings.Join(s, " "))
 	return strings.Join(s, " ")
 }
 
@@ -79,10 +78,6 @@ func (info *SCIPInfo) ConvertFunction(member MemberDef) {
 	// Have we seen this define before?
 	if _, ok := info.functions[member.Name]; ok {
 		return
-	}
-
-	if member.Name == "SCIPcreateProbBasic" {
-		fmt.Println(member.Params)
 	}
 
 	// Convert return argument
