@@ -1,5 +1,3 @@
-push!(LOAD_PATH, "src")
-
 using MathProgBase.SolverInterface, SCIP
 
 m = SCIPMathProgModel()

@@ -19,6 +19,9 @@ end
 immutable SCIPSolver <: AbstractMathProgSolver
     options
 end
+SCIPSolver(;kwargs...) = SCIPSolver(kwargs)
+model(s::SCIPSolver) = SCIPMathProgModel(;s.options...)
+
 
 function addvar!(m::SCIPMathProgModel, l, u, coeff)
     var = SCIPcreateVarBasic(m.ptr, l, u, coeff, SCIP._SCIP_VARTYPE_CONTINUOUS)
@@ -65,9 +68,8 @@ function setvartype!(m::SCIPMathProgModel, v::Vector{Symbol})
     nothing
 end
 
-loadproblem!(model::SCIPMathProgModel, A, l::Vector{Real}, u::Vector{Real}, c::Vector{Real}, lb::Vector{Real}, ub::Vector{Real}, sense::Symbol) = 
-    loadproblem!(model, sparse(A), l, u, c, lb, ub, sense)
-function loadproblem!(model::SCIPMathProgModel, A::SparseMatrixCSC, l::Vector{Real}, u::Vector{Real}, c::Vector{Real}, lb::Vector{Real}, ub::Vector{Real}, sense::Symbol)
+function loadproblem!(model::SCIPMathProgModel, A::Union(SparseMatrixCSC,Matrix), l::Vector, u::Vector, c::Vector, lb::Vector, ub::Vector, sense::Symbol)
+    A = sparse(A)
     m, n = size(A)
     setsense!(model, sense)
     for i in 1:n
@@ -108,6 +110,8 @@ const sol_stat_map = [
 status(m::SCIPMathProgModel) = sol_stat_map[_SCIPgetStatus(m.ptr)]
 
 getobjval(m::SCIPMathProgModel) = _SCIPgetPrimalbound(m.ptr)
+
+getobjbound(m::SCIPMathProgModel) = _SCIPgetDualbound(m.ptr)
 
 function getsolution(m::SCIPMathProgModel)
     nvar = numvar(m)
