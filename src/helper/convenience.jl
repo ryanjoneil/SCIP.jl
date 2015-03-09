@@ -5,7 +5,7 @@ function SCIPcreate()
     # scip = pointer(Array(Ptr{_SCIP}, 1))
     scip = SPtr(_SCIP)
     _SCIPcreate(pointer(scip))
-    finalizer(scip, scip->_SCIPfree(scip))
+    finalizer(scip, scip->_SCIPfree(pointer(scip)))
     return scip
 end
 
