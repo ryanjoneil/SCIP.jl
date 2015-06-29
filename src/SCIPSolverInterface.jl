@@ -135,7 +135,8 @@ getobjval(m::SCIPMathProgModel) = _SCIPgetPrimalbound(m.ptr)
 getobjbound(m::SCIPMathProgModel) = _SCIPgetDualbound(m.ptr)
 
 function getsolution(m::SCIPMathProgModel)
-    sol  = SPtr(_SCIP_SOL)
+    #sol  = SPtr(_SCIP_SOL)
+    sol = _SCIPgetBestSol(m.ptr)
     return [_SCIPgetSolVal(m.ptr, sol, m.vars[i]) for i in 1:numvar(m)]
 end
 
