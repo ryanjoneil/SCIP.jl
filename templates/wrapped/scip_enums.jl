@@ -3,7 +3,7 @@
 typealias {{ .FinalName }} Int8
 {{ range .Values }}const {{ .FinalName }} = int8({{ .Init }})
 {{ end }}
-const {{ .OrigName }}s_MAP = [
+const {{ .OrigName }}_MAP = [
 {{ range .Values }}    {{ .FinalName }} => "{{ .Description }}",
 {{ end }}]
 
