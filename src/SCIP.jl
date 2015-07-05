@@ -1,5 +1,10 @@
 module SCIP
 
+# if SCIP is compiled with Ipopt, libipopt must be in LD_LIBRARY_PATH
+if (libipopt = find_library(["libipopt"])) != ""
+   @unix_only dlopen(libipopt, RTLD_LAZY|RTLD_DEEPBIND|RTLD_GLOBAL)
+end
+
 # dump all code wrapped from C interface
 module CInterface
     include("wrapped/scip_defines.jl")
