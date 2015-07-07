@@ -1,16 +1,18 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.8">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
   <compounddef id="deprecated" kind="page">
     <compoundname>deprecated</compoundname>
     <title>Deprecated List</title>
     <detaileddescription>
 <para><variablelist>
-<varlistentry><term><anchor id="deprecated_1_deprecated000003"/>Global <ref refid="scip_8h_1ad250ffa5f36870fc0eb2c10e1e2eaa67" kindref="member">SCIPcreateEmptyRow</ref>  (SCIP *scip, SCIP_ROW **row, const char *name, SCIP_Real lhs, SCIP_Real rhs, SCIP_Bool local, SCIP_Bool modifiable, SCIP_Bool removable)</term></varlistentry>
+<varlistentry><term><anchor id="deprecated_1_deprecated000003"/>globalScope&gt; Global <ref refid="scip_8h_1ad250ffa5f36870fc0eb2c10e1e2eaa67" kindref="member">SCIPcreateEmptyRow</ref>  (SCIP *scip, SCIP_ROW **row, const char *name, SCIP_Real lhs, SCIP_Real rhs, SCIP_Bool local, SCIP_Bool modifiable, SCIP_Bool removable)</term></varlistentry>
 <listitem><para>Please use <ref refid="scip_8h_1a41ae66e0ec0e8b636a3185825092f39f" kindref="member">SCIPcreateEmptyRowCons()</ref> or <ref refid="scip_8h_1ab8bbc855a5e20655eeb10e76587c6250" kindref="member">SCIPcreateEmptyRowSepa()</ref> when calling from a constraint handler or separator in order to facilitate correct statistics. If the call is from neither a constraint handler or separator, use <ref refid="scip_8h_1abfc0836d1689c64332a2513a2508c1a2" kindref="member">SCIPcreateEmptyRowUnspec()</ref>.  </para></listitem>
-<varlistentry><term><anchor id="deprecated_1_deprecated000002"/>Global <ref refid="scip_8h_1a0f3f5d2982142da67c59fb8de0ccbd9c" kindref="member">SCIPcreateRow</ref>  (SCIP *scip, SCIP_ROW **row, const char *name, int len, SCIP_COL **cols, SCIP_Real *vals, SCIP_Real lhs, SCIP_Real rhs, SCIP_Bool local, SCIP_Bool modifiable, SCIP_Bool removable)</term></varlistentry>
+<varlistentry><term><anchor id="deprecated_1_deprecated000002"/>globalScope&gt; Global <ref refid="scip_8h_1a0f3f5d2982142da67c59fb8de0ccbd9c" kindref="member">SCIPcreateRow</ref>  (SCIP *scip, SCIP_ROW **row, const char *name, int len, SCIP_COL **cols, SCIP_Real *vals, SCIP_Real lhs, SCIP_Real rhs, SCIP_Bool local, SCIP_Bool modifiable, SCIP_Bool removable)</term></varlistentry>
 <listitem><para>Please use <ref refid="scip_8h_1a8f71263b6e58cb5182ff009720342651" kindref="member">SCIPcreateRowCons()</ref> or <ref refid="scip_8h_1aeba70e3ca61e0be022879a5b7d6089ea" kindref="member">SCIPcreateRowSepa()</ref> when calling from a constraint handler or separator in order to facilitate correct statistics. If the call is from neither a constraint handler or separator, use <ref refid="scip_8h_1ab7dad4a00dae75bd13916e3540420854" kindref="member">SCIPcreateRowUnspec()</ref>.  </para></listitem>
-<varlistentry><term><anchor id="deprecated_1_deprecated000001"/>Global <ref refid="group__HashTable_1ga4469d030912856aa4da7a48063ab58d9" kindref="member">SCIPhashtableClear</ref>  (SCIP_HASHTABLE *hashtable)</term></varlistentry>
-<listitem><para>Please use <ref refid="group__HashTable_1ga8942889cec8c64206cf464f75f720e11" kindref="member">SCIPhashtableRemoveAll()</ref> </para></listitem>
+<varlistentry><term><anchor id="deprecated_1_deprecated000001"/>globalScope&gt; Global <ref refid="group__HashTable_1ga4469d030912856aa4da7a48063ab58d9" kindref="member">SCIPhashtableClear</ref>  (SCIP_HASHTABLE *hashtable)</term></varlistentry>
+<listitem><para>Please use <ref refid="group__HashTable_1ga8942889cec8c64206cf464f75f720e11" kindref="member">SCIPhashtableRemoveAll()</ref>  </para></listitem>
+<varlistentry><term><anchor id="deprecated_1_deprecated000004"/>globalScope&gt; Global <ref refid="scip_8h_1ab6c11018b121421f05dab24f189fd9b3" kindref="member">SCIPwriteImplicationConflictGraph</ref>  (SCIP *scip, const char *filename)</term></varlistentry>
+<listitem><para>because binary implications are now stored as cliques </para></listitem>
 </variablelist>
 </para>    </detaileddescription>
   </compounddef>

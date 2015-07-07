@@ -1,1142 +1,1320 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.8">
-  <compounddef id="pub__tree_8h" kind="file">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="pub__tree_8h" kind="file" language="C++">
     <compoundname>pub_tree.h</compoundname>
     <includes refid="def_8h" local="yes">scip/def.h</includes>
     <includes refid="type__misc_8h" local="yes">scip/type_misc.h</includes>
     <includes refid="type__tree_8h" local="yes">scip/type_tree.h</includes>
+    <includes refid="type__reopt_8h" local="yes">scip/type_reopt.h</includes>
     <includedby refid="scip_8h" local="yes">scip.h</includedby>
     <incdepgraph>
-      <node id="11947">
+      <node id="15031">
         <label>stdarg.h</label>
       </node>
-      <node id="11944">
+      <node id="15028">
         <label>assert.h</label>
       </node>
-      <node id="11943">
+      <node id="15027">
         <label>float.h</label>
       </node>
-      <node id="11950">
+      <node id="15021">
+        <label>pub_tree.h</label>
+        <link refid="pub_tree.h"/>
+        <childnode refid="15022" relation="include">
+        </childnode>
+        <childnode refid="15033" relation="include">
+        </childnode>
+        <childnode refid="15034" relation="include">
+        </childnode>
+        <childnode refid="15035" relation="include">
+        </childnode>
+      </node>
+      <node id="15024">
+        <label>stdint.h</label>
+      </node>
+      <node id="15022">
+        <label>scip/def.h</label>
+        <link refid="def_8h"/>
+        <childnode refid="15023" relation="include">
+        </childnode>
+        <childnode refid="15024" relation="include">
+        </childnode>
+        <childnode refid="15025" relation="include">
+        </childnode>
+        <childnode refid="15026" relation="include">
+        </childnode>
+        <childnode refid="15027" relation="include">
+        </childnode>
+        <childnode refid="15028" relation="include">
+        </childnode>
+        <childnode refid="15029" relation="include">
+        </childnode>
+        <childnode refid="15030" relation="include">
+        </childnode>
+      </node>
+      <node id="15034">
         <label>scip/type_tree.h</label>
         <link refid="type__tree_8h"/>
       </node>
-      <node id="11938">
-        <label>pub_tree.h</label>
-        <link refid="pub_tree.h"/>
-        <childnode refid="11939" relation="include">
-        </childnode>
-        <childnode refid="11949" relation="include">
-        </childnode>
-        <childnode refid="11950" relation="include">
-        </childnode>
-      </node>
-      <node id="11942">
+      <node id="15026">
         <label>limits.h</label>
       </node>
-      <node id="11948">
-        <label>scip/type_message.h</label>
-        <link refid="type__message_8h"/>
-        <childnode refid="11940" relation="include">
-        </childnode>
-      </node>
-      <node id="11949">
+      <node id="15033">
         <label>scip/type_misc.h</label>
         <link refid="type__misc_8h"/>
-        <childnode refid="11939" relation="include">
+        <childnode refid="15022" relation="include">
         </childnode>
       </node>
-      <node id="11946">
-        <label>scip/pub_message.h</label>
-        <link refid="pub__message_8h"/>
-        <childnode refid="11947" relation="include">
-        </childnode>
-        <childnode refid="11939" relation="include">
-        </childnode>
-        <childnode refid="11948" relation="include">
-        </childnode>
+      <node id="15025">
+        <label>math.h</label>
       </node>
-      <node id="11945">
+      <node id="15029">
         <label>scip/type_retcode.h</label>
         <link refid="type__retcode_8h"/>
       </node>
-      <node id="11941">
-        <label>math.h</label>
-      </node>
-      <node id="11939">
-        <label>scip/def.h</label>
-        <link refid="def_8h"/>
-        <childnode refid="11940" relation="include">
+      <node id="15030">
+        <label>scip/pub_message.h</label>
+        <link refid="pub__message_8h"/>
+        <childnode refid="15031" relation="include">
         </childnode>
-        <childnode refid="11941" relation="include">
+        <childnode refid="15022" relation="include">
         </childnode>
-        <childnode refid="11942" relation="include">
-        </childnode>
-        <childnode refid="11943" relation="include">
-        </childnode>
-        <childnode refid="11944" relation="include">
-        </childnode>
-        <childnode refid="11945" relation="include">
-        </childnode>
-        <childnode refid="11946" relation="include">
+        <childnode refid="15032" relation="include">
         </childnode>
       </node>
-      <node id="11940">
+      <node id="15032">
+        <label>scip/type_message.h</label>
+        <link refid="type__message_8h"/>
+        <childnode refid="15023" relation="include">
+        </childnode>
+      </node>
+      <node id="15023">
         <label>stdio.h</label>
+      </node>
+      <node id="15035">
+        <label>scip/type_reopt.h</label>
+        <link refid="type__reopt_8h"/>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="11992">
-        <label>heur_clique.h</label>
-        <link refid="heur__clique_8h"/>
-        <childnode refid="11954" relation="include">
+      <node id="15124">
+        <label>heur_zeroobj.h</label>
+        <link refid="heur__zeroobj_8h"/>
+        <childnode refid="15039" relation="include">
         </childnode>
       </node>
-      <node id="11988">
-        <label>cons_xor.h</label>
-        <link refid="cons__xor_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12064">
-        <label>reader_pbm.h</label>
-        <link refid="reader__pbm_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="11993">
-        <label>heur_coefdiving.h</label>
-        <link refid="heur__coefdiving_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12038">
-        <label>presol_convertinttobin.h</label>
-        <link refid="presol__convertinttobin_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12083">
-        <label>sepa_zerohalf.h</label>
-        <link refid="sepa__zerohalf_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12024">
-        <label>heur_undercover.h</label>
-        <link refid="heur__undercover_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12019">
-        <label>heur_simplerounding.h</label>
-        <link refid="heur__simplerounding_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12004">
-        <label>heur_localbranching.h</label>
-        <link refid="heur__localbranching_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12066">
-        <label>reader_ppm.h</label>
-        <link refid="reader__ppm_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="11952">
-        <label>scip.h</label>
-        <link refid="scip_8h"/>
-        <childnode refid="11953" relation="include">
-        </childnode>
-        <childnode refid="11955" relation="include">
-        </childnode>
-        <childnode refid="11956" relation="include">
-        </childnode>
-        <childnode refid="11957" relation="include">
-        </childnode>
-        <childnode refid="11958" relation="include">
-        </childnode>
-        <childnode refid="11959" relation="include">
-        </childnode>
-        <childnode refid="11960" relation="include">
-        </childnode>
-        <childnode refid="11961" relation="include">
-        </childnode>
-        <childnode refid="11962" relation="include">
-        </childnode>
-        <childnode refid="11963" relation="include">
-        </childnode>
-        <childnode refid="11964" relation="include">
-        </childnode>
-        <childnode refid="11965" relation="include">
-        </childnode>
-        <childnode refid="11966" relation="include">
-        </childnode>
-        <childnode refid="11967" relation="include">
-        </childnode>
-        <childnode refid="11968" relation="include">
-        </childnode>
-        <childnode refid="11969" relation="include">
-        </childnode>
-        <childnode refid="11970" relation="include">
-        </childnode>
-        <childnode refid="11971" relation="include">
-        </childnode>
-        <childnode refid="11972" relation="include">
-        </childnode>
-        <childnode refid="11973" relation="include">
-        </childnode>
-        <childnode refid="11974" relation="include">
-        </childnode>
-        <childnode refid="11975" relation="include">
-        </childnode>
-        <childnode refid="11976" relation="include">
-        </childnode>
-        <childnode refid="11977" relation="include">
-        </childnode>
-        <childnode refid="11978" relation="include">
-        </childnode>
-        <childnode refid="11979" relation="include">
-        </childnode>
-        <childnode refid="11980" relation="include">
-        </childnode>
-        <childnode refid="11981" relation="include">
-        </childnode>
-        <childnode refid="11982" relation="include">
-        </childnode>
-        <childnode refid="11983" relation="include">
-        </childnode>
-        <childnode refid="11984" relation="include">
-        </childnode>
-        <childnode refid="11985" relation="include">
-        </childnode>
-        <childnode refid="11986" relation="include">
-        </childnode>
-        <childnode refid="11987" relation="include">
-        </childnode>
-        <childnode refid="11988" relation="include">
-        </childnode>
-        <childnode refid="11989" relation="include">
-        </childnode>
-        <childnode refid="11990" relation="include">
-        </childnode>
-        <childnode refid="11991" relation="include">
-        </childnode>
-        <childnode refid="11992" relation="include">
-        </childnode>
-        <childnode refid="11993" relation="include">
-        </childnode>
-        <childnode refid="11994" relation="include">
-        </childnode>
-        <childnode refid="11995" relation="include">
-        </childnode>
-        <childnode refid="11996" relation="include">
-        </childnode>
-        <childnode refid="11997" relation="include">
-        </childnode>
-        <childnode refid="11998" relation="include">
-        </childnode>
-        <childnode refid="11999" relation="include">
-        </childnode>
-        <childnode refid="12000" relation="include">
-        </childnode>
-        <childnode refid="12001" relation="include">
-        </childnode>
-        <childnode refid="12002" relation="include">
-        </childnode>
-        <childnode refid="12003" relation="include">
-        </childnode>
-        <childnode refid="12004" relation="include">
-        </childnode>
-        <childnode refid="12005" relation="include">
-        </childnode>
-        <childnode refid="12006" relation="include">
-        </childnode>
-        <childnode refid="12007" relation="include">
-        </childnode>
-        <childnode refid="12008" relation="include">
-        </childnode>
-        <childnode refid="12009" relation="include">
-        </childnode>
-        <childnode refid="12010" relation="include">
-        </childnode>
-        <childnode refid="12011" relation="include">
-        </childnode>
-        <childnode refid="12012" relation="include">
-        </childnode>
-        <childnode refid="12013" relation="include">
-        </childnode>
-        <childnode refid="12014" relation="include">
-        </childnode>
-        <childnode refid="12015" relation="include">
-        </childnode>
-        <childnode refid="12016" relation="include">
-        </childnode>
-        <childnode refid="12017" relation="include">
-        </childnode>
-        <childnode refid="12018" relation="include">
-        </childnode>
-        <childnode refid="12019" relation="include">
-        </childnode>
-        <childnode refid="12020" relation="include">
-        </childnode>
-        <childnode refid="12021" relation="include">
-        </childnode>
-        <childnode refid="12022" relation="include">
-        </childnode>
-        <childnode refid="12023" relation="include">
-        </childnode>
-        <childnode refid="12024" relation="include">
-        </childnode>
-        <childnode refid="12025" relation="include">
-        </childnode>
-        <childnode refid="12026" relation="include">
-        </childnode>
-        <childnode refid="12027" relation="include">
-        </childnode>
-        <childnode refid="12028" relation="include">
-        </childnode>
-        <childnode refid="12029" relation="include">
-        </childnode>
-        <childnode refid="12030" relation="include">
-        </childnode>
-        <childnode refid="12031" relation="include">
-        </childnode>
-        <childnode refid="12032" relation="include">
-        </childnode>
-        <childnode refid="12033" relation="include">
-        </childnode>
-        <childnode refid="12034" relation="include">
-        </childnode>
-        <childnode refid="12035" relation="include">
-        </childnode>
-        <childnode refid="12036" relation="include">
-        </childnode>
-        <childnode refid="12037" relation="include">
-        </childnode>
-        <childnode refid="12038" relation="include">
-        </childnode>
-        <childnode refid="12039" relation="include">
-        </childnode>
-        <childnode refid="12040" relation="include">
-        </childnode>
-        <childnode refid="12041" relation="include">
-        </childnode>
-        <childnode refid="12042" relation="include">
-        </childnode>
-        <childnode refid="12043" relation="include">
-        </childnode>
-        <childnode refid="12044" relation="include">
-        </childnode>
-        <childnode refid="12045" relation="include">
-        </childnode>
-        <childnode refid="12046" relation="include">
-        </childnode>
-        <childnode refid="12047" relation="include">
-        </childnode>
-        <childnode refid="12048" relation="include">
-        </childnode>
-        <childnode refid="12049" relation="include">
-        </childnode>
-        <childnode refid="12050" relation="include">
-        </childnode>
-        <childnode refid="12051" relation="include">
-        </childnode>
-        <childnode refid="12052" relation="include">
-        </childnode>
-        <childnode refid="12053" relation="include">
-        </childnode>
-        <childnode refid="12054" relation="include">
-        </childnode>
-        <childnode refid="12055" relation="include">
-        </childnode>
-        <childnode refid="12056" relation="include">
-        </childnode>
-        <childnode refid="12057" relation="include">
-        </childnode>
-        <childnode refid="12058" relation="include">
-        </childnode>
-        <childnode refid="12059" relation="include">
-        </childnode>
-        <childnode refid="12060" relation="include">
-        </childnode>
-        <childnode refid="12061" relation="include">
-        </childnode>
-        <childnode refid="12062" relation="include">
-        </childnode>
-        <childnode refid="12063" relation="include">
-        </childnode>
-        <childnode refid="12064" relation="include">
-        </childnode>
-        <childnode refid="12065" relation="include">
-        </childnode>
-        <childnode refid="12066" relation="include">
-        </childnode>
-        <childnode refid="12067" relation="include">
-        </childnode>
-        <childnode refid="12068" relation="include">
-        </childnode>
-        <childnode refid="12069" relation="include">
-        </childnode>
-        <childnode refid="12070" relation="include">
-        </childnode>
-        <childnode refid="11954" relation="include">
-        </childnode>
-        <childnode refid="12071" relation="include">
-        </childnode>
-        <childnode refid="12072" relation="include">
-        </childnode>
-        <childnode refid="12073" relation="include">
-        </childnode>
-        <childnode refid="12074" relation="include">
-        </childnode>
-        <childnode refid="12075" relation="include">
-        </childnode>
-        <childnode refid="12076" relation="include">
-        </childnode>
-        <childnode refid="12077" relation="include">
-        </childnode>
-        <childnode refid="12078" relation="include">
-        </childnode>
-        <childnode refid="12079" relation="include">
-        </childnode>
-        <childnode refid="12080" relation="include">
-        </childnode>
-        <childnode refid="12081" relation="include">
-        </childnode>
-        <childnode refid="12082" relation="include">
-        </childnode>
-        <childnode refid="12083" relation="include">
-        </childnode>
-      </node>
-      <node id="11957">
-        <label>branch_inference.h</label>
-        <link refid="branch__inference_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="11980">
-        <label>cons_pseudoboolean.h</label>
-        <link refid="cons__pseudoboolean_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12018">
-        <label>heur_shifting.h</label>
-        <link refid="heur__shifting_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12009">
-        <label>heur_oneopt.h</label>
-        <link refid="heur__oneopt_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="11984">
-        <label>cons_sos1.h</label>
-        <link refid="cons__sos1_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12034">
-        <label>nodesel_restartdfs.h</label>
-        <link refid="nodesel__restartdfs_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12073">
-        <label>sepa_closecuts.h</label>
-        <link refid="sepa__closecuts_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="11964">
-        <label>cons_and.h</label>
-        <link refid="cons__and_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12065">
+      <node id="15169">
         <label>reader_pip.h</label>
         <link refid="reader__pip_8h"/>
-        <childnode refid="11954" relation="include">
+        <childnode refid="15039" relation="include">
         </childnode>
       </node>
-      <node id="12016">
-        <label>heur_rounding.h</label>
-        <link refid="heur__rounding_8h"/>
-        <childnode refid="11954" relation="include">
+      <node id="15084">
+        <label>heur_clique.h</label>
+        <link refid="heur__clique_8h"/>
+        <childnode refid="15039" relation="include">
         </childnode>
       </node>
-      <node id="12014">
-        <label>heur_rins.h</label>
-        <link refid="heur__rins_8h"/>
-        <childnode refid="11954" relation="include">
+      <node id="15136">
+        <label>presol_domcol.h</label>
+        <link refid="presol__domcol_8h"/>
+        <childnode refid="15039" relation="include">
         </childnode>
       </node>
-      <node id="11954">
+      <node id="15113">
+        <label>heur_shiftandpropagate.h</label>
+        <link refid="heur__shiftandpropagate_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15184">
+        <label>sepa_intobj.h</label>
+        <link refid="sepa__intobj_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15051">
+        <label>compr_largestrepr.h</label>
+        <link refid="compr__largestrepr_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15077">
+        <label>cons_varbound.h</label>
+        <link refid="cons__varbound_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15041">
+        <label>branch_distribution.h</label>
+        <link refid="branch__distribution_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15053">
+        <label>cons_abspower.h</label>
+        <link refid="cons__abspower_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15114">
+        <label>heur_shifting.h</label>
+        <link refid="heur__shifting_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15078">
+        <label>cons_xor.h</label>
+        <link refid="cons__xor_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15072">
+        <label>cons_setppc.h</label>
+        <link refid="cons__setppc_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15188">
+        <label>sepa_strongcg.h</label>
+        <link refid="sepa__strongcg_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15123">
+        <label>heur_veclendiving.h</label>
+        <link refid="heur__veclendiving_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15182">
+        <label>sepa_gomory.h</label>
+        <link refid="sepa__gomory_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15148">
+        <label>prop_genvbounds.h</label>
+        <link refid="prop__genvbounds_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15063">
+        <label>cons_knapsack.h</label>
+        <link refid="cons__knapsack_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15089">
+        <label>heur_dualval.h</label>
+        <link refid="heur__dualval_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15093">
+        <label>heur_guideddiving.h</label>
+        <link refid="heur__guideddiving_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15131">
+        <label>nodesel_restartdfs.h</label>
+        <link refid="nodesel__restartdfs_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15107">
+        <label>heur_randrounding.h</label>
+        <link refid="heur__randrounding_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15171">
+        <label>reader_rlp.h</label>
+        <link refid="reader__rlp_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15141">
+        <label>presol_implics.h</label>
+        <link refid="presol__implics_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15106">
+        <label>heur_pscostdiving.h</label>
+        <link refid="heur__pscostdiving_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15064">
+        <label>cons_linear.h</label>
+        <link refid="cons__linear_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15109">
+        <label>heur_reoptsols.h</label>
+        <link refid="heur__reoptsols_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15036">
+        <label>pub_tree.h</label>
+        <link refid="pub_tree.h"/>
+        <childnode refid="15037" relation="include">
+        </childnode>
+      </node>
+      <node id="15137">
+        <label>presol_dualagg.h</label>
+        <link refid="presol__dualagg_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15149">
+        <label>prop_obbt.h</label>
+        <link refid="prop__obbt_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15179">
+        <label>sepa_disjunctive.h</label>
+        <link refid="sepa__disjunctive_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15117">
+        <label>heur_trivial.h</label>
+        <link refid="heur__trivial_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15070">
+        <label>cons_pseudoboolean.h</label>
+        <link refid="cons__pseudoboolean_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15140">
+        <label>presol_implfree.h</label>
+        <link refid="presol__implfree_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15120">
+        <label>heur_twoopt.h</label>
+        <link refid="heur__twoopt_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15167">
+        <label>reader_osil.h</label>
+        <link refid="reader__osil_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15121">
+        <label>heur_undercover.h</label>
+        <link refid="heur__undercover_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15065">
+        <label>cons_linking.h</label>
+        <link refid="cons__linking_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15189">
+        <label>sepa_zerohalf.h</label>
+        <link refid="sepa__zerohalf_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15183">
+        <label>sepa_impliedbounds.h</label>
+        <link refid="sepa__impliedbounds_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15098">
+        <label>heur_localbranching.h</label>
+        <link refid="heur__localbranching_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15181">
+        <label>sepa_flowcover.h</label>
+        <link refid="sepa__flowcover_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15099">
+        <label>heur_mutation.h</label>
+        <link refid="heur__mutation_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15057">
+        <label>cons_conjunction.h</label>
+        <link refid="cons__conjunction_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15162">
+        <label>reader_fzn.h</label>
+        <link refid="reader__fzn_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15118">
+        <label>heur_trivialnegation.h</label>
+        <link refid="heur__trivialnegation_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15129">
+        <label>nodesel_estimate.h</label>
+        <link refid="nodesel__estimate_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15176">
+        <label>sepa_clique.h</label>
+        <link refid="sepa__clique_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15180">
+        <label>sepa_eccuts.h</label>
+        <link refid="sepa__eccuts_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15142">
+        <label>presol_inttobinary.h</label>
+        <link refid="presol__inttobinary_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15086">
+        <label>heur_crossover.h</label>
+        <link refid="heur__crossover_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15104">
+        <label>heur_oneopt.h</label>
+        <link refid="heur__oneopt_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15157">
+        <label>reader_ccg.h</label>
+        <link refid="reader__ccg_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15122">
+        <label>heur_vbounds.h</label>
+        <link refid="heur__vbounds_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15187">
+        <label>sepa_rapidlearning.h</label>
+        <link refid="sepa__rapidlearning_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15116">
+        <label>heur_subnlp.h</label>
+        <link refid="heur__subnlp_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15156">
+        <label>reader_bnd.h</label>
+        <link refid="reader__bnd_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15135">
+        <label>presol_convertinttobin.h</label>
+        <link refid="presol__convertinttobin_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15080">
+        <label>disp_default.h</label>
+        <link refid="disp__default_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15146">
+        <label>presol_tworowbnd.h</label>
+        <link refid="presol__tworowbnd_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15055">
+        <label>cons_bivariate.h</label>
+        <link refid="cons__bivariate_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15173">
+        <label>reader_wbo.h</label>
+        <link refid="reader__wbo_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15087">
+        <label>heur_dins.h</label>
+        <link refid="heur__dins_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15058">
+        <label>cons_countsols.h</label>
+        <link refid="cons__countsols_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15130">
+        <label>nodesel_hybridestim.h</label>
+        <link refid="nodesel__hybridestim_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15075">
+        <label>cons_sos2.h</label>
+        <link refid="cons__sos2_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15168">
+        <label>reader_pbm.h</label>
+        <link refid="reader__pbm_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15102">
+        <label>heur_octane.h</label>
+        <link refid="heur__octane_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15043">
+        <label>branch_inference.h</label>
+        <link refid="branch__inference_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15049">
+        <label>branch_random.h</label>
+        <link refid="branch__random_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15125">
+        <label>heur_zirounding.h</label>
+        <link refid="heur__zirounding_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15150">
+        <label>prop_probing.h</label>
+        <link refid="prop__probing_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15076">
+        <label>cons_superindicator.h</label>
+        <link refid="cons__superindicator_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15170">
+        <label>reader_ppm.h</label>
+        <link refid="reader__ppm_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15165">
+        <label>reader_mps.h</label>
+        <link refid="reader__mps_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15178">
+        <label>sepa_cmir.h</label>
+        <link refid="sepa__cmir_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15158">
+        <label>reader_cip.h</label>
+        <link refid="reader__cip_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15039">
         <label>scipdefplugins.h</label>
         <link refid="scipdefplugins_8h"/>
       </node>
-      <node id="11990">
-        <label>disp_default.h</label>
-        <link refid="disp__default_8h"/>
-        <childnode refid="11954" relation="include">
+      <node id="15105">
+        <label>heur_proximity.h</label>
+        <link refid="heur__proximity_8h"/>
+        <childnode refid="15039" relation="include">
         </childnode>
       </node>
-      <node id="11995">
-        <label>heur_dins.h</label>
-        <link refid="heur__dins_8h"/>
-        <childnode refid="11954" relation="include">
+      <node id="15050">
+        <label>branch_relpscost.h</label>
+        <link refid="branch__relpscost_8h"/>
+        <childnode refid="15039" relation="include">
         </childnode>
       </node>
-      <node id="12027">
-        <label>heur_zeroobj.h</label>
-        <link refid="heur__zeroobj_8h"/>
-        <childnode refid="11954" relation="include">
+      <node id="15119">
+        <label>heur_trysol.h</label>
+        <link refid="heur__trysol_8h"/>
+        <childnode refid="15039" relation="include">
         </childnode>
       </node>
-      <node id="11989">
+      <node id="15111">
+        <label>heur_rootsoldiving.h</label>
+        <link refid="heur__rootsoldiving_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15047">
+        <label>branch_nodereopt.h</label>
+        <link refid="branch__nodereopt_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15186">
+        <label>sepa_oddcycle.h</label>
+        <link refid="sepa__oddcycle_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15067">
+        <label>cons_nonlinear.h</label>
+        <link refid="cons__nonlinear_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15048">
+        <label>branch_pscost.h</label>
+        <link refid="branch__pscost_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15126">
+        <label>nodesel_bfs.h</label>
+        <link refid="nodesel__bfs_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15046">
+        <label>branch_multaggr.h</label>
+        <link refid="branch__multaggr_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15062">
+        <label>cons_integral.h</label>
+        <link refid="cons__integral_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15154">
+        <label>prop_vbounds.h</label>
+        <link refid="prop__vbounds_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15155">
+        <label>pub_dive.h</label>
+        <link refid="pub__dive_8h"/>
+      </node>
+      <node id="15091">
+        <label>heur_fixandinfer.h</label>
+        <link refid="heur__fixandinfer_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15054">
+        <label>cons_and.h</label>
+        <link refid="cons__and_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15038">
+        <label>branch_allfullstrong.h</label>
+        <link refid="branch__allfullstrong_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15132">
+        <label>nodesel_uct.h</label>
+        <link refid="nodesel__uct_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15110">
+        <label>heur_rins.h</label>
+        <link refid="heur__rins_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15096">
+        <label>heur_intshifting.h</label>
+        <link refid="heur__intshifting_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15052">
+        <label>compr_weakcompr.h</label>
+        <link refid="compr__weakcompr_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15044">
+        <label>branch_leastinf.h</label>
+        <link refid="branch__leastinf_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15074">
+        <label>cons_sos1.h</label>
+        <link refid="cons__sos1_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15128">
+        <label>nodesel_dfs.h</label>
+        <link refid="nodesel__dfs_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15085">
+        <label>heur_coefdiving.h</label>
+        <link refid="heur__coefdiving_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15127">
+        <label>nodesel_breadthfirst.h</label>
+        <link refid="nodesel__breadthfirst_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15151">
+        <label>prop_pseudoobj.h</label>
+        <link refid="prop__pseudoobj_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15037">
+        <label>scip.h</label>
+        <link refid="scip_8h"/>
+        <childnode refid="15038" relation="include">
+        </childnode>
+        <childnode refid="15040" relation="include">
+        </childnode>
+        <childnode refid="15041" relation="include">
+        </childnode>
+        <childnode refid="15042" relation="include">
+        </childnode>
+        <childnode refid="15043" relation="include">
+        </childnode>
+        <childnode refid="15044" relation="include">
+        </childnode>
+        <childnode refid="15045" relation="include">
+        </childnode>
+        <childnode refid="15046" relation="include">
+        </childnode>
+        <childnode refid="15047" relation="include">
+        </childnode>
+        <childnode refid="15048" relation="include">
+        </childnode>
+        <childnode refid="15049" relation="include">
+        </childnode>
+        <childnode refid="15050" relation="include">
+        </childnode>
+        <childnode refid="15051" relation="include">
+        </childnode>
+        <childnode refid="15052" relation="include">
+        </childnode>
+        <childnode refid="15053" relation="include">
+        </childnode>
+        <childnode refid="15054" relation="include">
+        </childnode>
+        <childnode refid="15055" relation="include">
+        </childnode>
+        <childnode refid="15056" relation="include">
+        </childnode>
+        <childnode refid="15057" relation="include">
+        </childnode>
+        <childnode refid="15058" relation="include">
+        </childnode>
+        <childnode refid="15059" relation="include">
+        </childnode>
+        <childnode refid="15060" relation="include">
+        </childnode>
+        <childnode refid="15061" relation="include">
+        </childnode>
+        <childnode refid="15062" relation="include">
+        </childnode>
+        <childnode refid="15063" relation="include">
+        </childnode>
+        <childnode refid="15064" relation="include">
+        </childnode>
+        <childnode refid="15065" relation="include">
+        </childnode>
+        <childnode refid="15066" relation="include">
+        </childnode>
+        <childnode refid="15067" relation="include">
+        </childnode>
+        <childnode refid="15068" relation="include">
+        </childnode>
+        <childnode refid="15069" relation="include">
+        </childnode>
+        <childnode refid="15070" relation="include">
+        </childnode>
+        <childnode refid="15071" relation="include">
+        </childnode>
+        <childnode refid="15072" relation="include">
+        </childnode>
+        <childnode refid="15073" relation="include">
+        </childnode>
+        <childnode refid="15074" relation="include">
+        </childnode>
+        <childnode refid="15075" relation="include">
+        </childnode>
+        <childnode refid="15076" relation="include">
+        </childnode>
+        <childnode refid="15077" relation="include">
+        </childnode>
+        <childnode refid="15078" relation="include">
+        </childnode>
+        <childnode refid="15079" relation="include">
+        </childnode>
+        <childnode refid="15080" relation="include">
+        </childnode>
+        <childnode refid="15081" relation="include">
+        </childnode>
+        <childnode refid="15082" relation="include">
+        </childnode>
+        <childnode refid="15083" relation="include">
+        </childnode>
+        <childnode refid="15084" relation="include">
+        </childnode>
+        <childnode refid="15085" relation="include">
+        </childnode>
+        <childnode refid="15086" relation="include">
+        </childnode>
+        <childnode refid="15087" relation="include">
+        </childnode>
+        <childnode refid="15088" relation="include">
+        </childnode>
+        <childnode refid="15089" relation="include">
+        </childnode>
+        <childnode refid="15090" relation="include">
+        </childnode>
+        <childnode refid="15091" relation="include">
+        </childnode>
+        <childnode refid="15092" relation="include">
+        </childnode>
+        <childnode refid="15093" relation="include">
+        </childnode>
+        <childnode refid="15094" relation="include">
+        </childnode>
+        <childnode refid="15095" relation="include">
+        </childnode>
+        <childnode refid="15096" relation="include">
+        </childnode>
+        <childnode refid="15097" relation="include">
+        </childnode>
+        <childnode refid="15098" relation="include">
+        </childnode>
+        <childnode refid="15099" relation="include">
+        </childnode>
+        <childnode refid="15100" relation="include">
+        </childnode>
+        <childnode refid="15101" relation="include">
+        </childnode>
+        <childnode refid="15102" relation="include">
+        </childnode>
+        <childnode refid="15103" relation="include">
+        </childnode>
+        <childnode refid="15104" relation="include">
+        </childnode>
+        <childnode refid="15105" relation="include">
+        </childnode>
+        <childnode refid="15106" relation="include">
+        </childnode>
+        <childnode refid="15107" relation="include">
+        </childnode>
+        <childnode refid="15108" relation="include">
+        </childnode>
+        <childnode refid="15109" relation="include">
+        </childnode>
+        <childnode refid="15110" relation="include">
+        </childnode>
+        <childnode refid="15111" relation="include">
+        </childnode>
+        <childnode refid="15112" relation="include">
+        </childnode>
+        <childnode refid="15113" relation="include">
+        </childnode>
+        <childnode refid="15114" relation="include">
+        </childnode>
+        <childnode refid="15115" relation="include">
+        </childnode>
+        <childnode refid="15116" relation="include">
+        </childnode>
+        <childnode refid="15117" relation="include">
+        </childnode>
+        <childnode refid="15118" relation="include">
+        </childnode>
+        <childnode refid="15119" relation="include">
+        </childnode>
+        <childnode refid="15120" relation="include">
+        </childnode>
+        <childnode refid="15121" relation="include">
+        </childnode>
+        <childnode refid="15122" relation="include">
+        </childnode>
+        <childnode refid="15123" relation="include">
+        </childnode>
+        <childnode refid="15124" relation="include">
+        </childnode>
+        <childnode refid="15125" relation="include">
+        </childnode>
+        <childnode refid="15126" relation="include">
+        </childnode>
+        <childnode refid="15127" relation="include">
+        </childnode>
+        <childnode refid="15128" relation="include">
+        </childnode>
+        <childnode refid="15129" relation="include">
+        </childnode>
+        <childnode refid="15130" relation="include">
+        </childnode>
+        <childnode refid="15131" relation="include">
+        </childnode>
+        <childnode refid="15132" relation="include">
+        </childnode>
+        <childnode refid="15133" relation="include">
+        </childnode>
+        <childnode refid="15134" relation="include">
+        </childnode>
+        <childnode refid="15135" relation="include">
+        </childnode>
+        <childnode refid="15136" relation="include">
+        </childnode>
+        <childnode refid="15137" relation="include">
+        </childnode>
+        <childnode refid="15138" relation="include">
+        </childnode>
+        <childnode refid="15139" relation="include">
+        </childnode>
+        <childnode refid="15140" relation="include">
+        </childnode>
+        <childnode refid="15141" relation="include">
+        </childnode>
+        <childnode refid="15142" relation="include">
+        </childnode>
+        <childnode refid="15143" relation="include">
+        </childnode>
+        <childnode refid="15144" relation="include">
+        </childnode>
+        <childnode refid="15145" relation="include">
+        </childnode>
+        <childnode refid="15146" relation="include">
+        </childnode>
+        <childnode refid="15147" relation="include">
+        </childnode>
+        <childnode refid="15148" relation="include">
+        </childnode>
+        <childnode refid="15149" relation="include">
+        </childnode>
+        <childnode refid="15150" relation="include">
+        </childnode>
+        <childnode refid="15151" relation="include">
+        </childnode>
+        <childnode refid="15152" relation="include">
+        </childnode>
+        <childnode refid="15153" relation="include">
+        </childnode>
+        <childnode refid="15154" relation="include">
+        </childnode>
+        <childnode refid="15155" relation="include">
+        </childnode>
+        <childnode refid="15156" relation="include">
+        </childnode>
+        <childnode refid="15157" relation="include">
+        </childnode>
+        <childnode refid="15158" relation="include">
+        </childnode>
+        <childnode refid="15159" relation="include">
+        </childnode>
+        <childnode refid="15160" relation="include">
+        </childnode>
+        <childnode refid="15161" relation="include">
+        </childnode>
+        <childnode refid="15162" relation="include">
+        </childnode>
+        <childnode refid="15163" relation="include">
+        </childnode>
+        <childnode refid="15164" relation="include">
+        </childnode>
+        <childnode refid="15165" relation="include">
+        </childnode>
+        <childnode refid="15166" relation="include">
+        </childnode>
+        <childnode refid="15167" relation="include">
+        </childnode>
+        <childnode refid="15168" relation="include">
+        </childnode>
+        <childnode refid="15169" relation="include">
+        </childnode>
+        <childnode refid="15170" relation="include">
+        </childnode>
+        <childnode refid="15171" relation="include">
+        </childnode>
+        <childnode refid="15172" relation="include">
+        </childnode>
+        <childnode refid="15173" relation="include">
+        </childnode>
+        <childnode refid="15174" relation="include">
+        </childnode>
+        <childnode refid="15039" relation="include">
+        </childnode>
+        <childnode refid="15175" relation="include">
+        </childnode>
+        <childnode refid="15176" relation="include">
+        </childnode>
+        <childnode refid="15177" relation="include">
+        </childnode>
+        <childnode refid="15178" relation="include">
+        </childnode>
+        <childnode refid="15179" relation="include">
+        </childnode>
+        <childnode refid="15180" relation="include">
+        </childnode>
+        <childnode refid="15181" relation="include">
+        </childnode>
+        <childnode refid="15182" relation="include">
+        </childnode>
+        <childnode refid="15183" relation="include">
+        </childnode>
+        <childnode refid="15184" relation="include">
+        </childnode>
+        <childnode refid="15185" relation="include">
+        </childnode>
+        <childnode refid="15186" relation="include">
+        </childnode>
+        <childnode refid="15187" relation="include">
+        </childnode>
+        <childnode refid="15188" relation="include">
+        </childnode>
+        <childnode refid="15189" relation="include">
+        </childnode>
+      </node>
+      <node id="15175">
+        <label>sepa_cgmip.h</label>
+        <link refid="sepa__cgmip_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15166">
+        <label>reader_opb.h</label>
+        <link refid="reader__opb_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15160">
+        <label>reader_diff.h</label>
+        <link refid="reader__diff_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15100">
+        <label>heur_nlpdiving.h</label>
+        <link refid="heur__nlpdiving_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15042">
+        <label>branch_fullstrong.h</label>
+        <link refid="branch__fullstrong_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15163">
+        <label>reader_gms.h</label>
+        <link refid="reader__gms_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15139">
+        <label>presol_gateextraction.h</label>
+        <link refid="presol__gateextraction_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15073">
+        <label>cons_soc.h</label>
+        <link refid="cons__soc_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15177">
+        <label>sepa_closecuts.h</label>
+        <link refid="sepa__closecuts_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15134">
+        <label>presol_components.h</label>
+        <link refid="presol__components_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15066">
+        <label>cons_logicor.h</label>
+        <link refid="cons__logicor_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15161">
+        <label>reader_fix.h</label>
+        <link refid="reader__fix_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15045">
+        <label>branch_mostinf.h</label>
+        <link refid="branch__mostinf_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15071">
+        <label>cons_quadratic.h</label>
+        <link refid="cons__quadratic_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15092">
+        <label>heur_fracdiving.h</label>
+        <link refid="heur__fracdiving_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15159">
+        <label>reader_cnf.h</label>
+        <link refid="reader__cnf_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15138">
+        <label>presol_dualinfer.h</label>
+        <link refid="presol__dualinfer_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15079">
         <label>dialog_default.h</label>
         <link refid="dialog__default_8h"/>
       </node>
-      <node id="11956">
-        <label>branch_fullstrong.h</label>
-        <link refid="branch__fullstrong_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12000">
-        <label>heur_guideddiving.h</label>
-        <link refid="heur__guideddiving_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12062">
-        <label>reader_opb.h</label>
-        <link refid="reader__opb_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="11978">
-        <label>cons_or.h</label>
-        <link refid="cons__or_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12041">
-        <label>presol_gateextraction.h</label>
-        <link refid="presol__gateextraction_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="11961">
-        <label>branch_random.h</label>
-        <link refid="branch__random_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="11999">
-        <label>heur_fracdiving.h</label>
-        <link refid="heur__fracdiving_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="11970">
-        <label>cons_disjunction.h</label>
-        <link refid="cons__disjunction_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12053">
-        <label>reader_bnd.h</label>
-        <link refid="reader__bnd_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="11962">
-        <label>branch_relpscost.h</label>
-        <link refid="branch__relpscost_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12002">
-        <label>heur_intshifting.h</label>
-        <link refid="heur__intshifting_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="11987">
-        <label>cons_varbound.h</label>
-        <link refid="cons__varbound_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12035">
-        <label>nodesel_uct.h</label>
-        <link refid="nodesel__uct_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="11969">
-        <label>cons_cumulative.h</label>
-        <link refid="cons__cumulative_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="11971">
-        <label>cons_indicator.h</label>
-        <link refid="cons__indicator_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12050">
-        <label>prop_redcost.h</label>
-        <link refid="prop__redcost_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="11997">
-        <label>heur_feaspump.h</label>
-        <link refid="heur__feaspump_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12070">
-        <label>reader_zpl.h</label>
-        <link refid="reader__zpl_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12071">
-        <label>sepa_cgmip.h</label>
-        <link refid="sepa__cgmip_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12011">
-        <label>heur_pscostdiving.h</label>
-        <link refid="heur__pscostdiving_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12057">
-        <label>reader_fix.h</label>
-        <link refid="reader__fix_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="11985">
-        <label>cons_sos2.h</label>
-        <link refid="cons__sos2_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12021">
-        <label>heur_trivial.h</label>
-        <link refid="heur__trivial_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="11974">
-        <label>cons_linear.h</label>
-        <link refid="cons__linear_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12006">
-        <label>heur_nlpdiving.h</label>
-        <link refid="heur__nlpdiving_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="11972">
-        <label>cons_integral.h</label>
-        <link refid="cons__integral_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12074">
-        <label>sepa_cmir.h</label>
-        <link refid="sepa__cmir_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12013">
+      <node id="15108">
         <label>heur_rens.h</label>
         <link refid="heur__rens_8h"/>
-        <childnode refid="11954" relation="include">
+        <childnode refid="15039" relation="include">
         </childnode>
       </node>
-      <node id="11996">
-        <label>heur_dualval.h</label>
-        <link refid="heur__dualval_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12015">
-        <label>heur_rootsoldiving.h</label>
-        <link refid="heur__rootsoldiving_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12048">
-        <label>prop_probing.h</label>
-        <link refid="prop__probing_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="11979">
-        <label>cons_orbitope.h</label>
-        <link refid="cons__orbitope_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="11951">
-        <label>pub_tree.h</label>
-        <link refid="pub_tree.h"/>
-        <childnode refid="11952" relation="include">
-        </childnode>
-      </node>
-      <node id="11968">
-        <label>cons_countsols.h</label>
-        <link refid="cons__countsols_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12081">
-        <label>sepa_rapidlearning.h</label>
-        <link refid="sepa__rapidlearning_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12012">
-        <label>heur_randrounding.h</label>
-        <link refid="heur__randrounding_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12030">
-        <label>nodesel_breadthfirst.h</label>
-        <link refid="nodesel__breadthfirst_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12020">
-        <label>heur_subnlp.h</label>
-        <link refid="heur__subnlp_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12055">
-        <label>reader_cip.h</label>
-        <link refid="reader__cip_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12032">
-        <label>nodesel_estimate.h</label>
-        <link refid="nodesel__estimate_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12045">
-        <label>prop_dualfix.h</label>
-        <link refid="prop__dualfix_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12001">
-        <label>heur_intdiving.h</label>
-        <link refid="heur__intdiving_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12047">
-        <label>prop_obbt.h</label>
-        <link refid="prop__obbt_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12049">
-        <label>prop_pseudoobj.h</label>
-        <link refid="prop__pseudoobj_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12042">
-        <label>presol_implics.h</label>
-        <link refid="presol__implics_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12005">
-        <label>heur_mutation.h</label>
-        <link refid="heur__mutation_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12072">
-        <label>sepa_clique.h</label>
-        <link refid="sepa__clique_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12022">
-        <label>heur_trysol.h</label>
-        <link refid="heur__trysol_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12060">
-        <label>reader_lp.h</label>
-        <link refid="reader__lp_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12078">
-        <label>sepa_intobj.h</label>
-        <link refid="sepa__intobj_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12023">
-        <label>heur_twoopt.h</label>
-        <link refid="heur__twoopt_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12026">
-        <label>heur_veclendiving.h</label>
-        <link refid="heur__veclendiving_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="11963">
-        <label>cons_abspower.h</label>
-        <link refid="cons__abspower_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="11982">
-        <label>cons_setppc.h</label>
-        <link refid="cons__setppc_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12010">
-        <label>heur_proximity.h</label>
-        <link refid="heur__proximity_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12076">
-        <label>sepa_gomory.h</label>
-        <link refid="sepa__gomory_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="11973">
-        <label>cons_knapsack.h</label>
-        <link refid="cons__knapsack_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12051">
-        <label>prop_rootredcost.h</label>
-        <link refid="prop__rootredcost_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12033">
-        <label>nodesel_hybridestim.h</label>
-        <link refid="nodesel__hybridestim_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="11975">
-        <label>cons_linking.h</label>
-        <link refid="cons__linking_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="11953">
-        <label>branch_allfullstrong.h</label>
-        <link refid="branch__allfullstrong_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12068">
-        <label>reader_sol.h</label>
-        <link refid="reader__sol_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12037">
-        <label>presol_components.h</label>
-        <link refid="presol__components_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12061">
-        <label>reader_mps.h</label>
-        <link refid="reader__mps_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12007">
-        <label>heur_objpscostdiving.h</label>
-        <link refid="heur__objpscostdiving_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="11991">
-        <label>heur_actconsdiving.h</label>
-        <link refid="heur__actconsdiving_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12043">
-        <label>presol_inttobinary.h</label>
-        <link refid="presol__inttobinary_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12052">
-        <label>prop_vbounds.h</label>
-        <link refid="prop__vbounds_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12079">
-        <label>sepa_mcf.h</label>
-        <link refid="sepa__mcf_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12075">
-        <label>sepa_flowcover.h</label>
-        <link refid="sepa__flowcover_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12046">
-        <label>prop_genvbounds.h</label>
-        <link refid="prop__genvbounds_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12040">
-        <label>presol_dualinfer.h</label>
-        <link refid="presol__dualinfer_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="11983">
-        <label>cons_soc.h</label>
-        <link refid="cons__soc_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12029">
-        <label>nodesel_bfs.h</label>
-        <link refid="nodesel__bfs_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="11960">
-        <label>branch_pscost.h</label>
-        <link refid="branch__pscost_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12077">
-        <label>sepa_impliedbounds.h</label>
-        <link refid="sepa__impliedbounds_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="11977">
-        <label>cons_nonlinear.h</label>
-        <link refid="cons__nonlinear_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12056">
-        <label>reader_cnf.h</label>
-        <link refid="reader__cnf_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12025">
-        <label>heur_vbounds.h</label>
-        <link refid="heur__vbounds_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12039">
-        <label>presol_domcol.h</label>
-        <link refid="presol__domcol_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12003">
-        <label>heur_linesearchdiving.h</label>
-        <link refid="heur__linesearchdiving_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12059">
-        <label>reader_gms.h</label>
-        <link refid="reader__gms_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12067">
-        <label>reader_rlp.h</label>
-        <link refid="reader__rlp_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="11986">
-        <label>cons_superindicator.h</label>
-        <link refid="cons__superindicator_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="11958">
-        <label>branch_leastinf.h</label>
-        <link refid="branch__leastinf_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12017">
-        <label>heur_shiftandpropagate.h</label>
-        <link refid="heur__shiftandpropagate_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12036">
-        <label>presol_boundshift.h</label>
-        <link refid="presol__boundshift_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="11976">
-        <label>cons_logicor.h</label>
-        <link refid="cons__logicor_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12063">
-        <label>reader_osil.h</label>
-        <link refid="reader__osil_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12058">
-        <label>reader_fzn.h</label>
-        <link refid="reader__fzn_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12031">
-        <label>nodesel_dfs.h</label>
-        <link refid="nodesel__dfs_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="11967">
-        <label>cons_conjunction.h</label>
-        <link refid="cons__conjunction_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12082">
-        <label>sepa_strongcg.h</label>
-        <link refid="sepa__strongcg_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12054">
-        <label>reader_ccg.h</label>
-        <link refid="reader__ccg_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="12044">
+      <node id="15145">
         <label>presol_trivial.h</label>
         <link refid="presol__trivial_8h"/>
-        <childnode refid="11954" relation="include">
+        <childnode refid="15039" relation="include">
         </childnode>
       </node>
-      <node id="11998">
-        <label>heur_fixandinfer.h</label>
-        <link refid="heur__fixandinfer_8h"/>
-        <childnode refid="11954" relation="include">
+      <node id="15143">
+        <label>presol_redvub.h</label>
+        <link refid="presol__redvub_8h"/>
+        <childnode refid="15039" relation="include">
         </childnode>
       </node>
-      <node id="11981">
-        <label>cons_quadratic.h</label>
-        <link refid="cons__quadratic_8h"/>
-        <childnode refid="11954" relation="include">
+      <node id="15115">
+        <label>heur_simplerounding.h</label>
+        <link refid="heur__simplerounding_8h"/>
+        <childnode refid="15039" relation="include">
         </childnode>
       </node>
-      <node id="11955">
+      <node id="15083">
+        <label>heur_bound.h</label>
+        <link refid="heur__bound_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15144">
+        <label>presol_stuffing.h</label>
+        <link refid="presol__stuffing_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15082">
+        <label>heur_actconsdiving.h</label>
+        <link refid="heur__actconsdiving_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15174">
+        <label>reader_zpl.h</label>
+        <link refid="reader__zpl_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15061">
+        <label>cons_indicator.h</label>
+        <link refid="cons__indicator_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15060">
+        <label>cons_disjunction.h</label>
+        <link refid="cons__disjunction_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15101">
+        <label>heur_objpscostdiving.h</label>
+        <link refid="heur__objpscostdiving_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15147">
+        <label>prop_dualfix.h</label>
+        <link refid="prop__dualfix_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15164">
+        <label>reader_lp.h</label>
+        <link refid="reader__lp_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15095">
+        <label>heur_intdiving.h</label>
+        <link refid="heur__intdiving_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15059">
+        <label>cons_cumulative.h</label>
+        <link refid="cons__cumulative_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15097">
+        <label>heur_linesearchdiving.h</label>
+        <link refid="heur__linesearchdiving_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15088">
+        <label>heur_distributiondiving.h</label>
+        <link refid="heur__distributiondiving_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15185">
+        <label>sepa_mcf.h</label>
+        <link refid="sepa__mcf_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15133">
+        <label>presol_boundshift.h</label>
+        <link refid="presol__boundshift_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15153">
+        <label>prop_rootredcost.h</label>
+        <link refid="prop__rootredcost_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15068">
+        <label>cons_or.h</label>
+        <link refid="cons__or_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15090">
+        <label>heur_feaspump.h</label>
+        <link refid="heur__feaspump_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15069">
+        <label>cons_orbitope.h</label>
+        <link refid="cons__orbitope_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15152">
+        <label>prop_redcost.h</label>
+        <link refid="prop__redcost_8h"/>
+        <childnode refid="15039" relation="include">
+        </childnode>
+      </node>
+      <node id="15040">
         <label>branch_cloud.h</label>
         <link refid="branch__cloud_8h"/>
-        <childnode refid="11954" relation="include">
+        <childnode refid="15039" relation="include">
         </childnode>
       </node>
-      <node id="12080">
-        <label>sepa_oddcycle.h</label>
-        <link refid="sepa__oddcycle_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="11994">
-        <label>heur_crossover.h</label>
-        <link refid="heur__crossover_8h"/>
-        <childnode refid="11954" relation="include">
-        </childnode>
-      </node>
-      <node id="11966">
+      <node id="15056">
         <label>cons_bounddisjunction.h</label>
         <link refid="cons__bounddisjunction_8h"/>
-        <childnode refid="11954" relation="include">
+        <childnode refid="15039" relation="include">
         </childnode>
       </node>
-      <node id="11965">
-        <label>cons_bivariate.h</label>
-        <link refid="cons__bivariate_8h"/>
-        <childnode refid="11954" relation="include">
+      <node id="15103">
+        <label>heur_ofins.h</label>
+        <link refid="heur__ofins_8h"/>
+        <childnode refid="15039" relation="include">
         </childnode>
       </node>
-      <node id="12069">
-        <label>reader_wbo.h</label>
-        <link refid="reader__wbo_8h"/>
-        <childnode refid="11954" relation="include">
+      <node id="15112">
+        <label>heur_rounding.h</label>
+        <link refid="heur__rounding_8h"/>
+        <childnode refid="15039" relation="include">
         </childnode>
       </node>
-      <node id="12028">
-        <label>heur_zirounding.h</label>
-        <link refid="heur__zirounding_8h"/>
-        <childnode refid="11954" relation="include">
+      <node id="15081">
+        <label>event_softtimelimit.h</label>
+        <link refid="event__softtimelimit_8h"/>
+        <childnode refid="15039" relation="include">
         </childnode>
       </node>
-      <node id="12008">
-        <label>heur_octane.h</label>
-        <link refid="heur__octane_8h"/>
-        <childnode refid="11954" relation="include">
+      <node id="15094">
+        <label>heur_indicator.h</label>
+        <link refid="heur__indicator_8h"/>
+        <childnode refid="15039" relation="include">
         </childnode>
       </node>
-      <node id="11959">
-        <label>branch_mostinf.h</label>
-        <link refid="branch__mostinf_8h"/>
-        <childnode refid="11954" relation="include">
+      <node id="15172">
+        <label>reader_sol.h</label>
+        <link refid="reader__sol_8h"/>
+        <childnode refid="15039" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
@@ -1155,7 +1333,7 @@
 <para>node comparator for best lower bound </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_tree.h" line="46" column="1"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_tree.h" line="47" column="1"/>
       </memberdef>
       <memberdef kind="function" id="pub__tree_8h_1a3869a3566609b6e46875886c10cdd7eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1198,7 +1376,7 @@
 <para>returns the set of variable branchings that were performed in the parent node to create this node </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_tree.h" line="50" column="1"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_tree.h" line="51" column="1"/>
       </memberdef>
       <memberdef kind="function" id="pub__tree_8h_1a11f71eebec5565f38b48466592cc015f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1241,7 +1419,55 @@
 <para>returns the set of variable branchings that were performed in all ancestor nodes (nodes on the path to the root) to create this node </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_tree.h" line="62" column="1"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_tree.h" line="63" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__tree_8h_1a33e398caaaf51f53fa042739eccdabfd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPnodeGetAncestorBranchingsPart</definition>
+        <argsstring>(SCIP_NODE *node, SCIP_NODE *parent, SCIP_VAR **branchvars, SCIP_Real *branchbounds, SCIP_BOUNDTYPE *boundtypes, int *nbranchvars, int branchvarssize)</argsstring>
+        <name>SCIPnodeGetAncestorBranchingsPart</name>
+        <param>
+          <type><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref> *</type>
+          <declname>node</declname>
+          <briefdescription><para>node data </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref> *</type>
+          <declname>parent</declname>
+          <briefdescription><para>node data </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__var_8h_1a032edd1f5032513d49e397ebdcc8915b" kindref="member">SCIP_VAR</ref> **</type>
+          <declname>branchvars</declname>
+          <briefdescription><para>array of variables on which the branchings has been performed in all ancestors </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref> *</type>
+          <declname>branchbounds</declname>
+          <briefdescription><para>array of bounds which the branchings in all ancestors set </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__lp_8h_1ad1f370d06c5f9eece4ab657efa945dbb" kindref="member">SCIP_BOUNDTYPE</ref> *</type>
+          <declname>boundtypes</declname>
+          <briefdescription><para>array of boundtypes which the branchings in all ancestors set </para></briefdescription>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>nbranchvars</declname>
+          <briefdescription><para>number of variables on which branchings have been performed in all ancestors if this is larger than the array size, arrays should be reallocated and method should be called again </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>branchvarssize</declname>
+          <briefdescription><para>available slots in arrays </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns the set of variable branchings that were performed between the given <computeroutput>node</computeroutput> and the given <computeroutput>parent</computeroutput> node. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_tree.h" line="75" column="1"/>
       </memberdef>
       <memberdef kind="function" id="pub__tree_8h_1aeb0ac37dae31e70b6749156eb6698e2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref></type>
@@ -1264,7 +1490,7 @@
 <para>outputs the path into given file stream in GML format </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_tree.h" line="74" column="1"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_tree.h" line="88" column="1"/>
       </memberdef>
       <memberdef kind="function" id="pub__tree_8h_1a4e4c5ce0cf69d803a727a0564f7f16da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1322,7 +1548,7 @@
 <para>returns the set of variable branchings that were performed in all ancestor nodes (nodes on the path to the root) to create this node sorted by the nodes, starting from the current node going up to the root </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_tree.h" line="83" column="1"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_tree.h" line="97" column="1"/>
       </memberdef>
       <memberdef kind="function" id="pub__tree_8h_1aab61395f88809805047dcd95c00f9203" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref></type>
@@ -1345,7 +1571,7 @@
 <para>checks for two nodes whether they share the same root path, i.e., whether one is an ancestor of the other </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_tree.h" line="102" column="1"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_tree.h" line="116" column="1"/>
       </memberdef>
       <memberdef kind="function" id="pub__tree_8h_1af4abc073453e05486ce9543b00fb2ac7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref> *</type>
@@ -1368,7 +1594,7 @@
 <para>finds the common ancestor node of two given nodes </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_tree.h" line="109" column="1"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_tree.h" line="123" column="1"/>
       </memberdef>
       <memberdef kind="function" id="pub__tree_8h_1a3f5311e3a578be0890a7a3f3746a7088" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="type__tree_8h_1a3ae99c561d49d3a6e3d9286f0f0fb374" kindref="member">SCIP_NODETYPE</ref></type>
@@ -1386,7 +1612,7 @@
 <para>gets the type of the node </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_tree.h" line="117" column="1"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_tree.h" line="131" column="1"/>
       </memberdef>
       <memberdef kind="function" id="pub__tree_8h_1a991b33c0e4deb2cde2adf02cadc4bcd4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="def_8h_1a1e6171040084cc1f39f88e386238ee10" kindref="member">SCIP_Longint</ref></type>
@@ -1404,7 +1630,7 @@
 <para>gets successively assigned number of the node </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_tree.h" line="123" column="1"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_tree.h" line="137" column="1"/>
       </memberdef>
       <memberdef kind="function" id="pub__tree_8h_1ac76c988a601008c2e57c4cdac98c9c42" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1422,7 +1648,7 @@
 <para>gets the depth of the node </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_tree.h" line="129" column="1"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_tree.h" line="143" column="1"/>
       </memberdef>
       <memberdef kind="function" id="pub__tree_8h_1a4bf2eedb575230a17714ea304ed86afa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
@@ -1440,7 +1666,7 @@
 <para>gets the lower bound of the node </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_tree.h" line="135" column="1"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_tree.h" line="149" column="1"/>
       </memberdef>
       <memberdef kind="function" id="pub__tree_8h_1ac22ad62a838ed69f6d240b5588320280" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
@@ -1458,7 +1684,122 @@
 <para>gets the estimated value of the best feasible solution in subtree of the node </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_tree.h" line="141" column="1"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_tree.h" line="155" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__tree_8h_1ad3a7cbebaabe4ed277857978040fbfc9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__reopt_8h_1a1ea6b32664b4399bff3839d8e345cfa7" kindref="member">SCIP_REOPTTYPE</ref></type>
+        <definition>SCIP_REOPTTYPE SCIPnodeGetReopttype</definition>
+        <argsstring>(SCIP_NODE *node)</argsstring>
+        <name>SCIPnodeGetReopttype</name>
+        <param>
+          <type><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref> *</type>
+          <declname>node</declname>
+          <briefdescription><para>node </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets the reoptimization type of a node </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_tree.h" line="162" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__tree_8h_1ad81a732c6af223bca9de3dbe9211495a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int SCIPnodeGetReoptID</definition>
+        <argsstring>(SCIP_NODE *node)</argsstring>
+        <name>SCIPnodeGetReoptID</name>
+        <param>
+          <type><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref> *</type>
+          <declname>node</declname>
+          <briefdescription><para>node </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets the unique id to identify the node during reoptimization; id is 0 if the node is the root or not part of the reoptimization tree </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_tree.h" line="170" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__tree_8h_1a2533f7e98b5e69e6a580ed5789f4b433" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPnodeSetReopttype</definition>
+        <argsstring>(SCIP_NODE *node, SCIP_REOPTTYPE type)</argsstring>
+        <name>SCIPnodeSetReopttype</name>
+        <param>
+          <type><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref> *</type>
+          <declname>node</declname>
+          <briefdescription><para>node </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__reopt_8h_1a1ea6b32664b4399bff3839d8e345cfa7" kindref="member">SCIP_REOPTTYPE</ref></type>
+          <declname>type</declname>
+          <briefdescription><para>reoptimization type </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>sets the reoptimization type of the node </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_tree.h" line="176" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__tree_8h_1a3212c9e55cb67b765d1f98d7d76b97fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPnodeSetReoptID</definition>
+        <argsstring>(SCIP_NODE *node, unsigned int id)</argsstring>
+        <name>SCIPnodeSetReoptID</name>
+        <param>
+          <type><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref> *</type>
+          <declname>node</declname>
+          <briefdescription><para>node </para></briefdescription>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>id</declname>
+          <briefdescription><para>unique id </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>sets a unique id to identify the node during reoptimization </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_tree.h" line="183" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__tree_8h_1a5da2421d308a3166d1ef08cec1e0971b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPnodeGetNDomchg</definition>
+        <argsstring>(SCIP_NODE *node, int *nbranchings, int *nconsprop, int *nprop)</argsstring>
+        <name>SCIPnodeGetNDomchg</name>
+        <param>
+          <type><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref> *</type>
+          <declname>node</declname>
+          <briefdescription><para>node </para></briefdescription>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>nbranchings</declname>
+          <briefdescription><para>pointer to store number of branchings (or NULL if not needed) </para></briefdescription>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>nconsprop</declname>
+          <briefdescription><para>pointer to store number of constraint propagations (or NULL if not needed) </para></briefdescription>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>nprop</declname>
+          <briefdescription><para>pointer to store number of propagations (or NULL if not needed) </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>counts the number of bound changes due to branching, constraint propagation, and propagation </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_tree.h" line="190" column="1"/>
       </memberdef>
       <memberdef kind="function" id="pub__tree_8h_1acd8d7b8799702a22b4df3fcd736d0f54" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="type__var_8h_1a440799a07900a7d887c657d5b00d224d" kindref="member">SCIP_DOMCHG</ref> *</type>
@@ -1476,7 +1817,7 @@
 <para>gets the domain change information of the node, i.e., the information about the differences in the variables domains to the parent node </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_tree.h" line="149" column="1"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_tree.h" line="201" column="1"/>
       </memberdef>
       <memberdef kind="function" id="pub__tree_8h_1ad2078624cb4982d919befc95171ac5a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref> *</type>
@@ -1494,7 +1835,7 @@
 <para>gets the parent node of a node in the branch-and-bound tree, if any </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_tree.h" line="155" column="1"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_tree.h" line="207" column="1"/>
       </memberdef>
       <memberdef kind="function" id="pub__tree_8h_1a6a22ff0058a342889b62939fcf463b1d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref></type>
@@ -1512,7 +1853,7 @@
 <para>returns whether node is in the path to the current node </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_tree.h" line="161" column="1"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_tree.h" line="213" column="1"/>
       </memberdef>
       <memberdef kind="function" id="pub__tree_8h_1adbd3349e2d76a32af4f07b583fd84da8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref></type>
@@ -1530,7 +1871,7 @@
 <para>returns whether the node is marked to be propagated again </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_tree.h" line="167" column="1"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_tree.h" line="219" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -1544,7 +1885,7 @@
 <codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>This<sp/>file<sp/>is<sp/>part<sp/>of<sp/>the<sp/>program<sp/>and<sp/>library<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SCIP<sp/>---<sp/>Solving<sp/>Constraint<sp/>Integer<sp/>Programs<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/>Copyright<sp/>(C)<sp/>2002-2014<sp/>Konrad-Zuse-Zentrum<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/>Copyright<sp/>(C)<sp/>2002-2015<sp/>Konrad-Zuse-Zentrum<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fuer<sp/>Informationstechnik<sp/>Berlin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>SCIP<sp/>is<sp/>distributed<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>ZIB<sp/>Academic<sp/>License.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
@@ -1569,171 +1910,223 @@
 <codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="def_8h" kindref="compound">scip/def.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="type__misc_8h" kindref="compound">scip/type_misc.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="type__tree_8h" kindref="compound">scip/type_tree.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="31"><highlight class="normal"></highlight></codeline>
-<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>NDEBUG</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;scip/struct_tree.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="35"><highlight class="normal"></highlight></codeline>
-<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="39"><highlight class="normal"></highlight></codeline>
-<codeline lineno="40"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
-<codeline lineno="41"><highlight class="comment"><sp/>*<sp/>Node<sp/>methods</highlight></codeline>
-<codeline lineno="42"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
-<codeline lineno="44"><highlight class="comment">/**<sp/>node<sp/>comparator<sp/>for<sp/>best<sp/>lower<sp/>bound<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><ref refid="pub__tree_8h_1aedf77fbfe045de88a78951fa77bb7ec9" kindref="member">SCIP_DECL_SORTPTRCOMP</ref>(SCIPnodeCompLowerbound);</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
-<codeline lineno="48"><highlight class="comment">/**<sp/>returns<sp/>the<sp/>set<sp/>of<sp/>variable<sp/>branchings<sp/>that<sp/>were<sp/>performed<sp/>in<sp/>the<sp/>parent<sp/>node<sp/>to<sp/>create<sp/>this<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="pub__tree_8h_1a3869a3566609b6e46875886c10cdd7eb" kindref="member">SCIPnodeGetParentBranchings</ref>(</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>node<sp/>data<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__var_8h_1a032edd1f5032513d49e397ebdcc8915b" kindref="member">SCIP_VAR</ref>**<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>branchvars,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>array<sp/>of<sp/>variables<sp/>on<sp/>which<sp/>the<sp/>branching<sp/>has<sp/>been<sp/>performed<sp/>in<sp/>the<sp/>parent<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>branchbounds,<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>array<sp/>of<sp/>bounds<sp/>which<sp/>the<sp/>branching<sp/>in<sp/>the<sp/>parent<sp/>node<sp/>set<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__lp_8h_1ad1f370d06c5f9eece4ab657efa945dbb" kindref="member">SCIP_BOUNDTYPE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>boundtypes,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>array<sp/>of<sp/>boundtypes<sp/>which<sp/>the<sp/>branching<sp/>in<sp/>the<sp/>parent<sp/>node<sp/>set<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nbranchvars,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>number<sp/>of<sp/>variables<sp/>on<sp/>which<sp/>branching<sp/>has<sp/>been<sp/>performed<sp/>in<sp/>the<sp/>parent<sp/>node</highlight></codeline>
-<codeline lineno="56"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>if<sp/>this<sp/>is<sp/>larger<sp/>than<sp/>the<sp/>array<sp/>size,<sp/>arrays<sp/>should<sp/>be<sp/>reallocated<sp/>and<sp/>method<sp/>should<sp/>be<sp/>called<sp/>again<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>branchvarssize<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>available<sp/>slots<sp/>in<sp/>arrays<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
-<codeline lineno="60"><highlight class="comment">/**<sp/>returns<sp/>the<sp/>set<sp/>of<sp/>variable<sp/>branchings<sp/>that<sp/>were<sp/>performed<sp/>in<sp/>all<sp/>ancestor<sp/>nodes<sp/>(nodes<sp/>on<sp/>the<sp/>path<sp/>to<sp/>the<sp/>root)<sp/>to<sp/>create<sp/>this<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="61"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="62"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="pub__tree_8h_1a11f71eebec5565f38b48466592cc015f" kindref="member">SCIPnodeGetAncestorBranchings</ref>(</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>node<sp/>data<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__var_8h_1a032edd1f5032513d49e397ebdcc8915b" kindref="member">SCIP_VAR</ref>**<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>branchvars,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>array<sp/>of<sp/>variables<sp/>on<sp/>which<sp/>the<sp/>branchings<sp/>has<sp/>been<sp/>performed<sp/>in<sp/>all<sp/>ancestors<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>branchbounds,<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>array<sp/>of<sp/>bounds<sp/>which<sp/>the<sp/>branchings<sp/>in<sp/>all<sp/>ancestors<sp/>set<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__lp_8h_1ad1f370d06c5f9eece4ab657efa945dbb" kindref="member">SCIP_BOUNDTYPE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>boundtypes,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>array<sp/>of<sp/>boundtypes<sp/>which<sp/>the<sp/>branchings<sp/>in<sp/>all<sp/>ancestors<sp/>set<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nbranchvars,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>number<sp/>of<sp/>variables<sp/>on<sp/>which<sp/>branchings<sp/>have<sp/>been<sp/>performed<sp/>in<sp/>all<sp/>ancestors</highlight></codeline>
-<codeline lineno="68"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>if<sp/>this<sp/>is<sp/>larger<sp/>than<sp/>the<sp/>array<sp/>size,<sp/>arrays<sp/>should<sp/>be<sp/>reallocated<sp/>and<sp/>method<sp/>should<sp/>be<sp/>called<sp/>again<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>branchvarssize<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>available<sp/>slots<sp/>in<sp/>arrays<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
-<codeline lineno="72"><highlight class="comment">/**<sp/>outputs<sp/>the<sp/>path<sp/>into<sp/>given<sp/>file<sp/>stream<sp/>in<sp/>GML<sp/>format<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="73"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref><sp/><ref refid="pub__tree_8h_1aeb0ac37dae31e70b6749156eb6698e2c" kindref="member">SCIPnodePrintAncestorBranchings</ref>(</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>node<sp/>data<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/>FILE*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>file<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>file<sp/>to<sp/>output<sp/>the<sp/>path<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
-<codeline lineno="79"><highlight class="comment">/**<sp/>returns<sp/>the<sp/>set<sp/>of<sp/>variable<sp/>branchings<sp/>that<sp/>were<sp/>performed<sp/>in<sp/>all<sp/>ancestor<sp/>nodes<sp/>(nodes<sp/>on<sp/>the<sp/>path<sp/>to<sp/>the<sp/>root)<sp/>to<sp/>create<sp/>this<sp/>node</highlight></codeline>
-<codeline lineno="80"><highlight class="comment"><sp/>*<sp/><sp/>sorted<sp/>by<sp/>the<sp/>nodes,<sp/>starting<sp/>from<sp/>the<sp/>current<sp/>node<sp/>going<sp/>up<sp/>to<sp/>the<sp/>root</highlight></codeline>
-<codeline lineno="81"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="82"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="83"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="pub__tree_8h_1a4e4c5ce0cf69d803a727a0564f7f16da" kindref="member">SCIPnodeGetAncestorBranchingPath</ref>(</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>node<sp/>data<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__var_8h_1a032edd1f5032513d49e397ebdcc8915b" kindref="member">SCIP_VAR</ref>**<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>branchvars,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>array<sp/>of<sp/>variables<sp/>on<sp/>which<sp/>the<sp/>branchings<sp/>has<sp/>been<sp/>performed<sp/>in<sp/>all<sp/>ancestors<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>branchbounds,<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>array<sp/>of<sp/>bounds<sp/>which<sp/>the<sp/>branchings<sp/>in<sp/>all<sp/>ancestors<sp/>set<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__lp_8h_1ad1f370d06c5f9eece4ab657efa945dbb" kindref="member">SCIP_BOUNDTYPE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>boundtypes,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>array<sp/>of<sp/>boundtypes<sp/>which<sp/>the<sp/>branchings<sp/>in<sp/>all<sp/>ancestors<sp/>set<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nbranchvars,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>number<sp/>of<sp/>variables<sp/>on<sp/>which<sp/>branchings<sp/>have<sp/>been<sp/>performed<sp/>in<sp/>all<sp/>ancestors</highlight></codeline>
-<codeline lineno="89"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>if<sp/>this<sp/>is<sp/>larger<sp/>than<sp/>the<sp/>array<sp/>size,<sp/>arrays<sp/>should<sp/>be<sp/>reallocated<sp/>and<sp/>method</highlight></codeline>
-<codeline lineno="90"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>should<sp/>be<sp/>called<sp/>again<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>branchvarssize,<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>available<sp/>slots<sp/>in<sp/>arrays<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nodeswitches,<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>marks,<sp/>where<sp/>in<sp/>the<sp/>arrays<sp/>the<sp/>branching<sp/>decisions<sp/>of<sp/>the<sp/>next<sp/>node<sp/>on<sp/>the<sp/>path</highlight></codeline>
-<codeline lineno="93"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>start;<sp/>branchings<sp/>performed<sp/>at<sp/>the<sp/>parent<sp/>of<sp/>node<sp/>always<sp/>start<sp/>at<sp/>position<sp/>0.</highlight></codeline>
-<codeline lineno="94"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>For<sp/>single<sp/>variable<sp/>branching,<sp/>nodeswitches[i]<sp/>=<sp/>i<sp/>holds<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nnodes,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>number<sp/>of<sp/>nodes<sp/>in<sp/>the<sp/>nodeswitch<sp/>array<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nodeswitchsize<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>available<sp/>slots<sp/>in<sp/>node<sp/>switch<sp/>array<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"></highlight></codeline>
-<codeline lineno="99"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
-<codeline lineno="100"><highlight class="comment">/**<sp/>checks<sp/>for<sp/>two<sp/>nodes<sp/>whether<sp/>they<sp/>share<sp/>the<sp/>same<sp/>root<sp/>path,<sp/>i.e.,<sp/>whether<sp/>one<sp/>is<sp/>an<sp/>ancestor<sp/>of<sp/>the<sp/>other<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="101"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="102"><highlight class="normal"><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref><sp/><ref refid="pub__tree_8h_1aab61395f88809805047dcd95c00f9203" kindref="member">SCIPnodesSharePath</ref>(</highlight></codeline>
-<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node1,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>node<sp/>data<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>node<sp/>data<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
-<codeline lineno="106"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
-<codeline lineno="107"><highlight class="comment">/**<sp/>finds<sp/>the<sp/>common<sp/>ancestor<sp/>node<sp/>of<sp/>two<sp/>given<sp/>nodes<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="108"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="109"><highlight class="normal"><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><ref refid="pub__tree_8h_1af4abc073453e05486ce9543b00fb2ac7" kindref="member">SCIPnodesGetCommonAncestor</ref>(</highlight></codeline>
-<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node1,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>node<sp/>data<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>node<sp/>data<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
-<codeline lineno="113"><highlight class="normal"></highlight></codeline>
-<codeline lineno="114"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
-<codeline lineno="115"><highlight class="comment">/**<sp/>gets<sp/>the<sp/>type<sp/>of<sp/>the<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="116"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="117"><highlight class="normal"><ref refid="type__tree_8h_1a3ae99c561d49d3a6e3d9286f0f0fb374" kindref="member">SCIP_NODETYPE</ref><sp/><ref refid="pub__tree_8h_1a3f5311e3a578be0890a7a3f3746a7088" kindref="member">SCIPnodeGetType</ref>(</highlight></codeline>
-<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="type__reopt_8h" kindref="compound">scip/type_reopt.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>NDEBUG</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;scip/struct_tree.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/>*<sp/>Node<sp/>methods</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="45"><highlight class="comment">/**<sp/>node<sp/>comparator<sp/>for<sp/>best<sp/>lower<sp/>bound<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><ref refid="pub__tree_8h_1aedf77fbfe045de88a78951fa77bb7ec9" kindref="member">SCIP_DECL_SORTPTRCOMP</ref>(SCIPnodeCompLowerbound);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="49"><highlight class="comment">/**<sp/>returns<sp/>the<sp/>set<sp/>of<sp/>variable<sp/>branchings<sp/>that<sp/>were<sp/>performed<sp/>in<sp/>the<sp/>parent<sp/>node<sp/>to<sp/>create<sp/>this<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="pub__tree_8h_1a3869a3566609b6e46875886c10cdd7eb" kindref="member">SCIPnodeGetParentBranchings</ref>(</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>node<sp/>data<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__var_8h_1a032edd1f5032513d49e397ebdcc8915b" kindref="member">SCIP_VAR</ref>**<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>branchvars,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>array<sp/>of<sp/>variables<sp/>on<sp/>which<sp/>the<sp/>branching<sp/>has<sp/>been<sp/>performed<sp/>in<sp/>the<sp/>parent<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>branchbounds,<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>array<sp/>of<sp/>bounds<sp/>which<sp/>the<sp/>branching<sp/>in<sp/>the<sp/>parent<sp/>node<sp/>set<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__lp_8h_1ad1f370d06c5f9eece4ab657efa945dbb" kindref="member">SCIP_BOUNDTYPE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>boundtypes,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>array<sp/>of<sp/>boundtypes<sp/>which<sp/>the<sp/>branching<sp/>in<sp/>the<sp/>parent<sp/>node<sp/>set<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nbranchvars,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>number<sp/>of<sp/>variables<sp/>on<sp/>which<sp/>branching<sp/>has<sp/>been<sp/>performed<sp/>in<sp/>the<sp/>parent<sp/>node</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>if<sp/>this<sp/>is<sp/>larger<sp/>than<sp/>the<sp/>array<sp/>size,<sp/>arrays<sp/>should<sp/>be<sp/>reallocated<sp/>and<sp/>method<sp/>should<sp/>be<sp/>called<sp/>again<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>branchvarssize<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>available<sp/>slots<sp/>in<sp/>arrays<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="61"><highlight class="comment">/**<sp/>returns<sp/>the<sp/>set<sp/>of<sp/>variable<sp/>branchings<sp/>that<sp/>were<sp/>performed<sp/>in<sp/>all<sp/>ancestor<sp/>nodes<sp/>(nodes<sp/>on<sp/>the<sp/>path<sp/>to<sp/>the<sp/>root)<sp/>to<sp/>create<sp/>this<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="pub__tree_8h_1a11f71eebec5565f38b48466592cc015f" kindref="member">SCIPnodeGetAncestorBranchings</ref>(</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>node<sp/>data<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__var_8h_1a032edd1f5032513d49e397ebdcc8915b" kindref="member">SCIP_VAR</ref>**<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>branchvars,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>array<sp/>of<sp/>variables<sp/>on<sp/>which<sp/>the<sp/>branchings<sp/>has<sp/>been<sp/>performed<sp/>in<sp/>all<sp/>ancestors<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>branchbounds,<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>array<sp/>of<sp/>bounds<sp/>which<sp/>the<sp/>branchings<sp/>in<sp/>all<sp/>ancestors<sp/>set<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__lp_8h_1ad1f370d06c5f9eece4ab657efa945dbb" kindref="member">SCIP_BOUNDTYPE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>boundtypes,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>array<sp/>of<sp/>boundtypes<sp/>which<sp/>the<sp/>branchings<sp/>in<sp/>all<sp/>ancestors<sp/>set<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nbranchvars,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>number<sp/>of<sp/>variables<sp/>on<sp/>which<sp/>branchings<sp/>have<sp/>been<sp/>performed<sp/>in<sp/>all<sp/>ancestors</highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>if<sp/>this<sp/>is<sp/>larger<sp/>than<sp/>the<sp/>array<sp/>size,<sp/>arrays<sp/>should<sp/>be<sp/>reallocated<sp/>and<sp/>method<sp/>should<sp/>be<sp/>called<sp/>again<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>branchvarssize<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>available<sp/>slots<sp/>in<sp/>arrays<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="73"><highlight class="comment">/**<sp/>returns<sp/>the<sp/>set<sp/>of<sp/>variable<sp/>branchings<sp/>that<sp/>were<sp/>performed<sp/>between<sp/>the<sp/>given<sp/>@p<sp/>node<sp/>and<sp/>the<sp/>given<sp/>@p<sp/>parent<sp/>node.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="pub__tree_8h_1a33e398caaaf51f53fa042739eccdabfd" kindref="member">SCIPnodeGetAncestorBranchingsPart</ref>(</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>node<sp/>data<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>parent,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>node<sp/>data<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__var_8h_1a032edd1f5032513d49e397ebdcc8915b" kindref="member">SCIP_VAR</ref>**<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>branchvars,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>array<sp/>of<sp/>variables<sp/>on<sp/>which<sp/>the<sp/>branchings<sp/>has<sp/>been<sp/>performed<sp/>in<sp/>all<sp/>ancestors<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>branchbounds,<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>array<sp/>of<sp/>bounds<sp/>which<sp/>the<sp/>branchings<sp/>in<sp/>all<sp/>ancestors<sp/>set<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__lp_8h_1ad1f370d06c5f9eece4ab657efa945dbb" kindref="member">SCIP_BOUNDTYPE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>boundtypes,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>array<sp/>of<sp/>boundtypes<sp/>which<sp/>the<sp/>branchings<sp/>in<sp/>all<sp/>ancestors<sp/>set<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nbranchvars,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>number<sp/>of<sp/>variables<sp/>on<sp/>which<sp/>branchings<sp/>have<sp/>been<sp/>performed<sp/>in<sp/>all<sp/>ancestors</highlight></codeline>
+<codeline lineno="82"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>if<sp/>this<sp/>is<sp/>larger<sp/>than<sp/>the<sp/>array<sp/>size,<sp/>arrays<sp/>should<sp/>be<sp/>reallocated<sp/>and<sp/>method<sp/>should<sp/>be<sp/>called<sp/>again<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>branchvarssize<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>available<sp/>slots<sp/>in<sp/>arrays<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="86"><highlight class="comment">/**<sp/>outputs<sp/>the<sp/>path<sp/>into<sp/>given<sp/>file<sp/>stream<sp/>in<sp/>GML<sp/>format<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref><sp/><ref refid="pub__tree_8h_1aeb0ac37dae31e70b6749156eb6698e2c" kindref="member">SCIPnodePrintAncestorBranchings</ref>(</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>node<sp/>data<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/>FILE*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>file<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>file<sp/>to<sp/>output<sp/>the<sp/>path<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="93"><highlight class="comment">/**<sp/>returns<sp/>the<sp/>set<sp/>of<sp/>variable<sp/>branchings<sp/>that<sp/>were<sp/>performed<sp/>in<sp/>all<sp/>ancestor<sp/>nodes<sp/>(nodes<sp/>on<sp/>the<sp/>path<sp/>to<sp/>the<sp/>root)<sp/>to<sp/>create<sp/>this<sp/>node</highlight></codeline>
+<codeline lineno="94"><highlight class="comment"><sp/>*<sp/><sp/>sorted<sp/>by<sp/>the<sp/>nodes,<sp/>starting<sp/>from<sp/>the<sp/>current<sp/>node<sp/>going<sp/>up<sp/>to<sp/>the<sp/>root</highlight></codeline>
+<codeline lineno="95"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="pub__tree_8h_1a4e4c5ce0cf69d803a727a0564f7f16da" kindref="member">SCIPnodeGetAncestorBranchingPath</ref>(</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>node<sp/>data<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__var_8h_1a032edd1f5032513d49e397ebdcc8915b" kindref="member">SCIP_VAR</ref>**<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>branchvars,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>array<sp/>of<sp/>variables<sp/>on<sp/>which<sp/>the<sp/>branchings<sp/>has<sp/>been<sp/>performed<sp/>in<sp/>all<sp/>ancestors<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>branchbounds,<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>array<sp/>of<sp/>bounds<sp/>which<sp/>the<sp/>branchings<sp/>in<sp/>all<sp/>ancestors<sp/>set<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__lp_8h_1ad1f370d06c5f9eece4ab657efa945dbb" kindref="member">SCIP_BOUNDTYPE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>boundtypes,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>array<sp/>of<sp/>boundtypes<sp/>which<sp/>the<sp/>branchings<sp/>in<sp/>all<sp/>ancestors<sp/>set<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nbranchvars,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>number<sp/>of<sp/>variables<sp/>on<sp/>which<sp/>branchings<sp/>have<sp/>been<sp/>performed<sp/>in<sp/>all<sp/>ancestors</highlight></codeline>
+<codeline lineno="103"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>if<sp/>this<sp/>is<sp/>larger<sp/>than<sp/>the<sp/>array<sp/>size,<sp/>arrays<sp/>should<sp/>be<sp/>reallocated<sp/>and<sp/>method</highlight></codeline>
+<codeline lineno="104"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>should<sp/>be<sp/>called<sp/>again<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>branchvarssize,<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>available<sp/>slots<sp/>in<sp/>arrays<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nodeswitches,<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>marks,<sp/>where<sp/>in<sp/>the<sp/>arrays<sp/>the<sp/>branching<sp/>decisions<sp/>of<sp/>the<sp/>next<sp/>node<sp/>on<sp/>the<sp/>path</highlight></codeline>
+<codeline lineno="107"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>start;<sp/>branchings<sp/>performed<sp/>at<sp/>the<sp/>parent<sp/>of<sp/>node<sp/>always<sp/>start<sp/>at<sp/>position<sp/>0.</highlight></codeline>
+<codeline lineno="108"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>For<sp/>single<sp/>variable<sp/>branching,<sp/>nodeswitches[i]<sp/>=<sp/>i<sp/>holds<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nnodes,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>number<sp/>of<sp/>nodes<sp/>in<sp/>the<sp/>nodeswitch<sp/>array<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nodeswitchsize<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>available<sp/>slots<sp/>in<sp/>node<sp/>switch<sp/>array<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="114"><highlight class="comment">/**<sp/>checks<sp/>for<sp/>two<sp/>nodes<sp/>whether<sp/>they<sp/>share<sp/>the<sp/>same<sp/>root<sp/>path,<sp/>i.e.,<sp/>whether<sp/>one<sp/>is<sp/>an<sp/>ancestor<sp/>of<sp/>the<sp/>other<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref><sp/><ref refid="pub__tree_8h_1aab61395f88809805047dcd95c00f9203" kindref="member">SCIPnodesSharePath</ref>(</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node1,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>node<sp/>data<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>node<sp/>data<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
 <codeline lineno="120"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
-<codeline lineno="121"><highlight class="comment">/**<sp/>gets<sp/>successively<sp/>assigned<sp/>number<sp/>of<sp/>the<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="comment">/**<sp/>finds<sp/>the<sp/>common<sp/>ancestor<sp/>node<sp/>of<sp/>two<sp/>given<sp/>nodes<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="122"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="123"><highlight class="normal"><ref refid="def_8h_1a1e6171040084cc1f39f88e386238ee10" kindref="member">SCIP_Longint</ref><sp/><ref refid="pub__tree_8h_1a991b33c0e4deb2cde2adf02cadc4bcd4" kindref="member">SCIPnodeGetNumber</ref>(</highlight></codeline>
-<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
-<codeline lineno="126"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
-<codeline lineno="127"><highlight class="comment">/**<sp/>gets<sp/>the<sp/>depth<sp/>of<sp/>the<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="128"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="129"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="pub__tree_8h_1ac76c988a601008c2e57c4cdac98c9c42" kindref="member">SCIPnodeGetDepth</ref>(</highlight></codeline>
-<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
-<codeline lineno="132"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
-<codeline lineno="133"><highlight class="comment">/**<sp/>gets<sp/>the<sp/>lower<sp/>bound<sp/>of<sp/>the<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="134"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="135"><highlight class="normal"><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref><sp/><ref refid="pub__tree_8h_1a4bf2eedb575230a17714ea304ed86afa" kindref="member">SCIPnodeGetLowerbound</ref>(</highlight></codeline>
-<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
-<codeline lineno="138"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
-<codeline lineno="139"><highlight class="comment">/**<sp/>gets<sp/>the<sp/>estimated<sp/>value<sp/>of<sp/>the<sp/>best<sp/>feasible<sp/>solution<sp/>in<sp/>subtree<sp/>of<sp/>the<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="140"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="141"><highlight class="normal"><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref><sp/><ref refid="pub__tree_8h_1ac22ad62a838ed69f6d240b5588320280" kindref="member">SCIPnodeGetEstimate</ref>(</highlight></codeline>
-<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
-<codeline lineno="144"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
-<codeline lineno="145"><highlight class="comment">/**<sp/>gets<sp/>the<sp/>domain<sp/>change<sp/>information<sp/>of<sp/>the<sp/>node,<sp/>i.e.,<sp/>the<sp/>information<sp/>about<sp/>the<sp/>differences<sp/>in<sp/>the</highlight></codeline>
-<codeline lineno="146"><highlight class="comment"><sp/>*<sp/><sp/>variables<sp/>domains<sp/>to<sp/>the<sp/>parent<sp/>node</highlight></codeline>
-<codeline lineno="147"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><ref refid="pub__tree_8h_1af4abc073453e05486ce9543b00fb2ac7" kindref="member">SCIPnodesGetCommonAncestor</ref>(</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node1,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>node<sp/>data<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>node<sp/>data<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="129"><highlight class="comment">/**<sp/>gets<sp/>the<sp/>type<sp/>of<sp/>the<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><ref refid="type__tree_8h_1a3ae99c561d49d3a6e3d9286f0f0fb374" kindref="member">SCIP_NODETYPE</ref><sp/><ref refid="pub__tree_8h_1a3f5311e3a578be0890a7a3f3746a7088" kindref="member">SCIPnodeGetType</ref>(</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="135"><highlight class="comment">/**<sp/>gets<sp/>successively<sp/>assigned<sp/>number<sp/>of<sp/>the<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><ref refid="def_8h_1a1e6171040084cc1f39f88e386238ee10" kindref="member">SCIP_Longint</ref><sp/><ref refid="pub__tree_8h_1a991b33c0e4deb2cde2adf02cadc4bcd4" kindref="member">SCIPnodeGetNumber</ref>(</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="141"><highlight class="comment">/**<sp/>gets<sp/>the<sp/>depth<sp/>of<sp/>the<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="pub__tree_8h_1ac76c988a601008c2e57c4cdac98c9c42" kindref="member">SCIPnodeGetDepth</ref>(</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="147"><highlight class="comment">/**<sp/>gets<sp/>the<sp/>lower<sp/>bound<sp/>of<sp/>the<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="148"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="149"><highlight class="normal"><ref refid="type__var_8h_1a440799a07900a7d887c657d5b00d224d" kindref="member">SCIP_DOMCHG</ref>*<sp/><ref refid="pub__tree_8h_1acd8d7b8799702a22b4df3fcd736d0f54" kindref="member">SCIPnodeGetDomchg</ref>(</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref><sp/><ref refid="pub__tree_8h_1a4bf2eedb575230a17714ea304ed86afa" kindref="member">SCIPnodeGetLowerbound</ref>(</highlight></codeline>
 <codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
 <codeline lineno="152"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
-<codeline lineno="153"><highlight class="comment">/**<sp/>gets<sp/>the<sp/>parent<sp/>node<sp/>of<sp/>a<sp/>node<sp/>in<sp/>the<sp/>branch-and-bound<sp/>tree,<sp/>if<sp/>any<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="comment">/**<sp/>gets<sp/>the<sp/>estimated<sp/>value<sp/>of<sp/>the<sp/>best<sp/>feasible<sp/>solution<sp/>in<sp/>subtree<sp/>of<sp/>the<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="154"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="155"><highlight class="normal"><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><ref refid="pub__tree_8h_1ad2078624cb4982d919befc95171ac5a5" kindref="member">SCIPnodeGetParent</ref>(</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref><sp/><ref refid="pub__tree_8h_1ac22ad62a838ed69f6d240b5588320280" kindref="member">SCIPnodeGetEstimate</ref>(</highlight></codeline>
 <codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
-<codeline lineno="158"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
-<codeline lineno="159"><highlight class="comment">/**<sp/>returns<sp/>whether<sp/>node<sp/>is<sp/>in<sp/>the<sp/>path<sp/>to<sp/>the<sp/>current<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="160"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="161"><highlight class="normal"><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref><sp/><ref refid="pub__tree_8h_1a6a22ff0058a342889b62939fcf463b1d" kindref="member">SCIPnodeIsActive</ref>(</highlight></codeline>
-<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
-<codeline lineno="164"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
-<codeline lineno="165"><highlight class="comment">/**<sp/>returns<sp/>whether<sp/>the<sp/>node<sp/>is<sp/>marked<sp/>to<sp/>be<sp/>propagated<sp/>again<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="166"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="167"><highlight class="normal"><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref><sp/><ref refid="pub__tree_8h_1adbd3349e2d76a32af4f07b583fd84da8" kindref="member">SCIPnodeIsPropagatedAgain</ref>(</highlight></codeline>
-<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>node<sp/>data<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
-<codeline lineno="170"><highlight class="normal"></highlight></codeline>
-<codeline lineno="171"><highlight class="normal"></highlight></codeline>
-<codeline lineno="172"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>NDEBUG</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="173"><highlight class="normal"></highlight></codeline>
-<codeline lineno="174"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>In<sp/>optimized<sp/>mode,<sp/>the<sp/>function<sp/>calls<sp/>are<sp/>overwritten<sp/>by<sp/>defines<sp/>to<sp/>reduce<sp/>the<sp/>number<sp/>of<sp/>function<sp/>calls<sp/>and</highlight></codeline>
-<codeline lineno="175"><highlight class="comment"><sp/>*<sp/>speed<sp/>up<sp/>the<sp/>algorithms.</highlight></codeline>
-<codeline lineno="176"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="177"><highlight class="normal"></highlight></codeline>
-<codeline lineno="178"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPnodeGetType(node)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((SCIP_NODETYPE)(node)-&gt;nodetype)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="179"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPnodeGetNumber(node)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((node)-&gt;number)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="180"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPnodeGetDepth(node)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((int)<sp/>(node)-&gt;depth)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="181"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPnodeGetLowerbound(node)<sp/><sp/><sp/><sp/><sp/>((node)-&gt;lowerbound)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="182"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPnodeGetEstimate(node)<sp/><sp/><sp/><sp/><sp/><sp/><sp/>((node)-&gt;estimate)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="183"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPnodeGetDomchg(node)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((node)-&gt;domchg)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="184"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPnodeGetParent(node)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((node)-&gt;parent)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="185"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPnodeIsActive(node)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((node)-&gt;active)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="186"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPnodeIsPropagatedAgain(node)<sp/>((node)-&gt;reprop)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="187"><highlight class="normal"></highlight></codeline>
-<codeline lineno="188"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="189"><highlight class="normal"></highlight></codeline>
-<codeline lineno="190"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="191"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="192"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="193"><highlight class="normal"></highlight></codeline>
-<codeline lineno="194"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="160"><highlight class="comment">/**<sp/>gets<sp/>the<sp/>reoptimization<sp/>type<sp/>of<sp/>a<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><ref refid="type__reopt_8h_1a1ea6b32664b4399bff3839d8e345cfa7" kindref="member">SCIP_REOPTTYPE</ref><sp/><ref refid="pub__tree_8h_1ad3a7cbebaabe4ed277857978040fbfc9" kindref="member">SCIPnodeGetReopttype</ref>(</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="166"><highlight class="comment">/**<sp/>gets<sp/>the<sp/>unique<sp/>id<sp/>to<sp/>identify<sp/>the<sp/>node<sp/>during<sp/>reoptimization;<sp/>id<sp/>is<sp/>0<sp/>if<sp/>the<sp/>node<sp/>is<sp/>the<sp/>root<sp/>or<sp/>not<sp/>part<sp/>of<sp/>the</highlight></codeline>
+<codeline lineno="167"><highlight class="comment"><sp/>*<sp/>reoptimization<sp/>tree</highlight></codeline>
+<codeline lineno="168"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="pub__tree_8h_1ad81a732c6af223bca9de3dbe9211495a" kindref="member">SCIPnodeGetReoptID</ref>(</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="174"><highlight class="comment">/**<sp/>sets<sp/>the<sp/>reoptimization<sp/>type<sp/>of<sp/>the<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="pub__tree_8h_1a2533f7e98b5e69e6a580ed5789f4b433" kindref="member">SCIPnodeSetReopttype</ref>(</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__reopt_8h_1a1ea6b32664b4399bff3839d8e345cfa7" kindref="member">SCIP_REOPTTYPE</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>type<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>reoptimization<sp/>type<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="181"><highlight class="comment">/**<sp/>sets<sp/>a<sp/>unique<sp/>id<sp/>to<sp/>identify<sp/>the<sp/>node<sp/>during<sp/>reoptimization<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="pub__tree_8h_1a3212c9e55cb67b765d1f98d7d76b97fd" kindref="member">SCIPnodeSetReoptID</ref>(</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>unique<sp/>id<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="188"><highlight class="comment">/**<sp/>counts<sp/>the<sp/>number<sp/>of<sp/>bound<sp/>changes<sp/>due<sp/>to<sp/>branching,<sp/>constraint<sp/>propagation,<sp/>and<sp/>propagation<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="pub__tree_8h_1a5da2421d308a3166d1ef08cec1e0971b" kindref="member">SCIPnodeGetNDomchg</ref>(</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nbranchings,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>pointer<sp/>to<sp/>store<sp/>number<sp/>of<sp/>branchings<sp/>(or<sp/>NULL<sp/>if<sp/>not<sp/>needed)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nconsprop,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>pointer<sp/>to<sp/>store<sp/>number<sp/>of<sp/>constraint<sp/>propagations<sp/>(or<sp/>NULL<sp/>if<sp/>not<sp/>needed)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nprop<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>pointer<sp/>to<sp/>store<sp/>number<sp/>of<sp/>propagations<sp/>(or<sp/>NULL<sp/>if<sp/>not<sp/>needed)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="197"><highlight class="comment">/**<sp/>gets<sp/>the<sp/>domain<sp/>change<sp/>information<sp/>of<sp/>the<sp/>node,<sp/>i.e.,<sp/>the<sp/>information<sp/>about<sp/>the<sp/>differences<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="198"><highlight class="comment"><sp/>*<sp/><sp/>variables<sp/>domains<sp/>to<sp/>the<sp/>parent<sp/>node</highlight></codeline>
+<codeline lineno="199"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><ref refid="type__var_8h_1a440799a07900a7d887c657d5b00d224d" kindref="member">SCIP_DOMCHG</ref>*<sp/><ref refid="pub__tree_8h_1acd8d7b8799702a22b4df3fcd736d0f54" kindref="member">SCIPnodeGetDomchg</ref>(</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="205"><highlight class="comment">/**<sp/>gets<sp/>the<sp/>parent<sp/>node<sp/>of<sp/>a<sp/>node<sp/>in<sp/>the<sp/>branch-and-bound<sp/>tree,<sp/>if<sp/>any<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><ref refid="pub__tree_8h_1ad2078624cb4982d919befc95171ac5a5" kindref="member">SCIPnodeGetParent</ref>(</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="211"><highlight class="comment">/**<sp/>returns<sp/>whether<sp/>node<sp/>is<sp/>in<sp/>the<sp/>path<sp/>to<sp/>the<sp/>current<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref><sp/><ref refid="pub__tree_8h_1a6a22ff0058a342889b62939fcf463b1d" kindref="member">SCIPnodeIsActive</ref>(</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="217"><highlight class="comment">/**<sp/>returns<sp/>whether<sp/>the<sp/>node<sp/>is<sp/>marked<sp/>to<sp/>be<sp/>propagated<sp/>again<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref><sp/><ref refid="pub__tree_8h_1adbd3349e2d76a32af4f07b583fd84da8" kindref="member">SCIPnodeIsPropagatedAgain</ref>(</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__tree_8h_1a11fb26f4a85e9b693e2168e6e3d78301" kindref="member">SCIP_NODE</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>node<sp/>data<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>NDEBUG</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>In<sp/>optimized<sp/>mode,<sp/>the<sp/>function<sp/>calls<sp/>are<sp/>overwritten<sp/>by<sp/>defines<sp/>to<sp/>reduce<sp/>the<sp/>number<sp/>of<sp/>function<sp/>calls<sp/>and</highlight></codeline>
+<codeline lineno="227"><highlight class="comment"><sp/>*<sp/>speed<sp/>up<sp/>the<sp/>algorithms.</highlight></codeline>
+<codeline lineno="228"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPnodeGetType(node)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((SCIP_NODETYPE)(node)-&gt;nodetype)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPnodeGetNumber(node)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((node)-&gt;number)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="232"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPnodeGetDepth(node)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((int)<sp/>(node)-&gt;depth)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPnodeGetLowerbound(node)<sp/><sp/><sp/><sp/><sp/>((node)-&gt;lowerbound)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPnodeGetEstimate(node)<sp/><sp/><sp/><sp/><sp/><sp/><sp/>((node)-&gt;estimate)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="235"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPnodeGetDomchg(node)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((node)-&gt;domchg)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPnodeGetParent(node)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((node)-&gt;parent)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPnodeIsActive(node)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((node)-&gt;active)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPnodeIsPropagatedAgain(node)<sp/>((node)-&gt;reprop)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="245"><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
-    <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/pub_tree.h"/>
+    <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_tree.h"/>
   </compounddef>
 </doxygen>

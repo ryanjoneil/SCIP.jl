@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.8">
-  <compounddef id="type__sepa_8h" kind="file">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="type__sepa_8h" kind="file" language="C++">
     <compoundname>type_sepa.h</compoundname>
     <includes refid="def_8h" local="yes">scip/def.h</includes>
     <includes refid="type__retcode_8h" local="yes">scip/type_retcode.h</includes>
@@ -11,1158 +11,1329 @@
     <includedby refid="pub__sepa_8h" local="yes">pub_sepa.h</includedby>
     <includedby refid="scip_8h" local="yes">scip.h</includedby>
     <incdepgraph>
-      <node id="19489">
+      <node id="24209">
         <label>stdarg.h</label>
       </node>
-      <node id="19492">
-        <label>scip/type_sol.h</label>
-        <link refid="type__sol_8h"/>
-      </node>
-      <node id="19486">
+      <node id="24206">
         <label>assert.h</label>
       </node>
-      <node id="19485">
+      <node id="24205">
         <label>float.h</label>
       </node>
-      <node id="19491">
+      <node id="24202">
+        <label>stdint.h</label>
+      </node>
+      <node id="24211">
         <label>scip/type_result.h</label>
         <link refid="type__result_8h"/>
       </node>
-      <node id="19484">
-        <label>limits.h</label>
-      </node>
-      <node id="19493">
+      <node id="24213">
         <label>scip/type_scip.h</label>
         <link refid="type__scip_8h"/>
       </node>
-      <node id="19490">
-        <label>scip/type_message.h</label>
-        <link refid="type__message_8h"/>
-        <childnode refid="19482" relation="include">
+      <node id="24200">
+        <label>scip/def.h</label>
+        <link refid="def_8h"/>
+        <childnode refid="24201" relation="include">
+        </childnode>
+        <childnode refid="24202" relation="include">
+        </childnode>
+        <childnode refid="24203" relation="include">
+        </childnode>
+        <childnode refid="24204" relation="include">
+        </childnode>
+        <childnode refid="24205" relation="include">
+        </childnode>
+        <childnode refid="24206" relation="include">
+        </childnode>
+        <childnode refid="24207" relation="include">
+        </childnode>
+        <childnode refid="24208" relation="include">
         </childnode>
       </node>
-      <node id="19488">
-        <label>scip/pub_message.h</label>
-        <link refid="pub__message_8h"/>
-        <childnode refid="19489" relation="include">
-        </childnode>
-        <childnode refid="19481" relation="include">
-        </childnode>
-        <childnode refid="19490" relation="include">
-        </childnode>
+      <node id="24204">
+        <label>limits.h</label>
       </node>
-      <node id="19480">
+      <node id="24199">
         <label>type_sepa.h</label>
         <link refid="type_sepa.h"/>
-        <childnode refid="19481" relation="include">
+        <childnode refid="24200" relation="include">
         </childnode>
-        <childnode refid="19487" relation="include">
+        <childnode refid="24207" relation="include">
         </childnode>
-        <childnode refid="19491" relation="include">
+        <childnode refid="24211" relation="include">
         </childnode>
-        <childnode refid="19492" relation="include">
+        <childnode refid="24212" relation="include">
         </childnode>
-        <childnode refid="19493" relation="include">
+        <childnode refid="24213" relation="include">
         </childnode>
       </node>
-      <node id="19487">
+      <node id="24212">
+        <label>scip/type_sol.h</label>
+        <link refid="type__sol_8h"/>
+      </node>
+      <node id="24203">
+        <label>math.h</label>
+      </node>
+      <node id="24207">
         <label>scip/type_retcode.h</label>
         <link refid="type__retcode_8h"/>
       </node>
-      <node id="19483">
-        <label>math.h</label>
-      </node>
-      <node id="19481">
-        <label>scip/def.h</label>
-        <link refid="def_8h"/>
-        <childnode refid="19482" relation="include">
+      <node id="24208">
+        <label>scip/pub_message.h</label>
+        <link refid="pub__message_8h"/>
+        <childnode refid="24209" relation="include">
         </childnode>
-        <childnode refid="19483" relation="include">
+        <childnode refid="24200" relation="include">
         </childnode>
-        <childnode refid="19484" relation="include">
-        </childnode>
-        <childnode refid="19485" relation="include">
-        </childnode>
-        <childnode refid="19486" relation="include">
-        </childnode>
-        <childnode refid="19487" relation="include">
-        </childnode>
-        <childnode refid="19488" relation="include">
+        <childnode refid="24210" relation="include">
         </childnode>
       </node>
-      <node id="19482">
+      <node id="24210">
+        <label>scip/type_message.h</label>
+        <link refid="type__message_8h"/>
+        <childnode refid="24201" relation="include">
+        </childnode>
+      </node>
+      <node id="24201">
         <label>stdio.h</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="19536">
-        <label>heur_clique.h</label>
-        <link refid="heur__clique_8h"/>
-        <childnode refid="19498" relation="include">
+      <node id="24303">
+        <label>heur_zeroobj.h</label>
+        <link refid="heur__zeroobj_8h"/>
+        <childnode refid="24218" relation="include">
         </childnode>
       </node>
-      <node id="19532">
-        <label>cons_xor.h</label>
-        <link refid="cons__xor_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19608">
-        <label>reader_pbm.h</label>
-        <link refid="reader__pbm_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19537">
-        <label>heur_coefdiving.h</label>
-        <link refid="heur__coefdiving_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19582">
-        <label>presol_convertinttobin.h</label>
-        <link refid="presol__convertinttobin_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19627">
-        <label>sepa_zerohalf.h</label>
-        <link refid="sepa__zerohalf_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19568">
-        <label>heur_undercover.h</label>
-        <link refid="heur__undercover_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19563">
-        <label>heur_simplerounding.h</label>
-        <link refid="heur__simplerounding_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19548">
-        <label>heur_localbranching.h</label>
-        <link refid="heur__localbranching_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19610">
-        <label>reader_ppm.h</label>
-        <link refid="reader__ppm_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19496">
-        <label>scip.h</label>
-        <link refid="scip_8h"/>
-        <childnode refid="19497" relation="include">
-        </childnode>
-        <childnode refid="19499" relation="include">
-        </childnode>
-        <childnode refid="19500" relation="include">
-        </childnode>
-        <childnode refid="19501" relation="include">
-        </childnode>
-        <childnode refid="19502" relation="include">
-        </childnode>
-        <childnode refid="19503" relation="include">
-        </childnode>
-        <childnode refid="19504" relation="include">
-        </childnode>
-        <childnode refid="19505" relation="include">
-        </childnode>
-        <childnode refid="19506" relation="include">
-        </childnode>
-        <childnode refid="19507" relation="include">
-        </childnode>
-        <childnode refid="19508" relation="include">
-        </childnode>
-        <childnode refid="19509" relation="include">
-        </childnode>
-        <childnode refid="19510" relation="include">
-        </childnode>
-        <childnode refid="19511" relation="include">
-        </childnode>
-        <childnode refid="19512" relation="include">
-        </childnode>
-        <childnode refid="19513" relation="include">
-        </childnode>
-        <childnode refid="19514" relation="include">
-        </childnode>
-        <childnode refid="19515" relation="include">
-        </childnode>
-        <childnode refid="19516" relation="include">
-        </childnode>
-        <childnode refid="19517" relation="include">
-        </childnode>
-        <childnode refid="19518" relation="include">
-        </childnode>
-        <childnode refid="19519" relation="include">
-        </childnode>
-        <childnode refid="19520" relation="include">
-        </childnode>
-        <childnode refid="19521" relation="include">
-        </childnode>
-        <childnode refid="19522" relation="include">
-        </childnode>
-        <childnode refid="19523" relation="include">
-        </childnode>
-        <childnode refid="19524" relation="include">
-        </childnode>
-        <childnode refid="19525" relation="include">
-        </childnode>
-        <childnode refid="19526" relation="include">
-        </childnode>
-        <childnode refid="19527" relation="include">
-        </childnode>
-        <childnode refid="19528" relation="include">
-        </childnode>
-        <childnode refid="19529" relation="include">
-        </childnode>
-        <childnode refid="19530" relation="include">
-        </childnode>
-        <childnode refid="19531" relation="include">
-        </childnode>
-        <childnode refid="19532" relation="include">
-        </childnode>
-        <childnode refid="19533" relation="include">
-        </childnode>
-        <childnode refid="19534" relation="include">
-        </childnode>
-        <childnode refid="19535" relation="include">
-        </childnode>
-        <childnode refid="19536" relation="include">
-        </childnode>
-        <childnode refid="19537" relation="include">
-        </childnode>
-        <childnode refid="19538" relation="include">
-        </childnode>
-        <childnode refid="19539" relation="include">
-        </childnode>
-        <childnode refid="19540" relation="include">
-        </childnode>
-        <childnode refid="19541" relation="include">
-        </childnode>
-        <childnode refid="19542" relation="include">
-        </childnode>
-        <childnode refid="19543" relation="include">
-        </childnode>
-        <childnode refid="19544" relation="include">
-        </childnode>
-        <childnode refid="19545" relation="include">
-        </childnode>
-        <childnode refid="19546" relation="include">
-        </childnode>
-        <childnode refid="19547" relation="include">
-        </childnode>
-        <childnode refid="19548" relation="include">
-        </childnode>
-        <childnode refid="19549" relation="include">
-        </childnode>
-        <childnode refid="19550" relation="include">
-        </childnode>
-        <childnode refid="19551" relation="include">
-        </childnode>
-        <childnode refid="19552" relation="include">
-        </childnode>
-        <childnode refid="19553" relation="include">
-        </childnode>
-        <childnode refid="19554" relation="include">
-        </childnode>
-        <childnode refid="19555" relation="include">
-        </childnode>
-        <childnode refid="19556" relation="include">
-        </childnode>
-        <childnode refid="19557" relation="include">
-        </childnode>
-        <childnode refid="19558" relation="include">
-        </childnode>
-        <childnode refid="19559" relation="include">
-        </childnode>
-        <childnode refid="19560" relation="include">
-        </childnode>
-        <childnode refid="19561" relation="include">
-        </childnode>
-        <childnode refid="19562" relation="include">
-        </childnode>
-        <childnode refid="19563" relation="include">
-        </childnode>
-        <childnode refid="19564" relation="include">
-        </childnode>
-        <childnode refid="19565" relation="include">
-        </childnode>
-        <childnode refid="19566" relation="include">
-        </childnode>
-        <childnode refid="19567" relation="include">
-        </childnode>
-        <childnode refid="19568" relation="include">
-        </childnode>
-        <childnode refid="19569" relation="include">
-        </childnode>
-        <childnode refid="19570" relation="include">
-        </childnode>
-        <childnode refid="19571" relation="include">
-        </childnode>
-        <childnode refid="19572" relation="include">
-        </childnode>
-        <childnode refid="19573" relation="include">
-        </childnode>
-        <childnode refid="19574" relation="include">
-        </childnode>
-        <childnode refid="19575" relation="include">
-        </childnode>
-        <childnode refid="19576" relation="include">
-        </childnode>
-        <childnode refid="19577" relation="include">
-        </childnode>
-        <childnode refid="19578" relation="include">
-        </childnode>
-        <childnode refid="19579" relation="include">
-        </childnode>
-        <childnode refid="19580" relation="include">
-        </childnode>
-        <childnode refid="19581" relation="include">
-        </childnode>
-        <childnode refid="19582" relation="include">
-        </childnode>
-        <childnode refid="19583" relation="include">
-        </childnode>
-        <childnode refid="19584" relation="include">
-        </childnode>
-        <childnode refid="19585" relation="include">
-        </childnode>
-        <childnode refid="19586" relation="include">
-        </childnode>
-        <childnode refid="19587" relation="include">
-        </childnode>
-        <childnode refid="19588" relation="include">
-        </childnode>
-        <childnode refid="19589" relation="include">
-        </childnode>
-        <childnode refid="19590" relation="include">
-        </childnode>
-        <childnode refid="19591" relation="include">
-        </childnode>
-        <childnode refid="19592" relation="include">
-        </childnode>
-        <childnode refid="19593" relation="include">
-        </childnode>
-        <childnode refid="19594" relation="include">
-        </childnode>
-        <childnode refid="19595" relation="include">
-        </childnode>
-        <childnode refid="19596" relation="include">
-        </childnode>
-        <childnode refid="19597" relation="include">
-        </childnode>
-        <childnode refid="19598" relation="include">
-        </childnode>
-        <childnode refid="19599" relation="include">
-        </childnode>
-        <childnode refid="19600" relation="include">
-        </childnode>
-        <childnode refid="19601" relation="include">
-        </childnode>
-        <childnode refid="19602" relation="include">
-        </childnode>
-        <childnode refid="19603" relation="include">
-        </childnode>
-        <childnode refid="19604" relation="include">
-        </childnode>
-        <childnode refid="19605" relation="include">
-        </childnode>
-        <childnode refid="19606" relation="include">
-        </childnode>
-        <childnode refid="19607" relation="include">
-        </childnode>
-        <childnode refid="19608" relation="include">
-        </childnode>
-        <childnode refid="19609" relation="include">
-        </childnode>
-        <childnode refid="19610" relation="include">
-        </childnode>
-        <childnode refid="19611" relation="include">
-        </childnode>
-        <childnode refid="19612" relation="include">
-        </childnode>
-        <childnode refid="19613" relation="include">
-        </childnode>
-        <childnode refid="19614" relation="include">
-        </childnode>
-        <childnode refid="19498" relation="include">
-        </childnode>
-        <childnode refid="19615" relation="include">
-        </childnode>
-        <childnode refid="19616" relation="include">
-        </childnode>
-        <childnode refid="19617" relation="include">
-        </childnode>
-        <childnode refid="19618" relation="include">
-        </childnode>
-        <childnode refid="19619" relation="include">
-        </childnode>
-        <childnode refid="19620" relation="include">
-        </childnode>
-        <childnode refid="19621" relation="include">
-        </childnode>
-        <childnode refid="19622" relation="include">
-        </childnode>
-        <childnode refid="19623" relation="include">
-        </childnode>
-        <childnode refid="19624" relation="include">
-        </childnode>
-        <childnode refid="19625" relation="include">
-        </childnode>
-        <childnode refid="19626" relation="include">
-        </childnode>
-        <childnode refid="19627" relation="include">
-        </childnode>
-      </node>
-      <node id="19501">
-        <label>branch_inference.h</label>
-        <link refid="branch__inference_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19524">
-        <label>cons_pseudoboolean.h</label>
-        <link refid="cons__pseudoboolean_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19562">
-        <label>heur_shifting.h</label>
-        <link refid="heur__shifting_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19553">
-        <label>heur_oneopt.h</label>
-        <link refid="heur__oneopt_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19528">
-        <label>cons_sos1.h</label>
-        <link refid="cons__sos1_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19578">
-        <label>nodesel_restartdfs.h</label>
-        <link refid="nodesel__restartdfs_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19617">
-        <label>sepa_closecuts.h</label>
-        <link refid="sepa__closecuts_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19508">
-        <label>cons_and.h</label>
-        <link refid="cons__and_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19609">
+      <node id="24348">
         <label>reader_pip.h</label>
         <link refid="reader__pip_8h"/>
-        <childnode refid="19498" relation="include">
+        <childnode refid="24218" relation="include">
         </childnode>
       </node>
-      <node id="19560">
-        <label>heur_rounding.h</label>
-        <link refid="heur__rounding_8h"/>
-        <childnode refid="19498" relation="include">
+      <node id="24263">
+        <label>heur_clique.h</label>
+        <link refid="heur__clique_8h"/>
+        <childnode refid="24218" relation="include">
         </childnode>
       </node>
-      <node id="19558">
-        <label>heur_rins.h</label>
-        <link refid="heur__rins_8h"/>
-        <childnode refid="19498" relation="include">
+      <node id="24315">
+        <label>presol_domcol.h</label>
+        <link refid="presol__domcol_8h"/>
+        <childnode refid="24218" relation="include">
         </childnode>
       </node>
-      <node id="19498">
+      <node id="24292">
+        <label>heur_shiftandpropagate.h</label>
+        <link refid="heur__shiftandpropagate_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24363">
+        <label>sepa_intobj.h</label>
+        <link refid="sepa__intobj_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24230">
+        <label>compr_largestrepr.h</label>
+        <link refid="compr__largestrepr_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24256">
+        <label>cons_varbound.h</label>
+        <link refid="cons__varbound_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24220">
+        <label>branch_distribution.h</label>
+        <link refid="branch__distribution_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24232">
+        <label>cons_abspower.h</label>
+        <link refid="cons__abspower_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24293">
+        <label>heur_shifting.h</label>
+        <link refid="heur__shifting_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24257">
+        <label>cons_xor.h</label>
+        <link refid="cons__xor_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24251">
+        <label>cons_setppc.h</label>
+        <link refid="cons__setppc_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24367">
+        <label>sepa_strongcg.h</label>
+        <link refid="sepa__strongcg_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24302">
+        <label>heur_veclendiving.h</label>
+        <link refid="heur__veclendiving_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24361">
+        <label>sepa_gomory.h</label>
+        <link refid="sepa__gomory_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24327">
+        <label>prop_genvbounds.h</label>
+        <link refid="prop__genvbounds_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24242">
+        <label>cons_knapsack.h</label>
+        <link refid="cons__knapsack_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24268">
+        <label>heur_dualval.h</label>
+        <link refid="heur__dualval_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24272">
+        <label>heur_guideddiving.h</label>
+        <link refid="heur__guideddiving_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24310">
+        <label>nodesel_restartdfs.h</label>
+        <link refid="nodesel__restartdfs_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24286">
+        <label>heur_randrounding.h</label>
+        <link refid="heur__randrounding_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24350">
+        <label>reader_rlp.h</label>
+        <link refid="reader__rlp_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24320">
+        <label>presol_implics.h</label>
+        <link refid="presol__implics_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24285">
+        <label>heur_pscostdiving.h</label>
+        <link refid="heur__pscostdiving_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24243">
+        <label>cons_linear.h</label>
+        <link refid="cons__linear_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24288">
+        <label>heur_reoptsols.h</label>
+        <link refid="heur__reoptsols_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24316">
+        <label>presol_dualagg.h</label>
+        <link refid="presol__dualagg_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24328">
+        <label>prop_obbt.h</label>
+        <link refid="prop__obbt_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24358">
+        <label>sepa_disjunctive.h</label>
+        <link refid="sepa__disjunctive_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24296">
+        <label>heur_trivial.h</label>
+        <link refid="heur__trivial_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24249">
+        <label>cons_pseudoboolean.h</label>
+        <link refid="cons__pseudoboolean_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24319">
+        <label>presol_implfree.h</label>
+        <link refid="presol__implfree_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24299">
+        <label>heur_twoopt.h</label>
+        <link refid="heur__twoopt_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24346">
+        <label>reader_osil.h</label>
+        <link refid="reader__osil_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24300">
+        <label>heur_undercover.h</label>
+        <link refid="heur__undercover_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24244">
+        <label>cons_linking.h</label>
+        <link refid="cons__linking_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24368">
+        <label>sepa_zerohalf.h</label>
+        <link refid="sepa__zerohalf_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24362">
+        <label>sepa_impliedbounds.h</label>
+        <link refid="sepa__impliedbounds_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24277">
+        <label>heur_localbranching.h</label>
+        <link refid="heur__localbranching_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24360">
+        <label>sepa_flowcover.h</label>
+        <link refid="sepa__flowcover_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24278">
+        <label>heur_mutation.h</label>
+        <link refid="heur__mutation_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24236">
+        <label>cons_conjunction.h</label>
+        <link refid="cons__conjunction_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24341">
+        <label>reader_fzn.h</label>
+        <link refid="reader__fzn_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24297">
+        <label>heur_trivialnegation.h</label>
+        <link refid="heur__trivialnegation_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24308">
+        <label>nodesel_estimate.h</label>
+        <link refid="nodesel__estimate_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24355">
+        <label>sepa_clique.h</label>
+        <link refid="sepa__clique_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24359">
+        <label>sepa_eccuts.h</label>
+        <link refid="sepa__eccuts_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24321">
+        <label>presol_inttobinary.h</label>
+        <link refid="presol__inttobinary_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24265">
+        <label>heur_crossover.h</label>
+        <link refid="heur__crossover_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24283">
+        <label>heur_oneopt.h</label>
+        <link refid="heur__oneopt_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24336">
+        <label>reader_ccg.h</label>
+        <link refid="reader__ccg_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24301">
+        <label>heur_vbounds.h</label>
+        <link refid="heur__vbounds_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24366">
+        <label>sepa_rapidlearning.h</label>
+        <link refid="sepa__rapidlearning_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24295">
+        <label>heur_subnlp.h</label>
+        <link refid="heur__subnlp_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24335">
+        <label>reader_bnd.h</label>
+        <link refid="reader__bnd_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24314">
+        <label>presol_convertinttobin.h</label>
+        <link refid="presol__convertinttobin_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24259">
+        <label>disp_default.h</label>
+        <link refid="disp__default_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24325">
+        <label>presol_tworowbnd.h</label>
+        <link refid="presol__tworowbnd_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24234">
+        <label>cons_bivariate.h</label>
+        <link refid="cons__bivariate_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24352">
+        <label>reader_wbo.h</label>
+        <link refid="reader__wbo_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24266">
+        <label>heur_dins.h</label>
+        <link refid="heur__dins_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24237">
+        <label>cons_countsols.h</label>
+        <link refid="cons__countsols_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24309">
+        <label>nodesel_hybridestim.h</label>
+        <link refid="nodesel__hybridestim_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24254">
+        <label>cons_sos2.h</label>
+        <link refid="cons__sos2_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24347">
+        <label>reader_pbm.h</label>
+        <link refid="reader__pbm_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24281">
+        <label>heur_octane.h</label>
+        <link refid="heur__octane_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24222">
+        <label>branch_inference.h</label>
+        <link refid="branch__inference_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24228">
+        <label>branch_random.h</label>
+        <link refid="branch__random_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24304">
+        <label>heur_zirounding.h</label>
+        <link refid="heur__zirounding_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24329">
+        <label>prop_probing.h</label>
+        <link refid="prop__probing_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24255">
+        <label>cons_superindicator.h</label>
+        <link refid="cons__superindicator_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24214">
+        <label>type_sepa.h</label>
+        <link refid="type_sepa.h"/>
+        <childnode refid="24215" relation="include">
+        </childnode>
+        <childnode refid="24369" relation="include">
+        </childnode>
+        <childnode refid="24216" relation="include">
+        </childnode>
+      </node>
+      <node id="24349">
+        <label>reader_ppm.h</label>
+        <link refid="reader__ppm_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24344">
+        <label>reader_mps.h</label>
+        <link refid="reader__mps_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24357">
+        <label>sepa_cmir.h</label>
+        <link refid="sepa__cmir_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24337">
+        <label>reader_cip.h</label>
+        <link refid="reader__cip_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24218">
         <label>scipdefplugins.h</label>
         <link refid="scipdefplugins_8h"/>
       </node>
-      <node id="19534">
-        <label>disp_default.h</label>
-        <link refid="disp__default_8h"/>
-        <childnode refid="19498" relation="include">
+      <node id="24284">
+        <label>heur_proximity.h</label>
+        <link refid="heur__proximity_8h"/>
+        <childnode refid="24218" relation="include">
         </childnode>
       </node>
-      <node id="19539">
-        <label>heur_dins.h</label>
-        <link refid="heur__dins_8h"/>
-        <childnode refid="19498" relation="include">
+      <node id="24229">
+        <label>branch_relpscost.h</label>
+        <link refid="branch__relpscost_8h"/>
+        <childnode refid="24218" relation="include">
         </childnode>
       </node>
-      <node id="19571">
-        <label>heur_zeroobj.h</label>
-        <link refid="heur__zeroobj_8h"/>
-        <childnode refid="19498" relation="include">
+      <node id="24298">
+        <label>heur_trysol.h</label>
+        <link refid="heur__trysol_8h"/>
+        <childnode refid="24218" relation="include">
         </childnode>
       </node>
-      <node id="19533">
+      <node id="24290">
+        <label>heur_rootsoldiving.h</label>
+        <link refid="heur__rootsoldiving_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24226">
+        <label>branch_nodereopt.h</label>
+        <link refid="branch__nodereopt_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24365">
+        <label>sepa_oddcycle.h</label>
+        <link refid="sepa__oddcycle_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24246">
+        <label>cons_nonlinear.h</label>
+        <link refid="cons__nonlinear_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24227">
+        <label>branch_pscost.h</label>
+        <link refid="branch__pscost_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24305">
+        <label>nodesel_bfs.h</label>
+        <link refid="nodesel__bfs_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24225">
+        <label>branch_multaggr.h</label>
+        <link refid="branch__multaggr_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24241">
+        <label>cons_integral.h</label>
+        <link refid="cons__integral_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24333">
+        <label>prop_vbounds.h</label>
+        <link refid="prop__vbounds_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24334">
+        <label>pub_dive.h</label>
+        <link refid="pub__dive_8h"/>
+      </node>
+      <node id="24270">
+        <label>heur_fixandinfer.h</label>
+        <link refid="heur__fixandinfer_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24233">
+        <label>cons_and.h</label>
+        <link refid="cons__and_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24217">
+        <label>branch_allfullstrong.h</label>
+        <link refid="branch__allfullstrong_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24311">
+        <label>nodesel_uct.h</label>
+        <link refid="nodesel__uct_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24289">
+        <label>heur_rins.h</label>
+        <link refid="heur__rins_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24369">
+        <label>pub_sepa.h</label>
+        <link refid="pub__sepa_8h"/>
+        <childnode refid="24216" relation="include">
+        </childnode>
+      </node>
+      <node id="24275">
+        <label>heur_intshifting.h</label>
+        <link refid="heur__intshifting_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24231">
+        <label>compr_weakcompr.h</label>
+        <link refid="compr__weakcompr_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24223">
+        <label>branch_leastinf.h</label>
+        <link refid="branch__leastinf_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24253">
+        <label>cons_sos1.h</label>
+        <link refid="cons__sos1_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24307">
+        <label>nodesel_dfs.h</label>
+        <link refid="nodesel__dfs_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24264">
+        <label>heur_coefdiving.h</label>
+        <link refid="heur__coefdiving_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24306">
+        <label>nodesel_breadthfirst.h</label>
+        <link refid="nodesel__breadthfirst_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24330">
+        <label>prop_pseudoobj.h</label>
+        <link refid="prop__pseudoobj_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24216">
+        <label>scip.h</label>
+        <link refid="scip_8h"/>
+        <childnode refid="24217" relation="include">
+        </childnode>
+        <childnode refid="24219" relation="include">
+        </childnode>
+        <childnode refid="24220" relation="include">
+        </childnode>
+        <childnode refid="24221" relation="include">
+        </childnode>
+        <childnode refid="24222" relation="include">
+        </childnode>
+        <childnode refid="24223" relation="include">
+        </childnode>
+        <childnode refid="24224" relation="include">
+        </childnode>
+        <childnode refid="24225" relation="include">
+        </childnode>
+        <childnode refid="24226" relation="include">
+        </childnode>
+        <childnode refid="24227" relation="include">
+        </childnode>
+        <childnode refid="24228" relation="include">
+        </childnode>
+        <childnode refid="24229" relation="include">
+        </childnode>
+        <childnode refid="24230" relation="include">
+        </childnode>
+        <childnode refid="24231" relation="include">
+        </childnode>
+        <childnode refid="24232" relation="include">
+        </childnode>
+        <childnode refid="24233" relation="include">
+        </childnode>
+        <childnode refid="24234" relation="include">
+        </childnode>
+        <childnode refid="24235" relation="include">
+        </childnode>
+        <childnode refid="24236" relation="include">
+        </childnode>
+        <childnode refid="24237" relation="include">
+        </childnode>
+        <childnode refid="24238" relation="include">
+        </childnode>
+        <childnode refid="24239" relation="include">
+        </childnode>
+        <childnode refid="24240" relation="include">
+        </childnode>
+        <childnode refid="24241" relation="include">
+        </childnode>
+        <childnode refid="24242" relation="include">
+        </childnode>
+        <childnode refid="24243" relation="include">
+        </childnode>
+        <childnode refid="24244" relation="include">
+        </childnode>
+        <childnode refid="24245" relation="include">
+        </childnode>
+        <childnode refid="24246" relation="include">
+        </childnode>
+        <childnode refid="24247" relation="include">
+        </childnode>
+        <childnode refid="24248" relation="include">
+        </childnode>
+        <childnode refid="24249" relation="include">
+        </childnode>
+        <childnode refid="24250" relation="include">
+        </childnode>
+        <childnode refid="24251" relation="include">
+        </childnode>
+        <childnode refid="24252" relation="include">
+        </childnode>
+        <childnode refid="24253" relation="include">
+        </childnode>
+        <childnode refid="24254" relation="include">
+        </childnode>
+        <childnode refid="24255" relation="include">
+        </childnode>
+        <childnode refid="24256" relation="include">
+        </childnode>
+        <childnode refid="24257" relation="include">
+        </childnode>
+        <childnode refid="24258" relation="include">
+        </childnode>
+        <childnode refid="24259" relation="include">
+        </childnode>
+        <childnode refid="24260" relation="include">
+        </childnode>
+        <childnode refid="24261" relation="include">
+        </childnode>
+        <childnode refid="24262" relation="include">
+        </childnode>
+        <childnode refid="24263" relation="include">
+        </childnode>
+        <childnode refid="24264" relation="include">
+        </childnode>
+        <childnode refid="24265" relation="include">
+        </childnode>
+        <childnode refid="24266" relation="include">
+        </childnode>
+        <childnode refid="24267" relation="include">
+        </childnode>
+        <childnode refid="24268" relation="include">
+        </childnode>
+        <childnode refid="24269" relation="include">
+        </childnode>
+        <childnode refid="24270" relation="include">
+        </childnode>
+        <childnode refid="24271" relation="include">
+        </childnode>
+        <childnode refid="24272" relation="include">
+        </childnode>
+        <childnode refid="24273" relation="include">
+        </childnode>
+        <childnode refid="24274" relation="include">
+        </childnode>
+        <childnode refid="24275" relation="include">
+        </childnode>
+        <childnode refid="24276" relation="include">
+        </childnode>
+        <childnode refid="24277" relation="include">
+        </childnode>
+        <childnode refid="24278" relation="include">
+        </childnode>
+        <childnode refid="24279" relation="include">
+        </childnode>
+        <childnode refid="24280" relation="include">
+        </childnode>
+        <childnode refid="24281" relation="include">
+        </childnode>
+        <childnode refid="24282" relation="include">
+        </childnode>
+        <childnode refid="24283" relation="include">
+        </childnode>
+        <childnode refid="24284" relation="include">
+        </childnode>
+        <childnode refid="24285" relation="include">
+        </childnode>
+        <childnode refid="24286" relation="include">
+        </childnode>
+        <childnode refid="24287" relation="include">
+        </childnode>
+        <childnode refid="24288" relation="include">
+        </childnode>
+        <childnode refid="24289" relation="include">
+        </childnode>
+        <childnode refid="24290" relation="include">
+        </childnode>
+        <childnode refid="24291" relation="include">
+        </childnode>
+        <childnode refid="24292" relation="include">
+        </childnode>
+        <childnode refid="24293" relation="include">
+        </childnode>
+        <childnode refid="24294" relation="include">
+        </childnode>
+        <childnode refid="24295" relation="include">
+        </childnode>
+        <childnode refid="24296" relation="include">
+        </childnode>
+        <childnode refid="24297" relation="include">
+        </childnode>
+        <childnode refid="24298" relation="include">
+        </childnode>
+        <childnode refid="24299" relation="include">
+        </childnode>
+        <childnode refid="24300" relation="include">
+        </childnode>
+        <childnode refid="24301" relation="include">
+        </childnode>
+        <childnode refid="24302" relation="include">
+        </childnode>
+        <childnode refid="24303" relation="include">
+        </childnode>
+        <childnode refid="24304" relation="include">
+        </childnode>
+        <childnode refid="24305" relation="include">
+        </childnode>
+        <childnode refid="24306" relation="include">
+        </childnode>
+        <childnode refid="24307" relation="include">
+        </childnode>
+        <childnode refid="24308" relation="include">
+        </childnode>
+        <childnode refid="24309" relation="include">
+        </childnode>
+        <childnode refid="24310" relation="include">
+        </childnode>
+        <childnode refid="24311" relation="include">
+        </childnode>
+        <childnode refid="24312" relation="include">
+        </childnode>
+        <childnode refid="24313" relation="include">
+        </childnode>
+        <childnode refid="24314" relation="include">
+        </childnode>
+        <childnode refid="24315" relation="include">
+        </childnode>
+        <childnode refid="24316" relation="include">
+        </childnode>
+        <childnode refid="24317" relation="include">
+        </childnode>
+        <childnode refid="24318" relation="include">
+        </childnode>
+        <childnode refid="24319" relation="include">
+        </childnode>
+        <childnode refid="24320" relation="include">
+        </childnode>
+        <childnode refid="24321" relation="include">
+        </childnode>
+        <childnode refid="24322" relation="include">
+        </childnode>
+        <childnode refid="24323" relation="include">
+        </childnode>
+        <childnode refid="24324" relation="include">
+        </childnode>
+        <childnode refid="24325" relation="include">
+        </childnode>
+        <childnode refid="24326" relation="include">
+        </childnode>
+        <childnode refid="24327" relation="include">
+        </childnode>
+        <childnode refid="24328" relation="include">
+        </childnode>
+        <childnode refid="24329" relation="include">
+        </childnode>
+        <childnode refid="24330" relation="include">
+        </childnode>
+        <childnode refid="24331" relation="include">
+        </childnode>
+        <childnode refid="24332" relation="include">
+        </childnode>
+        <childnode refid="24333" relation="include">
+        </childnode>
+        <childnode refid="24334" relation="include">
+        </childnode>
+        <childnode refid="24335" relation="include">
+        </childnode>
+        <childnode refid="24336" relation="include">
+        </childnode>
+        <childnode refid="24337" relation="include">
+        </childnode>
+        <childnode refid="24338" relation="include">
+        </childnode>
+        <childnode refid="24339" relation="include">
+        </childnode>
+        <childnode refid="24340" relation="include">
+        </childnode>
+        <childnode refid="24341" relation="include">
+        </childnode>
+        <childnode refid="24342" relation="include">
+        </childnode>
+        <childnode refid="24343" relation="include">
+        </childnode>
+        <childnode refid="24344" relation="include">
+        </childnode>
+        <childnode refid="24345" relation="include">
+        </childnode>
+        <childnode refid="24346" relation="include">
+        </childnode>
+        <childnode refid="24347" relation="include">
+        </childnode>
+        <childnode refid="24348" relation="include">
+        </childnode>
+        <childnode refid="24349" relation="include">
+        </childnode>
+        <childnode refid="24350" relation="include">
+        </childnode>
+        <childnode refid="24351" relation="include">
+        </childnode>
+        <childnode refid="24352" relation="include">
+        </childnode>
+        <childnode refid="24353" relation="include">
+        </childnode>
+        <childnode refid="24218" relation="include">
+        </childnode>
+        <childnode refid="24354" relation="include">
+        </childnode>
+        <childnode refid="24355" relation="include">
+        </childnode>
+        <childnode refid="24356" relation="include">
+        </childnode>
+        <childnode refid="24357" relation="include">
+        </childnode>
+        <childnode refid="24358" relation="include">
+        </childnode>
+        <childnode refid="24359" relation="include">
+        </childnode>
+        <childnode refid="24360" relation="include">
+        </childnode>
+        <childnode refid="24361" relation="include">
+        </childnode>
+        <childnode refid="24362" relation="include">
+        </childnode>
+        <childnode refid="24363" relation="include">
+        </childnode>
+        <childnode refid="24364" relation="include">
+        </childnode>
+        <childnode refid="24365" relation="include">
+        </childnode>
+        <childnode refid="24366" relation="include">
+        </childnode>
+        <childnode refid="24367" relation="include">
+        </childnode>
+        <childnode refid="24368" relation="include">
+        </childnode>
+      </node>
+      <node id="24354">
+        <label>sepa_cgmip.h</label>
+        <link refid="sepa__cgmip_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24345">
+        <label>reader_opb.h</label>
+        <link refid="reader__opb_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24339">
+        <label>reader_diff.h</label>
+        <link refid="reader__diff_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24279">
+        <label>heur_nlpdiving.h</label>
+        <link refid="heur__nlpdiving_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24221">
+        <label>branch_fullstrong.h</label>
+        <link refid="branch__fullstrong_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24342">
+        <label>reader_gms.h</label>
+        <link refid="reader__gms_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24318">
+        <label>presol_gateextraction.h</label>
+        <link refid="presol__gateextraction_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24252">
+        <label>cons_soc.h</label>
+        <link refid="cons__soc_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24356">
+        <label>sepa_closecuts.h</label>
+        <link refid="sepa__closecuts_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24313">
+        <label>presol_components.h</label>
+        <link refid="presol__components_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24245">
+        <label>cons_logicor.h</label>
+        <link refid="cons__logicor_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24340">
+        <label>reader_fix.h</label>
+        <link refid="reader__fix_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24224">
+        <label>branch_mostinf.h</label>
+        <link refid="branch__mostinf_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24250">
+        <label>cons_quadratic.h</label>
+        <link refid="cons__quadratic_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24271">
+        <label>heur_fracdiving.h</label>
+        <link refid="heur__fracdiving_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24338">
+        <label>reader_cnf.h</label>
+        <link refid="reader__cnf_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24317">
+        <label>presol_dualinfer.h</label>
+        <link refid="presol__dualinfer_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24258">
         <label>dialog_default.h</label>
         <link refid="dialog__default_8h"/>
       </node>
-      <node id="19500">
-        <label>branch_fullstrong.h</label>
-        <link refid="branch__fullstrong_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19544">
-        <label>heur_guideddiving.h</label>
-        <link refid="heur__guideddiving_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19606">
-        <label>reader_opb.h</label>
-        <link refid="reader__opb_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19522">
-        <label>cons_or.h</label>
-        <link refid="cons__or_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19585">
-        <label>presol_gateextraction.h</label>
-        <link refid="presol__gateextraction_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19505">
-        <label>branch_random.h</label>
-        <link refid="branch__random_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19543">
-        <label>heur_fracdiving.h</label>
-        <link refid="heur__fracdiving_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19495">
-        <label>pub_lp.h</label>
-        <link refid="pub__lp_8h"/>
-        <childnode refid="19496" relation="include">
-        </childnode>
-      </node>
-      <node id="19514">
-        <label>cons_disjunction.h</label>
-        <link refid="cons__disjunction_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19597">
-        <label>reader_bnd.h</label>
-        <link refid="reader__bnd_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19506">
-        <label>branch_relpscost.h</label>
-        <link refid="branch__relpscost_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19546">
-        <label>heur_intshifting.h</label>
-        <link refid="heur__intshifting_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19531">
-        <label>cons_varbound.h</label>
-        <link refid="cons__varbound_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19579">
-        <label>nodesel_uct.h</label>
-        <link refid="nodesel__uct_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19513">
-        <label>cons_cumulative.h</label>
-        <link refid="cons__cumulative_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19515">
-        <label>cons_indicator.h</label>
-        <link refid="cons__indicator_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19594">
-        <label>prop_redcost.h</label>
-        <link refid="prop__redcost_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19541">
-        <label>heur_feaspump.h</label>
-        <link refid="heur__feaspump_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19614">
-        <label>reader_zpl.h</label>
-        <link refid="reader__zpl_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19615">
-        <label>sepa_cgmip.h</label>
-        <link refid="sepa__cgmip_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19555">
-        <label>heur_pscostdiving.h</label>
-        <link refid="heur__pscostdiving_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19601">
-        <label>reader_fix.h</label>
-        <link refid="reader__fix_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19529">
-        <label>cons_sos2.h</label>
-        <link refid="cons__sos2_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19565">
-        <label>heur_trivial.h</label>
-        <link refid="heur__trivial_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19518">
-        <label>cons_linear.h</label>
-        <link refid="cons__linear_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19550">
-        <label>heur_nlpdiving.h</label>
-        <link refid="heur__nlpdiving_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19516">
-        <label>cons_integral.h</label>
-        <link refid="cons__integral_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19618">
-        <label>sepa_cmir.h</label>
-        <link refid="sepa__cmir_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19557">
+      <node id="24287">
         <label>heur_rens.h</label>
         <link refid="heur__rens_8h"/>
-        <childnode refid="19498" relation="include">
+        <childnode refid="24218" relation="include">
         </childnode>
       </node>
-      <node id="19540">
-        <label>heur_dualval.h</label>
-        <link refid="heur__dualval_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19559">
-        <label>heur_rootsoldiving.h</label>
-        <link refid="heur__rootsoldiving_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19592">
-        <label>prop_probing.h</label>
-        <link refid="prop__probing_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19523">
-        <label>cons_orbitope.h</label>
-        <link refid="cons__orbitope_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19512">
-        <label>cons_countsols.h</label>
-        <link refid="cons__countsols_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19625">
-        <label>sepa_rapidlearning.h</label>
-        <link refid="sepa__rapidlearning_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19556">
-        <label>heur_randrounding.h</label>
-        <link refid="heur__randrounding_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19574">
-        <label>nodesel_breadthfirst.h</label>
-        <link refid="nodesel__breadthfirst_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19564">
-        <label>heur_subnlp.h</label>
-        <link refid="heur__subnlp_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19599">
-        <label>reader_cip.h</label>
-        <link refid="reader__cip_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19576">
-        <label>nodesel_estimate.h</label>
-        <link refid="nodesel__estimate_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19628">
-        <label>pub_sepa.h</label>
-        <link refid="pub__sepa_8h"/>
-        <childnode refid="19496" relation="include">
-        </childnode>
-      </node>
-      <node id="19589">
-        <label>prop_dualfix.h</label>
-        <link refid="prop__dualfix_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19545">
-        <label>heur_intdiving.h</label>
-        <link refid="heur__intdiving_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19591">
-        <label>prop_obbt.h</label>
-        <link refid="prop__obbt_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19593">
-        <label>prop_pseudoobj.h</label>
-        <link refid="prop__pseudoobj_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19586">
-        <label>presol_implics.h</label>
-        <link refid="presol__implics_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19549">
-        <label>heur_mutation.h</label>
-        <link refid="heur__mutation_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19616">
-        <label>sepa_clique.h</label>
-        <link refid="sepa__clique_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19566">
-        <label>heur_trysol.h</label>
-        <link refid="heur__trysol_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19604">
-        <label>reader_lp.h</label>
-        <link refid="reader__lp_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19622">
-        <label>sepa_intobj.h</label>
-        <link refid="sepa__intobj_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19567">
-        <label>heur_twoopt.h</label>
-        <link refid="heur__twoopt_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19570">
-        <label>heur_veclendiving.h</label>
-        <link refid="heur__veclendiving_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19507">
-        <label>cons_abspower.h</label>
-        <link refid="cons__abspower_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19526">
-        <label>cons_setppc.h</label>
-        <link refid="cons__setppc_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19554">
-        <label>heur_proximity.h</label>
-        <link refid="heur__proximity_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19620">
-        <label>sepa_gomory.h</label>
-        <link refid="sepa__gomory_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19517">
-        <label>cons_knapsack.h</label>
-        <link refid="cons__knapsack_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19595">
-        <label>prop_rootredcost.h</label>
-        <link refid="prop__rootredcost_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19577">
-        <label>nodesel_hybridestim.h</label>
-        <link refid="nodesel__hybridestim_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19494">
-        <label>type_sepa.h</label>
-        <link refid="type_sepa.h"/>
-        <childnode refid="19495" relation="include">
-        </childnode>
-        <childnode refid="19628" relation="include">
-        </childnode>
-        <childnode refid="19496" relation="include">
-        </childnode>
-      </node>
-      <node id="19519">
-        <label>cons_linking.h</label>
-        <link refid="cons__linking_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19497">
-        <label>branch_allfullstrong.h</label>
-        <link refid="branch__allfullstrong_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19612">
-        <label>reader_sol.h</label>
-        <link refid="reader__sol_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19581">
-        <label>presol_components.h</label>
-        <link refid="presol__components_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19605">
-        <label>reader_mps.h</label>
-        <link refid="reader__mps_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19551">
-        <label>heur_objpscostdiving.h</label>
-        <link refid="heur__objpscostdiving_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19535">
-        <label>heur_actconsdiving.h</label>
-        <link refid="heur__actconsdiving_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19587">
-        <label>presol_inttobinary.h</label>
-        <link refid="presol__inttobinary_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19596">
-        <label>prop_vbounds.h</label>
-        <link refid="prop__vbounds_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19623">
-        <label>sepa_mcf.h</label>
-        <link refid="sepa__mcf_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19619">
-        <label>sepa_flowcover.h</label>
-        <link refid="sepa__flowcover_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19590">
-        <label>prop_genvbounds.h</label>
-        <link refid="prop__genvbounds_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19584">
-        <label>presol_dualinfer.h</label>
-        <link refid="presol__dualinfer_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19527">
-        <label>cons_soc.h</label>
-        <link refid="cons__soc_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19573">
-        <label>nodesel_bfs.h</label>
-        <link refid="nodesel__bfs_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19504">
-        <label>branch_pscost.h</label>
-        <link refid="branch__pscost_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19621">
-        <label>sepa_impliedbounds.h</label>
-        <link refid="sepa__impliedbounds_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19521">
-        <label>cons_nonlinear.h</label>
-        <link refid="cons__nonlinear_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19600">
-        <label>reader_cnf.h</label>
-        <link refid="reader__cnf_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19569">
-        <label>heur_vbounds.h</label>
-        <link refid="heur__vbounds_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19583">
-        <label>presol_domcol.h</label>
-        <link refid="presol__domcol_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19547">
-        <label>heur_linesearchdiving.h</label>
-        <link refid="heur__linesearchdiving_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19603">
-        <label>reader_gms.h</label>
-        <link refid="reader__gms_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19611">
-        <label>reader_rlp.h</label>
-        <link refid="reader__rlp_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19530">
-        <label>cons_superindicator.h</label>
-        <link refid="cons__superindicator_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19502">
-        <label>branch_leastinf.h</label>
-        <link refid="branch__leastinf_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19561">
-        <label>heur_shiftandpropagate.h</label>
-        <link refid="heur__shiftandpropagate_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19580">
-        <label>presol_boundshift.h</label>
-        <link refid="presol__boundshift_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19520">
-        <label>cons_logicor.h</label>
-        <link refid="cons__logicor_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19607">
-        <label>reader_osil.h</label>
-        <link refid="reader__osil_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19602">
-        <label>reader_fzn.h</label>
-        <link refid="reader__fzn_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19575">
-        <label>nodesel_dfs.h</label>
-        <link refid="nodesel__dfs_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19511">
-        <label>cons_conjunction.h</label>
-        <link refid="cons__conjunction_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19626">
-        <label>sepa_strongcg.h</label>
-        <link refid="sepa__strongcg_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19598">
-        <label>reader_ccg.h</label>
-        <link refid="reader__ccg_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19588">
+      <node id="24324">
         <label>presol_trivial.h</label>
         <link refid="presol__trivial_8h"/>
-        <childnode refid="19498" relation="include">
+        <childnode refid="24218" relation="include">
         </childnode>
       </node>
-      <node id="19542">
-        <label>heur_fixandinfer.h</label>
-        <link refid="heur__fixandinfer_8h"/>
-        <childnode refid="19498" relation="include">
+      <node id="24322">
+        <label>presol_redvub.h</label>
+        <link refid="presol__redvub_8h"/>
+        <childnode refid="24218" relation="include">
         </childnode>
       </node>
-      <node id="19525">
-        <label>cons_quadratic.h</label>
-        <link refid="cons__quadratic_8h"/>
-        <childnode refid="19498" relation="include">
+      <node id="24294">
+        <label>heur_simplerounding.h</label>
+        <link refid="heur__simplerounding_8h"/>
+        <childnode refid="24218" relation="include">
         </childnode>
       </node>
-      <node id="19499">
+      <node id="24262">
+        <label>heur_bound.h</label>
+        <link refid="heur__bound_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24323">
+        <label>presol_stuffing.h</label>
+        <link refid="presol__stuffing_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24261">
+        <label>heur_actconsdiving.h</label>
+        <link refid="heur__actconsdiving_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24353">
+        <label>reader_zpl.h</label>
+        <link refid="reader__zpl_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24240">
+        <label>cons_indicator.h</label>
+        <link refid="cons__indicator_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24239">
+        <label>cons_disjunction.h</label>
+        <link refid="cons__disjunction_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24280">
+        <label>heur_objpscostdiving.h</label>
+        <link refid="heur__objpscostdiving_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24326">
+        <label>prop_dualfix.h</label>
+        <link refid="prop__dualfix_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24343">
+        <label>reader_lp.h</label>
+        <link refid="reader__lp_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24274">
+        <label>heur_intdiving.h</label>
+        <link refid="heur__intdiving_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24238">
+        <label>cons_cumulative.h</label>
+        <link refid="cons__cumulative_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24276">
+        <label>heur_linesearchdiving.h</label>
+        <link refid="heur__linesearchdiving_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24267">
+        <label>heur_distributiondiving.h</label>
+        <link refid="heur__distributiondiving_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24364">
+        <label>sepa_mcf.h</label>
+        <link refid="sepa__mcf_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24312">
+        <label>presol_boundshift.h</label>
+        <link refid="presol__boundshift_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24332">
+        <label>prop_rootredcost.h</label>
+        <link refid="prop__rootredcost_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24247">
+        <label>cons_or.h</label>
+        <link refid="cons__or_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24269">
+        <label>heur_feaspump.h</label>
+        <link refid="heur__feaspump_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24248">
+        <label>cons_orbitope.h</label>
+        <link refid="cons__orbitope_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24331">
+        <label>prop_redcost.h</label>
+        <link refid="prop__redcost_8h"/>
+        <childnode refid="24218" relation="include">
+        </childnode>
+      </node>
+      <node id="24219">
         <label>branch_cloud.h</label>
         <link refid="branch__cloud_8h"/>
-        <childnode refid="19498" relation="include">
+        <childnode refid="24218" relation="include">
         </childnode>
       </node>
-      <node id="19624">
-        <label>sepa_oddcycle.h</label>
-        <link refid="sepa__oddcycle_8h"/>
-        <childnode refid="19498" relation="include">
+      <node id="24215">
+        <label>pub_lp.h</label>
+        <link refid="pub__lp_8h"/>
+        <childnode refid="24216" relation="include">
         </childnode>
       </node>
-      <node id="19538">
-        <label>heur_crossover.h</label>
-        <link refid="heur__crossover_8h"/>
-        <childnode refid="19498" relation="include">
-        </childnode>
-      </node>
-      <node id="19510">
+      <node id="24235">
         <label>cons_bounddisjunction.h</label>
         <link refid="cons__bounddisjunction_8h"/>
-        <childnode refid="19498" relation="include">
+        <childnode refid="24218" relation="include">
         </childnode>
       </node>
-      <node id="19509">
-        <label>cons_bivariate.h</label>
-        <link refid="cons__bivariate_8h"/>
-        <childnode refid="19498" relation="include">
+      <node id="24282">
+        <label>heur_ofins.h</label>
+        <link refid="heur__ofins_8h"/>
+        <childnode refid="24218" relation="include">
         </childnode>
       </node>
-      <node id="19613">
-        <label>reader_wbo.h</label>
-        <link refid="reader__wbo_8h"/>
-        <childnode refid="19498" relation="include">
+      <node id="24291">
+        <label>heur_rounding.h</label>
+        <link refid="heur__rounding_8h"/>
+        <childnode refid="24218" relation="include">
         </childnode>
       </node>
-      <node id="19572">
-        <label>heur_zirounding.h</label>
-        <link refid="heur__zirounding_8h"/>
-        <childnode refid="19498" relation="include">
+      <node id="24260">
+        <label>event_softtimelimit.h</label>
+        <link refid="event__softtimelimit_8h"/>
+        <childnode refid="24218" relation="include">
         </childnode>
       </node>
-      <node id="19552">
-        <label>heur_octane.h</label>
-        <link refid="heur__octane_8h"/>
-        <childnode refid="19498" relation="include">
+      <node id="24273">
+        <label>heur_indicator.h</label>
+        <link refid="heur__indicator_8h"/>
+        <childnode refid="24218" relation="include">
         </childnode>
       </node>
-      <node id="19503">
-        <label>branch_mostinf.h</label>
-        <link refid="branch__mostinf_8h"/>
-        <childnode refid="19498" relation="include">
+      <node id="24351">
+        <label>reader_sol.h</label>
+        <link refid="reader__sol_8h"/>
+        <childnode refid="24218" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
@@ -1179,7 +1350,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/type_sepa.h" line="47" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/type_sepa.h" bodystart="47" bodyend="-1"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/type_sepa.h" line="47" column="9" bodyfile="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/type_sepa.h" bodystart="47" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="type__sepa_8h_1a597dc4685ec7d9da29db2ae5cb29fd76" prot="public" static="no">
         <name>SCIP_DECL_SEPAFREE</name>
@@ -1193,7 +1364,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/type_sepa.h" line="55" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/type_sepa.h" bodystart="55" bodyend="-1"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/type_sepa.h" line="55" column="9" bodyfile="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/type_sepa.h" bodystart="55" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="type__sepa_8h_1afe1a2c51c3c4c389d778040a470efe2c" prot="public" static="no">
         <name>SCIP_DECL_SEPAINIT</name>
@@ -1207,7 +1378,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/type_sepa.h" line="63" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/type_sepa.h" bodystart="63" bodyend="-1"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/type_sepa.h" line="63" column="9" bodyfile="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/type_sepa.h" bodystart="63" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="type__sepa_8h_1a75a2c3c4eb956f9398dfc73608b9c25f" prot="public" static="no">
         <name>SCIP_DECL_SEPAEXIT</name>
@@ -1221,7 +1392,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/type_sepa.h" line="71" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/type_sepa.h" bodystart="71" bodyend="-1"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/type_sepa.h" line="71" column="9" bodyfile="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/type_sepa.h" bodystart="71" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="type__sepa_8h_1a3887015ad6e9e74441c17f96fafd53fb" prot="public" static="no">
         <name>SCIP_DECL_SEPAINITSOL</name>
@@ -1235,7 +1406,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/type_sepa.h" line="82" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/type_sepa.h" bodystart="82" bodyend="-1"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/type_sepa.h" line="82" column="9" bodyfile="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/type_sepa.h" bodystart="82" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="type__sepa_8h_1a5b6427418f3b6c4148ec5e2a1355b8ea" prot="public" static="no">
         <name>SCIP_DECL_SEPAEXITSOL</name>
@@ -1249,7 +1420,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/type_sepa.h" line="93" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/type_sepa.h" bodystart="93" bodyend="-1"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/type_sepa.h" line="93" column="9" bodyfile="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/type_sepa.h" bodystart="93" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="type__sepa_8h_1a5416d6084ba11adade86c0afeca7a730" prot="public" static="no">
         <name>SCIP_DECL_SEPAEXECLP</name>
@@ -1265,7 +1436,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/type_sepa.h" line="115" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/type_sepa.h" bodystart="115" bodyend="-1"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/type_sepa.h" line="115" column="9" bodyfile="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/type_sepa.h" bodystart="115" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="type__sepa_8h_1a41e45cd0db10200f38d89ad0fc4de5c6" prot="public" static="no">
         <name>SCIP_DECL_SEPAEXECSOL</name>
@@ -1281,7 +1452,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/type_sepa.h" line="138" column="9" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/type_sepa.h" bodystart="138" bodyend="-1"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/type_sepa.h" line="138" column="9" bodyfile="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/type_sepa.h" bodystart="138" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="typedef">
@@ -1296,7 +1467,7 @@
 <para>separator </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/type_sepa.h" line="125" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/type_sepa.h" bodystart="37" bodyend="-1"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/type_sepa.h" line="48" column="1" bodyfile="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/type_sepa.h" bodystart="37" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="type__sepa_8h_1a34117c19722eeef2beebeef4a489c9d9" prot="public" static="no">
         <type>struct SCIP_SepaData</type>
@@ -1309,7 +1480,7 @@
 <para>locally defined separator data </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/type_sepa.h" line="125" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/type_sepa.h" bodystart="38" bodyend="-1"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/type_sepa.h" line="48" column="1" bodyfile="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/type_sepa.h" bodystart="38" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -1323,7 +1494,7 @@
 <codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>This<sp/>file<sp/>is<sp/>part<sp/>of<sp/>the<sp/>program<sp/>and<sp/>library<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SCIP<sp/>---<sp/>Solving<sp/>Constraint<sp/>Integer<sp/>Programs<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/>Copyright<sp/>(C)<sp/>2002-2014<sp/>Konrad-Zuse-Zentrum<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/>Copyright<sp/>(C)<sp/>2002-2015<sp/>Konrad-Zuse-Zentrum<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fuer<sp/>Informationstechnik<sp/>Berlin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>SCIP<sp/>is<sp/>distributed<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>ZIB<sp/>Academic<sp/>License.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
@@ -1463,6 +1634,6 @@
 <codeline lineno="143"><highlight class="normal"></highlight></codeline>
 <codeline lineno="144"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
-    <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/type_sepa.h"/>
+    <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/type_sepa.h"/>
   </compounddef>
 </doxygen>

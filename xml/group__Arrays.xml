@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="group__Arrays" kind="group">
+    <compoundname>Arrays</compoundname>
+    <title>Arrays</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__Arrays_1gabe890a56e769f1402e6db687b10b00a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref></type>
+        <definition>SCIP_RETCODE SCIPcomputeArraysIntersection</definition>
+        <argsstring>(int *array1, int narray1, int *array2, int narray2, int *intersectarray, int *nintersectarray)</argsstring>
+        <name>SCIPcomputeArraysIntersection</name>
+        <param>
+          <type>int *</type>
+          <declname>array1</declname>
+          <briefdescription><para>first array (in ascending order) </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>narray1</declname>
+          <briefdescription><para>number of entries of first array </para></briefdescription>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>array2</declname>
+          <briefdescription><para>second array (in ascending order) </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>narray2</declname>
+          <briefdescription><para>number of entries of second array </para></briefdescription>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>intersectarray</declname>
+          <briefdescription><para>intersection of array1 and array2 (note: it is possible to use array1 for this input argument) </para></briefdescription>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>nintersectarray</declname>
+          <briefdescription><para>pointer to store number of entries of intersection array (note: it is possible to use narray1 for this input argument) </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>computes set intersection (duplicates removed) of two arrays that are ordered ascendingly </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_misc.h" line="5575" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Arrays_1gadbaec4de39935e6fcd9e28eea94789f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref></type>
+        <definition>SCIP_RETCODE SCIPcomputeArraysSetminus</definition>
+        <argsstring>(int *array1, int narray1, int *array2, int narray2, int *setminusarray, int *nsetminusarray)</argsstring>
+        <name>SCIPcomputeArraysSetminus</name>
+        <param>
+          <type>int *</type>
+          <declname>array1</declname>
+          <briefdescription><para>first array (in ascending order) </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>narray1</declname>
+          <briefdescription><para>number of entries of first array </para></briefdescription>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>array2</declname>
+          <briefdescription><para>second array (in ascending order) </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>narray2</declname>
+          <briefdescription><para>number of entries of second array </para></briefdescription>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>setminusarray</declname>
+          <briefdescription><para>array to store entries of array1 that are not an entry of array2 (note: it is possible to use array1 for this input argument) </para></briefdescription>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>nsetminusarray</declname>
+          <briefdescription><para>pointer to store number of entries of setminus array (note: it is possible to use narray1 for this input argument) </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>computes set difference (duplicates removed) of two arrays that are ordered ascendingly </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_misc.h" line="5588" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

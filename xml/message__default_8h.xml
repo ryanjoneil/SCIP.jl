@@ -1,72 +1,77 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.8">
-  <compounddef id="message__default_8h" kind="file">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="message__default_8h" kind="file" language="C++">
     <compoundname>message_default.h</compoundname>
     <includes refid="def_8h" local="yes">scip/def.h</includes>
     <includes refid="type__message_8h" local="yes">scip/type_message.h</includes>
     <incdepgraph>
-      <node id="6263">
+      <node id="7975">
         <label>stdarg.h</label>
       </node>
-      <node id="6260">
+      <node id="7972">
         <label>assert.h</label>
       </node>
-      <node id="6259">
+      <node id="7971">
         <label>float.h</label>
       </node>
-      <node id="6254">
-        <label>message_default.h</label>
-        <link refid="message_default.h"/>
-        <childnode refid="6255" relation="include">
+      <node id="7968">
+        <label>stdint.h</label>
+      </node>
+      <node id="7966">
+        <label>scip/def.h</label>
+        <link refid="def_8h"/>
+        <childnode refid="7967" relation="include">
         </childnode>
-        <childnode refid="6264" relation="include">
+        <childnode refid="7968" relation="include">
+        </childnode>
+        <childnode refid="7969" relation="include">
+        </childnode>
+        <childnode refid="7970" relation="include">
+        </childnode>
+        <childnode refid="7971" relation="include">
+        </childnode>
+        <childnode refid="7972" relation="include">
+        </childnode>
+        <childnode refid="7973" relation="include">
+        </childnode>
+        <childnode refid="7974" relation="include">
         </childnode>
       </node>
-      <node id="6258">
+      <node id="7970">
         <label>limits.h</label>
       </node>
-      <node id="6264">
-        <label>scip/type_message.h</label>
-        <link refid="type__message_8h"/>
-        <childnode refid="6256" relation="include">
+      <node id="7965">
+        <label>message_default.h</label>
+        <link refid="message_default.h"/>
+        <childnode refid="7966" relation="include">
+        </childnode>
+        <childnode refid="7976" relation="include">
         </childnode>
       </node>
-      <node id="6262">
-        <label>scip/pub_message.h</label>
-        <link refid="pub__message_8h"/>
-        <childnode refid="6263" relation="include">
-        </childnode>
-        <childnode refid="6255" relation="include">
-        </childnode>
-        <childnode refid="6264" relation="include">
-        </childnode>
+      <node id="7969">
+        <label>math.h</label>
       </node>
-      <node id="6261">
+      <node id="7973">
         <label>scip/type_retcode.h</label>
         <link refid="type__retcode_8h"/>
       </node>
-      <node id="6257">
-        <label>math.h</label>
-      </node>
-      <node id="6255">
-        <label>scip/def.h</label>
-        <link refid="def_8h"/>
-        <childnode refid="6256" relation="include">
+      <node id="7974">
+        <label>scip/pub_message.h</label>
+        <link refid="pub__message_8h"/>
+        <childnode refid="7975" relation="include">
         </childnode>
-        <childnode refid="6257" relation="include">
+        <childnode refid="7966" relation="include">
         </childnode>
-        <childnode refid="6258" relation="include">
-        </childnode>
-        <childnode refid="6259" relation="include">
-        </childnode>
-        <childnode refid="6260" relation="include">
-        </childnode>
-        <childnode refid="6261" relation="include">
-        </childnode>
-        <childnode refid="6262" relation="include">
+        <childnode refid="7976" relation="include">
         </childnode>
       </node>
-      <node id="6256">
+      <node id="7976">
+        <label>scip/type_message.h</label>
+        <link refid="type__message_8h"/>
+        <childnode refid="7967" relation="include">
+        </childnode>
+      </node>
+      <node id="7967">
         <label>stdio.h</label>
       </node>
     </incdepgraph>
@@ -102,7 +107,7 @@
 <para>Create default message handler. To free the message handler use <ref refid="pub__message_8h_1aa7f6c01a8ed02f9c374ddba25a5503b1" kindref="member">SCIPmessagehdlrRelease()</ref>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/message_default.h" line="36" column="1"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/message_default.h" line="36" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -116,7 +121,7 @@
 <codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>This<sp/>file<sp/>is<sp/>part<sp/>of<sp/>the<sp/>program<sp/>and<sp/>library<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SCIP<sp/>---<sp/>Solving<sp/>Constraint<sp/>Integer<sp/>Programs<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/>Copyright<sp/>(C)<sp/>2002-2014<sp/>Konrad-Zuse-Zentrum<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/>Copyright<sp/>(C)<sp/>2002-2015<sp/>Konrad-Zuse-Zentrum<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fuer<sp/>Informationstechnik<sp/>Berlin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>SCIP<sp/>is<sp/>distributed<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>ZIB<sp/>Academic<sp/>License.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
@@ -159,6 +164,6 @@
 <codeline lineno="46"><highlight class="normal"></highlight></codeline>
 <codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
-    <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/message_default.h"/>
+    <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/message_default.h"/>
   </compounddef>
 </doxygen>

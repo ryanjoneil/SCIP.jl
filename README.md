@@ -7,7 +7,7 @@ This doesn't do much yet. Check back later. The following test creates a SCIP
 model, along with a few other things.
 
 ```
-julia test/test.jl
+julia test/runtests.jl
 ```
 
 Building SCIP.jl
@@ -17,14 +17,14 @@ This will change, but if you feel the need to hack on SCIP.jl, you should be abl
 
 ### Build a SCIP library
 
-Download and decompress the [source distribution](http://scip.zib.de/#download) for SCIP 3.1.1. Compile a shared version of the library without extraneous dependencies.
+Download and decompress the [source distribution](http://scip.zib.de/#download) for SCIP 3.2.0. Compile a shared version of the library without extraneous dependencies.
 
 ```bash
-$ cd scipoptsuite-3.1.1
+$ cd scipoptsuite-3.2.0
 $ make scipoptlib GMP=false ZLIB=false READLINE=false SHARED=true
 ```
 
-You should now have a file that looks something like `lib/lib/libscipopt-3.1.1.linux.x86_64.gnu.opt.so`. Remember the location of this file for later.
+You should now have a file that looks something like `lib/lib/libscipopt-3.2.0.linux.x86_64.gnu.opt.so`. Remember the location of this file for later.
 
 ### Clone SCIP.jl and copy the SCIP library into it
 
@@ -46,7 +46,7 @@ You should now be able to run the test code.
 
 ```bash
 $ export LD_LIBRARY_PATH=.
-$ julia test/test.jl
+$ julia test/runtests.jl
 ```
 
 ### Optional: Generate the Julia code for SCIP.jl

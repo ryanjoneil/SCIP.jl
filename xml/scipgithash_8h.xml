@@ -1,69 +1,74 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.8">
-  <compounddef id="scipgithash_8h" kind="file">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="scipgithash_8h" kind="file" language="C++">
     <compoundname>scipgithash.h</compoundname>
     <includes refid="def_8h" local="yes">scip/def.h</includes>
     <incdepgraph>
-      <node id="14105">
+      <node id="17440">
         <label>stdarg.h</label>
       </node>
-      <node id="14102">
+      <node id="17437">
         <label>assert.h</label>
       </node>
-      <node id="14101">
+      <node id="17430">
+        <label>scipgithash.h</label>
+        <link refid="scipgithash.h"/>
+        <childnode refid="17431" relation="include">
+        </childnode>
+      </node>
+      <node id="17436">
         <label>float.h</label>
       </node>
-      <node id="14100">
+      <node id="17433">
+        <label>stdint.h</label>
+      </node>
+      <node id="17431">
+        <label>scip/def.h</label>
+        <link refid="def_8h"/>
+        <childnode refid="17432" relation="include">
+        </childnode>
+        <childnode refid="17433" relation="include">
+        </childnode>
+        <childnode refid="17434" relation="include">
+        </childnode>
+        <childnode refid="17435" relation="include">
+        </childnode>
+        <childnode refid="17436" relation="include">
+        </childnode>
+        <childnode refid="17437" relation="include">
+        </childnode>
+        <childnode refid="17438" relation="include">
+        </childnode>
+        <childnode refid="17439" relation="include">
+        </childnode>
+      </node>
+      <node id="17435">
         <label>limits.h</label>
       </node>
-      <node id="14106">
-        <label>scip/type_message.h</label>
-        <link refid="type__message_8h"/>
-        <childnode refid="14098" relation="include">
-        </childnode>
+      <node id="17434">
+        <label>math.h</label>
       </node>
-      <node id="14104">
-        <label>scip/pub_message.h</label>
-        <link refid="pub__message_8h"/>
-        <childnode refid="14105" relation="include">
-        </childnode>
-        <childnode refid="14097" relation="include">
-        </childnode>
-        <childnode refid="14106" relation="include">
-        </childnode>
-      </node>
-      <node id="14103">
+      <node id="17438">
         <label>scip/type_retcode.h</label>
         <link refid="type__retcode_8h"/>
       </node>
-      <node id="14099">
-        <label>math.h</label>
-      </node>
-      <node id="14097">
-        <label>scip/def.h</label>
-        <link refid="def_8h"/>
-        <childnode refid="14098" relation="include">
+      <node id="17439">
+        <label>scip/pub_message.h</label>
+        <link refid="pub__message_8h"/>
+        <childnode refid="17440" relation="include">
         </childnode>
-        <childnode refid="14099" relation="include">
+        <childnode refid="17431" relation="include">
         </childnode>
-        <childnode refid="14100" relation="include">
-        </childnode>
-        <childnode refid="14101" relation="include">
-        </childnode>
-        <childnode refid="14102" relation="include">
-        </childnode>
-        <childnode refid="14103" relation="include">
-        </childnode>
-        <childnode refid="14104" relation="include">
+        <childnode refid="17441" relation="include">
         </childnode>
       </node>
-      <node id="14096">
-        <label>scipgithash.h</label>
-        <link refid="scipgithash.h"/>
-        <childnode refid="14097" relation="include">
+      <node id="17441">
+        <label>scip/type_message.h</label>
+        <link refid="type__message_8h"/>
+        <childnode refid="17432" relation="include">
         </childnode>
       </node>
-      <node id="14098">
+      <node id="17432">
         <label>stdio.h</label>
       </node>
     </incdepgraph>
@@ -82,7 +87,7 @@
 <para>returns the SCIP git hash </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/scipgithash.h" line="34" column="1"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/scipgithash.h" line="34" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -96,7 +101,7 @@
 <codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>This<sp/>file<sp/>is<sp/>part<sp/>of<sp/>the<sp/>program<sp/>and<sp/>library<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SCIP<sp/>---<sp/>Solving<sp/>Constraint<sp/>Integer<sp/>Programs<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/>Copyright<sp/>(C)<sp/>2002-2014<sp/>Konrad-Zuse-Zentrum<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/>Copyright<sp/>(C)<sp/>2002-2015<sp/>Konrad-Zuse-Zentrum<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fuer<sp/>Informationstechnik<sp/>Berlin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>SCIP<sp/>is<sp/>distributed<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>ZIB<sp/>Academic<sp/>License.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
@@ -134,6 +139,6 @@
 <codeline lineno="41"><highlight class="normal"></highlight></codeline>
 <codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
-    <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/scipgithash.h"/>
+    <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/scipgithash.h"/>
   </compounddef>
 </doxygen>

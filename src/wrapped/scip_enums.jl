@@ -65,7 +65,7 @@ const SCIP_DispStatuss_MAP = [
     _SCIP_DISPSTATUS_ON => "display column is displayed",
 ]
 
-export _SCIP_ExprOp, _SCIP_EXPR_VARIDX, _SCIP_EXPR_CONST, _SCIP_EXPR_PARAM, _SCIP_EXPR_PLUS, _SCIP_EXPR_MINUS, _SCIP_EXPR_MUL, _SCIP_EXPR_DIV, _SCIP_EXPR_SQUARE, _SCIP_EXPR_SQRT, _SCIP_EXPR_REALPOWER, _SCIP_EXPR_INTPOWER, _SCIP_EXPR_SIGNPOWER, _SCIP_EXPR_EXP, _SCIP_EXPR_LOG, _SCIP_EXPR_SIN, _SCIP_EXPR_COS, _SCIP_EXPR_TAN, _SCIP_EXPR_MIN, _SCIP_EXPR_MAX, _SCIP_EXPR_ABS, _SCIP_EXPR_SIGN, _SCIP_EXPR_SUM, _SCIP_EXPR_PRODUCT, _SCIP_EXPR_LINEAR, _SCIP_EXPR_QUADRATIC, _SCIP_EXPR_POLYNOMIAL, _SCIP_EXPR_LAST, SCIP_ExprOp_MAP
+export _SCIP_ExprOp, _SCIP_EXPR_VARIDX, _SCIP_EXPR_CONST, _SCIP_EXPR_PARAM, _SCIP_EXPR_PLUS, _SCIP_EXPR_MINUS, _SCIP_EXPR_MUL, _SCIP_EXPR_DIV, _SCIP_EXPR_SQUARE, _SCIP_EXPR_SQRT, _SCIP_EXPR_REALPOWER, _SCIP_EXPR_INTPOWER, _SCIP_EXPR_SIGNPOWER, _SCIP_EXPR_EXP, _SCIP_EXPR_LOG, _SCIP_EXPR_SIN, _SCIP_EXPR_COS, _SCIP_EXPR_TAN, _SCIP_EXPR_MIN, _SCIP_EXPR_MAX, _SCIP_EXPR_ABS, _SCIP_EXPR_SIGN, _SCIP_EXPR_SUM, _SCIP_EXPR_PRODUCT, _SCIP_EXPR_LINEAR, _SCIP_EXPR_QUADRATIC, _SCIP_EXPR_POLYNOMIAL, _SCIP_EXPR_USER, _SCIP_EXPR_LAST, SCIP_ExprOp_MAP
 typealias _SCIP_ExprOp Int8
 const _SCIP_EXPR_VARIDX = int8(1)
 const _SCIP_EXPR_CONST = int8(2)
@@ -93,7 +93,8 @@ const _SCIP_EXPR_PRODUCT = int8(65)
 const _SCIP_EXPR_LINEAR = int8(66)
 const _SCIP_EXPR_QUADRATIC = int8(67)
 const _SCIP_EXPR_POLYNOMIAL = int8(68)
-const _SCIP_EXPR_LAST = int8(69)
+const _SCIP_EXPR_USER = int8(69)
+const _SCIP_EXPR_LAST = int8(70)
 
 const SCIP_ExprOps_MAP = [
     _SCIP_EXPR_VARIDX => "variable given by index (stored in data.idx)",
@@ -122,6 +123,7 @@ const SCIP_ExprOps_MAP = [
     _SCIP_EXPR_LINEAR => "linear term sum_{i=1}^n a_i op_i (n operands)",
     _SCIP_EXPR_QUADRATIC => "quadratic term sum_{i,j=1}^n a_{i,j} op_i op_j (n operands)",
     _SCIP_EXPR_POLYNOMIAL => "polynomial term sum_{I} a_{I}ops^I (I a multiindex, n operands)",
+    _SCIP_EXPR_USER => "a user defined expression",
     _SCIP_EXPR_LAST => "no expression, used for counting reasons",
 ]
 
@@ -221,6 +223,102 @@ const SCIP_LPAlgos_MAP = [
     _SCIP_LPALGO_BARRIERCROSSOVER => "barrier algorithm with crossover",
 ]
 
+export _SCIP_ObjSen, _SCIP_OBJSEN_MAXIMIZE, _SCIP_OBJSEN_MINIMIZE, SCIP_ObjSen_MAP
+typealias _SCIP_ObjSen Int8
+const _SCIP_OBJSEN_MAXIMIZE = int8(-1)
+const _SCIP_OBJSEN_MINIMIZE = int8(1)
+
+const SCIP_ObjSens_MAP = [
+    _SCIP_OBJSEN_MAXIMIZE => "maximize objective function",
+    _SCIP_OBJSEN_MINIMIZE => "minimize objective function",
+]
+
+export _SCIP_LPParam, _SCIP_LPPAR_FROMSCRATCH, _SCIP_LPPAR_FASTMIP, _SCIP_LPPAR_SCALING, _SCIP_LPPAR_PRESOLVING, _SCIP_LPPAR_PRICING, _SCIP_LPPAR_LPINFO, _SCIP_LPPAR_FEASTOL, _SCIP_LPPAR_DUALFEASTOL, _SCIP_LPPAR_BARRIERCONVTOL, _SCIP_LPPAR_LOBJLIM, _SCIP_LPPAR_UOBJLIM, _SCIP_LPPAR_LPITLIM, _SCIP_LPPAR_LPTILIM, _SCIP_LPPAR_MARKOWITZ, _SCIP_LPPAR_ROWREPSWITCH, _SCIP_LPPAR_THREADS, _SCIP_LPPAR_CONDITIONLIMIT, _SCIP_LPPAR_TIMING, SCIP_LPParam_MAP
+typealias _SCIP_LPParam Int8
+const _SCIP_LPPAR_FROMSCRATCH = int8(0)
+const _SCIP_LPPAR_FASTMIP = int8(1)
+const _SCIP_LPPAR_SCALING = int8(2)
+const _SCIP_LPPAR_PRESOLVING = int8(3)
+const _SCIP_LPPAR_PRICING = int8(4)
+const _SCIP_LPPAR_LPINFO = int8(5)
+const _SCIP_LPPAR_FEASTOL = int8(6)
+const _SCIP_LPPAR_DUALFEASTOL = int8(7)
+const _SCIP_LPPAR_BARRIERCONVTOL = int8(8)
+const _SCIP_LPPAR_LOBJLIM = int8(9)
+const _SCIP_LPPAR_UOBJLIM = int8(10)
+const _SCIP_LPPAR_LPITLIM = int8(11)
+const _SCIP_LPPAR_LPTILIM = int8(12)
+const _SCIP_LPPAR_MARKOWITZ = int8(13)
+const _SCIP_LPPAR_ROWREPSWITCH = int8(14)
+const _SCIP_LPPAR_THREADS = int8(15)
+const _SCIP_LPPAR_CONDITIONLIMIT = int8(16)
+const _SCIP_LPPAR_TIMING = int8(17)
+
+const SCIP_LPParams_MAP = [
+    _SCIP_LPPAR_FROMSCRATCH => "solver should start from scratch at next call?",
+    _SCIP_LPPAR_FASTMIP => "fast mip setting of LP solver",
+    _SCIP_LPPAR_SCALING => "should LP solver use scaling?",
+    _SCIP_LPPAR_PRESOLVING => "should LP solver use presolving?",
+    _SCIP_LPPAR_PRICING => "pricing strategy",
+    _SCIP_LPPAR_LPINFO => "should LP solver output information to the screen?",
+    _SCIP_LPPAR_FEASTOL => "feasibility tolerance for primal variables and slacks",
+    _SCIP_LPPAR_DUALFEASTOL => "feasibility tolerance for dual variables and reduced costs",
+    _SCIP_LPPAR_BARRIERCONVTOL => "convergence tolerance used in barrier algorithm",
+    _SCIP_LPPAR_LOBJLIM => "lower objective limit",
+    _SCIP_LPPAR_UOBJLIM => "upper objective limit",
+    _SCIP_LPPAR_LPITLIM => "LP iteration limit",
+    _SCIP_LPPAR_LPTILIM => "LP time limit",
+    _SCIP_LPPAR_MARKOWITZ => "Markowitz tolerance",
+    _SCIP_LPPAR_ROWREPSWITCH => "simplex algorithm shall use row representation of the basis if number of rows divided by number of columns exceeds this value",
+    _SCIP_LPPAR_THREADS => "number of threads used to solve the LP",
+    _SCIP_LPPAR_CONDITIONLIMIT => "maximum condition number of LP basis counted as stable",
+    _SCIP_LPPAR_TIMING => "type of timer (1 - cpu, 2 - wallclock, 0 - off)",
+]
+
+export _SCIP_Pricing, _SCIP_PRICING_LPIDEFAULT, _SCIP_PRICING_AUTO, _SCIP_PRICING_FULL, _SCIP_PRICING_PARTIAL, _SCIP_PRICING_STEEP, _SCIP_PRICING_STEEPQSTART, _SCIP_PRICING_DEVEX, SCIP_Pricing_MAP
+typealias _SCIP_Pricing Int8
+const _SCIP_PRICING_LPIDEFAULT = int8(0)
+const _SCIP_PRICING_AUTO = int8(1)
+const _SCIP_PRICING_FULL = int8(2)
+const _SCIP_PRICING_PARTIAL = int8(3)
+const _SCIP_PRICING_STEEP = int8(4)
+const _SCIP_PRICING_STEEPQSTART = int8(5)
+const _SCIP_PRICING_DEVEX = int8(6)
+
+const SCIP_Pricings_MAP = [
+    _SCIP_PRICING_LPIDEFAULT => "the SCIP/LP interface should use its preferred strategy",
+    _SCIP_PRICING_AUTO => "the LP solver should use its preferred strategy",
+    _SCIP_PRICING_FULL => "full pricing",
+    _SCIP_PRICING_PARTIAL => "partial pricing",
+    _SCIP_PRICING_STEEP => "steepest edge pricing",
+    _SCIP_PRICING_STEEPQSTART => "steepest edge pricing without initial dual norms",
+    _SCIP_PRICING_DEVEX => "devex pricing",
+]
+
+export _SCIP_BaseStat, _SCIP_BASESTAT_LOWER, _SCIP_BASESTAT_BASIC, _SCIP_BASESTAT_UPPER, _SCIP_BASESTAT_ZERO, SCIP_BaseStat_MAP
+typealias _SCIP_BaseStat Int8
+const _SCIP_BASESTAT_LOWER = int8(0)
+const _SCIP_BASESTAT_BASIC = int8(1)
+const _SCIP_BASESTAT_UPPER = int8(2)
+const _SCIP_BASESTAT_ZERO = int8(3)
+
+const SCIP_BaseStats_MAP = [
+    _SCIP_BASESTAT_LOWER => "(slack) variable is at its lower bound",
+    _SCIP_BASESTAT_BASIC => "(slack) variable is basic",
+    _SCIP_BASESTAT_UPPER => "(slack) variable is at its upper bound",
+    _SCIP_BASESTAT_ZERO => "free variable is non-basic and set to zero",
+]
+
+export _SCIP_LPSolQuality, _SCIP_LPSOLQUALITY_ESTIMCONDITION, _SCIP_LPSOLQUALITY_EXACTCONDITION, SCIP_LPSolQuality_MAP
+typealias _SCIP_LPSolQuality Int8
+const _SCIP_LPSOLQUALITY_ESTIMCONDITION = int8(0)
+const _SCIP_LPSOLQUALITY_EXACTCONDITION = int8(0)
+
+const SCIP_LPSolQualitys_MAP = [
+    _SCIP_LPSOLQUALITY_ESTIMCONDITION => "estimated condition number of (scaled) basis matrix (SCIP_Real)",
+    _SCIP_LPSOLQUALITY_EXACTCONDITION => "exact condition number of (scaled) basis matrix (SCIP_Real)",
+]
+
 export _SCIP_VerbLevel, _SCIP_VERBLEVEL_NONE, _SCIP_VERBLEVEL_DIALOG, _SCIP_VERBLEVEL_MINIMAL, _SCIP_VERBLEVEL_NORMAL, _SCIP_VERBLEVEL_HIGH, _SCIP_VERBLEVEL_FULL, SCIP_VerbLevel_MAP
 typealias _SCIP_VerbLevel Int8
 const _SCIP_VERBLEVEL_NONE = int8(0)
@@ -237,6 +335,22 @@ const SCIP_VerbLevels_MAP = [
     _SCIP_VERBLEVEL_NORMAL => "standard messages are displayed",
     _SCIP_VERBLEVEL_HIGH => "a lot of information is displayed",
     _SCIP_VERBLEVEL_FULL => "all messages are displayed",
+]
+
+export _SCIP_Confidencelevel, _SCIP_CONFIDENCELEVEL_MIN, _SCIP_CONFIDENCELEVEL_LOW, _SCIP_CONFIDENCELEVEL_MEDIUM, _SCIP_CONFIDENCELEVEL_HIGH, _SCIP_CONFIDENCELEVEL_MAX, SCIP_Confidencelevel_MAP
+typealias _SCIP_Confidencelevel Int8
+const _SCIP_CONFIDENCELEVEL_MIN = int8(0)
+const _SCIP_CONFIDENCELEVEL_LOW = int8(1)
+const _SCIP_CONFIDENCELEVEL_MEDIUM = int8(2)
+const _SCIP_CONFIDENCELEVEL_HIGH = int8(3)
+const _SCIP_CONFIDENCELEVEL_MAX = int8(4)
+
+const SCIP_Confidencelevels_MAP = [
+    _SCIP_CONFIDENCELEVEL_MIN => "one-sided confidence level 75 %, two-sided 50 %",
+    _SCIP_CONFIDENCELEVEL_LOW => "(one-sided) confidence level 87.5 %, two-sided 75 %",
+    _SCIP_CONFIDENCELEVEL_MEDIUM => "(one-sided) confidence level 90 %, two-sided 80 %",
+    _SCIP_CONFIDENCELEVEL_HIGH => "(one-sided) confidence level 95 %, two-sided 90 %",
+    _SCIP_CONFIDENCELEVEL_MAX => "(one-sided) confidence level 97.5 %, two-sided 95 %",
 ]
 
 export _SCIP_NlpParam, _SCIP_NLPPAR_FROMSCRATCH, _SCIP_NLPPAR_VERBLEVEL, _SCIP_NLPPAR_FEASTOL, _SCIP_NLPPAR_RELOBJTOL, _SCIP_NLPPAR_LOBJLIM, _SCIP_NLPPAR_INFINITY, _SCIP_NLPPAR_ITLIM, _SCIP_NLPPAR_TILIM, _SCIP_NLPPAR_OPTFILE, _SCIP_NLPPAR_FASTFAIL, SCIP_NlpParam_MAP
@@ -371,6 +485,40 @@ const _SCIP_OBJSENSE_MINIMIZE = int8(1)
 const SCIP_Objsenses_MAP = [
     _SCIP_OBJSENSE_MAXIMIZE => "maximization of objective function",
     _SCIP_OBJSENSE_MINIMIZE => "minimization of objective function (the default)",
+]
+
+export _SCIP_ReoptType, _SCIP_REOPTTYPE_NONE, _SCIP_REOPTTYPE_TRANSIT, _SCIP_REOPTTYPE_INFSUBTREE, _SCIP_REOPTTYPE_STRBRANCHED, _SCIP_REOPTTYPE_LOGICORNODE, _SCIP_REOPTTYPE_LEAF, _SCIP_REOPTTYPE_PRUNED, _SCIP_REOPTTYPE_FEASIBLE, SCIP_ReoptType_MAP
+typealias _SCIP_ReoptType Int8
+const _SCIP_REOPTTYPE_NONE = int8(0)
+const _SCIP_REOPTTYPE_TRANSIT = int8(1)
+const _SCIP_REOPTTYPE_INFSUBTREE = int8(2)
+const _SCIP_REOPTTYPE_STRBRANCHED = int8(3)
+const _SCIP_REOPTTYPE_LOGICORNODE = int8(4)
+const _SCIP_REOPTTYPE_LEAF = int8(5)
+const _SCIP_REOPTTYPE_PRUNED = int8(6)
+const _SCIP_REOPTTYPE_FEASIBLE = int8(7)
+
+const SCIP_ReoptTypes_MAP = [
+    _SCIP_REOPTTYPE_NONE => "",
+    _SCIP_REOPTTYPE_TRANSIT => "",
+    _SCIP_REOPTTYPE_INFSUBTREE => "",
+    _SCIP_REOPTTYPE_STRBRANCHED => "",
+    _SCIP_REOPTTYPE_LOGICORNODE => "",
+    _SCIP_REOPTTYPE_LEAF => "",
+    _SCIP_REOPTTYPE_PRUNED => "",
+    _SCIP_REOPTTYPE_FEASIBLE => "",
+]
+
+export Reopt_ConsType, REOPT_CONSTYPE_SEPASOLUTION, REOPT_CONSTYPE_INFSUBTREE, REOPT_CONSTYPE_STRBRANCHED, Reopt_ConsType_MAP
+typealias Reopt_ConsType Int8
+const REOPT_CONSTYPE_SEPASOLUTION = int8(0)
+const REOPT_CONSTYPE_INFSUBTREE = int8(1)
+const REOPT_CONSTYPE_STRBRANCHED = int8(2)
+
+const Reopt_ConsTypes_MAP = [
+    REOPT_CONSTYPE_SEPASOLUTION => "",
+    REOPT_CONSTYPE_INFSUBTREE => "",
+    REOPT_CONSTYPE_STRBRANCHED => "",
 ]
 
 export _SCIP_Result, _SCIP_DIDNOTRUN, _SCIP_DELAYED, _SCIP_DIDNOTFIND, _SCIP_FEASIBLE, _SCIP_INFEASIBLE, _SCIP_UNBOUNDED, _SCIP_CUTOFF, _SCIP_SEPARATED, _SCIP_NEWROUND, _SCIP_REDUCEDDOM, _SCIP_CONSADDED, _SCIP_CONSCHANGED, _SCIP_BRANCHED, _SCIP_SOLVELP, _SCIP_FOUNDSOL, _SCIP_SUSPENDED, _SCIP_SUCCESS, SCIP_Result_MAP
@@ -537,7 +685,7 @@ const SCIP_SolOrigins_MAP = [
     _SCIP_SOLORIGIN_UNKNOWN => "all non-cached elements in solution are unknown; they have to be treated as being an arbitrary value in the variable's bounds",
 ]
 
-export _SCIP_Status, _SCIP_STATUS_UNKNOWN, _SCIP_STATUS_USERINTERRUPT, _SCIP_STATUS_NODELIMIT, _SCIP_STATUS_TOTALNODELIMIT, _SCIP_STATUS_STALLNODELIMIT, _SCIP_STATUS_TIMELIMIT, _SCIP_STATUS_MEMLIMIT, _SCIP_STATUS_GAPLIMIT, _SCIP_STATUS_SOLLIMIT, _SCIP_STATUS_BESTSOLLIMIT, _SCIP_STATUS_OPTIMAL, _SCIP_STATUS_INFEASIBLE, _SCIP_STATUS_UNBOUNDED, _SCIP_STATUS_INFORUNBD, SCIP_Status_MAP
+export _SCIP_Status, _SCIP_STATUS_UNKNOWN, _SCIP_STATUS_USERINTERRUPT, _SCIP_STATUS_NODELIMIT, _SCIP_STATUS_TOTALNODELIMIT, _SCIP_STATUS_STALLNODELIMIT, _SCIP_STATUS_TIMELIMIT, _SCIP_STATUS_MEMLIMIT, _SCIP_STATUS_GAPLIMIT, _SCIP_STATUS_SOLLIMIT, _SCIP_STATUS_BESTSOLLIMIT, _SCIP_STATUS_RESTARTLIMIT, _SCIP_STATUS_OPTIMAL, _SCIP_STATUS_INFEASIBLE, _SCIP_STATUS_UNBOUNDED, _SCIP_STATUS_INFORUNBD, SCIP_Status_MAP
 typealias _SCIP_Status Int8
 const _SCIP_STATUS_UNKNOWN = int8(0)
 const _SCIP_STATUS_USERINTERRUPT = int8(1)
@@ -549,10 +697,11 @@ const _SCIP_STATUS_MEMLIMIT = int8(6)
 const _SCIP_STATUS_GAPLIMIT = int8(7)
 const _SCIP_STATUS_SOLLIMIT = int8(8)
 const _SCIP_STATUS_BESTSOLLIMIT = int8(9)
-const _SCIP_STATUS_OPTIMAL = int8(10)
-const _SCIP_STATUS_INFEASIBLE = int8(11)
-const _SCIP_STATUS_UNBOUNDED = int8(12)
-const _SCIP_STATUS_INFORUNBD = int8(13)
+const _SCIP_STATUS_RESTARTLIMIT = int8(10)
+const _SCIP_STATUS_OPTIMAL = int8(11)
+const _SCIP_STATUS_INFEASIBLE = int8(12)
+const _SCIP_STATUS_UNBOUNDED = int8(13)
+const _SCIP_STATUS_INFORUNBD = int8(14)
 
 const SCIP_Statuss_MAP = [
     _SCIP_STATUS_UNKNOWN => "the solving status is not yet known",
@@ -565,6 +714,7 @@ const SCIP_Statuss_MAP = [
     _SCIP_STATUS_GAPLIMIT => "the solving process was interrupted because the gap limit was reached",
     _SCIP_STATUS_SOLLIMIT => "the solving process was interrupted because the solution limit was reached",
     _SCIP_STATUS_BESTSOLLIMIT => "the solving process was interrupted because the solution improvement limit was reached",
+    _SCIP_STATUS_RESTARTLIMIT => "the solving process was interrupted because the restart limit was reached",
     _SCIP_STATUS_OPTIMAL => "the problem was solved to optimality, an optimal solution is available",
     _SCIP_STATUS_INFEASIBLE => "the problem was proven to be infeasible",
     _SCIP_STATUS_UNBOUNDED => "the problem was proven to be unbounded",
