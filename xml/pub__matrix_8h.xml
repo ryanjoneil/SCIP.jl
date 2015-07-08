@@ -1,0 +1,1264 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="pub__matrix_8h" kind="file" language="C++">
+    <compoundname>pub_matrix.h</compoundname>
+    <includes refid="def_8h" local="yes">scip/def.h</includes>
+    <includes refid="type__var_8h" local="yes">scip/type_var.h</includes>
+    <includes refid="type__cons_8h" local="yes">scip/type_cons.h</includes>
+    <includes refid="type__matrix_8h" local="yes">scip/type_matrix.h</includes>
+    <incdepgraph>
+      <node id="12892">
+        <label>stdarg.h</label>
+      </node>
+      <node id="12889">
+        <label>assert.h</label>
+      </node>
+      <node id="12888">
+        <label>float.h</label>
+      </node>
+      <node id="12895">
+        <label>scip/type_cons.h</label>
+        <link refid="type__cons_8h"/>
+        <childnode refid="12883" relation="include">
+        </childnode>
+        <childnode refid="12890" relation="include">
+        </childnode>
+        <childnode refid="12896" relation="include">
+        </childnode>
+        <childnode refid="12894" relation="include">
+        </childnode>
+        <childnode refid="12897" relation="include">
+        </childnode>
+        <childnode refid="12898" relation="include">
+        </childnode>
+        <childnode refid="12899" relation="include">
+        </childnode>
+        <childnode refid="12900" relation="include">
+        </childnode>
+      </node>
+      <node id="12885">
+        <label>stdint.h</label>
+      </node>
+      <node id="12896">
+        <label>scip/type_result.h</label>
+        <link refid="type__result_8h"/>
+      </node>
+      <node id="12899">
+        <label>scip/type_timing.h</label>
+        <link refid="type__timing_8h"/>
+        <childnode refid="12883" relation="include">
+        </childnode>
+        <childnode refid="12896" relation="include">
+        </childnode>
+        <childnode refid="12898" relation="include">
+        </childnode>
+      </node>
+      <node id="12898">
+        <label>scip/type_scip.h</label>
+        <link refid="type__scip_8h"/>
+      </node>
+      <node id="12883">
+        <label>scip/def.h</label>
+        <link refid="def_8h"/>
+        <childnode refid="12884" relation="include">
+        </childnode>
+        <childnode refid="12885" relation="include">
+        </childnode>
+        <childnode refid="12886" relation="include">
+        </childnode>
+        <childnode refid="12887" relation="include">
+        </childnode>
+        <childnode refid="12888" relation="include">
+        </childnode>
+        <childnode refid="12889" relation="include">
+        </childnode>
+        <childnode refid="12890" relation="include">
+        </childnode>
+        <childnode refid="12891" relation="include">
+        </childnode>
+      </node>
+      <node id="12882">
+        <label>pub_matrix.h</label>
+        <link refid="pub_matrix.h"/>
+        <childnode refid="12883" relation="include">
+        </childnode>
+        <childnode refid="12894" relation="include">
+        </childnode>
+        <childnode refid="12895" relation="include">
+        </childnode>
+        <childnode refid="12901" relation="include">
+        </childnode>
+      </node>
+      <node id="12887">
+        <label>limits.h</label>
+      </node>
+      <node id="12900">
+        <label>scip/type_heur.h</label>
+        <link refid="type__heur_8h"/>
+        <childnode refid="12883" relation="include">
+        </childnode>
+        <childnode refid="12898" relation="include">
+        </childnode>
+        <childnode refid="12896" relation="include">
+        </childnode>
+        <childnode refid="12899" relation="include">
+        </childnode>
+      </node>
+      <node id="12897">
+        <label>scip/type_sol.h</label>
+        <link refid="type__sol_8h"/>
+      </node>
+      <node id="12901">
+        <label>scip/type_matrix.h</label>
+        <link refid="type__matrix_8h"/>
+      </node>
+      <node id="12886">
+        <label>math.h</label>
+      </node>
+      <node id="12890">
+        <label>scip/type_retcode.h</label>
+        <link refid="type__retcode_8h"/>
+      </node>
+      <node id="12891">
+        <label>scip/pub_message.h</label>
+        <link refid="pub__message_8h"/>
+        <childnode refid="12892" relation="include">
+        </childnode>
+        <childnode refid="12883" relation="include">
+        </childnode>
+        <childnode refid="12893" relation="include">
+        </childnode>
+      </node>
+      <node id="12893">
+        <label>scip/type_message.h</label>
+        <link refid="type__message_8h"/>
+        <childnode refid="12884" relation="include">
+        </childnode>
+      </node>
+      <node id="12884">
+        <label>stdio.h</label>
+      </node>
+      <node id="12894">
+        <label>scip/type_var.h</label>
+        <link refid="type__var_8h"/>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="pub__matrix_8h_1a51a86d7c7680c6a21363ad2a2b384523" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref> *</type>
+        <definition>SCIP_Real* SCIPmatrixGetColValPtr</definition>
+        <argsstring>(SCIPMILPMATRIX *matrix, int col)</argsstring>
+        <name>SCIPmatrixGetColValPtr</name>
+        <param>
+          <type><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref> *</type>
+          <declname>matrix</declname>
+          <briefdescription><para>matrix instance </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>col</declname>
+          <briefdescription><para>column index </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get column based start pointer of values </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_matrix.h" line="46" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__matrix_8h_1a43f07752ae857196e6477be1e9863267" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int *</type>
+        <definition>int* SCIPmatrixGetColIdxPtr</definition>
+        <argsstring>(SCIPMILPMATRIX *matrix, int col)</argsstring>
+        <name>SCIPmatrixGetColIdxPtr</name>
+        <param>
+          <type><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref> *</type>
+          <declname>matrix</declname>
+          <briefdescription><para>matrix instance </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>col</declname>
+          <briefdescription><para>column index </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get column based start pointer of row indices </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_matrix.h" line="53" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__matrix_8h_1a0e44723aff401dafb13b5cf5d2e38daa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIPmatrixGetColNNonzs</definition>
+        <argsstring>(SCIPMILPMATRIX *matrix, int col)</argsstring>
+        <name>SCIPmatrixGetColNNonzs</name>
+        <param>
+          <type><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref> *</type>
+          <declname>matrix</declname>
+          <briefdescription><para>matrix instance </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>col</declname>
+          <briefdescription><para>column index </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the number of non-zero entries of this column </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_matrix.h" line="60" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__matrix_8h_1a0d2e512683e4538dc60994a6404445de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIPmatrixGetNColumns</definition>
+        <argsstring>(SCIPMILPMATRIX *matrix)</argsstring>
+        <name>SCIPmatrixGetNColumns</name>
+        <param>
+          <type><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref> *</type>
+          <declname>matrix</declname>
+          <briefdescription><para>matrix instance </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get number of columns of the matrix </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_matrix.h" line="67" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__matrix_8h_1afe7d69c77c8585dedd28b9f25372e22b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+        <definition>SCIP_Real SCIPmatrixGetColUb</definition>
+        <argsstring>(SCIPMILPMATRIX *matrix, int col)</argsstring>
+        <name>SCIPmatrixGetColUb</name>
+        <param>
+          <type><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref> *</type>
+          <declname>matrix</declname>
+          <briefdescription><para>matrix instance </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>col</declname>
+          <briefdescription><para>column index </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get upper bound of column </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_matrix.h" line="73" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__matrix_8h_1a6ffdc2429d7d35941dad7f641ca795d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+        <definition>SCIP_Real SCIPmatrixGetColLb</definition>
+        <argsstring>(SCIPMILPMATRIX *matrix, int col)</argsstring>
+        <name>SCIPmatrixGetColLb</name>
+        <param>
+          <type><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref> *</type>
+          <declname>matrix</declname>
+          <briefdescription><para>matrix instance </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>col</declname>
+          <briefdescription><para>column index </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get lower bound of column </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_matrix.h" line="80" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__matrix_8h_1a712e4f92c18670b0c94d322d1c574cf9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIPmatrixGetColNUplocks</definition>
+        <argsstring>(SCIPMILPMATRIX *matrix, int col)</argsstring>
+        <name>SCIPmatrixGetColNUplocks</name>
+        <param>
+          <type><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref> *</type>
+          <declname>matrix</declname>
+          <briefdescription><para>matrix instance </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>col</declname>
+          <briefdescription><para>column index </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get number of uplocks of column </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_matrix.h" line="87" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__matrix_8h_1a58b0436b0e32265ed2e4537794b57869" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIPmatrixGetColNDownlocks</definition>
+        <argsstring>(SCIPMILPMATRIX *matrix, int col)</argsstring>
+        <name>SCIPmatrixGetColNDownlocks</name>
+        <param>
+          <type><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref> *</type>
+          <declname>matrix</declname>
+          <briefdescription><para>matrix instance </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>col</declname>
+          <briefdescription><para>column index </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get number of downlocks of column </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_matrix.h" line="94" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__matrix_8h_1a30eb310bf75e4b08650ecd9c6d35c8e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__var_8h_1a032edd1f5032513d49e397ebdcc8915b" kindref="member">SCIP_VAR</ref> *</type>
+        <definition>SCIP_VAR* SCIPmatrixGetVar</definition>
+        <argsstring>(SCIPMILPMATRIX *matrix, int col)</argsstring>
+        <name>SCIPmatrixGetVar</name>
+        <param>
+          <type><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref> *</type>
+          <declname>matrix</declname>
+          <briefdescription><para>matrix instance </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>col</declname>
+          <briefdescription><para>column index </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get variable pointer of column </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_matrix.h" line="101" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__matrix_8h_1af582e9e2fe0377a28ce11d2b379d4756" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char* SCIPmatrixGetColName</definition>
+        <argsstring>(SCIPMILPMATRIX *matrix, int col)</argsstring>
+        <name>SCIPmatrixGetColName</name>
+        <param>
+          <type><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref> *</type>
+          <declname>matrix</declname>
+          <briefdescription><para>matrix instance </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>col</declname>
+          <briefdescription><para>column index </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get name of column/variable </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_matrix.h" line="108" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__matrix_8h_1af373ad309846bdcfcb4ed83bbbfcd5c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref> *</type>
+        <definition>SCIP_Real* SCIPmatrixGetRowValPtr</definition>
+        <argsstring>(SCIPMILPMATRIX *matrix, int row)</argsstring>
+        <name>SCIPmatrixGetRowValPtr</name>
+        <param>
+          <type><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref> *</type>
+          <declname>matrix</declname>
+          <briefdescription><para>matrix instance </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+          <briefdescription><para>row index </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get row based start pointer of values </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_matrix.h" line="115" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__matrix_8h_1a84d077018ae28f69848e34387237796a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int *</type>
+        <definition>int* SCIPmatrixGetRowIdxPtr</definition>
+        <argsstring>(SCIPMILPMATRIX *matrix, int row)</argsstring>
+        <name>SCIPmatrixGetRowIdxPtr</name>
+        <param>
+          <type><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref> *</type>
+          <declname>matrix</declname>
+          <briefdescription><para>matrix instance </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+          <briefdescription><para>row index </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get row based start pointer of column indices </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_matrix.h" line="122" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__matrix_8h_1a065374e9d5c58938c70d288136e6dc1e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIPmatrixGetRowNNonzs</definition>
+        <argsstring>(SCIPMILPMATRIX *matrix, int row)</argsstring>
+        <name>SCIPmatrixGetRowNNonzs</name>
+        <param>
+          <type><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref> *</type>
+          <declname>matrix</declname>
+          <briefdescription><para>matrix instance </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+          <briefdescription><para>row index </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get number of non-zeros of this row </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_matrix.h" line="129" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__matrix_8h_1a936b45b41847a9c1e16f5f9363f25d53" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char* SCIPmatrixGetRowName</definition>
+        <argsstring>(SCIPMILPMATRIX *matrix, int row)</argsstring>
+        <name>SCIPmatrixGetRowName</name>
+        <param>
+          <type><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref> *</type>
+          <declname>matrix</declname>
+          <briefdescription><para>matrix instance </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+          <briefdescription><para>row index </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get name of row </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_matrix.h" line="136" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__matrix_8h_1a516a5f9841b23c50115d73ed22d52a55" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIPmatrixGetNRows</definition>
+        <argsstring>(SCIPMILPMATRIX *matrix)</argsstring>
+        <name>SCIPmatrixGetNRows</name>
+        <param>
+          <type><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref> *</type>
+          <declname>matrix</declname>
+          <briefdescription><para>matrix instance </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get number of rows of the matrix </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_matrix.h" line="143" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__matrix_8h_1a69e7383db0bdf1ffa9e30a07defa44d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+        <definition>SCIP_Real SCIPmatrixGetRowLhs</definition>
+        <argsstring>(SCIPMILPMATRIX *matrix, int row)</argsstring>
+        <name>SCIPmatrixGetRowLhs</name>
+        <param>
+          <type><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref> *</type>
+          <declname>matrix</declname>
+          <briefdescription><para>matrix instace </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+          <briefdescription><para>row index </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get left-hand-side of row </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_matrix.h" line="149" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__matrix_8h_1a754b96a5c724f1c45b78ebb685e9bcd3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+        <definition>SCIP_Real SCIPmatrixGetRowRhs</definition>
+        <argsstring>(SCIPMILPMATRIX *matrix, int row)</argsstring>
+        <name>SCIPmatrixGetRowRhs</name>
+        <param>
+          <type><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref> *</type>
+          <declname>matrix</declname>
+          <briefdescription><para>matrix instance </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+          <briefdescription><para>row index </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get right-hand-side of row </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_matrix.h" line="156" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__matrix_8h_1af88740bbefd3921a4adb66ca984b0e00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref></type>
+        <definition>SCIP_Bool SCIPmatrixIsRowRhsInfinity</definition>
+        <argsstring>(SCIPMILPMATRIX *matrix, int row)</argsstring>
+        <name>SCIPmatrixIsRowRhsInfinity</name>
+        <param>
+          <type><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref> *</type>
+          <declname>matrix</declname>
+          <briefdescription><para>matrix instance </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+          <briefdescription><para>row index </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>flag indicating if right-hand-side of row is infinity </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_matrix.h" line="163" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__matrix_8h_1a40d5bf6ef3e72b9d48fe3b868a230aac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIPmatrixGetNNonzs</definition>
+        <argsstring>(SCIPMILPMATRIX *matrix)</argsstring>
+        <name>SCIPmatrixGetNNonzs</name>
+        <param>
+          <type><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref> *</type>
+          <declname>matrix</declname>
+          <briefdescription><para>matrix instance </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get number of non-zeros of matrix </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_matrix.h" line="170" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__matrix_8h_1ab5db233d82afa040ba79437cfb203878" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+        <definition>SCIP_Real SCIPmatrixGetRowMinActivity</definition>
+        <argsstring>(SCIPMILPMATRIX *matrix, int row)</argsstring>
+        <name>SCIPmatrixGetRowMinActivity</name>
+        <param>
+          <type><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref> *</type>
+          <declname>matrix</declname>
+          <briefdescription><para>matrix instance </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+          <briefdescription><para>row index </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get minimal activity of row </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_matrix.h" line="176" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__matrix_8h_1ae16b60a7d83676b9d1f6a4caa814e2be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+        <definition>SCIP_Real SCIPmatrixGetRowMaxActivity</definition>
+        <argsstring>(SCIPMILPMATRIX *matrix, int row)</argsstring>
+        <name>SCIPmatrixGetRowMaxActivity</name>
+        <param>
+          <type><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref> *</type>
+          <declname>matrix</declname>
+          <briefdescription><para>matrix instance </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+          <briefdescription><para>row index </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get maximal activity of row </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_matrix.h" line="183" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__matrix_8h_1ac166b03d5dcc575c8747d63605fea5e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIPmatrixGetRowNMinActNegInf</definition>
+        <argsstring>(SCIPMILPMATRIX *matrix, int row)</argsstring>
+        <name>SCIPmatrixGetRowNMinActNegInf</name>
+        <param>
+          <type><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref> *</type>
+          <declname>matrix</declname>
+          <briefdescription><para>matrix instance </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+          <briefdescription><para>row index </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get number of negative infinities present within minimal activity </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_matrix.h" line="190" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__matrix_8h_1abf632946456431e8c88a491a869af6f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIPmatrixGetRowNMinActPosInf</definition>
+        <argsstring>(SCIPMILPMATRIX *matrix, int row)</argsstring>
+        <name>SCIPmatrixGetRowNMinActPosInf</name>
+        <param>
+          <type><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref> *</type>
+          <declname>matrix</declname>
+          <briefdescription><para>matrix instance </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+          <briefdescription><para>row index </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get number of positive infinities present within minimal activity </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_matrix.h" line="197" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__matrix_8h_1a10d05c13781f4873a44371ab59fc1bd4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIPmatrixGetRowNMaxActNegInf</definition>
+        <argsstring>(SCIPMILPMATRIX *matrix, int row)</argsstring>
+        <name>SCIPmatrixGetRowNMaxActNegInf</name>
+        <param>
+          <type><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref> *</type>
+          <declname>matrix</declname>
+          <briefdescription><para>matrix instance </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+          <briefdescription><para>row index </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get number of negative infinities present within maximal activity </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_matrix.h" line="204" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__matrix_8h_1a4129b0bfe0e39fa69080d637fa1e9e3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SCIPmatrixGetRowNMaxActPosInf</definition>
+        <argsstring>(SCIPMILPMATRIX *matrix, int row)</argsstring>
+        <name>SCIPmatrixGetRowNMaxActPosInf</name>
+        <param>
+          <type><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref> *</type>
+          <declname>matrix</declname>
+          <briefdescription><para>matrix instance </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+          <briefdescription><para>row index </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get number of positive infinities present within maximal activity </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_matrix.h" line="211" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__matrix_8h_1adad7cbbc10a93821706df4a65d208494" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__cons_8h_1a38a65729afa6b1cef58fcff906850886" kindref="member">SCIP_CONS</ref> *</type>
+        <definition>SCIP_CONS* SCIPmatrixGetCons</definition>
+        <argsstring>(SCIPMILPMATRIX *matrix, int row)</argsstring>
+        <name>SCIPmatrixGetCons</name>
+        <param>
+          <type><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref> *</type>
+          <declname>matrix</declname>
+          <briefdescription><para>matrix instance </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+          <briefdescription><para>row index </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get constraint pointer for constraint representing row </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_matrix.h" line="218" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__matrix_8h_1a40300100be163321f6b908b6fc1c601b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref></type>
+        <definition>SCIP_Bool SCIPmatrixUplockConflict</definition>
+        <argsstring>(SCIPMILPMATRIX *matrix, int col)</argsstring>
+        <name>SCIPmatrixUplockConflict</name>
+        <param>
+          <type><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref> *</type>
+          <declname>matrix</declname>
+          <briefdescription><para>matrix instance </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>col</declname>
+          <briefdescription><para>column index </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get if conflicting uplocks of variable present </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_matrix.h" line="225" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__matrix_8h_1afc420a63710bc62d721d3086520627be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref></type>
+        <definition>SCIP_Bool SCIPmatrixDownlockConflict</definition>
+        <argsstring>(SCIPMILPMATRIX *matrix, int col)</argsstring>
+        <name>SCIPmatrixDownlockConflict</name>
+        <param>
+          <type><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref> *</type>
+          <declname>matrix</declname>
+          <briefdescription><para>matrix instance </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>col</declname>
+          <briefdescription><para>column index </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get if conflicting downlocks of variable present </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_matrix.h" line="232" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__matrix_8h_1a5edb7bd5806becbb54dbbdadc12f270b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref></type>
+        <definition>SCIP_RETCODE SCIPmatrixCreate</definition>
+        <argsstring>(SCIP *scip, SCIPMILPMATRIX **matrixptr, SCIP_Bool *initialized, SCIP_Bool *complete)</argsstring>
+        <name>SCIPmatrixCreate</name>
+        <param>
+          <type><ref refid="type__scip_8h_1a4792a242d315bf76f05b1f4e0712bc33" kindref="member">SCIP</ref> *</type>
+          <declname>scip</declname>
+          <briefdescription><para>current scip instance </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref> **</type>
+          <declname>matrixptr</declname>
+          <briefdescription><para>pointer to constraint matrix object to be initialized </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref> *</type>
+          <declname>initialized</declname>
+          <briefdescription><para>was the initialization successful? </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref> *</type>
+          <declname>complete</declname>
+          <briefdescription><para>are all constraint represented within the matrix? </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>initialize matrix </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_matrix.h" line="277" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__matrix_8h_1afc21bf650aeced1107246a7a524d8009" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPmatrixFree</definition>
+        <argsstring>(SCIP *scip, SCIPMILPMATRIX **matrix)</argsstring>
+        <name>SCIPmatrixFree</name>
+        <param>
+          <type><ref refid="type__scip_8h_1a4792a242d315bf76f05b1f4e0712bc33" kindref="member">SCIP</ref> *</type>
+          <declname>scip</declname>
+          <briefdescription><para>current SCIP instance </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref> **</type>
+          <declname>matrix</declname>
+          <briefdescription><para>constraint matrix object </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>frees the constraint matrix </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_matrix.h" line="286" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__matrix_8h_1a8cfd6980720d9fb2312b07a900e099a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCIPmatrixPrintRow</definition>
+        <argsstring>(SCIP *scip, SCIPMILPMATRIX *matrix, int row)</argsstring>
+        <name>SCIPmatrixPrintRow</name>
+        <param>
+          <type><ref refid="type__scip_8h_1a4792a242d315bf76f05b1f4e0712bc33" kindref="member">SCIP</ref> *</type>
+          <declname>scip</declname>
+          <briefdescription><para>current SCIP instance </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref> *</type>
+          <declname>matrix</declname>
+          <briefdescription><para>constraint matrix object </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+          <briefdescription><para>row index </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>print one row of the MILP matrix </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_matrix.h" line="293" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__matrix_8h_1a221d075454c50be02412137fb8c139e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref></type>
+        <definition>SCIP_RETCODE SCIPmatrixGetParallelRows</definition>
+        <argsstring>(SCIP *scip, SCIPMILPMATRIX *matrix, SCIP_Real *scale, int *pclass)</argsstring>
+        <name>SCIPmatrixGetParallelRows</name>
+        <param>
+          <type><ref refid="type__scip_8h_1a4792a242d315bf76f05b1f4e0712bc33" kindref="member">SCIP</ref> *</type>
+          <declname>scip</declname>
+          <briefdescription><para>current SCIP instance </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref> *</type>
+          <declname>matrix</declname>
+          <briefdescription><para>matrix containing the constraints </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref> *</type>
+          <declname>scale</declname>
+          <briefdescription><para>scale factors of rows </para></briefdescription>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>pclass</declname>
+          <briefdescription><para>parallel row classes </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>detect parallel rows, rhs/lhs are ignored </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_matrix.h" line="301" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="pub__matrix_8h_1a00ae76ae59c95aa37a129ba76cd77658" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref></type>
+        <definition>SCIP_RETCODE SCIPmatrixGetParallelCols</definition>
+        <argsstring>(SCIP *scip, SCIPMILPMATRIX *matrix, SCIP_Real *scale, int *pclass, SCIP_Bool *varineq)</argsstring>
+        <name>SCIPmatrixGetParallelCols</name>
+        <param>
+          <type><ref refid="type__scip_8h_1a4792a242d315bf76f05b1f4e0712bc33" kindref="member">SCIP</ref> *</type>
+          <declname>scip</declname>
+          <briefdescription><para>current SCIP instance </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref> *</type>
+          <declname>matrix</declname>
+          <briefdescription><para>matrix containing the constraints </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref> *</type>
+          <declname>scale</declname>
+          <briefdescription><para>scale factors of cols </para></briefdescription>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>pclass</declname>
+          <briefdescription><para>parallel column classes </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref> *</type>
+          <declname>varineq</declname>
+          <briefdescription><para>indicating if variable is within an equation </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>detect parallel rows, obj ignored </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_matrix.h" line="310" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>public methods for MILP matrix </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Dieter Weninger </para></simplesect>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>This<sp/>file<sp/>is<sp/>part<sp/>of<sp/>the<sp/>program<sp/>and<sp/>library<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SCIP<sp/>---<sp/>Solving<sp/>Constraint<sp/>Integer<sp/>Programs<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/>Copyright<sp/>(C)<sp/>2002-2015<sp/>Konrad-Zuse-Zentrum<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fuer<sp/>Informationstechnik<sp/>Berlin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>SCIP<sp/>is<sp/>distributed<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>ZIB<sp/>Academic<sp/>License.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>You<sp/>should<sp/>have<sp/>received<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>ZIB<sp/>Academic<sp/>License<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>along<sp/>with<sp/>SCIP;<sp/>see<sp/>the<sp/>file<sp/>COPYING.<sp/>If<sp/>not<sp/>email<sp/>to<sp/>scip@zib.de.<sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="16"><highlight class="comment">/**@file<sp/><sp/><sp/>pub_matrix.h</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>@ingroup<sp/>PUBLICMETHODS</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>@brief<sp/><sp/>public<sp/>methods<sp/>for<sp/>MILP<sp/>matrix</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>@author<sp/>Dieter<sp/>Weninger</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">/*---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8----+----9----+----0----+----1----+----2*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>__SCIP_PUB_MATRIX_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__SCIP_PUB_MATRIX_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="def_8h" kindref="compound">scip/def.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="type__var_8h" kindref="compound">scip/type_var.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="type__cons_8h" kindref="compound">scip/type_cons.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="type__matrix_8h" kindref="compound">scip/type_matrix.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>NDEBUG</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;scip/struct_matrix.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/>*<sp/>methods<sp/>for<sp/>MILP<sp/>matrix<sp/>access</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="44"><highlight class="comment">/**<sp/>get<sp/>column<sp/>based<sp/>start<sp/>pointer<sp/>of<sp/>values<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref>*<sp/><ref refid="pub__matrix_8h_1a51a86d7c7680c6a21363ad2a2b384523" kindref="member">SCIPmatrixGetColValPtr</ref>(</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>matrix,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>matrix<sp/>instance<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>col<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>column<sp/>index<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="51"><highlight class="comment">/**<sp/>get<sp/>column<sp/>based<sp/>start<sp/>pointer<sp/>of<sp/>row<sp/>indices<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><ref refid="pub__matrix_8h_1a43f07752ae857196e6477be1e9863267" kindref="member">SCIPmatrixGetColIdxPtr</ref>(</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>matrix,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>matrix<sp/>instance<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>col<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>column<sp/>index<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="58"><highlight class="comment">/**<sp/>get<sp/>the<sp/>number<sp/>of<sp/>non-zero<sp/>entries<sp/>of<sp/>this<sp/>column<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="pub__matrix_8h_1a0e44723aff401dafb13b5cf5d2e38daa" kindref="member">SCIPmatrixGetColNNonzs</ref>(</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>matrix,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>matrix<sp/>instance<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>col<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>column<sp/>index<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="65"><highlight class="comment">/**<sp/>get<sp/>number<sp/>of<sp/>columns<sp/>of<sp/>the<sp/>matrix<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="pub__matrix_8h_1a0d2e512683e4538dc60994a6404445de" kindref="member">SCIPmatrixGetNColumns</ref>(</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>matrix<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>matrix<sp/>instance<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="71"><highlight class="comment">/**<sp/>get<sp/>upper<sp/>bound<sp/>of<sp/>column<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref><sp/><ref refid="pub__matrix_8h_1afe7d69c77c8585dedd28b9f25372e22b" kindref="member">SCIPmatrixGetColUb</ref>(</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>matrix,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>matrix<sp/>instance<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>col<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>column<sp/>index<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="78"><highlight class="comment">/**<sp/>get<sp/>lower<sp/>bound<sp/>of<sp/>column<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref><sp/><ref refid="pub__matrix_8h_1a6ffdc2429d7d35941dad7f641ca795d5" kindref="member">SCIPmatrixGetColLb</ref>(</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>matrix,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>matrix<sp/>instance<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>col<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>column<sp/>index<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="85"><highlight class="comment">/**<sp/>get<sp/>number<sp/>of<sp/>uplocks<sp/>of<sp/>column<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="pub__matrix_8h_1a712e4f92c18670b0c94d322d1c574cf9" kindref="member">SCIPmatrixGetColNUplocks</ref>(</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>matrix,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>matrix<sp/>instance<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>col<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>column<sp/>index<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="92"><highlight class="comment">/**<sp/>get<sp/>number<sp/>of<sp/>downlocks<sp/>of<sp/>column<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="pub__matrix_8h_1a58b0436b0e32265ed2e4537794b57869" kindref="member">SCIPmatrixGetColNDownlocks</ref>(</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>matrix,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>matrix<sp/>instance<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>col<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>column<sp/>index<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="99"><highlight class="comment">/**<sp/>get<sp/>variable<sp/>pointer<sp/>of<sp/>column<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><ref refid="type__var_8h_1a032edd1f5032513d49e397ebdcc8915b" kindref="member">SCIP_VAR</ref>*<sp/><ref refid="pub__matrix_8h_1a30eb310bf75e4b08650ecd9c6d35c8e3" kindref="member">SCIPmatrixGetVar</ref>(</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>matrix,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>matrix<sp/>instance<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>col<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>column<sp/>index<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="106"><highlight class="comment">/**<sp/>get<sp/>name<sp/>of<sp/>column/variable<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="pub__matrix_8h_1af582e9e2fe0377a28ce11d2b379d4756" kindref="member">SCIPmatrixGetColName</ref>(</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>matrix,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>matrix<sp/>instance<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>col<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>column<sp/>index<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="113"><highlight class="comment">/**<sp/>get<sp/>row<sp/>based<sp/>start<sp/>pointer<sp/>of<sp/>values<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref>*<sp/><ref refid="pub__matrix_8h_1af373ad309846bdcfcb4ed83bbbfcd5c0" kindref="member">SCIPmatrixGetRowValPtr</ref>(</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>matrix,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>matrix<sp/>instance<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>row<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>row<sp/>index<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="120"><highlight class="comment">/**<sp/>get<sp/>row<sp/>based<sp/>start<sp/>pointer<sp/>of<sp/>column<sp/>indices<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><ref refid="pub__matrix_8h_1a84d077018ae28f69848e34387237796a" kindref="member">SCIPmatrixGetRowIdxPtr</ref>(</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>matrix,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>matrix<sp/>instance<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>row<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>row<sp/>index<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="127"><highlight class="comment">/**<sp/>get<sp/>number<sp/>of<sp/>non-zeros<sp/>of<sp/>this<sp/>row<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="pub__matrix_8h_1a065374e9d5c58938c70d288136e6dc1e" kindref="member">SCIPmatrixGetRowNNonzs</ref>(</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>matrix,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>matrix<sp/>instance<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>row<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>row<sp/>index<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="134"><highlight class="comment">/**<sp/>get<sp/>name<sp/>of<sp/>row<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="pub__matrix_8h_1a936b45b41847a9c1e16f5f9363f25d53" kindref="member">SCIPmatrixGetRowName</ref>(</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>matrix,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>matrix<sp/>instance<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>row<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>row<sp/>index<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="141"><highlight class="comment">/**<sp/>get<sp/>number<sp/>of<sp/>rows<sp/>of<sp/>the<sp/>matrix<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="pub__matrix_8h_1a516a5f9841b23c50115d73ed22d52a55" kindref="member">SCIPmatrixGetNRows</ref>(</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>matrix<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>matrix<sp/>instance<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="147"><highlight class="comment">/**<sp/>get<sp/>left-hand-side<sp/>of<sp/>row<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref><sp/><ref refid="pub__matrix_8h_1a69e7383db0bdf1ffa9e30a07defa44d0" kindref="member">SCIPmatrixGetRowLhs</ref>(</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>matrix,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>matrix<sp/>instace<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>row<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>row<sp/>index<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="154"><highlight class="comment">/**<sp/>get<sp/>right-hand-side<sp/>of<sp/>row<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref><sp/><ref refid="pub__matrix_8h_1a754b96a5c724f1c45b78ebb685e9bcd3" kindref="member">SCIPmatrixGetRowRhs</ref>(</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>matrix,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>matrix<sp/>instance<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>row<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>row<sp/>index<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="161"><highlight class="comment">/**<sp/>flag<sp/>indicating<sp/>if<sp/>right-hand-side<sp/>of<sp/>row<sp/>is<sp/>infinity<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref><sp/><ref refid="pub__matrix_8h_1af88740bbefd3921a4adb66ca984b0e00" kindref="member">SCIPmatrixIsRowRhsInfinity</ref>(</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>matrix,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>matrix<sp/>instance<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>row<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>row<sp/>index<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="168"><highlight class="comment">/**<sp/>get<sp/>number<sp/>of<sp/>non-zeros<sp/>of<sp/>matrix<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="pub__matrix_8h_1a40d5bf6ef3e72b9d48fe3b868a230aac" kindref="member">SCIPmatrixGetNNonzs</ref>(</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>matrix<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>matrix<sp/>instance<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="174"><highlight class="comment">/**<sp/>get<sp/>minimal<sp/>activity<sp/>of<sp/>row<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref><sp/><ref refid="pub__matrix_8h_1ab5db233d82afa040ba79437cfb203878" kindref="member">SCIPmatrixGetRowMinActivity</ref>(</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>matrix,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>matrix<sp/>instance<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>row<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>row<sp/>index<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="181"><highlight class="comment">/**<sp/>get<sp/>maximal<sp/>activity<sp/>of<sp/>row<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref><sp/><ref refid="pub__matrix_8h_1ae16b60a7d83676b9d1f6a4caa814e2be" kindref="member">SCIPmatrixGetRowMaxActivity</ref>(</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>matrix,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>matrix<sp/>instance<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>row<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>row<sp/>index<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="188"><highlight class="comment">/**<sp/>get<sp/>number<sp/>of<sp/>negative<sp/>infinities<sp/>present<sp/>within<sp/>minimal<sp/>activity<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="pub__matrix_8h_1ac166b03d5dcc575c8747d63605fea5e2" kindref="member">SCIPmatrixGetRowNMinActNegInf</ref>(</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>matrix,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>matrix<sp/>instance<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>row<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>row<sp/>index<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="195"><highlight class="comment">/**<sp/>get<sp/>number<sp/>of<sp/>positive<sp/>infinities<sp/>present<sp/>within<sp/>minimal<sp/>activity<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="pub__matrix_8h_1abf632946456431e8c88a491a869af6f9" kindref="member">SCIPmatrixGetRowNMinActPosInf</ref>(</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>matrix,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>matrix<sp/>instance<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>row<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>row<sp/>index<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="202"><highlight class="comment">/**<sp/>get<sp/>number<sp/>of<sp/>negative<sp/>infinities<sp/>present<sp/>within<sp/>maximal<sp/>activity<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="pub__matrix_8h_1a10d05c13781f4873a44371ab59fc1bd4" kindref="member">SCIPmatrixGetRowNMaxActNegInf</ref>(</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>matrix,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>matrix<sp/>instance<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>row<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>row<sp/>index<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="209"><highlight class="comment">/**<sp/>get<sp/>number<sp/>of<sp/>positive<sp/>infinities<sp/>present<sp/>within<sp/>maximal<sp/>activity<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="pub__matrix_8h_1a4129b0bfe0e39fa69080d637fa1e9e3e" kindref="member">SCIPmatrixGetRowNMaxActPosInf</ref>(</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>matrix,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>matrix<sp/>instance<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>row<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>row<sp/>index<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="216"><highlight class="comment">/**<sp/>get<sp/>constraint<sp/>pointer<sp/>for<sp/>constraint<sp/>representing<sp/>row<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><ref refid="type__cons_8h_1a38a65729afa6b1cef58fcff906850886" kindref="member">SCIP_CONS</ref>*<sp/><ref refid="pub__matrix_8h_1adad7cbbc10a93821706df4a65d208494" kindref="member">SCIPmatrixGetCons</ref>(</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>matrix,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>matrix<sp/>instance<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>row<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>row<sp/>index<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="223"><highlight class="comment">/**<sp/>get<sp/>if<sp/>conflicting<sp/>uplocks<sp/>of<sp/>variable<sp/>present<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref><sp/><ref refid="pub__matrix_8h_1a40300100be163321f6b908b6fc1c601b" kindref="member">SCIPmatrixUplockConflict</ref>(</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>matrix,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>matrix<sp/>instance<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>col<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>column<sp/>index<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="230"><highlight class="comment">/**<sp/>get<sp/>if<sp/>conflicting<sp/>downlocks<sp/>of<sp/>variable<sp/>present<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref><sp/><ref refid="pub__matrix_8h_1afc420a63710bc62d721d3086520627be" kindref="member">SCIPmatrixDownlockConflict</ref>(</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>matrix,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>matrix<sp/>instance<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>col<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>column<sp/>index<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>NDEBUG</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>In<sp/>optimized<sp/>mode,<sp/>the<sp/>function<sp/>calls<sp/>are<sp/>overwritten<sp/>by<sp/>defines<sp/>to<sp/>reduce<sp/>the<sp/>number<sp/>of<sp/>function<sp/>calls<sp/>and</highlight></codeline>
+<codeline lineno="241"><highlight class="comment"><sp/>*<sp/>speed<sp/>up<sp/>the<sp/>algorithms.</highlight></codeline>
+<codeline lineno="242"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"></highlight></codeline>
+<codeline lineno="244"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPmatrixGetColValPtr(matrix,col)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(matrix-&gt;colmatval<sp/>+<sp/>matrix-&gt;colmatbeg[col])</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="245"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPmatrixGetColIdxPtr(matrix,col)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(matrix-&gt;colmatind<sp/>+<sp/>matrix-&gt;colmatbeg[col])</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPmatrixGetColNNonzs(matrix,col)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(matrix-&gt;colmatcnt[col])</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPmatrixGetNColumns(matrix)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(matrix-&gt;ncols)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPmatrixGetColUb(matrix,col)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(matrix-&gt;ub[col])</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="249"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPmatrixGetColLb(matrix,col)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(matrix-&gt;lb[col])</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPmatrixGetColNUplocks(matrix,col)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(matrix-&gt;nuplocks[col])</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPmatrixGetColNDownlocks(matrix,col)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(matrix-&gt;ndownlocks[col])</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPmatrixGetVar(matrix,col)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(matrix-&gt;vars[col])</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="253"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPmatrixGetColName(matrix,col)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(SCIPvarGetName(matrix-&gt;vars[col]))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPmatrixGetRowValPtr(matrix,row)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(matrix-&gt;rowmatval<sp/>+<sp/>matrix-&gt;rowmatbeg[row])</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="255"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPmatrixGetRowIdxPtr(matrix,row)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(matrix-&gt;rowmatind<sp/>+<sp/>matrix-&gt;rowmatbeg[row])</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPmatrixGetRowNNonzs(matrix,row)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(matrix-&gt;rowmatcnt[row])</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="257"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPmatrixGetRowName(matrix,row)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(SCIPconsGetName(matrix-&gt;cons[row]))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="258"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPmatrixGetNRows(matrix)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(matrix-&gt;nrows)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPmatrixGetRowLhs(matrix,row)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(matrix-&gt;lhs[row])</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPmatrixGetRowRhs(matrix,row)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(matrix-&gt;rhs[row])</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPmatrixIsRowRhsInfinity(matrix,row)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(matrix-&gt;isrhsinfinite[row])</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="262"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPmatrixGetNNonzs(matrix)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(matrix-&gt;nnonzs)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPmatrixGetRowMinActivity(matrix,row)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(matrix-&gt;minactivity[row])</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="264"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPmatrixGetRowMaxActivity(matrix,row)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(matrix-&gt;maxactivity[row])</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="265"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPmatrixGetRowNMinActNegInf(matrix,row)<sp/><sp/><sp/><sp/><sp/><sp/>(matrix-&gt;minactivityneginf[row])</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="266"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPmatrixGetRowNMinActPosInf(matrix,row)<sp/><sp/><sp/><sp/><sp/><sp/>(matrix-&gt;minactivityposinf[row])</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="267"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPmatrixGetRowNMaxActNegInf(matrix,row)<sp/><sp/><sp/><sp/><sp/><sp/>(matrix-&gt;maxactivityneginf[row])</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="268"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPmatrixGetRowNMaxActPosInf(matrix,row)<sp/><sp/><sp/><sp/><sp/><sp/>(matrix-&gt;maxactivityposinf[row])</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="269"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPmatrixGetCons(matrix,row)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(matrix-&gt;cons[row])</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="270"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPmatrixUplockConflict(matrix,col)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(SCIPvarGetNLocksUp(matrix-&gt;vars[col])<sp/>==<sp/>matrix-&gt;nuplocks[col]<sp/>?<sp/>FALSE<sp/>:<sp/>TRUE)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCIPmatrixDownlockConflict(matrix,col)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(SCIPvarGetNLocksDown(matrix-&gt;vars[col])<sp/>==<sp/>matrix-&gt;ndownlocks[col]<sp/>?<sp/>FALSE<sp/>:<sp/>TRUE)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="272"><highlight class="normal"></highlight></codeline>
+<codeline lineno="273"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="274"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="275"><highlight class="comment">/**<sp/>initialize<sp/>matrix<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="276"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref><sp/><ref refid="pub__matrix_8h_1a5edb7bd5806becbb54dbbdadc12f270b" kindref="member">SCIPmatrixCreate</ref>(</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__scip_8h_1a4792a242d315bf76f05b1f4e0712bc33" kindref="member">SCIP</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>scip,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>current<sp/>scip<sp/>instance<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref>**<sp/><sp/><sp/><sp/><sp/><sp/>matrixptr,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>pointer<sp/>to<sp/>constraint<sp/>matrix<sp/>object<sp/>to<sp/>be<sp/>initialized<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>initialized,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>was<sp/>the<sp/>initialization<sp/>successful?<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>complete<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>are<sp/>all<sp/>constraint<sp/>represented<sp/>within<sp/>the<sp/>matrix?<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="284"><highlight class="comment">/**<sp/>frees<sp/>the<sp/>constraint<sp/>matrix<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="285"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="286"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="pub__matrix_8h_1afc21bf650aeced1107246a7a524d8009" kindref="member">SCIPmatrixFree</ref>(</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__scip_8h_1a4792a242d315bf76f05b1f4e0712bc33" kindref="member">SCIP</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>scip,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>current<sp/>SCIP<sp/>instance<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref>**<sp/><sp/><sp/><sp/><sp/><sp/>matrix<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>constraint<sp/>matrix<sp/>object<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="291"><highlight class="comment">/**<sp/>print<sp/>one<sp/>row<sp/>of<sp/>the<sp/>MILP<sp/>matrix<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="292"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="293"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="pub__matrix_8h_1a8cfd6980720d9fb2312b07a900e099a1" kindref="member">SCIPmatrixPrintRow</ref>(</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__scip_8h_1a4792a242d315bf76f05b1f4e0712bc33" kindref="member">SCIP</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>scip,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>current<sp/>SCIP<sp/>instance<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>matrix,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>constraint<sp/>matrix<sp/>object<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>row<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>row<sp/>index<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="299"><highlight class="comment">/**<sp/>detect<sp/>parallel<sp/>rows,<sp/>rhs/lhs<sp/>are<sp/>ignored<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="300"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref><sp/><ref refid="pub__matrix_8h_1a221d075454c50be02412137fb8c139e2" kindref="member">SCIPmatrixGetParallelRows</ref>(</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__scip_8h_1a4792a242d315bf76f05b1f4e0712bc33" kindref="member">SCIP</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>scip,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>current<sp/>SCIP<sp/>instance<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>matrix,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>matrix<sp/>containing<sp/>the<sp/>constraints<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>scale,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>scale<sp/>factors<sp/>of<sp/>rows<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pclass<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>parallel<sp/>row<sp/>classes<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="308"><highlight class="comment">/**<sp/>detect<sp/>parallel<sp/>rows,<sp/>obj<sp/>ignored<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="309"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref><sp/><ref refid="pub__matrix_8h_1a00ae76ae59c95aa37a129ba76cd77658" kindref="member">SCIPmatrixGetParallelCols</ref>(</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__scip_8h_1a4792a242d315bf76f05b1f4e0712bc33" kindref="member">SCIP</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>scip,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>current<sp/>SCIP<sp/>instance<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/><sp/><ref refid="type__matrix_8h_1a91524ef4660f77140c119ef443a5ccf2" kindref="member">SCIPMILPMATRIX</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>matrix,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>matrix<sp/>containing<sp/>the<sp/>constraints<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>scale,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>scale<sp/>factors<sp/>of<sp/>cols<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pclass,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>parallel<sp/>column<sp/>classes<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/><sp/><ref refid="def_8h_1a5f45b90d62d88b23ba4cf7c08d3bf358" kindref="member">SCIP_Bool</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>varineq<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>indicating<sp/>if<sp/>variable<sp/>is<sp/>within<sp/>an<sp/>equation<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"></highlight></codeline>
+<codeline lineno="318"><highlight class="normal"></highlight></codeline>
+<codeline lineno="319"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="320"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="322"><highlight class="normal"></highlight></codeline>
+<codeline lineno="323"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_matrix.h"/>
+  </compounddef>
+</doxygen>

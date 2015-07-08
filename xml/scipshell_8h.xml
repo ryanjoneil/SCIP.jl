@@ -1,85 +1,90 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.8">
-  <compounddef id="scipshell_8h" kind="file">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="scipshell_8h" kind="file" language="C++">
     <compoundname>scipshell.h</compoundname>
     <includes refid="def_8h" local="yes">scip/def.h</includes>
     <includes refid="type__retcode_8h" local="yes">scip/type_retcode.h</includes>
     <includedby refid="scipdefplugins_8h" local="yes">scipdefplugins.h</includedby>
     <incdepgraph>
-      <node id="14117">
+      <node id="17453">
         <label>stdarg.h</label>
       </node>
-      <node id="14114">
+      <node id="17450">
         <label>assert.h</label>
       </node>
-      <node id="14113">
+      <node id="17449">
         <label>float.h</label>
       </node>
-      <node id="14112">
+      <node id="17446">
+        <label>stdint.h</label>
+      </node>
+      <node id="17444">
+        <label>scip/def.h</label>
+        <link refid="def_8h"/>
+        <childnode refid="17445" relation="include">
+        </childnode>
+        <childnode refid="17446" relation="include">
+        </childnode>
+        <childnode refid="17447" relation="include">
+        </childnode>
+        <childnode refid="17448" relation="include">
+        </childnode>
+        <childnode refid="17449" relation="include">
+        </childnode>
+        <childnode refid="17450" relation="include">
+        </childnode>
+        <childnode refid="17451" relation="include">
+        </childnode>
+        <childnode refid="17452" relation="include">
+        </childnode>
+      </node>
+      <node id="17448">
         <label>limits.h</label>
       </node>
-      <node id="14118">
-        <label>scip/type_message.h</label>
-        <link refid="type__message_8h"/>
-        <childnode refid="14110" relation="include">
-        </childnode>
-      </node>
-      <node id="14108">
+      <node id="17443">
         <label>scipshell.h</label>
         <link refid="scipshell.h"/>
-        <childnode refid="14109" relation="include">
+        <childnode refid="17444" relation="include">
         </childnode>
-        <childnode refid="14115" relation="include">
-        </childnode>
-      </node>
-      <node id="14116">
-        <label>scip/pub_message.h</label>
-        <link refid="pub__message_8h"/>
-        <childnode refid="14117" relation="include">
-        </childnode>
-        <childnode refid="14109" relation="include">
-        </childnode>
-        <childnode refid="14118" relation="include">
+        <childnode refid="17451" relation="include">
         </childnode>
       </node>
-      <node id="14115">
+      <node id="17447">
+        <label>math.h</label>
+      </node>
+      <node id="17451">
         <label>scip/type_retcode.h</label>
         <link refid="type__retcode_8h"/>
       </node>
-      <node id="14111">
-        <label>math.h</label>
-      </node>
-      <node id="14109">
-        <label>scip/def.h</label>
-        <link refid="def_8h"/>
-        <childnode refid="14110" relation="include">
+      <node id="17452">
+        <label>scip/pub_message.h</label>
+        <link refid="pub__message_8h"/>
+        <childnode refid="17453" relation="include">
         </childnode>
-        <childnode refid="14111" relation="include">
+        <childnode refid="17444" relation="include">
         </childnode>
-        <childnode refid="14112" relation="include">
-        </childnode>
-        <childnode refid="14113" relation="include">
-        </childnode>
-        <childnode refid="14114" relation="include">
-        </childnode>
-        <childnode refid="14115" relation="include">
-        </childnode>
-        <childnode refid="14116" relation="include">
+        <childnode refid="17454" relation="include">
         </childnode>
       </node>
-      <node id="14110">
+      <node id="17454">
+        <label>scip/type_message.h</label>
+        <link refid="type__message_8h"/>
+        <childnode refid="17445" relation="include">
+        </childnode>
+      </node>
+      <node id="17445">
         <label>stdio.h</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="14120">
+      <node id="17456">
         <label>scipdefplugins.h</label>
         <link refid="scipdefplugins_8h"/>
       </node>
-      <node id="14119">
+      <node id="17455">
         <label>scipshell.h</label>
         <link refid="scipshell.h"/>
-        <childnode refid="14120" relation="include">
+        <childnode refid="17456" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
@@ -115,7 +120,7 @@
 <para>evaluates command line parameters and runs SCIP appropriately in the given SCIP instance </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/scipshell.h" line="35" column="1"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/scipshell.h" line="35" column="1"/>
       </memberdef>
       <memberdef kind="function" id="scipshell_8h_1a7030b671768cc1c2f374c9e35f448b41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="type__retcode_8h_1ac847f5a370187651fbc1b82d0170b480" kindref="member">SCIP_RETCODE</ref></type>
@@ -143,7 +148,7 @@
 <para>creates a SCIP instance with default plugins, evaluates command line parameters, runs SCIP appropriately, and frees the SCIP instance </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/scipshell.h" line="46" column="1"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/scipshell.h" line="46" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -157,7 +162,7 @@
 <codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>This<sp/>file<sp/>is<sp/>part<sp/>of<sp/>the<sp/>program<sp/>and<sp/>library<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SCIP<sp/>---<sp/>Solving<sp/>Constraint<sp/>Integer<sp/>Programs<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/>Copyright<sp/>(C)<sp/>2002-2014<sp/>Konrad-Zuse-Zentrum<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/>Copyright<sp/>(C)<sp/>2002-2015<sp/>Konrad-Zuse-Zentrum<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fuer<sp/>Informationstechnik<sp/>Berlin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>SCIP<sp/>is<sp/>distributed<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>ZIB<sp/>Academic<sp/>License.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
@@ -209,6 +214,6 @@
 <codeline lineno="55"><highlight class="normal"></highlight></codeline>
 <codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
-    <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/scipshell.h"/>
+    <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/scipshell.h"/>
   </compounddef>
 </doxygen>

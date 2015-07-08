@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.8">
-  <compounddef id="classatomic__signpower" kind="class" prot="public">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="classatomic__signpower" kind="class" language="C++" prot="public">
     <compoundname>atomic_signpower</compoundname>
     <basecompoundref prot="public" virt="non-virtual">CppAD::atomic_base&lt; Type &gt;</basecompoundref>
     <templateparamlist>
@@ -22,7 +22,7 @@
 <para>exponent for use in next call to forward or reverse </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" line="732" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" bodystart="732" bodyend="-1"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" line="732" column="1" bodyfile="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" bodystart="732" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -37,7 +37,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" line="722" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" bodystart="722" bodyend="728"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" line="722" column="1" bodyfile="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" bodystart="722" bodyend="728"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -56,7 +56,7 @@
 <para>stores exponent corresponding to next call to forward or reverse</para><para>How is this supposed to be threadsafe? (we use only one global instantiation of this class) </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" line="738" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" bodystart="738" bodyend="741"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" line="738" column="1" bodyfile="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" bodystart="738" bodyend="741"/>
       </memberdef>
       <memberdef kind="function" id="classatomic__signpower_1aeac2428396bcde7a5954dc1b88ae5ab9" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -99,7 +99,7 @@
 <para>forward sweep of signpower</para><para>Given the taylor coefficients for x, we have to compute the taylor coefficients for f(x), that is, given tx = (x, x&apos;, x&apos;&apos;, ...), we compute the coefficients ty = (y, y&apos;, y&apos;&apos;, ...) in the taylor expansion of f(x) = sign(x)abs(x)^p. Thus, y = sign(x)abs(x)^p = sign(tx[0])abs(tx[0])^p, y&apos; = p * abs(x)^(p-1) * x&apos; = p * abs(tx[0])^(p-1) * tx[1], y&apos;&apos; = 1/2 * p * (p-1) * sign(x) * abs(x)^(p-2) * x&apos;^2 + p * abs(x)^(p-1) * x&apos;&apos; = 1/2 * p * (p-1) * sign(tx[0]) * abs(tx[0])^(p-2) * tx[1]^2 + p * abs(tx[0])^(p-1) * tx[2] </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" line="755" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" bodystart="755" bodyend="811"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" line="755" column="1" bodyfile="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" bodystart="755" bodyend="811"/>
       </memberdef>
       <memberdef kind="function" id="classatomic__signpower_1a02bc5bea9aee5f4c72f1b75d64391e2e" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -134,10 +134,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>reverse sweep of signpower</para><para>Assume y(x) is a function of the taylor coefficients of f(x) = sign(x)|x|^p for x, i.e., y(x) = [ f(x), f&apos;(x), f&apos;&apos;(x), ... ]. Then in the reverse sweep we have to compute the elements of <formula id="130">$\partial h / \partial x^[l], l = 0, ..., k,$</formula> where x^[l] is the l&apos;th taylor coefficient (x, x&apos;, x&apos;&apos;, ...) and h(x) = g(y(x)) for some function g:R^k -&gt; R. That is, we have to compute <formula id="134">$ px[l] = \partial h / \partial x^[l] = (\partial g / \partial y) * (\partial y / \partial x^[l]) = \sum_{i=0}^k (\partial g / \partial y_i) * (\partial y_i / \partial x^[l]) = \sum_{i=0}^k py[i] * (\partial y_i / \partial x^[l]) *$</formula></para><para>For k = 0, this means <formula id="135">$ px[0] = py[0] * (\partial y_0 / \partial x^[0]) = py[0] * (\partial f(x) / \partial x) = py[0] * p * abs(tx[0])^(p-1) $</formula></para><para>For k = 1, this means <formula id="136">$ px[0] = py[0] * (\partial y_0 / \partial x^[0]) + py[1] * (\partial y_1 / \partial x^[0]) = py[0] * (\partial f(x) / \partial x) + py[1] * (\partial f&apos;(x) / \partial x) = py[0] * p * abs(tx[0])^(p-1) + py[1] * p * (p-1) * abs(tx[0])^(p-2) * sign(tx[0]) * tx[1] px[1] = py[0] * (\partial y_0 / \partial x^[1]) + py[1] * (\partial y_1 / \partial x^[1]) = py[0] * (\partial f(x) / \partial x&apos;) + py[1] * (\partial f&apos;(x) / \partial x&apos;) = py[0] * 0 + py[1] * p * abs(tx[0])^(p-1) $</formula> </para>        </detaileddescription>
+<para>reverse sweep of signpower</para><para>Assume y(x) is a function of the taylor coefficients of f(x) = sign(x)|x|^p for x, i.e., y(x) = [ f(x), f&apos;(x), f&apos;&apos;(x), ... ]. Then in the reverse sweep we have to compute the elements of <formula id="167">$\partial h / \partial x^[l], l = 0, ..., k,$</formula> where x^[l] is the l&apos;th taylor coefficient (x, x&apos;, x&apos;&apos;, ...) and h(x) = g(y(x)) for some function g:R^k -&gt; R. That is, we have to compute <formula id="171">$ px[l] = \partial h / \partial x^[l] = (\partial g / \partial y) * (\partial y / \partial x^[l]) = \sum_{i=0}^k (\partial g / \partial y_i) * (\partial y_i / \partial x^[l]) = \sum_{i=0}^k py[i] * (\partial y_i / \partial x^[l]) *$</formula></para><para>For k = 0, this means <formula id="172">$ px[0] = py[0] * (\partial y_0 / \partial x^[0]) = py[0] * (\partial f(x) / \partial x) = py[0] * p * abs(tx[0])^(p-1) $</formula></para><para>For k = 1, this means <formula id="173">$ px[0] = py[0] * (\partial y_0 / \partial x^[0]) + py[1] * (\partial y_1 / \partial x^[0]) = py[0] * (\partial f(x) / \partial x) + py[1] * (\partial f&apos;(x) / \partial x) = py[0] * p * abs(tx[0])^(p-1) + py[1] * p * (p-1) * abs(tx[0])^(p-2) * sign(tx[0]) * tx[1] px[1] = py[0] * (\partial y_0 / \partial x^[1]) + py[1] * (\partial y_1 / \partial x^[1]) = py[0] * (\partial f(x) / \partial x&apos;) + py[1] * (\partial f&apos;(x) / \partial x&apos;) = py[0] * 0 + py[1] * p * abs(tx[0])^(p-1) $</formula> </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" line="843" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" bodystart="843" bodyend="893"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" line="843" column="1" bodyfile="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" bodystart="843" bodyend="893"/>
       </memberdef>
       <memberdef kind="function" id="classatomic__signpower_1a11cc65350eeb8df0016d64dd3a542882" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -165,7 +165,7 @@
 <para>computes sparsity of jacobian during a forward sweep</para><para>For a 1 x q matrix R, we have to return the sparsity pattern of the 1 x q matrix S(x) = f&apos;(x) * R. Since f&apos;(x) is dense, the sparsity of S will be the sparsity of R. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" line="902" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" bodystart="902" bodyend="909"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" line="902" column="1" bodyfile="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" bodystart="902" bodyend="909"/>
       </memberdef>
       <memberdef kind="function" id="classatomic__signpower_1ac83861d419ae5ae929bfc0a163dbae15" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -193,7 +193,7 @@
 <para>computes sparsity of jacobian during a reverse sweep</para><para>For a q x 1 matrix R, we have to return the sparsity pattern of the q x 1 matrix S(x) = R * f&apos;(x). Since f&apos;(x) is dense, the sparsity of S will be the sparsity of R. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" line="918" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" bodystart="918" bodyend="925"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" line="918" column="1" bodyfile="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" bodystart="918" bodyend="925"/>
       </memberdef>
       <memberdef kind="function" id="classatomic__signpower_1a7ebd9803f1449cc239d5dffad6a7f80e" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -241,7 +241,7 @@
 <para>computes sparsity of hessian during a reverse sweep</para><para>Assume V(x) = (g(f(x)))&apos;&apos; R with f(x) = sign(x)abs(x)^p for a function g:R-&gt;R and a matrix R. we have to specify the sparsity pattern of V(x) and T(x) = (g(f(x)))&apos;. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" line="934" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" bodystart="934" bodyend="945"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" line="934" column="1" bodyfile="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" bodystart="934" bodyend="945"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -270,7 +270,7 @@
         <label>CppAD::atomic_base&lt; Type &gt;</label>
       </node>
     </collaborationgraph>
-    <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" line="720" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" bodystart="719" bodyend="947"/>
+    <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" line="720" column="1" bodyfile="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" bodystart="719" bodyend="947"/>
     <listofallmembers>
       <member refid="classatomic__signpower_1a78c4e87eac36363b75bdb905eb409490" prot="public" virt="non-virtual"><scope>atomic_signpower</scope><name>atomic_signpower</name></member>
       <member refid="classatomic__signpower_1a957697a2d3a1c2b8364b533790401e84" prot="private" virt="non-virtual"><scope>atomic_signpower</scope><name>exponent</name></member>

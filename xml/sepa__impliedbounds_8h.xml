@@ -1,815 +1,864 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.8">
-  <compounddef id="sepa__impliedbounds_8h" kind="file">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="sepa__impliedbounds_8h" kind="file" language="C++">
     <compoundname>sepa_impliedbounds.h</compoundname>
     <includes refid="scip_8h" local="yes">scip/scip.h</includes>
     <includedby refid="scipdefplugins_8h" local="yes">scipdefplugins.h</includedby>
     <incdepgraph>
-      <node id="14627">
-        <label>scip/type_conflict.h</label>
-        <link refid="type__conflict_8h"/>
-        <childnode refid="14604" relation="include">
-        </childnode>
-        <childnode refid="14609" relation="include">
-        </childnode>
-        <childnode refid="14614" relation="include">
-        </childnode>
-        <childnode refid="14623" relation="include">
-        </childnode>
-      </node>
-      <node id="14611">
-        <label>stdarg.h</label>
-      </node>
-      <node id="14676">
-        <label>scip/intervalarith.h</label>
-      </node>
-      <node id="14622">
-        <label>scip/type_nlp.h</label>
-        <link refid="type__nlp_8h"/>
-      </node>
-      <node id="14629">
-        <label>scip/type_sol.h</label>
-        <link refid="type__sol_8h"/>
-      </node>
-      <node id="14602">
-        <label>scip/scip.h</label>
-        <link refid="scip_8h"/>
-        <childnode refid="14603" relation="include">
-        </childnode>
-        <childnode refid="14604" relation="include">
-        </childnode>
-        <childnode refid="14613" relation="include">
-        </childnode>
-        <childnode refid="14609" relation="include">
-        </childnode>
-        <childnode refid="14614" relation="include">
-        </childnode>
-        <childnode refid="14615" relation="include">
-        </childnode>
-        <childnode refid="14616" relation="include">
-        </childnode>
-        <childnode refid="14617" relation="include">
-        </childnode>
-        <childnode refid="14619" relation="include">
-        </childnode>
-        <childnode refid="14620" relation="include">
-        </childnode>
-        <childnode refid="14621" relation="include">
-        </childnode>
-        <childnode refid="14622" relation="include">
-        </childnode>
-        <childnode refid="14623" relation="include">
-        </childnode>
-        <childnode refid="14624" relation="include">
-        </childnode>
-        <childnode refid="14625" relation="include">
-        </childnode>
-        <childnode refid="14618" relation="include">
-        </childnode>
-        <childnode refid="14626" relation="include">
-        </childnode>
-        <childnode refid="14627" relation="include">
-        </childnode>
-        <childnode refid="14628" relation="include">
-        </childnode>
-        <childnode refid="14630" relation="include">
-        </childnode>
-        <childnode refid="14631" relation="include">
-        </childnode>
-        <childnode refid="14632" relation="include">
-        </childnode>
-        <childnode refid="14633" relation="include">
-        </childnode>
-        <childnode refid="14634" relation="include">
-        </childnode>
-        <childnode refid="14635" relation="include">
-        </childnode>
-        <childnode refid="14636" relation="include">
-        </childnode>
-        <childnode refid="14637" relation="include">
-        </childnode>
-        <childnode refid="14638" relation="include">
-        </childnode>
-        <childnode refid="14639" relation="include">
-        </childnode>
-        <childnode refid="14640" relation="include">
-        </childnode>
-        <childnode refid="14641" relation="include">
-        </childnode>
-        <childnode refid="14643" relation="include">
-        </childnode>
-        <childnode refid="14644" relation="include">
-        </childnode>
-        <childnode refid="14645" relation="include">
-        </childnode>
-        <childnode refid="14646" relation="include">
-        </childnode>
-        <childnode refid="14648" relation="include">
-        </childnode>
-        <childnode refid="14649" relation="include">
-        </childnode>
-        <childnode refid="14650" relation="include">
-        </childnode>
-        <childnode refid="14651" relation="include">
-        </childnode>
-        <childnode refid="14653" relation="include">
-        </childnode>
-        <childnode refid="14654" relation="include">
-        </childnode>
-        <childnode refid="14655" relation="include">
-        </childnode>
-        <childnode refid="14657" relation="include">
-        </childnode>
-        <childnode refid="14661" relation="include">
-        </childnode>
-        <childnode refid="14610" relation="include">
-        </childnode>
-        <childnode refid="14662" relation="include">
-        </childnode>
-        <childnode refid="14663" relation="include">
-        </childnode>
-        <childnode refid="14664" relation="include">
-        </childnode>
-        <childnode refid="14665" relation="include">
-        </childnode>
-        <childnode refid="14666" relation="include">
-        </childnode>
-        <childnode refid="14667" relation="include">
-        </childnode>
-        <childnode refid="14668" relation="include">
-        </childnode>
-        <childnode refid="14669" relation="include">
-        </childnode>
-        <childnode refid="14670" relation="include">
-        </childnode>
-        <childnode refid="14671" relation="include">
-        </childnode>
-        <childnode refid="14672" relation="include">
-        </childnode>
-        <childnode refid="14673" relation="include">
-        </childnode>
-        <childnode refid="14674" relation="include">
-        </childnode>
-        <childnode refid="14675" relation="include">
-        </childnode>
-        <childnode refid="14678" relation="include">
-        </childnode>
-      </node>
-      <node id="14644">
-        <label>scip/pub_conflict.h</label>
-        <link refid="pub__conflict_8h"/>
-        <childnode refid="14604" relation="include">
-        </childnode>
-        <childnode refid="14616" relation="include">
-        </childnode>
-        <childnode refid="14627" relation="include">
-        </childnode>
-      </node>
-      <node id="14619">
-        <label>scip/type_paramset.h</label>
-        <link refid="type__paramset_8h"/>
-        <childnode refid="14604" relation="include">
-        </childnode>
-        <childnode refid="14609" relation="include">
-        </childnode>
-        <childnode refid="14618" relation="include">
-        </childnode>
-      </node>
-      <node id="14608">
-        <label>assert.h</label>
-      </node>
-      <node id="14634">
-        <label>scip/type_nodesel.h</label>
-        <link refid="type__nodesel_8h"/>
-        <childnode refid="14604" relation="include">
-        </childnode>
-        <childnode refid="14609" relation="include">
-        </childnode>
-        <childnode refid="14625" relation="include">
-        </childnode>
-        <childnode refid="14618" relation="include">
-        </childnode>
-      </node>
-      <node id="14677">
-        <label>nlpi/type_exprinterpret.h</label>
-        <link refid="type__exprinterpret_8h"/>
-      </node>
-      <node id="14607">
-        <label>float.h</label>
-      </node>
-      <node id="14625">
-        <label>scip/type_tree.h</label>
-        <link refid="type__tree_8h"/>
-      </node>
-      <node id="14636">
+      <node id="18166">
         <label>scip/type_pricer.h</label>
         <link refid="type__pricer_8h"/>
-        <childnode refid="14604" relation="include">
+        <childnode refid="18132" relation="include">
         </childnode>
-        <childnode refid="14609" relation="include">
+        <childnode refid="18138" relation="include">
         </childnode>
-        <childnode refid="14618" relation="include">
-        </childnode>
-      </node>
-      <node id="14623">
-        <label>scip/type_var.h</label>
-        <link refid="type__var_8h"/>
-      </node>
-      <node id="14653">
-        <label>scip/pub_heur.h</label>
-        <link refid="pub__heur_8h"/>
-        <childnode refid="14604" relation="include">
-        </childnode>
-        <childnode refid="14616" relation="include">
-        </childnode>
-        <childnode refid="14632" relation="include">
+        <childnode refid="18147" relation="include">
         </childnode>
       </node>
-      <node id="14647">
-        <label>scip/type_cutpool.h</label>
-        <link refid="type__cutpool_8h"/>
+      <node id="18140">
+        <label>stdarg.h</label>
       </node>
-      <node id="14615">
-        <label>scip/type_clock.h</label>
-        <link refid="type__clock_8h"/>
-        <childnode refid="14604" relation="include">
-        </childnode>
+      <node id="18208">
+        <label>scip/intervalarith.h</label>
       </node>
-      <node id="14626">
-        <label>scip/type_branch.h</label>
-        <link refid="type__branch_8h"/>
-        <childnode refid="14604" relation="include">
-        </childnode>
-        <childnode refid="14614" relation="include">
-        </childnode>
-        <childnode refid="14618" relation="include">
-        </childnode>
-      </node>
-      <node id="14630">
-        <label>scip/type_dialog.h</label>
-        <link refid="type__dialog_8h"/>
-        <childnode refid="14604" relation="include">
-        </childnode>
-        <childnode refid="14609" relation="include">
-        </childnode>
-        <childnode refid="14618" relation="include">
-        </childnode>
-      </node>
-      <node id="14673">
-        <label>scip/pub_var.h</label>
-        <link refid="pub__var_8h"/>
-        <childnode refid="14604" relation="include">
-        </childnode>
-        <childnode refid="14609" relation="include">
-        </childnode>
-        <childnode refid="14616" relation="include">
-        </childnode>
-        <childnode refid="14633" relation="include">
-        </childnode>
-        <childnode refid="14623" relation="include">
-        </childnode>
-        <childnode refid="14656" relation="include">
-        </childnode>
-        <childnode refid="14628" relation="include">
-        </childnode>
-      </node>
-      <node id="14657">
-        <label>scip/pub_lp.h</label>
-        <link refid="pub__lp_8h"/>
-        <childnode refid="14603" relation="include">
-        </childnode>
-        <childnode refid="14604" relation="include">
-        </childnode>
-        <childnode refid="14613" relation="include">
-        </childnode>
-        <childnode refid="14658" relation="include">
-        </childnode>
-        <childnode refid="14659" relation="include">
-        </childnode>
-        <childnode refid="14621" relation="include">
-        </childnode>
-        <childnode refid="14623" relation="include">
-        </childnode>
-        <childnode refid="14629" relation="include">
-        </childnode>
-        <childnode refid="14639" relation="include">
-        </childnode>
-        <childnode refid="14616" relation="include">
-        </childnode>
-        <childnode refid="14660" relation="include">
-        </childnode>
-      </node>
-      <node id="14654">
-        <label>scip/pub_history.h</label>
-        <link refid="pub__history_8h"/>
-      </node>
-      <node id="14614">
-        <label>scip/type_result.h</label>
-        <link refid="type__result_8h"/>
-      </node>
-      <node id="14660">
-        <label>lpi/type_lpi.h</label>
-      </node>
-      <node id="14646">
-        <label>scip/pub_cutpool.h</label>
-        <link refid="pub__cutpool_8h"/>
-        <childnode refid="14604" relation="include">
-        </childnode>
-        <childnode refid="14647" relation="include">
-        </childnode>
-      </node>
-      <node id="14650">
-        <label>scip/pub_event.h</label>
-        <link refid="pub__event_8h"/>
-        <childnode refid="14604" relation="include">
-        </childnode>
-        <childnode refid="14609" relation="include">
-        </childnode>
-        <childnode refid="14620" relation="include">
-        </childnode>
-        <childnode refid="14623" relation="include">
-        </childnode>
-        <childnode refid="14629" relation="include">
-        </childnode>
-        <childnode refid="14625" relation="include">
-        </childnode>
-      </node>
-      <node id="14621">
+      <node id="18150">
         <label>scip/type_lp.h</label>
         <link refid="type__lp_8h"/>
       </node>
-      <node id="14666">
+      <node id="18197">
         <label>scip/pub_pricer.h</label>
         <link refid="pub__pricer_8h"/>
-        <childnode refid="14604" relation="include">
+        <childnode refid="18132" relation="include">
         </childnode>
-        <childnode refid="14616" relation="include">
+        <childnode refid="18145" relation="include">
         </childnode>
-        <childnode refid="14636" relation="include">
-        </childnode>
-      </node>
-      <node id="14651">
-        <label>scip/pub_fileio.h</label>
-        <link refid="pub__fileio_8h"/>
-        <childnode refid="14652" relation="include">
-        </childnode>
-        <childnode refid="14604" relation="include">
+        <childnode refid="18166" relation="include">
         </childnode>
       </node>
-      <node id="14652">
-        <label>stddef.h</label>
-      </node>
-      <node id="14655">
-        <label>scip/pub_implics.h</label>
-        <link refid="pub__implics_8h"/>
-        <childnode refid="14604" relation="include">
-        </childnode>
-        <childnode refid="14623" relation="include">
-        </childnode>
-        <childnode refid="14656" relation="include">
-        </childnode>
-      </node>
-      <node id="14674">
-        <label>lpi/lpi.h</label>
-      </node>
-      <node id="14624">
-        <label>scip/type_prob.h</label>
-        <link refid="type__prob_8h"/>
-        <childnode refid="14604" relation="include">
-        </childnode>
-        <childnode refid="14609" relation="include">
-        </childnode>
-        <childnode refid="14618" relation="include">
-        </childnode>
-      </node>
-      <node id="14656">
-        <label>scip/type_implics.h</label>
-        <link refid="type__implics_8h"/>
-      </node>
-      <node id="14662">
-        <label>scip/pub_misc.h</label>
-        <link refid="pub__misc_8h"/>
-        <childnode refid="14605" relation="include">
-        </childnode>
-        <childnode refid="14604" relation="include">
-        </childnode>
-        <childnode refid="14613" relation="include">
-        </childnode>
-        <childnode refid="14609" relation="include">
-        </childnode>
-        <childnode refid="14616" relation="include">
-        </childnode>
-        <childnode refid="14612" relation="include">
-        </childnode>
-        <childnode refid="14623" relation="include">
-        </childnode>
-      </node>
-      <node id="14672">
-        <label>scip/pub_tree.h</label>
-        <link refid="pub__tree_8h"/>
-        <childnode refid="14604" relation="include">
-        </childnode>
-        <childnode refid="14616" relation="include">
-        </childnode>
-        <childnode refid="14625" relation="include">
-        </childnode>
-      </node>
-      <node id="14606">
-        <label>limits.h</label>
-      </node>
-      <node id="14659">
-        <label>scip/type_stat.h</label>
-        <link refid="type__stat_8h"/>
-      </node>
-      <node id="14618">
-        <label>scip/type_scip.h</label>
-        <link refid="type__scip_8h"/>
-      </node>
-      <node id="14628">
-        <label>scip/type_cons.h</label>
-        <link refid="type__cons_8h"/>
-        <childnode refid="14604" relation="include">
-        </childnode>
-        <childnode refid="14609" relation="include">
-        </childnode>
-        <childnode refid="14614" relation="include">
-        </childnode>
-        <childnode refid="14623" relation="include">
-        </childnode>
-        <childnode refid="14629" relation="include">
-        </childnode>
-        <childnode refid="14618" relation="include">
-        </childnode>
-        <childnode refid="14617" relation="include">
-        </childnode>
-      </node>
-      <node id="14669">
-        <label>scip/pub_sepa.h</label>
-        <link refid="pub__sepa_8h"/>
-        <childnode refid="14604" relation="include">
-        </childnode>
-        <childnode refid="14616" relation="include">
-        </childnode>
-        <childnode refid="14639" relation="include">
-        </childnode>
-      </node>
-      <node id="14612">
-        <label>scip/type_message.h</label>
-        <link refid="type__message_8h"/>
-        <childnode refid="14603" relation="include">
-        </childnode>
-      </node>
-      <node id="14616">
-        <label>scip/type_misc.h</label>
-        <link refid="type__misc_8h"/>
-        <childnode refid="14604" relation="include">
-        </childnode>
-      </node>
-      <node id="14678">
-        <label>scip/presolve.h</label>
-      </node>
-      <node id="14641">
-        <label>nlpi/type_nlpi.h</label>
-        <link refid="type__nlpi_8h"/>
-        <childnode refid="14604" relation="include">
-        </childnode>
-        <childnode refid="14612" relation="include">
-        </childnode>
-        <childnode refid="14613" relation="include">
-        </childnode>
-        <childnode refid="14642" relation="include">
-        </childnode>
-      </node>
-      <node id="14638">
-        <label>scip/type_relax.h</label>
-        <link refid="type__relax_8h"/>
-        <childnode refid="14604" relation="include">
-        </childnode>
-        <childnode refid="14609" relation="include">
-        </childnode>
-        <childnode refid="14614" relation="include">
-        </childnode>
-        <childnode refid="14618" relation="include">
-        </childnode>
-      </node>
-      <node id="14658">
+      <node id="18189">
         <label>scip/type_set.h</label>
         <link refid="type__set_8h"/>
       </node>
-      <node id="14643">
-        <label>scip/pub_branch.h</label>
-        <link refid="pub__branch_8h"/>
-        <childnode refid="14604" relation="include">
+      <node id="18137">
+        <label>assert.h</label>
+      </node>
+      <node id="18136">
+        <label>float.h</label>
+      </node>
+      <node id="18151">
+        <label>scip/type_nlp.h</label>
+        <link refid="type__nlp_8h"/>
+      </node>
+      <node id="18157">
+        <label>scip/type_cons.h</label>
+        <link refid="type__cons_8h"/>
+        <childnode refid="18132" relation="include">
         </childnode>
-        <childnode refid="14616" relation="include">
+        <childnode refid="18138" relation="include">
         </childnode>
-        <childnode refid="14626" relation="include">
+        <childnode refid="18143" relation="include">
+        </childnode>
+        <childnode refid="18152" relation="include">
+        </childnode>
+        <childnode refid="18158" relation="include">
+        </childnode>
+        <childnode refid="18147" relation="include">
+        </childnode>
+        <childnode refid="18146" relation="include">
+        </childnode>
+        <childnode refid="18159" relation="include">
         </childnode>
       </node>
-      <node id="14610">
-        <label>scip/pub_message.h</label>
-        <link refid="pub__message_8h"/>
-        <childnode refid="14611" relation="include">
+      <node id="18187">
+        <label>scip/type_implics.h</label>
+        <link refid="type__implics_8h"/>
+      </node>
+      <node id="18203">
+        <label>scip/pub_tree.h</label>
+        <link refid="pub__tree_8h"/>
+        <childnode refid="18132" relation="include">
         </childnode>
-        <childnode refid="14604" relation="include">
+        <childnode refid="18145" relation="include">
         </childnode>
-        <childnode refid="14612" relation="include">
+        <childnode refid="18154" relation="include">
+        </childnode>
+        <childnode refid="18204" relation="include">
         </childnode>
       </node>
-      <node id="14670">
-        <label>scip/pub_prop.h</label>
-        <link refid="pub__prop_8h"/>
-        <childnode refid="14604" relation="include">
+      <node id="18175">
+        <label>scip/pub_cons.h</label>
+        <link refid="pub__cons_8h"/>
+        <childnode refid="18132" relation="include">
         </childnode>
-        <childnode refid="14616" relation="include">
+        <childnode refid="18145" relation="include">
         </childnode>
-        <childnode refid="14640" relation="include">
-        </childnode>
-      </node>
-      <node id="14639">
-        <label>scip/type_sepa.h</label>
-        <link refid="type__sepa_8h"/>
-        <childnode refid="14604" relation="include">
-        </childnode>
-        <childnode refid="14609" relation="include">
-        </childnode>
-        <childnode refid="14614" relation="include">
-        </childnode>
-        <childnode refid="14629" relation="include">
-        </childnode>
-        <childnode refid="14618" relation="include">
+        <childnode refid="18157" relation="include">
         </childnode>
       </node>
-      <node id="14617">
-        <label>scip/type_timing.h</label>
-        <link refid="type__timing_8h"/>
-        <childnode refid="14604" relation="include">
+      <node id="18155">
+        <label>scip/type_branch.h</label>
+        <link refid="type__branch_8h"/>
+        <childnode refid="18132" relation="include">
         </childnode>
-        <childnode refid="14614" relation="include">
+        <childnode refid="18143" relation="include">
         </childnode>
-        <childnode refid="14618" relation="include">
-        </childnode>
-      </node>
-      <node id="14609">
-        <label>scip/type_retcode.h</label>
-        <link refid="type__retcode_8h"/>
-      </node>
-      <node id="14631">
-        <label>scip/type_disp.h</label>
-        <link refid="type__disp_8h"/>
-        <childnode refid="14603" relation="include">
-        </childnode>
-        <childnode refid="14604" relation="include">
-        </childnode>
-        <childnode refid="14609" relation="include">
-        </childnode>
-        <childnode refid="14618" relation="include">
+        <childnode refid="18147" relation="include">
         </childnode>
       </node>
-      <node id="14642">
-        <label>nlpi/type_expr.h</label>
-        <link refid="type__expr_8h"/>
+      <node id="18133">
+        <label>stdint.h</label>
       </node>
-      <node id="14620">
-        <label>scip/type_event.h</label>
-        <link refid="type__event_8h"/>
-        <childnode refid="14604" relation="include">
-        </childnode>
-        <childnode refid="14609" relation="include">
-        </childnode>
-        <childnode refid="14618" relation="include">
-        </childnode>
+      <node id="18143">
+        <label>scip/type_result.h</label>
+        <link refid="type__result_8h"/>
       </node>
-      <node id="14635">
-        <label>scip/type_presol.h</label>
-        <link refid="type__presol_8h"/>
-        <childnode refid="14604" relation="include">
-        </childnode>
-        <childnode refid="14609" relation="include">
-        </childnode>
-        <childnode refid="14614" relation="include">
-        </childnode>
-        <childnode refid="14618" relation="include">
-        </childnode>
-      </node>
-      <node id="14649">
-        <label>scip/pub_disp.h</label>
-        <link refid="pub__disp_8h"/>
-        <childnode refid="14603" relation="include">
-        </childnode>
-        <childnode refid="14604" relation="include">
-        </childnode>
-        <childnode refid="14609" relation="include">
-        </childnode>
-        <childnode refid="14631" relation="include">
-        </childnode>
-      </node>
-      <node id="14675">
-        <label>nlpi/pub_expr.h</label>
-        <link refid="pub__expr_8h"/>
-        <childnode refid="14604" relation="include">
-        </childnode>
-        <childnode refid="14610" relation="include">
-        </childnode>
-        <childnode refid="14676" relation="include">
-        </childnode>
-        <childnode refid="14613" relation="include">
-        </childnode>
-        <childnode refid="14642" relation="include">
-        </childnode>
-        <childnode refid="14677" relation="include">
-        </childnode>
-      </node>
-      <node id="14605">
-        <label>math.h</label>
-      </node>
-      <node id="14661">
-        <label>scip/pub_nlp.h</label>
-        <link refid="pub__nlp_8h"/>
-        <childnode refid="14603" relation="include">
-        </childnode>
-        <childnode refid="14604" relation="include">
-        </childnode>
-        <childnode refid="14612" relation="include">
-        </childnode>
-        <childnode refid="14613" relation="include">
-        </childnode>
-        <childnode refid="14658" relation="include">
-        </childnode>
-        <childnode refid="14659" relation="include">
-        </childnode>
-        <childnode refid="14622" relation="include">
-        </childnode>
-        <childnode refid="14623" relation="include">
-        </childnode>
-        <childnode refid="14629" relation="include">
-        </childnode>
-        <childnode refid="14642" relation="include">
-        </childnode>
-        <childnode refid="14641" relation="include">
-        </childnode>
-      </node>
-      <node id="14613">
-        <label>blockmemshell/memory.h</label>
-      </node>
-      <node id="14632">
-        <label>scip/type_heur.h</label>
-        <link refid="type__heur_8h"/>
-        <childnode refid="14604" relation="include">
-        </childnode>
-        <childnode refid="14618" relation="include">
-        </childnode>
-        <childnode refid="14614" relation="include">
-        </childnode>
-        <childnode refid="14617" relation="include">
-        </childnode>
-      </node>
-      <node id="14671">
-        <label>scip/pub_sol.h</label>
-        <link refid="pub__sol_8h"/>
-        <childnode refid="14604" relation="include">
-        </childnode>
-        <childnode refid="14629" relation="include">
-        </childnode>
-        <childnode refid="14632" relation="include">
-        </childnode>
-      </node>
-      <node id="14601">
+      <node id="18129">
         <label>sepa_impliedbounds.h</label>
         <link refid="sepa_impliedbounds.h"/>
-        <childnode refid="14602" relation="include">
+        <childnode refid="18130" relation="include">
         </childnode>
       </node>
-      <node id="14668">
-        <label>scip/pub_relax.h</label>
-        <link refid="pub__relax_8h"/>
-        <childnode refid="14604" relation="include">
+      <node id="18181">
+        <label>scip/pub_fileio.h</label>
+        <link refid="pub__fileio_8h"/>
+        <childnode refid="18182" relation="include">
         </childnode>
-        <childnode refid="14616" relation="include">
-        </childnode>
-        <childnode refid="14638" relation="include">
+        <childnode refid="18132" relation="include">
         </childnode>
       </node>
-      <node id="14637">
-        <label>scip/type_reader.h</label>
-        <link refid="type__reader_8h"/>
-        <childnode refid="14604" relation="include">
+      <node id="18146">
+        <label>scip/type_timing.h</label>
+        <link refid="type__timing_8h"/>
+        <childnode refid="18132" relation="include">
         </childnode>
-        <childnode refid="14609" relation="include">
+        <childnode refid="18143" relation="include">
         </childnode>
-        <childnode refid="14614" relation="include">
-        </childnode>
-        <childnode refid="14618" relation="include">
+        <childnode refid="18147" relation="include">
         </childnode>
       </node>
-      <node id="14633">
+      <node id="18194">
+        <label>scip/pub_nodesel.h</label>
+        <link refid="pub__nodesel_8h"/>
+        <childnode refid="18132" relation="include">
+        </childnode>
+        <childnode refid="18164" relation="include">
+        </childnode>
+      </node>
+      <node id="18180">
+        <label>scip/pub_event.h</label>
+        <link refid="pub__event_8h"/>
+        <childnode refid="18132" relation="include">
+        </childnode>
+        <childnode refid="18138" relation="include">
+        </childnode>
+        <childnode refid="18149" relation="include">
+        </childnode>
+        <childnode refid="18152" relation="include">
+        </childnode>
+        <childnode refid="18158" relation="include">
+        </childnode>
+        <childnode refid="18154" relation="include">
+        </childnode>
+      </node>
+      <node id="18160">
+        <label>scip/type_dialog.h</label>
+        <link refid="type__dialog_8h"/>
+        <childnode refid="18132" relation="include">
+        </childnode>
+        <childnode refid="18138" relation="include">
+        </childnode>
+        <childnode refid="18147" relation="include">
+        </childnode>
+      </node>
+      <node id="18147">
+        <label>scip/type_scip.h</label>
+        <link refid="type__scip_8h"/>
+      </node>
+      <node id="18132">
+        <label>scip/def.h</label>
+        <link refid="def_8h"/>
+        <childnode refid="18131" relation="include">
+        </childnode>
+        <childnode refid="18133" relation="include">
+        </childnode>
+        <childnode refid="18134" relation="include">
+        </childnode>
+        <childnode refid="18135" relation="include">
+        </childnode>
+        <childnode refid="18136" relation="include">
+        </childnode>
+        <childnode refid="18137" relation="include">
+        </childnode>
+        <childnode refid="18138" relation="include">
+        </childnode>
+        <childnode refid="18139" relation="include">
+        </childnode>
+      </node>
+      <node id="18198">
+        <label>scip/pub_reader.h</label>
+        <link refid="pub__reader_8h"/>
+        <childnode refid="18132" relation="include">
+        </childnode>
+        <childnode refid="18167" relation="include">
+        </childnode>
+      </node>
+      <node id="18182">
+        <label>stddef.h</label>
+      </node>
+      <node id="18170">
+        <label>scip/type_prop.h</label>
+        <link refid="type__prop_8h"/>
+        <childnode refid="18132" relation="include">
+        </childnode>
+        <childnode refid="18138" relation="include">
+        </childnode>
+        <childnode refid="18143" relation="include">
+        </childnode>
+        <childnode refid="18147" relation="include">
+        </childnode>
+        <childnode refid="18146" relation="include">
+        </childnode>
+      </node>
+      <node id="18196">
+        <label>scip/pub_presol.h</label>
+        <link refid="pub__presol_8h"/>
+        <childnode refid="18132" relation="include">
+        </childnode>
+        <childnode refid="18145" relation="include">
+        </childnode>
+        <childnode refid="18165" relation="include">
+        </childnode>
+      </node>
+      <node id="18163">
         <label>scip/type_history.h</label>
         <link refid="type__history_8h"/>
       </node>
-      <node id="14604">
-        <label>scip/def.h</label>
-        <link refid="def_8h"/>
-        <childnode refid="14603" relation="include">
+      <node id="18177">
+        <label>scip/type_cutpool.h</label>
+        <link refid="type__cutpool_8h"/>
+      </node>
+      <node id="18154">
+        <label>scip/type_tree.h</label>
+        <link refid="type__tree_8h"/>
+      </node>
+      <node id="18135">
+        <label>limits.h</label>
+      </node>
+      <node id="18169">
+        <label>scip/type_sepa.h</label>
+        <link refid="type__sepa_8h"/>
+        <childnode refid="18132" relation="include">
         </childnode>
-        <childnode refid="14605" relation="include">
+        <childnode refid="18138" relation="include">
         </childnode>
-        <childnode refid="14606" relation="include">
+        <childnode refid="18143" relation="include">
         </childnode>
-        <childnode refid="14607" relation="include">
+        <childnode refid="18158" relation="include">
         </childnode>
-        <childnode refid="14608" relation="include">
-        </childnode>
-        <childnode refid="14609" relation="include">
-        </childnode>
-        <childnode refid="14610" relation="include">
+        <childnode refid="18147" relation="include">
         </childnode>
       </node>
-      <node id="14648">
-        <label>scip/pub_dialog.h</label>
-        <link refid="pub__dialog_8h"/>
-        <childnode refid="14604" relation="include">
+      <node id="18159">
+        <label>scip/type_heur.h</label>
+        <link refid="type__heur_8h"/>
+        <childnode refid="18132" relation="include">
         </childnode>
-        <childnode refid="14609" relation="include">
+        <childnode refid="18147" relation="include">
         </childnode>
-        <childnode refid="14618" relation="include">
+        <childnode refid="18143" relation="include">
         </childnode>
-        <childnode refid="14630" relation="include">
-        </childnode>
-      </node>
-      <node id="14663">
-        <label>scip/pub_nodesel.h</label>
-        <link refid="pub__nodesel_8h"/>
-        <childnode refid="14604" relation="include">
-        </childnode>
-        <childnode refid="14634" relation="include">
+        <childnode refid="18146" relation="include">
         </childnode>
       </node>
-      <node id="14640">
-        <label>scip/type_prop.h</label>
-        <link refid="type__prop_8h"/>
-        <childnode refid="14604" relation="include">
+      <node id="18158">
+        <label>scip/type_sol.h</label>
+        <link refid="type__sol_8h"/>
+      </node>
+      <node id="18172">
+        <label>nlpi/type_expr.h</label>
+        <link refid="type__expr_8h"/>
+      </node>
+      <node id="18190">
+        <label>scip/type_stat.h</label>
+        <link refid="type__stat_8h"/>
+      </node>
+      <node id="18164">
+        <label>scip/type_nodesel.h</label>
+        <link refid="type__nodesel_8h"/>
+        <childnode refid="18132" relation="include">
         </childnode>
-        <childnode refid="14609" relation="include">
+        <childnode refid="18138" relation="include">
         </childnode>
-        <childnode refid="14614" relation="include">
+        <childnode refid="18154" relation="include">
         </childnode>
-        <childnode refid="14618" relation="include">
-        </childnode>
-        <childnode refid="14617" relation="include">
+        <childnode refid="18147" relation="include">
         </childnode>
       </node>
-      <node id="14664">
+      <node id="18210">
+        <label>scip/presolve.h</label>
+      </node>
+      <node id="18144">
+        <label>scip/type_clock.h</label>
+        <link refid="type__clock_8h"/>
+        <childnode refid="18132" relation="include">
+        </childnode>
+      </node>
+      <node id="18145">
+        <label>scip/type_misc.h</label>
+        <link refid="type__misc_8h"/>
+        <childnode refid="18132" relation="include">
+        </childnode>
+      </node>
+      <node id="18183">
+        <label>scip/pub_heur.h</label>
+        <link refid="pub__heur_8h"/>
+        <childnode refid="18132" relation="include">
+        </childnode>
+        <childnode refid="18145" relation="include">
+        </childnode>
+        <childnode refid="18159" relation="include">
+        </childnode>
+      </node>
+      <node id="18161">
+        <label>scip/type_disp.h</label>
+        <link refid="type__disp_8h"/>
+        <childnode refid="18131" relation="include">
+        </childnode>
+        <childnode refid="18132" relation="include">
+        </childnode>
+        <childnode refid="18138" relation="include">
+        </childnode>
+        <childnode refid="18147" relation="include">
+        </childnode>
+      </node>
+      <node id="18200">
+        <label>scip/pub_sepa.h</label>
+        <link refid="pub__sepa_8h"/>
+        <childnode refid="18132" relation="include">
+        </childnode>
+        <childnode refid="18145" relation="include">
+        </childnode>
+        <childnode refid="18169" relation="include">
+        </childnode>
+      </node>
+      <node id="18207">
+        <label>nlpi/pub_expr.h</label>
+        <link refid="pub__expr_8h"/>
+        <childnode refid="18132" relation="include">
+        </childnode>
+        <childnode refid="18139" relation="include">
+        </childnode>
+        <childnode refid="18208" relation="include">
+        </childnode>
+        <childnode refid="18142" relation="include">
+        </childnode>
+        <childnode refid="18172" relation="include">
+        </childnode>
+        <childnode refid="18209" relation="include">
+        </childnode>
+      </node>
+      <node id="18168">
+        <label>scip/type_relax.h</label>
+        <link refid="type__relax_8h"/>
+        <childnode refid="18132" relation="include">
+        </childnode>
+        <childnode refid="18138" relation="include">
+        </childnode>
+        <childnode refid="18143" relation="include">
+        </childnode>
+        <childnode refid="18147" relation="include">
+        </childnode>
+      </node>
+      <node id="18130">
+        <label>scip/scip.h</label>
+        <link refid="scip_8h"/>
+        <childnode refid="18131" relation="include">
+        </childnode>
+        <childnode refid="18132" relation="include">
+        </childnode>
+        <childnode refid="18142" relation="include">
+        </childnode>
+        <childnode refid="18138" relation="include">
+        </childnode>
+        <childnode refid="18143" relation="include">
+        </childnode>
+        <childnode refid="18144" relation="include">
+        </childnode>
+        <childnode refid="18145" relation="include">
+        </childnode>
+        <childnode refid="18146" relation="include">
+        </childnode>
+        <childnode refid="18148" relation="include">
+        </childnode>
+        <childnode refid="18149" relation="include">
+        </childnode>
+        <childnode refid="18150" relation="include">
+        </childnode>
+        <childnode refid="18151" relation="include">
+        </childnode>
+        <childnode refid="18152" relation="include">
+        </childnode>
+        <childnode refid="18153" relation="include">
+        </childnode>
+        <childnode refid="18154" relation="include">
+        </childnode>
+        <childnode refid="18147" relation="include">
+        </childnode>
+        <childnode refid="18155" relation="include">
+        </childnode>
+        <childnode refid="18156" relation="include">
+        </childnode>
+        <childnode refid="18157" relation="include">
+        </childnode>
+        <childnode refid="18160" relation="include">
+        </childnode>
+        <childnode refid="18161" relation="include">
+        </childnode>
+        <childnode refid="18159" relation="include">
+        </childnode>
+        <childnode refid="18162" relation="include">
+        </childnode>
+        <childnode refid="18163" relation="include">
+        </childnode>
+        <childnode refid="18164" relation="include">
+        </childnode>
+        <childnode refid="18165" relation="include">
+        </childnode>
+        <childnode refid="18166" relation="include">
+        </childnode>
+        <childnode refid="18167" relation="include">
+        </childnode>
+        <childnode refid="18168" relation="include">
+        </childnode>
+        <childnode refid="18169" relation="include">
+        </childnode>
+        <childnode refid="18170" relation="include">
+        </childnode>
+        <childnode refid="18171" relation="include">
+        </childnode>
+        <childnode refid="18173" relation="include">
+        </childnode>
+        <childnode refid="18174" relation="include">
+        </childnode>
+        <childnode refid="18175" relation="include">
+        </childnode>
+        <childnode refid="18176" relation="include">
+        </childnode>
+        <childnode refid="18178" relation="include">
+        </childnode>
+        <childnode refid="18179" relation="include">
+        </childnode>
+        <childnode refid="18180" relation="include">
+        </childnode>
+        <childnode refid="18181" relation="include">
+        </childnode>
+        <childnode refid="18183" relation="include">
+        </childnode>
+        <childnode refid="18184" relation="include">
+        </childnode>
+        <childnode refid="18185" relation="include">
+        </childnode>
+        <childnode refid="18186" relation="include">
+        </childnode>
+        <childnode refid="18188" relation="include">
+        </childnode>
+        <childnode refid="18192" relation="include">
+        </childnode>
+        <childnode refid="18139" relation="include">
+        </childnode>
+        <childnode refid="18193" relation="include">
+        </childnode>
+        <childnode refid="18194" relation="include">
+        </childnode>
+        <childnode refid="18195" relation="include">
+        </childnode>
+        <childnode refid="18196" relation="include">
+        </childnode>
+        <childnode refid="18197" relation="include">
+        </childnode>
+        <childnode refid="18198" relation="include">
+        </childnode>
+        <childnode refid="18199" relation="include">
+        </childnode>
+        <childnode refid="18200" relation="include">
+        </childnode>
+        <childnode refid="18201" relation="include">
+        </childnode>
+        <childnode refid="18202" relation="include">
+        </childnode>
+        <childnode refid="18203" relation="include">
+        </childnode>
+        <childnode refid="18205" relation="include">
+        </childnode>
+        <childnode refid="18206" relation="include">
+        </childnode>
+        <childnode refid="18207" relation="include">
+        </childnode>
+        <childnode refid="18210" relation="include">
+        </childnode>
+      </node>
+      <node id="18174">
+        <label>scip/pub_conflict.h</label>
+        <link refid="pub__conflict_8h"/>
+        <childnode refid="18132" relation="include">
+        </childnode>
+        <childnode refid="18145" relation="include">
+        </childnode>
+        <childnode refid="18156" relation="include">
+        </childnode>
+      </node>
+      <node id="18209">
+        <label>nlpi/type_exprinterpret.h</label>
+        <link refid="type__exprinterpret_8h"/>
+      </node>
+      <node id="18185">
+        <label>scip/pub_history.h</label>
+        <link refid="pub__history_8h"/>
+      </node>
+      <node id="18165">
+        <label>scip/type_presol.h</label>
+        <link refid="type__presol_8h"/>
+        <childnode refid="18132" relation="include">
+        </childnode>
+        <childnode refid="18138" relation="include">
+        </childnode>
+        <childnode refid="18143" relation="include">
+        </childnode>
+        <childnode refid="18147" relation="include">
+        </childnode>
+      </node>
+      <node id="18171">
+        <label>nlpi/type_nlpi.h</label>
+        <link refid="type__nlpi_8h"/>
+        <childnode refid="18132" relation="include">
+        </childnode>
+        <childnode refid="18141" relation="include">
+        </childnode>
+        <childnode refid="18142" relation="include">
+        </childnode>
+        <childnode refid="18172" relation="include">
+        </childnode>
+      </node>
+      <node id="18179">
+        <label>scip/pub_disp.h</label>
+        <link refid="pub__disp_8h"/>
+        <childnode refid="18131" relation="include">
+        </childnode>
+        <childnode refid="18132" relation="include">
+        </childnode>
+        <childnode refid="18138" relation="include">
+        </childnode>
+        <childnode refid="18161" relation="include">
+        </childnode>
+      </node>
+      <node id="18173">
+        <label>scip/pub_branch.h</label>
+        <link refid="pub__branch_8h"/>
+        <childnode refid="18132" relation="include">
+        </childnode>
+        <childnode refid="18145" relation="include">
+        </childnode>
+        <childnode refid="18155" relation="include">
+        </childnode>
+      </node>
+      <node id="18134">
+        <label>math.h</label>
+      </node>
+      <node id="18142">
+        <label>blockmemshell/memory.h</label>
+      </node>
+      <node id="18195">
         <label>scip/pub_paramset.h</label>
         <link refid="pub__paramset_8h"/>
-        <childnode refid="14604" relation="include">
+        <childnode refid="18132" relation="include">
         </childnode>
-        <childnode refid="14619" relation="include">
+        <childnode refid="18148" relation="include">
         </childnode>
-        <childnode refid="14618" relation="include">
-        </childnode>
-      </node>
-      <node id="14667">
-        <label>scip/pub_reader.h</label>
-        <link refid="pub__reader_8h"/>
-        <childnode refid="14604" relation="include">
-        </childnode>
-        <childnode refid="14637" relation="include">
+        <childnode refid="18147" relation="include">
         </childnode>
       </node>
-      <node id="14665">
-        <label>scip/pub_presol.h</label>
-        <link refid="pub__presol_8h"/>
-        <childnode refid="14604" relation="include">
+      <node id="18201">
+        <label>scip/pub_prop.h</label>
+        <link refid="pub__prop_8h"/>
+        <childnode refid="18132" relation="include">
         </childnode>
-        <childnode refid="14616" relation="include">
+        <childnode refid="18145" relation="include">
         </childnode>
-        <childnode refid="14635" relation="include">
+        <childnode refid="18170" relation="include">
         </childnode>
       </node>
-      <node id="14603">
+      <node id="18138">
+        <label>scip/type_retcode.h</label>
+        <link refid="type__retcode_8h"/>
+      </node>
+      <node id="18162">
+        <label>scip/type_compr.h</label>
+        <link refid="type__compr_8h"/>
+        <childnode refid="18132" relation="include">
+        </childnode>
+        <childnode refid="18147" relation="include">
+        </childnode>
+        <childnode refid="18143" relation="include">
+        </childnode>
+        <childnode refid="18146" relation="include">
+        </childnode>
+      </node>
+      <node id="18167">
+        <label>scip/type_reader.h</label>
+        <link refid="type__reader_8h"/>
+        <childnode refid="18132" relation="include">
+        </childnode>
+        <childnode refid="18138" relation="include">
+        </childnode>
+        <childnode refid="18143" relation="include">
+        </childnode>
+        <childnode refid="18147" relation="include">
+        </childnode>
+      </node>
+      <node id="18184">
+        <label>scip/pub_compr.h</label>
+        <link refid="pub__compr_8h"/>
+        <childnode refid="18132" relation="include">
+        </childnode>
+        <childnode refid="18145" relation="include">
+        </childnode>
+        <childnode refid="18162" relation="include">
+        </childnode>
+      </node>
+      <node id="18176">
+        <label>scip/pub_cutpool.h</label>
+        <link refid="pub__cutpool_8h"/>
+        <childnode refid="18132" relation="include">
+        </childnode>
+        <childnode refid="18177" relation="include">
+        </childnode>
+      </node>
+      <node id="18192">
+        <label>scip/pub_nlp.h</label>
+        <link refid="pub__nlp_8h"/>
+        <childnode refid="18131" relation="include">
+        </childnode>
+        <childnode refid="18132" relation="include">
+        </childnode>
+        <childnode refid="18141" relation="include">
+        </childnode>
+        <childnode refid="18142" relation="include">
+        </childnode>
+        <childnode refid="18189" relation="include">
+        </childnode>
+        <childnode refid="18190" relation="include">
+        </childnode>
+        <childnode refid="18151" relation="include">
+        </childnode>
+        <childnode refid="18152" relation="include">
+        </childnode>
+        <childnode refid="18158" relation="include">
+        </childnode>
+        <childnode refid="18172" relation="include">
+        </childnode>
+        <childnode refid="18171" relation="include">
+        </childnode>
+      </node>
+      <node id="18149">
+        <label>scip/type_event.h</label>
+        <link refid="type__event_8h"/>
+        <childnode refid="18132" relation="include">
+        </childnode>
+        <childnode refid="18138" relation="include">
+        </childnode>
+        <childnode refid="18147" relation="include">
+        </childnode>
+      </node>
+      <node id="18202">
+        <label>scip/pub_sol.h</label>
+        <link refid="pub__sol_8h"/>
+        <childnode refid="18132" relation="include">
+        </childnode>
+        <childnode refid="18158" relation="include">
+        </childnode>
+        <childnode refid="18159" relation="include">
+        </childnode>
+      </node>
+      <node id="18156">
+        <label>scip/type_conflict.h</label>
+        <link refid="type__conflict_8h"/>
+        <childnode refid="18132" relation="include">
+        </childnode>
+        <childnode refid="18138" relation="include">
+        </childnode>
+        <childnode refid="18143" relation="include">
+        </childnode>
+        <childnode refid="18152" relation="include">
+        </childnode>
+      </node>
+      <node id="18199">
+        <label>scip/pub_relax.h</label>
+        <link refid="pub__relax_8h"/>
+        <childnode refid="18132" relation="include">
+        </childnode>
+        <childnode refid="18145" relation="include">
+        </childnode>
+        <childnode refid="18168" relation="include">
+        </childnode>
+      </node>
+      <node id="18148">
+        <label>scip/type_paramset.h</label>
+        <link refid="type__paramset_8h"/>
+        <childnode refid="18132" relation="include">
+        </childnode>
+        <childnode refid="18138" relation="include">
+        </childnode>
+        <childnode refid="18147" relation="include">
+        </childnode>
+      </node>
+      <node id="18191">
+        <label>lpi/type_lpi.h</label>
+        <link refid="type__lpi_8h"/>
+      </node>
+      <node id="18139">
+        <label>scip/pub_message.h</label>
+        <link refid="pub__message_8h"/>
+        <childnode refid="18140" relation="include">
+        </childnode>
+        <childnode refid="18132" relation="include">
+        </childnode>
+        <childnode refid="18141" relation="include">
+        </childnode>
+      </node>
+      <node id="18153">
+        <label>scip/type_prob.h</label>
+        <link refid="type__prob_8h"/>
+        <childnode refid="18132" relation="include">
+        </childnode>
+        <childnode refid="18138" relation="include">
+        </childnode>
+        <childnode refid="18147" relation="include">
+        </childnode>
+      </node>
+      <node id="18141">
+        <label>scip/type_message.h</label>
+        <link refid="type__message_8h"/>
+        <childnode refid="18131" relation="include">
+        </childnode>
+      </node>
+      <node id="18205">
+        <label>scip/pub_var.h</label>
+        <link refid="pub__var_8h"/>
+        <childnode refid="18132" relation="include">
+        </childnode>
+        <childnode refid="18138" relation="include">
+        </childnode>
+        <childnode refid="18145" relation="include">
+        </childnode>
+        <childnode refid="18163" relation="include">
+        </childnode>
+        <childnode refid="18152" relation="include">
+        </childnode>
+        <childnode refid="18187" relation="include">
+        </childnode>
+        <childnode refid="18157" relation="include">
+        </childnode>
+      </node>
+      <node id="18131">
         <label>stdio.h</label>
       </node>
-      <node id="14645">
-        <label>scip/pub_cons.h</label>
-        <link refid="pub__cons_8h"/>
-        <childnode refid="14604" relation="include">
+      <node id="18206">
+        <label>lpi/lpi.h</label>
+        <link refid="lpi_8h"/>
+        <childnode refid="18132" relation="include">
         </childnode>
-        <childnode refid="14616" relation="include">
+        <childnode refid="18142" relation="include">
         </childnode>
-        <childnode refid="14628" relation="include">
+        <childnode refid="18138" relation="include">
+        </childnode>
+        <childnode refid="18191" relation="include">
+        </childnode>
+      </node>
+      <node id="18178">
+        <label>scip/pub_dialog.h</label>
+        <link refid="pub__dialog_8h"/>
+        <childnode refid="18132" relation="include">
+        </childnode>
+        <childnode refid="18138" relation="include">
+        </childnode>
+        <childnode refid="18147" relation="include">
+        </childnode>
+        <childnode refid="18160" relation="include">
+        </childnode>
+      </node>
+      <node id="18152">
+        <label>scip/type_var.h</label>
+        <link refid="type__var_8h"/>
+      </node>
+      <node id="18186">
+        <label>scip/pub_implics.h</label>
+        <link refid="pub__implics_8h"/>
+        <childnode refid="18132" relation="include">
+        </childnode>
+        <childnode refid="18152" relation="include">
+        </childnode>
+        <childnode refid="18187" relation="include">
+        </childnode>
+      </node>
+      <node id="18204">
+        <label>scip/type_reopt.h</label>
+        <link refid="type__reopt_8h"/>
+      </node>
+      <node id="18188">
+        <label>scip/pub_lp.h</label>
+        <link refid="pub__lp_8h"/>
+        <childnode refid="18131" relation="include">
+        </childnode>
+        <childnode refid="18132" relation="include">
+        </childnode>
+        <childnode refid="18142" relation="include">
+        </childnode>
+        <childnode refid="18189" relation="include">
+        </childnode>
+        <childnode refid="18190" relation="include">
+        </childnode>
+        <childnode refid="18150" relation="include">
+        </childnode>
+        <childnode refid="18152" relation="include">
+        </childnode>
+        <childnode refid="18158" relation="include">
+        </childnode>
+        <childnode refid="18169" relation="include">
+        </childnode>
+        <childnode refid="18145" relation="include">
+        </childnode>
+        <childnode refid="18191" relation="include">
+        </childnode>
+      </node>
+      <node id="18193">
+        <label>scip/pub_misc.h</label>
+        <link refid="pub__misc_8h"/>
+        <childnode refid="18134" relation="include">
+        </childnode>
+        <childnode refid="18132" relation="include">
+        </childnode>
+        <childnode refid="18142" relation="include">
+        </childnode>
+        <childnode refid="18138" relation="include">
+        </childnode>
+        <childnode refid="18145" relation="include">
+        </childnode>
+        <childnode refid="18141" relation="include">
+        </childnode>
+        <childnode refid="18152" relation="include">
         </childnode>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="14680">
-        <label>scipdefplugins.h</label>
-        <link refid="scipdefplugins_8h"/>
-      </node>
-      <node id="14679">
+      <node id="18211">
         <label>sepa_impliedbounds.h</label>
         <link refid="sepa_impliedbounds.h"/>
-        <childnode refid="14680" relation="include">
+        <childnode refid="18212" relation="include">
         </childnode>
+      </node>
+      <node id="18212">
+        <label>scipdefplugins.h</label>
+        <link refid="scipdefplugins_8h"/>
       </node>
     </invincdepgraph>
       <sectiondef kind="func">
@@ -829,7 +878,7 @@
 <para>creates the impliedbounds separator and includes it in SCIP </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/sepa_impliedbounds.h" line="37" column="1"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/sepa_impliedbounds.h" line="37" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -844,7 +893,7 @@
 <codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>This<sp/>file<sp/>is<sp/>part<sp/>of<sp/>the<sp/>program<sp/>and<sp/>library<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SCIP<sp/>---<sp/>Solving<sp/>Constraint<sp/>Integer<sp/>Programs<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/>Copyright<sp/>(C)<sp/>2002-2014<sp/>Konrad-Zuse-Zentrum<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/>Copyright<sp/>(C)<sp/>2002-2015<sp/>Konrad-Zuse-Zentrum<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fuer<sp/>Informationstechnik<sp/>Berlin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>SCIP<sp/>is<sp/>distributed<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>ZIB<sp/>Academic<sp/>License.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
@@ -885,6 +934,6 @@
 <codeline lineno="44"><highlight class="normal"></highlight></codeline>
 <codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
-    <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/scip/sepa_impliedbounds.h"/>
+    <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/sepa_impliedbounds.h"/>
   </compounddef>
 </doxygen>

@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.8">
-  <compounddef id="classatomic__posintpower" kind="class" prot="public">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="classatomic__posintpower" kind="class" language="C++" prot="public">
     <compoundname>atomic_posintpower</compoundname>
     <basecompoundref prot="public" virt="non-virtual">CppAD::atomic_base&lt; Type &gt;</basecompoundref>
     <templateparamlist>
@@ -22,7 +22,7 @@
 <para>exponent value for next call to forward or reverse </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" line="475" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" bodystart="475" bodyend="-1"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" line="475" column="1" bodyfile="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" bodystart="475" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -37,7 +37,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" line="465" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" bodystart="465" bodyend="471"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" line="465" column="1" bodyfile="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" bodystart="465" bodyend="471"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -56,7 +56,7 @@
 <para>stores exponent value corresponding to next call to forward or reverse</para><para>how is this supposed to be threadsafe? (we use only one global instantiation of this class) </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" line="481" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" bodystart="481" bodyend="484"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" line="481" column="1" bodyfile="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" bodystart="481" bodyend="484"/>
       </memberdef>
       <memberdef kind="function" id="classatomic__posintpower_1af33bace0f1562a3bafa072004db67ec5" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -99,7 +99,7 @@
 <para>forward sweep of positive integer power</para><para>Given the taylor coefficients for x, we have to compute the taylor coefficients for f(x), that is, given tx = (x, x&apos;, x&apos;&apos;, ...), we compute the coefficients ty = (y, y&apos;, y&apos;&apos;, ...) in the taylor expansion of f(x) = x^p. Thus, y = x^p = tx[0]^p, y&apos; = p * x^(p-1) * x&apos; = p * tx[0]^(p-1) * tx[1], y&apos;&apos; = 1/2 * p * (p-1) * x^(p-2) * x&apos;^2 + p * x^(p-1) * x&apos;&apos; = 1/2 * p * (p-1) * tx[0]^(p-2) * tx[1]^2 + p * tx[0]^(p-1) * tx[2] </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" line="498" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" bodystart="498" bodyend="555"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" line="498" column="1" bodyfile="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" bodystart="498" bodyend="555"/>
       </memberdef>
       <memberdef kind="function" id="classatomic__posintpower_1a8841f921afeaf76bfa5840be40900e15" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -134,10 +134,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>reverse sweep of positive integer power</para><para>Assume y(x) is a function of the taylor coefficients of f(x) = x^p for x, i.e., y(x) = [ x^p, p * x^(p-1) * x&apos;, p * (p-1) * x^(p-2) * x&apos;^2 + p * x^(p-1) * x&apos;&apos;, ... ]. Then in the reverse sweep we have to compute the elements of <formula id="130">$\partial h / \partial x^[l], l = 0, ..., k,$</formula> where x^[l] is the l&apos;th taylor coefficient (x, x&apos;, x&apos;&apos;, ...) and h(x) = g(y(x)) for some function g:R^k -&gt; R. That is, we have to compute <formula id="131">$ px[l] = \partial h / \partial x^[l] = (\partial g / \partial y) * (\partial y / \partial x^[l]) = \sum_{i=0}^k (\partial g / \partial y_i) * (\partial y_i / \partial x^[l]) = \sum_{i=0}^k py[i] * (\partial y_i / \partial x^[l]) $</formula></para><para>For k = 0, this means <formula id="132">$ px[0] = py[0] * (\partial y_0 / \partial x^[0]) = py[0] * (\partial x^p / \partial x) = py[0] * p * tx[0]^(p-1) *$</formula></para><para>For k = 1, this means <formula id="133">$ px[0] = py[0] * (\partial y_0 / \partial x^[0]) + py[1] * (\partial y_1 / \partial x^[0]) = py[0] * (\partial x^p / \partial x) + py[1] * (\partial (p * x^(p-1) * x&apos;) / \partial x) = py[0] * p * tx[0]^(p-1) + py[1] * p * (p-1) * tx[0]^(p-2) * tx[1] px[1] = py[0] * (\partial y_0 / \partial x^[1]) + py[1] * (\partial y_1 / \partial x^[1]) = py[0] * (\partial x^p / \partial x&apos;) + py[1] * (\partial (p * x^(p-1) x&apos;) / \partial x&apos;) = py[0] * 0 + py[1] * p * tx[0]^(p-1) $</formula> </para>        </detaileddescription>
+<para>reverse sweep of positive integer power</para><para>Assume y(x) is a function of the taylor coefficients of f(x) = x^p for x, i.e., y(x) = [ x^p, p * x^(p-1) * x&apos;, p * (p-1) * x^(p-2) * x&apos;^2 + p * x^(p-1) * x&apos;&apos;, ... ]. Then in the reverse sweep we have to compute the elements of <formula id="167">$\partial h / \partial x^[l], l = 0, ..., k,$</formula> where x^[l] is the l&apos;th taylor coefficient (x, x&apos;, x&apos;&apos;, ...) and h(x) = g(y(x)) for some function g:R^k -&gt; R. That is, we have to compute <formula id="168">$ px[l] = \partial h / \partial x^[l] = (\partial g / \partial y) * (\partial y / \partial x^[l]) = \sum_{i=0}^k (\partial g / \partial y_i) * (\partial y_i / \partial x^[l]) = \sum_{i=0}^k py[i] * (\partial y_i / \partial x^[l]) $</formula></para><para>For k = 0, this means <formula id="169">$ px[0] = py[0] * (\partial y_0 / \partial x^[0]) = py[0] * (\partial x^p / \partial x) = py[0] * p * tx[0]^(p-1) *$</formula></para><para>For k = 1, this means <formula id="170">$ px[0] = py[0] * (\partial y_0 / \partial x^[0]) + py[1] * (\partial y_1 / \partial x^[0]) = py[0] * (\partial x^p / \partial x) + py[1] * (\partial (p * x^(p-1) * x&apos;) / \partial x) = py[0] * p * tx[0]^(p-1) + py[1] * p * (p-1) * tx[0]^(p-2) * tx[1] px[1] = py[0] * (\partial y_0 / \partial x^[1]) + py[1] * (\partial y_1 / \partial x^[1]) = py[0] * (\partial x^p / \partial x&apos;) + py[1] * (\partial (p * x^(p-1) x&apos;) / \partial x&apos;) = py[0] * 0 + py[1] * p * tx[0]^(p-1) $</formula> </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" line="587" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" bodystart="587" bodyend="624"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" line="587" column="1" bodyfile="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" bodystart="587" bodyend="624"/>
       </memberdef>
       <memberdef kind="function" id="classatomic__posintpower_1a96e945701161f25c7258980ed1294ad4" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -165,7 +165,7 @@
 <para>computes sparsity of jacobian during a forward sweep</para><para>For a 1 x q matrix R, we have to return the sparsity pattern of the 1 x q matrix S(x) = f&apos;(x) * R. Since f&apos;(x) is dense, the sparsity of S will be the sparsity of R. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" line="633" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" bodystart="633" bodyend="640"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" line="633" column="1" bodyfile="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" bodystart="633" bodyend="640"/>
       </memberdef>
       <memberdef kind="function" id="classatomic__posintpower_1ae6825bd132a34bd98ef3a3c5371808ce" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -193,7 +193,7 @@
 <para>computes sparsity of jacobian during a reverse sweep</para><para>For a q x 1 matrix R, we have to return the sparsity pattern of the q x 1 matrix S(x) = R * f&apos;(x). Since f&apos;(x) is dense, the sparsity of S will be the sparsity of R. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" line="649" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" bodystart="649" bodyend="656"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" line="649" column="1" bodyfile="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" bodystart="649" bodyend="656"/>
       </memberdef>
       <memberdef kind="function" id="classatomic__posintpower_1a411efa78e5bf31c412e4244ad8346055" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -241,7 +241,7 @@
 <para>computes sparsity of hessian during a reverse sweep</para><para>Assume V(x) = (g(f(x)))&apos;&apos; R with f(x) = x^p for a function g:R-&gt;R and a matrix R. we have to specify the sparsity pattern of V(x) and T(x) = (g(f(x)))&apos;. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" line="665" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" bodystart="665" bodyend="676"/>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" line="665" column="1" bodyfile="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" bodystart="665" bodyend="676"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -270,7 +270,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" line="463" column="1" bodyfile="/home/ryan/src/scipoptsuite-3.1.1/scip-3.1.1/src/nlpi/exprinterpret_cppad.cpp" bodystart="462" bodyend="677"/>
+    <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" line="463" column="1" bodyfile="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" bodystart="462" bodyend="677"/>
     <listofallmembers>
       <member refid="classatomic__posintpower_1a118f90eb677eb5c0fc5e9fca2e002ba2" prot="public" virt="non-virtual"><scope>atomic_posintpower</scope><name>atomic_posintpower</name></member>
       <member refid="classatomic__posintpower_1a6bba7d7c553c18c75c1ec865b2c0aa2b" prot="private" virt="non-virtual"><scope>atomic_posintpower</scope><name>exponent</name></member>

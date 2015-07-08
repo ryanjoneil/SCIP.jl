@@ -1,0 +1,285 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="classatomic__userexpr" kind="class" language="C++" prot="public">
+    <compoundname>atomic_userexpr</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">CppAD::atomic_base&lt; Type &gt;</basecompoundref>
+    <templateparamlist>
+      <param>
+        <type>class</type>
+        <declname>Type</declname>
+        <defname>Type</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classatomic__userexpr_1addc7c137ecc9126c78fd788ad2ed4c28" prot="private" static="no" mutable="no">
+        <type><ref refid="type__expr_8h_1a03f8f1fae1c932ff918396171929c352" kindref="member">SCIP_EXPR</ref> *</type>
+        <definition>SCIP_EXPR* atomic_userexpr&lt; Type &gt;::expr</definition>
+        <argsstring></argsstring>
+        <name>expr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>user expression </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" line="1252" column="1" bodyfile="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" bodystart="1252" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classatomic__userexpr_1a6d0358688523f4d3a91a42ca29a2d684" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>atomic_userexpr&lt; Type &gt;::atomic_userexpr</definition>
+        <argsstring>()</argsstring>
+        <name>atomic_userexpr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" line="1242" column="1" bodyfile="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" bodystart="1242" bodyend="1248"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classatomic__userexpr_1a4f29f2d69ae582b579a667953a058431" prot="private" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void atomic_userexpr&lt; Type &gt;::set_id</definition>
+        <argsstring>(size_t id)</argsstring>
+        <name>set_id</name>
+        <param>
+          <type>size_t</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>stores user expression corresponding to next call to forward or reverse</para><para>how is this supposed to be threadsafe? (we use only one global instantiation of this class) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" line="1258" column="1" bodyfile="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" bodystart="1258" bodyend="1262"/>
+      </memberdef>
+      <memberdef kind="function" id="classatomic__userexpr_1a5d811bbe475585c692524fddd0427a0d" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool atomic_userexpr&lt; Type &gt;::forward</definition>
+        <argsstring>(size_t q, size_t p, const CppAD::vector&lt; bool &gt; &amp;vx, CppAD::vector&lt; bool &gt; &amp;vy, const CppAD::vector&lt; Type &gt; &amp;tx, CppAD::vector&lt; Type &gt; &amp;ty)</argsstring>
+        <name>forward</name>
+        <param>
+          <type>size_t</type>
+          <declname>q</declname>
+          <briefdescription><para>lowest order Taylor coefficient that we are evaluating </para></briefdescription>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>p</declname>
+          <briefdescription><para>highest order Taylor coefficient that we are evaluating </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>vx</declname>
+          <briefdescription><para>indicates whether argument is a variable, or empty vector </para></briefdescription>
+        </param>
+        <param>
+          <type>CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>vy</declname>
+          <briefdescription><para>vector to store which function values depend on variables, or empty vector </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; Type &gt; &amp;</type>
+          <declname>tx</declname>
+          <briefdescription><para>values for taylor coefficients of x </para></briefdescription>
+        </param>
+        <param>
+          <type>CppAD::vector&lt; Type &gt; &amp;</type>
+          <declname>ty</declname>
+          <briefdescription><para>vector to store taylor coefficients of y </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>forward sweep of userexpr</para><para>We follow <ulink url="http://www.coin-or.org/CppAD/Doc/atomic_forward.xml">http://www.coin-or.org/CppAD/Doc/atomic_forward.xml</ulink> Note, that p and q are interchanged!</para><para>For a scalar variable t, let Y(t) = f(X(t)) X(t) = x^0 + x^1 t^1 + ... + x^p t^p where for x^i the i an index, while for t^i the i is an exponent. Thus, x^k = 1/k! X^(k) (0), where X^(k)(.) denotes the k-th derivative.</para><para>Next, let y^k = 1/k! Y^(k)(0) be the k&apos;th taylor coefficient of Y. Thus, y^0 = Y^(0)(0) = Y(0) = f(X(0)) = f(x^0) y^1 = Y^(1)(0) = Y&apos;(0) = f&apos;(X(0)) * X&apos;(0) = f&apos;(x^0) * x^1 y^2 = 1/2 Y^(2)(0) = 1/2 Y&apos;&apos;(0) = 1/2 X&apos;(0) * f&apos;&apos;(X(0)) X&apos;(0) + 1/2 * f&apos;(X(0)) * X&apos;&apos;(0) = 1/2 x^1 * f&apos;&apos;(x^0) * x^1 + f&apos;(x^0) * x^2</para><para>As x^k = (tx[k], tx[(p+1)+k], tx[2*(p+1)+k], ..., tx[n*(p+1)+k], we get ty[0] = y^0 = f(x^0) = f(tx[{1..n}*(p+1)]) ty[1] = y^1 = f&apos;(x^0) * tx[{1..n}*(p+1)+1] = sum(i=1..n, grad[i] * tx[i*(p+1)+1]), where grad = f&apos;(x^0) ty[2] = 1/2 sum(i,j=1..n, x[i*(p+1)+1] * x[j*(p+1)+q] * hessian[i,j]) + sum(i=1..n, grad[i] * x[i*(p+1)+2]) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" line="1285" column="1" bodyfile="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" bodystart="1285" bodyend="1368"/>
+      </memberdef>
+      <memberdef kind="function" id="classatomic__userexpr_1a036e4ad93de5062d4fddc2d5d930b223" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool atomic_userexpr&lt; Type &gt;::reverse</definition>
+        <argsstring>(size_t p, const CppAD::vector&lt; Type &gt; &amp;tx, const CppAD::vector&lt; Type &gt; &amp;ty, CppAD::vector&lt; Type &gt; &amp;px, const CppAD::vector&lt; Type &gt; &amp;py)</argsstring>
+        <name>reverse</name>
+        <param>
+          <type>size_t</type>
+          <declname>p</declname>
+          <briefdescription><para>highest order Taylor coefficient that we are evaluating </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; Type &gt; &amp;</type>
+          <declname>tx</declname>
+          <briefdescription><para>values for taylor coefficients of x </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; Type &gt; &amp;</type>
+          <declname>ty</declname>
+          <briefdescription><para>values for taylor coefficients of y </para></briefdescription>
+        </param>
+        <param>
+          <type>CppAD::vector&lt; Type &gt; &amp;</type>
+          <declname>px</declname>
+          <briefdescription><para>vector to store partial derivatives of h(x) = g(y(x)) w.r.t. x </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; Type &gt; &amp;</type>
+          <declname>py</declname>
+          <briefdescription><para>values for partial derivatives of g(x) w.r.t. y </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>reverse sweep of userexpr</para><para>We follow <ulink url="http://www.coin-or.org/CppAD/Doc/atomic_reverse.xml">http://www.coin-or.org/CppAD/Doc/atomic_reverse.xml</ulink> Note, that there q is our p.</para><para>For a scalar variable t, let Y(t) = f(X(t)) X(t) = x^0 + x^1 t^1 + ... + x^p t^p where for x^i the i an index, while for t^i the i is an exponent. Thus, x^k = 1/k! X^(k) (0), where X^(k)(.) denotes the k-th derivative.</para><para>Next, let y^k = 1/k! Y^(k)(0) be the k&apos;th taylor coefficient of Y. Thus, Y(t) = y^0 + y^1 t^1 + y^2 t^2 + ... y^0, y^1, ... are the taylor coefficients of f(x).</para><para>Further, let F(x^0,..,x^p) by given as F^k(x) = y^k. Thus, F^0(x) = y^0 = Y^(0)(0) = f(x^0) F^1(x) = y^1 = Y^(1)(0) = f&apos;(x^0) * x^1 F^2(x) = y^2 = 1/2 Y&apos;&apos;(0) = 1/2 x^1 f&apos;&apos;(x^0) x^1 + f&apos;(x^0) x^2</para><para>Given functions G: R^(p+1) -&gt; R and H: R^(n*(p+1)) -&gt; R, where H(x^0, x^1, .., x^p) = G(F(x^0,..,x^p)), we have to return the value of <formula id="174">$\partial H / \partial x^l, l = 0..p,$</formula> in px. Therefor, <formula id="175">$ px^l = \partial H / \partial x^l = sum(k=0..p, (\partial G / \partial y^k) * (\partial y^k / \partial x^l) = sum(k=0..p, py[k] * (\partial F^k / \partial x^l) $</formula></para><para>For p = 0, this means <formula id="176">$ px^0 = py[0] * \partial F^0 / \partial x^0 = py[0] * \partial f(x^0) / \partial x^0 = py[0] * f&apos;(x^0) $</formula></para><para>For p = 1, this means (for l = 0): <formula id="177">\[ px^0 = py[0] * \partial F^0 / \partial x^0 + py[1] * \partial F^1 / \partial x^0 = py[0] * \partial f(x^0) / \partial x^0 + py[1] * \partial (f&apos;(x^0) * x^1) / \partial x^0 = py[0] * f&apos;(x^0) + py[1] * f&apos;&apos;(x^0) * x^1 \]</formula> and (for l=1): [ px^1 = py[0] *  F^0 /  x^1 + py[1] *  F^1 /  x^1 = py[0] *  f(x^0) /  x^1 + py[1] *  (f&apos;(x^0) * x^1) /  x^0 = py[0] * 0 + py[1] * f&apos;(x^0) ]</para><para>As x^k = (tx[k], tx[(p+1)+k], tx[2*(p+1)+k], ..., tx[n*(p+1)+k] and px^k = (px[k], px[(p+1)+k], px[2*(p+1)+k], ..., px[n*(p+1)+k], we get for p = 0: px[i] = (px^0)_i = py[0] * grad[i] for p = 1: px[i*2+0] = (px^0)_i = py[0] * grad[i] + py[1] * sum(j, hessian[j,i] * tx[j*2+1]) px[i*2+1] = (px^1)_i = py[1] * grad[i] </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" line="1426" column="1" bodyfile="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" bodystart="1426" bodyend="1488"/>
+      </memberdef>
+      <memberdef kind="function" id="classatomic__userexpr_1a45473cdbb3bc1b8ad5fb7f2af2f3e775" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool atomic_userexpr&lt; Type &gt;::for_sparse_jac</definition>
+        <argsstring>(size_t q, const CppAD::vector&lt; bool &gt; &amp;r, CppAD::vector&lt; bool &gt; &amp;s)</argsstring>
+        <name>for_sparse_jac</name>
+        <param>
+          <type>size_t</type>
+          <declname>q</declname>
+          <briefdescription><para>number of columns in R </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>r</declname>
+          <briefdescription><para>sparsity of R, columnwise </para></briefdescription>
+        </param>
+        <param>
+          <type>CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>s</declname>
+          <briefdescription><para>vector to store sparsity of S, columnwise </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>computes sparsity of jacobian during a forward sweep For a 1 x q matrix R, we have to return the sparsity pattern of the 1 x q matrix S(x) = f&apos;(x) * R. Since we assume f&apos;(x) to be dense, the sparsity of S will be the sparsity of R. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" line="1496" column="1" bodyfile="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" bodystart="1496" bodyend="1517"/>
+      </memberdef>
+      <memberdef kind="function" id="classatomic__userexpr_1a5b905dc8692c62ccc40e8ba0fbb4ed26" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool atomic_userexpr&lt; Type &gt;::rev_sparse_jac</definition>
+        <argsstring>(size_t q, const CppAD::vector&lt; bool &gt; &amp;rt, CppAD::vector&lt; bool &gt; &amp;st)</argsstring>
+        <name>rev_sparse_jac</name>
+        <param>
+          <type>size_t</type>
+          <declname>q</declname>
+          <briefdescription><para>number of rows in R </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>rt</declname>
+          <briefdescription><para>sparsity of R, rowwise </para></briefdescription>
+        </param>
+        <param>
+          <type>CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>st</declname>
+          <briefdescription><para>vector to store sparsity of S, rowwise </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>computes sparsity of jacobian during a reverse sweep For a q x 1 matrix S, we have to return the sparsity pattern of the q x 1 matrix R(x) = S * f&apos;(x). Since we assume f&apos;(x) to be dense, the sparsity of R will be the sparsity of S. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" line="1525" column="1" bodyfile="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" bodystart="1525" bodyend="1543"/>
+      </memberdef>
+      <memberdef kind="function" id="classatomic__userexpr_1abafb0d64d0804df7e97e8aa8d99a4cd5" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool atomic_userexpr&lt; Type &gt;::rev_sparse_hes</definition>
+        <argsstring>(const CppAD::vector&lt; bool &gt; &amp;vx, const CppAD::vector&lt; bool &gt; &amp;s, CppAD::vector&lt; bool &gt; &amp;t, size_t q, const CppAD::vector&lt; bool &gt; &amp;r, const CppAD::vector&lt; bool &gt; &amp;u, CppAD::vector&lt; bool &gt; &amp;v)</argsstring>
+        <name>rev_sparse_hes</name>
+        <param>
+          <type>const CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>vx</declname>
+          <briefdescription><para>indicates whether argument is a variable, or empty vector </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>s</declname>
+          <briefdescription><para>sparsity pattern of S = g&apos;(y) </para></briefdescription>
+        </param>
+        <param>
+          <type>CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>t</declname>
+          <briefdescription><para>vector to store sparsity pattern of T(x) = (g(f(x)))&apos; </para></briefdescription>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>q</declname>
+          <briefdescription><para>number of columns in S and R </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>r</declname>
+          <briefdescription><para>sparsity pattern of R </para></briefdescription>
+        </param>
+        <param>
+          <type>const CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>u</declname>
+          <briefdescription><para>sparsity pattern of U(x) = g&apos;&apos;(f(x)) f&apos;(x) R </para></briefdescription>
+        </param>
+        <param>
+          <type>CppAD::vector&lt; bool &gt; &amp;</type>
+          <declname>v</declname>
+          <briefdescription><para>vector to store sparsity pattern of V(x) = (g(f(x)))&apos;&apos; R </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>computes sparsity of hessian during a reverse sweep Assume V(x) = (g(f(x)))&apos;&apos; R for a function g:R-&gt;R and a matrix R. we have to specify the sparsity pattern of V(x) and T(x) = (g(f(x)))&apos;. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" line="1551" column="1" bodyfile="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" bodystart="1551" bodyend="1594"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Automatic differentiation of user expression as CppAD user-atomic function.</para><para>This class implements forward and reverse operations for a function given by a user expression for use within CppAD. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="13">
+        <label>CppAD::atomic_base&lt; Type &gt;</label>
+      </node>
+      <node id="12">
+        <label>atomic_userexpr&lt; Type &gt;</label>
+        <link refid="classatomic__userexpr"/>
+        <childnode refid="13" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="15">
+        <label>CppAD::atomic_base&lt; Type &gt;</label>
+      </node>
+      <node id="14">
+        <label>atomic_userexpr&lt; Type &gt;</label>
+        <link refid="classatomic__userexpr"/>
+        <childnode refid="15" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" line="1240" column="1" bodyfile="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/nlpi/exprinterpret_cppad.cpp" bodystart="1239" bodyend="1596"/>
+    <listofallmembers>
+      <member refid="classatomic__userexpr_1a6d0358688523f4d3a91a42ca29a2d684" prot="public" virt="non-virtual"><scope>atomic_userexpr</scope><name>atomic_userexpr</name></member>
+      <member refid="classatomic__userexpr_1addc7c137ecc9126c78fd788ad2ed4c28" prot="private" virt="non-virtual"><scope>atomic_userexpr</scope><name>expr</name></member>
+      <member refid="classatomic__userexpr_1a45473cdbb3bc1b8ad5fb7f2af2f3e775" prot="private" virt="non-virtual"><scope>atomic_userexpr</scope><name>for_sparse_jac</name></member>
+      <member refid="classatomic__userexpr_1a5d811bbe475585c692524fddd0427a0d" prot="private" virt="non-virtual"><scope>atomic_userexpr</scope><name>forward</name></member>
+      <member refid="classatomic__userexpr_1abafb0d64d0804df7e97e8aa8d99a4cd5" prot="private" virt="non-virtual"><scope>atomic_userexpr</scope><name>rev_sparse_hes</name></member>
+      <member refid="classatomic__userexpr_1a5b905dc8692c62ccc40e8ba0fbb4ed26" prot="private" virt="non-virtual"><scope>atomic_userexpr</scope><name>rev_sparse_jac</name></member>
+      <member refid="classatomic__userexpr_1a036e4ad93de5062d4fddc2d5d930b223" prot="private" virt="non-virtual"><scope>atomic_userexpr</scope><name>reverse</name></member>
+      <member refid="classatomic__userexpr_1a4f29f2d69ae582b579a667953a058431" prot="private" virt="virtual"><scope>atomic_userexpr</scope><name>set_id</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

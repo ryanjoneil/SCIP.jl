@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="group__STATISTICALTESTS" kind="group">
+    <compoundname>STATISTICALTESTS</compoundname>
+    <title>Methods for statistical tests</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__STATISTICALTESTS_1gabbc2aac2e8da59dc39207b52c2cd6f16" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+        <definition>SCIP_Real SCIPstudentTGetCriticalValue</definition>
+        <argsstring>(SCIP_CONFIDENCELEVEL clevel, int df)</argsstring>
+        <name>SCIPstudentTGetCriticalValue</name>
+        <param>
+          <type><ref refid="type__misc_8h_1af10d263fef2549d61e6507ba5beb3ed4" kindref="member">SCIP_CONFIDENCELEVEL</ref></type>
+          <declname>clevel</declname>
+          <briefdescription><para>(one-sided) confidence level </para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>df</declname>
+          <briefdescription><para>degrees of freedom </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get critical value of a Student-T distribution for a given number of degrees of freedom at a confidence level </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_misc.h" line="66" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__STATISTICALTESTS_1ga7064c16870f32a36aa3f0d657b397b06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+        <definition>SCIP_Real SCIPcomputeTwoSampleTTestValue</definition>
+        <argsstring>(SCIP_Real meanx, SCIP_Real meany, SCIP_Real variancex, SCIP_Real variancey, SCIP_Real countx, SCIP_Real county)</argsstring>
+        <name>SCIPcomputeTwoSampleTTestValue</name>
+        <param>
+          <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+          <declname>meanx</declname>
+          <briefdescription><para>the mean of the first distribution </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+          <declname>meany</declname>
+          <briefdescription><para>the mean of the second distribution </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+          <declname>variancex</declname>
+          <briefdescription><para>the variance of the x-distribution </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+          <declname>variancey</declname>
+          <briefdescription><para>the variance of the y-distribution </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+          <declname>countx</declname>
+          <briefdescription><para>number of samples of x </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+          <declname>county</declname>
+          <briefdescription><para>number of samples of y </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>compute a t-value for the hypothesis that x and y are from the same population; Assuming that x and y represent normally distributed random samples with equal variance, the returned value comes from a Student-T distribution with countx + county - 2 degrees of freedom; this value can be compared with a critical value (see also <ref refid="group__STATISTICALTESTS_1gabbc2aac2e8da59dc39207b52c2cd6f16" kindref="member">SCIPstudentTGetCriticalValue()</ref>) at a predefined confidence level for checking if x and y significantly differ in location </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_misc.h" line="78" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__STATISTICALTESTS_1gac23d54a5cc0ea1b0e70c777bf6c831a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+        <definition>SCIP_Real SCIPerf</definition>
+        <argsstring>(SCIP_Real x)</argsstring>
+        <name>SCIPerf</name>
+        <param>
+          <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+          <declname>x</declname>
+          <briefdescription><para>value to evaluate </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns the value of the Gauss error function evaluated at a given point </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_misc.h" line="89" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__STATISTICALTESTS_1ga81724aa0b1eb0f9e7124ec8f9867fa9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+        <definition>SCIP_Real SCIPnormalGetCriticalValue</definition>
+        <argsstring>(SCIP_CONFIDENCELEVEL clevel)</argsstring>
+        <name>SCIPnormalGetCriticalValue</name>
+        <param>
+          <type><ref refid="type__misc_8h_1af10d263fef2549d61e6507ba5beb3ed4" kindref="member">SCIP_CONFIDENCELEVEL</ref></type>
+          <declname>clevel</declname>
+          <briefdescription><para>(one-sided) confidence level </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get critical value of a standard normal distribution at a given confidence level </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_misc.h" line="95" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__STATISTICALTESTS_1ga3b4a01a122602d563e49b58f3e6c6c61" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+        <definition>SCIP_Real SCIPnormalCDF</definition>
+        <argsstring>(SCIP_Real mean, SCIP_Real variance, SCIP_Real value)</argsstring>
+        <name>SCIPnormalCDF</name>
+        <param>
+          <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+          <declname>mean</declname>
+          <briefdescription><para>the mean value of the distribution </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+          <declname>variance</declname>
+          <briefdescription><para>the square of the deviation of the distribution </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="def_8h_1a7f0ca7bf9e709814432691d8173a21fa" kindref="member">SCIP_Real</ref></type>
+          <declname>value</declname>
+          <briefdescription><para>the upper limit of the calculated distribution integral </para></briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>calculates the cumulative distribution P(-infinity &lt;= x &lt;= value) that a normally distributed random variable x takes a value between -infinity and parameter <computeroutput>value</computeroutput>.</para><para>The distribution is given by the respective mean and deviation. This implementation uses the error function erf(). </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/hdd/mlubin/work/scipoptsuite-3.2.0/scip-3.2.0/src/scip/pub_misc.h" line="106" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>
