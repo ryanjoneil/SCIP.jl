@@ -9,8 +9,11 @@ function SCIPcreate()
     return scip
 end
 
-SCIPcreateVarBasic(scip::SPtr{_SCIP},lb,ub,obj,vartype::_SCIP_VARTYPE) = 
-    SCIPcreateVarBasic(scip,"",lb,ub,obj,vartype)
+function SCIPcreateVarBasic(scip::SPtr{_SCIP}, lb, ub, obj, vartype::_SCIP_VARTYPE)
+    var = SPtr(_SCIP_VAR)
+    _SCIPcreateVarBasic(scip, pointer(var), 0, convert(_SCIP_Real,lb), convert(_SCIP_Real,ub), convert(_SCIP_Real,obj), vartype)
+    return var
+end
 
 function SCIPcreateVarBasic(scip::SPtr{_SCIP}, name::String, lb, ub, obj, vartype::_SCIP_VARTYPE)
     var = SPtr(_SCIP_VAR)
