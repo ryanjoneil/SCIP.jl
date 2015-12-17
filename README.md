@@ -3,8 +3,9 @@ SCIP.jl
 
 Julia interface to the SCIP solver
 
-This doesn't do much yet. Check back later. The following test creates a SCIP
-model, along with a few other things.
+This doesn't do much yet. Check back later. If you want to get something done right now, try [AmplNLWriter.jl](https://github.com/JuliaOpt/AmplNLWriter.jl).
+
+The following test creates a SCIP model, along with a few other things.
 
 ```
 julia test/runtests.jl
